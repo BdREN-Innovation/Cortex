@@ -1,0 +1,29 @@
+# Copy to configs/crawl.<site>.yaml and edit. Run:
+#   uv run --python venv engine crawl --config configs/crawl.<site>.yaml
+
+site: example                       # names the folder under data/documents/
+seeds:
+  - https://example.com/docs
+
+# Leave empty to derive from the seeds' hostnames.
+allowed_domains: []
+
+# Regexes matched against the full URL.
+include_patterns:
+  - "/docs/"
+exclude_patterns:
+  - "\\.(pdf|zip|png|jpe?g|gif|svg|mp4)$"
+  - "/(login|signup|cart|search)"
+  - "[?&]page="                     # pagination usually duplicates content
+
+max_depth: 3                        # link hops from a seed
+max_pages: 200                      # hard budget, protects you and the host
+min_text_chars: 200                 # below this a page is navigation, not content
+save_raw_html: true                 # keeps data/raw/ so extraction can be re-run
+
+fetch:
+  user_agent: "CortexEngine/0.1 (+https://github.com/BdREN-Innovation/Cortex)"
+  delay_seconds: 1.0                # per host. Do not lower without permission.
+  timeout_seconds: 20
+  max_retries: 2
+  obey_robots: true                 # only ever false for a site you own

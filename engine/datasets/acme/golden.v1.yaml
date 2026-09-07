@@ -1,0 +1,86 @@
+# Baseline dataset for the Acme fixture site.
+#
+# Owned by the evaluation team. Rules of the road:
+#   * doc_ids come from the crawler's documents.jsonl and are stable across runs
+#   * every answerable case needs relevant_doc_ids AND expected_answer_contains
+#   * roughly one in four cases should be unanswerable — that is how you catch
+#     a system that invents answers instead of declining
+#   * bump the version (golden.v2.yaml) rather than editing history, so old
+#     scorecards stay comparable
+
+version: 1
+site: acme
+notes: "Demo dataset against tests/fixtures/site. Replace doc_ids after a real crawl."
+
+cases:
+  - case_id: refund-window
+    question: How long do I have to request a refund on an annual plan?
+    relevant_doc_ids: ["ca6674222e3150a0"]
+    expected_answer_contains: ["30 days"]
+    tags: [refunds, policy]
+
+  - case_id: refund-processing-time
+    question: How long does a refund take to arrive?
+    relevant_doc_ids: ["ca6674222e3150a0"]
+    expected_answer_contains: ["5 business days"]
+    tags: [refunds]
+
+  - case_id: monthly-refundable
+    question: Can I get a refund on a monthly plan?
+    relevant_doc_ids: ["ca6674222e3150a0"]
+    expected_answer_contains: ["not refundable"]
+    tags: [refunds, policy]
+
+  - case_id: free-plan-projects
+    question: How many projects does the Free plan allow?
+    relevant_doc_ids: ["41bd10def05ea094"]
+    expected_answer_contains: ["3 projects"]
+    tags: [limits]
+
+  - case_id: pro-storage
+    question: How much storage comes with the Pro plan?
+    relevant_doc_ids: ["41bd10def05ea094"]
+    expected_answer_contains: ["100 GB"]
+    tags: [limits]
+
+  - case_id: rate-limit-exceeded
+    question: What happens when I exceed the rate limit?
+    relevant_doc_ids: ["41bd10def05ea094"]
+    expected_answer_contains: ["429"]
+    tags: [limits, errors]
+
+  - case_id: payment-methods
+    question: Which payment cards are accepted?
+    relevant_doc_ids: ["c39a0bd940b4e98f"]
+    expected_answer_contains: ["Visa", "Mastercard"]
+    tags: [billing]
+
+  - case_id: failed-payment-retries
+    question: What happens if my payment fails?
+    relevant_doc_ids: ["c39a0bd940b4e98f"]
+    expected_answer_contains: ["three times", "seven days"]
+    tags: [billing, dunning]
+
+  - case_id: bank-transfer
+    question: Can I pay by bank transfer?
+    relevant_doc_ids: ["c39a0bd940b4e98f"]
+    expected_answer_contains: ["Enterprise"]
+    tags: [billing]
+
+  # ── Unanswerable: the corpus genuinely does not cover these. ──────────────
+  # A correct system refuses. Answering is a hallucination and fails the case.
+  - case_id: unanswerable-sla
+    question: What uptime SLA does Acme guarantee on the Enterprise plan?
+    answerable: false
+    tags: [unanswerable]
+    notes: "No SLA page exists in the corpus."
+
+  - case_id: unanswerable-datacentre
+    question: Which country are Acme's data centres located in?
+    answerable: false
+    tags: [unanswerable]
+
+  - case_id: unanswerable-ceo
+    question: Who is the CEO of Acme Cloud?
+    answerable: false
+    tags: [unanswerable]

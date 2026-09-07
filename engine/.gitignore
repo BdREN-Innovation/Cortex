@@ -1,0 +1,16 @@
+# Runtime artifacts — the handoff surface between teams. Never committed.
+data/
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+
+# Secrets
+.env
+.env.*
+!.env.example

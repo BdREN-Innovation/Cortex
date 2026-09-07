@@ -1,0 +1,16 @@
+# uv run --python venv engine index --documents data/documents/<site>/<run>/documents.jsonl \
+#   --config configs/index.example.yaml
+
+site: example
+
+# hash   = offline, deterministic, no API key. Good for plumbing and CI.
+# openai = real semantic embeddings. Needs OPENAI_API_KEY.
+# (Anthropic has no embeddings endpoint — it is a generation provider only.)
+embedding_provider: hash
+embedding_model: ""
+dimensions: 512
+
+chunk:
+  target_tokens: 350                # the highest-leverage knob in the system
+  overlap_tokens: 60                # keeps answers that straddle a boundary
+  min_tokens: 40

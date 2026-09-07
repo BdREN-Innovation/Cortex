@@ -1,0 +1,14 @@
+# uv run --python venv engine eval --dataset datasets/example/golden.v1.yaml \
+#   --index data/index/<site>/<id> --config configs/eval.example.yaml
+
+top_k: 5
+min_answer_score: 0.5               # share of expected_answer_contains that must appear
+require_citation: true              # an uncited answer fails, however correct it reads
+
+rag:
+  provider: extractive              # extractive | openai | anthropic
+  model: ""
+  top_k: 5
+  min_score: 0.05                   # below this, the system refuses instead of guessing
+  max_context_chars: 8000
+  temperature: 0.0

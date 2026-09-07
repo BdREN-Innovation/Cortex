@@ -1,0 +1,12 @@
+# Demo config: crawls the bundled fixture site served on :8765.
+site: acme
+seeds:
+  - http://127.0.0.1:8765/index.html
+exclude_patterns:
+  - "/docs$"
+max_depth: 2
+max_pages: 20
+min_text_chars: 50
+fetch:
+  delay_seconds: 0.2
+  obey_robots: true

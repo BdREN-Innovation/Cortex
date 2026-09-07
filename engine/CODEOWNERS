@@ -1,0 +1,9 @@
+# Directory ownership maps 1:1 to teams. The only shared surface is contracts/,
+# where a review from all three teams is required by design.
+
+/src/engine/contracts/    @crawler-team @knowledge-team @eval-team
+/src/engine/crawler/      @crawler-team
+/src/engine/knowledge/    @knowledge-team
+/src/engine/evaluation/   @eval-team
+/datasets/                @eval-team
+/src/engine/cli/          @crawler-team @knowledge-team @eval-team
