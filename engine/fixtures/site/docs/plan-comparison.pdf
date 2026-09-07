@@ -1,0 +1,63 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 900 >>
+stream
+BT /F1 13 Tf 72 740 Td (Acme Cloud plan comparison) Tj ET
+BT /F1 11 Tf 72 718 Td (The table below lists every tier.) Tj ET
+BT /F1 11 Tf
+1 0 0 1 76 684 Tm (Plan) Tj
+1 0 0 1 204 684 Tm (Seats) Tj
+1 0 0 1 304 684 Tm (Storage) Tj
+1 0 0 1 404 684 Tm (Price) Tj
+1 0 0 1 76 660 Tm (Free) Tj
+1 0 0 1 204 660 Tm (3) Tj
+1 0 0 1 304 660 Tm (5 GB) Tj
+1 0 0 1 404 660 Tm ($0) Tj
+1 0 0 1 76 636 Tm (Pro) Tj
+1 0 0 1 204 636 Tm (25) Tj
+1 0 0 1 304 636 Tm (500 GB) Tj
+1 0 0 1 404 636 Tm ($29) Tj
+1 0 0 1 76 612 Tm (Enterprise) Tj
+1 0 0 1 204 612 Tm (Unlimited) Tj
+1 0 0 1 304 612 Tm (10 TB) Tj
+1 0 0 1 404 612 Tm ($99) Tj
+ET
+0.6 w
+72 700 m 500 700 l S
+72 676 m 500 676 l S
+72 652 m 500 652 l S
+72 628 m 500 628 l S
+72 604 m 500 604 l S
+72 700 m 72 604 l S
+200 700 m 200 604 l S
+300 700 m 300 604 l S
+400 700 m 400 604 l S
+500 700 m 500 604 l S
+BT /F1 11 Tf 72 560 Td (Prices are billed monthly and exclude tax.) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000001192 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1262
+%%EOF

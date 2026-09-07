@@ -1,12 +1,41 @@
-# Demo config: crawls the bundled fixture site served on :8765.
+# Demo config for the bundled fixture site. Serve it first:
+#
+#   python3 -m http.server 8765 --directory fixtures/site &
+#   uv run engine crawl --config configs/crawl.acme.yaml
+#
+# Use this to check your crawler works before pointing it at a real site.
+# It is NOT a template — copy configs/crawl.example.yaml for that, which
+# documents every knob.
+#
+# This stage fetches and saves bytes. It does not read them; that is
+# `engine extract`.
+
 site: acme
 seeds:
   - http://127.0.0.1:8765/index.html
+
+# Python's http.server renders /docs/ as an auto-generated file listing. It is
+# navigation, not content, so exclude it. Real sites have equivalents:
+# category pages, tag indexes, search results.
 exclude_patterns:
   - "/docs$"
-max_depth: 2
-max_pages: 20
-min_text_chars: 50
+
+max_depth: 2                        # the fixture site is only two levels deep
+max_pages: 20                       # it only has 6 URLs; 20 is generous
+
+assets:
+  download_images: true             # the fixture has one PNG
+  download_documents: true          # ...and two PDFs
+  max_documents: 5
+
 fetch:
+  # 0.2s is safe ONLY because this is a local server you are running yourself.
+  # Never use a delay below 1.0 against a site you do not own.
   delay_seconds: 0.2
-  obey_robots: true
+  obey_robots: true                 # the fixture ships a robots.txt that
+                                    # disallows /private/, so this is testable
+
+# Expect: 7 records captured (6 HTML URLs + 1 PDF).
+# "/" and "/index.html" are both captured — they serve identical prose, but
+# this stage has no text and cannot know that. `engine extract` collapses them
+# to 6 documents. That is by design; see the crawler README §5.

@@ -1,38 +1,44 @@
-"""Retrieval quality. These are the numbers to fix first: an answer can never be
-better than the passages it was given."""
+"""Did we find the right documents?
+
+Retrieval metrics answer a different question from answer metrics: not "was the
+reply good" but "were the right documents in front of the model at all". When a
+system answers badly, these tell you whether to blame retrieval or generation —
+which is the single most useful diagnostic Team C provides.
+
+TEAM C OWNS THIS FILE. Pure functions, no dependencies, easy to test — a good
+place to start on day one.
+
+"""
 
 from __future__ import annotations
 
-import math
-
 
 def recall_at_k(retrieved_doc_ids: list[str], relevant_doc_ids: list[str], k: int) -> float:
-    """Share of the relevant documents that appear in the top k."""
-    if not relevant_doc_ids:
-        return 0.0
-    top = set(retrieved_doc_ids[:k])
-    hits = sum(1 for doc_id in set(relevant_doc_ids) if doc_id in top)
-    return hits / len(set(relevant_doc_ids))
+    """What fraction of the relevant documents appear in the top k?
+
+    Return 1.0 when there are no relevant documents to find — an unanswerable
+    case has not failed retrieval. Deciding this deliberately matters: the
+    alternative (0.0) drags the average down for cases that were never
+    supposed to retrieve anything.
+    """
+    raise NotImplementedError
 
 
 def mrr(retrieved_doc_ids: list[str], relevant_doc_ids: list[str]) -> float:
-    """Reciprocal rank of the first relevant document. Rewards ranking it first."""
-    relevant = set(relevant_doc_ids)
-    for position, doc_id in enumerate(retrieved_doc_ids, start=1):
-        if doc_id in relevant:
-            return 1.0 / position
-    return 0.0
+    """Mean reciprocal rank: 1/rank of the FIRST relevant document.
+
+    Rank 1 -> 1.0, rank 2 -> 0.5, rank 5 -> 0.2, nothing relevant -> 0.0.
+    Ranks are 1-based. This is the metric that notices "the right answer was
+    there, but at position 9" — which recall@5 reports as a flat failure.
+    """
+    raise NotImplementedError
 
 
 def ndcg_at_k(retrieved_doc_ids: list[str], relevant_doc_ids: list[str], k: int) -> float:
-    """Rank-weighted gain, normalised against a perfect ordering."""
-    relevant = set(relevant_doc_ids)
-    if not relevant:
-        return 0.0
-    gain = sum(
-        1.0 / math.log2(position + 1)
-        for position, doc_id in enumerate(retrieved_doc_ids[:k], start=1)
-        if doc_id in relevant
-    )
-    ideal = sum(1.0 / math.log2(i + 1) for i in range(1, min(len(relevant), k) + 1))
-    return gain / ideal if ideal else 0.0
+    """Normalised discounted cumulative gain: rank-aware, normalised to [0, 1].
+
+    Binary relevance is fine here. DCG sums 1/log2(rank+1) over the relevant
+    hits; divide by the ideal DCG (the same sum if every relevant document sat
+    at the top). Return 0.0, not NaN, when the ideal is zero.
+    """
+    raise NotImplementedError

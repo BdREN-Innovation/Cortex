@@ -1,0 +1,22 @@
+# Parser comparison B of B — the recommended default.
+#
+#   uv run engine extract --run data/sites/<site>/<run> \
+#     --config configs/extract.pdfplumber.yaml --out pdfplumber.jsonl
+#
+# Needs: uv add pdfplumber
+#
+# pdfminer.six under the hood: ~100 ms/page, ~60 MB resident, pure Python —
+# no models, no GPU, no CUDA. It recovers ruled tables as real grids and keeps
+# reading order, which is what matters here because tables are inlined into the
+# document text and embedded with the paragraph that introduces them.
+#
+# The difference this buys you, on a real ruled table:
+#   builtin      Enterprise Unlimited 10 TB $99            <- spacing only
+#   pdfplumber   | Enterprise | Unlimited | 10 TB | $99 |  <- columns survive
+#
+# That matters because whitespace collapses during embedding: "Pro" stays
+# attached to "$29" in the second form and does not in the first.
+
+parser: pdfplumber
+min_text_chars: 200
+save_tables: true

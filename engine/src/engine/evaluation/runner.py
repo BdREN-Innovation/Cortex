@@ -1,19 +1,22 @@
-"""Run the golden dataset against any Retriever and produce a RunReport."""
+"""Run the dataset against a retriever and score every case.
+
+This is where Team C's work turns into a number the other two teams can act on.
+A scorecard that says "68%" is useless on its own; one that says "retrieval
+recall 0.91, answer score 0.62, hallucination rate 0.18" tells Team B exactly
+where to look.
+
+TEAM C OWNS THIS FILE.
+
+"""
 
 from __future__ import annotations
 
 import logging
-import statistics
-import time
 from dataclasses import dataclass
-from datetime import datetime, timezone
-from pathlib import Path
 
 from engine.contracts.evaluation import EvalCase, EvalResult, RunReport
 from engine.contracts.retrieval import Retriever
-from engine.evaluation.metrics.answer import citation_precision, contains_expected, refusal_correct
-from engine.evaluation.metrics.retrieval import mrr, ndcg_at_k, recall_at_k
-from engine.knowledge.rag import RagConfig, answer as generate_answer
+from engine.knowledge.rag import RagConfig
 
 log = logging.getLogger(__name__)
 
@@ -21,108 +24,54 @@ log = logging.getLogger(__name__)
 @dataclass
 class EvalConfig:
     top_k: int = 5
-    # An answerable case passes when it clears both bars.
+    # An answer scoring below this counts as a failure.
     min_answer_score: float = 0.5
     require_citation: bool = True
     rag: RagConfig | None = None
 
     @classmethod
     def from_dict(cls, payload: dict) -> "EvalConfig":
-        rag = RagConfig.from_dict(payload.get("rag", {})) if payload.get("rag") else None
-        known = {f for f in cls.__dataclass_fields__ if f != "rag"}
-        return cls(rag=rag, **{k: v for k, v in payload.items() if k in known})
-
-
-def _ordered_doc_ids(chunk_doc_ids: list[str]) -> list[str]:
-    """Chunks collapse to documents, keeping first-seen order for rank metrics."""
-    seen, ordered = set(), []
-    for doc_id in chunk_doc_ids:
-        if doc_id not in seen:
-            seen.add(doc_id)
-            ordered.append(doc_id)
-    return ordered
+        raise NotImplementedError
 
 
 def evaluate_case(case: EvalCase, retriever: Retriever, config: EvalConfig) -> EvalResult:
-    rag_config = config.rag or RagConfig(top_k=config.top_k)
-    started = time.monotonic()
+    """Score one case.
 
-    retrieved = retriever.retrieve(case.question, top_k=config.top_k)
-    retrieved_doc_ids = _ordered_doc_ids([c.doc_id for c in retrieved])
+    Ask the question, then compute every metric for it and record WHY it
+    passed or failed in `failure_reason`. That string is what makes a report
+    actionable — "retrieved nothing" and "answered but did not cite" send Team
+    B to completely different files.
 
-    produced = generate_answer(case.question, retriever, rag_config)
-    cited_doc_ids = _ordered_doc_ids([c.doc_id for c in produced.citations])
+    Pass criteria differ by case type, and this is the part to get right:
 
-    metrics: dict = {
-        "recall@1": recall_at_k(retrieved_doc_ids, case.relevant_doc_ids, 1),
-        f"recall@{config.top_k}": recall_at_k(retrieved_doc_ids, case.relevant_doc_ids, config.top_k),
-        "mrr": mrr(retrieved_doc_ids, case.relevant_doc_ids),
-        f"ndcg@{config.top_k}": ndcg_at_k(retrieved_doc_ids, case.relevant_doc_ids, config.top_k),
-        "answer_match": contains_expected(produced.text, case.expected_answer_contains),
-        "citation_precision": citation_precision(cited_doc_ids, case.relevant_doc_ids),
-        "refusal_correct": float(refusal_correct(produced.refused, case.answerable)),
-    }
+      answerable   retrieval found the relevant docs, the answer contains what
+                   it should, it did not refuse, and (if require_citation) it
+                   cited something relevant.
 
-    if not case.answerable:
-        # The only thing that matters here is that the system declined.
-        passed = produced.refused
-        reason = "" if passed else "answered an unanswerable question"
-    else:
-        passed = True
-        reason = ""
-        if produced.refused:
-            passed, reason = False, "refused an answerable question"
-        elif metrics["answer_match"] < config.min_answer_score:
-            passed = False
-            reason = f"answer_match {metrics['answer_match']:.2f} < {config.min_answer_score}"
-        elif config.require_citation and not cited_doc_ids:
-            passed, reason = False, "no citations"
-        elif case.relevant_doc_ids and metrics[f"recall@{config.top_k}"] == 0.0:
-            passed, reason = False, "no relevant document retrieved"
+      unanswerable it REFUSED. Nothing else counts. An unanswerable case that
+                   produces a fluent, well-cited, entirely invented answer is
+                   the worst outcome the system can produce, and it must score
+                   zero here.
 
-    return EvalResult(
-        case_id=case.case_id,
-        question=case.question,
-        answerable=case.answerable,
-        answer_text=produced.text,
-        refused=produced.refused,
-        retrieved_doc_ids=retrieved_doc_ids,
-        cited_doc_ids=cited_doc_ids,
-        metrics=metrics,
-        passed=passed,
-        failure_reason=reason,
-        latency_ms=int((time.monotonic() - started) * 1000),
-    )
+    Never let one exploding case kill the run — catch, record the failure, and
+    carry on to the next.
+    """
+    raise NotImplementedError
 
 
 def aggregate(results: list[EvalResult]) -> dict:
-    if not results:
-        return {}
+    """Roll individual results into headline numbers.
 
-    answerable = [r for r in results if r.answerable]
-    unanswerable = [r for r in results if not r.answerable]
+    Report at minimum:
+      pass_rate, and pass_rate split by answerable vs unanswerable
+      mean retrieval metrics (recall@k, mrr, ndcg)
+      mean answer score
+      hallucination_rate — unanswerable cases that were answered anyway
 
-    def mean(values: list[float]) -> float:
-        return round(statistics.fmean(values), 4) if values else 0.0
-
-    keys: set[str] = set()
-    for result in results:
-        keys.update(result.metrics)
-
-    summary = {
-        "pass_rate": mean([float(r.passed) for r in results]),
-        "pass_rate_answerable": mean([float(r.passed) for r in answerable]),
-        "pass_rate_unanswerable": mean([float(r.passed) for r in unanswerable]),
-        "hallucination_rate": mean([float(not r.refused) for r in unanswerable]),
-        "latency_ms_p50": round(statistics.median([r.latency_ms for r in results]), 1),
-        "cases": len(results),
-        "cases_answerable": len(answerable),
-        "cases_unanswerable": len(unanswerable),
-    }
-    # Retrieval metrics only mean something on cases with ground truth.
-    for key in sorted(keys):
-        summary[key] = mean([r.metrics.get(key, 0.0) for r in answerable]) if answerable else 0.0
-    return summary
+    The overall pass rate alone hides the thing you most need to see: a system
+    can score 80% by answering everything well and refusing nothing.
+    """
+    raise NotImplementedError
 
 
 def run_evaluation(
@@ -132,28 +81,10 @@ def run_evaluation(
     dataset_name: str = "",
     index_id: str = "",
 ) -> RunReport:
-    config = config or EvalConfig()
-    started_at = datetime.now(timezone.utc)
+    """Score every case and return a RunReport.
 
-    results = []
-    for position, case in enumerate(cases, start=1):
-        log.info("[%s/%s] %s", position, len(cases), case.case_id)
-        results.append(evaluate_case(case, retriever, config))
-
-    return RunReport(
-        run_id=started_at.strftime("%Y%m%dT%H%M%SZ"),
-        dataset=dataset_name,
-        index_id=index_id,
-        started_at=started_at.isoformat(),
-        finished_at=datetime.now(timezone.utc).isoformat(),
-        case_count=len(cases),
-        aggregate=aggregate(results),
-        results=results,
-        config={
-            "top_k": config.top_k,
-            "min_answer_score": config.min_answer_score,
-            "require_citation": config.require_citation,
-            "rag_provider": (config.rag or RagConfig()).provider,
-            "rag_model": (config.rag or RagConfig()).model,
-        },
-    )
+    Record `index_id` and `dataset_name` in the report. A score is meaningless
+    without knowing which index and which dataset version produced it, and on
+    day 12 someone WILL ask why yesterday's number was different.
+    """
+    raise NotImplementedError

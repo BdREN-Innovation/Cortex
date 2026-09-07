@@ -1,79 +1,138 @@
-# Baseline dataset for the Acme fixture site.
+# Worked example dataset — Acme fixture site.
 #
-# Owned by the evaluation team. Rules of the road:
-#   * doc_ids come from the crawler's documents.jsonl and are stable across runs
+# TEAM C: this is a demonstration, not a template to fill in. It shows every
+# case SHAPE you need to cover and the reasoning behind each one. Your real
+# datasets go in datasets/<yoursite>/golden.v1.yaml and should be ~60 cases.
+#
+# It is written against datasets/acme/documents.sample.jsonl, which ships with
+# the repo, so you can run and score it on day one — before Teams A and B have
+# finished the pipeline.
+#
+#   uv run python scripts/browse_documents.py datasets/acme/documents.sample.jsonl
+#   uv run python scripts/browse_documents.py datasets/acme/documents.sample.jsonl \
+#       --coverage datasets/acme/golden.v1.yaml
+#
+# Rules of the road:
+#   * doc_ids come from documents.jsonl and are stable as long as the URL is
 #   * every answerable case needs relevant_doc_ids AND expected_answer_contains
-#   * roughly one in four cases should be unanswerable — that is how you catch
-#     a system that invents answers instead of declining
+#   * expected_answer_contains holds SHORT, FACTUAL strings — the matcher is
+#     substring-based, so a whole sentence will fail a correct paraphrase
+#   * roughly one in four cases must be unanswerable — that is how you catch a
+#     system that invents answers instead of declining
 #   * bump the version (golden.v2.yaml) rather than editing history, so old
 #     scorecards stay comparable
 
 version: 1
 site: acme
-notes: "Demo dataset against tests/fixtures/site. Replace doc_ids after a real crawl."
+corpus: datasets/acme/documents.sample.jsonl
+notes: >
+  Worked example over the 6-document fixture corpus. Replace with real
+  doc_ids once Team A has crawled a real site.
 
 cases:
+  # ── SHAPE 1: single fact from one page ───────────────────────────────────
+  # The baseline. If these fail, retrieval is broken and nothing else matters.
   - case_id: refund-window
     question: How long do I have to request a refund on an annual plan?
-    relevant_doc_ids: ["ca6674222e3150a0"]
+    relevant_doc_ids: ["7c9449099579549c"]
     expected_answer_contains: ["30 days"]
-    tags: [refunds, policy]
-
-  - case_id: refund-processing-time
-    question: How long does a refund take to arrive?
-    relevant_doc_ids: ["ca6674222e3150a0"]
-    expected_answer_contains: ["5 business days"]
-    tags: [refunds]
-
-  - case_id: monthly-refundable
-    question: Can I get a refund on a monthly plan?
-    relevant_doc_ids: ["ca6674222e3150a0"]
-    expected_answer_contains: ["not refundable"]
-    tags: [refunds, policy]
-
-  - case_id: free-plan-projects
-    question: How many projects does the Free plan allow?
-    relevant_doc_ids: ["41bd10def05ea094"]
-    expected_answer_contains: ["3 projects"]
-    tags: [limits]
-
-  - case_id: pro-storage
-    question: How much storage comes with the Pro plan?
-    relevant_doc_ids: ["41bd10def05ea094"]
-    expected_answer_contains: ["100 GB"]
-    tags: [limits]
-
-  - case_id: rate-limit-exceeded
-    question: What happens when I exceed the rate limit?
-    relevant_doc_ids: ["41bd10def05ea094"]
-    expected_answer_contains: ["429"]
-    tags: [limits, errors]
+    tags: [refunds, policy, single-fact]
 
   - case_id: payment-methods
     question: Which payment cards are accepted?
-    relevant_doc_ids: ["c39a0bd940b4e98f"]
+    relevant_doc_ids: ["8c20505cbc149242"]
     expected_answer_contains: ["Visa", "Mastercard"]
-    tags: [billing]
+    tags: [billing, single-fact]
 
-  - case_id: failed-payment-retries
-    question: What happens if my payment fails?
-    relevant_doc_ids: ["c39a0bd940b4e98f"]
-    expected_answer_contains: ["three times", "seven days"]
-    tags: [billing, dunning]
+  - case_id: rate-limit-exceeded
+    question: What happens when I exceed the rate limit?
+    relevant_doc_ids: ["bc89702913b72ba7"]
+    expected_answer_contains: ["429"]
+    tags: [limits, errors, single-fact]
 
-  - case_id: bank-transfer
-    question: Can I pay by bank transfer?
-    relevant_doc_ids: ["c39a0bd940b4e98f"]
-    expected_answer_contains: ["Enterprise"]
-    tags: [billing]
+  # ── SHAPE 2: negative fact ───────────────────────────────────────────────
+  # The corpus DOES answer this, and the answer is "no". Different from
+  # unanswerable, and systems routinely get it backwards.
+  - case_id: monthly-refundable
+    question: Can I get a refund on a monthly plan?
+    relevant_doc_ids: ["7c9449099579549c"]
+    expected_answer_contains: ["not refundable"]
+    tags: [refunds, policy, negative]
 
-  # ── Unanswerable: the corpus genuinely does not cover these. ──────────────
-  # A correct system refuses. Answering is a hallucination and fails the case.
+  # ── SHAPE 3: from a TABLE ────────────────────────────────────────────────
+  # These fail loudly when the extractor flattened tables into loose text.
+  # Ask at least one per table in the corpus.
+  - case_id: pro-seats-table
+    question: How many seats does the Pro plan include?
+    relevant_doc_ids: ["ec1b44c0c4ca8397"]
+    expected_answer_contains: ["25"]
+    tags: [plans, table]
+    notes: Only answerable if the plans table survived extraction as a grid.
+
+  - case_id: enterprise-storage-table
+    question: How much storage does the Enterprise plan get?
+    relevant_doc_ids: ["ec1b44c0c4ca8397"]
+    expected_answer_contains: ["10 TB"]
+    tags: [plans, table]
+
+  # ── SHAPE 4: from a PDF ──────────────────────────────────────────────────
+  # Fails when PDFs were downloaded but never parsed, which is a silent
+  # failure — the crawl looks fine and the answer just is not there.
+  - case_id: refund-processing-pdf
+    question: How long does refund processing take after approval?
+    relevant_doc_ids: ["75f8203414c038e9"]
+    expected_answer_contains: ["5 to 7 business days"]
+    tags: [refunds, pdf]
+
+  - case_id: expedited-refund-pdf
+    question: Can Enterprise customers get a refund faster?
+    relevant_doc_ids: ["75f8203414c038e9"]
+    expected_answer_contains: ["expedited"]
+    tags: [refunds, pdf]
+
+  # ── SHAPE 5: multi-hop — needs two documents ─────────────────────────────
+  # Tests whether chunks from different pages can be combined. Systems that
+  # retrieve well but answer from only the top chunk fail these.
+  - case_id: free-plan-refund-multihop
+    question: If I am on the Free plan, is there anything to refund?
+    relevant_doc_ids: ["ec1b44c0c4ca8397", "7c9449099579549c"]
+    expected_answer_contains: ["Free"]
+    tags: [multi-hop]
+    notes: Needs the plans page (Free exists, costs nothing) and the refund page.
+
+  # ── SHAPE 6: conflicting sources ─────────────────────────────────────────
+  # The corpus contradicts itself: limits.html says the Free plan has 1 GB,
+  # the plans.html table says 5 GB. Real sites do this constantly. There is no
+  # single right answer — what you are testing is that the system CITES what it
+  # used, so a human can see which source it trusted.
+  - case_id: free-storage-conflict
+    question: How much storage does the Free plan include?
+    relevant_doc_ids: ["bc89702913b72ba7", "ec1b44c0c4ca8397"]
+    expected_answer_contains: ["GB"]
+    tags: [conflict, citations]
+    notes: >
+      Deliberate contradiction in the corpus. Score this on whether a citation
+      was produced at all, not on which number came back.
+
+  # ── SHAPE 7: vague wording ───────────────────────────────────────────────
+  # Users do not write well-formed queries. Tests robustness, not knowledge.
+  - case_id: vague-how-much
+    question: how much for the pro one
+    relevant_doc_ids: ["ec1b44c0c4ca8397"]
+    expected_answer_contains: ["25"]
+    tags: [robustness, vague]
+
+  # ── SHAPE 8: UNANSWERABLE — the most important shape ─────────────────────
+  # The corpus genuinely does not cover these. A correct system REFUSES.
+  # Answering is a hallucination and fails the case, however fluent it sounds.
+  #
+  # Good unanswerable questions are PLAUSIBLE: right topic, site's vocabulary,
+  # no answer present. "What is the capital of France" tests nothing.
   - case_id: unanswerable-sla
     question: What uptime SLA does Acme guarantee on the Enterprise plan?
     answerable: false
     tags: [unanswerable]
-    notes: "No SLA page exists in the corpus."
+    notes: No SLA page exists. Plausible because Enterprise plans usually have one.
 
   - case_id: unanswerable-datacentre
     question: Which country are Acme's data centres located in?
@@ -84,3 +143,19 @@ cases:
     question: Who is the CEO of Acme Cloud?
     answerable: false
     tags: [unanswerable]
+    notes: Classic hallucination probe — LLMs love to invent a plausible name.
+
+  - case_id: unanswerable-annual-discount
+    question: What discount do I get for paying annually instead of monthly?
+    answerable: false
+    tags: [unanswerable, near-miss]
+    notes: >
+      The nastiest kind. Billing and annual plans are both discussed, so
+      retrieval WILL return confident-looking chunks. The system must still
+      refuse, because no discount is ever stated.
+
+  # ── SHAPE 9: near-miss — adjacent but wrong ──────────────────────────────
+  - case_id: unanswerable-competitor
+    question: How does Acme Cloud pricing compare to AWS?
+    answerable: false
+    tags: [unanswerable, near-miss]

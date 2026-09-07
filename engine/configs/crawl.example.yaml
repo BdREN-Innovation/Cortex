@@ -1,7 +1,10 @@
 # Copy to configs/crawl.<site>.yaml and edit. Run:
-#   uv run --python venv engine crawl --config configs/crawl.<site>.yaml
+#   uv run engine crawl --config configs/crawl.<site>.yaml
+#
+# One config per site. Four of these is a four-site crawler; four *scripts*
+# would be four things to debug, so keep the differences in here.
 
-site: example                       # names the folder under data/documents/
+site: example                       # names the folder under data/sites/
 seeds:
   - https://example.com/docs
 
@@ -12,18 +15,29 @@ allowed_domains: []
 include_patterns:
   - "/docs/"
 exclude_patterns:
-  - "\\.(pdf|zip|png|jpe?g|gif|svg|mp4)$"
   - "/(login|signup|cart|search)"
   - "[?&]page="                     # pagination usually duplicates content
+  # Do NOT exclude \.pdf here. Linked PDFs are no longer crawled as pages —
+  # they are fetched as documents and parsed into their own rows — but
+  # exclude_patterns still applies to them, so a "\\.pdf$" rule silently
+  # switches the whole document pipeline off.
 
 max_depth: 3                        # link hops from a seed
 max_pages: 200                      # hard budget, protects you and the host
-min_text_chars: 200                 # below this a page is navigation, not content
-save_raw_html: true                 # keeps data/raw/ so extraction can be re-run
+
+# What to capture besides prose.
+assets:
+  download_images: true             # stored for later — the embedders are text-only,
+                                    # so images never reach retrieval. Alt text does.
+  download_documents: true          # PDFs are parsed into their own documents
+  max_documents: 25                 # separate budget: one 300-page manual must not
+                                    # eat the page budget
 
 fetch:
   user_agent: "CortexEngine/0.1 (+https://github.com/BdREN-Innovation/Cortex)"
   delay_seconds: 1.0                # per host. Do not lower without permission.
   timeout_seconds: 20
   max_retries: 2
+  max_bytes: 5000000                # HTML cap
+  max_asset_bytes: 20000000         # binaries need more headroom than a page
   obey_robots: true                 # only ever false for a site you own

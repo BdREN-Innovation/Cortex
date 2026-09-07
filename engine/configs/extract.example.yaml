@@ -1,0 +1,29 @@
+# Copy to configs/extract.<site>.yaml. Run:
+#   uv run engine extract --run data/sites/<site>/<run> --config configs/extract.<site>.yaml
+#
+# This stage reads bytes team A already captured. It never touches the network,
+# so re-running it is free — tune, re-run, read the output, tune again.
+
+# Picks the PDF engine. HTML always goes through BeautifulSoup.
+#
+# builtin    = pypdf. ~10 ms/page, ~15 MB. Zero extra dependencies, what CI runs.
+#              Flattens tables into whitespace.
+# pdfplumber = RECOMMENDED. ~100 ms/page, ~60 MB. Pure Python — no models, no
+#              GPU. Recovers ruled tables as real grids, in reading order.
+#              Needs: uv add pdfplumber
+# docling    = best output, but ~106 packages (torch + CUDA), several GB on
+#              disk, 2-4 GB RAM, seconds/page on CPU. Only worth it for scanned
+#              PDFs or genuinely complex layout, and only on a real machine.
+parser: pdfplumber
+
+min_text_chars: 200                 # below this a page is navigation, not content
+save_tables: true                   # tables are ALWAYS inlined into the document
+                                    # text; this only mirrors a markdown copy to
+                                    # tables/ so you can eyeball them
+
+# Per-site extraction overrides. Use these when the generic extractor gets a
+# page wrong — config, not code, so nobody edits a shared module.
+selectors:
+  main: ""                          # e.g. "#article-body" — where content lives
+  drop: []                          # e.g. [".cookie-banner", ".related"]
+  breadcrumb: ""                    # e.g. ".crumbs"

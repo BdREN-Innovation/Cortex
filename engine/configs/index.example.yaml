@@ -1,16 +1,44 @@
-# uv run --python venv engine index --documents data/documents/<site>/<run>/documents.jsonl \
-#   --config configs/index.example.yaml
+# uv run engine index --documents data/sites/<site>/<run>/documents.jsonl \
+#   --config configs/index.<site>.yaml
+#
+# OWNED BY: Team B.
+# READS:    documents.jsonl (Team B's own extract output)
+# WRITES:   data/index/<site>/<index_id>/  + a Qdrant collection
 
 site: example
 
-# hash   = offline, deterministic, no API key. Good for plumbing and CI.
-# openai = real semantic embeddings. Needs OPENAI_API_KEY.
-# (Anthropic has no embeddings endpoint — it is a generation provider only.)
-embedding_provider: hash
-embedding_model: ""
-dimensions: 512
+# ── Where the vectors live ───────────────────────────────────────────────
+# numpy  = a local matrix on disk. Exact, no service, nothing to configure.
+#          Develop against this while you are tuning chunk size — a network
+#          round trip per experiment slows you down for no benefit at this
+#          corpus size.
+# qdrant = Qdrant Cloud. Set QDRANT_URL and QDRANT_API_KEY in engine/.env.
+#          Switch to this when you are integrating, not before.
+backend: numpy
+collection: ""                      # qdrant only; defaults to cortex_<site>
+recreate_collection: false          # true WIPES the collection before indexing
 
+# ── Embeddings ───────────────────────────────────────────────────────────
+# Embeddings come from a hosted API — nothing runs a model on your machine.
+# Needs OPENAI_API_KEY in engine/.env and: uv add openai
+#
+# text-embedding-3-small  1536 dims, cheap, good enough. Start here.
+# text-embedding-3-large  3072 dims, better, ~6x the price.
+#
+# Anthropic has NO embeddings endpoint — it is a generation provider only.
+embedding_provider: openai
+embedding_model: text-embedding-3-small
+dimensions: 1536
+
+# ── Chunking: the highest-leverage knob in the system ────────────────────
+# Matters more than the embedding model. Too small and an answer straddles two
+# chunks so neither scores well; too large and the one relevant sentence is
+# diluted by 300 tokens of neighbours.
+#
+# Re-indexing costs an API call per chunk, so sweep this deliberately rather
+# than by trial and error — and note that changing it changes the index_id, so
+# old and new indexes sit side by side and can be compared.
 chunk:
-  target_tokens: 350                # the highest-leverage knob in the system
-  overlap_tokens: 60                # keeps answers that straddle a boundary
+  target_tokens: 350
+  overlap_tokens: 60                # catches answers that straddle a boundary
   min_tokens: 40

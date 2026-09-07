@@ -1,20 +1,19 @@
 [project]
 name = "cortex-engine"
 version = "0.1.0"
-description = "Crawl a site, build a RAG knowledge base over it, and score the result against a golden dataset."
+description = "Crawl a site, build a RAG knowledge base over it, and score the result."
 requires-python = ">=3.12,<3.13"
+
+# Only what the scaffold itself needs: PyYAML to read configs, numpy for the
+# vector type hints. Everything else is yours to choose — add it with
+# `uv add <package>` when you decide you need it. See the README.
 dependencies = [
-    "requests>=2.31",
-    "beautifulsoup4>=4.12",
-    "lxml>=5.1",
     "PyYAML>=6.0",
     "numpy>=1.26",
 ]
 
 [project.optional-dependencies]
-openai = ["openai>=1.30"]
-anthropic = ["anthropic>=0.34"]
-dev = ["pytest>=8.0", "black>=24.1", "flake8>=7.0"]
+dev = ["black>=24.1", "flake8>=7.0"]
 
 [project.scripts]
 engine = "engine.cli.main:main"
@@ -28,6 +27,3 @@ packages = ["src/engine"]
 
 [tool.black]
 line-length = 100
-
-[tool.pytest.ini_options]
-testpaths = ["tests"]

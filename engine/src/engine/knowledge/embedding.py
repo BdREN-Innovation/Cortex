@@ -1,99 +1,115 @@
-"""Embedding providers behind one interface.
+"""Text -> vectors, via an embeddings API.
 
-Note for the team: Anthropic does not ship a first-party embeddings endpoint,
-so `anthropic` is a *generation* provider only. Embeddings come from OpenAI, or
-from the built-in deterministic hashing embedder.
+Embeddings come from a hosted API. Nothing runs a model on your laptop: no
+torch, no model weights, no GPU. You send a batch of strings over HTTPS and get
+back a list of float arrays.
 
-`hash` is not a good retriever — it is a lexical approximation with no semantic
-understanding. It exists so the whole pipeline runs offline, in CI, and on a
-laptop with no API key, which is what lets teams 2 and 3 work in parallel.
+Note for the team: **Anthropic does not ship an embeddings endpoint.** It is a
+*generation* provider only. Someone will try it; the error message in
+`build_embedder` is there to save them the afternoon.
+
+TEAM B OWNS THIS FILE.
+
+Libraries worth considering
+---------------------------
+Nothing here is required — the scaffold ships with almost no dependencies and
+these are suggestions, not a shortlist. Add what you choose with `uv add`.
+
+openai    `uv add openai`. The client is two calls:
+              from openai import OpenAI
+              client = OpenAI()                      # reads OPENAI_API_KEY
+              client.embeddings.create(model=..., input=[...])
+          `text-embedding-3-small` is 1536 dimensions and cheap;
+          `text-embedding-3-large` is 3072 and better. Start small.
+numpy     assembling the response into a matrix, and normalising it.
+
+Other hosted options, if you want to compare: Cohere (`cohere`), Voyage AI
+(`voyageai`), Jina. All the same shape — batch of strings in, vectors out — so
+adding one is another class implementing the same three attributes.
+
+Things to get right
+-------------------
+* BATCH. The endpoint takes a list. One request per chunk is slow and
+  expensive; ~128 per request keeps bodies sane.
+* NORMALISE on the way in, so a dot product is the cosine similarity and the
+  vector store never has to care.
+* HANDLE FAILURE. Rate limits (429) and transient 5xx will happen on a real
+  corpus. Retry with backoff; do not lose a 40-minute indexing run to one
+  blip.
+* COST is real. Embedding 10,000 chunks is cheap but not free, and re-indexing
+  the same corpus ten times while tuning `target_tokens` costs ten times as
+  much. Cache by `content_hash` if you find yourself re-running a lot.
 """
 
 from __future__ import annotations
 
-import hashlib
 import logging
 import os
-import re
 from typing import Protocol
 
 import numpy as np
 
 log = logging.getLogger(__name__)
 
+# Sent with every batch. Keep it well under the provider's request-size limit.
+BATCH_SIZE = 128
+
 
 class Embedder(Protocol):
+    """What the indexer and the retriever depend on. Nothing above this line
+    knows which provider produced the numbers."""
+
     dimensions: int
     name: str
 
-    def embed(self, texts: list[str]) -> np.ndarray:
-        ...
+    def embed(self, texts: list[str]) -> np.ndarray: ...
 
 
-def _normalise(matrix: np.ndarray) -> np.ndarray:
-    norms = np.linalg.norm(matrix, axis=1, keepdims=True)
-    norms[norms == 0] = 1.0
-    return matrix / norms
+def normalise(matrix: np.ndarray) -> np.ndarray:
+    """L2-normalise each row, so a dot product IS the cosine similarity.
 
-
-class HashEmbedder:
-    """Deterministic bag-of-words hashing (the 'hashing trick'). No network, no keys."""
-
-    def __init__(self, dimensions: int = 512):
-        self.dimensions = dimensions
-        self.name = f"hash-{dimensions}"
-
-    @staticmethod
-    def _tokens(text: str) -> list[str]:
-        words = re.findall(r"[a-z0-9]+", text.lower())
-        # Unigrams plus bigrams: bigrams give the vectors a little word order.
-        return words + [f"{a}_{b}" for a, b in zip(words, words[1:])]
-
-    def embed(self, texts: list[str]) -> np.ndarray:
-        matrix = np.zeros((len(texts), self.dimensions), dtype=np.float32)
-        for row, text in enumerate(texts):
-            for token in self._tokens(text):
-                digest = hashlib.md5(token.encode()).digest()
-                bucket = int.from_bytes(digest[:4], "little") % self.dimensions
-                sign = 1.0 if digest[4] % 2 else -1.0
-                matrix[row, bucket] += sign
-        return _normalise(matrix)
+    Doing it once here means the vector store never has to. Guard against a
+    zero-length row — dividing by zero silently produces NaNs that then poison
+    every search result, and it is a genuinely nasty bug to track down.
+    """
+    raise NotImplementedError
 
 
 class OpenAIEmbedder:
-    """Real semantic embeddings. Requires OPENAI_API_KEY and the `openai` extra."""
+    """Embeddings from the OpenAI API.
+
+    Requires OPENAI_API_KEY in engine/.env and `uv add openai`.
+    """
 
     def __init__(self, model: str = "text-embedding-3-small", dimensions: int = 1536):
-        try:
-            from openai import OpenAI
-        except ImportError as exc:  # pragma: no cover - depends on optional extra
-            raise RuntimeError(
-                "The openai package is not installed. Run: uv pip install --python venv '.[openai]'"
-            ) from exc
-        if not os.environ.get("OPENAI_API_KEY"):
-            raise RuntimeError("OPENAI_API_KEY is not set (see engine/.env.example)")
-        self._client = OpenAI()
-        self.model = model
-        self.dimensions = dimensions
-        self.name = model
+        """Import `openai` lazily and fail with a clear, actionable message if
+        the extra is not installed or the key is not set.
+
+        Set `self.name` to something that identifies the model, because it goes
+        into `index_meta.json` and is what `load_retriever` uses to rebuild the
+        right embedder later. An index embedded with one model and queried with
+        another returns confident nonsense.
+        """
+        raise NotImplementedError
 
     def embed(self, texts: list[str]) -> np.ndarray:
-        vectors: list[list[float]] = []
-        # The endpoint takes batches; 128 keeps request bodies comfortable.
-        for start in range(0, len(texts), 128):
-            batch = texts[start : start + 128]
-            response = self._client.embeddings.create(model=self.model, input=batch)
-            vectors.extend(item.embedding for item in response.data)
-        return _normalise(np.asarray(vectors, dtype=np.float32))
+        """Return an (len(texts), dimensions) float32 array, L2-normalised.
+
+        Send `texts` in batches of BATCH_SIZE. Keep the results in the SAME
+        ORDER as the input — the caller zips this array against its chunk list,
+        so a reordered response silently attaches every vector to the wrong text.
+
+        Retry on 429 and 5xx with backoff.
+        """
+        raise NotImplementedError
 
 
-def build_embedder(provider: str = "hash", model: str = "", dimensions: int = 512) -> Embedder:
-    provider = (provider or "hash").strip().lower()
-    if provider == "hash":
-        return HashEmbedder(dimensions=dimensions or 512)
-    if provider == "openai":
-        return OpenAIEmbedder(model=model or "text-embedding-3-small")
-    raise ValueError(
-        f"Unknown embedding provider {provider!r}. Supported: hash, openai. "
-        "Anthropic has no embeddings API — use it for generation only."
-    )
+def build_embedder(provider: str = "openai", model: str = "", dimensions: int = 1536) -> Embedder:
+    """Map a config string to an embedder.
+
+    "openai" is the supported provider today. Add others here as you try them.
+
+    "anthropic" must raise a ValueError that SAYS WHY — Anthropic has no
+    embeddings API, and a bare KeyError three frames down would waste real time.
+    """
+    raise NotImplementedError

@@ -26,5 +26,4 @@ class RetrievedChunk:
 class Retriever(Protocol):
     """Anything that can turn a question into ranked chunks."""
 
-    def retrieve(self, question: str, top_k: int = 5) -> list[RetrievedChunk]:
-        ...
+    def retrieve(self, question: str, top_k: int = 5) -> list[RetrievedChunk]: ...

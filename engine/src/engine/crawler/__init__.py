@@ -1,5 +1,10 @@
-"""Team 1: fetch a site politely and emit CleanDocument records."""
+"""Team A: fetch a site politely and capture what is there.
 
-from engine.crawler.pipeline import CrawlConfig, crawl
+Emits CrawledPage records plus the bytes they point at. Interpreting those bytes
+is `engine extract`, which the knowledge team owns.
+"""
 
-__all__ = ["CrawlConfig", "crawl"]
+from engine.crawler.discover import Discovered, discover
+from engine.crawler.pipeline import AssetPolicy, CrawlConfig, crawl
+
+__all__ = ["CrawlConfig", "AssetPolicy", "crawl", "discover", "Discovered"]

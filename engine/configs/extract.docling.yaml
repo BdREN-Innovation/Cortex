@@ -1,0 +1,28 @@
+# Layout-aware parsing. NOT the default — read this before running it.
+#
+#   uv add docling      # ~106 packages, several GB, first run is slow
+#   uv run engine extract --run data/sites/<site>/<run> \
+#     --config configs/extract.docling.yaml --out docling.jsonl
+#
+# What it costs, measured: 106 packages including torch, transformers, triton,
+# opencv and 15 NVIDIA CUDA libraries (which install on a CPU-only machine
+# anyway and never execute). 2-4 GB of RAM at runtime, seconds to tens of
+# seconds per page on CPU. On an 8 GB laptop this is the wrong tool.
+#
+# What it buys: the best PDF output of the three, and the ONLY option that
+# handles SCANNED PDFs — pages that are images with no text layer, where pypdf
+# and pdfplumber both return nothing.
+#
+# Only worth it if BOTH are true:
+#   1. your sites serve scanned or genuinely complex multi-column PDFs, and
+#   2. someone has a machine that can run it.
+# Check (1) around day 8 by looking for "no extractable text in ..." in the
+# extract logs. Do not decide this on day 2.
+#
+# HTML still goes through the builtin BeautifulSoup path — the breadcrumb, the
+# title and the per-site `drop` selectors are HTML-specific problems already
+# solved, and routing HTML through a document converter throws all three away.
+
+parser: docling
+min_text_chars: 200
+save_tables: true

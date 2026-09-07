@@ -1,9 +1,22 @@
 # Directory ownership maps 1:1 to teams. The only shared surface is contracts/,
 # where a review from all three teams is required by design.
 
-/src/engine/contracts/    @crawler-team @knowledge-team @eval-team
-/src/engine/crawler/      @crawler-team
-/src/engine/knowledge/    @knowledge-team
-/src/engine/evaluation/   @eval-team
-/datasets/                @eval-team
-/src/engine/cli/          @crawler-team @knowledge-team @eval-team
+/src/engine/contracts/      @crawler-team @knowledge-team @eval-team
+
+# Team A — capture: a URL in, bytes and a pages.jsonl out.
+/src/engine/crawler/        @crawler-team
+# One crawl config per site, one owner each. This is what lets four people
+# crawl four sites in parallel without ever touching a shared file.
+/configs/crawl.*.yaml       @crawler-team
+
+# Team B — knowledge: bytes in, documents, vectors and answers out.
+/src/engine/knowledge/      @knowledge-team
+/configs/extract.*.yaml     @knowledge-team
+/configs/index.*.yaml       @knowledge-team
+
+# Team C — evaluation: the golden dataset and the scorecard.
+/src/engine/evaluation/     @eval-team
+/configs/eval.*.yaml        @eval-team
+/datasets/                  @eval-team
+
+/src/engine/cli/            @crawler-team @knowledge-team @eval-team

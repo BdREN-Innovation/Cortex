@@ -1,4 +1,4 @@
-"""engine crawl | index | ask | eval
+"""engine crawl | extract | index | ask | eval
 
 Thin wrappers only: every command parses arguments, loads a YAML config and
 calls into one team's package. No business logic lives here, so the CLI never
@@ -43,8 +43,23 @@ def cmd_crawl(args: argparse.Namespace) -> int:
 
     config = CrawlConfig.from_dict(payload)
     out_dir = crawl(config, out_root=args.data_root)
-    print(f"\ndocuments -> {out_dir / 'documents.jsonl'}")
-    print(f"manifest  -> {out_dir / 'manifest.json'}")
+    print(f"\npages    -> {out_dir / 'pages.jsonl'}")
+    print(f"manifest -> {out_dir / 'manifest.json'}")
+    print(f"\nnext: engine extract --run {out_dir}")
+    return 0
+
+
+# ── extract ────────────────────────────────────────────────────────────────
+def cmd_extract(args: argparse.Namespace) -> int:
+    from engine.knowledge.documents import ExtractConfig, extract_documents
+
+    payload = _load_yaml(args.config) if args.config else {}
+    if args.min_text_chars is not None:
+        payload["min_text_chars"] = args.min_text_chars
+
+    out_path = extract_documents(args.run, ExtractConfig.from_dict(payload), args.out)
+    print(f"\ndocuments -> {out_path}")
+    print(f"\nnext: engine index --documents {out_path}")
     return 0
 
 
@@ -129,14 +144,25 @@ def cmd_eval(args: argparse.Namespace) -> int:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="engine", description=__doc__.splitlines()[0])
     parser.add_argument("-v", "--verbose", action="store_true")
-    parser.add_argument("--data-root", default=DEFAULT_DATA_ROOT, help="where artifacts are written")
+    parser.add_argument(
+        "--data-root", default=DEFAULT_DATA_ROOT, help="where artifacts are written"
+    )
     sub = parser.add_subparsers(dest="command", required=True)
 
-    crawl = sub.add_parser("crawl", help="fetch a site and write documents.jsonl")
+    crawl = sub.add_parser("crawl", help="capture a site: raw bytes + pages.jsonl")
     crawl.add_argument("--config", required=True, help="configs/crawl.yaml")
     crawl.add_argument("--site", help="override the site name in the config")
     crawl.add_argument("--max-pages", type=int, help="override the page budget")
     crawl.set_defaults(func=cmd_crawl)
+
+    extract = sub.add_parser(
+        "extract", help="turn a crawl run's captured bytes into documents.jsonl"
+    )
+    extract.add_argument("--run", required=True, help="a data/sites/<site>/<run> directory")
+    extract.add_argument("--config", help="configs/extract.<site>.yaml")
+    extract.add_argument("--out", help="defaults to documents.jsonl inside the run directory")
+    extract.add_argument("--min-text-chars", type=int, help="override the thin-page threshold")
+    extract.set_defaults(func=cmd_extract)
 
     index = sub.add_parser("index", help="build a vector index from documents.jsonl")
     index.add_argument("--documents", required=True, help="path to documents.jsonl")
@@ -148,7 +174,9 @@ def build_parser() -> argparse.ArgumentParser:
     ask = sub.add_parser("ask", help="ask the knowledge base a question")
     ask.add_argument("question")
     ask.add_argument("--index", required=True, help="path to an index directory")
-    ask.add_argument("--provider", default="extractive", choices=["extractive", "openai", "anthropic"])
+    ask.add_argument(
+        "--provider", default="extractive", choices=["extractive", "openai", "anthropic"]
+    )
     ask.add_argument("--model", default="")
     ask.add_argument("--top-k", type=int, default=5)
     ask.set_defaults(func=cmd_ask)

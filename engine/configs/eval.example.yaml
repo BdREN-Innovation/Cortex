@@ -1,14 +1,77 @@
-# uv run --python venv engine eval --dataset datasets/example/golden.v1.yaml \
-#   --index data/index/<site>/<id> --config configs/eval.example.yaml
+# Copy to configs/eval.<site>.yaml. Run:
+#   uv run engine eval \
+#     --dataset datasets/<site>/golden.v1.yaml \
+#     --index   data/index/<site>/<index_id> \
+#     --config  configs/eval.<site>.yaml
+#
+# OWNED BY: Team C.
+# READS:    a golden dataset + an index Team B built.
+# WRITES:   data/runs/<run_id>/report.json and report.md
+#
+# What this stage does: asks every question in the dataset, scores the answer
+# against the known-correct one, and reports where the system fails. The
+# scorecard is only useful if it tells Teams A and B WHAT to fix — see
+# src/engine/evaluation/README.md §6.
 
+
+# ── How many chunks to retrieve per question ─────────────────────────────
+# Higher recall, more context, more cost, and more chance of burying the right
+# chunk among plausible-looking wrong ones. 5 is a reasonable default; try 3
+# and 10 once you have a dataset and see which scores better.
 top_k: 5
-min_answer_score: 0.5               # share of expected_answer_contains that must appear
-require_citation: true              # an uncited answer fails, however correct it reads
 
+
+# ── When does an answer count as correct? ────────────────────────────────
+# The share of `expected_answer_contains` strings that must appear in the
+# answer. 0.5 means "at least half the expected facts are present".
+#
+# Raise it to 1.0 for a strict run where every expected string must appear.
+# If you find yourself lowering it below 0.5 to make things pass, the problem
+# is usually that your expected strings are too long — they should be short and
+# factual ("30 days", "$29"), not whole sentences.
+min_answer_score: 0.5
+
+
+# ── Must an answer cite its sources? ─────────────────────────────────────
+# true  = an uncited answer FAILS, however correct it reads. This is the right
+#         default: an answer nobody can verify is not a usable answer.
+# false = grade purely on content. Only useful when debugging whether a
+#         failure is in generation or in citation handling.
+require_citation: true
+
+
+# ── How the system answers, during evaluation ────────────────────────────
+# These override the defaults in knowledge/rag.py for this run. Recording them
+# here is what makes a score reproducible: "68% pass" means nothing unless you
+# know which provider and which min_score produced it.
 rag:
-  provider: extractive              # extractive | openai | anthropic
-  model: ""
-  top_k: 5
-  min_score: 0.05                   # below this, the system refuses instead of guessing
-  max_context_chars: 8000
-  temperature: 0.0
+  # extractive = no API key, returns the best chunk verbatim. Use it to check
+  #              that RETRIEVAL works before spending money on generation.
+  # openai / anthropic = real generation. Needs the matching key in engine/.env.
+  provider: extractive
+  model: ""                         # e.g. "gpt-4o-mini" or "claude-sonnet-5"
+
+  top_k: 5                          # usually match the top_k above
+
+  # The refusal threshold, and the most consequential number in this file.
+  # Below this retrieval score the system declines instead of guessing.
+  #   too LOW  -> it answers unanswerable questions -> hallucination_rate rises
+  #   too HIGH -> it refuses real questions -> pass_rate_answerable falls
+  # Tune it against your unanswerable cases. Sweep 0.02 / 0.05 / 0.10 / 0.20
+  # and report the curve — that single chart is genuinely useful to Team B.
+  min_score: 0.05
+
+  max_context_chars: 8000           # prompt budget; chunks beyond it are dropped
+                                    # AND excluded from citations
+  temperature: 0.0                  # keep at 0 — a non-deterministic evaluation
+                                    # cannot be compared between runs
+
+
+# ── Not in this file ─────────────────────────────────────────────────────
+# --min-pass-rate is a CLI flag, not a config key, because it is a CI gate
+# rather than a property of the evaluation:
+#
+#   uv run engine eval --dataset ... --index ... --min-pass-rate 0.7
+#
+# exits non-zero below the threshold, so a regression fails the build.
+# Leave it off while the numbers are still moving.
