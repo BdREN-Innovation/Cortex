@@ -145,7 +145,51 @@ include/exclude rules still apply to it.
 
 ---
 
-## 6. Citations start with you
+## 6. Capture faithfully — Team B can only read what you saved
+
+Team B turns your bytes into text, tables and parsed documents. They do that
+work, not you. But **they can only extract what is actually in the file you
+wrote**, and a page saved badly cannot be fixed downstream — it can only be
+re-crawled.
+
+So the quality of their text extraction depends on the fidelity of your
+capture. Things that quietly destroy it:
+
+* **Truncation.** A size cap that cuts a page in half loses the second half
+  permanently, and nothing about the saved file says it was truncated.
+* **Encoding.** Get the character set wrong and every accented character,
+  currency symbol and dash becomes garbage in the extracted text. Servers lie
+  about encoding in headers; the document often declares its own.
+* **Content that is not in the HTML you received.** Plenty of sites render
+  their main content with JavaScript after the page loads. What you save is an
+  empty shell, and Team B extracts nothing from it — with no error to explain
+  why. Check a saved page against what the browser shows before you trust a
+  whole site.
+* **Linked files never fetched.** A PDF you skipped is a document that does not
+  exist as far as the rest of the pipeline is concerned.
+* **Redirects and error pages saved as if they were content.** A 404 page has
+  text on it, and it will happily be indexed as an answer.
+
+**Open one of your saved files and read it.** Not `pages.jsonl` — the actual
+HTML in `raw/`, and a downloaded PDF. Does it contain what the live page
+contains? That check takes two minutes and it is the difference between Team B
+debugging their extractor for a day and finding the problem in a minute.
+
+The rule of thumb from §8 applies here too: if the content is missing from
+`raw/`, it is your problem. If it is in `raw/` but missing from their output,
+it is theirs.
+
+**Team C will be reading your captures in week one.** They have no pipeline to
+evaluate yet, so they spend the early weeks working with you and Team B — and
+because they read the corpus as *content* rather than as a stage they own, they
+are usually the first to notice that a section of the site is missing or that a
+page came back empty. Take their reports seriously and early; a gap they find in
+week one is a config change, and the same gap found in week three is a
+re-crawl.
+
+---
+
+## 7. Citations start with you
 
 The thing this system is judged on is not "did it answer" but "did it answer
 **and show where the answer came from**". Team C grades that directly, and an
@@ -174,7 +218,7 @@ fixing it means re-crawling.
 
 ---
 
-## 7. Syncing with Team B
+## 8. Syncing with Team B
 
 Hand them **the path to a run directory**. That is the whole interface.
 
@@ -200,12 +244,14 @@ Every record must satisfy `CrawledPage.validate()`:
 
 ---
 
-## 8. Definition of done
+## 9. Definition of done
 
 - [ ] 2–4 sites, one committed `configs/crawl.<site>.yaml` each
 - [ ] Every site captures cleanly at its full `max_pages`
 - [ ] `manifest.json` shows `errors: []` — or every error is explained in your handover
 - [ ] Every `content_path` resolves to a real file
+- [ ] You have opened saved HTML and a saved PDF from each site and confirmed
+      they contain what the live pages contain
 - [ ] Agreed with Team B, in writing, what a citation needs — and your records
       carry all of it
 - [ ] You ran `engine extract` once per site and sanity-checked the output

@@ -87,6 +87,24 @@ Seconds, offline, as often as you like.
 **If the bytes are on disk, it is yours to fix.** If they were never fetched, it
 is theirs.
 
+### Team C works with you before they can evaluate anything
+
+They have no pipeline to score for the first couple of weeks, so they spend that
+time embedded with you and Team A. Use them:
+
+* **They read your extracted text closely** — writing dataset questions requires
+  it — so they are usually the first to spot chrome that leaked in, a table that
+  came out as loose numbers, or a PDF that produced nothing.
+* **Every question they write is a requirement in disguise.** A question about a
+  table tells you whether tables survived extraction; one about a PDF tells you
+  whether PDFs were parsed at all. Ask for those as they are written, rather
+  than waiting for a scorecard.
+* **They should be in the citation conversation in week one** (§8), because they
+  are the ones who will score whether it worked.
+
+Get their harness pointed at your first real index the day it exists, even if
+the numbers are bad. Especially then.
+
 `CrawledPage` and `CleanDocument` live in `contracts/` and are **frozen after
 day 3**. Raise changes before then.
 

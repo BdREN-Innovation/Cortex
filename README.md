@@ -419,16 +419,18 @@ before spending anything on generation.
 
 | Days | Team A | Team B | Team C |
 |---|---|---|---|
-| 1–3 | agree contracts; `fetcher`, `frontier` | agree contracts; `extraction`, `pdf` | agree contracts; metrics; **20 golden cases** against the sample corpus |
-| 4–8 | `discover`, `pipeline`; first real site | `parsers`, `documents`, `chunking` | `dataset`, `runner`; grow to ~60 cases |
+| 1–3 | agree contracts; `fetcher`, `frontier` | agree contracts; `extraction`, `pdf` | agree contracts; metrics; **20 golden cases**; sit with A and B |
+| 4–8 | `discover`, `pipeline`; first real site | `parsers`, `documents`, `chunking` | `dataset`, `runner`; ~60 cases; **review A and B's output** |
 | 9–12 | 2–4 sites captured and tuned | `embedding`, `store`, `indexer`, `retriever`, `rag`; Qdrant Cloud | run eval against the real index; **feed failures back** |
 | 13–15 | freeze, handover notes | demo path end to end | final scorecard, written verdict |
 
 Two sequencing notes that matter more than they look:
 
-- **Team C runs their first real evaluation on day 8, not day 14.** A scorecard
-  delivered at the end is a post-mortem; one delivered mid-project changes what
-  the other teams build.
+- **Team C does not wait for a pipeline.** For the first two weeks they work
+  alongside Teams A and B — reading captures and extracted text as *content*,
+  which is how the missing section or the mangled table gets found while it is
+  still a config change rather than a re-crawl. Their first real evaluation
+  runs on day 8, not day 14: a scorecard at the end is a post-mortem.
 - **Team B gets `extract` working before anything else.** It unblocks their own
   iteration loop and gives Team A a way to check their captures.
 

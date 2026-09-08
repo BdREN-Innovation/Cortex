@@ -44,11 +44,39 @@ first page. Then write dataset questions while waiting for a real index.
 
 ---
 
-## 3. You are not blocked. Ever.
+## 3. Weeks one and two: work with the other teams
 
-This is the thing to understand on day one: **you do not need Team B's retriever
-to start.** The `Retriever` Protocol in `contracts/retrieval.py` is the only
-thing you code against, and it is three lines:
+There is no pipeline to evaluate yet, and there will not be one for a while.
+That does not mean you wait — it means **you spend the early weeks embedded
+with Teams A and B**, because that is when your eyes are worth the most.
+
+Three things you can do before anything works end to end:
+
+**Read their output and tell them what is wrong with it.** You are about to
+read the corpus closely anyway — writing questions requires it. So you are the
+first person who will notice that a page is full of cookie-banner text, that a
+table came out as a wall of loose numbers, or that a whole section of the site
+is missing. Team A and Team B are each looking at their own stage; you are the
+only one reading it as content.
+
+**Settle what a citation has to show.** Team A captures it, Team B stores and
+returns it, and you score it — so you should be in that conversation in week
+one. See §7 of Team A's README and §8 of Team B's.
+
+**Feed them questions they cannot yet answer.** Every case you write is a
+requirement in disguise. "How many seats does the Pro plan include?" tells Team
+B whether tables survived. A question about a PDF tells them whether PDFs were
+parsed. Hand those over as you write them rather than saving them for a
+scorecard.
+
+The cost of not doing this is concrete: a problem you would have spotted in
+week one becomes a re-crawl in week three.
+
+### You are also never blocked on them
+
+Everything in this package can be built before Team B has a retriever. The
+`Retriever` Protocol in `contracts/retrieval.py` is the only thing you code
+against, and it is three lines:
 
 ```python
 class Retriever(Protocol):
@@ -64,8 +92,8 @@ class FakeRetriever:
         return [c for c in self.chunks if question.split()[0].lower() in c.text.lower()][:top_k]
 ```
 
-When Team B's real retriever lands, you swap the object in and change
-nothing else — that is what coding against a Protocol buys you.
+When Team B's real retriever lands, you swap the object in and change nothing
+else — that is what coding against a Protocol buys you.
 
 ---
 
