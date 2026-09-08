@@ -9,6 +9,7 @@ TEAM A OWNS THIS FILE.
 
 from __future__ import annotations
 
+import asyncio
 import json
 import logging
 import re
@@ -68,6 +69,7 @@ class CrawlConfig:
             "max_bytes",
             "max_asset_bytes",
             "obey_robots",
+            "concurrency",
         }
 
         asset_fields = {
@@ -181,6 +183,7 @@ def _config_to_dict(config: CrawlConfig) -> dict:
             "max_bytes": config.fetch.max_bytes,
             "max_asset_bytes": config.fetch.max_asset_bytes,
             "obey_robots": config.fetch.obey_robots,
+            "concurrency": config.fetch.concurrency,
         },
         "assets": {
             "download_documents": config.assets.download_documents,
@@ -211,12 +214,16 @@ def _document_filename(url: str, ordinal: int) -> str:
     return f"{ordinal:04d}-{name}"
 
 
-def crawl(
+async def crawl_async(
     config: CrawlConfig,
     out_root: str | Path = "data",
     run_id: str | None = None,
 ) -> Path:
-    """Capture one site and write its crawl artifacts.
+    """Capture one site asynchronously and write its crawl artifacts.
+
+    HTML pages are pulled from the frontier in small batches and passed to
+    Crawl4AI through Fetcher.fetch_many(). Newly discovered links are added
+    back to the frontier for later batches.
 
     Returns the run directory.
     """
@@ -226,6 +233,9 @@ def crawl(
 
     if config.fetch.delay_seconds < 1.0:
         raise ValueError("delay_seconds must be at least 1.0")
+
+    if config.fetch.concurrency < 1:
+        raise ValueError("concurrency must be at least 1")
 
     run_id = run_id or _make_run_id(config.site)
 
@@ -258,178 +268,230 @@ def crawl(
     assets_saved: dict[str, str] = {}
 
     try:
-        with Fetcher(config.fetch) as fetcher:
-
+        async with Fetcher(config.fetch) as fetcher:
             while frontier and pages_fetched < config.max_pages:
-                url, depth = frontier.pop()
+                remaining = config.max_pages - pages_fetched
+                batch_size = min(config.fetch.concurrency, remaining)
 
-                try:
-                    raw_page = fetcher.fetch(url)
-                except Exception as exc:
-                    pages_skipped += 1
-                    errors.append(
-                        {
-                            "url": url,
-                            "stage": "fetch",
-                            "error": repr(exc),
-                        }
-                    )
-                    log.exception("Failed to fetch %s", url)
-                    continue
+                batch: list[tuple[str, int]] = []
 
-                if raw_page is None:
-                    pages_skipped += 1
-                    continue
+                while frontier and len(batch) < batch_size:
+                    batch.append(frontier.pop())
 
-                pages_fetched += 1
+                if not batch:
+                    break
 
-                discovered = discover(raw_page.html, raw_page.url)
+                batch_urls = [url for url, _depth in batch]
+                depth_by_url = {url: depth for url, depth in batch}
 
-                canonical_url = discovered.canonical_url or raw_page.url
-
-                page_id = make_doc_id(canonical_url)
-
-                html_filename = f"{page_id}.html"
-                html_path = raw_dir / html_filename
-
-                try:
-                    html_path.write_text(
-                        raw_page.html,
-                        encoding="utf-8",
-                    )
-                except OSError as exc:
-                    pages_skipped += 1
-                    errors.append(
-                        {
-                            "url": raw_page.url,
-                            "stage": "write_html",
-                            "error": repr(exc),
-                        }
-                    )
-                    log.exception(
-                        "Failed to save HTML for %s",
-                        raw_page.url,
-                    )
-                    continue
-
-                relative_content_path = str(
-                    Path("raw") / html_filename
-                ).replace("\\", "/")
-
-                page_record = CrawledPage(
-                    page_id=page_id,
-                    url=raw_page.url,
-                    canonical_url=canonical_url,
-                    status=raw_page.status,
-                    content_type=raw_page.headers.get(
-                        "Content-Type",
-                        "",
-                    ),
-                    content_path=relative_content_path,
-                    fetched_at=raw_page.fetched_at.isoformat(),
-                    depth=depth,
-                    links=discovered.links,
-                    document_links=discovered.document_links,
-                    parent_url="",
-                    meta={
-                        "lang": discovered.lang,
-                        "elapsed_ms": raw_page.elapsed_ms,
-                    },
+                log.info(
+                    "Crawling HTML batch: size=%d remaining=%d",
+                    len(batch_urls),
+                    remaining,
                 )
 
-                pages.append(page_record)
-                pages_written += 1
-
-                # Normal HTML links become the next level in the frontier.
                 try:
-                    frontier.add_links(
-                        raw_page.url,
-                        discovered.links,
-                        depth,
-                    )
+                    raw_pages = await fetcher.fetch_many(batch_urls)
                 except Exception as exc:
+                    pages_skipped += len(batch_urls)
                     errors.append(
                         {
-                            "url": raw_page.url,
-                            "stage": "discover_links",
+                            "urls": batch_urls,
+                            "stage": "fetch_batch",
                             "error": repr(exc),
                         }
                     )
-                    log.exception(
-                        "Failed to add discovered links from %s",
-                        raw_page.url,
+                    log.exception("Failed to fetch HTML batch")
+                    continue
+
+                # fetch_many() returns only successful RawPage objects.
+                # Count requested URLs that did not produce a page as skips.
+                pages_skipped += max(0, len(batch_urls) - len(raw_pages))
+
+                for raw_page in raw_pages:
+                    if pages_fetched >= config.max_pages:
+                        break
+
+                    pages_fetched += 1
+
+                    # Normally Crawl4AI returns the same URL requested. If a
+                    # redirect changed it, use the matching depth when possible
+                    # and fall back to the shallowest depth in this batch.
+                    depth = depth_by_url.get(raw_page.url)
+                    if depth is None:
+                        depth = min(
+                            (item_depth for _url, item_depth in batch),
+                            default=0,
+                        )
+
+                    discovered = discover(raw_page.html, raw_page.url)
+
+                    canonical_url = (
+                        discovered.canonical_url or raw_page.url
                     )
 
-                # Linked documents are leaves. They are fetched here but
-                # are never added back to the HTML frontier.
-                if (
-                    config.assets.download_documents
-                    and documents_saved < config.assets.max_documents
-                ):
-                    for document_url in discovered.document_links:
-                        if documents_saved >= config.assets.max_documents:
-                            break
+                    page_id = make_doc_id(canonical_url)
 
-                        if not rules.in_scope(document_url, 0):
-                            continue
+                    html_filename = f"{page_id}.html"
+                    html_path = raw_dir / html_filename
 
-                        document_ordinal = documents_saved + 1
+                    try:
+                        html_path.write_text(
+                            raw_page.html,
+                            encoding="utf-8",
+                        )
+                    except OSError as exc:
+                        pages_skipped += 1
+                        errors.append(
+                            {
+                                "url": raw_page.url,
+                                "stage": "write_html",
+                                "error": repr(exc),
+                            }
+                        )
+                        log.exception(
+                            "Failed to save HTML for %s",
+                            raw_page.url,
+                        )
+                        continue
 
-                        try:
-                            asset = fetcher.fetch_asset(document_url)
-                        except Exception as exc:
-                            errors.append(
-                                {
-                                    "url": document_url,
-                                    "stage": "fetch_document",
-                                    "error": repr(exc),
-                                }
-                            )
-                            log.exception(
-                                "Failed to fetch document %s",
-                                document_url,
-                            )
-                            continue
+                    relative_content_path = str(
+                        Path("raw") / html_filename
+                    ).replace("\\", "/")
 
-                        if asset is None:
-                            continue
+                    page_record = CrawledPage(
+                        page_id=page_id,
+                        url=raw_page.url,
+                        canonical_url=canonical_url,
+                        status=raw_page.status,
+                        content_type=raw_page.headers.get(
+                            "Content-Type",
+                            "text/html; charset=utf-8",
+                        ),
+                        content_path=relative_content_path,
+                        fetched_at=raw_page.fetched_at.isoformat(),
+                        depth=depth,
+                        links=discovered.links,
+                        document_links=discovered.document_links,
+                        parent_url="",
+                        meta={
+                            "lang": discovered.lang,
+                            "elapsed_ms": raw_page.elapsed_ms,
+                            "fetcher": raw_page.headers.get(
+                                "X-Cortex-Fetcher",
+                                "crawl4ai",
+                            ),
+                        },
+                    )
 
-                        filename = _document_filename(
-                            document_url,
-                            document_ordinal,
+                    pages.append(page_record)
+                    pages_written += 1
+
+                    # Newly discovered HTML links enter the frontier. They will
+                    # be picked up by a later asynchronous batch.
+                    try:
+                        frontier.add_links(
+                            raw_page.url,
+                            discovered.links,
+                            depth,
+                        )
+                    except Exception as exc:
+                        errors.append(
+                            {
+                                "url": raw_page.url,
+                                "stage": "discover_links",
+                                "error": repr(exc),
+                            }
+                        )
+                        log.exception(
+                            "Failed to add discovered links from %s",
+                            raw_page.url,
                         )
 
-                        document_path = docs_dir / filename
+                    # Documents remain leaves. For this first async-HTML stage
+                    # we keep the existing streamed httpx asset downloader.
+                    # Run it in a worker thread so it does not block the async
+                    # event loop.
+                    if (
+                        config.assets.download_documents
+                        and documents_saved
+                        < config.assets.max_documents
+                    ):
+                        for document_url in discovered.document_links:
+                            if (
+                                documents_saved
+                                >= config.assets.max_documents
+                            ):
+                                break
 
-                        try:
-                            document_path.write_bytes(asset.content)
-                        except OSError as exc:
-                            errors.append(
-                                {
-                                    "url": document_url,
-                                    "stage": "write_document",
-                                    "error": repr(exc),
-                                }
-                            )
-                            log.exception(
-                                "Failed to save document %s",
+                            if document_url in assets_saved:
+                                continue
+
+                            if not rules.in_scope(document_url, 0):
+                                continue
+
+                            document_ordinal = documents_saved + 1
+
+                            try:
+                                asset = await asyncio.to_thread(
+                                    fetcher.fetch_asset,
+                                    document_url,
+                                )
+                            except Exception as exc:
+                                errors.append(
+                                    {
+                                        "url": document_url,
+                                        "stage": "fetch_document",
+                                        "error": repr(exc),
+                                    }
+                                )
+                                log.exception(
+                                    "Failed to fetch document %s",
+                                    document_url,
+                                )
+                                continue
+
+                            if asset is None:
+                                continue
+
+                            filename = _document_filename(
                                 document_url,
+                                document_ordinal,
                             )
-                            continue
 
-                        documents_saved += 1
+                            document_path = docs_dir / filename
 
-                        relative_document_path = str(
-                            Path("docs") / filename
-                        ).replace("\\", "/")
+                            try:
+                                document_path.write_bytes(asset.content)
+                            except OSError as exc:
+                                errors.append(
+                                    {
+                                        "url": document_url,
+                                        "stage": "write_document",
+                                        "error": repr(exc),
+                                    }
+                                )
+                                log.exception(
+                                    "Failed to save document %s",
+                                    document_url,
+                                )
+                                continue
 
-                        assets_saved[document_url] = relative_document_path
+                            documents_saved += 1
 
-                        log.info(
-                            "Saved document %s → %s",
-                            document_url,
-                            relative_document_path,
-                        )
+                            relative_document_path = str(
+                                Path("docs") / filename
+                            ).replace("\\", "/")
+
+                            assets_saved[
+                                document_url
+                            ] = relative_document_path
+
+                            log.info(
+                                "Saved document %s -> %s",
+                                document_url,
+                                relative_document_path,
+                            )
 
     except Exception as exc:
         errors.append(
@@ -515,6 +577,21 @@ def crawl(
 
     return run_dir
 
+
+def crawl(
+    config: CrawlConfig,
+    out_root: str | Path = "data",
+    run_id: str | None = None,
+) -> Path:
+    """Synchronous CLI-compatible wrapper around the async crawler."""
+
+    return asyncio.run(
+        crawl_async(
+            config=config,
+            out_root=out_root,
+            run_id=run_id,
+        )
+    )
 
 def load_config(path: str | Path) -> CrawlConfig:
     """Load a CrawlConfig from a YAML file."""

@@ -27,3 +27,4 @@ fetch:
   max_bytes: 5000000
   max_asset_bytes: 20000000
   obey_robots: true
+  concurrency: 3
