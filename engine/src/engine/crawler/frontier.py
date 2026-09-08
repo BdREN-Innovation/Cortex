@@ -1,58 +1,93 @@
 """The queue: what to visit next, and what is out of bounds.
 
-Two jobs live here, and the first is quietly the most important thing in the
-crawler. `canonicalize` is what stops you storing `/pricing`, `/pricing/`,
-`/pricing?utm_source=twitter` and `/pricing#plans` as four separate documents
-that then come back as four separate search results.
-
 TEAM A OWNS THIS FILE.
-
-Decisions you own
------------------
-* What exactly makes two URLs "the same page"? The examples below pin the cases
-  that matter here; you decide how to get there.
-* What do you do with the root path — does `https://x.test/` keep its slash?
-  Either answer is defensible; an inconsistent one breaks joins downstream.
-* Which query parameters are noise? `utm_*` obviously. What about `ref`,
-  `source`, session ids, a `page=` you actually need? This list grows as you
-  meet real sites.
-* Breadth-first or depth-first? BFS finds the shallow, important pages first,
-  which matters when `max_pages` cuts you off mid-crawl.
-* What data structure makes "have I seen this?" cheap at 10,000 URLs?
-
 """
 
 from __future__ import annotations
 
 import re
+from collections import deque
 from dataclasses import dataclass, field
+from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
 
-# Query parameters that never change the content, only the analytics.
-# Strip them before comparing URLs. Extend as you meet real sites.
-TRACKING_PARAMS = re.compile(r"^(utm_|fbclid|gclid|mc_cid|mc_eid|ref$|source$)")
+# Query parameters that normally do not change page content.
+TRACKING_PARAMS = re.compile(
+    r"^(utm_|fbclid|gclid|mc_cid|mc_eid|ref$|source$)",
+    re.IGNORECASE,
+)
 
 
 def canonicalize(url: str) -> str:
-    """Collapse the many URLs that mean one page into a single string.
+    """Return one stable URL for URLs that represent the same page.
 
-    Required behaviour — these examples are the specification:
-
-        https://X.test/a/                -> https://x.test/a
-        https://x.test/a#section         -> https://x.test/a
-        https://x.test/a?utm_source=news -> https://x.test/a
-        https://x.test/a?b=2&a=1         -> https://x.test/a?a=1&b=2
-        https://x.test//a//b             -> https://x.test/a/b
-        https://x.test:443/a             -> https://x.test/a
-
-    This function's output becomes `page_id`, so it must be stable across runs
-    and across machines.
+    Examples:
+        https://X.test/a/                 -> https://x.test/a
+        https://x.test/a#section          -> https://x.test/a
+        https://x.test/a?utm_source=news  -> https://x.test/a
+        https://x.test/a?b=2&a=1          -> https://x.test/a?a=1&b=2
+        https://x.test//a//b              -> https://x.test/a/b
+        https://x.test:443/a              -> https://x.test/a
     """
-    raise NotImplementedError
+    parts = urlsplit(url.strip())
+
+    if not parts.scheme or not parts.netloc:
+        raise ValueError(f"Invalid absolute URL: {url}")
+
+    scheme = parts.scheme.lower()
+
+    # urlsplit().hostname removes the brackets from IPv6 addresses and
+    # lowercases normal hostnames.
+    hostname = parts.hostname
+    if not hostname:
+        raise ValueError(f"Invalid URL hostname: {url}")
+
+    hostname = hostname.lower()
+
+    # Preserve a non-default port.
+    port = parts.port
+    if port is not None:
+        if not (
+            (scheme == "http" and port == 80)
+            or (scheme == "https" and port == 443)
+        ):
+            hostname = f"{hostname}:{port}"
+
+    # Collapse repeated slashes in the path.
+    path = re.sub(r"/+", "/", parts.path or "/")
+
+    # Keep the root slash, but remove unnecessary trailing slashes elsewhere.
+    if path != "/":
+        path = path.rstrip("/")
+
+    # Remove tracking parameters and sort the remaining parameters.
+    query_params = [
+        (key, value)
+        for key, value in parse_qsl(
+            parts.query,
+            keep_blank_values=True,
+        )
+        if not TRACKING_PARAMS.match(key)
+    ]
+
+    query_params.sort()
+
+    query = urlencode(query_params, doseq=True)
+
+    # Fragment is deliberately removed.
+    return urlunsplit(
+        (
+            scheme,
+            hostname,
+            path,
+            query,
+            "",
+        )
+    )
 
 
 @dataclass
 class ScopeRules:
-    """What counts as in-bounds for this crawl. All four come from the config."""
+    """What counts as in-bounds for this crawl."""
 
     allowed_domains: list[str] = field(default_factory=list)
     include_patterns: list[str] = field(default_factory=list)
@@ -60,56 +95,124 @@ class ScopeRules:
     max_depth: int = 3
 
     def __post_init__(self):
-        """You will test these patterns against thousands of URLs. Prepare them
-        here rather than on every call."""
-        raise NotImplementedError
+        """Compile include/exclude regex patterns once."""
+        self._include_patterns = [
+            re.compile(pattern, re.IGNORECASE)
+            for pattern in self.include_patterns
+        ]
+
+        self._exclude_patterns = [
+            re.compile(pattern, re.IGNORECASE)
+            for pattern in self.exclude_patterns
+        ]
+
+        # Normalize allowed domains.
+        self.allowed_domains = [
+            domain.lower().strip().rstrip(".")
+            for domain in self.allowed_domains
+            if domain.strip()
+        ]
 
     def in_scope(self, url: str, depth: int) -> bool:
-        """Should we fetch this URL at this depth?
+        """Return True if a URL should be crawled."""
+        if depth > self.max_depth:
+            return False
 
-        Four things can put a URL out of bounds: it is too deep, it is on a
-        host we are not crawling, it matches something excluded, or it fails to
-        match anything included. Watch the difference between "no include
-        patterns configured" and "include patterns configured and none matched"
-        — they must not mean the same thing.
+        try:
+            canonical_url = canonicalize(url)
+            hostname = (urlsplit(canonical_url).hostname or "").lower()
+        except ValueError:
+            return False
 
-        An empty `allowed_domains` means no domain restriction here; the caller
-        derives a default from the seeds before constructing you.
-        """
-        raise NotImplementedError
+        # Domain restriction.
+        if self.allowed_domains:
+            domain_allowed = any(
+                hostname == domain
+                or hostname.endswith("." + domain)
+                for domain in self.allowed_domains
+            )
+
+            if not domain_allowed:
+                return False
+
+        # Exclusions always win.
+        if any(
+            pattern.search(canonical_url)
+            for pattern in self._exclude_patterns
+        ):
+            return False
+
+        # If include patterns exist, at least one must match.
+        if self._include_patterns:
+            if not any(
+                pattern.search(canonical_url)
+                for pattern in self._include_patterns
+            ):
+                return False
+
+        return True
 
 
 class Frontier:
-    """Breadth-first queue that never hands out the same page twice.
-
-    The de-duplication key is the *canonical* URL, not the raw one. That is the
-    whole reason canonicalize exists: two different-looking links to the same
-    page must collide here rather than becoming two documents.
-    """
+    """Breadth-first queue that never hands out the same page twice."""
 
     def __init__(self, seeds: list[str], rules: ScopeRules):
-        raise NotImplementedError
+        self.rules = rules
+        self._queue: deque[tuple[str, int]] = deque()
+        self._seen: set[str] = set()
+
+        # Add seeds at depth 0.
+        for seed in seeds:
+            self.add(seed, 0)
 
     def add(self, url: str, depth: int) -> bool:
-        """Queue one URL. Returns True if it was actually added.
+        """Queue one URL if it is valid, in scope, and unseen."""
+        try:
+            canonical_url = canonicalize(url)
+        except ValueError:
+            return False
 
-        False when the URL is out of scope or has been seen before.
+        if canonical_url in self._seen:
+            return False
+
+        if not self.rules.in_scope(canonical_url, depth):
+            return False
+
+        self._seen.add(canonical_url)
+        self._queue.append((canonical_url, depth))
+
+        return True
+
+    def add_links(
+        self,
+        base_url: str,
+        links: list[str],
+        depth: int,
+    ) -> int:
+        """Resolve and queue links discovered on a page.
+
+        Links discovered from a page at depth N are queued at depth N + 1.
         """
-        raise NotImplementedError
+        added = 0
+        next_depth = depth + 1
 
-    def add_links(self, base_url: str, links: list[str], depth: int) -> int:
-        """Queue every link found on a page. Returns how many were added.
+        for link in links:
+            link = link.strip()
 
-        `links` are as they appeared in the HTML, so they may be relative
-        ("/docs/billing", "../index.html") and need resolving against
-        `base_url` first.
-        """
-        raise NotImplementedError
+            if not link:
+                continue
+
+            absolute_url = urljoin(base_url, link)
+
+            if self.add(absolute_url, next_depth):
+                added += 1
+
+        return added
 
     def __bool__(self) -> bool:
-        """True while there is anything left to crawl — `while frontier:`."""
-        raise NotImplementedError
+        """True while URLs remain in the queue."""
+        return bool(self._queue)
 
     def pop(self) -> tuple[str, int]:
-        """Take the next (url, depth). Breadth-first: oldest first."""
-        raise NotImplementedError
+        """Take the oldest URL from the queue."""
+        return self._queue.popleft()

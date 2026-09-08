@@ -1,35 +1,28 @@
 """Capture a site: fetch pages and linked files, save the bytes, record what was found.
 
-This stage deliberately produces **no text**. It writes `pages.jsonl` — one
-`CrawledPage` per URL — beside the bytes those records point at. Turning bytes
-into documents is `engine extract`, which Team B owns.
+This stage deliberately produces no text. It writes pages.jsonl — one
+CrawledPage per URL — beside the bytes those records point at. Turning bytes
+into documents is engine extract, which Team B owns.
 
-The split is not tidiness. It means an extraction change costs a re-extract
-(seconds, offline) instead of a re-crawl (an hour, and another thousand requests
-to somebody else's server), so the two teams stop blocking each other on day four.
-
-TEAM A OWNS THIS FILE. It is the last one to build — it only chains together
-fetcher.py, frontier.py and discover.py.
-
-Decisions you own
------------------
-* How is a run identified? It has to sort sensibly and never collide with a
-  previous run of the same site.
-* A URL has to become a safe filename. What happens to a URL containing `..`,
-  or a 400-character path, or characters your filesystem rejects?
-* What goes in the manifest? It is the only record of how a run went once the
-  terminal output is gone — think about what you would want to see when a
-  crawl produced half as many pages as you expected.
-
+TEAM A OWNS THIS FILE.
 """
 
 from __future__ import annotations
 
+import json
 import logging
+import re
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlsplit
 
-from engine.crawler.fetcher import FetchPolicy
+import yaml
+
+from engine.contracts.documents import CrawlManifest, CrawledPage, make_doc_id
+from engine.crawler.discover import discover
+from engine.crawler.fetcher import FetchPolicy, Fetcher
+from engine.crawler.frontier import Frontier, ScopeRules
 
 log = logging.getLogger(__name__)
 
@@ -38,22 +31,17 @@ log = logging.getLogger(__name__)
 class AssetPolicy:
     """What to download besides HTML.
 
-    Nothing here is interpreted — these are fetch decisions. Whether a PDF gets
-    parsed into a document is decided downstream by Team B.
-
-    Images are not downloaded at all: nothing in the pipeline can use a PNG,
-    so fetching them costs bandwidth and disk for no gain.
+    Nothing here is interpreted. Whether a PDF gets parsed into a document
+    is decided downstream by Team B.
     """
 
     download_documents: bool = True
-    # Linked files get their own budget. One 300-page manual must not compete
-    # with pages for `max_pages`.
     max_documents: int = 25
 
 
 @dataclass
 class CrawlConfig:
-    """Read from `configs/crawl.<site>.yaml`. One file per site, one owner each."""
+    """Configuration for one site crawl."""
 
     site: str
     seeds: list[str]
@@ -67,50 +55,474 @@ class CrawlConfig:
 
     @classmethod
     def from_dict(cls, payload: dict) -> "CrawlConfig":
-        """Build from parsed YAML.
+        """Build a CrawlConfig from parsed YAML."""
 
-        The nested `fetch:` and `assets:` blocks become FetchPolicy and
-        AssetPolicy. Ignore unknown top-level keys rather than crashing — a
-        config with a typo should not take down a crawl at minute forty.
-        """
-        raise NotImplementedError
+        fetch_data = payload.get("fetch") or {}
+        asset_data = payload.get("assets") or {}
+
+        fetch_fields = {
+            "user_agent",
+            "delay_seconds",
+            "timeout_seconds",
+            "max_retries",
+            "max_bytes",
+            "max_asset_bytes",
+            "obey_robots",
+        }
+
+        asset_fields = {
+            "download_documents",
+            "max_documents",
+        }
+
+        fetch_config = {
+            key: value
+            for key, value in fetch_data.items()
+            if key in fetch_fields
+        }
+
+        asset_config = {
+            key: value
+            for key, value in asset_data.items()
+            if key in asset_fields
+        }
+
+        return cls(
+            site=str(payload["site"]),
+            seeds=list(payload.get("seeds", [])),
+            allowed_domains=list(payload.get("allowed_domains", [])),
+            include_patterns=list(payload.get("include_patterns", [])),
+            exclude_patterns=list(payload.get("exclude_patterns", [])),
+            max_depth=int(payload.get("max_depth", 3)),
+            max_pages=int(payload.get("max_pages", 200)),
+            fetch=FetchPolicy(**fetch_config),
+            assets=AssetPolicy(**asset_config),
+        )
 
 
-def crawl(config: CrawlConfig, out_root: str | Path = "data", run_id: str | None = None) -> Path:
-    """Capture a site. Writes pages.jsonl + manifest.json. Returns the run directory.
+def _utcnow() -> datetime:
+    """Return the current UTC time."""
 
-    Layout to produce — one folder per site per run:
+    return datetime.now(timezone.utc)
 
-        <out_root>/sites/<site>/<run_id>/
-        ├── pages.jsonl      one CrawledPage per line
-        ├── manifest.json    a CrawlManifest
-        ├── raw/<page_id>.html
-        └── docs/<filename>          (linked PDFs etc.)
 
-    `content_path` on each record is **relative to the run directory**, so the
-    whole folder stays movable. Team B joins it back.
+def _safe_filename(value: str, fallback: str = "asset") -> str:
+    """Turn a URL/path-derived value into a safe filesystem filename."""
 
-    Must produce, for one site:
+    value = value.strip()
 
-      * every in-scope page fetched, its bytes on disk, one record each
-      * linked documents downloaded, within their own budget, recorded the
-        same way
-      * a manifest describing how the run went
+    if not value:
+        value = fallback
 
-    Three things that are easy to get wrong:
+    # Remove dangerous path traversal and filesystem separators.
+    value = value.replace("\\", "_").replace("/", "_")
+    value = value.replace("..", "_")
 
-      * One bad page must never kill a run. A crawl that dies at page 180 of
-        200 has produced nothing.
-      * A linked file is a leaf, not another hop. Think about what that means
-        for depth — and note that scope rules should still apply to it.
-      * There is NO thin-page filter and NO duplicate-text detection here.
-        Both need the text, and there is no text at this stage. `/` and
-        `/index.html` will both be captured; Team B collapses them. Do not try
-        to be clever and dedupe on raw HTML — identical pages routinely differ
-        by a timestamp or a CSRF token.
+    # Replace characters that are problematic on Windows and Unix.
+    value = re.sub(r'[<>:"|?*\x00-\x1f]', "_", value)
 
-      One more, about ordering: linked documents can be large and slow. Think
-      about when you fetch them relative to the page crawl.
+    # Avoid Windows reserved device names.
+    stem = value.split(".")[0].upper()
+    reserved = {
+        "CON",
+        "PRN",
+        "AUX",
+        "NUL",
+        *(f"COM{i}" for i in range(1, 10)),
+        *(f"LPT{i}" for i in range(1, 10)),
+    }
 
+    if stem in reserved:
+        value = f"_{value}"
+
+    value = value.strip(" .")
+
+    if not value:
+        value = fallback
+
+    # Keep filenames comfortably below filesystem limits.
+    if len(value) > 180:
+        value = value[:180]
+
+    return value
+
+
+def _write_jsonl(path: Path, records: list[dict]) -> None:
+    """Write dictionaries as one JSON object per line."""
+
+    with path.open("w", encoding="utf-8") as handle:
+        for record in records:
+            handle.write(
+                json.dumps(
+                    record,
+                    ensure_ascii=False,
+                    default=str,
+                )
+                + "\n"
+            )
+
+
+def _config_to_dict(config: CrawlConfig) -> dict:
+    """Convert crawl configuration into a manifest-friendly dictionary."""
+
+    return {
+        "site": config.site,
+        "seeds": config.seeds,
+        "allowed_domains": config.allowed_domains,
+        "include_patterns": config.include_patterns,
+        "exclude_patterns": config.exclude_patterns,
+        "max_depth": config.max_depth,
+        "max_pages": config.max_pages,
+        "fetch": {
+            "user_agent": config.fetch.user_agent,
+            "delay_seconds": config.fetch.delay_seconds,
+            "timeout_seconds": config.fetch.timeout_seconds,
+            "max_retries": config.fetch.max_retries,
+            "max_bytes": config.fetch.max_bytes,
+            "max_asset_bytes": config.fetch.max_asset_bytes,
+            "obey_robots": config.fetch.obey_robots,
+        },
+        "assets": {
+            "download_documents": config.assets.download_documents,
+            "max_documents": config.assets.max_documents,
+        },
+    }
+
+
+def _make_run_id(site: str) -> str:
+    """Create a sortable UTC run ID."""
+
+    timestamp = _utcnow().strftime("%Y%m%dT%H%M%SZ")
+    return f"{site}-{timestamp}"
+
+
+def _document_filename(url: str, ordinal: int) -> str:
+    """Create a safe filename for a downloaded document."""
+
+    path = urlsplit(url).path
+    name = Path(path).name
+
+    if not name:
+        name = f"document-{ordinal}.bin"
+
+    name = _safe_filename(name, fallback=f"document-{ordinal}.bin")
+
+    # Prevent collisions when two URLs have the same filename.
+    return f"{ordinal:04d}-{name}"
+
+
+def crawl(
+    config: CrawlConfig,
+    out_root: str | Path = "data",
+    run_id: str | None = None,
+) -> Path:
+    """Capture one site and write its crawl artifacts.
+
+    Returns the run directory.
     """
-    raise NotImplementedError
+
+    if not config.seeds:
+        raise ValueError("Crawl configuration has no seeds")
+
+    if config.fetch.delay_seconds < 1.0:
+        raise ValueError("delay_seconds must be at least 1.0")
+
+    run_id = run_id or _make_run_id(config.site)
+
+    run_dir = Path(out_root) / "sites" / config.site / run_id
+    raw_dir = run_dir / "raw"
+    docs_dir = run_dir / "docs"
+
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    docs_dir.mkdir(parents=True, exist_ok=True)
+
+    started_at = _utcnow()
+
+    rules = ScopeRules(
+        allowed_domains=config.allowed_domains,
+        include_patterns=config.include_patterns,
+        exclude_patterns=config.exclude_patterns,
+        max_depth=config.max_depth,
+    )
+
+    frontier = Frontier(config.seeds, rules)
+
+    pages: list[CrawledPage] = []
+    errors: list[dict] = []
+
+    pages_fetched = 0
+    pages_written = 0
+    pages_skipped = 0
+    documents_saved = 0
+
+    assets_saved: dict[str, str] = {}
+
+    try:
+        with Fetcher(config.fetch) as fetcher:
+
+            while frontier and pages_fetched < config.max_pages:
+                url, depth = frontier.pop()
+
+                try:
+                    raw_page = fetcher.fetch(url)
+                except Exception as exc:
+                    pages_skipped += 1
+                    errors.append(
+                        {
+                            "url": url,
+                            "stage": "fetch",
+                            "error": repr(exc),
+                        }
+                    )
+                    log.exception("Failed to fetch %s", url)
+                    continue
+
+                if raw_page is None:
+                    pages_skipped += 1
+                    continue
+
+                pages_fetched += 1
+
+                discovered = discover(raw_page.html, raw_page.url)
+
+                canonical_url = discovered.canonical_url or raw_page.url
+
+                page_id = make_doc_id(canonical_url)
+
+                html_filename = f"{page_id}.html"
+                html_path = raw_dir / html_filename
+
+                try:
+                    html_path.write_text(
+                        raw_page.html,
+                        encoding="utf-8",
+                    )
+                except OSError as exc:
+                    pages_skipped += 1
+                    errors.append(
+                        {
+                            "url": raw_page.url,
+                            "stage": "write_html",
+                            "error": repr(exc),
+                        }
+                    )
+                    log.exception(
+                        "Failed to save HTML for %s",
+                        raw_page.url,
+                    )
+                    continue
+
+                relative_content_path = str(
+                    Path("raw") / html_filename
+                ).replace("\\", "/")
+
+                page_record = CrawledPage(
+                    page_id=page_id,
+                    url=raw_page.url,
+                    canonical_url=canonical_url,
+                    status=raw_page.status,
+                    content_type=raw_page.headers.get(
+                        "Content-Type",
+                        "",
+                    ),
+                    content_path=relative_content_path,
+                    fetched_at=raw_page.fetched_at.isoformat(),
+                    depth=depth,
+                    links=discovered.links,
+                    document_links=discovered.document_links,
+                    parent_url="",
+                    meta={
+                        "lang": discovered.lang,
+                        "elapsed_ms": raw_page.elapsed_ms,
+                    },
+                )
+
+                pages.append(page_record)
+                pages_written += 1
+
+                # Normal HTML links become the next level in the frontier.
+                try:
+                    frontier.add_links(
+                        raw_page.url,
+                        discovered.links,
+                        depth,
+                    )
+                except Exception as exc:
+                    errors.append(
+                        {
+                            "url": raw_page.url,
+                            "stage": "discover_links",
+                            "error": repr(exc),
+                        }
+                    )
+                    log.exception(
+                        "Failed to add discovered links from %s",
+                        raw_page.url,
+                    )
+
+                # Linked documents are leaves. They are fetched here but
+                # are never added back to the HTML frontier.
+                if (
+                    config.assets.download_documents
+                    and documents_saved < config.assets.max_documents
+                ):
+                    for document_url in discovered.document_links:
+                        if documents_saved >= config.assets.max_documents:
+                            break
+
+                        if not rules.in_scope(document_url, 0):
+                            continue
+
+                        document_ordinal = documents_saved + 1
+
+                        try:
+                            asset = fetcher.fetch_asset(document_url)
+                        except Exception as exc:
+                            errors.append(
+                                {
+                                    "url": document_url,
+                                    "stage": "fetch_document",
+                                    "error": repr(exc),
+                                }
+                            )
+                            log.exception(
+                                "Failed to fetch document %s",
+                                document_url,
+                            )
+                            continue
+
+                        if asset is None:
+                            continue
+
+                        filename = _document_filename(
+                            document_url,
+                            document_ordinal,
+                        )
+
+                        document_path = docs_dir / filename
+
+                        try:
+                            document_path.write_bytes(asset.content)
+                        except OSError as exc:
+                            errors.append(
+                                {
+                                    "url": document_url,
+                                    "stage": "write_document",
+                                    "error": repr(exc),
+                                }
+                            )
+                            log.exception(
+                                "Failed to save document %s",
+                                document_url,
+                            )
+                            continue
+
+                        documents_saved += 1
+
+                        relative_document_path = str(
+                            Path("docs") / filename
+                        ).replace("\\", "/")
+
+                        assets_saved[document_url] = relative_document_path
+
+                        log.info(
+                            "Saved document %s → %s",
+                            document_url,
+                            relative_document_path,
+                        )
+
+    except Exception as exc:
+        errors.append(
+            {
+                "stage": "crawl",
+                "error": repr(exc),
+            }
+        )
+        log.exception("Unexpected crawler error")
+
+    pages_jsonl = run_dir / "pages.jsonl"
+
+    _write_jsonl(
+        pages_jsonl,
+        [
+            {
+                "page_id": page.page_id,
+                "url": page.url,
+                "canonical_url": page.canonical_url,
+                "status": page.status,
+                "content_type": page.content_type,
+                "content_path": page.content_path,
+                "fetched_at": page.fetched_at,
+                "depth": page.depth,
+                "links": page.links,
+                "document_links": page.document_links,
+                "parent_url": page.parent_url,
+                "meta": page.meta,
+            }
+            for page in pages
+        ],
+    )
+
+    finished_at = _utcnow()
+
+    manifest = CrawlManifest(
+        run_id=run_id,
+        site=config.site,
+        seeds=config.seeds,
+        started_at=started_at.isoformat(),
+        finished_at=finished_at.isoformat(),
+        pages_fetched=pages_fetched,
+        pages_written=pages_written,
+        pages_skipped=pages_skipped,
+        errors=errors,
+        config=_config_to_dict(config),
+        assets_saved=assets_saved,
+        documents_parsed=0,
+    )
+
+    manifest_path = run_dir / "manifest.json"
+
+    manifest_path.write_text(
+        json.dumps(
+            {
+                "run_id": manifest.run_id,
+                "site": manifest.site,
+                "seeds": manifest.seeds,
+                "started_at": manifest.started_at,
+                "finished_at": manifest.finished_at,
+                "pages_fetched": manifest.pages_fetched,
+                "pages_written": manifest.pages_written,
+                "pages_skipped": manifest.pages_skipped,
+                "errors": manifest.errors,
+                "config": manifest.config,
+                "assets_saved": manifest.assets_saved,
+                "documents_parsed": manifest.documents_parsed,
+            },
+            ensure_ascii=False,
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+
+    log.info(
+        "Crawl complete: site=%s pages=%d documents=%d errors=%d run=%s",
+        config.site,
+        pages_written,
+        documents_saved,
+        len(errors),
+        run_dir,
+    )
+
+    return run_dir
+
+
+def load_config(path: str | Path) -> CrawlConfig:
+    """Load a CrawlConfig from a YAML file."""
+
+    with Path(path).open(
+        "r",
+        encoding="utf-8",
+    ) as handle:
+        payload = yaml.safe_load(handle) or {}
+
+    return CrawlConfig.from_dict(payload)

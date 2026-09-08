@@ -1,38 +1,29 @@
-# Crawl config for bdren.net.bd.
-#
-#   uv run engine crawl --config configs/crawl.bdren.yaml
-#
-# OWNER: <put your name here on day one — one owner per file>
-#
-# Permission: Our own network. You still crawl it politely, but you have standing to ask
-# internally if something blocks you.
-#
-# This is a starting point. Every knob is documented in crawl.example.yaml;
-# copy across whatever you need and delete this comment when you have.
+﻿# Crawl config for bdren.net.bd.
 
 site: bdren
 
-# Where to start. A sitemap URL is often a better seed than a homepage.
-seeds: []
+seeds:
+  - https://bdren.net.bd/
 
-# Empty derives it from the seeds. Set it explicitly if the site spans
-# subdomains you do or do not want.
-allowed_domains: []
+allowed_domains:
+  - bdren.net.bd
 
 include_patterns: []
+
 exclude_patterns: []
-  # Institutional sites paginate notices and news endlessly, and have search,
-  # login and calendar pages that are not content. Add those here as you find
-  # them. Do NOT exclude linked files — that switches off the PDF pipeline.
 
 max_depth: 3
-max_pages: 20                       # raise this once the capture looks clean
+max_pages: 5
 
 assets:
-  download_documents: true          # much of the real content on these sites
-  max_documents: 25                 # is in PDFs; give them their own budget
+  download_documents: true
+  max_documents: 5
 
 fetch:
   user_agent: "CortexEngine/0.1 (+https://github.com/BdREN-Innovation/Cortex)"
-  delay_seconds: 1.0
+  delay_seconds: 1.5
+  timeout_seconds: 20
+  max_retries: 2
+  max_bytes: 5000000
+  max_asset_bytes: 20000000
   obey_robots: true

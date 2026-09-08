@@ -8,8 +8,10 @@ requires-python = ">=3.12,<3.13"
 # vector type hints. Everything else is yours to choose — add it with
 # `uv add <package>` when you decide you need it. See the README.
 dependencies = [
-    "PyYAML>=6.0",
+    "pyyaml>=6.0",
+    "beautifulsoup4>=4.15.0",
     "numpy>=1.26",
+    "crawl4ai>=0.9.3",
 ]
 
 [project.optional-dependencies]
@@ -27,3 +29,8 @@ packages = ["src/engine"]
 
 [tool.black]
 line-length = 100
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
