@@ -168,15 +168,16 @@ def build_parser() -> argparse.ArgumentParser:
     index.add_argument("--documents", required=True, help="path to documents.jsonl")
     index.add_argument("--config", help="configs/index.yaml")
     index.add_argument("--site")
-    index.add_argument("--provider", choices=["hash", "openai"], help="embedding provider")
+    # No fixed choices: the provider names are whatever knowledge/embedding.py
+    # registers, which is Team B's decision.
+    index.add_argument("--provider", help="embedding provider, overrides the config")
     index.set_defaults(func=cmd_index)
 
     ask = sub.add_parser("ask", help="ask the knowledge base a question")
     ask.add_argument("question")
     ask.add_argument("--index", required=True, help="path to an index directory")
-    ask.add_argument(
-        "--provider", default="extractive", choices=["extractive", "openai", "anthropic"]
-    )
+    # Whatever knowledge/rag.py registers.
+    ask.add_argument("--provider", default="", help="generation provider, overrides the config")
     ask.add_argument("--model", default="")
     ask.add_argument("--top-k", type=int, default=5)
     ask.set_defaults(func=cmd_ask)
@@ -185,7 +186,7 @@ def build_parser() -> argparse.ArgumentParser:
     evaluate.add_argument("--dataset", required=True, help="datasets/<site>/golden.v1.yaml")
     evaluate.add_argument("--index", required=True)
     evaluate.add_argument("--config", help="configs/eval.yaml")
-    evaluate.add_argument("--provider", choices=["extractive", "openai", "anthropic"])
+    evaluate.add_argument("--provider", help="generation provider, overrides the config")
     evaluate.add_argument("--model", default="")
     evaluate.add_argument("--min-pass-rate", type=float, default=0.0, help="exit 1 below this")
     evaluate.set_defaults(func=cmd_eval)

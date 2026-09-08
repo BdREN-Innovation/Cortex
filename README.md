@@ -87,7 +87,7 @@ recording it, so it works for you and breaks for everyone else.
 ```bash
 uv run engine crawl --config configs/crawl.acme.yaml
 uv run python scripts/progress.py
-uv run python -c "import bs4; print(bs4.__version__)"
+uv run python -c "import numpy; print(numpy.__version__)"
 uv run black src scripts        # format
 uv run flake8 src scripts       # lint
 ```
@@ -99,10 +99,10 @@ given code uses them. Every other library is your choice. Decide what you need,
 then add it:
 
 ```bash
-uv add requests                 # adds to pyproject.toml, resolves, updates uv.lock, installs
-uv add beautifulsoup4 lxml      # several at once
-uv add --optional dev mypy      # into the `dev` extra rather than core dependencies
-uv remove requests              # and back out again
+uv add <package>                # adds to pyproject.toml, resolves, updates uv.lock, installs
+uv add <package> <package>      # several at once
+uv add --optional dev <package> # into the `dev` extra rather than core dependencies
+uv remove <package>             # and back out again
 ```
 
 `uv add` does four things in one step: edits `pyproject.toml`, re-resolves the
@@ -116,9 +116,9 @@ This is the part that goes wrong, and the rule is short:
 > **`uv add` changes two files — `pyproject.toml` and `uv.lock`. Commit both, together.**
 
 ```bash
-uv add trafilatura
+uv add <package>
 git add pyproject.toml uv.lock
-git commit -m "Add trafilatura for boilerplate removal"
+git commit -m "Add <package> for <the reason>"
 ```
 
 Your teammates then get it with one command:
@@ -173,8 +173,8 @@ Two layers doing two different jobs:
 
 | File | Holds | Purpose |
 |---|---|---|
-| `pyproject.toml` | ranges — `requests>=2.31` | what the project is *compatible with* |
-| `uv.lock` | exact versions — `requests==2.34.2` | what everyone *actually installs* |
+| `pyproject.toml` | ranges — `<package>>=2.1` | what the project is *compatible with* |
+| `uv.lock` | exact versions — `<package>==2.1.4` | what everyone *actually installs* |
 
 `uv.lock` is committed on purpose. It is why your machine, a teammate's machine
 and a fresh clone all resolve to identical versions.

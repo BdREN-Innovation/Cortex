@@ -34,8 +34,9 @@ time. `index_meta.json` records `name` for exactly this reason. Embedding a
 corpus with one model and querying it with another returns confident nonsense
 and no error — the nastiest failure mode in this pipeline.
 
-Also worth knowing before someone loses an afternoon: **Anthropic has no
-embeddings endpoint.** It is a generation provider only.
+One thing to check early, before you plan around a provider: not every company
+offering an LLM API also offers an embeddings endpoint. Some are generation
+only. Confirm it exists before you build against it.
 """
 
 from __future__ import annotations
