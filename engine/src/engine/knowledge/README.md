@@ -87,6 +87,24 @@ Seconds, offline, as often as you like.
 **If the bytes are on disk, it is yours to fix.** If they were never fetched, it
 is theirs.
 
+### Team C works with you before they can evaluate anything
+
+They have no pipeline to score for the first couple of weeks, so they spend that
+time embedded with you and Team A. Use them:
+
+* **They read your extracted text closely** — writing dataset questions requires
+  it — so they are usually the first to spot chrome that leaked in, a table that
+  came out as loose numbers, or a PDF that produced nothing.
+* **Every question they write is a requirement in disguise.** A question about a
+  table tells you whether tables survived extraction; one about a PDF tells you
+  whether PDFs were parsed at all. Ask for those as they are written, rather
+  than waiting for a scorecard.
+* **They should be in the citation conversation in week one** (§8), because they
+  are the ones who will score whether it worked.
+
+Get their harness pointed at your first real index the day it exists, even if
+the numbers are bad. Especially then.
+
 `CrawledPage` and `CleanDocument` live in `contracts/` and are **frozen after
 day 3**. Raise changes before then.
 
@@ -127,6 +145,19 @@ your corpus. Get their harness running early and let it settle arguments.
 
 Write down what you compared and why you chose what you chose. That reasoning
 is part of the deliverable, not overhead.
+
+### What you are actually processing
+
+The corpora are **cuet.ac.bd** and **bdren.net.bd**. Two things about them
+should shape your choices rather than surprise you later:
+
+* **A lot of the content is in PDFs** — notices, circulars, syllabi, forms.
+  On institutional sites that is often where the real answers live, which makes
+  your PDF parser choice matter more than it would on a docs site.
+* **Check early whether either site serves Bangla, or mixes Bangla and
+  English.** If it does, that decides your embedding model for you — a
+  monolingual English model on bilingual content retrieves badly and gives no
+  error while doing it. Find this out in week one, not after your first index.
 
 ### One constraint that is not yours to change
 
@@ -195,18 +226,87 @@ must drop out of the citations too.
 
 ---
 
-## 8. Definition of done
+## 8. Citations: shared with Team A, delivered by you
 
-- [ ] All 23 of your tests green
+A citation is not decoration. It is the only way a reader can check that an
+answer is true, and Team C grades it directly.
+
+It is also the one requirement that runs the whole length of the pipeline, so
+it is nobody's job alone:
+
+| | |
+|---|---|
+| **Team A** | Captures the provenance in the first place. Nothing downstream can invent a source or repair one captured wrong. |
+| **Team B (you)** | Carry it through extraction and chunking, store it with the vector, and put it in the answer. |
+| **Team C** | Grades whether the citations are real and whether they point at what was actually used. |
+
+**Agree with Team A in week one what a citation has to show a reader**, then
+work backwards together to what has to be captured for that to be possible.
+Doing this in week three means a re-crawl.
+
+### Why it has to be in the store
+
+Here is the constraint that makes this a design decision rather than an
+afterthought: **when you search, all you get back is what the vector store gave
+you.** The answering layer has no other source. If a search result cannot tell
+you where the text came from, you cannot cite it — and no amount of cleverness
+downstream will recover the information.
+
+So whatever a citation needs has to be stored *with* the vector, at index time.
+
+Two ways teams get this wrong, both of which look fine until late:
+
+* **Storing the text and nothing else.** Retrieval works, answers read well,
+  and every citation is empty. You will only notice when Team C starts grading.
+* **Planning to look it up afterwards** — search returns an id, then read
+  `documents.jsonl` to fill in the details. It works on your laptop today, and
+  it breaks the moment the index outlives the files it was built from, or
+  somebody queries it from anywhere else. The index should be self-sufficient.
+
+`Chunk` and `Citation` in `contracts/` already say what a reference consists
+of — a stable id, where it came from, and enough human-readable context that a
+person can find the passage on the page. Decide for yourself how that gets into
+the store and back out again; just make sure it survives the round trip.
+
+**The test to hold yourself to:** take one search result, close every other
+file, and produce a complete citation from it alone. If you cannot, the
+reference is not in the store yet.
+
+### And it has to reach the final answer
+
+Storing it is not the finish line. **`engine ask` must return the citations
+alongside the answer text** — that is the deliverable, and it is what a user and
+Team C both see.
+
+Two things make a citation honest rather than decorative:
+
+* It points at something the model **actually read**. If you dropped chunks to
+  fit a context budget, those references drop too.
+* It is specific enough to be checked. A reader should be able to follow it and
+  find the passage, not just the site.
+
+A refusal carries no citations, and that is correct — there was nothing to
+cite.
+
+---
+
+## 9. Definition of done
+
 - [ ] `engine extract` runs clean on every site Team A delivers
 - [ ] You have read the `text` of five documents per site and found no chrome
 - [ ] A written record of the choices you made — parser, embedder, chunking,
       vector store — and the comparison behind each one
 - [ ] `target_tokens` chosen against Team C's dataset, not guessed
 - [ ] A live Qdrant Cloud collection, with `engine ask` answering against it
-- [ ] Answers carry citations, and unanswerable questions are refused
+- [ ] A single search result carries everything a citation needs — no second
+      lookup, no other file open
+- [ ] Answers carry citations that point at what the model actually read, and
+      unanswerable questions are refused
 
 ---
+
+Team boundaries, handoffs and who decides what:
+[RESPONSIBILITIES.md](../../../../RESPONSIBILITIES.md)
 
 Config reference: [configs/README.md](../../../configs/README.md) — how the four
 config types map to the pipeline stages, plus a worked end-to-end example.

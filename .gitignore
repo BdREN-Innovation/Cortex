@@ -217,6 +217,9 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
+# Session output directories — generated artifacts, not project files.
+outputs/
+
 # Claude
 .claude/
 
@@ -224,3 +227,4 @@ __marimo__/
 CUET_SCRAPER_SPEC.md
 CUET_SCRAPER_SPEC_PART2.md
 SCRAPE_INVENTORY.md
+

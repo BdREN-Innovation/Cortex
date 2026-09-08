@@ -85,10 +85,16 @@ def answer(question: str, retriever: Retriever, config: RagConfig | None = None)
     either generate one from it or refuse. Both outcomes are graded by Team C,
     and refusing well is a feature rather than a failure.
 
-    The returned Answer is what everything downstream sees: the text, the
-    citations, whether it refused, and enough metadata to reproduce the run.
-    Record latency and token usage even when it feels pointless — they are the
-    only way to answer "why is this slow" and "why did this cost that much"
+    The returned Answer is what everything downstream sees, and **it must carry
+    citations**. That is the deliverable — an answer a reader cannot verify is
+    worth very little, and Team C scores it directly.
+
+    Every citation has to point at something the model actually read. If you
+    dropped chunks to fit a context budget, those references drop with them.
+    A refusal carries no citations, which is correct: there was nothing to cite.
+
+    Also record latency and token usage, even when it feels pointless — they are
+    the only way to answer "why is this slow" and "why did this cost that much"
     when somebody asks on day twelve.
     """
     raise NotImplementedError

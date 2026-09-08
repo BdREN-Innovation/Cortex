@@ -3,6 +3,8 @@
 Give it a URL. It crawls the site, cleans and chunks what it finds, embeds it
 into a vector database, and answers questions about it with citations.
 
+The first two targets are **cuet.ac.bd** and **bdren.net.bd**.
+
 ```
    a URL
      │
@@ -286,6 +288,10 @@ each other. `crawler/` does not import `knowledge/`; `knowledge/` does not impor
 Each package has its own README with the build order, library guidance, the
 traps, and a definition of done. **Read yours before writing anything.**
 
+Who owns what, including the boundaries and the handoffs, is written up in
+**[RESPONSIBILITIES.md](RESPONSIBILITIES.md)**. Read that first if you are
+wondering whether something is your job.
+
 | Team | Owns | Brief | Functions |
 |---|---|---|---|
 | **A — Crawler** | fetch a site, save the bytes | [crawler/README.md](engine/src/engine/crawler/README.md) | 16 |
@@ -307,7 +313,13 @@ Team A ──▶ data/sites/<site>/<run>/  ──▶ Team B ──▶ a Retrieve
            pages.jsonl + raw bytes                  (a 3-line Protocol)
 ```
 
-Two things make that work:
+**Citations are the one requirement that spans all three.** Team A captures the
+provenance, Team B carries it into the vector store and out into the answer,
+Team C finds out whether it worked. Agree in week one what a citation has to
+show a reader and work backwards from there — discovering it in week three
+means a re-crawl.
+
+Two things make the rest work:
 
 1. **Nobody is ever blocked.** Team C builds against the `Retriever` protocol
    with a ten-line fake and a sample corpus that ships with the repo. Team B
@@ -413,16 +425,18 @@ before spending anything on generation.
 
 | Days | Team A | Team B | Team C |
 |---|---|---|---|
-| 1–3 | agree contracts; `fetcher`, `frontier` | agree contracts; `extraction`, `pdf` | agree contracts; metrics; **20 golden cases** against the sample corpus |
-| 4–8 | `discover`, `pipeline`; first real site | `parsers`, `documents`, `chunking` | `dataset`, `runner`; grow to ~60 cases |
+| 1–3 | agree contracts; `fetcher`, `frontier` | agree contracts; `extraction`, `pdf` | agree contracts; metrics; **map the two sites with A and B** |
+| 4–8 | `discover`, `pipeline`; first real site | `parsers`, `documents`, `chunking` | `dataset`, `runner`; ~60 cases; **review A and B's output** |
 | 9–12 | 2–4 sites captured and tuned | `embedding`, `store`, `indexer`, `retriever`, `rag`; Qdrant Cloud | run eval against the real index; **feed failures back** |
 | 13–15 | freeze, handover notes | demo path end to end | final scorecard, written verdict |
 
 Two sequencing notes that matter more than they look:
 
-- **Team C runs their first real evaluation on day 8, not day 14.** A scorecard
-  delivered at the end is a post-mortem; one delivered mid-project changes what
-  the other teams build.
+- **Team C does not wait for a pipeline.** For the first two weeks they work
+  alongside Teams A and B — reading captures and extracted text as *content*,
+  which is how the missing section or the mangled table gets found while it is
+  still a config change rather than a re-crawl. Their first real evaluation
+  runs on day 8, not day 14: a scorecard at the end is a post-mortem.
 - **Team B gets `extract` working before anything else.** It unblocks their own
   iteration loop and gives Team A a way to check their captures.
 

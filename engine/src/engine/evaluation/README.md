@@ -44,11 +44,56 @@ first page. Then write dataset questions while waiting for a real index.
 
 ---
 
-## 3. You are not blocked. Ever.
+## 3. Weeks one and two: work with the other teams
 
-This is the thing to understand on day one: **you do not need Team B's retriever
-to start.** The `Retriever` Protocol in `contracts/retrieval.py` is the only
-thing you code against, and it is three lines:
+There is no pipeline to evaluate yet, and there will not be one for a while.
+That does not mean you wait — it means **you spend the early weeks working
+inside Teams A and B**, on their tasks, not just reviewing their output.
+
+The project crawls **cuet.ac.bd** and **bdren.net.bd**. Both are institutional
+sites: a lot of the real content is in PDFs, there are tables everywhere, and
+templates vary between sections. Somebody has to go through them page by page
+and work out what is there. That is work you are well placed to do, because you
+are going to have to read the corpus closely anyway.
+
+Four things to do before anything works end to end:
+
+**Help map the sites.** Before Team A can write a sensible crawl config,
+somebody has to know where the content actually is — which sections matter,
+where the PDFs are kept, what paginates forever, what is a dead archive. Sit
+with them and go through the sites. This is genuinely useful work and it is
+faster with more eyes on it.
+
+**Help prepare the data, including the citation side.** Team A captures the
+provenance and Team B stores it, but *you* are the one who will score whether a
+citation is any good — so be in that work, not downstream of it. Look at what
+comes out of a crawl and ask the awkward question early: given this record,
+could a reader actually find their way back to the original? A PDF with no
+trail back to the page that linked it is a citation nobody can follow, and it is
+cheap to fix in week one.
+
+**Read their output and tell them what is wrong with it.** You are the first
+person who will notice that a page is full of cookie-banner text, that a table
+came out as a wall of loose numbers, or that a whole section of the site is
+missing. Team A and Team B are each looking at their own stage; you are the only
+one reading it as content.
+
+**Feed them questions they cannot yet answer.** Every case you write is a
+requirement in disguise. A question whose answer sits in a table tells Team B
+whether tables survived extraction; one whose answer is only in a PDF notice
+tells them whether PDFs were parsed at all. Hand those over as you write them,
+rather than saving them for a scorecard.
+
+The cost of not doing this is concrete: a problem you would have spotted in
+week one becomes a re-crawl in week three. And you have the time — your own
+package is 14 functions, the smallest share by a distance, precisely so that
+you can spend the early weeks on theirs.
+
+### You are also never blocked on them
+
+Everything in this package can be built before Team B has a retriever. The
+`Retriever` Protocol in `contracts/retrieval.py` is the only thing you code
+against, and it is three lines:
 
 ```python
 class Retriever(Protocol):
@@ -64,14 +109,16 @@ class FakeRetriever:
         return [c for c in self.chunks if question.split()[0].lower() in c.text.lower()][:top_k]
 ```
 
-When Team B's real retriever lands, you swap the object in and change
-nothing else — that is what coding against a Protocol buys you.
+When Team B's real retriever lands, you swap the object in and change nothing
+else — that is what coding against a Protocol buys you.
 
 ---
 
 ## 4. Building the dataset from the cleaned data
 
 This is the real work. Budget most of your two weeks for it.
+
+You are writing datasets for **cuet.ac.bd** and **bdren.net.bd**.
 
 Your source is **`documents.jsonl`** — Team B's cleaned output, not the live
 site. That matters: you must write questions against the text the system will
@@ -282,6 +329,12 @@ That table is what actually gets fixed.
 
 ## 7. Syncing with the other teams
 
+Citations are a three-team concern: Team A captures the provenance, Team B
+carries it into the store and out into the answer, and **you are the one who
+finds out whether it actually worked.** Your dataset is what turns "we think
+citations work" into a number. Score them early — a missing reference
+discovered in week one is a config change, and in week three it is a re-crawl.
+
 | You need | From | How |
 |---|---|---|
 | `doc_id`s for `relevant_doc_ids` | Team A | Read `pages.jsonl` — `page_id` becomes `doc_id` |
@@ -311,6 +364,9 @@ cases and the numbers are bad — *especially* then.
 - [ ] A short written verdict: what this system is and is not ready for
 
 ---
+
+Team boundaries, handoffs and who decides what:
+[RESPONSIBILITIES.md](../../../../RESPONSIBILITIES.md)
 
 Config reference: [configs/README.md](../../../configs/README.md) — how the four
 config types map to the pipeline stages, plus a worked end-to-end example.
