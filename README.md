@@ -288,6 +288,10 @@ each other. `crawler/` does not import `knowledge/`; `knowledge/` does not impor
 Each package has its own README with the build order, library guidance, the
 traps, and a definition of done. **Read yours before writing anything.**
 
+Who owns what, including the boundaries and the handoffs, is written up in
+**[RESPONSIBILITIES.md](RESPONSIBILITIES.md)**. Read that first if you are
+wondering whether something is your job.
+
 | Team | Owns | Brief | Functions |
 |---|---|---|---|
 | **A — Crawler** | fetch a site, save the bytes | [crawler/README.md](engine/src/engine/crawler/README.md) | 16 |

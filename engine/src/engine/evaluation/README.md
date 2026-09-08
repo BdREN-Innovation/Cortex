@@ -365,5 +365,8 @@ cases and the numbers are bad — *especially* then.
 
 ---
 
+Team boundaries, handoffs and who decides what:
+[RESPONSIBILITIES.md](../../../../RESPONSIBILITIES.md)
+
 Config reference: [configs/README.md](../../../configs/README.md) — how the four
 config types map to the pipeline stages, plus a worked end-to-end example.
