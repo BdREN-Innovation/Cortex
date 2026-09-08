@@ -96,25 +96,64 @@ If a site blocks you, stop and tell the team. Do not "work around" it.
 
 ---
 
-## 4. Four people, four sites, no merge conflicts
+## 4. The two target sites
 
-**Each of you owns one file: `configs/crawl.<yoursite>.yaml`.** Nobody edits a
-shared module, so there is nothing to merge at the end — there was only ever one
-crawler, driven four different ways.
+The project crawls **cuet.ac.bd** and **bdren.net.bd**. Two sites, four of you,
+so the work does not divide one-config-per-person the way it would with four.
 
-Do **not** write `scrape_site1.py`, `scrape_site2.py`. Four scripts means four
-sets of bugs, four robots.txt implementations, and a painful merge in week three.
+Sort the split out on day one and write it down. Two people per site is the
+obvious shape; another is one pair on capture correctness across both sites
+while the other pair owns scope and coverage. What matters is that each config
+file has **one owner** — `configs/crawl.cuet.yaml` and
+`configs/crawl.bdren.yaml` are committed as starting points with the seeds
+blank.
+
+Do **not** write `scrape_cuet.py` and `scrape_bdren.py`. Two scripts means two
+sets of bugs, two robots.txt implementations, and a painful merge in week three.
+One crawler, driven twice:
 
 ```bash
-cp configs/crawl.example.yaml configs/crawl.mysite.yaml
-uv run engine crawl --config configs/crawl.mysite.yaml
+uv run engine crawl --config configs/crawl.cuet.yaml
+uv run engine crawl --config configs/crawl.bdren.yaml
 ```
 
 Start with `max_pages: 20` while you tune. Raise it once the capture is clean.
 
+### What to expect from these two in particular
+
+Neither is a tidy documentation site, and that is the point — a crawler that
+only works on clean sites is not a crawler.
+
+* **Institutional sites hide a lot of content in PDFs** — notices, circulars,
+  syllabi, forms, tenders. On a university site that is often where the real
+  answers live. Your `max_documents` budget matters more here than it would on
+  a product site.
+* **Expect tables**, in pages and in PDFs: course lists, fee structures,
+  schedules, contact directories.
+* **Check whether either site serves Bangla, or mixes Bangla and English.**
+  If so, say so loudly and early — it affects character encoding in your
+  capture, and it affects Team B's choice of embedding model, which is a
+  decision they should not make after discovering the corpus is bilingual.
+* **Expect old sections**, inconsistent templates, and pages that have not been
+  touched in years. Different parts of one domain may need different scope
+  rules.
+* **Notice boards and news listings paginate**, often endlessly. That is what
+  `exclude_patterns` is for.
+
+### Permission is not the same for both
+
+**bdren.net.bd is our own network**, so you have standing to crawl it and to
+ask internally if something blocks you. **cuet.ac.bd is not ours.** Treat it as
+you would any third-party site: obey robots.txt, keep the delay conservative,
+and if it starts refusing you, stop and raise it rather than working around it.
+Getting a university's network to block BdREN's IP range is not a mistake you
+can quietly undo.
+
+### Tuning either one
+
 | Problem | Fix |
 |---|---|
-| Crawling into junk (search, cart, login, calendars) | `exclude_patterns` |
+| Crawling into junk (search, login, calendars, archives) | `exclude_patterns` |
 | Missing pages that exist | raise `max_depth`, add seeds, loosen `include_patterns` |
 | Getting rate-limited or blocked | raise `fetch.delay_seconds` |
 | A huge PDF library swamping the run | `assets.max_documents` |

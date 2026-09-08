@@ -33,9 +33,14 @@ YAML and the matching dataclass in step.
 becomes the folder name under `data/`. So `crawl.bdren.yaml` with `site: bdren`
 produces `data/sites/bdren/<run>/`.
 
-**One config per site, one owner each.** Four people crawling four sites means
-four config files and zero merge conflicts — nobody edits a shared module.
-Do not write `scrape_site1.py`; put the differences here.
+**One config per site, one owner each.** The two targets already have starter
+crawl configs committed — `crawl.cuet.yaml` and `crawl.bdren.yaml` — with an
+OWNER line to fill in on day one. Put the per-site differences in these files
+rather than in code: nobody should be editing a shared module to fix one site,
+and there is then nothing to merge at the end.
+
+`crawl.acme.yaml` points at the bundled fixture site and is there to check your
+crawler works before you aim it at a real one.
 
 ---
 

@@ -146,6 +146,19 @@ your corpus. Get their harness running early and let it settle arguments.
 Write down what you compared and why you chose what you chose. That reasoning
 is part of the deliverable, not overhead.
 
+### What you are actually processing
+
+The corpora are **cuet.ac.bd** and **bdren.net.bd**. Two things about them
+should shape your choices rather than surprise you later:
+
+* **A lot of the content is in PDFs** — notices, circulars, syllabi, forms.
+  On institutional sites that is often where the real answers live, which makes
+  your PDF parser choice matter more than it would on a docs site.
+* **Check early whether either site serves Bangla, or mixes Bangla and
+  English.** If it does, that decides your embedding model for you — a
+  monolingual English model on bilingual content retrieves badly and gives no
+  error while doing it. Find this out in week one, not after your first index.
+
 ### One constraint that is not yours to change
 
 Embeddings come from a hosted API — nothing runs a model locally, because you

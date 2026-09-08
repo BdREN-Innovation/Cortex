@@ -3,6 +3,8 @@
 Give it a URL. It crawls the site, cleans and chunks what it finds, embeds it
 into a vector database, and answers questions about it with citations.
 
+The first two targets are **cuet.ac.bd** and **bdren.net.bd**.
+
 ```
    a URL
      │
@@ -419,7 +421,7 @@ before spending anything on generation.
 
 | Days | Team A | Team B | Team C |
 |---|---|---|---|
-| 1–3 | agree contracts; `fetcher`, `frontier` | agree contracts; `extraction`, `pdf` | agree contracts; metrics; **20 golden cases**; sit with A and B |
+| 1–3 | agree contracts; `fetcher`, `frontier` | agree contracts; `extraction`, `pdf` | agree contracts; metrics; **map the two sites with A and B** |
 | 4–8 | `discover`, `pipeline`; first real site | `parsers`, `documents`, `chunking` | `dataset`, `runner`; ~60 cases; **review A and B's output** |
 | 9–12 | 2–4 sites captured and tuned | `embedding`, `store`, `indexer`, `retriever`, `rag`; Qdrant Cloud | run eval against the real index; **feed failures back** |
 | 13–15 | freeze, handover notes | demo path end to end | final scorecard, written verdict |

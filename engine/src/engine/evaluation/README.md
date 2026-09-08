@@ -47,30 +47,47 @@ first page. Then write dataset questions while waiting for a real index.
 ## 3. Weeks one and two: work with the other teams
 
 There is no pipeline to evaluate yet, and there will not be one for a while.
-That does not mean you wait — it means **you spend the early weeks embedded
-with Teams A and B**, because that is when your eyes are worth the most.
+That does not mean you wait — it means **you spend the early weeks working
+inside Teams A and B**, on their tasks, not just reviewing their output.
 
-Three things you can do before anything works end to end:
+The project crawls **cuet.ac.bd** and **bdren.net.bd**. Both are institutional
+sites: a lot of the real content is in PDFs, there are tables everywhere, and
+templates vary between sections. Somebody has to go through them page by page
+and work out what is there. That is work you are well placed to do, because you
+are going to have to read the corpus closely anyway.
 
-**Read their output and tell them what is wrong with it.** You are about to
-read the corpus closely anyway — writing questions requires it. So you are the
-first person who will notice that a page is full of cookie-banner text, that a
-table came out as a wall of loose numbers, or that a whole section of the site
-is missing. Team A and Team B are each looking at their own stage; you are the
-only one reading it as content.
+Four things to do before anything works end to end:
 
-**Settle what a citation has to show.** Team A captures it, Team B stores and
-returns it, and you score it — so you should be in that conversation in week
-one. See §7 of Team A's README and §8 of Team B's.
+**Help map the sites.** Before Team A can write a sensible crawl config,
+somebody has to know where the content actually is — which sections matter,
+where the PDFs are kept, what paginates forever, what is a dead archive. Sit
+with them and go through the sites. This is genuinely useful work and it is
+faster with more eyes on it.
+
+**Help prepare the data, including the citation side.** Team A captures the
+provenance and Team B stores it, but *you* are the one who will score whether a
+citation is any good — so be in that work, not downstream of it. Look at what
+comes out of a crawl and ask the awkward question early: given this record,
+could a reader actually find their way back to the original? A PDF with no
+trail back to the page that linked it is a citation nobody can follow, and it is
+cheap to fix in week one.
+
+**Read their output and tell them what is wrong with it.** You are the first
+person who will notice that a page is full of cookie-banner text, that a table
+came out as a wall of loose numbers, or that a whole section of the site is
+missing. Team A and Team B are each looking at their own stage; you are the only
+one reading it as content.
 
 **Feed them questions they cannot yet answer.** Every case you write is a
-requirement in disguise. "How many seats does the Pro plan include?" tells Team
-B whether tables survived. A question about a PDF tells them whether PDFs were
-parsed. Hand those over as you write them rather than saving them for a
-scorecard.
+requirement in disguise. A question whose answer sits in a table tells Team B
+whether tables survived extraction; one whose answer is only in a PDF notice
+tells them whether PDFs were parsed at all. Hand those over as you write them,
+rather than saving them for a scorecard.
 
 The cost of not doing this is concrete: a problem you would have spotted in
-week one becomes a re-crawl in week three.
+week one becomes a re-crawl in week three. And you have the time — your own
+package is 14 functions, the smallest share by a distance, precisely so that
+you can spend the early weeks on theirs.
 
 ### You are also never blocked on them
 
@@ -100,6 +117,8 @@ else — that is what coding against a Protocol buys you.
 ## 4. Building the dataset from the cleaned data
 
 This is the real work. Budget most of your two weeks for it.
+
+You are writing datasets for **cuet.ac.bd** and **bdren.net.bd**.
 
 Your source is **`documents.jsonl`** — Team B's cleaned output, not the live
 site. That matters: you must write questions against the text the system will

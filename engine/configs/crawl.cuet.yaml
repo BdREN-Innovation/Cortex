@@ -1,0 +1,38 @@
+# Crawl config for cuet.ac.bd.
+#
+#   uv run engine crawl --config configs/crawl.cuet.yaml
+#
+# OWNER: <put your name here on day one — one owner per file>
+#
+# Permission: NOT ours — a third-party university site. Obey robots.txt, keep the
+# delay conservative, and if it starts refusing you, stop and raise it.
+#
+# This is a starting point. Every knob is documented in crawl.example.yaml;
+# copy across whatever you need and delete this comment when you have.
+
+site: cuet
+
+# Where to start. A sitemap URL is often a better seed than a homepage.
+seeds: []
+
+# Empty derives it from the seeds. Set it explicitly if the site spans
+# subdomains you do or do not want.
+allowed_domains: []
+
+include_patterns: []
+exclude_patterns: []
+  # Institutional sites paginate notices and news endlessly, and have search,
+  # login and calendar pages that are not content. Add those here as you find
+  # them. Do NOT exclude linked files — that switches off the PDF pipeline.
+
+max_depth: 3
+max_pages: 20                       # raise this once the capture looks clean
+
+assets:
+  download_documents: true          # much of the real content on these sites
+  max_documents: 25                 # is in PDFs; give them their own budget
+
+fetch:
+  user_agent: "CortexEngine/0.1 (+https://github.com/BdREN-Innovation/Cortex)"
+  delay_seconds: 1.5
+  obey_robots: true
