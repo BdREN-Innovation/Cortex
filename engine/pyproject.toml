@@ -9,6 +9,9 @@ requires-python = ">=3.12,<3.13"
 # `uv add <package>` when you decide you need it. See the README.
 dependencies = [
     "PyYAML>=6.0",
+    "beautifulsoup4>=4.15.0",
+    "crawl4ai>=0.9.3",
+    "httpx>=0.28.1",
     "numpy>=1.26",
     "requests>=2.32",
 ]
