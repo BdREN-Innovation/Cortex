@@ -13,7 +13,7 @@
   "title": "Orientation program for undergraduate courses for the academic year 2025-26 held at CUET.",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/186__16a20cb3.html",
   "markdown_path": "news-events/news/186__16a20cb3.md",
   "text_chars": 2966,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 186,
-  "date": "2026-07-02"
+  "date": "2026-07-02",
+  "headline_only": false
 }

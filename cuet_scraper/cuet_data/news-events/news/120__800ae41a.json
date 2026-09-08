@@ -13,7 +13,7 @@
   "title": "IET Launches Research on Renewable Energy Solutions for Bangladesh",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/120__800ae41a.html",
   "markdown_path": "news-events/news/120__800ae41a.md",
   "text_chars": 253,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 120,
-  "date": "2025-01-16"
+  "date": "2025-01-16",
+  "headline_only": false
 }

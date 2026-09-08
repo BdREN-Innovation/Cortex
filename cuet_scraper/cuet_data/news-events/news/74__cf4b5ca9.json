@@ -13,7 +13,7 @@
   "title": "Workshop on Metallurgical Testing Techniques",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/74__cf4b5ca9.html",
   "markdown_path": "news-events/news/74__cf4b5ca9.md",
   "text_chars": 361,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 74,
-  "date": "2024-11-05"
+  "date": "2024-11-05",
+  "headline_only": false
 }

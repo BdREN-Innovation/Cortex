@@ -13,7 +13,7 @@
   "title": "Honorable Vice Chancellor's greetings with CUET family.",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/175__3bc60a0c.html",
   "markdown_path": "news-events/news/175__3bc60a0c.md",
   "text_chars": 1468,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 175,
-  "date": "2026-03-29"
+  "date": "2026-03-29",
+  "headline_only": false
 }

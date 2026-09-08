@@ -13,7 +13,7 @@
   "title": "Field Visit on \"Landslide Risk Assessment in Hilly Regions\" Conducted by DEE",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/58__61f64d53.html",
   "markdown_path": "news-events/news/58__61f64d53.md",
   "text_chars": 524,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 58,
-  "date": "2025-01-25"
+  "date": "2025-01-25",
+  "headline_only": false
 }

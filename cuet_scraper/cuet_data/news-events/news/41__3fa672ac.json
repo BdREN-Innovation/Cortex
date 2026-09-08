@@ -13,7 +13,7 @@
   "title": "CUET Celebrates 50th Anniversary as a Leading Engineering Institution in Bangladesh",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/41__3fa672ac.html",
   "markdown_path": "news-events/news/41__3fa672ac.md",
   "text_chars": 1404,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 41,
-  "date": "2024-09-19"
+  "date": "2024-09-19",
+  "headline_only": false
 }

@@ -13,7 +13,7 @@
   "title": "CUET VC congratulates Mirza Fakhrul Islam Alamgir on being elected as His Excellency the President.",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/200__2b75167c.html",
   "markdown_path": "news-events/news/200__2b75167c.md",
   "text_chars": 956,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 200,
-  "date": "2026-08-20"
+  "date": "2026-08-20",
+  "headline_only": false
 }

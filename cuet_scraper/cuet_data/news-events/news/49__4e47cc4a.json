@@ -13,7 +13,7 @@
   "title": "Conference on Resilient Architecture Held at CUET.",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/49__4e47cc4a.html",
   "markdown_path": "news-events/news/49__4e47cc4a.md",
   "text_chars": 3556,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 49,
-  "date": "2024-12-18"
+  "date": "2024-12-18",
+  "headline_only": false
 }

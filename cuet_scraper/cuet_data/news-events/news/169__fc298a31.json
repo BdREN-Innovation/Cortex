@@ -13,7 +13,7 @@
   "title": "ICE CUET Student Chapter’s Opening Ceremony held At CUET",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/169__fc298a31.html",
   "markdown_path": "news-events/news/169__fc298a31.md",
   "text_chars": 1214,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 169,
-  "date": "2026-02-01"
+  "date": "2026-02-01",
+  "headline_only": false
 }

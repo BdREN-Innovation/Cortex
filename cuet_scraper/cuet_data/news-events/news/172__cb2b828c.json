@@ -13,7 +13,7 @@
   "title": "CUET launches project online management system",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/172__cb2b828c.html",
   "markdown_path": "news-events/news/172__cb2b828c.md",
   "text_chars": 750,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 172,
-  "date": "2026-02-17"
+  "date": "2026-02-17",
+  "headline_only": false
 }

@@ -13,7 +13,7 @@
   "title": "Workshop on \"Sustainable Chemistry for Green Solutions",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/84__9d62beda.html",
   "markdown_path": "news-events/news/84__9d62beda.md",
   "text_chars": 360,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 84,
-  "date": "2025-01-05"
+  "date": "2025-01-05",
+  "headline_only": false
 }

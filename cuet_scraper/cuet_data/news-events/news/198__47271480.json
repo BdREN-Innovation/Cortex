@@ -13,7 +13,7 @@
   "title": "ন্যাশনাল আরবান ডিজাইন প্রতিযোগিতার বিজয়ীদের নাম ঘোষণা: তরুণ স্থপতিদের চোখে পরিবেশবান্ধব ঢাকার নতুন রূপকল্প",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/198__47271480.html",
   "markdown_path": "news-events/news/198__47271480.md",
   "text_chars": 3055,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 198,
-  "date": "2026-06-25"
+  "date": "2026-06-25",
+  "headline_only": false
 }

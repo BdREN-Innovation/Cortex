@@ -13,7 +13,7 @@
   "title": "Martyrs' Day and International Mother Language Day celebrated at CUET",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/173__6aaaae9d.html",
   "markdown_path": "news-events/news/173__6aaaae9d.md",
   "text_chars": 2725,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 173,
-  "date": "2026-02-21"
+  "date": "2026-02-21",
+  "headline_only": false
 }

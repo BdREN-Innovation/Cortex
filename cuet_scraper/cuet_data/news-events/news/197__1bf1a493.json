@@ -13,7 +13,7 @@
   "title": "৫ম বর্ষের আন্ডারগ্র্যাজুয়েট থিসিস জুরি ও গ্র্যাজুয়েশন প্রজেক্ট শো ২০২৬",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/197__1bf1a493.html",
   "markdown_path": "news-events/news/197__1bf1a493.md",
   "text_chars": 1020,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 197,
-  "date": "2026-07-16"
+  "date": "2026-07-16",
+  "headline_only": false
 }

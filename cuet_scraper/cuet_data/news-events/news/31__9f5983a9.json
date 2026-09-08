@@ -13,7 +13,7 @@
   "title": "Seminar on Resilient Civil Infrastructures for the Future held at CUET",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/31__9f5983a9.html",
   "markdown_path": "news-events/news/31__9f5983a9.md",
   "text_chars": 881,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 31,
-  "date": "2024-05-23"
+  "date": "2024-05-23",
+  "headline_only": false
 }

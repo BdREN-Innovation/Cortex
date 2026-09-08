@@ -13,7 +13,7 @@
   "title": "চুয়েটে জমকালো আয়োজনে বার্ষিক ক্রীড়া প্রতিযোগিতা—২০২৬ সম্পন্ন",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/164__af0f3ba9.html",
   "markdown_path": "news-events/news/164__af0f3ba9.md",
   "text_chars": 2977,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 164,
-  "date": "2026-01-21"
+  "date": "2026-01-21",
+  "headline_only": false
 }

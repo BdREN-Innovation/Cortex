@@ -13,7 +13,7 @@
   "title": "The Honorable Finance Minister is coming to CUET on the occasion of the 24th University Day.",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/203__4fd9056f.html",
   "markdown_path": "news-events/news/203__4fd9056f.md",
   "text_chars": 4132,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 203,
-  "date": "2026-08-30"
+  "date": "2026-08-30",
+  "headline_only": false
 }

@@ -13,7 +13,7 @@
   "title": "Workshop on \"Philosophy and Ethics in Modern Society\"",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/91__7bfc436c.html",
   "markdown_path": "news-events/news/91__7bfc436c.md",
   "text_chars": 328,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 91,
-  "date": "2025-01-15"
+  "date": "2025-01-15",
+  "headline_only": false
 }

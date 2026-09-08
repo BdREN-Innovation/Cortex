@@ -13,7 +13,7 @@
   "title": "Workshop on Urban Design and Planning",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/77__a05df5c5.html",
   "markdown_path": "news-events/news/77__a05df5c5.md",
   "text_chars": 339,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 77,
-  "date": "2024-12-28"
+  "date": "2024-12-28",
+  "headline_only": false
 }

@@ -13,7 +13,7 @@
   "title": "Festive annual sports competition-2024 ends at CUET.",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/11__6f7f310a.html",
   "markdown_path": "news-events/news/11__6f7f310a.md",
   "text_chars": 1889,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 11,
-  "date": "2024-01-11"
+  "date": "2024-01-11",
+  "headline_only": false
 }

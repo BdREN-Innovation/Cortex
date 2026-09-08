@@ -13,7 +13,7 @@
   "title": "Three Organizations Signed MoU with CUET.",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/25__5f7e42a3.html",
   "markdown_path": "news-events/news/25__5f7e42a3.md",
   "text_chars": 1316,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 25,
-  "date": "2024-05-20"
+  "date": "2024-05-20",
+  "headline_only": false
 }

@@ -13,7 +13,7 @@
   "title": "Seminar on \"Emerging Trends in Electrical Engineering\"",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/95__5fd5fa39.html",
   "markdown_path": "news-events/news/95__5fd5fa39.md",
   "text_chars": 464,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 95,
-  "date": "2025-04-05"
+  "date": "2025-04-05",
+  "headline_only": false
 }

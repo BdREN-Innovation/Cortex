@@ -13,7 +13,7 @@
   "title": "Workshop on \"Urban Disaster Preparedness and Risk Mitigation\" Held at CUET",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/56__65003043.html",
   "markdown_path": "news-events/news/56__65003043.md",
   "text_chars": 580,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 56,
-  "date": "2025-01-10"
+  "date": "2025-01-10",
+  "headline_only": false
 }

@@ -13,7 +13,7 @@
   "title": "Workshop on Geospatial Technologies in Urban Planning",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/79__3eda35da.html",
   "markdown_path": "news-events/news/79__3eda35da.md",
   "text_chars": 305,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 79,
-  "date": "2024-12-29"
+  "date": "2024-12-29",
+  "headline_only": false
 }

@@ -13,7 +13,7 @@
   "title": "Seminar on \"Sustainable Mining Practices\"",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/69__245d2f37.html",
   "markdown_path": "news-events/news/69__245d2f37.md",
   "text_chars": 414,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 69,
-  "date": "2025-01-18"
+  "date": "2025-01-18",
+  "headline_only": false
 }

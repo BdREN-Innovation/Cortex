@@ -13,7 +13,7 @@
   "title": "চুয়েটের স্নাতক ২০২৫-২০২৬ শিক্ষাবষের্র ভর্তি পরীক্ষা ১৭ জানুয়ারি শনিবার।",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/162__a698db41.html",
   "markdown_path": "news-events/news/162__a698db41.md",
   "text_chars": 1046,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 162,
-  "date": "2026-01-15"
+  "date": "2026-01-15",
+  "headline_only": false
 }

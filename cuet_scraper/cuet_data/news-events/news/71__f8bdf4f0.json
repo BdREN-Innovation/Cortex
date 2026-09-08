@@ -13,7 +13,7 @@
   "title": "Seminar on \"Industry 4.0 and Digital Transformation\"",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/71__f8bdf4f0.html",
   "markdown_path": "news-events/news/71__f8bdf4f0.md",
   "text_chars": 471,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 71,
-  "date": "2025-01-20"
+  "date": "2025-01-20",
+  "headline_only": false
 }

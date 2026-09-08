@@ -13,7 +13,7 @@
   "title": "IICT, CUET 4th Board of Governors Meeting.",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/187__0521e641.html",
   "markdown_path": "news-events/news/187__0521e641.md",
   "text_chars": 1269,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 187,
-  "date": "2026-07-08"
+  "date": "2026-07-08",
+  "headline_only": false
 }

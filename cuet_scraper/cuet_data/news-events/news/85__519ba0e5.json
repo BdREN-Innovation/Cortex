@@ -13,7 +13,7 @@
   "title": "Research Exhibition on \"Nanomaterials and Their Applications\"",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/85__519ba0e5.html",
   "markdown_path": "news-events/news/85__519ba0e5.md",
   "text_chars": 335,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 85,
-  "date": "2024-12-20"
+  "date": "2024-12-20",
+  "headline_only": false
 }

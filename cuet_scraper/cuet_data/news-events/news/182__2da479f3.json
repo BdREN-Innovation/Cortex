@@ -13,7 +13,7 @@
   "title": "There is no alternative to building sustainable sanitation system : CUET VC",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/182__2da479f3.html",
   "markdown_path": "news-events/news/182__2da479f3.md",
   "text_chars": 1474,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 182,
-  "date": "2026-05-11"
+  "date": "2026-05-11",
+  "headline_only": false
 }

@@ -13,7 +13,7 @@
   "title": "চুয়েট উপাচার্যের সাথে নব-গঠিত চুয়েটের শিক্ষক সমিতির সৌজন্য সাক্ষাৎ",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/163__38185455.html",
   "markdown_path": "news-events/news/163__38185455.md",
   "text_chars": 1202,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 163,
-  "date": "2026-01-18"
+  "date": "2026-01-18",
+  "headline_only": false
 }

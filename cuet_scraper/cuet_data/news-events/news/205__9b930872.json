@@ -13,7 +13,7 @@
   "title": "CUET Celebrates 24th University Day with Grand Festivities.",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/205__9b930872.html",
   "markdown_path": "news-events/news/205__9b930872.md",
   "text_chars": 5137,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 205,
-  "date": "2026-09-01"
+  "date": "2026-09-01",
+  "headline_only": false
 }

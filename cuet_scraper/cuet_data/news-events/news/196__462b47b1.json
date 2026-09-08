@@ -13,7 +13,7 @@
   "title": "চুয়েটে স্থাপত্য বিভাগে ‘Spatial (IN) Justice’ শীর্ষক সেমিনার অনুষ্ঠিত",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/196__462b47b1.html",
   "markdown_path": "news-events/news/196__462b47b1.md",
   "text_chars": 1543,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 196,
-  "date": "2026-08-18"
+  "date": "2026-08-18",
+  "headline_only": false
 }

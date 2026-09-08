@@ -13,7 +13,7 @@
   "title": "\"Inter hall football Competition -2025\" started at CUET.",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/133__dd82072b.html",
   "markdown_path": "news-events/news/133__dd82072b.md",
   "text_chars": 1086,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 133,
-  "date": "2025-05-15"
+  "date": "2025-05-15",
+  "headline_only": false
 }

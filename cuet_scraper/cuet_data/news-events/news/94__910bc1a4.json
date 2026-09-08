@@ -13,7 +13,7 @@
   "title": "Workshop on \"Renewable Energy Systems and Smart Grids\"",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/94__910bc1a4.html",
   "markdown_path": "news-events/news/94__910bc1a4.md",
   "text_chars": 448,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 94,
-  "date": "2025-01-10"
+  "date": "2025-01-10",
+  "headline_only": false
 }

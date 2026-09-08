@@ -13,7 +13,7 @@
   "title": "A seminar on “Nanotechnology” Held at CUET",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/48__6a3fcb01.html",
   "markdown_path": "news-events/news/48__6a3fcb01.md",
   "text_chars": 2389,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 48,
-  "date": "2025-01-06"
+  "date": "2025-01-06",
+  "headline_only": false
 }

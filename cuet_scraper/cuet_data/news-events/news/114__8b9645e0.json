@@ -13,7 +13,7 @@
   "title": "CUET IICT Signs MoU with Global Tech Leader",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/114__8b9645e0.html",
   "markdown_path": "news-events/news/114__8b9645e0.md",
   "text_chars": 276,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 114,
-  "date": "2025-01-15"
+  "date": "2025-01-15",
+  "headline_only": false
 }

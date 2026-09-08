@@ -13,7 +13,7 @@
   "title": "Hands-on-Training on BAC Accreditation Criteria/Standards-1",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/5__8109c87a.html",
   "markdown_path": "news-events/news/5__8109c87a.md",
   "text_chars": 1014,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 5,
-  "date": "2024-03-25"
+  "date": "2024-03-25",
+  "headline_only": false
 }

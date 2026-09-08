@@ -13,7 +13,7 @@
   "title": "Inter-University Workshop held at CUET.",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/36__de71fe33.html",
   "markdown_path": "news-events/news/36__de71fe33.md",
   "text_chars": 1470,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 36,
-  "date": "2024-05-26"
+  "date": "2024-05-26",
+  "headline_only": false
 }

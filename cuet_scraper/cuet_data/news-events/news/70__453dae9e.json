@@ -13,7 +13,7 @@
   "title": "Workshop on \"Smart Automation Systems\"",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/70__453dae9e.html",
   "markdown_path": "news-events/news/70__453dae9e.md",
   "text_chars": 518,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 70,
-  "date": "2025-01-15"
+  "date": "2025-01-15",
+  "headline_only": false
 }

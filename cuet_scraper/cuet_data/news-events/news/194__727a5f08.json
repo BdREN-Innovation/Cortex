@@ -13,7 +13,7 @@
   "title": "CUET VC's courtesy call and exchange of views with Water Resources Minister.",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/194__727a5f08.html",
   "markdown_path": "news-events/news/194__727a5f08.md",
   "text_chars": 894,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 194,
-  "date": "2026-08-18"
+  "date": "2026-08-18",
+  "headline_only": false
 }

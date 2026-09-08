@@ -13,7 +13,7 @@
   "title": "IET Collaborates with Industry Leaders to Develop Green Energy Solutions",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/122__abc3a249.html",
   "markdown_path": "news-events/news/122__abc3a249.md",
   "text_chars": 219,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 122,
-  "date": "2025-01-16"
+  "date": "2025-01-16",
+  "headline_only": false
 }

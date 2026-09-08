@@ -13,7 +13,7 @@
   "title": "Technical Symposium on \"Smart Electronics and IoT Applications\"",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/96__7dc31af3.html",
   "markdown_path": "news-events/news/96__7dc31af3.md",
   "text_chars": 428,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 96,
-  "date": "2025-05-15"
+  "date": "2025-05-15",
+  "headline_only": false
 }

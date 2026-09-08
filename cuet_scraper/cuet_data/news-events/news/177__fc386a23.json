@@ -13,7 +13,7 @@
   "title": "MoU signed between CUET and Pubali Bank PLC.",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/177__fc386a23.html",
   "markdown_path": "news-events/news/177__fc386a23.md",
   "text_chars": 2128,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 177,
-  "date": "2026-04-03"
+  "date": "2026-04-03",
+  "headline_only": false
 }

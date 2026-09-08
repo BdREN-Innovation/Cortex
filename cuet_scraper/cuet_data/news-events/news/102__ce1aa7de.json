@@ -13,7 +13,7 @@
   "title": "Groundbreaking Study on Energy Storage Systems Published by IET",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/102__ce1aa7de.html",
   "markdown_path": "news-events/news/102__ce1aa7de.md",
   "text_chars": 286,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 102,
-  "date": "2025-01-18"
+  "date": "2025-01-18",
+  "headline_only": false
 }

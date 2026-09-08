@@ -13,7 +13,7 @@
   "title": "Career Counseling Week 2025",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/123__ab8ee6e3.html",
   "markdown_path": "news-events/news/123__ab8ee6e3.md",
   "text_chars": 239,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 123,
-  "date": "2025-01-17"
+  "date": "2025-01-17",
+  "headline_only": false
 }

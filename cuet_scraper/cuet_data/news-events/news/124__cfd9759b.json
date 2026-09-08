@@ -13,7 +13,7 @@
   "title": "Annual Sports Gala 2025",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/124__cfd9759b.html",
   "markdown_path": "news-events/news/124__cfd9759b.md",
   "text_chars": 201,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 124,
-  "date": "2025-01-17"
+  "date": "2025-01-17",
+  "headline_only": false
 }

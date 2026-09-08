@@ -13,7 +13,7 @@
   "title": "চুয়েটে ‘উচ্চশিক্ষা ও গবেষণা কমিটি’র ৫১তম সভা অনুষ্ঠিত",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/174__cac76e4b.html",
   "markdown_path": "news-events/news/174__cac76e4b.md",
   "text_chars": 641,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 174,
-  "date": "2026-03-11"
+  "date": "2026-03-11",
+  "headline_only": false
 }

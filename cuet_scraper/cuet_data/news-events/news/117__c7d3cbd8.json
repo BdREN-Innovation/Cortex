@@ -13,7 +13,7 @@
   "title": "CUET CESER Recognized for Excellence in Environmental Research",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/117__c7d3cbd8.html",
   "markdown_path": "news-events/news/117__c7d3cbd8.md",
   "text_chars": 265,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 117,
-  "date": "2025-01-15"
+  "date": "2025-01-15",
+  "headline_only": false
 }

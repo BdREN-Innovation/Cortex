@@ -13,7 +13,7 @@
   "title": "Workshop on \"Advanced Manufacturing Technologies\"",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/65__1ce9fca2.html",
   "markdown_path": "news-events/news/65__1ce9fca2.md",
   "text_chars": 462,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 65,
-  "date": "2025-01-12"
+  "date": "2025-01-12",
+  "headline_only": false
 }

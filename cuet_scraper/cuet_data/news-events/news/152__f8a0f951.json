@@ -13,7 +13,7 @@
   "title": "3rd International Conference on Green Architecture (ICGrA 2025)",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/152__f8a0f951.html",
   "markdown_path": "news-events/news/152__f8a0f951.md",
   "text_chars": 2287,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 152,
-  "date": "2025-12-02"
+  "date": "2025-12-02",
+  "headline_only": false
 }

@@ -13,7 +13,7 @@
   "title": "Seminar on \"Sustainable Energy Solutions\"",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/66__2fab8cac.html",
   "markdown_path": "news-events/news/66__2fab8cac.md",
   "text_chars": 416,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 66,
-  "date": "2025-01-17"
+  "date": "2025-01-17",
+  "headline_only": false
 }

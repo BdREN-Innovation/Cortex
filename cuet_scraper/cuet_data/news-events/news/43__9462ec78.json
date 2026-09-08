@@ -13,7 +13,7 @@
   "title": "CUET Model United Nations 2025",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/43__9462ec78.html",
   "markdown_path": "news-events/news/43__9462ec78.md",
   "text_chars": 652,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 43,
-  "date": "2025-01-08"
+  "date": "2025-01-08",
+  "headline_only": false
 }

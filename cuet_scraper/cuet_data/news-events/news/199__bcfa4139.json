@@ -13,7 +13,7 @@
   "title": "গার্মেন্টস কারখানায় জলবায়ু-অভিযোজিত নকশা নিয়ে CUET-এ বিশেষ বক্তৃতা",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/199__bcfa4139.html",
   "markdown_path": "news-events/news/199__bcfa4139.md",
   "text_chars": 1588,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 199,
-  "date": "2026-04-09"
+  "date": "2026-04-09",
+  "headline_only": false
 }

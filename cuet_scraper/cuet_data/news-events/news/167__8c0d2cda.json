@@ -13,7 +13,7 @@
   "title": "A Seminar Titled “Quality Assurance in Engineering Education Through Accreditation” Held At CUET",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/167__8c0d2cda.html",
   "markdown_path": "news-events/news/167__8c0d2cda.md",
   "text_chars": 1820,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 167,
-  "date": "2026-02-01"
+  "date": "2026-02-01",
+  "headline_only": false
 }

@@ -13,7 +13,7 @@
   "title": "Technology and Innovation-Based Competition to Be Held at CUET on May 8",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/136__2cf0c9e7.html",
   "markdown_path": "news-events/news/136__2cf0c9e7.md",
   "text_chars": 2392,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 136,
-  "date": "2025-05-05"
+  "date": "2025-05-05",
+  "headline_only": false
 }

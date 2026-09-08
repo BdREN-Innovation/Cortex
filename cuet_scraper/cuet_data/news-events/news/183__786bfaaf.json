@@ -13,7 +13,7 @@
   "title": "\"National High School Programming Competition 2026\" organized by the CSE Department of CUET",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/183__786bfaaf.html",
   "markdown_path": "news-events/news/183__786bfaaf.md",
   "text_chars": 1629,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 183,
-  "date": "2026-05-18"
+  "date": "2026-05-18",
+  "headline_only": false
 }

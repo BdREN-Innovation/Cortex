@@ -13,7 +13,7 @@
   "title": "Meherunnesa Prima MSc Thesis Defence",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/206__88db565d.html",
   "markdown_path": "news-events/news/206__88db565d.md",
   "text_chars": 1439,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 206,
-  "date": "2026-08-13"
+  "date": "2026-08-13",
+  "headline_only": false
 }

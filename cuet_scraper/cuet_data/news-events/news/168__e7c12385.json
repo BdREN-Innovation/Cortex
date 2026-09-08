@@ -13,7 +13,7 @@
   "title": "142th Syndicate Meeting held CUET.",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/168__e7c12385.html",
   "markdown_path": "news-events/news/168__e7c12385.md",
   "text_chars": 2201,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 168,
-  "date": "2026-02-01"
+  "date": "2026-02-01",
+  "headline_only": false
 }

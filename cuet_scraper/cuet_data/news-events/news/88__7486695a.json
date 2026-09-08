@@ -13,7 +13,7 @@
   "title": "Workshop on \"Mathematical Techniques in Engineering Problems\"",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/88__7486695a.html",
   "markdown_path": "news-events/news/88__7486695a.md",
   "text_chars": 397,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 88,
-  "date": "2024-12-15"
+  "date": "2024-12-15",
+  "headline_only": false
 }

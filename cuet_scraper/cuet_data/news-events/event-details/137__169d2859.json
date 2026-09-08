@@ -1,0 +1,31 @@
+{
+  "url": "https://cuet.ac.bd/event-details/137",
+  "canonical_url": "https://cuet.ac.bd/event-details/137",
+  "page_id": "169d2859126e071e",
+  "doc_key": "https://cuet.ac.bd/event-details/137",
+  "section": "news-events",
+  "group": "event-details",
+  "section_path": [
+    "News & Events",
+    "Events",
+    "5th International Conference on Electrical, Computer & Communication Engineering (ECCE)"
+  ],
+  "title": "5th International Conference on Electrical, Computer & Communication Engineering (ECCE)",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T17:08:10Z",
+  "html_path": "news-events/event-details/137__169d2859.html",
+  "markdown_path": "news-events/event-details/137__169d2859.md",
+  "text_chars": 172,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "event_id": 137,
+  "from": "21 January 2027",
+  "to": "23 January 2027",
+  "location": null,
+  "link": "https://ecce2027.cuet.ac.bd/",
+  "headline_only": true
+}

@@ -13,7 +13,7 @@
   "title": "Farewell and welcome ceremony completed at CUET's URP department .",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/185__3c5f8070.html",
   "markdown_path": "news-events/news/185__3c5f8070.md",
   "text_chars": 729,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 185,
-  "date": "2026-06-26"
+  "date": "2026-06-26",
+  "headline_only": false
 }

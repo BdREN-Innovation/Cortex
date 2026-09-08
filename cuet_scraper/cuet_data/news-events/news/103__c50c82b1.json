@@ -13,7 +13,7 @@
   "title": "IET Launches Renewable Energy Research Lab",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/103__c50c82b1.html",
   "markdown_path": "news-events/news/103__c50c82b1.md",
   "text_chars": 285,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 103,
-  "date": "2025-01-18"
+  "date": "2025-01-18",
+  "headline_only": false
 }

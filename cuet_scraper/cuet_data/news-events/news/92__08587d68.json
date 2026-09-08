@@ -13,7 +13,7 @@
   "title": "Guest Lecture on \"The Role of Literature in Society\"",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/92__08587d68.html",
   "markdown_path": "news-events/news/92__08587d68.md",
   "text_chars": 342,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 92,
-  "date": "2025-01-10"
+  "date": "2025-01-10",
+  "headline_only": false
 }

@@ -13,7 +13,7 @@
   "title": "“Chasing Light - Architecture, Art, Light & Beyond Boundaries” শীর্ষক সেমিনার",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/201__e9eaaee2.html",
   "markdown_path": "news-events/news/201__e9eaaee2.md",
   "text_chars": 2601,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 201,
-  "date": "2026-08-24"
+  "date": "2026-08-24",
+  "headline_only": false
 }

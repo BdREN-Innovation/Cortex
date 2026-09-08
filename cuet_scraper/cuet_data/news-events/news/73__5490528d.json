@@ -13,7 +13,7 @@
   "title": "Seminar on Advanced Materials for Sustainable Development",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/73__5490528d.html",
   "markdown_path": "news-events/news/73__5490528d.md",
   "text_chars": 470,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 73,
-  "date": "2025-12-10"
+  "date": "2025-12-10",
+  "headline_only": false
 }

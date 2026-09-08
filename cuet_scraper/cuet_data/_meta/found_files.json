@@ -9,7 +9,7 @@
     "category": "Undergraduate"
   },
   {
-    "url": "https://www.cuet.ac.bd/downloads/post-graduate.pdf",
+    "url": "https://www.cuet.ac.bd/downloads/Guideline%20for%20Masters%20student.pdf",
     "linked_from": [
       "https://cuet.ac.bd/academic-information"
     ],
@@ -18,7 +18,7 @@
     "category": "Postgraduate"
   },
   {
-    "url": "https://www.cuet.ac.bd/downloads/Guideline%20for%20Masters%20student.pdf",
+    "url": "https://www.cuet.ac.bd/downloads/post-graduate.pdf",
     "linked_from": [
       "https://cuet.ac.bd/academic-information"
     ],
@@ -9377,7 +9377,10 @@
   {
     "url": "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
     "linked_from": [
-      "https://cuet.ac.bd/notices/all-notice"
+      "https://cuet.ac.bd/events",
+      "https://cuet.ac.bd/news-events",
+      "https://cuet.ac.bd/notices/all-notice",
+      "https://cuet.ac.bd/student/events"
     ],
     "document_type": "notice",
     "title": "Annual Procurement Plan (Revenue)",
@@ -9617,7 +9620,10 @@
   {
     "url": "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
     "linked_from": [
-      "https://cuet.ac.bd/notices/all-notice"
+      "https://cuet.ac.bd/events",
+      "https://cuet.ac.bd/news-events",
+      "https://cuet.ac.bd/notices/all-notice",
+      "https://cuet.ac.bd/student/events"
     ],
     "document_type": "notice",
     "title": "Annual Procurement Plan(Goods and Related services)",
@@ -11701,5 +11707,50 @@
     "category": "Academic Calender",
     "department": "Electrical and Electronic Engineering",
     "download": true
+  },
+  {
+    "url": "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+    "linked_from": [
+      "https://cuet.ac.bd/events",
+      "https://cuet.ac.bd/news-events",
+      "https://cuet.ac.bd/student/events"
+    ],
+    "document_type": "page"
+  },
+  {
+    "url": "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
+    "linked_from": [
+      "https://cuet.ac.bd/events",
+      "https://cuet.ac.bd/news-events",
+      "https://cuet.ac.bd/student/events"
+    ],
+    "document_type": "page"
+  },
+  {
+    "url": "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
+    "linked_from": [
+      "https://cuet.ac.bd/events",
+      "https://cuet.ac.bd/news-events",
+      "https://cuet.ac.bd/student/events"
+    ],
+    "document_type": "page"
+  },
+  {
+    "url": "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
+    "linked_from": [
+      "https://cuet.ac.bd/events",
+      "https://cuet.ac.bd/news-events",
+      "https://cuet.ac.bd/student/events"
+    ],
+    "document_type": "page"
+  },
+  {
+    "url": "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+    "linked_from": [
+      "https://cuet.ac.bd/events",
+      "https://cuet.ac.bd/news-events",
+      "https://cuet.ac.bd/student/events"
+    ],
+    "document_type": "page"
   }
 ]

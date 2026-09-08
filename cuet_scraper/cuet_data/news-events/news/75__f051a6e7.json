@@ -13,7 +13,7 @@
   "title": "Industrial Tour to Steel Manufacturing Plant",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:10Z",
   "html_path": "news-events/news/75__f051a6e7.html",
   "markdown_path": "news-events/news/75__f051a6e7.md",
   "text_chars": 349,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 75,
-  "date": "2024-10-22"
+  "date": "2024-10-22",
+  "headline_only": false
 }

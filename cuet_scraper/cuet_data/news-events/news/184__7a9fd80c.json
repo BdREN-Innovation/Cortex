@@ -13,7 +13,7 @@
   "title": "Jasim Uddin Foundation is providing 4 buses for CUET.",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/184__7a9fd80c.html",
   "markdown_path": "news-events/news/184__7a9fd80c.md",
   "text_chars": 1835,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 184,
-  "date": "2026-05-21"
+  "date": "2026-05-21",
+  "headline_only": false
 }

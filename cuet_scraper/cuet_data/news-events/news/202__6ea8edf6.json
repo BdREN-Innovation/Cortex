@@ -13,7 +13,7 @@
   "title": "Courtesy meeting and exchange of views between CUET VC and Honorable State Minister of Land.",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/202__6ea8edf6.html",
   "markdown_path": "news-events/news/202__6ea8edf6.md",
   "text_chars": 709,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 202,
-  "date": "2026-08-25"
+  "date": "2026-08-25",
+  "headline_only": false
 }

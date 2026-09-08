@@ -13,7 +13,7 @@
   "title": "CUET School & College \"Annual Awards Ceremony—2026\"",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-08T14:54:07Z",
+  "fetched_at": "2026-09-08T17:08:09Z",
   "html_path": "news-events/news/170__d615750a.html",
   "markdown_path": "news-events/news/170__d615750a.md",
   "text_chars": 1406,
@@ -23,5 +23,6 @@
   "double_escaped": false,
   "files": [],
   "news_id": 170,
-  "date": "2026-02-10"
+  "date": "2026-02-10",
+  "headline_only": false
 }
