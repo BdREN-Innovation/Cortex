@@ -195,10 +195,25 @@ must drop out of the citations too.
 
 ---
 
-## 8. References have to live in the vector store
+## 8. Citations: shared with Team A, delivered by you
 
 A citation is not decoration. It is the only way a reader can check that an
-answer is true, and Team C grades whether the citations are real.
+answer is true, and Team C grades it directly.
+
+It is also the one requirement that runs the whole length of the pipeline, so
+it is nobody's job alone:
+
+| | |
+|---|---|
+| **Team A** | Captures the provenance in the first place. Nothing downstream can invent a source or repair one captured wrong. |
+| **Team B (you)** | Carry it through extraction and chunking, store it with the vector, and put it in the answer. |
+| **Team C** | Grades whether the citations are real and whether they point at what was actually used. |
+
+**Agree with Team A in week one what a citation has to show a reader**, then
+work backwards together to what has to be captured for that to be possible.
+Doing this in week three means a re-crawl.
+
+### Why it has to be in the store
 
 Here is the constraint that makes this a design decision rather than an
 afterthought: **when you search, all you get back is what the vector store gave
@@ -225,6 +240,22 @@ the store and back out again; just make sure it survives the round trip.
 **The test to hold yourself to:** take one search result, close every other
 file, and produce a complete citation from it alone. If you cannot, the
 reference is not in the store yet.
+
+### And it has to reach the final answer
+
+Storing it is not the finish line. **`engine ask` must return the citations
+alongside the answer text** — that is the deliverable, and it is what a user and
+Team C both see.
+
+Two things make a citation honest rather than decorative:
+
+* It points at something the model **actually read**. If you dropped chunks to
+  fit a context budget, those references drop too.
+* It is specific enough to be checked. A reader should be able to follow it and
+  find the passage, not just the site.
+
+A refusal carries no citations, and that is correct — there was nothing to
+cite.
 
 ---
 

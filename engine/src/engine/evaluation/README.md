@@ -282,6 +282,12 @@ That table is what actually gets fixed.
 
 ## 7. Syncing with the other teams
 
+Citations are a three-team concern: Team A captures the provenance, Team B
+carries it into the store and out into the answer, and **you are the one who
+finds out whether it actually worked.** Your dataset is what turns "we think
+citations work" into a number. Score them early — a missing reference
+discovered in week one is a config change, and in week three it is a re-crawl.
+
 | You need | From | How |
 |---|---|---|
 | `doc_id`s for `relevant_doc_ids` | Team A | Read `pages.jsonl` — `page_id` becomes `doc_id` |

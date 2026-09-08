@@ -145,7 +145,36 @@ include/exclude rules still apply to it.
 
 ---
 
-## 6. Syncing with Team B
+## 6. Citations start with you
+
+The thing this system is judged on is not "did it answer" but "did it answer
+**and show where the answer came from**". Team C grades that directly, and an
+answer nobody can verify is worth very little.
+
+Every part of a citation originates in what you capture. Team B carries it
+through extraction, into the vector store and out into the answer — but they
+can only carry what you gave them. Nothing downstream can invent a source, and
+nothing downstream can repair one that was captured wrong.
+
+Some of it is obvious: a page's address has to be correct and stable, or a
+citation points somewhere that does not exist. Some of it is less obvious — a
+PDF you downloaded has no page of its own, so how does a reader ever find their
+way back to it? Think about what a person holding one of your records would
+need in order to locate the original.
+
+**This is a conversation to have with Team B in week one, not week three.**
+Sit down together, work out what a citation on the finished product should show
+a reader, and work backwards to what has to be captured for that to be possible.
+Then make sure your records carry it.
+
+You will know it worked when Team B can produce a complete, correct citation
+without asking you for anything and without opening any file but their own.
+Getting this wrong is expensive: it surfaces when Team C starts scoring, and
+fixing it means re-crawling.
+
+---
+
+## 7. Syncing with Team B
 
 Hand them **the path to a run directory**. That is the whole interface.
 
@@ -171,12 +200,14 @@ Every record must satisfy `CrawledPage.validate()`:
 
 ---
 
-## 7. Definition of done
+## 8. Definition of done
 
 - [ ] 2–4 sites, one committed `configs/crawl.<site>.yaml` each
 - [ ] Every site captures cleanly at its full `max_pages`
 - [ ] `manifest.json` shows `errors: []` — or every error is explained in your handover
 - [ ] Every `content_path` resolves to a real file
+- [ ] Agreed with Team B, in writing, what a citation needs — and your records
+      carry all of it
 - [ ] You ran `engine extract` once per site and sanity-checked the output
 - [ ] `delay_seconds >= 1.0` and `obey_robots: true` on every site you do not own
 - [ ] A short handover note: which sites, what you excluded and why, what broke

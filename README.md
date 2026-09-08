@@ -307,7 +307,13 @@ Team A ──▶ data/sites/<site>/<run>/  ──▶ Team B ──▶ a Retrieve
            pages.jsonl + raw bytes                  (a 3-line Protocol)
 ```
 
-Two things make that work:
+**Citations are the one requirement that spans all three.** Team A captures the
+provenance, Team B carries it into the vector store and out into the answer,
+Team C finds out whether it worked. Agree in week one what a citation has to
+show a reader and work backwards from there — discovering it in week three
+means a re-crawl.
+
+Two things make the rest work:
 
 1. **Nobody is ever blocked.** Team C builds against the `Retriever` protocol
    with a ten-line fake and a sample corpus that ships with the repo. Team B
