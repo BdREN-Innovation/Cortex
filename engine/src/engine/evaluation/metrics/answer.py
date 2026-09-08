@@ -2,6 +2,20 @@
 
 TEAM C OWNS THIS FILE.
 
+
+Decisions you own
+-----------------
+* How do you decide an answer is correct? Substring matching is cheap,
+  deterministic and runs anywhere; it also cannot tell a correct paraphrase
+  from a wrong answer. Where does that break down, and is it worth fixing?
+* Partial credit or all-or-nothing? If an answer contains two of the three
+  facts you expected, what is the score?
+* What does "no citations" mean? It is correct for an unanswerable question and
+  a failure for an answerable one — so the metric needs to know which it is
+  looking at, or the caller does.
+* How do you distinguish the two refusal failures? Refusing a real question is
+  annoying; confidently answering an unanswerable one destroys trust in the
+  system. Your report should not average them together.
 """
 
 from __future__ import annotations

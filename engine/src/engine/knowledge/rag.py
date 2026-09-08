@@ -8,16 +8,22 @@ confident wrong answer scores worse than "I don't know".
 
 TEAM B OWNS THIS FILE.
 
-Libraries worth considering
----------------------------
-Nothing here is required — the scaffold ships with almost no dependencies and
-these are suggestions, not a shortlist. Add what you choose with `uv add`.
-
-openai      `uv add openai`. client.chat.completions.create(...)
-anthropic   `uv add anthropic`. client.messages.create(...)
-            Note the different shapes: Anthropic takes `system` as a top-level
-            argument, not as a message in the list.
-Both are optional extras — import them lazily so the default path needs neither.
+Decisions you own
+-----------------
+* Which generation provider, and which model? Or none — returning the best
+  retrieved passage verbatim is a legitimate baseline and needs no API key.
+  Build that first: it tells you whether RETRIEVAL works before you start
+  paying for generation.
+* What does the prompt say? Grounding and refusal are prompt decisions before
+  they are code decisions. This is the highest-leverage text in the project and
+  it is worth iterating on with Team C's scorecard in front of you.
+* When should the system refuse? There is a threshold below which the retrieved
+  context does not support an answer. Too low and you hallucinate; too high and
+  you refuse real questions. Where is it, and how did you find it?
+* How much context fits in the prompt, and what do you drop when it does not
+  fit? Whatever you drop must also drop out of the citations — citing a
+  document the model never saw is the subtlest bug in this pipeline.
+* What does a citation point at: the chunk, the document, a quote inside it?
 
 """
 
@@ -32,12 +38,10 @@ from engine.contracts.retrieval import RetrievedChunk, Retriever
 log = logging.getLogger(__name__)
 
 # The instruction that does the actual work. Grounding and refusal are prompt
-# decisions before they are code decisions — spend time here, and change it
-# only with Team C's scorecard in front of you.
-SYSTEM_PROMPT = """\
-You answer strictly from the provided context.
-If the context does not contain the answer, say you do not know.
-Never use outside knowledge. Cite the sources you used."""
+# decisions before they are code decisions, so this is some of the
+# highest-leverage text in the project. Write it, then change it only with
+# Team C's scorecard in front of you.
+SYSTEM_PROMPT = ""
 
 # The exact text returned when the system declines to answer. A constant, not a
 # literal scattered through the code, because Team C's harness matches on it —
@@ -47,13 +51,14 @@ REFUSAL = "I don't have enough information in the indexed content to answer that
 
 @dataclass
 class RagConfig:
-    provider: str = "extractive"  # extractive | openai | anthropic
+    # Which generator to use. The names are yours to define in this file.
+    provider: str = ""
     model: str = ""
     top_k: int = 5
     # Below this retrieval score, nothing is considered relevant and the
-    # answer must be a refusal. Tune it against Team C's unanswerable cases:
-    # too low and you hallucinate, too high and you refuse real questions.
-    min_score: float = 0.05
+    # answer must be a refusal. There is no right default — find it against
+    # Team C's unanswerable cases.
+    min_score: float = 0.0
     max_context_chars: int = 8000
     temperature: float = 0.0
 
@@ -63,15 +68,12 @@ class RagConfig:
 
 
 def build_context(chunks: list[RetrievedChunk], max_chars: int) -> tuple[str, list[RetrievedChunk]]:
-    """Pack chunks into a prompt under a character budget.
+    """Pack chunks into a prompt under a budget.
 
-    Return both the context string AND the chunks that actually fitted — the
-    citations must reflect what the model could see, not what you retrieved and
-    then truncated away. Getting this wrong produces citations to documents the
-    model never read, which is the subtlest bug in the whole pipeline.
-
-    Label each chunk in the context (e.g. "[1] ...") so the model can refer to
-    them.
+    It returns two things on purpose: the context, and the chunks that actually
+    fitted. Citations must reflect what the model could see, not what you
+    retrieved and then truncated away — citing a document the model never read
+    is the subtlest bug in this pipeline.
     """
     raise NotImplementedError
 
@@ -79,21 +81,14 @@ def build_context(chunks: list[RetrievedChunk], max_chars: int) -> tuple[str, li
 def answer(question: str, retriever: Retriever, config: RagConfig | None = None) -> Answer:
     """Answer a question from the knowledge base.
 
-    Flow:
-      1. Retrieve top_k chunks.
-      2. If nothing came back, or the best score is below `min_score`, return
-         an Answer with refused=True and no citations. Do not call the model —
-         there is nothing to ground an answer in.
-      3. Build the context from the chunks that fit.
-      4. Generate:
-         * "extractive" — no API key, no network: return the best chunk's text
-           verbatim. This is the default so the pipeline is runnable by
-           everyone from day one. It is a plumbing tool, not a good answer.
-         * "openai" / "anthropic" — the real generators.
-      5. Return an Answer carrying `citations`, `retrieved_chunk_ids`,
-         `provider`, `model`, `latency_ms` and token `usage` if available.
+    Retrieve, decide whether the context actually supports an answer, and
+    either generate one from it or refuse. Both outcomes are graded by Team C,
+    and refusing well is a feature rather than a failure.
 
-    Record latency and usage even when it seems pointless — they are the only
-    way to answer "why is this slow" and "why did this cost that much" later.
+    The returned Answer is what everything downstream sees: the text, the
+    citations, whether it refused, and enough metadata to reproduce the run.
+    Record latency and token usage even when it feels pointless — they are the
+    only way to answer "why is this slow" and "why did this cost that much"
+    when somebody asks on day twelve.
     """
     raise NotImplementedError

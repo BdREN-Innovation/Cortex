@@ -7,10 +7,15 @@
 Every function in src/engine/ starts as a stub that raises NotImplementedError.
 This walks the source with Python's own parser and counts how many still do.
 
-It measures *coverage of the scaffold*, not correctness — a function that
-returns the wrong answer counts as done here. Correctness is judged by running
-the pipeline and reading the output, which is what the definition-of-done
-checklist in each team's README is for.
+Two things to understand about the numbers:
+
+* The denominator GROWS. The scaffold defines the interfaces, not the
+  implementations — as you add your own classes and helpers, both the total and
+  the completed count go up. That is expected.
+* It measures coverage, not correctness. A function that returns the wrong
+  answer counts as done here. Correctness is judged by running the pipeline and
+  reading the output, which is what the definition-of-done checklist in each
+  team's README is for.
 """
 
 from __future__ import annotations
@@ -122,8 +127,8 @@ def main() -> int:
         f"{bar(overall_done, overall_total)}  {overall_done:2}/{overall_total:<3} {pct:4.0f}%"
     )
     print()
-    print("  Scaffold coverage only — it does not check that the code is correct.")
-    print("  Run the pipeline and read the output for that; see each team's README.")
+    print("  Coverage only — this does not check that the code is correct, and the")
+    print("  total grows as you add your own classes. See each team's README.")
     print()
     return 0
 

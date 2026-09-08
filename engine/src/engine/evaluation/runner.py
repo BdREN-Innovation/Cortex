@@ -7,6 +7,19 @@ where to look.
 
 TEAM C OWNS THIS FILE.
 
+
+Decisions you own
+-----------------
+* What makes a case pass? It is different for answerable and unanswerable
+  cases, and getting that wrong makes the whole scorecard meaningless.
+* Which aggregates do you report? A single pass rate hides the thing you most
+  need to see — a system can score well by answering everything and refusing
+  nothing, which is a system you cannot ship.
+* What do you record when a case fails? "Failed" is not actionable. Team B
+  needs to know whether retrieval missed it, or retrieval found it and the
+  answer was still wrong — those are different files and different people.
+* What happens when one case raises? One exploding question must not lose you
+  the other fifty-nine results.
 """
 
 from __future__ import annotations

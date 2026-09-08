@@ -1,65 +1,60 @@
-"""Text -> vectors, via an embeddings API.
+"""Text -> vectors.
 
-Embeddings come from a hosted API. Nothing runs a model on your laptop: no
-torch, no model weights, no GPU. You send a batch of strings over HTTPS and get
-back a list of float arrays.
+Embeddings come from a hosted API — that is a project decision, so nothing runs
+a model on your laptop. Beyond that, which provider and which model are yours to
+choose.
 
-Note for the team: **Anthropic does not ship an embeddings endpoint.** It is a
-*generation* provider only. Someone will try it; the error message in
-`build_embedder` is there to save them the afternoon.
+The Protocol is the structure: `dimensions`, `name`, and `embed()`. Everything
+downstream depends only on those three, which is what lets you change your mind
+about providers without touching the indexer or the retriever.
 
 TEAM B OWNS THIS FILE.
 
-Libraries worth considering
----------------------------
-Nothing here is required — the scaffold ships with almost no dependencies and
-these are suggestions, not a shortlist. Add what you choose with `uv add`.
+Decisions you own
+-----------------
+* Which provider? Several offer embeddings endpoints and they are all the same
+  shape — a batch of strings in, a list of float arrays out. Price, dimensions
+  and quality differ. Compare at least two before committing.
+* Which model, within that provider? Bigger vectors are usually better and
+  always cost more, in money and in index size. Is the difference visible in
+  Team C's scores? That is the only question that matters.
+* How many strings per request? One call per chunk is slow and expensive; too
+  many and you hit a request-size limit.
+* What happens when the API rate-limits you, or times out, halfway through a
+  10,000-chunk run? Losing forty minutes of work to one 429 is avoidable, but
+  only if you plan for it.
+* Should identical text be re-embedded every time you re-index? `content_hash`
+  is on every document. Whether you use it to avoid paying twice is up to you —
+  and it matters most while you are sweeping chunk sizes.
 
-openai    `uv add openai`. The client is two calls:
-              from openai import OpenAI
-              client = OpenAI()                      # reads OPENAI_API_KEY
-              client.embeddings.create(model=..., input=[...])
-          `text-embedding-3-small` is 1536 dimensions and cheap;
-          `text-embedding-3-large` is 3072 and better. Start small.
-numpy     assembling the response into a matrix, and normalising it.
+One thing that is not a choice
+------------------------------
+Whatever produces the vectors at index time must also produce them at query
+time. `index_meta.json` records `name` for exactly this reason. Embedding a
+corpus with one model and querying it with another returns confident nonsense
+and no error — the nastiest failure mode in this pipeline.
 
-Other hosted options, if you want to compare: Cohere (`cohere`), Voyage AI
-(`voyageai`), Jina. All the same shape — batch of strings in, vectors out — so
-adding one is another class implementing the same three attributes.
-
-Things to get right
--------------------
-* BATCH. The endpoint takes a list. One request per chunk is slow and
-  expensive; ~128 per request keeps bodies sane.
-* NORMALISE on the way in, so a dot product is the cosine similarity and the
-  vector store never has to care.
-* HANDLE FAILURE. Rate limits (429) and transient 5xx will happen on a real
-  corpus. Retry with backoff; do not lose a 40-minute indexing run to one
-  blip.
-* COST is real. Embedding 10,000 chunks is cheap but not free, and re-indexing
-  the same corpus ten times while tuning `target_tokens` costs ten times as
-  much. Cache by `content_hash` if you find yourself re-running a lot.
+Also worth knowing before someone loses an afternoon: **Anthropic has no
+embeddings endpoint.** It is a generation provider only.
 """
 
 from __future__ import annotations
 
 import logging
-import os  # noqa: F401 - for reading OPENAI_API_KEY
 from typing import Protocol
 
 import numpy as np
 
 log = logging.getLogger(__name__)
 
-# Sent with every batch. Keep it well under the provider's request-size limit.
-BATCH_SIZE = 128
-
 
 class Embedder(Protocol):
     """What the indexer and the retriever depend on. Nothing above this line
     knows which provider produced the numbers."""
 
+    # Length of the vectors this embedder returns. Goes into index_meta.json.
     dimensions: int
+    # Identifies the model well enough to rebuild this embedder later.
     name: str
 
     def embed(self, texts: list[str]) -> np.ndarray: ...
@@ -68,48 +63,29 @@ class Embedder(Protocol):
 def normalise(matrix: np.ndarray) -> np.ndarray:
     """L2-normalise each row, so a dot product IS the cosine similarity.
 
-    Doing it once here means the vector store never has to. Guard against a
-    zero-length row — dividing by zero silently produces NaNs that then poison
-    every search result, and it is a genuinely nasty bug to track down.
+    Doing it once here means the vector store never has to.
+
+    Watch the zero-length row: dividing by zero produces NaNs that then poison
+    every search result silently. It is a nasty bug to track down after the fact.
     """
     raise NotImplementedError
 
 
-class OpenAIEmbedder:
-    """Embeddings from the OpenAI API.
-
-    Requires OPENAI_API_KEY in engine/.env and `uv add openai`.
-    """
-
-    def __init__(self, model: str = "text-embedding-3-small", dimensions: int = 1536):
-        """Import `openai` lazily and fail with a clear, actionable message if
-        the extra is not installed or the key is not set.
-
-        Set `self.name` to something that identifies the model, because it goes
-        into `index_meta.json` and is what `load_retriever` uses to rebuild the
-        right embedder later. An index embedded with one model and queried with
-        another returns confident nonsense.
-        """
-        raise NotImplementedError
-
-    def embed(self, texts: list[str]) -> np.ndarray:
-        """Return an (len(texts), dimensions) float32 array, L2-normalised.
-
-        Send `texts` in batches of BATCH_SIZE. Keep the results in the SAME
-        ORDER as the input — the caller zips this array against its chunk list,
-        so a reordered response silently attaches every vector to the wrong text.
-
-        Retry on 429 and 5xx with backoff.
-        """
-        raise NotImplementedError
+# ── Your embedders go here ────────────────────────────────────────────────
+#
+# A class per provider you want to be able to switch between. Each needs
+# `dimensions`, `name`, and `embed(texts) -> np.ndarray` returning one
+# normalised row per input string, IN THE SAME ORDER as the input — the caller
+# zips this against its chunk list, so a reordered response quietly attaches
+# every vector to the wrong text.
+#
+# Import the client library lazily and fail with a message that names the
+# `uv add` and the environment variable needed.
 
 
-def build_embedder(provider: str = "openai", model: str = "", dimensions: int = 1536) -> Embedder:
-    """Map a config string to an embedder.
+def build_embedder(provider: str = "", model: str = "", dimensions: int = 0) -> Embedder:
+    """Map the `embedding_provider:` string in an index config to one of yours.
 
-    "openai" is the supported provider today. Add others here as you try them.
-
-    "anthropic" must raise a ValueError that SAYS WHY — Anthropic has no
-    embeddings API, and a bare KeyError three frames down would waste real time.
+    Raise ValueError for an unknown provider, naming what IS supported.
     """
     raise NotImplementedError

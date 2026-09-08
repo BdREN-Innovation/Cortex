@@ -10,15 +10,15 @@ Resist the urge to pull out the article text here; you will be undoing it later.
 
 TEAM A OWNS THIS FILE.
 
-Libraries worth considering
----------------------------
-Nothing here is required — the scaffold ships with almost no dependencies and
-these are suggestions, not a shortlist. Add what you choose with `uv add`.
-
-beautifulsoup4   with the "lxml" parser: BeautifulSoup(html, "lxml").
-                 find_all("a", href=True), .get("href").
-urllib.parse     urljoin to make relative links absolute, urlparse to look at
-                 the path when deciding if a link is a file.
+Decisions you own
+-----------------
+* What parses the HTML? You need something that survives real-world markup —
+  unclosed tags, wrong nesting, mixed encodings. A regex will not do it.
+* Which file extensions count as "a document to download" rather than "a page
+  to crawl"? Start with the obvious ones and extend as you meet real sites.
+* Relative links, protocol-relative links (`//cdn.example.com/x`), `<base href>`
+  — which of these do you resolve here, and which does the Frontier handle?
+  Pick one place; doing it in both is how double-resolution bugs happen.
 
 """
 
@@ -50,10 +50,9 @@ def discover(html: str, url: str) -> Discovered:
        Leave these as they appeared in the HTML (relative is fine); the
        Frontier resolves them — return `["/about"]`, not the absolute form.
 
-    2. `document_links` — hrefs whose path ends in DOCUMENT_EXTENSIONS. These
-       are files to download, NOT pages to crawl: a PDF must never reach the
-       HTML parser. Return these **absolute** and de-duplicated, in the order
-       first seen (dict.fromkeys preserves order; a set does not).
+    2. `document_links` — hrefs pointing at files rather than pages. A PDF must
+       never reach the HTML parser. Return these absolute and de-duplicated,
+       and think about whether order matters to you.
 
     3. `canonical_url` from <link rel="canonical">, and `lang` from
        <html lang="...">. Both may be absent; default lang to "en".

@@ -5,6 +5,17 @@ index can be reopened later. Build this after those three work.
 
 TEAM B OWNS THIS FILE.
 
+
+Decisions you own
+-----------------
+* What identifies an index? It should change when something that changes
+  results changes, so two settings produce two indexes you can compare — and
+  re-running the same settings lands in the same place rather than duplicating.
+* How strict are you about bad input? A malformed document that reaches the
+  index produces a broken citation much later, somewhere nobody can trace back
+  to here.
+* What has to be recorded for `load_retriever` to reopen this index later?
+  Whatever the answer is, it belongs in IndexMeta.
 """
 
 from __future__ import annotations
@@ -23,13 +34,14 @@ class IndexConfig:
     """Read from `configs/index.<site>.yaml`."""
 
     site: str = "default"
-    embedding_provider: str = "openai"
-    embedding_model: str = "text-embedding-3-small"
-    dimensions: int = 1536
-    # "numpy" (offline, exact, what CI uses) or "qdrant" (Qdrant Cloud).
-    backend: str = "numpy"
-    # Qdrant only. Defaults to cortex_<site>. Credentials come from the
-    # environment — never put an API key in a committed config.
+    # Names one of the embedders you register in embedding.py.
+    embedding_provider: str = ""
+    embedding_model: str = ""
+    dimensions: int = 0
+    # Names one of the stores you register in store.py.
+    backend: str = ""
+    # Where the vectors live, when they live on a server. Credentials come
+    # from the environment — never put an API key in a committed config.
     collection: str = ""
     recreate_collection: bool = False
     chunk: ChunkConfig = field(default_factory=ChunkConfig)
@@ -48,19 +60,16 @@ def build_index(
 ) -> Path:
     """Read documents.jsonl, chunk, embed, store. Returns the index directory.
 
-    Steps:
-      1. Read the documents. Refuse an empty file with a clear error.
-      2. VALIDATE every row with CleanDocument.validate() and refuse the whole
-         file if any row fails, naming the first few offenders. A bad row that
-         reaches the index produces a broken citation much later, where nobody
-         can trace it back here.
-      3. Chunk, then embed all chunk texts.
-      4. Build the store the config asks for and add everything.
-      5. Write to `<out_root>/index/<site>/<index_id>/` and save an IndexMeta
-         recording the embedder, dimensions, counts, backend and collection.
+    Chains chunking, embedding and storage, then records enough in
+    `index_meta.json` that `load_retriever` can reopen what you built.
 
-    Derive `index_id` from the inputs that change results (documents path,
-    embedder name, chunk size) so re-running with the same settings lands in the
-    same directory, and changing a setting gives you a new one to compare.
+    Two things worth being strict about:
+
+      * Validate every row before indexing and refuse the whole file if any
+        fails. A bad row that reaches the index produces a broken citation much
+        later, somewhere nobody can trace back to here.
+      * `index_id` should be derived from the inputs that change results, so
+        re-running with the same settings lands in the same place and changing
+        a setting gives you a new index to compare against the old one.
     """
     raise NotImplementedError

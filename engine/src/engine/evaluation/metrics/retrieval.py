@@ -8,6 +8,18 @@ which is the single most useful diagnostic Team C provides.
 TEAM C OWNS THIS FILE. Pure functions, no dependencies, easy to test — a good
 place to start on day one.
 
+
+Decisions you own
+-----------------
+* Which metrics? There are several standard ones for ranked retrieval and they
+  answer different questions — "did we find it at all" is not the same as "did
+  we rank it first". Pick the ones that would change what Team B does next.
+* What is the right value when there is nothing relevant to find? An
+  unanswerable case has not failed retrieval, but a naive implementation scores
+  it zero and drags your averages down. This is a judgement call — make it
+  deliberately and write it down.
+* Are all relevant documents equally relevant, or do you need graded relevance?
+  Binary is simpler and probably enough here. Decide, do not drift.
 """
 
 from __future__ import annotations

@@ -1,27 +1,30 @@
 """Documents -> chunks.
 
-The highest-leverage knob in the whole system. `target_tokens` matters more
-than your choice of embedding model: too small and an answer straddles two
-chunks so neither scores well; too large and the one relevant sentence is
-diluted by 300 tokens of neighbours. Sweep it once Team C has a dataset.
+A chunk is the unit that gets embedded, retrieved and shown to the model. How
+you cut them decides more about answer quality than almost anything else you
+will choose.
 
 TEAM B OWNS THIS FILE.
 
-Libraries worth considering
----------------------------
-Nothing here is required — the scaffold ships with almost no dependencies and
-these are suggestions, not a shortlist. Add what you choose with `uv add`.
+Decisions you own
+-----------------
+This file has more genuinely open questions than anything else in the pipeline,
+and it matters more than your embedding model. Decide these deliberately, and
+be able to defend them with Team C's numbers.
 
-Nothing required — splitting on paragraphs with a character budget is ~60 lines
-and easy to reason about. A rough chars-per-token ratio (~4) is fine; you do not
-need a real tokenizer to decide where to cut.
-
-Worth knowing about, and worth resisting until the simple version is measured:
-  tiktoken                  real token counts for OpenAI models
-  langchain-text-splitters  RecursiveCharacterTextSplitter, the usual default
-  semchunk                  semantic chunking
-A hand-written paragraph splitter that you understand will beat a library you
-cannot debug at 2am on day 12.
+* Where do you split? Sentences, paragraphs, headings, a fixed character count?
+  A split mid-sentence produces a chunk that means nothing on its own.
+* How big is a chunk? Too small and an answer straddles two of them so neither
+  scores well; too large and the one relevant sentence is diluted.
+* Do chunks overlap? By how much? Overlap catches straddling answers and costs
+  you index size and embedding spend.
+* Do you count tokens properly or approximate from characters? A real tokenizer
+  is exact and adds a dependency; a ratio is close enough for deciding where to
+  cut. Which do you actually need?
+* What happens to a document shorter than one chunk? To a trailing fragment of
+  four words?
+* A markdown table is in the text. Splitting one down the middle produces two
+  useless halves — does your splitter know that?
 
 """
 
@@ -34,43 +37,33 @@ from engine.contracts.documents import Chunk, CleanDocument
 
 @dataclass
 class ChunkConfig:
+    """Read from `configs/index.<site>.yaml`.
+
+    These defaults are a starting point, not an answer — they are round numbers
+    somebody picked, and part of your job is to find out whether they are any
+    good for your corpus. Rename or replace these fields if your chunking
+    strategy wants different knobs; the config is yours.
+    """
+
     target_tokens: int = 350
     overlap_tokens: int = 60
     min_tokens: int = 40
 
-    # Token budgets are expressed in tokens because that is how models think,
-    # but splitting happens on characters. ~4 chars per token is close enough.
-    @property
-    def target_chars(self) -> int:
-        raise NotImplementedError
-
-    @property
-    def overlap_chars(self) -> int:
-        raise NotImplementedError
-
-    @property
-    def min_chars(self) -> int:
-        raise NotImplementedError
-
 
 def chunk_document(doc: CleanDocument, config: ChunkConfig | None = None) -> list[Chunk]:
-    """Split one document into overlapping chunks.
+    """Split one document into chunks.
 
-    Split on paragraph boundaries, not mid-sentence: accumulate paragraphs
-    until adding the next would exceed `target_chars`, emit, then start the
-    next chunk with `overlap_chars` of tail from the previous one. The overlap
-    is what catches an answer that straddles a boundary.
+    Two things are not negotiable, because everything downstream depends on them:
 
-    Every chunk must carry its provenance — `doc_id`, `canonical_url`, `title`,
-    `section_path` — because that is what citations are built from downstream.
-    A chunk that knows its text but not its source is useless.
+    * Every chunk carries its provenance — `doc_id`, `canonical_url`, `title`,
+      `section_path`. Citations are built from these. A chunk that knows its
+      text but not its source is useless.
+    * `chunk_id` is stable and unique across runs. Re-indexing the same corpus
+      must produce the same ids, or the vector store cannot tell an update from
+      a new chunk.
 
-    `chunk_id` must be stable and unique: derive it from doc_id plus ordinal.
-
-    Two edge cases that must be handled:
-      * A document shorter than one chunk produces exactly ONE chunk, not zero.
-      * A trailing fragment below `min_chars` should not become its own chunk —
-        fold it into the previous one instead of emitting a stub.
+    Everything else — where you split, how big, whether they overlap — is the
+    design work described at the top of this file.
     """
     raise NotImplementedError
 

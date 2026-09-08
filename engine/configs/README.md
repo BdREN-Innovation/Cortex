@@ -17,8 +17,13 @@ crawl.<site>     extract.<site>     index.<site>      eval.<site>
 | `index.<site>.yaml` | chunk, embed, store | Team B | [index.example.yaml](index.example.yaml) |
 | `eval.<site>.yaml` | scoring against the golden set | Team C | [eval.example.yaml](eval.example.yaml) |
 
-**Every `*.example.yaml` documents every knob it supports.** Copy the example,
-rename it for your site, edit. `CODEOWNERS` assigns each pattern to its team.
+Copy the example, rename it for your site, edit. `CODEOWNERS` assigns each
+pattern to its team.
+
+**The example files are a starting shape, not a fixed schema.** The keys exist
+because the pipeline has stages that need configuring, not because these are
+the right knobs. Add, rename or drop them as your design needs — just keep the
+YAML and the matching dataclass in step.
 
 ---
 
@@ -107,22 +112,6 @@ OPENAI_API_KEY=...
 ```
 
 A config may name a *collection* or a *provider*; it must never contain a key.
-
----
-
-## The comparison configs
-
-`extract.builtin.yaml`, `extract.pdfplumber.yaml` and `extract.docling.yaml`
-are not per-site configs. They exist so Team B can run the same crawl through
-three PDF parsers and diff the output:
-
-```bash
-uv run engine extract --run <run> --config configs/extract.builtin.yaml    --out builtin.jsonl
-uv run engine extract --run <run> --config configs/extract.pdfplumber.yaml --out pdfplumber.jsonl
-```
-
-Whichever wins is an empirical fact about your sites' PDFs. Each file documents
-what that parser costs and what it buys.
 
 ---
 

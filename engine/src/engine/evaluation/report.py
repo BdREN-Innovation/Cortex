@@ -6,6 +6,18 @@ retrieved documents next to them get fixed.
 
 TEAM C OWNS THIS FILE.
 
+
+Decisions you own
+-----------------
+* Who reads this, and what do you want them to do differently? The audience is
+  Teams A and B, and the purpose is to make them change something. A wall of
+  numbers gets skimmed.
+* What formats? One for people to read, one for a machine to compare runs over
+  time — those are usually not the same file.
+* How much detail about failures? Enough that someone can act without re-running
+  the evaluation themselves.
+* What makes a report reproducible three days later? A score is meaningless
+  without knowing which index and which dataset version produced it.
 """
 
 from __future__ import annotations

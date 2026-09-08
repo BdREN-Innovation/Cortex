@@ -7,18 +7,18 @@ it is just another row.
 
 TEAM B OWNS THIS FILE.
 
-Libraries worth considering
----------------------------
-Nothing here is required — the scaffold ships with almost no dependencies and
-these are suggestions, not a shortlist. Add what you choose with `uv add`.
-
-pypdf         the baseline. Pure Python, ~10 ms a page, ~15 MB resident.
-              PdfReader(BytesIO(content)).pages[i].extract_text().
-              Gets the characters; flattens tables into whitespace.
-pdfplumber    RECOMMENDED — see parsers.py. Also pure Python, ~100 ms a page,
-              ~60 MB. Recovers ruled tables via page.find_tables().
-urllib.parse  unquote + urlparse to turn a URL into a filename.
-re            filename sanitising and whitespace tidying.
+Decisions you own
+-----------------
+* Which library reads the PDF? See `parsers.py` — this is where that choice
+  becomes real. Look at the PDFs your sites actually serve first.
+* A PDF rarely carries a usable title. Where do you get one from?
+* How many pages do you read? One 300-page manual should not dominate an index
+  built from 200 web pages.
+* What do you do with a file that is corrupt, encrypted, or a scan with no text
+  layer at all? None of those are errors in the "crash the run" sense.
+* PDF text arrives hard-wrapped, with headers and footers repeated on every
+  page. How much of that do you clean up, and how much is the chunker's
+  problem?
 
 """
 
@@ -44,9 +44,9 @@ def is_pdf(content_type: str, url: str) -> bool:
 def filename_for(url: str, fallback: str) -> str:
     """A safe on-disk name for a downloaded file.
 
-    Take the last path segment, URL-decode it, replace anything that is not
-    [A-Za-z0-9._-] with "_", and cap the length. Never let a URL choose a path:
-    "../../etc/passwd" must not survive this function.
+    Never let a remote URL choose a path on your disk. "../../etc/passwd" must
+    not survive this function, and neither should a 400-character filename or
+    one full of characters your filesystem rejects.
     """
     raise NotImplementedError
 
@@ -64,16 +64,8 @@ def title_from(url: str, text: str) -> str:
 def extract_pdf_text(content: bytes, max_pages: int = 200) -> str:
     """Return the text of a PDF, or "" if it cannot be read.
 
-    Two failure modes that are NOT errors and must not raise:
-
-      * A corrupt or unreadable file. Log a warning, return "". One bad
-        download must not fail an extract over a whole site.
-      * A scanned PDF. It is a stack of images with no text layer, so it yields
-        nothing. The caller drops it exactly like a thin HTML page. Solving this
-        needs OCR, which is out of scope — log it and move on.
-
-    Cap at `max_pages`: one 300-page manual should not dominate the index.
-    Tidy the output — PDF extraction leaves hard-wrapped lines and repeated
-    blank runs whatever produced it.
+    Some files will be corrupt, encrypted, or scans with no text layer at all.
+    None of those are errors in the "crash the run" sense — one bad download
+    must not fail an extract over a whole site.
     """
     raise NotImplementedError

@@ -1,27 +1,35 @@
-"""Vector storage behind one interface.
+"""Where the vectors live, and how you search them.
 
-Two implementations. `NumpyVectorStore` is brute-force cosine over a matrix —
-that sounds primitive, but at this corpus size it is exact, dependency-free and
-fast enough to be invisible next to an LLM call. `QdrantVectorStore` is the
-production path.
+The project target is **Qdrant Cloud**. How you get there is yours — including
+whether you build something simpler first so you are not debugging network
+calls while you are still deciding on chunk size.
 
-Build NumPy first and develop against it. Switch to Qdrant when you are
-integrating, not while you are still iterating on chunk size — a network round
-trip per experiment will slow you down for no benefit at 800 chunks.
+Three methods is the whole interface. Keep it that way and the retriever, the
+RAG layer and Team C's harness never learn which backend they are talking to.
 
 TEAM B OWNS THIS FILE.
 
-Libraries worth considering
----------------------------
-Nothing here is required — the scaffold ships with almost no dependencies and
-these are suggestions, not a shortlist. Add what you choose with `uv add`.
+Decisions you own
+-----------------
+* Do you develop against Qdrant from day one, or against something local first?
+  A network round trip per experiment is a real tax when you are sweeping chunk
+  sizes. Whatever you choose, both must satisfy the same Protocol.
+* What distance metric? It has to agree with whatever your embedder produces.
+  If you normalise on the way in, some metrics become equivalent — know which,
+  and state it explicitly rather than relying on a default.
+* What is a point's ID? Re-indexing the same corpus should not double it.
+  Something derived from `chunk_id` makes re-indexing idempotent; a random ID
+  makes it additive. Decide deliberately.
+* How much do you send per write? One enormous request will time out; one
+  request per chunk will crawl.
+* What does `save()` mean when the vectors are on somebody else's server?
+  Something still has to be written locally, or `load_retriever` cannot find
+  the collection again.
+* Deleting a local index directory does not delete a remote collection. How do
+  you wipe one deliberately, and how do you avoid wiping one accidentally?
 
-numpy           the matrix, np.save/np.load, and argpartition for top-k
-                without sorting the whole array.
-qdrant-client   `uv add qdrant-client`. QdrantClient(url, api_key),
-                create_collection, upsert(PointStruct), query_points.
-uuid            uuid5 to derive stable point IDs from chunk_ids.
-
+Credentials come from the environment, never from a config file — `configs/` is
+committed, `.env` is not.
 """
 
 from __future__ import annotations
@@ -40,7 +48,7 @@ log = logging.getLogger(__name__)
 
 class VectorStore(Protocol):
     """Three methods. Everything above this line is storage-agnostic, which is
-    why swapping NumPy for Qdrant changes nothing in the retriever."""
+    why changing backend changes nothing in the retriever."""
 
     def add(self, chunks: list[Chunk], vectors: np.ndarray) -> None: ...
     def search(self, query: np.ndarray, top_k: int) -> list[tuple[Chunk, float]]: ...
@@ -49,11 +57,18 @@ class VectorStore(Protocol):
 
 @dataclass
 class IndexMeta:
-    """Written as index_meta.json beside an index. This is how an index is
-    reopened later, so it must record everything needed to rebuild the reader."""
+    """Written as index_meta.json beside an index.
+
+    This is how an index is reopened later, and it is shared structure: the
+    retriever reads it to rebuild the right store and the right embedder. If
+    something is needed to reconstruct a reader, it belongs here. Add fields as
+    your design needs them.
+    """
 
     index_id: str
     site: str
+    # Must identify the embedder well enough to rebuild it. An index embedded
+    # with one model and queried with another fails silently.
     embedder: str
     dimensions: int
     chunk_count: int
@@ -61,89 +76,26 @@ class IndexMeta:
     built_at: str
     source_documents: str = ""
     config: dict | None = None
-    # "numpy" or "qdrant". load_retriever() reads this to decide how to rebuild
-    # the store, so an index built against Qdrant Cloud reopens against it.
-    backend: str = "numpy"
-    # Qdrant only: the collection the vectors live in. The server URL and key
-    # come from the environment, never from a committed file.
+    # Which backend built this index, so load_retriever knows how to reopen it.
+    backend: str = ""
+    # Where the vectors live, when they do not live in this directory.
     collection: str = ""
 
 
-class NumpyVectorStore:
-    """Exact cosine search over a matrix in memory.
-
-    Vectors arrive already L2-normalised from the embedder, so a dot product
-    IS the cosine similarity and `search` is one matrix multiply.
-    """
-
-    def __init__(self, dimensions: int):
-        raise NotImplementedError
-
-    def add(self, chunks: list[Chunk], vectors: np.ndarray) -> None:
-        """Append. Validate loudly: len(chunks) must equal vectors.shape[0],
-        and vectors.shape[1] must equal self.dimensions. Silently storing
-        mismatched data produces a search that returns the wrong chunk text,
-        which is very hard to debug later."""
-        raise NotImplementedError
-
-    def search(self, query: np.ndarray, top_k: int = 5) -> list[tuple[Chunk, float]]:
-        """Top-k by cosine, highest first. Return [] for an empty store rather
-        than raising. np.argpartition finds the top k without sorting the whole
-        array — worth using once the corpus is real."""
-        raise NotImplementedError
-
-    def save(self, path: str | Path) -> None:
-        """Persist to a directory: vectors.npy plus chunks.jsonl. Keep the two
-        in the same order — that ordering is the only thing linking a row of
-        the matrix to its chunk."""
-        raise NotImplementedError
-
-    @classmethod
-    def load(cls, path: str | Path) -> "NumpyVectorStore":
-        """The inverse of save. Round-tripping must preserve search results."""
-        raise NotImplementedError
-
-
-class QdrantVectorStore:
-    """Qdrant Cloud, behind the same three methods.
-
-    Credentials come from QDRANT_URL and QDRANT_API_KEY in engine/.env. Never
-    put a key in a config file: configs/ is committed, .env is not.
-
-    Four things worth getting right:
-      * Derive each point ID from `chunk_id` (uuid5 over the chunk_id) so
-        re-indexing REPLACES a chunk instead of duplicating it.
-      * Batch upserts (~256 points). One upsert of 50k points is a timeout.
-      * `save()` writes nothing — the vectors live on the server. index_meta
-        records the collection name, and that is enough to reopen it.
-      * Deleting data/index/ does NOT delete the collection. Offer a
-        `recreate` flag for wiping it deliberately.
-    """
-
-    def __init__(
-        self,
-        collection: str,
-        dimensions: int,
-        url: str = "",
-        api_key: str = "",
-        recreate: bool = False,
-    ):
-        raise NotImplementedError
-
-    def add(self, chunks: list[Chunk], vectors: np.ndarray) -> None:
-        raise NotImplementedError
-
-    def search(self, query: np.ndarray, top_k: int = 5) -> list[tuple[Chunk, float]]:
-        """Store the whole chunk in the point payload, so a hit can be turned
-        back into a Chunk without a second lookup somewhere else."""
-        raise NotImplementedError
-
-    def save(self, path: str | Path) -> None:
-        raise NotImplementedError
-
-    @classmethod
-    def load(cls, path: str | Path) -> "QdrantVectorStore":
-        raise NotImplementedError
+# ── Your stores go here ───────────────────────────────────────────────────
+#
+# A class per backend, each satisfying VectorStore. Two things to be strict
+# about whatever you build:
+#
+#   * VALIDATE on add(). len(chunks) must match vectors.shape[0], and the
+#     vector width must match what the store was built for. Storing mismatched
+#     data produces a search that returns the wrong chunk text — no error, just
+#     wrong answers, discovered days later.
+#   * search() returns (chunk, score) highest first, and returns [] for an
+#     empty store rather than raising.
+#
+# Import client libraries lazily so a backend nobody is using need not be
+# installed.
 
 
 def save_index_meta(path: str | Path, meta: IndexMeta) -> None:

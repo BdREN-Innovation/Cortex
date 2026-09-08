@@ -7,16 +7,18 @@ that then come back as four separate search results.
 
 TEAM A OWNS THIS FILE.
 
-Libraries worth considering
----------------------------
-Nothing here is required — the scaffold ships with almost no dependencies and
-these are suggestions, not a shortlist. Add what you choose with `uv add`.
-
-urllib.parse   urlparse, urlunparse, parse_qsl, urlencode, urljoin, urldefrag.
-               Everything canonicalize needs is here; a third-party URL
-               library is unlikely to earn its place here.
-re             compiled patterns for include/exclude rules.
-collections    deque, for a breadth-first queue with cheap popleft().
+Decisions you own
+-----------------
+* What exactly makes two URLs "the same page"? The examples below pin the cases
+  that matter here; you decide how to get there.
+* What do you do with the root path — does `https://x.test/` keep its slash?
+  Either answer is defensible; an inconsistent one breaks joins downstream.
+* Which query parameters are noise? `utm_*` obviously. What about `ref`,
+  `source`, session ids, a `page=` you actually need? This list grows as you
+  meet real sites.
+* Breadth-first or depth-first? BFS finds the shallow, important pages first,
+  which matters when `max_pages` cuts you off mid-crawl.
+* What data structure makes "have I seen this?" cheap at 10,000 URLs?
 
 """
 
@@ -42,12 +44,8 @@ def canonicalize(url: str) -> str:
         https://x.test//a//b             -> https://x.test/a/b
         https://x.test:443/a             -> https://x.test/a
 
-    So: lowercase scheme and host, drop the default port (80 for http, 443 for
-    https), collapse repeated slashes, drop a trailing slash, drop the fragment
-    entirely, remove tracking params, and sort the remaining query parameters so
-    that argument order stops mattering.
-
-    This function's output becomes `page_id`, so it must be stable across runs.
+    This function's output becomes `page_id`, so it must be stable across runs
+    and across machines.
     """
     raise NotImplementedError
 
@@ -62,21 +60,21 @@ class ScopeRules:
     max_depth: int = 3
 
     def __post_init__(self):
-        """Compile the regexes once here, not on every URL you test."""
+        """You will test these patterns against thousands of URLs. Prepare them
+        here rather than on every call."""
         raise NotImplementedError
 
     def in_scope(self, url: str, depth: int) -> bool:
         """Should we fetch this URL at this depth?
 
-        Check cheapest-and-most-decisive first:
-          - depth is within max_depth
-          - the scheme is http or https (not mailto:, javascript:, data:)
-          - the host is in allowed_domains, or is a subdomain of one
-          - no exclude_pattern matches
-          - if include_patterns is non-empty, at least one matches
+        Four things can put a URL out of bounds: it is too deep, it is on a
+        host we are not crawling, it matches something excluded, or it fails to
+        match anything included. Watch the difference between "no include
+        patterns configured" and "include patterns configured and none matched"
+        — they must not mean the same thing.
 
-        An empty `allowed_domains` means no domain restriction here — the
-        caller derives the default from the seeds before constructing you.
+        An empty `allowed_domains` means no domain restriction here; the caller
+        derives a default from the seeds before constructing you.
         """
         raise NotImplementedError
 
@@ -90,16 +88,12 @@ class Frontier:
     """
 
     def __init__(self, seeds: list[str], rules: ScopeRules):
-        raise NotImplementedError(
-            "Hold the rules, a set of seen canonical URLs, and a deque of "
-            "(url, depth). Push each seed at depth 0 through self.add()."
-        )
+        raise NotImplementedError
 
     def add(self, url: str, depth: int) -> bool:
         """Queue one URL. Returns True if it was actually added.
 
-        False when the URL is out of scope or has been seen before. Returning a
-        bool rather than nothing is what makes the behaviour testable.
+        False when the URL is out of scope or has been seen before.
         """
         raise NotImplementedError
 
@@ -107,8 +101,8 @@ class Frontier:
         """Queue every link found on a page. Returns how many were added.
 
         `links` are as they appeared in the HTML, so they may be relative
-        ("/docs/billing", "../index.html"). Resolve each against `base_url`
-        first — urllib.parse.urljoin does exactly this.
+        ("/docs/billing", "../index.html") and need resolving against
+        `base_url` first.
         """
         raise NotImplementedError
 

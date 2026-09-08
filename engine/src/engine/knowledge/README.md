@@ -8,9 +8,9 @@ the specification; the code is yours to write.
 uv run python scripts/progress.py --detail   # what is left in your files
 ```
 
-You own the biggest share: **23 of the 43 tests** (20 of them run without
-any optional extra; 3 parser tests need `uv add pdfplumber`). Start early, and build in the
-order below rather than by whichever file looks most interesting.
+You own the biggest share by a wide margin — **24 of the 54 stubs**, most of
+the files, and nearly all of the genuinely open decisions. Start early, and build in the order below
+rather than by whichever file looks most interesting.
 
 ---
 
@@ -78,8 +78,8 @@ Seconds, offline, as often as you like.
 
 | Symptom | Whose |
 |---|---|
-| Text full of cookie banners / nav / "related articles" | **Yours** — `selectors.drop`, §6 |
-| A page's real content missing from `text` | **Yours** — `selectors.main`, §6 |
+| Text full of cookie banners / nav / "related articles" | **Yours** — `selectors.drop`, §5 |
+| A page's real content missing from `text` | **Yours** — `selectors.main`, §5 |
 | A page you need isn't in `pages.jsonl` at all | Team A — scope, `max_depth`, `exclude_patterns` |
 | `manifest.json` shows errors, or `pages_written` looks small | Team A |
 | A PDF you need wasn't downloaded | Team A — `max_documents`, or an `exclude_patterns` rule eating it |
@@ -92,83 +92,51 @@ day 3**. Raise changes before then.
 
 ---
 
-## 4. Libraries
+## 4. The decisions are yours
 
-**Nothing is preinstalled beyond PyYAML and numpy.** Everything below is a
-suggestion; pick what suits you, `uv add` it, and commit `pyproject.toml` and
-`uv.lock` together so the team stays in sync.
+Nothing is preinstalled beyond what the scaffold itself uses. **No library is
+prescribed anywhere in this package** — which HTML parser, which PDF library,
+which embeddings provider, how you chunk, what backs the vector store. Those
+are the engineering judgements you are here to make, and they are most of the
+value of the fortnight.
 
-| Library | For | Notes |
-|---|---|---|
-| `beautifulsoup4` + `lxml` | HTML → text | `select_one(css)`, `decompose()`, `replace_with()` |
-| `pypdf` | PDF → text | Baseline: ~10 ms/page, ~15 MB. Flattens tables |
-| `pdfplumber` | PDF → text + tables | **Recommended.** ~100 ms/page, ~60 MB, pure Python |
-| `numpy` | vectors | Normalise on the way in; `argpartition` for top-k |
-| `qdrant-client` | vector store | Qdrant Cloud |
-| `openai` | embeddings + generation | |
-| `anthropic` | generation only | **No embeddings endpoint.** People try; it does not exist |
-
-Also worth evaluating — measure before adopting:
-
-- **trafilatura** / **readability-lxml** / **justext** — boilerplate removal.
-  Can beat hand-tuned selectors on messy sites and lose badly on clean docs sites.
-- **tiktoken** — real token counts. A ~4-chars-per-token estimate is fine for
-  deciding where to cut.
-- **langchain-text-splitters** — `RecursiveCharacterTextSplitter`. A hand-written
-  paragraph splitter you understand will beat a library you cannot debug on day 12.
-- **sentence-transformers** — good local embeddings on CPU, ~100 MB models.
-  A real option if API budget is a problem.
-- **docling** — see §5.
-
----
-
-## 5. Choosing a PDF engine
-
-```yaml
-parser: pdfplumber   # or: builtin | docling
-```
-
-The setting picks the **PDF** engine only. HTML always goes through
-BeautifulSoup, because the hard part of a web page is knowing which `<div>` is a
-cookie banner — a per-site selector problem, not a parsing one.
-
-| | `builtin` (pypdf) | `pdfplumber` | `docling` |
-|---|---|---|---|
-| Speed | ~10 ms/page | ~100 ms/page | seconds/page on CPU |
-| Resident memory | ~15 MB | **~60 MB** | 2–4 GB |
-| Install | none | 8 packages | **106 packages**, incl. torch + CUDA |
-| Ruled tables | flattened to whitespace | **recovered as grids** | recovered |
-| Scanned PDFs | nothing | nothing | **OCR** |
-
-**Use `pdfplumber`.** On an 8 GB laptop with no GPU this is not a close call:
-docling installs the entire CUDA stack that will never execute, then wants 2–4 GB
-of RAM to run a layout model while you also have a browser and an editor open.
-
-Two things to get right when you build it:
-
-- **Memory.** pdfplumber caches every character object per page. Call
-  `page.flush_cache()` after each page. On a 300-page PDF that is 366 MB
-  without it versus 67 MB with it.
-- **Reading order.** Walk the page top to bottom emitting prose-above-table,
-  then the table. Do not append all tables after all prose — a table's meaning
-  lives in the sentence immediately above it.
-
-**Scanned PDFs** are the one case neither pypdf nor pdfplumber handles: no text
-layer, so both return nothing. The pipeline already drops those as "thin" and
-logs it. Check the extract logs around day 8; if it is one stray file, ignore
-it. If it is a whole site's document library, that is a scoping conversation,
-not a parser upgrade on an 8 GB laptop.
-
-**Decide with evidence.** Extraction is a separate stage precisely so this is free:
+Each stub opens with the questions worth answering before you type anything.
+Go and find out what exists, compare at least two options wherever the choice
+matters, and be ready to defend the one you picked.
 
 ```bash
-uv run engine extract --run <run> --out builtin.jsonl    --config configs/extract.builtin.yaml
-uv run engine extract --run <run> --out pdfplumber.jsonl --config configs/extract.pdfplumber.yaml
+uv add <package>                       # then commit pyproject.toml AND uv.lock
 ```
+
+### How to decide, rather than argue
+
+You are the team with the most open choices and the fewest obvious answers.
+Two things make those choices tractable:
+
+**Extraction is a separate stage, so comparing parsers is free.** Same crawl,
+two configs, two outputs, diff them:
+
+```bash
+uv run engine extract --run <run> --config configs/extract.a.yaml --out a.jsonl
+uv run engine extract --run <run> --config configs/extract.b.yaml --out b.jsonl
+```
+
+**Team C produces numbers.** Chunk size, embedding model, refusal threshold —
+none of these have a right answer in the abstract, and all of them have one for
+your corpus. Get their harness running early and let it settle arguments.
+
+Write down what you compared and why you chose what you chose. That reasoning
+is part of the deliverable, not overhead.
+
+### One constraint that is not yours to change
+
+Embeddings come from a hosted API — nothing runs a model locally, because you
+are on 8 GB laptops without GPUs. Which provider and which model are still
+entirely your call.
 
 ---
 
-## 6. Fixing a site the extractor gets wrong
+## 5. Fixing a site the extractor gets wrong
 
 Config, not code — so nobody edits a shared module:
 
@@ -189,7 +157,7 @@ end → find the junk → add a selector → re-extract. Two seconds a lap.
 
 ---
 
-## 7. Images
+## 6. Images
 
 There are none. Team A does not download them — nothing in the pipeline can use
 a PNG, since the embedders are text-only.
@@ -202,41 +170,40 @@ count, not string length.
 
 ---
 
-## 8. The decisions that actually determine quality
+## 7. What actually determines quality
 
-**`target_tokens` matters more than your embedding model.** Too small and an
-answer straddles two chunks so neither scores well; too large and the one
-relevant sentence is diluted by 300 tokens of neighbours. Sweep it against Team
+Four things move the numbers more than anything else you will do. None of them
+has a right answer you can look up.
+
+**How you chunk.** It matters more than which embedding model you buy. Too
+small and an answer straddles two chunks so neither scores well; too large and
+the one relevant sentence is diluted by its neighbours. Sweep it against Team
 C's dataset — do not guess.
 
-**`hash` is not a real retriever.** It is deterministic bag-of-words with no
-semantic understanding: "refund" and "reimbursement" are unrelated to it. It
-exists so the pipeline runs offline with no API key, which is what lets you and
-Team C work before billing is set up. Build with it; ship with `openai`.
+**Whether the text is clean.** Chrome that leaks into `text` gets embedded,
+retrieved, and returned to a user as an answer. Read your own output. Five
+documents per site, end to end, is enough to find the problem.
 
-**Develop against `backend: numpy`.** Exact, no service, fast enough to be
-invisible at this corpus size. Switch to Qdrant when you are integrating, not
-while you are iterating on chunk size.
+**Where the refusal threshold sits.** Too low and the system invents answers to
+questions the corpus cannot answer; too high and it refuses real ones. Team C
+grades both, separately, and they are not equally bad — a confident wrong
+answer costs more trust than a refusal.
 
-**Qdrant Cloud credentials go in `engine/.env`, never in `configs/`** — configs
-are committed. Derive point IDs from `chunk_id` so re-indexing replaces rather
-than duplicates. Deleting `data/index/` does *not* delete the collection.
-
-**Refusal is graded.** An unanswerable question answered fluently and cited
-confidently is the worst thing this system can produce. `min_score` is the knob:
-too low and you hallucinate, too high and you refuse real questions.
+**Whether citations are honest.** A citation must point at something the model
+actually saw. If you truncate context to fit a budget, whatever you dropped
+must drop out of the citations too.
 
 ---
 
-## 9. Definition of done
+## 8. Definition of done
 
 - [ ] All 23 of your tests green
 - [ ] `engine extract` runs clean on every site Team A delivers
 - [ ] You have read the `text` of five documents per site and found no chrome
-- [ ] A documented parser choice, backed by output you actually compared
+- [ ] A written record of the choices you made — parser, embedder, chunking,
+      vector store — and the comparison behind each one
 - [ ] `target_tokens` chosen against Team C's dataset, not guessed
-- [ ] Real embeddings (`openai`) in the demo path, not `hash`
-- [ ] A live Qdrant Cloud collection with `engine ask` answering against it
+- [ ] A live Qdrant Cloud collection, with `engine ask` answering against it
 - [ ] Answers carry citations, and unanswerable questions are refused
 
 ---

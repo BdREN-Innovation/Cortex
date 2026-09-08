@@ -215,27 +215,36 @@ after the day-3 contract freeze it should not be happening.
 sixty is enough for the numbers to mean something. Write them against the sample
 corpus first, then re-point at real data when it lands.
 
-## 5. Libraries
+## 5. The decisions are yours
 
-You need almost nothing, and that is intentional — metrics you wrote yourself
-are metrics you can defend when someone disputes a score. Add anything you do
-want with `uv add`, and commit `pyproject.toml` and `uv.lock` together.
+Nothing is preinstalled beyond what the scaffold uses. No library is
+prescribed — and for this package you may genuinely need almost none. Metrics
+you wrote yourself are metrics you can defend when someone disputes a score,
+and you will be disputed.
 
-| Library | For |
-|---|---|
-| `PyYAML` | reading the dataset. Always `safe_load`, never `load` |
-| `scripts/browse_documents.py` | **given** — your authoring tool, see §4 |
+Add whatever you do want with `uv add`, and commit `pyproject.toml` and
+`uv.lock` together.
 
-Do **not** reach for `ragas`, `deepeval` or `trulens` for the core metrics. They
-are worth reading about — the ideas (faithfulness, answer relevance, context
-precision) will improve your thinking — but a metric you cannot explain is a
-metric the other teams will argue with instead of acting on.
+Some questions worth working through before you write the first metric:
 
-One thing worth considering **after** the substring matcher works: an **LLM
-judge** for semantic answer scoring, using the `anthropic` or `openai` extra.
-It handles paraphrase, which substring matching cannot. It also costs money per
-run, is non-deterministic, and cannot run in CI. Add it as a second metric
-alongside the cheap one, never as a replacement.
+* **Substring matching or something smarter?** Checking whether an answer
+  contains "30 days" is cheap, deterministic and runs anywhere. It also cannot
+  tell a correct paraphrase from a wrong answer. Where does that break down for
+  your questions, and what would you do about it?
+* **An LLM as judge?** It handles paraphrase. It also costs money per run, is
+  non-deterministic, and cannot be reproduced later. If you add one, is it
+  instead of the cheap metric or alongside it?
+* **Which retrieval metrics?** There are several standard ones and they answer
+  different questions — "did we find it at all" is not "did we rank it first".
+  Pick the ones that would change what Team B does next.
+* **What is the right answer for an edge case?** Recall when there is nothing
+  relevant to find. Citation precision when nothing was cited. These are
+  judgement calls; make them deliberately and write them down, because your
+  averages depend on them.
+
+There are off-the-shelf RAG evaluation frameworks. Read about them — the ideas
+in them are good — but think hard before adopting one. A metric you cannot
+explain is a metric the other teams will argue with instead of act on.
 
 ---
 

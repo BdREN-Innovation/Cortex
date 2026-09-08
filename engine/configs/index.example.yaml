@@ -3,42 +3,43 @@
 #
 # OWNED BY: Team B.
 # READS:    documents.jsonl (Team B's own extract output)
-# WRITES:   data/index/<site>/<index_id>/  + a Qdrant collection
+# WRITES:   data/index/<site>/<index_id>/, and wherever the vectors actually live
+#
+# The keys below are a starting shape, not a fixed schema. Add, rename or drop
+# them as your design needs — just keep this file and IndexConfig in step.
 
 site: example
 
 # ── Where the vectors live ───────────────────────────────────────────────
-# numpy  = a local matrix on disk. Exact, no service, nothing to configure.
-#          Develop against this while you are tuning chunk size — a network
-#          round trip per experiment slows you down for no benefit at this
-#          corpus size.
-# qdrant = Qdrant Cloud. Set QDRANT_URL and QDRANT_API_KEY in engine/.env.
-#          Switch to this when you are integrating, not before.
-backend: numpy
-collection: ""                      # qdrant only; defaults to cortex_<site>
+# Names one of the stores you register in knowledge/store.py. The project
+# target is Qdrant Cloud; whether you build something simpler to develop
+# against first is your call.
+#
+# Credentials come from engine/.env, never from this file — configs are
+# committed.
+backend: ""
+collection: ""
 recreate_collection: false          # true WIPES the collection before indexing
 
 # ── Embeddings ───────────────────────────────────────────────────────────
-# Embeddings come from a hosted API — nothing runs a model on your machine.
-# Needs OPENAI_API_KEY in engine/.env and: uv add openai
+# Names one of the embedders you register in knowledge/embedding.py.
+# Embeddings come from a hosted API; which provider and model is your choice,
+# and worth comparing before you commit.
 #
-# text-embedding-3-small  1536 dims, cheap, good enough. Start here.
-# text-embedding-3-large  3072 dims, better, ~6x the price.
-#
-# Anthropic has NO embeddings endpoint — it is a generation provider only.
-embedding_provider: openai
-embedding_model: text-embedding-3-small
-dimensions: 1536
+# Whatever you pick here must match what the index was built with — an index
+# embedded with one model and queried with another fails silently.
+embedding_provider: ""
+embedding_model: ""
+dimensions: 0
 
-# ── Chunking: the highest-leverage knob in the system ────────────────────
-# Matters more than the embedding model. Too small and an answer straddles two
-# chunks so neither scores well; too large and the one relevant sentence is
-# diluted by 300 tokens of neighbours.
+# ── Chunking ─────────────────────────────────────────────────────────────
+# The knobs here should match whatever ChunkConfig ends up looking like; these
+# are one plausible set, not the answer. Chunking decides more about answer
+# quality than almost anything else, so sweep these against Team C's dataset
+# rather than guessing.
 #
-# Re-indexing costs an API call per chunk, so sweep this deliberately rather
-# than by trial and error — and note that changing it changes the index_id, so
-# old and new indexes sit side by side and can be compared.
+# Re-indexing costs an API call per chunk, so change these deliberately.
 chunk:
   target_tokens: 350
-  overlap_tokens: 60                # catches answers that straddle a boundary
+  overlap_tokens: 60
   min_tokens: 40

@@ -43,23 +43,21 @@ require_citation: true
 # ── How the system answers, during evaluation ────────────────────────────
 # These override the defaults in knowledge/rag.py for this run. Recording them
 # here is what makes a score reproducible: "68% pass" means nothing unless you
-# know which provider and which min_score produced it.
+# also know which provider and which settings produced it.
 rag:
-  # extractive = no API key, returns the best chunk verbatim. Use it to check
-  #              that RETRIEVAL works before spending money on generation.
-  # openai / anthropic = real generation. Needs the matching key in engine/.env.
-  provider: extractive
-  model: ""                         # e.g. "gpt-4o-mini" or "claude-sonnet-5"
+  # Names one of the generators you define in knowledge/rag.py.
+  provider: ""
+  model: ""
 
   top_k: 5                          # usually match the top_k above
 
   # The refusal threshold, and the most consequential number in this file.
   # Below this retrieval score the system declines instead of guessing.
-  #   too LOW  -> it answers unanswerable questions -> hallucination_rate rises
-  #   too HIGH -> it refuses real questions -> pass_rate_answerable falls
-  # Tune it against your unanswerable cases. Sweep 0.02 / 0.05 / 0.10 / 0.20
-  # and report the curve — that single chart is genuinely useful to Team B.
-  min_score: 0.05
+  #   too LOW  -> it answers unanswerable questions -> hallucination rises
+  #   too HIGH -> it refuses real questions -> answerable pass rate falls
+  # There is no correct default. Sweep it against your unanswerable cases and
+  # report the curve — that single chart is genuinely useful to Team B.
+  min_score: 0.0
 
   max_context_chars: 8000           # prompt budget; chunks beyond it are dropped
                                     # AND excluded from citations

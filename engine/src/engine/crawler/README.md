@@ -57,26 +57,26 @@ the highest-leverage function you own — it is what stops `/pricing`,
 `/pricing/`, `/pricing?utm_source=x` and `/pricing#plans` becoming four copies
 of one page in the search index.
 
-### Libraries
+### The decisions are yours
 
-**Nothing is preinstalled beyond PyYAML and numpy — these are suggestions, and
-the choice is yours.** Add what you settle on with `uv add <package>`, then
-commit `pyproject.toml` and `uv.lock` together so the rest of the team gets it
-with a `uv sync`.
+Nothing is preinstalled beyond what the scaffold itself uses. **No library is
+prescribed** — which HTTP client, which HTML parser, how you model the queue,
+these are the engineering judgements you are here to make.
 
-| Library | For | Notes |
-|---|---|---|
-| `requests` | all HTTP | Use a `Session` — connection reuse, one place for headers |
-| `urllib.robotparser` | robots.txt | Stdlib. `RobotFileParser.can_fetch()` does the whole job — do not hand-roll it |
-| `urllib.parse` | URL work | `urlparse`, `urlunparse`, `parse_qsl`, `urlencode`, `urljoin` |
-| `beautifulsoup4` + `lxml` | finding links | Structural only — leave article text to Team B |
-| `collections.deque` | the queue | `popleft()` is O(1); `list.pop(0)` is not |
+The stub docstrings list the questions worth answering before you start typing.
+Go and find out what exists, compare a couple of options, and be ready to say
+why you picked what you picked. "It was in the README" is not an answer.
 
-Worth reading about, not necessarily using: **scrapy** (a full crawling
-framework — more structure than this project needs, but read how it models a
-scheduler and duplicate filter), **httpx** (async; only if you have *measured*
-that requests is your bottleneck, which it will not be at 200 pages with a 1s
-delay).
+Add whatever you settle on with `uv add <package>`, then commit
+`pyproject.toml` and `uv.lock` together so the rest of the team gets it with a
+`uv sync`.
+
+Two things that are not open questions, because they are about not getting
+blocked or blocklisted rather than about design:
+
+- **robots.txt has a parser in the standard library.** Writing your own is a
+  day you do not have, and the edge cases are subtler than they look.
+- **Politeness is non-negotiable** — see the next section.
 
 ---
 

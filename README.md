@@ -62,13 +62,15 @@ That single command:
 - adds the `dev` extra (black, flake8)
 
 The scaffold deliberately ships with almost nothing — PyYAML and numpy, because
-the given code uses them. **Every other library is your team's choice**; §2
-covers how to add one and keep everyone in sync.
+the given code uses them. **No library is prescribed anywhere in this project.**
+Which HTTP client, which HTML parser, which PDF library, which embeddings
+provider: those are the engineering judgements the teams are here to make. §2
+covers how to add what you settle on and keep everyone in sync.
 
 ### Check it worked
 
 ```bash
-uv run python scripts/progress.py     # 0/77 — this is the assignment
+uv run python scripts/progress.py     # 0/54 — this is the assignment
 uv run engine --help                  # the CLI wiring is already in place
 ```
 
@@ -157,7 +159,7 @@ The scaffold defines one (`dev`); add your own if a dependency is heavy or only
 relevant to one team:
 
 ```bash
-uv add --optional pdf pdfplumber     # creates a `pdf` extra
+uv add --optional pdf <package>      # creates a `pdf` extra
 uv sync --extra dev --extra pdf      # install it
 uv sync --all-extras                 # everything
 ```
@@ -178,9 +180,9 @@ Two layers doing two different jobs:
 and a fresh clone all resolve to identical versions.
 
 ```bash
-uv add "pdfplumber"                 # default: >=current, allow anything newer
-uv add "pdfplumber>=0.11,<0.12"     # allow patches, block breaking changes
-uv add "pdfplumber==0.11.10"        # hard pin: exactly this version
+uv add "<package>"                  # default: >=current, allow anything newer
+uv add "<package>>=2.1,<3"          # allow patches, block breaking changes
+uv add "<package>==2.1.4"           # hard pin: exactly this version
 ```
 
 Prefer a range in `pyproject.toml` and let `uv.lock` do the pinning. Reach for a
@@ -190,7 +192,7 @@ comment saying why, or the next person will "helpfully" bump it.
 ### Updating
 
 ```bash
-uv lock --upgrade-package pdfplumber   # bump ONE package, leave the rest alone
+uv lock --upgrade-package <package>    # bump ONE package, leave the rest alone
 uv lock --upgrade                      # bump everything — deliberately, not casually
 uv sync                                # apply the lock to your venv
 ```
@@ -287,8 +289,11 @@ traps, and a definition of done. **Read yours before writing anything.**
 | Team | Owns | Brief | Functions |
 |---|---|---|---|
 | **A — Crawler** | fetch a site, save the bytes | [crawler/README.md](engine/src/engine/crawler/README.md) | 16 |
-| **B — Knowledge** | clean → chunk → embed → answer | [knowledge/README.md](engine/src/engine/knowledge/README.md) | 47 |
+| **B — Knowledge** | clean → chunk → embed → answer | [knowledge/README.md](engine/src/engine/knowledge/README.md) | 24 |
 | **C — Evaluation** | golden dataset + scorecard | [evaluation/README.md](engine/src/engine/evaluation/README.md) | 14 |
+
+Those counts are the stubs the scaffold defines. They will grow — the scaffold
+fixes the interfaces, and the classes behind them are yours to write.
 
 Config reference: [engine/configs/README.md](engine/configs/README.md).
 
@@ -332,19 +337,21 @@ uv run python scripts/progress.py
 ```
 
 ```
-  Team A  crawler — capture a site             ███████·················  5/16   31%
-  Team B  knowledge — clean, embed, answer     ██······················  4/47    9%
-  Team C  evaluation — dataset and scoring     ████████████············  7/14   50%
+  Team A  crawler — capture a site             ███████·················   5/16   31%
+  Team B  knowledge — clean, embed, answer     ██······················   4/31   13%
+  Team C  evaluation — dataset and scoring     ████████████············   7/14   50%
 
-  TOTAL   functions implemented                ████····················  16/77  21%
+  TOTAL   functions implemented                ████····················  16/61   26%
 ```
+
+The denominator grows as you add your own classes — the scaffold fixes the
+interfaces, not the implementations.
 
 `--detail` breaks it down file by file.
 
-This counts how much of the scaffold has been filled in — **it does not check
-that the code is correct.** Correctness is judged by running the pipeline and
-reading the output, which is what the definition-of-done checklist in each
-team's README is for.
+**It does not check that the code is correct.** Correctness is judged by
+running the pipeline and reading the output, which is what the
+definition-of-done checklist in each team's README is for.
 
 ---
 
@@ -383,14 +390,16 @@ version with every knob explained.
 cd engine && cp .env.example .env      # then fill in
 ```
 
-| Variable | Needed for | When |
-|---|---|---|
-| `OPENAI_API_KEY` | embeddings | Needed to build an index. Embeddings come from a hosted API; nothing runs a model locally |
-| `QDRANT_URL`, `QDRANT_API_KEY` | Qdrant Cloud | Only once you switch `backend: qdrant`. The local `numpy` backend needs nothing |
-| `ANTHROPIC_API_KEY` | generation | Optional. Anthropic has **no embeddings endpoint** — it is a generation provider only |
+The project fixes two things and leaves the rest open:
 
-Which client library you use for these is up to you — `uv add openai`,
-`uv add cohere`, whatever you settle on.
+- **Embeddings come from a hosted API.** Nothing runs a model locally — the
+  machines are 8 GB with no GPU. Which provider and which model are open.
+- **Qdrant Cloud is the vector store target.** How you get there, and whether
+  you build something simpler to develop against first, is open.
+
+`.env.example` lists the variables those imply. Add your own as you choose
+providers. `configs/` is committed; `.env` is not — **keys never go in a config
+file.**
 
 `engine ask` defaults to the `extractive` provider, which needs no key and just
 returns the best matching passage. That is enough to confirm retrieval works

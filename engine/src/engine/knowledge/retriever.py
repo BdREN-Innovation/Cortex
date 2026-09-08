@@ -6,6 +6,17 @@ codes against — they never import anything else from this package.
 
 TEAM B OWNS THIS FILE.
 
+
+Decisions you own
+-----------------
+* Do you do anything to a question before embedding it? Some systems rewrite,
+  expand or strip queries first. Worth knowing about; worth measuring before
+  adopting.
+* Do you return everything the store gives back, or filter by score first?
+  And if you filter here, how does `rag.py` still know that nothing was
+  relevant?
+* What does an empty or nonsense question do? Team C's dataset will contain
+  edge cases, deliberately.
 """
 
 from __future__ import annotations

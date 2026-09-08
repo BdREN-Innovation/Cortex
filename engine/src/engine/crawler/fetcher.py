@@ -7,17 +7,23 @@ on it behaving.
 
 TEAM A OWNS THIS FILE.
 
-Libraries worth considering
----------------------------
-Nothing here is required — the scaffold ships with almost no dependencies and
-these are suggestions, not a shortlist. Add what you choose with `uv add`.
-
-requests                 the HTTP client. Use a Session so connections and
-                         headers are reused across the whole crawl.
-urllib.robotparser       stdlib. RobotFileParser.can_fetch() does the whole
-                         robots.txt job for you.
-time.monotonic / sleep   for the per-host delay. monotonic, not time(), because
-                         it cannot jump backwards.
+Decisions you own
+-----------------
+* Which HTTP client? Whatever you pick, reuse one connection pool across the
+  whole crawl rather than opening a new one per request.
+* How do you read and honour robots.txt? Do not write a parser for it — the
+  standard library already has one, and the edge cases (a missing file, an
+  unreachable one, wildcards) are subtler than they look.
+* Rate limiting is per host, not global: crawling two domains should not halve
+  your rate on either. What does that mean for how you track time?
+* Which HTTP statuses are worth retrying, and which are pointless? A 404 will
+  still be a 404. A 429 is the server telling you to slow down, sometimes with
+  a header saying by how much.
+* What is the failure contract? Some outcomes are ordinary (robots said no) and
+  some are errors the crawl should record and move past. Returning None and
+  raising mean different things — decide which is which and be consistent, or
+  `pipeline.py` cannot tell them apart.
+* What stops a surprise 2 GB file from ending the run on an 8 GB laptop?
 
 """
 
@@ -35,10 +41,10 @@ DEFAULT_USER_AGENT = "CortexEngine/0.1 (+https://github.com/BdREN-Innovation/Cor
 
 @dataclass
 class FetchPolicy:
-    """Everything about how hard we are allowed to hit a server.
+    """How hard we are allowed to hit a server.
 
-    Given to you — these fields are read from `configs/crawl.<site>.yaml`, so
-    changing them changes the config contract. Add fields if you need them.
+    Read from `configs/crawl.<site>.yaml`. Add, rename or drop fields as your
+    design needs them — just keep the config and the dataclass in step.
     """
 
     user_agent: str = DEFAULT_USER_AGENT
@@ -53,38 +59,28 @@ class FetchPolicy:
 
 
 class Fetcher:
-    """One instance per crawl. Tracks per-host timing and robots rules.
-
-    State you will need: a requests.Session, a dict of host -> last request
-    time, and a cache of origin -> parsed robots.txt (fetching robots.txt once
-    per page would itself be abusive).
-    """
+    """One instance per crawl. Tracks per-host timing and robots rules."""
 
     def __init__(self, policy: FetchPolicy | None = None):
-        raise NotImplementedError(
-            "Build a Session with the User-Agent header set, plus the two "
-            "caches described in the class docstring."
-        )
+        raise NotImplementedError
 
     # -- politeness ---------------------------------------------------------
     def allowed(self, url: str) -> bool:
         """Does robots.txt permit us to fetch this URL?
 
-        Fetch and parse `<scheme>://<host>/robots.txt` once per origin and
-        cache it. A missing robots.txt (404) means allow-all, per the standard —
-        do not treat it as a failure. A robots.txt you cannot reach at all is
-        also allow-all, but log a warning.
+        Read it once per origin, not once per page — fetching robots.txt before
+        every request is itself abusive.
 
-        Return True immediately when `policy.obey_robots` is False. That switch
-        exists only for sites you own.
+        A missing robots.txt means allow-all, per the standard; so does one you
+        cannot reach, though that is worth logging. `policy.obey_robots` is the
+        override, and it exists only for sites you own.
         """
         raise NotImplementedError
 
     def _wait_turn(self, host: str) -> None:
-        """Block until `delay_seconds` has passed since the last hit on `host`.
+        """Block until enough time has passed since the last request to `host`.
 
-        Per host, not global: crawling two domains should not halve your rate on
-        either. Record the time *after* sleeping.
+        Per host, not global. Beware of clocks that can jump backwards.
         """
         raise NotImplementedError
 
@@ -92,31 +88,24 @@ class Fetcher:
     def fetch(self, url: str) -> RawPage | None:
         """GET an HTML page.
 
-        Returns None (not an exception) for anything that is not our problem:
-        robots.txt disallowed it, or the response is not HTML. Non-HTML is
-        deliberate — a PDF must not reach the HTML parser. Binaries go through
-        `fetch_asset` instead.
+        Returning None and raising must mean different things, because `crawl()`
+        treats them differently: one is an ordinary outcome to skip past, the
+        other is an error to record against that URL. Decide which is which.
 
-        Raise only when every retry failed, so `crawl()` can record it as an
-        error against that URL and carry on with the rest of the site.
-
-        Retry 429/502/503/504 with exponential backoff, and honour a
-        `Retry-After` header when the server sends one. Do NOT retry a 404 —
-        it will still be a 404.
-
-        Truncate the body at `policy.max_bytes`.
+        This returns HTML only. A PDF must never reach the HTML parser — that
+        is what `fetch_asset` is for.
         """
         raise NotImplementedError
 
     def fetch_asset(self, url: str) -> RawAsset | None:
-        """Download a non-HTML file: a PDF, an image, a spreadsheet.
+        """Download a non-HTML file: a PDF, a spreadsheet.
 
-        Deliberately separate from `fetch`, which refuses non-HTML. Same robots
-        rules, same rate limit, same session — an asset download is still a
-        request to someone else's server.
+        Separate from `fetch`, which refuses non-HTML — but the same robots
+        rules and the same rate limit apply. An asset download is still a
+        request to somebody else's server.
 
-        Stream the response (`stream=True`, then `iter_content`) and abort once
-        `policy.max_asset_bytes` is exceeded. Reading a surprise 2 GB file into
-        memory before checking its size will end the run on an 8 GB laptop.
+        These can be large. Reading a surprise 2 GB file fully into memory
+        before checking its size will end the run on an 8 GB laptop, so find a
+        way to stop before that happens.
         """
         raise NotImplementedError

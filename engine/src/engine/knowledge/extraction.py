@@ -10,20 +10,18 @@ answer. Judge your work by reading the output, not by whether it runs.
 
 TEAM B OWNS THIS FILE.
 
-Libraries worth considering
----------------------------
-Nothing here is required — the scaffold ships with almost no dependencies and
-these are suggestions, not a shortlist. Add what you choose with `uv add`.
-
-beautifulsoup4   with "lxml". soup.select_one(css), node.decompose(),
-                 node.replace_with(NavigableString(...)), get_text(separator).
-re               whitespace collapsing.
-Worth evaluating as alternatives to the hand-rolled main-content hunt:
-  trafilatura        boilerplate removal, purpose-built for exactly this
-  readability-lxml   the Readability algorithm
-  justext            another boilerplate remover
-Try one against a real site before deciding — they can beat hand-tuned
-selectors on messy sites and lose badly on clean documentation sites.
+Decisions you own
+-----------------
+* What parses the HTML, and do you hand-roll the main-content hunt or use
+  something purpose-built for boilerplate removal? Both are reasonable; they
+  win on different kinds of site. Try one against a real page before deciding.
+* How do you find the main content when a page has no <main> or <article>?
+* How do you know a breadcrumb when you see one? Sites disagree about markup.
+  What is your fallback when there is none — and remember that an empty
+  `section_path` produces an answer that cannot say where it came from.
+* Alt text: some is content ("Revenue by quarter"), some is chrome ("logo").
+  What is your rule for telling them apart? String length is a trap.
+* What counts as whitespace worth collapsing, and what is meaningful layout?
 
 """
 
@@ -76,26 +74,21 @@ class Extracted:
 def rows_to_markdown(rows: list[list[str]]) -> str:
     """Render a grid of cells as a markdown table.
 
-    Shared by the HTML path and the PDF path — a table is a table whichever
-    format it arrived in, so build this once and call it from both.
+    Worth building once and calling from both the HTML and the PDF path — a
+    table is a table whichever format it arrived in.
 
-    Two rules that must hold:
-      * Pad every row to the width of the widest one. A ragged markdown table
-        stops being a table.
-      * Escape "|" inside a cell, or one stray pipe splits the row into two
-        columns and shifts everything after it. Escape exactly once.
-
-    Row 0 becomes the header, followed by the "| --- | --- |" separator.
-    Return "" for an empty grid rather than a header with no rows.
+    Two things will bite you: rows of unequal length stop being a table, and a
+    cell containing a "|" splits itself into two columns unless you deal with
+    it. Decide how, and make sure it happens exactly once.
     """
     raise NotImplementedError
 
 
 def table_to_markdown(table) -> str:
-    """Render one BeautifulSoup <table> as markdown, via rows_to_markdown.
+    """Render one HTML table element as markdown.
 
-    Walk <tr>, then <th>/<td>. Handle colspan by repeating the value across the
-    span, so a merged cell stays attached to every column it covered.
+    Real tables use `colspan` and `rowspan`. Work out what a merged cell should
+    become in a flat markdown grid before you meet one in production.
     """
     raise NotImplementedError
 
@@ -103,34 +96,17 @@ def table_to_markdown(table) -> str:
 def extract(html: str, url: str, selectors: SiteSelectors | None = None) -> Extracted:
     """Read saved HTML for meaning.
 
-    Order matters here, and getting it wrong is the usual bug:
+    Must produce: a title, clean prose with no site chrome in it, a breadcrumb
+    in `section_path`, any `<meta>` worth keeping, and every `<table>` rendered
+    as markdown.
 
-      1. Apply `selectors.drop` FIRST. Junk removed now cannot contaminate the
-         title, the breadcrumb or anything after it.
-      2. Pull <meta> description/author/keywords into `meta`.
-      3. Title: <title>, falling back to the first <h1>.
-      4. Breadcrumb into `section_path`: `selectors.breadcrumb` if given, else
-         hunt for class/aria-label containing "breadcrumb", else fall back to
-         the page's own h1/h2 heading hierarchy. **Citations depend on this** —
-         an empty section_path produces an answer that cannot say where it came
-         from.
-      5. Strip STRIP_TAGS.
-      6. Find the body: `selectors.main` if given, else the first hit among
-         MAIN_SELECTORS, else drop CHROME_TAGS and use <body>.
-      7. Tables -> markdown, replacing each <table> node **in place** so the
-         markdown lands where the table was. A table ripped out of its page is
-         a grid of numbers with nothing saying what they mean; the chunker can
-         only embed what is adjacent.
-      8. Replace each <img> with its alt text — but ONLY when the alt is
-         descriptive. "Revenue by quarter" must survive; "logo" must be
-         dropped. Judge by word count, not length: a description is a phrase,
-         chrome is a label. `<figcaption>` is already text in the DOM and
-         comes through on its own.
+    Tables belong **inline, where they were**. A table lifted out of its page is
+    a grid of numbers with nothing saying what they mean; the chunker can only
+    embed what is adjacent to it.
 
-         Nobody downloads the image itself — see crawler/discover.py. The alt
-         text is prose, so it belongs in the document; the pixels have no path
-         to an answer.
-      9. Collapse whitespace and return.
+    One ordering constraint that is easy to get wrong: `selectors.drop` has to
+    run before anything else reads the document. Junk removed late has already
+    contaminated your title and your breadcrumb.
 
     Note what is NOT here: links, canonical URL and lang. Those are Team A's
     business and arrive on the CrawledPage record. This module reads for

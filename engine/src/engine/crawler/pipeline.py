@@ -11,15 +11,15 @@ to somebody else's server), so the two teams stop blocking each other on day fou
 TEAM A OWNS THIS FILE. It is the last one to build — it only chains together
 fetcher.py, frontier.py and discover.py.
 
-Libraries worth considering
----------------------------
-Nothing here is required — the scaffold ships with almost no dependencies and
-these are suggestions, not a shortlist. Add what you choose with `uv add`.
-
-pathlib      Path.mkdir(parents=True, exist_ok=True), write_text, write_bytes.
-datetime     datetime.now(timezone.utc) for the run id and timestamps.
-             Always timezone-aware; never datetime.now() bare.
-re           for sanitising a URL into a safe filename.
+Decisions you own
+-----------------
+* How is a run identified? It has to sort sensibly and never collide with a
+  previous run of the same site.
+* A URL has to become a safe filename. What happens to a URL containing `..`,
+  or a 400-character path, or characters your filesystem rejects?
+* What goes in the manifest? It is the only record of how a run went once the
+  terminal output is gone — think about what you would want to see when a
+  crawl produced half as many pages as you expected.
 
 """
 
@@ -90,31 +90,27 @@ def crawl(config: CrawlConfig, out_root: str | Path = "data", run_id: str | None
     `content_path` on each record is **relative to the run directory**, so the
     whole folder stays movable. Team B joins it back.
 
-    Shape of the work:
+    Must produce, for one site:
 
-      1. Build ScopeRules (default allowed_domains from the seeds' hostnames),
-         a Frontier and a Fetcher.
-      2. While the frontier has work and fetched < max_pages:
-           pop, fetch, skip None, record HTTP >= 400 as an error and continue,
-           discover(), feed new links back to the frontier,
-           queue any document_links that are in scope,
-           save the HTML, append a CrawledPage.
-      3. AFTER the page loop, drain the queued document links, capped at
-         `assets.max_documents`. Draining during the loop lets one slow 20 MB
-         PDF starve the frontier.
-      4. Write pages.jsonl and manifest.json.
+      * every in-scope page fetched, its bytes on disk, one record each
+      * linked documents downloaded, within their own budget, recorded the
+        same way
+      * a manifest describing how the run went
 
     Three things that are easy to get wrong:
 
-      * One bad page must never kill a run. Wrap the fetch, append to `errors`,
-        and carry on. A crawl that dies at page 180 of 200 has produced nothing.
-      * Queue document links with depth=0, not depth+1. A linked PDF is a leaf,
-        not another hop, so it should not be dropped for sitting one level too
-        deep — but domain and include/exclude rules still apply to it.
+      * One bad page must never kill a run. A crawl that dies at page 180 of
+        200 has produced nothing.
+      * A linked file is a leaf, not another hop. Think about what that means
+        for depth — and note that scope rules should still apply to it.
       * There is NO thin-page filter and NO duplicate-text detection here.
         Both need the text, and there is no text at this stage. `/` and
         `/index.html` will both be captured; Team B collapses them. Do not try
         to be clever and dedupe on raw HTML — identical pages routinely differ
         by a timestamp or a CSRF token.
+
+      One more, about ordering: linked documents can be large and slow. Think
+      about when you fetch them relative to the page crawl.
+
     """
     raise NotImplementedError

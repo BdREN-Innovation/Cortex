@@ -5,12 +5,14 @@ more valuable half of Team C's job — see datasets/ and the team README.
 
 TEAM C OWNS THIS FILE.
 
-Libraries worth considering
----------------------------
-Nothing here is required — the scaffold ships with almost no dependencies and
-these are suggestions, not a shortlist. Add what you choose with `uv add`.
-
-PyYAML   yaml.safe_load. Always safe_load, never load.
+Decisions you own
+-----------------
+* What file format? It has to be comfortable to hand-write sixty times and
+  reviewable in a pull request.
+* What makes a case invalid? Be strict — a case that cannot be scored is worse
+  than no case, because it inflates the denominator and tells you nothing.
+* Do you report the first problem or all of them? Someone fixing a 60-case
+  dataset should get one report, not sixty round trips.
 
 """
 
