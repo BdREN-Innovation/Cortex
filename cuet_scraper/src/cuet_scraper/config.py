@@ -129,13 +129,25 @@ USER_AGENT = f"CUET-Research-Crawler/1.0 (+contact: {CONTACT})"
 # Failed-render detection. Spec §7.2. Stage 4 only.
 # --------------------------------------------------------------------------
 
-# Calibrate against real pages before trusting it. Measured 2026-09-08:
-#   /departments        shell only        ~0 chars of markdown body
-#   academic-calendars  partial render    title+breadcrumb+sidebar, no data grid
-#   /  homepage         full render       well above any threshold
-# A length check alone passes the partial case, which is why EMPTY_TABLE_RE
-# exists as a second, independent condition.
-EMPTY_RENDER_THRESHOLD = 4500
+# RECALIBRATED 2026-09-08 against real headless renders. The original 4500 was
+# derived from raw-fetch sizes and is dangerously low for browser output,
+# because the rendered nav and footer alone are far larger than that.
+#
+#   chrome only, no content loaded            11,879 chars   <- MUST be rejected
+#   /academic-information/academic-calendars  17,824 chars   <- must be accepted
+#   /news-events                              19,561 chars
+#   /departments (18 cards loaded)            19,893 chars
+#
+# 4500 would have passed the chrome-only render as a valid page. Three listing
+# pages were in fact saved that way before this was caught — all three byte
+# identical, which is what gave it away.
+#
+# 13000 sits above the chrome baseline and below the smallest real page.
+# Residual risk: a genuinely thin page lands near the chrome size and is
+# rejected. That is the safer direction to err — a rejected page is recorded in
+# errors.json and can be retried, whereas a saved chrome-only page is silent
+# corruption that looks like content.
+EMPTY_RENDER_THRESHOLD = 13_000
 
 # The empty four-column data grid: a table whose cells are all blank. Its
 # presence means the data component mounted and received nothing.
@@ -147,6 +159,46 @@ EMPTY_TABLE_RE = re.compile(
 # Spec §4.5. A dynamic route returns HTTP 200 for a slug that does not exist,
 # so "not found" must be detected in the CONTENT. Status codes are useless here.
 NOT_FOUND_MARKERS = ("page not found", "404", "could not be found")
+
+# Stage 4 render wait. Spec §6.10 proposed an anchor-count condition and marked
+# it UNVERIFIED. Verified 2026-09-08, and it was wrong twice over:
+#
+#   1. "js:document.querySelectorAll('a').length > 40" is an EXPRESSION.
+#      crawl4ai evaluates the string as a FUNCTION, so it raises
+#      "userFunction is not a function" and every page fails as a render error.
+#      The arrow form "js:() => ..." parses correctly.
+#
+#   2. Fixing the syntax made it worse, not better. **The rendered nav and
+#      footer alone contain 182 anchors**, so any anchor threshold is already
+#      true at first paint. The condition returned immediately and crawl4ai
+#      captured the DOM *before* the API data arrived — producing three
+#      byte-identical chrome-only pages that the length check then accepted.
+#
+# An anchor count cannot work on this site at any threshold. What the page is
+# actually waiting on is a client-side fetch to api.cuet.ac.bd, so the reliable
+# signal is elapsed time. Measured on /departments:
+#
+#   2.0s -> 11,879 chars, no department names   (data had not arrived)
+#   4.0s -> 19,893 chars, all 18 present
+#
+# 5s is 4s plus margin. Content-specific conditions such as
+# "js:() => document.body.innerText.includes('Computer Science')" also work and
+# are faster, but need one per page type, which is a maintenance burden for a
+# stage this small.
+WAIT_FOR = None
+RENDER_DELAY_SECONDS = 8.0
+
+# Stage 4 renders ONE page at a time, unlike the other stages.
+#
+# The delay above is wall-clock, not per-page work, so three tabs rendering
+# concurrently on one machine starve each other and all three finish short. That
+# is what produced three byte-identical chrome-only captures that the length
+# check then accepted. Measured: sequential renders return ~19,500 chars, the
+# same three pages at MAX_CONCURRENT=3 return 4,533.
+#
+# It costs nothing here. Stage 4 is a few dozen pages, and a wall-clock wait
+# cannot be parallelised away without reintroducing exactly this bug.
+CAPTURE_CONCURRENCY = 1
 
 # --------------------------------------------------------------------------
 # Exclusion. Spec §6.2 and §4.6.

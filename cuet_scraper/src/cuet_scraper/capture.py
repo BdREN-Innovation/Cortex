@@ -111,10 +111,11 @@ def run(client, out: Path | None = None, *, limit: int | None = None,
         return {"captured": 0, "failed_renders": 0, "not_found": 0, "errors": []}
 
     log.info("capture: %d URLs planned", len(plan))
-    return asyncio.run(_capture_all(plan, out))
+    return asyncio.run(_capture_all(plan, out, force=force))
 
 
-async def _capture_all(plan: list[tuple[str, str]], out: Path) -> dict:
+async def _capture_all(plan: list[tuple[str, str]], out: Path, *,
+                       force: bool = False) -> dict:
     (AsyncWebCrawler, BrowserConfig, CacheMode, CrawlerRunConfig,
      DefaultMarkdownGenerator) = _require_crawl4ai()
 
@@ -131,20 +132,38 @@ async def _capture_all(plan: list[tuple[str, str]], out: Path) -> dict:
     )
     run_config = CrawlerRunConfig(
         page_timeout=config.PAGE_TIMEOUT_MS,
-        cache_mode=CacheMode.ENABLED,
-        # UNVERIFIED (spec §6.10). Validate against one department page before a
-        # full run; alternatives are wait_for="css:table" or a longer timeout
-        # with no wait condition.
-        wait_for="js:document.querySelectorAll('a').length > 40",
+        # BYPASS when --force, ENABLED otherwise. Spec §6.10 wants ENABLED during
+        # development so repeated tuning runs do not re-hit the server — but the
+        # cache will happily serve a BAD render forever, which is exactly what
+        # happened here: three chrome-only pages were cached, and every retry
+        # returned the cached emptiness in ~1s instead of re-rendering.
+        # --force must therefore invalidate the cache, not just the resume check.
+        cache_mode=CacheMode.BYPASS if force else CacheMode.ENABLED,
+        # VERIFIED 2026-09-08. An anchor-count condition cannot work here at any
+        # threshold — the chrome alone has 182 anchors, so it is true at first
+        # paint and the capture beats the data. Time is the reliable signal.
+        # See config.WAIT_FOR for the measurements.
+        wait_for=config.WAIT_FOR,
+        delay_before_return_html=config.RENDER_DELAY_SECONDS,
         markdown_generator=md_generator,
-        remove_overlay_elements=True,
+        # OFF, contradicting spec §6.10's suggested config. VERIFIED 2026-09-08:
+        # on this site the overlay heuristic deletes the CONTENT. Same page,
+        # same delay, only this flag changed:
+        #
+        #   remove_overlay_elements=True    html 101,211   markdown  7,343
+        #   remove_overlay_elements=False   html 168,019   markdown 18,817
+        #
+        # The news and event cards are being classified as overlays and stripped.
+        # There are no cookie banners or modals on cuet.ac.bd for it to remove,
+        # so the flag has nothing to gain here and 11k of content to lose.
+        remove_overlay_elements=False,
         exclude_external_links=False,
     )
 
     result_bag = Stage2Result()
     errors: list[dict] = []
     captured = failed = not_found = 0
-    semaphore = asyncio.Semaphore(config.MAX_CONCURRENT)
+    semaphore = asyncio.Semaphore(config.CAPTURE_CONCURRENCY)
 
     async with AsyncWebCrawler(config=browser) as crawler:
         async def one(url: str, why: str) -> None:
@@ -176,8 +195,9 @@ async def _capture_all(plan: list[tuple[str, str]], out: Path) -> dict:
                     bad, reason = render_failed(markdown, html)
                     if bad:
                         if attempt < config.MAX_RETRIES:
-                            log.warning("render failed (%s) on %s; retry %d",
-                                        reason, url, attempt)
+                            log.warning("render failed (%s) on %s; retry %d "
+                                        "[md=%d html=%d]",
+                                        reason, url, attempt, len(markdown), len(html))
                             await asyncio.sleep(config.DELAY * attempt)
                             continue
                         failed += 1
@@ -209,7 +229,7 @@ async def _capture_all(plan: list[tuple[str, str]], out: Path) -> dict:
 
         # Sleep DELAY * batch between batches, so the effective per-host rate
         # stays polite regardless of concurrency. Spec §6.10.
-        batch = config.MAX_CONCURRENT
+        batch = config.CAPTURE_CONCURRENCY
         for start in range(0, len(plan), batch):
             group = plan[start:start + batch]
             await asyncio.gather(*(one(u, w) for u, w in group))

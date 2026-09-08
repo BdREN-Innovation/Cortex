@@ -19,6 +19,18 @@ def test_empty_shell_is_a_failed_render():
     assert reason == "below_threshold"
 
 
+def _long(text: str) -> str:
+    """A body comfortably above the render threshold.
+
+    Sized from the config rather than hardcoded: the threshold moved from 4,500
+    to 13,000 once it was calibrated against real headless renders, and these
+    tests silently broke. Deriving the length means the next recalibration
+    cannot invalidate them.
+    """
+    repeats = (config.EMPTY_RENDER_THRESHOLD // len(text)) + 2
+    return text * repeats
+
+
 def test_partial_render_is_caught_by_the_table_check_not_the_length_check():
     """The case a length threshold alone misses, and the reason §7.2 needs two
     conditions.
@@ -27,7 +39,7 @@ def test_partial_render_is_caught_by_the_table_check_not_the_length_check():
     sidebar — comfortably past any threshold set for the fully-empty case —
     while its data grid is the empty skeleton.
     """
-    markdown = "Academic Calendars\n\n" + ("sidebar navigation text " * 400)
+    markdown = "Academic Calendars\n\n" + _long("sidebar navigation text ")
     assert len(markdown.strip()) > config.EMPTY_RENDER_THRESHOLD
 
     html = "<h1>Academic Calendars</h1><table><tbody><tr><td></td></tr></tbody></table>"
@@ -37,10 +49,23 @@ def test_partial_render_is_caught_by_the_table_check_not_the_length_check():
 
 
 def test_a_populated_page_passes():
-    markdown = "Real content. " * 500
+    markdown = _long("Real content. ")
     html = "<table><tr><td>Computer Science &amp; Engineering</td></tr></table>"
     failed, _ = render_failed(markdown, html)
     assert not failed
+
+
+def test_threshold_rejects_a_chrome_only_render():
+    """The failure that actually happened: three listing pages were captured as
+    nav+footer only, at 11,879 chars, and the old 4,500 threshold accepted all
+    three. They were byte-identical, which is what gave it away.
+
+    The threshold must sit above the chrome baseline.
+    """
+    chrome_only = "x" * 11_879
+    failed, reason = render_failed(chrome_only, "<div>nav and footer</div>")
+    assert failed
+    assert reason == "below_threshold"
 
 
 def test_not_found_is_detected_by_content_not_status():
