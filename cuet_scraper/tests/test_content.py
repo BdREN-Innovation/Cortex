@@ -134,6 +134,61 @@ def test_different_out_of_scope_types_do_not_collide():
 
 
 # --------------------------------------------------------------------------
+# News and events
+# --------------------------------------------------------------------------
+
+def test_news_with_empty_description_is_kept_not_dropped():
+    """Regression: 2 news items and 1 event were silently discarded.
+
+    A record with an empty `description` still has a headline and a date, and
+    that is content. The earlier "no text after conversion" skip conflated *an
+    item with a short body* with *a failed capture* — which is precisely the
+    thin-page filtering spec §4.4 forbids at capture time.
+    """
+    dump = {"/news": {"body": {"data": [
+        {"id": 150, "title": 'Technical Symposium on "Smart Electronics"',
+         "description": "", "date": "2025-02-11"},
+    ]}}}
+    result = _result()
+    content.build_news(dump, result)
+    assert len(result.documents) == 1
+    text = to_markdown(result.documents[0].html)
+    assert "Smart Electronics" in text
+    assert "2025-02-11" in text
+    assert result.documents[0].extra["headline_only"] is True
+
+
+def test_event_keeps_its_conference_url_even_with_a_body():
+    """Every event names a conference and links its site. Those subdomains
+    (icace/ecce2027/iciurp.cuet.ac.bd) appear nowhere else in the capture, so
+    the link must reach the text rather than sitting only in a sibling field.
+    """
+    dump = {"/events": {"body": {"data": [
+        {"id": 137, "title": "5th ICECCE", "description": "",
+         "from": "21 January 2027", "to": "23 January 2027",
+         "link": "https://ecce2027.cuet.ac.bd/"},
+        {"id": 138, "title": "ICIURP 2027", "description": "<p>A real body.</p>",
+         "from": "28 January 2027", "link": "https://iciurp.cuet.ac.bd/"},
+    ]}}}
+    result = _result()
+    content.build_events(dump, result)
+    assert len(result.documents) == 2
+    for doc in result.documents:
+        assert "cuet.ac.bd" in to_markdown(doc.html)
+    # recorded as discovered pages, though off-host and never followed
+    assert any("ecce2027" in p for p in result.found_pages)
+    assert any("iciurp" in p for p in result.found_pages)
+
+
+def test_only_a_record_with_no_title_at_all_could_be_empty():
+    """The floor: a headline body is never blank, so nothing is dropped."""
+    dump = {"/news": {"body": {"data": [{"id": 1, "title": None, "description": ""}]}}}
+    result = _result()
+    content.build_news(dump, result)
+    assert to_markdown(result.documents[0].html).strip()
+
+
+# --------------------------------------------------------------------------
 # Entities
 # --------------------------------------------------------------------------
 
