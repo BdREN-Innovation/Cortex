@@ -219,3 +219,8 @@ __marimo__/
 
 # Claude
 .claude/
+
+# Scraper specs and inventory (local only)
+CUET_SCRAPER_SPEC.md
+CUET_SCRAPER_SPEC_PART2.md
+SCRAPE_INVENTORY.md
