@@ -175,3 +175,11 @@ there. Discovering a gap in week three means a re-crawl.
 - **Raise a contract change before day 3**, or live with the schema.
 - **Report a problem to the team that owns it** rather than working around it in your own stage.
 - **Hand over something that runs.** A README section on what you built, what you left out, and what you know is broken.
+
+---
+
+## Tracking the work
+
+`docs/Cortex_Weekly_Team_Tracker.xlsx` and `docs/Cortex_Daily_Team_Tracker.xlsx`
+have a sheet per team. One row per member per period: tasks, problems, the
+approach taken, and a link to the fix commit.

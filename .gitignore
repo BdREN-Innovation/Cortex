@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Session output directories — generated artifacts, not project files.
+outputs/
