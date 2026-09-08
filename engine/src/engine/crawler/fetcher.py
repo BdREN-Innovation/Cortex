@@ -14,6 +14,14 @@ from urllib.parse import urlsplit
 from urllib.robotparser import RobotFileParser
 
 import httpx
+from crawl4ai import (
+    AsyncWebCrawler,
+    BrowserConfig,
+    CacheMode,
+    CrawlerRunConfig,
+    MemoryAdaptiveDispatcher,
+    RateLimiter,
+)
 
 from engine.contracts.documents import RawAsset, RawPage
 
@@ -38,6 +46,7 @@ class FetchPolicy:
     max_bytes: int = 5_000_000
     max_asset_bytes: int = 20_000_000
     obey_robots: bool = True
+    concurrency: int = 3
 
 
 class Fetcher:
@@ -62,6 +71,27 @@ class Fetcher:
 
         # robots.txt rules cached by origin.
         self._robots: dict[str, RobotFileParser | None] = {}
+
+        if self.policy.concurrency < 1:
+            raise ValueError("concurrency must be at least 1")
+
+        self._browser_config = BrowserConfig(
+            browser_type="chromium",
+            headless=True,
+            user_agent=self.policy.user_agent,
+            verbose=False,
+        )
+
+        self._run_config = CrawlerRunConfig(
+            cache_mode=CacheMode.BYPASS,
+            check_robots_txt=self.policy.obey_robots,
+            page_timeout=int(self.policy.timeout_seconds * 1000),
+            wait_until="domcontentloaded",
+            verbose=False,
+        )
+
+        # Persistent Crawl4AI browser for the lifetime of this Fetcher.
+        self._crawler: AsyncWebCrawler | None = None
 
     # ------------------------------------------------------------------
     # politeness
@@ -218,122 +248,126 @@ class Fetcher:
     # fetching
     # ------------------------------------------------------------------
 
-    def fetch(self, url: str) -> RawPage | None:
-        """GET an HTML page and return a RawPage.
+    async def fetch_many(self, urls: list[str]) -> list[RawPage]:
+        """Crawl multiple HTML URLs concurrently with Crawl4AI.
 
-        Ordinary skips such as robots denial, 404 and non-HTML responses
-        return None.
-
-        Network errors and unexpected failures are raised so the pipeline
-        can record them as crawl errors.
+        Crawl4AI performs the browser-backed HTML capture. Clean text
+        extraction remains Team B's responsibility.
         """
 
-        if not self.allowed(url):
-            log.info("Robots.txt disallowed: %s", url)
-            return None
+        if not urls:
+            return []
 
-        host = urlsplit(url).netloc.lower()
+        allowed_urls: list[str] = []
 
-        for attempt in range(self.policy.max_retries + 1):
-            self._wait_turn(host)
+        for url in urls:
+            if self.allowed(url):
+                allowed_urls.append(url)
+            else:
+                log.info("Robots.txt disallowed: %s", url)
 
-            started = time.monotonic()
+        if not allowed_urls:
+            return []
 
-            try:
-                response = self.client.get(url)
+        dispatcher = MemoryAdaptiveDispatcher(
+            max_session_permit=self.policy.concurrency,
+            rate_limiter=RateLimiter(
+                base_delay=(
+                    self.policy.delay_seconds,
+                    self.policy.delay_seconds,
+                ),
+                max_delay=max(30.0, self.policy.delay_seconds * 10),
+                max_retries=self.policy.max_retries,
+            ),
+        )
 
-            except httpx.HTTPError:
-                log.exception("HTTP error while fetching %s", url)
-                raise
+        batch_started = time.monotonic()
 
-            elapsed_ms = int((time.monotonic() - started) * 1000)
+        # In normal crawl runs start() is called once by
+        # `async with Fetcher(...)`. Keep lazy start for direct tests.
+        if self._crawler is None:
+            await self.start()
 
-            # Retry temporary server-side failures.
-            if response.status_code in RETRYABLE_STATUSES:
-                if attempt >= self.policy.max_retries:
-                    log.warning(
-                        "Giving up after %d attempts: %s → HTTP %s",
-                        attempt + 1,
-                        url,
-                        response.status_code,
-                    )
-                    return None
+        assert self._crawler is not None
 
-                delay = self._retry_after_seconds(response, attempt)
+        result_container = await self._crawler.arun_many(
+            urls=allowed_urls,
+            config=self._run_config,
+            dispatcher=dispatcher,
+        )
 
+        if isinstance(result_container, list):
+            results = result_container
+        else:
+            results = [
+                result async for result in result_container
+            ]
+
+        batch_elapsed_ms = int(
+            (time.monotonic() - batch_started) * 1000
+        )
+
+        pages: list[RawPage] = []
+
+        for result in results:
+            result_url = str(getattr(result, "url", "") or "")
+
+            if not getattr(result, "success", False):
                 log.warning(
-                    "Retrying %s after HTTP %s in %.1f seconds",
-                    url,
-                    response.status_code,
-                    delay,
+                    "Crawl4AI failed for %s: %s",
+                    result_url,
+                    getattr(result, "error_message", ""),
                 )
-
-                time.sleep(delay)
                 continue
 
-            # Never retry 404.
-            if response.status_code == 404:
-                log.info("404: %s", url)
-                return None
-
-            # Other unsuccessful HTTP statuses are ordinary skips.
-            if response.status_code >= 400:
-                log.warning(
-                    "Skipping %s because server returned HTTP %s",
-                    url,
-                    response.status_code,
-                )
-                return None
-
-            # fetch() is only for HTML.
-            if not self._is_html(response):
-                log.info(
-                    "Skipping non-HTML URL from fetch(): %s (%s)",
-                    url,
-                    response.headers.get("Content-Type", ""),
-                )
-                return None
-
-            # Check Content-Length before reading the body.
-            content_length = response.headers.get("Content-Length")
-
-            if content_length:
-                try:
-                    if int(content_length) > self.policy.max_bytes:
-                        log.warning(
-                            "HTML response too large: %s (%s bytes)",
-                            url,
-                            content_length,
-                        )
-                        return None
-                except ValueError:
-                    pass
-
-            # httpx has already buffered normal responses here.
-            # The Content-Length check protects the common case.
-            content = response.content
-
-            if len(content) > self.policy.max_bytes:
-                log.warning(
-                    "HTML response exceeded max_bytes: %s (%d bytes)",
-                    url,
-                    len(content),
-                )
-                return None
-
-            encoding = response.encoding or "utf-8"
-            html = content.decode(encoding, errors="replace")
-
-            return RawPage(
-                url=str(response.url),
-                status=response.status_code,
-                html=html,
-                headers=dict(response.headers),
-                fetched_at=datetime.now(timezone.utc),
-                elapsed_ms=elapsed_ms,
+            status_code = int(
+                getattr(result, "status_code", 200) or 200
             )
 
-        return None
+            if status_code == 404:
+                log.info("404: %s", result_url)
+                continue
+
+            if status_code >= 400:
+                log.warning(
+                    "Skipping %s because server returned HTTP %s",
+                    result_url,
+                    status_code,
+                )
+                continue
+
+            html = getattr(result, "html", "") or ""
+            html_bytes = html.encode("utf-8", errors="replace")
+
+            if len(html_bytes) > self.policy.max_bytes:
+                log.warning(
+                    "HTML exceeded max_bytes: %s (%d bytes)",
+                    result_url,
+                    len(html_bytes),
+                )
+                continue
+
+            pages.append(
+                RawPage(
+                    url=result_url,
+                    status=status_code,
+                    html=html,
+                    headers={
+                        "Content-Type": "text/html; charset=utf-8",
+                        "X-Cortex-Fetcher": "crawl4ai",
+                    },
+                    fetched_at=datetime.now(timezone.utc),
+                    elapsed_ms=batch_elapsed_ms,
+                )
+            )
+
+        return pages
+
+    async def fetch(self, url: str) -> RawPage | None:
+        """Crawl one HTML URL through the Crawl4AI async path."""
+
+        pages = await self.fetch_many([url])
+        return pages[0] if pages else None
 
     def fetch_asset(self, url: str) -> RawAsset | None:
         """Download a non-HTML file without exceeding the asset size limit."""
@@ -447,12 +481,51 @@ class Fetcher:
 
         return None
 
-    def close(self) -> None:
-        """Close the reusable HTTP connection pool."""
+    async def start(self) -> None:
+        """Start one persistent Crawl4AI Chromium instance."""
+
+        if self._crawler is not None:
+            return
+
+        crawler = AsyncWebCrawler(config=self._browser_config)
+        await crawler.start()
+        self._crawler = crawler
+
+        log.info("Persistent Crawl4AI Chromium started")
+
+    async def close_async(self) -> None:
+        """Close persistent Chromium and the reusable HTTP client."""
+
+        crawler = self._crawler
+        self._crawler = None
+
+        if crawler is not None:
+            try:
+                await crawler.close()
+            finally:
+                log.info("Persistent Crawl4AI Chromium closed")
 
         self.client.close()
 
+    def close(self) -> None:
+        """Close the synchronous HTTP client only.
+
+        Real crawl runs should prefer `async with Fetcher(...)` so Chromium
+        is also closed cleanly.
+        """
+
+        self.client.close()
+
+    async def __aenter__(self) -> "Fetcher":
+        await self.start()
+        return self
+
+    async def __aexit__(self, exc_type, exc, tb) -> None:
+        await self.close_async()
+
     def __enter__(self) -> "Fetcher":
+        """Compatibility context for asset-only synchronous callers."""
+
         return self
 
     def __exit__(self, exc_type, exc, tb) -> None:
