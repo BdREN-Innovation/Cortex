@@ -93,7 +93,7 @@ Anything that is a **one-off for this invocation** is a CLI flag:
 |---|---|
 | `--out` | where to write this particular comparison run |
 | `--min-text-chars` | quick override while tuning |
-| `--min-pass-rate` | a CI gate, not a property of the evaluation |
+| `--gate-metric`, `--gate-min` | a CI gate, not a property of the evaluation |
 | `--provider`, `--model` | try a different model without editing a file |
 
 CLI flags override the config file where both apply.

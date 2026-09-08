@@ -255,13 +255,17 @@ something**. A wall of numbers gets skimmed.
 
 Report these separately, never as one number:
 
-| Metric | Answers |
+| What it answers | Why it earns its place |
 |---|---|
-| `recall@k`, `mrr`, `ndcg` | Were the right documents even retrieved? |
-| answer score | Given the right documents, was the answer right? |
-| `citation_precision` | Did it cite what it actually used? |
-| **`hallucination_rate`** | **How often did it answer something unanswerable?** |
-| pass rate, split answerable / unanswerable | The headline, honestly stated |
+| Were the right documents even retrieved? | Separates a retrieval problem from a generation one |
+| Given the right documents, was the answer right? | The other half of that split |
+| Did it cite what it actually used? | Catches an answer padded with sources it never read |
+| **How often did it answer something unanswerable?** | **The number that decides whether this is trustworthy** |
+| Pass rate, split answerable / unanswerable | The headline, honestly stated |
+
+Name them whatever you like — nothing downstream hardcodes your metric names,
+including the CLI, which prints whatever `aggregate` you produce and gates CI
+on whichever key you point `--gate-metric` at.
 
 The split matters: a system can score 80% overall by answering everything well
 and refusing nothing — which is a system you cannot ship.

@@ -66,10 +66,13 @@ rag:
 
 
 # ── Not in this file ─────────────────────────────────────────────────────
-# --min-pass-rate is a CLI flag, not a config key, because it is a CI gate
-# rather than a property of the evaluation:
+# Gating a build on a score is a CLI flag, not a config key, because it is a CI
+# decision rather than a property of the evaluation. Name whichever of YOUR
+# aggregates should fail the build, and the floor it must stay above:
 #
-#   uv run engine eval --dataset ... --index ... --min-pass-rate 0.7
+#   uv run engine eval --dataset ... --index ... \
+#     --gate-metric <one of your aggregate keys> --gate-min 0.7
 #
-# exits non-zero below the threshold, so a regression fails the build.
-# Leave it off while the numbers are still moving.
+# The CLI does not know what your metrics are called — it just looks the name
+# up in whatever `aggregate` your runner produced. Leave it off entirely while
+# the numbers are still moving.
