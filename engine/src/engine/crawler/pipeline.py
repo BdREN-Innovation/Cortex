@@ -39,10 +39,12 @@ class AssetPolicy:
     """What to download besides HTML.
 
     Nothing here is interpreted — these are fetch decisions. Whether a PDF gets
-    parsed, or an image ever reaches retrieval, is decided downstream by Team B.
+    parsed into a document is decided downstream by Team B.
+
+    Images are not downloaded at all: nothing in the pipeline can use a PNG,
+    so fetching them costs bandwidth and disk for no gain.
     """
 
-    download_images: bool = True
     download_documents: bool = True
     # Linked files get their own budget. One 300-page manual must not compete
     # with pages for `max_pages`.
@@ -83,8 +85,7 @@ def crawl(config: CrawlConfig, out_root: str | Path = "data", run_id: str | None
         ├── pages.jsonl      one CrawledPage per line
         ├── manifest.json    a CrawlManifest
         ├── raw/<page_id>.html
-        ├── docs/<filename>          (linked PDFs etc.)
-        └── images/<page_id>.<n>.<filename>
+        └── docs/<filename>          (linked PDFs etc.)
 
     `content_path` on each record is **relative to the run directory**, so the
     whole folder stays movable. Team B joins it back.
@@ -97,8 +98,7 @@ def crawl(config: CrawlConfig, out_root: str | Path = "data", run_id: str | None
            pop, fetch, skip None, record HTTP >= 400 as an error and continue,
            discover(), feed new links back to the frontier,
            queue any document_links that are in scope,
-           save the HTML, download the images,
-           append a CrawledPage.
+           save the HTML, append a CrawledPage.
       3. AFTER the page loop, drain the queued document links, capped at
          `assets.max_documents`. Draining during the loop lets one slow 20 MB
          PDF starve the frontier.

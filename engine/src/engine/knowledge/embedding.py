@@ -44,7 +44,7 @@ Things to get right
 from __future__ import annotations
 
 import logging
-import os
+import os  # noqa: F401 - for reading OPENAI_API_KEY
 from typing import Protocol
 
 import numpy as np

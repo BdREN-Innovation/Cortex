@@ -56,8 +56,7 @@ data/sites/<site>/<run>/
 │                     which file holds the bytes. NO TEXT.
 ├── manifest.json   ← counts, errors, what was captured
 ├── raw/            ← the HTML, exactly as fetched
-├── docs/           ← PDFs and other linked files
-└── images/         ← ignore these (§7)
+└── docs/           ← PDFs and other linked files
 ```
 
 You never call their code, never crawl, never touch the network in this stage.
@@ -190,14 +189,16 @@ end → find the junk → add a selector → re-extract. Two seconds a lap.
 
 ---
 
-## 7. Skip images
+## 7. Images
 
-Team A downloads them to `images/` and they are carried onto
-`CleanDocument.assets` for provenance. **Nothing you write should ever open
-one.** The embedders are text-only, so a PNG has no path to an answer.
+There are none. Team A does not download them — nothing in the pipeline can use
+a PNG, since the embedders are text-only.
 
-What you get for free: `alt` text and `<figcaption>` are prose, so they belong
-in the document text. That is the whole value, and it costs ten lines.
+What you DO get, for about ten lines: `alt` text and `<figcaption>` are prose,
+they are sitting in the HTML you already have, and they belong in the document
+text. "Seat growth by plan tier over twelve months" is a real sentence about the
+page. A one-word `alt="logo"` is chrome and should be dropped — judge by word
+count, not string length.
 
 ---
 

@@ -255,7 +255,6 @@ Cortex/
     │   │   ├── manifest.json     counts, errors, asset tallies
     │   │   ├── raw/              HTML exactly as fetched
     │   │   ├── docs/             PDFs and other linked files
-    │   │   ├── images/           captured, never embedded
     │   │   └── tables/           markdown copies (also inlined into the text)
     │   ├── index/<site>/<id>/    vectors + index_meta.json
     │   └── runs/<run_id>/        report.json + report.md

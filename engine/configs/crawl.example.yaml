@@ -26,9 +26,11 @@ max_depth: 3                        # link hops from a seed
 max_pages: 200                      # hard budget, protects you and the host
 
 # What to capture besides prose.
+#
+# Images are not downloaded at all: nothing downstream can use a PNG, so
+# fetching them costs bandwidth and disk for nothing. Their alt text IS
+# captured — it is prose, and it lands in the document text at extract time.
 assets:
-  download_images: true             # stored for later — the embedders are text-only,
-                                    # so images never reach retrieval. Alt text does.
   download_documents: true          # PDFs are parsed into their own documents
   max_documents: 25                 # separate budget: one 300-page manual must not
                                     # eat the page budget

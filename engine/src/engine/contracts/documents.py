@@ -42,27 +42,27 @@ class RawPage:
 # team can chunk; the type only says where that text came from.
 DOC_TYPES = ("page", "pdf")
 
-# What `Asset.kind` may hold. Assets are the *binary* things a page carried —
-# never text, never chunked. `table` is deliberately absent: tables are folded
-# into the page text so they get embedded with their surrounding context, and
-# only mirrored to disk for inspection.
-ASSET_KINDS = ("image", "document", "table")
+# What `Asset.kind` may hold.
+#   document — a linked file the crawl downloaded (a PDF and friends)
+#   table    — a markdown copy of a table, mirrored to disk for inspection.
+#              The table itself is folded into the page text, so it embeds with
+#              the paragraph that introduces it; this is only the eyeball copy.
+ASSET_KINDS = ("document", "table")
 
 
 @dataclass
 class Asset:
-    """A non-text file a page carried, saved beside documents.jsonl.
+    """Something a page carried alongside its prose, saved beside documents.jsonl.
 
-    Images are captured but *not* consumed by the knowledge team: the embedders
-    are text-only, so a PNG has no path to an answer. They are kept so a future
-    multimodal pass has something to work from.
+    Assets are for provenance and inspection. The text that matters is already
+    in `CleanDocument.text`.
     """
 
     kind: str  # one of ASSET_KINDS
     path: str  # on-disk location, relative to the run directory
-    source_url: str  # where it was downloaded from
+    source_url: str  # where it came from
     ordinal: int = 0  # position within its page, so order survives
-    alt: str = ""  # image alt text / table caption — this *is* searchable
+    alt: str = ""  # table caption, or the document's title
     meta: dict = field(default_factory=dict)
 
     def to_dict(self) -> dict:
@@ -78,7 +78,7 @@ class Asset:
 
 @dataclass
 class RawAsset:
-    """Exactly what came back for a non-HTML URL: a PDF, an image, a spreadsheet."""
+    """Exactly what came back for a non-HTML URL: a PDF, a spreadsheet."""
 
     url: str
     status: int
@@ -113,7 +113,6 @@ class CrawledPage:
     # it anyway. Content extraction is emphatically *not* here.
     links: list[str] = field(default_factory=list)
     document_links: list[str] = field(default_factory=list)
-    images: list[dict] = field(default_factory=list)
     # Set when this page was reached as a linked file rather than a hyperlink.
     parent_url: str = ""
     meta: dict = field(default_factory=dict)
@@ -217,7 +216,7 @@ class CrawlManifest:
     pages_skipped: int
     errors: list[dict] = field(default_factory=list)
     config: dict = field(default_factory=dict)
-    # {"image": 12, "document": 3, "table": 7} — what the run captured besides prose.
+    # {"document": 3} — linked files the run downloaded.
     assets_saved: dict = field(default_factory=dict)
     # PDFs promoted to their own CleanDocument rows.
     documents_parsed: int = 0

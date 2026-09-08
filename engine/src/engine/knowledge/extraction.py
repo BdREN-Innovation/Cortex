@@ -71,8 +71,6 @@ class Extracted:
     # Markdown renderings of every <table>, in page order. Already inlined into
     # `text`; carried separately so the caller can mirror them to tables/.
     tables: list[dict] = field(default_factory=list)
-    # {ordinal, src, alt, caption} per <img>. Alt text is already in `text`.
-    images: list[dict] = field(default_factory=list)
 
 
 def rows_to_markdown(rows: list[list[str]]) -> str:
@@ -123,12 +121,15 @@ def extract(html: str, url: str, selectors: SiteSelectors | None = None) -> Extr
          markdown lands where the table was. A table ripped out of its page is
          a grid of numbers with nothing saying what they mean; the chunker can
          only embed what is adjacent.
-      8. Images: record {ordinal, src, alt, caption}, then replace the <img>
-         with its alt text — but ONLY when the alt is descriptive. "Revenue by
-         quarter" must survive; "logo" must be dropped.
-         Judge by word count, not length: a description is a phrase, chrome is
-         a label. `<figcaption>` is already text in the DOM and comes through
-         on its own.
+      8. Replace each <img> with its alt text — but ONLY when the alt is
+         descriptive. "Revenue by quarter" must survive; "logo" must be
+         dropped. Judge by word count, not length: a description is a phrase,
+         chrome is a label. `<figcaption>` is already text in the DOM and
+         comes through on its own.
+
+         Nobody downloads the image itself — see crawler/discover.py. The alt
+         text is prose, so it belongs in the document; the pixels have no path
+         to an answer.
       9. Collapse whitespace and return.
 
     Note what is NOT here: links, canonical URL and lang. Those are Team A's

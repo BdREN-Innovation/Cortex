@@ -24,8 +24,7 @@ max_depth: 2                        # the fixture site is only two levels deep
 max_pages: 20                       # it only has 6 URLs; 20 is generous
 
 assets:
-  download_images: true             # the fixture has one PNG
-  download_documents: true          # ...and two PDFs
+  download_documents: true          # the fixture links two PDFs
   max_documents: 5
 
 fetch:

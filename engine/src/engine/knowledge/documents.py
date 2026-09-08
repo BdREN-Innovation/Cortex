@@ -72,9 +72,6 @@ def extract_documents(
         a timestamp or a CSRF token. On the fixture site this collapses 7 captured
         records into 6 documents.
       * mirror tables to `run_dir/tables/<page_id>.<n>.md` when `save_tables`
-      * carry `page.images` onto `assets` for provenance. Nothing downstream
-        opens them — the embedders are text-only — but the alt text is already
-        in the prose, which is the part that mattered.
       * emit doc_type="page"
 
     PDFs

@@ -45,7 +45,7 @@ python3 -m http.server 8765 --directory fixtures/site &
 # 1. CAPTURE — Team A. Fetches and saves bytes. No text.
 uv run engine crawl --config configs/crawl.acme.yaml
 #    -> data/sites/acme/20260908T091500Z/
-#         pages.jsonl, manifest.json, raw/, docs/, images/
+#         pages.jsonl, manifest.json, raw/, docs/
 
 # 2. EXTRACT — Team B. Reads those bytes offline. Free to re-run.
 uv run engine extract \

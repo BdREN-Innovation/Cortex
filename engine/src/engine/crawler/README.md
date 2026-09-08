@@ -29,8 +29,7 @@ data/sites/<site>/<run>/
 ├── pages.jsonl     ← one CrawledPage per URL. NO TEXT.
 ├── manifest.json   ← counts, errors, what was captured
 ├── raw/            ← html exactly as fetched
-├── docs/           ← PDFs and other linked files, as fetched
-└── images/         ← downloaded for later; nothing consumes them today
+└── docs/           ← PDFs and other linked files, as fetched
 ```
 
 ---
@@ -44,12 +43,12 @@ own unfinished work.
 |---|---|---|---|
 | 1 | `fetcher.py` | HTTP with manners: robots, rate limit, retries | 1 |
 | 2 | `frontier.py` | URL canonicalisation, scope rules, the queue | 2 |
-| 3 | `discover.py` | Find links, linked files and images in HTML | 1 |
+| 3 | `discover.py` | Find links and linked files in HTML | 1 |
 | 4 | `pipeline.py` | Chain them together, write the artifacts | 4 |
 
 ```
 seeds ─▶ frontier ─▶ fetcher ─▶ discover ─▶ pipeline ─▶ pages.jsonl
-           ▲                        │                     + raw/ docs/ images/
+           ▲                        │                     + raw/ and docs/
            └──── new links ─────────┘
 ```
 

@@ -26,7 +26,7 @@ from __future__ import annotations
 import logging
 from dataclasses import dataclass
 
-from engine.contracts.answers import Answer, Citation
+from engine.contracts.answers import Answer, Citation  # noqa: F401 - Citation is yours to build
 from engine.contracts.retrieval import RetrievedChunk, Retriever
 
 log = logging.getLogger(__name__)

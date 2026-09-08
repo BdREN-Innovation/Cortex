@@ -1,4 +1,4 @@
-"""What else is on this page: links, linked files, images.
+"""What else is on this page: links and linked files.
 
 This is the only HTML parsing the crawl team does, and it is *structural* — it
 answers "what should I fetch next", never "what does this page say". Reading a
@@ -16,7 +16,7 @@ Nothing here is required — the scaffold ships with almost no dependencies and
 these are suggestions, not a shortlist. Add what you choose with `uv add`.
 
 beautifulsoup4   with the "lxml" parser: BeautifulSoup(html, "lxml").
-                 find_all("a", href=True), find_all("img"), .get("href").
+                 find_all("a", href=True), .get("href").
 urllib.parse     urljoin to make relative links absolute, urlparse to look at
                  the path when deciding if a link is a file.
 
@@ -37,7 +37,6 @@ class Discovered:
 
     links: list[str] = field(default_factory=list)
     document_links: list[str] = field(default_factory=list)
-    images: list[dict] = field(default_factory=list)
     canonical_url: str = ""
     lang: str = "en"
 
@@ -45,7 +44,7 @@ class Discovered:
 def discover(html: str, url: str) -> Discovered:
     """Read a page for what to fetch next.
 
-    Four things to pull out:
+    Three things to pull out:
 
     1. `links` — every <a href>, EXCLUDING mailto:, tel: and javascript:.
        Leave these as they appeared in the HTML (relative is fine); the
@@ -56,12 +55,13 @@ def discover(html: str, url: str) -> Discovered:
        HTML parser. Return these **absolute** and de-duplicated, in the order
        first seen (dict.fromkeys preserves order; a set does not).
 
-    3. `images` — one dict per <img> with keys {ordinal, src, alt}. Make `src`
-       absolute. Skip data: URIs and empty srcs. `ordinal` is the position on
-       the page, so ordering survives into the record.
-
-    4. `canonical_url` from <link rel="canonical">, and `lang` from
+    3. `canonical_url` from <link rel="canonical">, and `lang` from
        <html lang="...">. Both may be absent; default lang to "en".
+
+    Images are deliberately not here. Nothing downstream can use a PNG — the
+    embedders are text-only — so downloading them costs bandwidth and disk for
+    no gain. The alt text is the valuable part, and Team B reads that straight
+    out of the saved HTML.
 
     A page that is one <a href="/docs/terms.pdf"> and one <a href="/about">
     must produce document_links=["https://.../docs/terms.pdf"] and
