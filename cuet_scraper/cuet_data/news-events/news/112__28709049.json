@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/112",
+  "canonical_url": "https://cuet.ac.bd/news/112",
+  "page_id": "28709049a3882a49",
+  "doc_key": "https://cuet.ac.bd/news/112",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "IICT Launches Research on AI-Powered Smart Systems"
+  ],
+  "title": "IICT Launches Research on AI-Powered Smart Systems",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/112__28709049.html",
+  "markdown_path": "news-events/news/112__28709049.md",
+  "text_chars": 313,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 112,
+  "date": "2025-01-16"
+}

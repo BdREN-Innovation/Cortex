@@ -1,0 +1,22 @@
+{
+  "run_id": "20260908T145406Z",
+  "started_at": "2026-09-08T14:54:06.684869Z",
+  "stage": "content",
+  "urls_planned": 0,
+  "pages_captured": 237,
+  "cms_documents": 237,
+  "failed_renders": 0,
+  "not_found": 0,
+  "errors": 5,
+  "files_downloaded": 0,
+  "files_bytes": 0,
+  "images_skipped": 0,
+  "config": {
+    "delay": 1.5,
+    "max_concurrent": 3,
+    "user_agent": "CUET-Research-Crawler/1.0 (+contact: u2104038@student.cuet.ac.bd)",
+    "obey_robots": true
+  },
+  "finished_at": "2026-09-08T14:54:08.339879Z",
+  "requests_made": 0
+}

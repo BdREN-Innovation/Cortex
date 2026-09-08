@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/63",
+  "canonical_url": "https://cuet.ac.bd/news/63",
+  "page_id": "6cdaac0605cd0786",
+  "doc_key": "https://cuet.ac.bd/news/63",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Field Visit to Kaptai Dam"
+  ],
+  "title": "Field Visit to Kaptai Dam",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/63__6cdaac06.html",
+  "markdown_path": "news-events/news/63__6cdaac06.md",
+  "text_chars": 394,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 63,
+  "date": "2025-01-20"
+}

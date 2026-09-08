@@ -1,0 +1,1 @@
+The Debating Society of CUET started functioning from January 2000. After start functioning, it arranged regular debate competitions within the university. It also sends teams to participate in national debate competitions.

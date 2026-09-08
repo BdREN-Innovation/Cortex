@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/62",
+  "canonical_url": "https://cuet.ac.bd/news/62",
+  "page_id": "d07dd6265df4cb8e",
+  "doc_key": "https://cuet.ac.bd/news/62",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Workshop on \"Flood Risk Management Strategies\""
+  ],
+  "title": "Workshop on \"Flood Risk Management Strategies\"",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/62__d07dd626.html",
+  "markdown_path": "news-events/news/62__d07dd626.md",
+  "text_chars": 463,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 62,
+  "date": "2025-01-15"
+}

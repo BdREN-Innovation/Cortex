@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/68",
+  "canonical_url": "https://cuet.ac.bd/news/68",
+  "page_id": "ace9d904225d4c26",
+  "doc_key": "https://cuet.ac.bd/news/68",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Workshop on \"Enhanced Oil Recovery Techniques\""
+  ],
+  "title": "Workshop on \"Enhanced Oil Recovery Techniques\"",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/68__ace9d904.html",
+  "markdown_path": "news-events/news/68__ace9d904.md",
+  "text_chars": 495,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 68,
+  "date": "2025-01-14"
+}

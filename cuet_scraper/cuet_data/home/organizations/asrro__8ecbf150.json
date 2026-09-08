@@ -1,0 +1,26 @@
+{
+  "url": "https://cuet.ac.bd/student/organization/asrro",
+  "canonical_url": "https://cuet.ac.bd/student/organization/asrro",
+  "page_id": "8ecbf1506d15241e",
+  "doc_key": "https://cuet.ac.bd/student/organization/asrro",
+  "section": "home",
+  "group": "organizations",
+  "section_path": [
+    "Student Organizations",
+    "ASRRO"
+  ],
+  "title": "ASRRO",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "home/organizations/asrro__8ecbf150.html",
+  "markdown_path": "home/organizations/asrro__8ecbf150.md",
+  "text_chars": 645,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "asrro",
+  "org_type": "academic"
+}

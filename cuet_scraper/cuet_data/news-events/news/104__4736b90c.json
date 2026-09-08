@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/104",
+  "canonical_url": "https://cuet.ac.bd/news/104",
+  "page_id": "4736b90c3dca2914",
+  "doc_key": "https://cuet.ac.bd/news/104",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "CIPR Unveils Industry-Academia Collaboration Hub"
+  ],
+  "title": "CIPR Unveils Industry-Academia Collaboration Hub",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/104__4736b90c.html",
+  "markdown_path": "news-events/news/104__4736b90c.md",
+  "text_chars": 318,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 104,
+  "date": "2025-01-15"
+}

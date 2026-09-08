@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/137",
+  "canonical_url": "https://cuet.ac.bd/news/137",
+  "page_id": "7da8cfb54bf80cf2",
+  "doc_key": "https://cuet.ac.bd/news/137",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Colorful Celebration of Bengali New Year at CUET"
+  ],
+  "title": "Colorful Celebration of Bengali New Year at CUET",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/137__7da8cfb5.html",
+  "markdown_path": "news-events/news/137__7da8cfb5.md",
+  "text_chars": 1254,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 137,
+  "date": "2025-04-14"
+}

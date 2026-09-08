@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/124",
+  "canonical_url": "https://cuet.ac.bd/news/124",
+  "page_id": "cfd9759b572c897f",
+  "doc_key": "https://cuet.ac.bd/news/124",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Annual Sports Gala 2025"
+  ],
+  "title": "Annual Sports Gala 2025",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/124__cfd9759b.html",
+  "markdown_path": "news-events/news/124__cfd9759b.md",
+  "text_chars": 201,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 124,
+  "date": "2025-01-17"
+}

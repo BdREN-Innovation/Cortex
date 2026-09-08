@@ -1,0 +1,26 @@
+{
+  "url": "https://cuet.ac.bd/research/research-highlights",
+  "canonical_url": "https://cuet.ac.bd/research/research-highlights",
+  "page_id": "6ef8c1c3166222d9",
+  "doc_key": "https://cuet.ac.bd/research/research-highlights",
+  "section": "_cms",
+  "group": "",
+  "section_path": [
+    "CMS",
+    "research_highlight"
+  ],
+  "title": "research / research-highlights",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:06Z",
+  "html_path": "_cms/research-highlights__6ef8c1c3.html",
+  "markdown_path": "_cms/research-highlights__6ef8c1c3.md",
+  "text_chars": 1160,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": true,
+  "files": [],
+  "cms_key": "research_highlight",
+  "renders_page": "/research/research-highlights"
+}

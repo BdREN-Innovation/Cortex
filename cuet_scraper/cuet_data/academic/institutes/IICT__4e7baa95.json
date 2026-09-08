@@ -1,0 +1,30 @@
+{
+  "url": "https://cuet.ac.bd/institutes/IICT",
+  "canonical_url": "https://cuet.ac.bd/institutes/IICT",
+  "page_id": "4e7baa95630c438a",
+  "doc_key": "https://cuet.ac.bd/institutes/IICT",
+  "section": "academic",
+  "group": "institutes",
+  "section_path": [
+    "Academic",
+    "Institutes",
+    "Institute of Information and Communication Technology"
+  ],
+  "title": "Institute of Information and Communication Technology",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:06Z",
+  "html_path": "academic/institutes/IICT__4e7baa95.html",
+  "markdown_path": "academic/institutes/IICT__4e7baa95.md",
+  "text_chars": 9149,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "IICT",
+  "entity_type": "institute",
+  "short_name": "IICT",
+  "email": "director_iict@cuet.ac.bd",
+  "phone": null
+}

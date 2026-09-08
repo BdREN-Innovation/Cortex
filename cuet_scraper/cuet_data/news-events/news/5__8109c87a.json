@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/5",
+  "canonical_url": "https://cuet.ac.bd/news/5",
+  "page_id": "8109c87a400985f5",
+  "doc_key": "https://cuet.ac.bd/news/5",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Hands-on-Training on BAC Accreditation Criteria/Standards-1"
+  ],
+  "title": "Hands-on-Training on BAC Accreditation Criteria/Standards-1",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/5__8109c87a.html",
+  "markdown_path": "news-events/news/5__8109c87a.md",
+  "text_chars": 1014,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 5,
+  "date": "2024-03-25"
+}

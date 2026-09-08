@@ -1,0 +1,36 @@
+https://cuet.ac.bd	# homepage; fully server-rendered, but the only source for its own layout
+https://cuet.ac.bd/academic-information	# landing page, no endpoint found
+https://cuet.ac.bd/academic-information/international-students	# no endpoint found
+https://cuet.ac.bd/admission	# no endpoint found
+https://cuet.ac.bd/admission/msc	# found only in CMS content, spec §4.11; no endpoint
+https://cuet.ac.bd/fsc	# no endpoint found
+https://cuet.ac.bd/student/undergraduate-student	# no endpoint found
+https://cuet.ac.bd/student/postgraduate-student	# no endpoint found
+https://cuet.ac.bd/news-events	# listing page; the 157 items are already captured from /news
+https://cuet.ac.bd/events	# listing page; items already captured from /events
+https://cuet.ac.bd/student/events	# listing page
+https://cuet.ac.bd/notices/noc	# listing page; the 265 notices are already captured
+https://cuet.ac.bd/departments	# listing page; the 18 entities are already captured
+https://cuet.ac.bd/faculty	# listing page
+https://cuet.ac.bd/institutes	# listing page
+https://cuet.ac.bd/centers	# listing page
+https://cuet.ac.bd/dept/NE/postgraduate	# per-department page with no API coverage
+https://cuet.ac.bd/dept/MME/postgraduate	# per-department page with no API coverage
+https://cuet.ac.bd/dept/Mathematics/postgraduate	# per-department page with no API coverage
+https://cuet.ac.bd/dept/Chemistry/postgraduate	# per-department page with no API coverage
+https://cuet.ac.bd/dept/Physics/postgraduate	# per-department page with no API coverage
+https://cuet.ac.bd/dept/hum/postgraduate	# per-department page with no API coverage
+https://cuet.ac.bd/dept/URP/postgraduate	# per-department page with no API coverage
+https://cuet.ac.bd/dept/Architecture/postgraduate	# per-department page with no API coverage
+https://cuet.ac.bd/dept/MIE/postgraduate	# per-department page with no API coverage
+https://cuet.ac.bd/dept/PME/postgraduate	# per-department page with no API coverage
+https://cuet.ac.bd/dept/ME/postgraduate	# per-department page with no API coverage
+https://cuet.ac.bd/dept/WRE/postgraduate	# per-department page with no API coverage
+https://cuet.ac.bd/dept/DEM/postgraduate	# per-department page with no API coverage
+https://cuet.ac.bd/dept/CE/postgraduate	# per-department page with no API coverage
+https://cuet.ac.bd/dept/BME/postgraduate	# per-department page with no API coverage
+https://cuet.ac.bd/dept/EEE/postgraduate	# per-department page with no API coverage
+https://cuet.ac.bd/dept/cse/postgraduate	# per-department page with no API coverage
+https://cuet.ac.bd/dept/ETE/postgraduate	# per-department page with no API coverage
+https://admissioncuet.ac.bd	# separate host; not scanned for an API of its own (spec §13 Q9)
+https://admissioncuet.ac.bd/about-us	# separate host; not scanned for an API of its own (spec §13 Q9)

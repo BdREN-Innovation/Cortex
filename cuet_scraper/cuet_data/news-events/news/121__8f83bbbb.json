@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/121",
+  "canonical_url": "https://cuet.ac.bd/news/121",
+  "page_id": "8f83bbbb9ddea0ec",
+  "doc_key": "https://cuet.ac.bd/news/121",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "CUET IET Hosts National Workshop on Energy Efficiency"
+  ],
+  "title": "CUET IET Hosts National Workshop on Energy Efficiency",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/121__8f83bbbb.html",
+  "markdown_path": "news-events/news/121__8f83bbbb.md",
+  "text_chars": 224,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 121,
+  "date": "2025-01-16"
+}

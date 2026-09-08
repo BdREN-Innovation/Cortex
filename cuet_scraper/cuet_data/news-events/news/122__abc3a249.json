@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/122",
+  "canonical_url": "https://cuet.ac.bd/news/122",
+  "page_id": "abc3a2490c4a4ade",
+  "doc_key": "https://cuet.ac.bd/news/122",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "IET Collaborates with Industry Leaders to Develop Green Energy Solutions"
+  ],
+  "title": "IET Collaborates with Industry Leaders to Develop Green Energy Solutions",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/122__abc3a249.html",
+  "markdown_path": "news-events/news/122__abc3a249.md",
+  "text_chars": 219,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 122,
+  "date": "2025-01-16"
+}

@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/91",
+  "canonical_url": "https://cuet.ac.bd/news/91",
+  "page_id": "7bfc436c402ea008",
+  "doc_key": "https://cuet.ac.bd/news/91",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Workshop on \"Philosophy and Ethics in Modern Society\""
+  ],
+  "title": "Workshop on \"Philosophy and Ethics in Modern Society\"",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/91__7bfc436c.html",
+  "markdown_path": "news-events/news/91__7bfc436c.md",
+  "text_chars": 328,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 91,
+  "date": "2025-01-15"
+}

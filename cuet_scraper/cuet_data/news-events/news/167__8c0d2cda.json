@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/167",
+  "canonical_url": "https://cuet.ac.bd/news/167",
+  "page_id": "8c0d2cdadcfb0d7a",
+  "doc_key": "https://cuet.ac.bd/news/167",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "A Seminar Titled “Quality Assurance in Engineering Education Through Accreditation” Held At CUET"
+  ],
+  "title": "A Seminar Titled “Quality Assurance in Engineering Education Through Accreditation” Held At CUET",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/167__8c0d2cda.html",
+  "markdown_path": "news-events/news/167__8c0d2cda.md",
+  "text_chars": 1820,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 167,
+  "date": "2026-02-01"
+}

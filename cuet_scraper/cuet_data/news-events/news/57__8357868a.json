@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/57",
+  "canonical_url": "https://cuet.ac.bd/news/57",
+  "page_id": "8357868ab6b0dc95",
+  "doc_key": "https://cuet.ac.bd/news/57",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Seminar on \"Climate Change and Coastal Disaster Management\" Hosted by DEE"
+  ],
+  "title": "Seminar on \"Climate Change and Coastal Disaster Management\" Hosted by DEE",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/57__8357868a.html",
+  "markdown_path": "news-events/news/57__8357868a.md",
+  "text_chars": 558,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 57,
+  "date": "2025-01-18"
+}

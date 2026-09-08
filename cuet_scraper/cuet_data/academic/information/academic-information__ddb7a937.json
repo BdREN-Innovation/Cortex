@@ -1,0 +1,36 @@
+{
+  "url": "https://cuet.ac.bd/academic-information",
+  "canonical_url": "https://cuet.ac.bd/academic-information",
+  "page_id": "ddb7a9373a85ca08",
+  "doc_key": "https://cuet.ac.bd/academic-information?_curricula=postgraduate",
+  "section": "academic",
+  "group": "information",
+  "section_path": [
+    "Academic",
+    "Curricula",
+    "Postgraduate"
+  ],
+  "title": "Postgraduate curricula",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:08Z",
+  "html_path": "academic/information/academic-information__ddb7a937.html",
+  "markdown_path": "academic/information/academic-information__ddb7a937.md",
+  "text_chars": 15122,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "curriculum_type": "postgraduate",
+  "curriculum_ids": [
+    20,
+    18,
+    16,
+    14,
+    13,
+    11,
+    10,
+    2
+  ]
+}

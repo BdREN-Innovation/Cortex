@@ -1,0 +1,23 @@
+{
+  "run_id": "20260908T145408Z",
+  "site": "cuet",
+  "seeds": [
+    "https://cuet.ac.bd",
+    "https://api.cuet.ac.bd/api/v1"
+  ],
+  "started_at": "2026-09-08T14:54:08Z",
+  "finished_at": "2026-09-08T14:54:08.338877Z",
+  "pages_fetched": 234,
+  "pages_written": 234,
+  "pages_skipped": 0,
+  "errors": [],
+  "config": {
+    "delay": 1.5,
+    "user_agent": "CUET-Research-Crawler/1.0 (+contact: u2104038@student.cuet.ac.bd)",
+    "obey_robots": true
+  },
+  "assets_saved": {
+    "document": 0
+  },
+  "documents_parsed": 0
+}

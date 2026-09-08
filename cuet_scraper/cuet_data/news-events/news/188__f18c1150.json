@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/188",
+  "canonical_url": "https://cuet.ac.bd/news/188",
+  "page_id": "f18c115056f5b941",
+  "doc_key": "https://cuet.ac.bd/news/188",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "CUET Journalists' Association Announces 2026–27 Executive Committee at Annual General Meeting."
+  ],
+  "title": "CUET Journalists' Association Announces 2026–27 Executive Committee at Annual General Meeting.",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/188__f18c1150.html",
+  "markdown_path": "news-events/news/188__f18c1150.md",
+  "text_chars": 2415,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 188,
+  "date": "2026-07-09"
+}

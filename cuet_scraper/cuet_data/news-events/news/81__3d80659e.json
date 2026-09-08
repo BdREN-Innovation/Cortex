@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/81",
+  "canonical_url": "https://cuet.ac.bd/news/81",
+  "page_id": "3d80659e9448c989",
+  "doc_key": "https://cuet.ac.bd/news/81",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Workshop on \"Quantum Computing and Its Applications"
+  ],
+  "title": "Workshop on \"Quantum Computing and Its Applications",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/81__3d80659e.html",
+  "markdown_path": "news-events/news/81__3d80659e.md",
+  "text_chars": 392,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 81,
+  "date": "2025-01-04"
+}

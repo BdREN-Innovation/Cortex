@@ -1,0 +1,26 @@
+{
+  "url": "https://cuet.ac.bd/student/organization/cuetja",
+  "canonical_url": "https://cuet.ac.bd/student/organization/cuetja",
+  "page_id": "9206456873cf231d",
+  "doc_key": "https://cuet.ac.bd/student/organization/cuetja",
+  "section": "home",
+  "group": "organizations",
+  "section_path": [
+    "Student Organizations",
+    "CUETJA"
+  ],
+  "title": "CUETJA",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "home/organizations/cuetja__92064568.html",
+  "markdown_path": "home/organizations/cuetja__92064568.md",
+  "text_chars": 547,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "cuetja",
+  "org_type": "academic"
+}

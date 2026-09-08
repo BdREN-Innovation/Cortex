@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/41",
+  "canonical_url": "https://cuet.ac.bd/news/41",
+  "page_id": "3fa672aca1e87d29",
+  "doc_key": "https://cuet.ac.bd/news/41",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "CUET Celebrates 50th Anniversary as a Leading Engineering Institution in Bangladesh"
+  ],
+  "title": "CUET Celebrates 50th Anniversary as a Leading Engineering Institution in Bangladesh",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/41__3fa672ac.html",
+  "markdown_path": "news-events/news/41__3fa672ac.md",
+  "text_chars": 1404,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 41,
+  "date": "2024-09-19"
+}

@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/51",
+  "canonical_url": "https://cuet.ac.bd/news/51",
+  "page_id": "a471ddfbe14ddd8a",
+  "doc_key": "https://cuet.ac.bd/news/51",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Victory Day 2024 Celebrated at CUET"
+  ],
+  "title": "Victory Day 2024 Celebrated at CUET",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/51__a471ddfb.html",
+  "markdown_path": "news-events/news/51__a471ddfb.md",
+  "text_chars": 2821,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 51,
+  "date": "2024-12-16"
+}

@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/175",
+  "canonical_url": "https://cuet.ac.bd/news/175",
+  "page_id": "3bc60a0c7dcf9f87",
+  "doc_key": "https://cuet.ac.bd/news/175",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Honorable Vice Chancellor's greetings with CUET family."
+  ],
+  "title": "Honorable Vice Chancellor's greetings with CUET family.",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/175__3bc60a0c.html",
+  "markdown_path": "news-events/news/175__3bc60a0c.md",
+  "text_chars": 1468,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 175,
+  "date": "2026-03-29"
+}

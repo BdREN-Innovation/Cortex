@@ -1,0 +1,26 @@
+{
+  "url": "https://cuet.ac.bd/student/organization/Central-Students-Union",
+  "canonical_url": "https://cuet.ac.bd/student/organization/Central-Students-Union",
+  "page_id": "63c623eeecb2d6d6",
+  "doc_key": "https://cuet.ac.bd/student/organization/Central-Students-Union",
+  "section": "home",
+  "group": "organizations",
+  "section_path": [
+    "Student Organizations",
+    "Central Students' Union"
+  ],
+  "title": "Central Students' Union",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "home/organizations/Central-Students-Union__63c623ee.html",
+  "markdown_path": "home/organizations/Central-Students-Union__63c623ee.md",
+  "text_chars": 396,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "Central-Students-Union",
+  "org_type": "academic"
+}

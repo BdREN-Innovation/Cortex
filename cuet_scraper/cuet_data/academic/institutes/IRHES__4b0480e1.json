@@ -1,0 +1,30 @@
+{
+  "url": "https://cuet.ac.bd/institutes/IRHES",
+  "canonical_url": "https://cuet.ac.bd/institutes/IRHES",
+  "page_id": "4b0480e15ea5dc69",
+  "doc_key": "https://cuet.ac.bd/institutes/IRHES",
+  "section": "academic",
+  "group": "institutes",
+  "section_path": [
+    "Academic",
+    "Institutes",
+    "Institute of River, Harbor and Environmental Science"
+  ],
+  "title": "Institute of River, Harbor and Environmental Science",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:06Z",
+  "html_path": "academic/institutes/IRHES__4b0480e1.html",
+  "markdown_path": "academic/institutes/IRHES__4b0480e1.md",
+  "text_chars": 3390,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "IRHES",
+  "entity_type": "institute",
+  "short_name": "IRHES",
+  "email": "irhes@cuet.ac.bd",
+  "phone": "8801715154710"
+}

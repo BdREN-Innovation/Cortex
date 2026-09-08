@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/52",
+  "canonical_url": "https://cuet.ac.bd/news/52",
+  "page_id": "00234775eb19d491",
+  "doc_key": "https://cuet.ac.bd/news/52",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "137th Syndicate Meeting held at CUET."
+  ],
+  "title": "137th Syndicate Meeting held at CUET.",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/52__00234775.html",
+  "markdown_path": "news-events/news/52__00234775.md",
+  "text_chars": 1589,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 52,
+  "date": "2024-12-18"
+}

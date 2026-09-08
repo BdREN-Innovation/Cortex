@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/194",
+  "canonical_url": "https://cuet.ac.bd/news/194",
+  "page_id": "727a5f08d564da0b",
+  "doc_key": "https://cuet.ac.bd/news/194",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "CUET VC's courtesy call and exchange of views with Water Resources Minister."
+  ],
+  "title": "CUET VC's courtesy call and exchange of views with Water Resources Minister.",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/194__727a5f08.html",
+  "markdown_path": "news-events/news/194__727a5f08.md",
+  "text_chars": 894,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 194,
+  "date": "2026-08-18"
+}

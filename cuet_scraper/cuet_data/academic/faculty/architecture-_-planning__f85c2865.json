@@ -1,0 +1,30 @@
+{
+  "url": "https://cuet.ac.bd/faculty/architecture-&-planning",
+  "canonical_url": "https://cuet.ac.bd/faculty/architecture-&-planning",
+  "page_id": "f85c28650cc70bd6",
+  "doc_key": "https://cuet.ac.bd/faculty/architecture-&-planning",
+  "section": "academic",
+  "group": "faculty",
+  "section_path": [
+    "Academic",
+    "Faculties",
+    "Architecture & Planning"
+  ],
+  "title": "Architecture & Planning",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:06Z",
+  "html_path": "academic/faculty/architecture-_-planning__f85c2865.html",
+  "markdown_path": "academic/faculty/architecture-_-planning__f85c2865.md",
+  "text_chars": 806,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "architecture-&-planning",
+  "entity_type": "faculty",
+  "short_name": null,
+  "email": "sajal_c@cuet.ac.bd",
+  "phone": "+8801882199882"
+}

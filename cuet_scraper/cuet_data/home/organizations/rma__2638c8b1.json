@@ -1,0 +1,26 @@
+{
+  "url": "https://cuet.ac.bd/student/organization/rma",
+  "canonical_url": "https://cuet.ac.bd/student/organization/rma",
+  "page_id": "2638c8b1ed561884",
+  "doc_key": "https://cuet.ac.bd/student/organization/rma",
+  "section": "home",
+  "group": "organizations",
+  "section_path": [
+    "Student Organizations",
+    "RMA"
+  ],
+  "title": "RMA",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "home/organizations/rma__2638c8b1.html",
+  "markdown_path": "home/organizations/rma__2638c8b1.md",
+  "text_chars": 1335,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "rma",
+  "org_type": "academic"
+}

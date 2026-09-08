@@ -1,0 +1,27 @@
+{
+  "url": "https://cuet.ac.bd/news/69",
+  "canonical_url": "https://cuet.ac.bd/news/69",
+  "page_id": "245d2f373e9b9d55",
+  "doc_key": "https://cuet.ac.bd/news/69",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Seminar on \"Sustainable Mining Practices\""
+  ],
+  "title": "Seminar on \"Sustainable Mining Practices\"",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:54:07Z",
+  "html_path": "news-events/news/69__245d2f37.html",
+  "markdown_path": "news-events/news/69__245d2f37.md",
+  "text_chars": 414,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 69,
+  "date": "2025-01-18"
+}
