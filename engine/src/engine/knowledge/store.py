@@ -27,6 +27,11 @@ Decisions you own
   the collection again.
 * Deleting a local index directory does not delete a remote collection. How do
   you wipe one deliberately, and how do you avoid wiping one accidentally?
+* **What comes back from a search, besides the text and the score?** A citation
+  has to be buildable from a search result alone — nothing downstream has
+  another source to consult. Whatever a reference needs has to go into the
+  store at index time and come back out at query time. See the knowledge team's
+  README, "References have to live in the vector store".
 
 Credentials come from the environment, never from a config file — `configs/` is
 committed, `.env` is not.

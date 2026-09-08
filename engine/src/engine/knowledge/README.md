@@ -195,16 +195,51 @@ must drop out of the citations too.
 
 ---
 
-## 8. Definition of done
+## 8. References have to live in the vector store
 
-- [ ] All 23 of your tests green
+A citation is not decoration. It is the only way a reader can check that an
+answer is true, and Team C grades whether the citations are real.
+
+Here is the constraint that makes this a design decision rather than an
+afterthought: **when you search, all you get back is what the vector store gave
+you.** The answering layer has no other source. If a search result cannot tell
+you where the text came from, you cannot cite it — and no amount of cleverness
+downstream will recover the information.
+
+So whatever a citation needs has to be stored *with* the vector, at index time.
+
+Two ways teams get this wrong, both of which look fine until late:
+
+* **Storing the text and nothing else.** Retrieval works, answers read well,
+  and every citation is empty. You will only notice when Team C starts grading.
+* **Planning to look it up afterwards** — search returns an id, then read
+  `documents.jsonl` to fill in the details. It works on your laptop today, and
+  it breaks the moment the index outlives the files it was built from, or
+  somebody queries it from anywhere else. The index should be self-sufficient.
+
+`Chunk` and `Citation` in `contracts/` already say what a reference consists
+of — a stable id, where it came from, and enough human-readable context that a
+person can find the passage on the page. Decide for yourself how that gets into
+the store and back out again; just make sure it survives the round trip.
+
+**The test to hold yourself to:** take one search result, close every other
+file, and produce a complete citation from it alone. If you cannot, the
+reference is not in the store yet.
+
+---
+
+## 9. Definition of done
+
 - [ ] `engine extract` runs clean on every site Team A delivers
 - [ ] You have read the `text` of five documents per site and found no chrome
 - [ ] A written record of the choices you made — parser, embedder, chunking,
       vector store — and the comparison behind each one
 - [ ] `target_tokens` chosen against Team C's dataset, not guessed
 - [ ] A live Qdrant Cloud collection, with `engine ask` answering against it
-- [ ] Answers carry citations, and unanswerable questions are refused
+- [ ] A single search result carries everything a citation needs — no second
+      lookup, no other file open
+- [ ] Answers carry citations that point at what the model actually read, and
+      unanswerable questions are refused
 
 ---
 
