@@ -180,6 +180,4 @@ there. Discovering a gap in week three means a re-crawl.
 
 ## Tracking the work
 
-`docs/Cortex_Weekly_Team_Tracker.xlsx` and `docs/Cortex_Daily_Team_Tracker.xlsx`
-have a sheet per team. One row per member per period: tasks, problems, the
-approach taken, and a link to the fix commit.
+Update the [Daily Tracker](https://docs.google.com/spreadsheets/d/1Z7ob6FwOekNAHNQJ7Top8PGRJwzjMS5_pddJPsGnn7g/edit?usp=sharing) according to your team individually.
