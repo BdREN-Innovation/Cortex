@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Heavy binary data: PDFs (~428 MB) and raw API dump (~3.5 MB)
+cuet_data/_files/
+cuet_data/_meta/api_dump.json
+cuet_data/_meta/chunk_cache/
