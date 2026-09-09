@@ -223,6 +223,12 @@ outputs/
 # Claude
 .claude/
 
+# Scraper specs and inventory (local only - backed up on Google Drive)
+CUET_SCRAPER_SPEC.md
+CUET_SCRAPER_SPEC_PART2.md
+SCRAPE_INVENTORY.md
+*.zip
+
 # Google Drive upload staging (local only)
 gdrive_upload/
 

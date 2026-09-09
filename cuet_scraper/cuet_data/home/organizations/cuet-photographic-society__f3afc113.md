@@ -1,1 +1,0 @@
-It is the only Photography-Oriented organization of CUET.

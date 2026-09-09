@@ -1,1 +1,0 @@
-CESER has partnered with international environmental experts to enhance research and innovation in water resource management. This collaboration focuses on addressing water scarcity and pollution challenges through advanced scientific techniques.
