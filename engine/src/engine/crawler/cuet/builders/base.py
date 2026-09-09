@@ -10,6 +10,7 @@ Spec: CUET_SCRAPER_SPEC.md §6.8.
 
 from __future__ import annotations
 
+import html as html_module
 import logging
 import re
 from dataclasses import dataclass, field
@@ -105,7 +106,21 @@ def harvest(html: str, base: str, result: Stage2Result, *,
     candidates |= set(_FILE_URL_RE.findall(html))
 
     for raw in candidates:
-        raw = raw.strip()
+        # An href in HTML is entity-encoded: the faculty slug that reads
+        # `architecture-&-planning` in a URL bar is written
+        # `architecture-&amp;-planning` in the markup. Without decoding, every
+        # such link is recorded as a URL that does not exist.
+        #
+        # This is not a rare edge: 903 of 1,127 harvested URLs carried a raw
+        # `&amp;` before this was added, and it made the Appendix B gap diff
+        # unusable — three faculty pages that ARE in the corpus were reported
+        # as never captured, because the discovered form and the stored form
+        # were different strings.
+        #
+        # Decoded before anything else touches it, so the scheme filter, the
+        # image check and canonicalisation all see the real URL. Spec §4.2,
+        # which documents the ampersand slugs.
+        raw = html_module.unescape(raw.strip())
         # Filter by scheme before anything tries to fetch. The page carries
         # href="#" on every dropdown toggle, plus mailto:undefined and
         # tel:undefined, which are the site's own bugs. Spec §4.8.

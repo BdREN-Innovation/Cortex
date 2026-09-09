@@ -33,8 +33,10 @@ import logging
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
+from urllib.parse import urlsplit
 
 from . import config
+from .builders import owner_of_url
 from .paths import canonical, is_excluded_url, is_image_url
 
 log = logging.getLogger(__name__)
@@ -190,10 +192,15 @@ def _correctness(data: dict, report: Report) -> None:
                "No path contains '..' or exceeds 120 characters",
                not bad_paths, "; ".join(bad_paths[:3]))
 
+    # Two hosts, not one. The alumni portion cites alumni.cuet.ac.bd, which is
+    # a real CUET site rather than an off-site link, so pinning this to the
+    # main host alone would fail a portion that is behaving correctly.
+    # Anything outside these two is still a citation a reader cannot follow.
+    citable = (config.SITE, config.ALUMNI_SITE)
     off_site = [d["canonical_url"] for d in docs
-                if not d["canonical_url"].startswith("https://cuet.ac.bd")]
+                if not d["canonical_url"].startswith(citable)]
     report.add("Correctness",
-               "Every citation URL resolves on cuet.ac.bd",
+               "Every citation URL is on a CUET host",
                not off_site, "; ".join(off_site[:3]))
 
     # §6.3: a synthetic key must never reach a citation. Splitting one listing
@@ -229,6 +236,40 @@ def _correctness(data: dict, report: Report) -> None:
         report.add("Correctness",
                    "Every pages.jsonl content_path resolves on disk",
                    not broken, "; ".join(broken[:3]))
+
+    # The reverse direction, which nothing checked until an orphan turned up.
+    #
+    # Documents are written per portion and the corpus is assembled from the
+    # shards, so a document on disk that no shard claims never reaches
+    # documents.jsonl - and nothing notices. One did: a notice index kept its
+    # pre-`_part` filename beside the current one, same text, different id,
+    # and sat in the repository as a tracked file the corpus did not contain.
+    #
+    # That is how a stale duplicate outlives the change that orphaned it. The
+    # check costs one directory walk and turns a silent leftover into a line
+    # somebody has to answer for.
+    if data["documents"] is not None:
+        known = {d["doc_id"] for d in data["documents"]}
+        orphans = []
+        for sidecar in sorted(out.rglob("*.json")):
+            if {"_meta", "_shards", "_files"} & set(
+                    sidecar.relative_to(out).parts):
+                continue
+            try:
+                meta = json.loads(sidecar.read_text(encoding="utf-8"))
+            except (json.JSONDecodeError, OSError):
+                continue
+            if not isinstance(meta, dict):
+                continue
+            page_id = meta.get("page_id")
+            if page_id and page_id not in known:
+                orphans.append(str(sidecar.relative_to(out)).replace("\\", "/"))
+        report.add(
+            "Correctness",
+            "No document on disk is missing from the merged corpus",
+            not orphans,
+            "; ".join(orphans[:3]) or f"{len(known)} documents, none orphaned",
+        )
 
 
 def _encoding(data: dict, report: Report) -> None:
@@ -320,19 +361,71 @@ def _coverage(data: dict, report: Report) -> None:
                    "_meta/urls.txt or found_pages.txt missing")
         return
 
+    # Three things make a discovered URL a non-gap, and the first is the one
+    # the original check missed: a URL captured from the API is not a coverage
+    # hole just because it is absent from the browser plan. Comparing against
+    # the plan alone reported captured pages as missing.
     planned_set = {canonical(u) for u in planned}
+    captured = {canonical(d["canonical_url"]) for d in (data["documents"] or [])}
+    dismissed = {canonical(config.SITE + path)
+                 for path in config.KNOWN_NOT_PLANNED}
+    dismissed |= {canonical(config.ALUMNI_SITE + path)
+                  for path in config.ALUMNI_NOT_PLANNED}
+    patterns = [(re.compile(rx), why)
+                for rx, why in config.KNOWN_NOT_PLANNED_PATTERNS]
+
+    def dismissed_by_pattern(url: str) -> bool:
+        path = url.replace(config.SITE, "") or "/"
+        return any(rx.search(path) for rx, _ in patterns)
+
     unplanned = sorted(
         url for url in {canonical(u) for u in found}
         if url not in planned_set
-        and url.startswith("https://cuet.ac.bd")
+        and url not in captured
+        and url not in dismissed
+        and not dismissed_by_pattern(url)
+        # Both hosts. Checking config.SITE alone made the alumni portion
+        # invisible to Appendix B: every URL on it was silently skipped, so
+        # the one check meant to catch a missing area could not see it.
+        and url.startswith((config.SITE, config.ALUMNI_SITE))
         and not is_excluded_url(url)
     )
+
+    # Attributed, because a single corpus-wide number is one four people each
+    # read as somebody else's problem. Split by portion it becomes a to-do list
+    # with a name on each line.
+    by_owner: dict[str, int] = {}
+    for url in unplanned:
+        by_owner[owner_of_url(url) or "unclaimed"] = (
+            by_owner.get(owner_of_url(url) or "unclaimed", 0) + 1
+        )
+    breakdown = ", ".join(f"{name} {count}"
+                          for name, count in sorted(by_owner.items())) or "none"
+
+    # A planned URL that never arrived is either explained or it is a hole.
+    # Reported as its own line so an unreachable host reads as a stated fact
+    # rather than as a quietly short corpus.
+    uncaptured = sorted(u for u in planned_set if u not in captured)
+    unexplained = [u for u in uncaptured
+                   if urlsplit(u).netloc not in config.UNRESOLVABLE_HOSTS]
+    explained = len(uncaptured) - len(unexplained)
+    report.add(
+        "Coverage",
+        "Every planned URL is captured, or its absence is explained",
+        not unexplained,
+        (f"{len(uncaptured)} planned URL(s) not captured, {explained} explained "
+         f"in _meta/known_gaps.json"
+         + (f"; unexplained: {', '.join(unexplained[:3])}" if unexplained else ""))
+        if uncaptured else "all planned URLs captured",
+    )
+
     report.add(
         "Coverage",
         "Nothing in-scope was discovered but left unplanned (Appendix B)",
         not unplanned,
-        f"{len(unplanned)} unplanned in-scope URL(s): "
-        + ", ".join(u.replace(config.SITE, "") for u in unplanned[:6]),
+        f"{len(unplanned)} to review ({breakdown}); "
+        f"{len(dismissed)} URLs and {len(patterns)} pattern(s) dismissed "
+        f"with a reason",
     )
 
 

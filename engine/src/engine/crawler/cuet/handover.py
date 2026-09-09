@@ -130,22 +130,7 @@ pulling. See "The generated files" below.
 Every content folder maps to somewhere a visitor can actually go. If you are
 checking whether a document is right, open the URL in the last column.
 
-| Folder | Documents | Where it is on cuet.ac.bd | Portion |
-|---|---|---|---|
-| `_cms/` | 8 | About menu (`/about/cuet`, `/about/history`, `/about/vision-and-mission`, `/about/campus-life`), prospective students (`/academic-information/undergraduate-studies`, `/academic-information/graduate-studies`), research (`/research/research-highlights`, `/research/research-area`) | general |
-| `home/organizations/` | 15 | Student Organizations, `/student/organization/<slug>` | general |
-| `academic/departments/` | 18 | Academic → Departments, `/department/<slug>` | academic |
-| `academic/faculty/` | 5 | Academic → Faculties, `/faculty/<slug>` | academic |
-| `academic/institutes/` | 4 | Academic → Institutes, `/institutes/<slug>` | academic |
-| `academic/centers/` | 3 | Academic → Centers, `/centers/<slug>` | academic |
-| `academic/information/` | 2 | Curriculum lists shown under `/academic-information` | academic |
-| `academic/notices/` | 1 | Notices → Academic Calender, `/notices/academic-calender` | notices |
-| `admission/notices/` | 2 | Notices → Scholarship & Financial Aids, `/notices/scholarship-financial-aids` | notices |
-| `top-bar/notices/` | 5 | The top-bar NOC link, `/notices/noc` | notices |
-| `news-events/news/` | 157 | News & Events → News, `/news/<id>` | news-events |
-| `news-events/event-details/` | 3 | News & Events → Events, `/event-details/<id>` | news-events |
-| `news-events/listing/` | 3 | The listing pages themselves, `/news-events`, `/events`, `/student/events`. Browser-captured, not API-derived | browser |
-| `_unsorted/notices/` | 15 | Notice types out of scope for Part 1, all listed at `/notices/all-notice` | notices |
+{folder_table}
 
 Three folders hold no page content:
 
@@ -243,8 +228,89 @@ and may be missing a whole content type. Run it before trusting a re-run.
 """
 
 
+
+# Where each content folder is on the live site. The counts are NOT here: they
+# are read off the corpus when the README is written, because a hand-typed count
+# is wrong the first time anybody captures anything and nobody notices for weeks.
+# This table was carrying "academic/information | 2" long after it held 5, and
+# had no row at all for the 374 faculty profiles.
+#
+# A folder missing from this map still appears in the README, marked so that the
+# gap is visible rather than silently dropped.
+FOLDER_MAP: dict[str, tuple[str, str]] = {
+    "_cms": ("About menu (`/about/cuet`, `/about/history`, "
+             "`/about/vision-and-mission`, `/about/campus-life`), prospective "
+             "students (`/academic-information/undergraduate-studies`, "
+             "`/academic-information/graduate-studies`), research "
+             "(`/research/research-highlights`, `/research/research-area`)",
+             "general"),
+    "home": ("The site homepage, `/`", "browser"),
+    "home/organizations": ("Student Organizations, `/student/organization/<slug>`",
+                           "general"),
+    "academic/departments": ("Academic -> Departments, `/department/<slug>`, plus "
+                             "`/department/<slug>/academic/undergraduate` and "
+                             "`/academic/postgraduate`", "academic"),
+    "academic/faculty": ("Academic -> Faculties, `/faculty/<slug>`", "academic"),
+    "academic/institutes": ("Academic -> Institutes, `/institutes/<slug>`", "academic"),
+    "academic/centers": ("Academic -> Centers, `/centers/<slug>`", "academic"),
+    "academic/information": ("`/academic-information` and its pages: academic "
+                             "calendars, undergraduate and graduate studies, "
+                             "international students", "academic"),
+    "academic/profiles": ("Every faculty member, `/profile/faculty-member/<slug>`",
+                          "academic"),
+    "academic/notices": ("Notices -> Academic Calender, `/notices/academic-calender`",
+                         "notices"),
+    "admission": ("Admission menu: `/admission`, `/admission/msc`, `/fsc`, "
+                  "`/student/undergraduate-student`, `/student/postgraduate-student`",
+                  "notices"),
+    "admission/notices": ("Notices -> Scholarship & Financial Aids, "
+                          "`/notices/scholarship-financial-aids`", "notices"),
+    "top-bar/notices": ("The top-bar NOC link, `/notices/noc`", "notices"),
+    "news-events/news": ("News & Events -> News, `/news/<id>`", "news-events"),
+    "news-events/event-details": ("News & Events -> Events, `/event-details/<id>`",
+                                  "news-events"),
+    "news-events/listing": ("The listing pages themselves, `/news-events`, "
+                            "`/events`, `/student/events`", "news-events"),
+    "alumni/pages": ("alumni.cuet.ac.bd CMS pages, `/` and `/about`", "alumni"),
+    "alumni/news": ("alumni.cuet.ac.bd news, `/news/<id>`", "alumni"),
+    "alumni/notices": ("alumni.cuet.ac.bd notices, `/notices`", "alumni"),
+    "alumni/directory": ("alumni.cuet.ac.bd directory, `/alumnis/<id>`", "alumni"),
+    "alumni/responsibilities": ("Alumni responsibilities, shown on the alumni "
+                                "homepage", "alumni"),
+    "_unsorted/notices": ("Notice types out of scope for Part 1, all listed at "
+                          "`/notices/all-notice`", "notices"),
+}
+
+
+def _folder_table(out: Path) -> str:
+    """The folder-to-website map, counted from what is actually on disk."""
+    counts: dict[str, int] = {}
+    skip = {"_shards", "_meta", "_files"}
+    for path in out.rglob("*.json"):
+        parts = path.relative_to(out).parts
+        if skip & set(parts) or len(parts) < 2:
+            continue
+        try:
+            meta = json.loads(path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        if not isinstance(meta, dict) or not meta.get("page_id"):
+            continue
+        counts["/".join(parts[:-1])] = counts.get("/".join(parts[:-1]), 0) + 1
+
+    rows = ["| Folder | Documents | Where it is on the live site | Portion |",
+            "|---|---|---|---|"]
+    for folder in sorted(counts):
+        where, portion = FOLDER_MAP.get(
+            folder, ("**not in FOLDER_MAP** - add it to handover.py", "?"))
+        rows.append(f"| `{folder}/` | {counts[folder]} | {where} | {portion} |")
+    rows.append(f"| **total** | **{sum(counts.values())}** | | |")
+    return "\n".join(rows)
+
+
 def write_readme(out: Path) -> None:
-    (out / "README.md").write_text(README, encoding="utf-8")
+    (out / "README.md").write_text(
+        README.format(folder_table=_folder_table(out)), encoding="utf-8")
 
 
 def write_all(out: Path, rows: list[dict], *, run_id: str, started: str,

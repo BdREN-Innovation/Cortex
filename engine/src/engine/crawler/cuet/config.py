@@ -78,10 +78,129 @@ ENDPOINTS: tuple[Endpoint, ...] = (
     Endpoint("/counters", note="EMPTY: all fields null. Distinct from /home-counters"),
     Endpoint("/sliders?type=department", note="banners. Images: excluded at fetch time"),
 )
+# The alumni site. Spec §13 Q9 left it open; answered 2026-09-09.
+#
+# It is a second Next.js frontend on its own host, and it has its own JSON API
+# on the vendor's domain rather than on cuet.ac.bd. Nothing forbids fetching
+# it: alumni.cuet.ac.bd/robots.txt returns 404 exactly as the main site's does,
+# and the homepage carries no robots meta tag of any kind.
+#
+# Two properties differ from the main site and both matter:
+#
+# * **It returns real 404 status codes.** /contact, /gallery, /notice and
+#   /alumins are linked from its own navigation and every one is a genuine
+#   HTTP 404, so the content-based detection the main site forces is not
+#   needed here.
+# * **It shares a backend with the main site.** api.cuet.thetork.com serves the
+#   same /notices, /news and /download-types rows that api.cuet.ac.bd does -
+#   102 of its 114 news rows were already in the corpus. Only the endpoints
+#   below are alumni-specific, and capturing the shared ones would put one
+#   notice under two citable URLs.
+ALUMNI_SITE = "https://alumni.cuet.ac.bd"
+ALUMNI_API = "https://api.cuet.thetork.com/api/v1"
+
+# Alumni-only endpoints. Derived from the site's own JS chunks, not guessed:
+# each route's page chunk names the endpoints it calls. Verified 2026-09-09,
+# all returning HTTP 200.
+#
+# Deliberately EXCLUDED, having been checked and found to be the main site's
+# data served through the vendor host: /notices (312 rows), /news (114, of
+# which 102 already captured), /notice-types, /download-types, /downloads,
+# /administrative-departments-mini-index. The alumni-scoped subsets of news and
+# notices arrive inside /alumni-home-data instead, which is the right source
+# because it is the one the alumni site itself renders.
+ALUMNI_ENDPOINTS: tuple[Endpoint, ...] = (
+    Endpoint("/alumni-settings", required=True,
+             note="the alumni CMS pages: about_us, privacy and copyright policy"),
+    Endpoint("/alumni-home-data", required=True,
+             note="alumni-scoped news, notices, events, galleries and sliders"),
+    Endpoint("/alumni-responsibilities", note="4 items with real description bodies"),
+    Endpoint("/alumni-sites", note="4 linked alumni chapter sites"),
+    Endpoint("/alumni-counters", note="4 stale counts. Capture, never derive"),
+    Endpoint("/alumnis", note="the directory. See ALUMNI_PRIVATE_FIELDS"),
+    Endpoint("/student-sessions", note="10 session labels; reference data"),
+)
+
+# Dropped from every alumni directory record before it is written.
+#
+# The two rows currently served are the vendor's own seed data - "Mr Alumni",
+# employed "at Tork", with a placeholder LinkedIn URL - so nothing real is lost
+# today. That is exactly why the rule belongs here now: when the directory
+# fills with actual graduates, the field list is already in place and nobody
+# has to remember. A retrieval corpus needs a person's degree, batch and
+# department; it has no use for their home address.
+ALUMNI_PRIVATE_FIELDS = ("email", "phone", "address")
+
+# Empty, and that is the finding rather than an omission.
+#
+# The two candidates were /alumni-membership-form and /about/alumnis. Both were
+# rendered on 2026-09-09 and both produce the same thing: about 1,470 characters
+# of navigation followed by an empty table - `| | | | |` repeated - because the
+# grid is filled client-side by a request the crawler never completes. For
+# comparison the site's own 404 page renders 1,485 characters. Real page and
+# missing page are the same size here, so no length threshold can separate
+# them, and there is nothing in either body worth keeping.
+#
+# Everything these pages would have shown is already captured from the API:
+# the directory from /alumnis, the prose from /alumni-settings. The browser
+# adds nothing on this host, so it is not pointed at it.
+ALUMNI_STATIC_ROUTES: tuple[tuple[str, str], ...] = ()
+
+# Discovered on the alumni host, reviewed, deliberately not planned. The same
+# idea as KNOWN_NOT_PLANNED, kept separate because these are on another host
+# and the reasons are specific to it.
+ALUMNI_NOT_PLANNED: dict[str, str] = {
+    "/alumni-membership-form":
+        "renders chrome plus an empty client-side grid, 1,474 chars against the "
+        "site's own 404 at 1,485; nothing to capture",
+    "/about/alumnis":
+        "same empty grid; the directory itself is captured from /api/v1/alumnis",
+    "/contact": "linked from the site's own nav and genuinely HTTP 404",
+    "/gallery": "linked from the site's own nav and genuinely HTTP 404",
+    "/notice": "linked from the site's own nav and genuinely HTTP 404",
+    "/alumins": "typo in the site's own nav; HTTP 404",
+}
+
 
 # Per-entity detail route. Built by concatenation in the site's own bundle, which
 # is why a quote-anchored grep misses it — spec §3.0.
 ENTITY_DETAIL = "/administrative-departments/{slug}"
+
+# The faculty. VERIFIED 2026-09-09.
+#
+# This was missed for a long time and the way it was missed is worth recording:
+# every /department/<slug>/faculty-members/... page renders navigation and an
+# empty grid, so rendering them said "no content here". The content was never
+# in the page. It arrives from this endpoint, which no audited page referenced
+# because `--stage audit` never sampled a faculty-members route.
+#
+# One request returns all 374 faculty across 23 departments. The per-person
+# detail adds the profile intro, education, experience, research, publications,
+# courses, supervisions and awards.
+FACULTY_LIST = "/app-admins?admin_type=faculty_member"
+FACULTY_DETAIL = "/app-admins/{slug}"
+
+# Dropped from every faculty record before anything is written.
+#
+# The test that decides each field is simple: does the person's own public
+# profile page show it? VERIFIED against dr-sumit-majumder, whose API record
+# carries both a personal email and a home address and whose public page at
+# /profile/faculty-member/<slug> contains neither.
+#
+# So work email, office phone and room number stay - those ARE on the page, and
+# they are what makes a directory useful. The personal contact details go.
+#
+# The identity block (nid, date_of_birth, blood_group, parents' names,
+# permanent_address, religion, file_no, prl_date) came back null for all 13
+# people sampled, so today this drops nothing. It is listed anyway: the field
+# names exist in the response, and a backend change that starts populating them
+# must not silently push national ID numbers into a public corpus.
+FACULTY_PRIVATE_FIELDS = (
+    "nid", "date_of_birth", "blood_group", "father_name", "mother_name",
+    "permanent_address", "religion", "file_no", "prl_date", "district_id",
+)
+# Same rule, applied inside the nested `profile` object.
+FACULTY_PRIVATE_PROFILE_FIELDS = ("personal_email", "address")
 
 ALLOWED_HOSTS = {
     "cuet.ac.bd",
@@ -89,9 +208,16 @@ ALLOWED_HOSTS = {
     "app.cuet.ac.bd",       # file host only, never crawled as a site
     "api.cuet.ac.bd",       # the JSON API: data source, never a crawl target
     "admissioncuet.ac.bd",  # admission notices
+    "alumni.cuet.ac.bd",        # the alumni site, spec Q9 - see ALUMNI_API below
+    "api.cuet.thetork.com",     # the alumni site's JSON API, never a crawl target
+    "app.cuet.thetork.com",     # the alumni site's file host, never crawled
 }
 
 EXCLUDE_HOSTS = {
+    # NOTE the exact host. Matching is exact (paths.is_excluded_url compares
+    # netloc), so this excludes `cuet.thetork.com` ONLY. `api.` and `app.` on
+    # the same domain are the alumni site's live backend and file store, are
+    # allowed above, and must not be confused with this staging leak.
     "cuet.thetork.com",     # vendor/staging domain leaked into CMS HTML, spec §4.11
     "v2.cuet.ac.bd",        # legacy site
     "course.cuet.ac.bd",    # login required, Part 2 §9
@@ -170,7 +296,46 @@ EMPTY_TABLE_RE = re.compile(
 
 # Spec §4.5. A dynamic route returns HTTP 200 for a slug that does not exist,
 # so "not found" must be detected in the CONTENT. Status codes are useless here.
-NOT_FOUND_MARKERS = ("page not found", "404", "could not be found")
+#
+# TWO tiers, because one is not enough and the reason cost 18 bogus documents.
+#
+# The site renders its 404 INSIDE the normal layout: full header, full nav, full
+# footer, with the not-found block in the middle. Checking only the opening of
+# the document — which is all `NOT_FOUND_HEAD_MARKERS` can safely do — sees
+# nothing but chrome and passes it. Eighteen `/dept/<slug>/postgraduate` pages
+# were saved as real documents that way, byte-identical, every one of them a
+# 404, each citing a URL that does not resolve.
+#
+# The fix is not to widen the loose markers: "404" appears in any page that
+# discusses HTTP status codes, and a false positive here discards real content.
+# Instead the exact sentence the site's own error component renders is matched
+# anywhere in the document. It is specific enough that a page containing it is
+# a 404, and it does not care where in the layout the block sits.
+NOT_FOUND_BODY_MARKERS = (
+    "the page you were looking for could not be found",
+    "oops! page not found",
+)
+
+# Loose markers, checked only near the START of the text, where a real page
+# would not open with them.
+NOT_FOUND_HEAD_MARKERS = ("page not found", "404", "could not be found")
+NOT_FOUND_HEAD_CHARS = 600
+
+
+# A page that exists but whose content CUET has not published yet. Twenty of
+# the 36 /department/<slug>/academic/<level> pages render this and nothing
+# else: the route is real, the layout is real, the curriculum simply is not
+# there. That is NOT a 404 and must not be treated as one - the page is a true
+# statement about the site, and it will fill in later.
+#
+# It is not silently dropped either. Spec 4.4 puts thin-page filtering
+# downstream, where it can be reconsidered without another crawl, so the
+# document is written with content_state="placeholder" in its metadata and
+# Team B decides what to do with it.
+PLACEHOLDER_MARKERS = (
+    "academic curriculam data is in progress",
+    "we're unable to locate the data you're looking for",
+)
 
 # Stage 4 render wait. Spec §6.10 proposed an anchor-count condition and marked
 # it UNVERIFIED. Verified 2026-09-08, and it was wrong twice over:
@@ -348,6 +513,14 @@ SECTIONS: dict[str, SectionRule] = {
         prefixes=("/news-events", "/news/", "/event-details/",
                   "/events", "/student/events"),
     ),
+    # Routed by HOST, which section_for_url applies before any path rule. That
+    # ordering is what matters here: the alumni site has its own /news and
+    # /about, and a path rule would file them under the university's sections
+    # and put two different pages in one folder.
+    "alumni": SectionRule(
+        subdir="alumni",
+        hosts=("alumni.cuet.ac.bd",),
+    ),
 }
 
 # Second-level folder, so a section is not one flat directory of ninety files.
@@ -385,6 +558,18 @@ MAX_NAME_LENGTH = 120
 
 STATIC_ROUTES: tuple[tuple[str, str], ...] = (
     ("/", "homepage; fully server-rendered, but the only source for its own layout"),
+    # Found 2026-09-09 by the Appendix B gap diff, after the first browser run.
+    ("/academic-information/academic-calendars",
+     "real page, no endpoint; the 3 calendar notices are separate from it"),
+    # Linked from ONE faculty profile page, not from any department page. A
+    # deeper route than /dept/<slug>/postgraduate, and a different prefix.
+    # Only EEE is planned because only EEE was discovered: probing the same
+    # shape across all 18 departments would be 36 requests on a guess, and a
+    # dynamic route returns 200 either way (spec §4.5), so the requests would
+    # not even settle the question. If these two render real content, widen it.
+    # EEE's two rendered real content (18,084 and 15,825 characters), which
+    # promoted this from "one discovered link" to a route worth trying across
+    # every department. See DEPT_ACADEMIC_TEMPLATES.
     ("/academic-information", "landing page, no endpoint found"),
     ("/academic-information/international-students", "no endpoint found"),
     ("/admission", "no endpoint found"),
@@ -402,10 +587,110 @@ STATIC_ROUTES: tuple[tuple[str, str], ...] = (
     ("/centers", "listing page"),
 )
 
-# /dept/<slug>/postgraduate is the one per-department page with no API coverage.
-# /department/<slug>/contact IS covered: it is the `contacts` array on the
-# entity detail endpoint. Spec §3.5.
-DEPT_SUBPAGE_TEMPLATES = ("/dept/{slug}/postgraduate",)
+# --------------------------------------------------------------------------
+# Discovered, reviewed, and deliberately NOT planned. Appendix B.
+# --------------------------------------------------------------------------
+#
+# The gap diff surfaces every URL the site links that nothing captured. Some of
+# those are not pages worth having, and without somewhere to record that
+# judgement the diff stays permanently red and people stop reading it.
+#
+# A URL belongs here only once somebody has looked at it and can say why. The
+# reason is the point: "not planned" is a decision, and a decision nobody wrote
+# down gets re-litigated every run.
+KNOWN_NOT_PLANNED: dict[str, str] = {
+    # The site's footer links all four institutes under /centers/. The API says
+    # `type: institute` for every one, and spec §3.4 makes the API slug the
+    # authority. They are already captured at /institutes/<slug>; capturing the
+    # /centers/ form too would put one entity under two citable URLs.
+    "/centers/IEER": "institute mislinked under /centers; captured at /institutes/IEER",
+    "/centers/IET": "institute mislinked under /centers; captured at /institutes/IET",
+    "/centers/IICT": "institute mislinked under /centers; captured at /institutes/IICT",
+    "/centers/IRHES": "institute mislinked under /centers; captured at /institutes/IRHES",
+
+    # Case variant. The API reports the slug as IICT and the site links iict.
+    # Path case is preserved deliberately (spec §4.1, /department/cse vs
+    # /department/CE are different pages), so these do not collapse on their
+    # own and the API spelling wins.
+    "/institutes/iict": "case variant of /institutes/IICT, the API spelling",
+
+    # The site's own broken hrefs, in the same family as the mailto:undefined
+    # and tel:undefined that spec §4.8 records.
+    "/profile/faculty-member/null": "site emits a literal null where a slug should be",
+    "/profile/faculty-member/Md. Zubair": "site emits a display name where a slug should be",
+
+    # Same family, found a different way: this one is typed into the "Website"
+    # field of qdhossain_94's own profile, so the page links to a name-shaped
+    # alias of itself. VERIFIED 2026-09-09 - it returns HTTP 200, as every
+    # Next.js [slug] route does, and renders an empty profile shell of 12,099
+    # characters, where a populated profile clears the 13,000 threshold.
+    "/profile/faculty-member/dr-quazi-delwar-hossain":
+        "self-referential alias in the profile's own Website field; renders an "
+        "empty shell, the person is captured at /profile/faculty-member/qdhossain_94",
+}
+
+# The same judgement, but for URLs that come in families too large to list one
+# by one. A pattern is only allowed here with the evidence that produced it,
+# because a regex silences every future URL that matches, including ones nobody
+# has looked at.
+KNOWN_NOT_PLANNED_PATTERNS: tuple[tuple[str, str], ...] = (
+    # 17 routes x 18 departments = 306 URLs, every one of them a shell.
+    #
+    # VERIFIED 2026-09-09 by rendering all 17 for Civil Engineering. They differ
+    # from each other ONLY in their own self-referential navigation links: the
+    # bodies are byte-comparable chrome, around 13.6k characters of header,
+    # sidebar and footer with nothing between them. `laboratories` looks bigger
+    # at 18k, but the extra 4.4k is the expanded faculty-and-department dropdown,
+    # not content.
+    #
+    # The content those pages are named for is real, and we already have it. It
+    # arrives in the /administrative-departments/<slug> payload as `vision`,
+    # `mission`, `laboratories_intro`, `contacts`, `photoGalleries`, `news` and
+    # `events`, and lands in the single document at /department/<slug>. Checked
+    # both ways for CE: every sampled span of `laboratories_intro` is in that
+    # document and none of it is on the live /laboratories page.
+    #
+    # So crawling these would add 306 documents of navigation, each citing a URL
+    # whose content is already citable elsewhere. That is worse than not having
+    # them - a reader following the citation finds nothing.
+    (r"^/department/[^/]+/(?!academic/)",
+     "department subpage renders chrome only; its content is in the API payload "
+     "already captured at /department/<slug> (verified on CE, all 17 routes)"),
+)
+
+# The per-department academic pages, one per level. VERIFIED 2026-09-09.
+#
+# Note the prefix: `/department/`, not `/dept/`. The spec named `/dept/` and
+# that route does not exist at all, while this one renders real content. The
+# two were found the same way and only one survived being rendered, which is
+# the argument for rendering before believing.
+#
+# Discovered from a single faculty profile page linking EEE's pair. Widened to
+# every department only after EEE's two came back with real bodies. Any
+# department that does not have them returns the site's 404, which the
+# content-based detector now catches (NOT_FOUND_BODY_MARKERS), so a department
+# without these pages costs one rejected render rather than a bogus document.
+DEPT_ACADEMIC_TEMPLATES = (
+    "/department/{slug}/academic/postgraduate",
+    "/department/{slug}/academic/undergraduate",
+)
+
+# EMPTY, and deliberately so. Spec §8 called `/dept/<slug>/postgraduate` "the
+# one per-department page with no API coverage", and Appendix B listed it as a
+# known gap. VERIFIED 2026-09-09 by rendering all eighteen: **the route does
+# not exist.** Every one returns the site's 404 inside the normal layout, and
+# all eighteen renders were byte-identical at 11,552 characters.
+#
+# They were saved as real documents on the first pass, because the not-found
+# check only looked at the opening of the text and the 404 block sits below the
+# whole navigation. See NOT_FOUND_BODY_MARKERS.
+#
+# `/department/<slug>/contact` needs no entry either: it IS the `contacts`
+# array on the entity detail endpoint. Spec §3.5.
+#
+# If a real per-department subpage turns up, add its template here. Do not
+# re-add postgraduate without rendering one first and reading the output.
+DEPT_SUBPAGE_TEMPLATES: tuple[str, ...] = ()
 
 # The head's profile page, one per entity. Found 2026-09-09 by the Appendix B
 # gap diff — five of these were in `found_pages.txt` and in no plan, which is
@@ -425,6 +710,10 @@ DEPT_SUBPAGE_TEMPLATES = ("/dept/{slug}/postgraduate",)
 #   * These are dynamic routes, so a wrong slug returns HTTP 200 and renders
 #     not-found on the client (§4.5). Stage 4's content-based detection is what
 #     catches that; status codes cannot.
+# The route a faculty member's page lives at. No longer used to PLAN anything:
+# every profile is built from /app-admins now, including the 30 heads this
+# template used to reach. Kept because builders/academic still composes the
+# citation URL from it, and one definition of the route beats two.
 HEAD_PROFILE_TEMPLATE = "/profile/faculty-member/{slug}"
 
 # VERIFIED 2026-09-08: admissioncuet.ac.bd has NO DNS RECORD. Confirmed against
@@ -439,4 +728,26 @@ EXTERNAL_ENTRY_POINTS = (
     "https://admissioncuet.ac.bd/",
     "https://admissioncuet.ac.bd/about-us",
 )
-UNRESOLVABLE_HOSTS = {"admissioncuet.ac.bd", "admissionckruet.ac.bd"}
+
+# Hosts cuet.ac.bd links to that do not exist in DNS.
+#
+# These stay in EXTERNAL_ENTRY_POINTS on purpose. Removing them would make the
+# plan complete by pretending the links were never there, and the fact that the
+# university's admission pages point at a dead host is true and worth recording.
+# So they are planned, they fail, and the failure is explained here and written
+# into the corpus by `merge` as `_meta/known_gaps.json`.
+#
+# VERIFIED 2026-09-09 against a public resolver, not inferred from a browser
+# error: cuet.ac.bd resolves to 165.245.185.131 from the same query where
+# admissioncuet.ac.bd returns no record at all. The name has no address, so
+# there is nothing to retry, no delay that would help, and no user-agent that
+# changes the answer.
+UNRESOLVABLE_HOSTS: dict[str, str] = {
+    "admissioncuet.ac.bd":
+        "no DNS record (checked 2026-09-09). Linked from the Admission menu "
+        "and planned as an external entry point; both /  and /about-us fail to "
+        "resolve. cuet.ac.bd resolves from the same query, so this is the host, "
+        "not the network.",
+    "admissionckruet.ac.bd":
+        "no DNS record. Appears only inside CMS HTML, never planned.",
+}

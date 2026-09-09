@@ -22,7 +22,7 @@ from pathlib import Path
 
 from . import config
 from .builders.base import Document, Stage2Result, harvest
-from .content import write_document, write_shard
+from .content import rows_on_disk, write_document, write_shard
 from .paths import canonical, group_for_url, page_path, section_for_url
 
 log = logging.getLogger(__name__)
@@ -69,9 +69,37 @@ def looks_not_found(markdown: str) -> bool:
     Status codes cannot be used: a Next.js `[slug]` route returns HTTP 200 for
     any slug and renders not-found on the client. Twelve URLs were tested,
     including a known misspelling; every one returned 200.
+
+    Two tiers. The exact sentence the site's error component renders is matched
+    ANYWHERE, because the 404 is drawn inside the normal layout and sits below
+    the whole navigation. The loose markers stay confined to the opening, where
+    a real page would not begin with them, so that an article about HTTP status
+    codes is not mistaken for one.
+
+    Checking only the opening is what let 18 `/dept/<slug>/postgraduate` 404s
+    into the corpus as real documents.
     """
-    head = markdown[:600].lower()
-    return any(marker in head for marker in config.NOT_FOUND_MARKERS)
+    text = markdown.lower()
+    if any(marker in text for marker in config.NOT_FOUND_BODY_MARKERS):
+        return True
+    head = text[:config.NOT_FOUND_HEAD_CHARS]
+    return any(marker in head for marker in config.NOT_FOUND_HEAD_MARKERS)
+
+
+def looks_placeholder(markdown: str) -> bool:
+    """True when the page exists but CUET has not published its content yet.
+
+    Distinct from `looks_not_found` on purpose. A 404 is a page that is not
+    there and must never become a document; a placeholder IS the page, and the
+    fact that the curriculum is unpublished is itself true of the site today.
+    Twenty of the 36 per-department academic pages are in this state.
+
+    The caller records it as `content_state` rather than dropping the document,
+    because spec 4.4 puts thin-page filtering downstream where it can be
+    revisited without another crawl.
+    """
+    text = markdown.lower()
+    return any(marker in text for marker in config.PLACEHOLDER_MARKERS)
 
 
 def _load_plan(out: Path, sections: list[str] | None, limit: int | None,
@@ -215,7 +243,10 @@ async def _capture_all(plan: list[tuple[str, str]], out: Path, *,
                         group=group_for_url(url),
                         section_path=_breadcrumb(url),
                         source="browser",
-                        extra={"planned_reason": why, "render_ok": True},
+                        extra={"planned_reason": why, "render_ok": True,
+                               "content_state": ("placeholder"
+                                                 if looks_placeholder(markdown)
+                                                 else "published")},
                     )
                     doc.files = harvest(html, url, result_bag,
                                         linked_from=url,
@@ -243,11 +274,8 @@ async def _capture_all(plan: list[tuple[str, str]], out: Path, *,
             await asyncio.gather(*(one(u, w) for u, w in group))
             await asyncio.sleep(config.DELAY * len(group))
 
-    # Stage 4 owns one shard, exactly as each content portion owns one. It is
-    # named for the stage rather than for a person because what lands here is
-    # decided by the residual URL plan, not by whose slice of the site it is.
     if rows:
-        write_shard(out, ["browser"], rows, result_bag)
+        rebuild_shard(out)
 
     meta = out / "_meta"
     _merge_found(meta / "found_files.json", result_bag.found_files)
@@ -257,6 +285,76 @@ async def _capture_all(plan: list[tuple[str, str]], out: Path, *,
              captured, failed, not_found, len(errors))
     return {"captured": captured, "failed_renders": failed,
             "not_found": not_found, "errors": errors}
+
+
+def rebuild_shard(out: Path | None = None) -> Path:
+    """Rebuild the browser shard from the HTML already on disk. No network.
+
+    Stage 4 owns one shard, exactly as each content portion owns one. It is
+    named for the stage rather than for a person because what lands here is
+    decided by the residual URL plan, not by whose slice of the site it is.
+
+    Two things make this a function rather than four lines inside the run:
+
+    **It reads what is on disk, not what this run rendered.** Stage 4 is
+    resumable and skips URLs already captured, so the rows from one run hold
+    only the new pages. Building the shard from those drops everything captured
+    before, silently.
+
+    **It re-harvests the links.** The saved HTML is the same bytes the browser
+    returned, so changing what `harvest` considers a link does not require
+    fetching those pages again. That is the property spec §4.4 asks for, and it
+    is what made fixing the HTML-entity bug cost a second rather than 61
+    requests to a university's servers.
+
+        python -m engine.crawler.cuet --stage reharvest
+    """
+    out = out or config.OUT
+    rows = rows_on_disk(out, source="browser")
+    if not rows:
+        log.info("reharvest: no browser documents on disk")
+        return out / "_shards" / "browser.json"
+
+    result = Stage2Result()
+    for row in rows:
+        html_path = out / row["html_path"]
+        if not html_path.is_file():
+            log.warning("%s has no HTML at %s", row.get("page_id"), row["html_path"])
+            continue
+        row["files"] = harvest(
+            html_path.read_text(encoding="utf-8"), row["url"], result,
+            linked_from=row["url"], meta={"document_type": "page"},
+        )
+        _backfill_content_state(row, out)
+
+    path = write_shard(out, ["browser"], rows, result)
+    log.info("reharvest: %d documents, %d files, %d pages discovered",
+             len(rows), len(result.found_files), len(result.found_pages))
+    return path
+
+
+def _backfill_content_state(row: dict, out: Path) -> None:
+    """Give an older sidecar the `content_state` field, from bytes on disk.
+
+    Documents captured before placeholder detection existed carry no such key.
+    Recomputing it from the saved markdown is the same offline-repair property
+    that made the HTML-entity fix cost one second instead of 61 requests, so a
+    metadata field added later never means re-crawling a university's site.
+
+    Only written when the value actually changes, so a rebuild of an already
+    correct corpus stays byte-identical and produces no diff.
+    """
+    state = "placeholder" if looks_placeholder(row.get("_text", "")) else "published"
+    if row.get("content_state") == state:
+        return
+    row["content_state"] = state
+    sidecar = row.get("_json_path")
+    if not sidecar:
+        return
+    payload = {k: v for k, v in row.items() if not k.startswith("_")}
+    sidecar.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
 
 
 def _title(res, url: str) -> str:

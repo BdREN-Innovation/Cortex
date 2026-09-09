@@ -65,6 +65,8 @@ def run(client: Client, out: Path | None = None) -> dict:
 
     entities = _entities(dump)
     _fetch_entity_details(client, dump, entities)
+    _fetch_faculty(client, dump)
+    _fetch_alumni(client, dump)
 
     # When these bytes actually came off CUET's servers. Stage 2 stamps it onto
     # every document as `fetched_at`, because a document built today from a dump
@@ -126,6 +128,80 @@ def _fetch_entity_details(client: Client, dump: dict, entities: list[dict]) -> N
     dump["_entity_details"] = details
 
 
+def _fetch_faculty(client: Client, dump: dict) -> None:
+    """The faculty roster, then one detail request per person.
+
+    374 requests at the standard delay, so this is the slowest thing discover
+    does. It is still the right place for it: every other API fetch lives here,
+    and the dump is what makes rebuilding free. Nobody pays this cost twice
+    unless they delete the dump.
+
+    A person whose detail request fails keeps their roster row. The roster
+    already carries name, department, position and work email, so a failure
+    costs the profile prose rather than the person.
+    """
+    try:
+        listing = client.get_json(f"{config.API}{config.FACULTY_LIST}")
+    except Exception as exc:                         # noqa: BLE001
+        log.warning("faculty roster FAILED: %s - no faculty documents", exc)
+        dump["_faculty"] = {"error": f"{type(exc).__name__}: {exc}"}
+        return
+
+    rows = listing.get("data") if isinstance(listing, dict) else None
+    rows = [r for r in rows if isinstance(r, dict)] if isinstance(rows, list) else []
+    log.info("faculty roster: %d people", len(rows))
+
+    details: dict[str, object] = {}
+    for i, row in enumerate(rows, 1):
+        slug = row.get("slug")
+        if not slug:
+            continue
+        url = f"{config.API}{config.FACULTY_DETAIL.format(slug=encode_slug(slug))}"
+        try:
+            details[slug] = client.get_json(url)
+        except Exception as exc:                     # noqa: BLE001
+            details[slug] = {"error": f"{type(exc).__name__}: {exc}"}
+            log.warning("faculty %s FAILED: %s", slug, exc)
+        if i % 50 == 0:
+            log.info("faculty details %d/%d", i, len(rows))
+    dump["_faculty"] = {"list": rows, "details": details}
+    log.info("faculty: %d rosters, %d details fetched", len(rows), len(details))
+
+
+def _fetch_alumni(client: Client, dump: dict) -> None:
+    """Fetch the alumni site's own API. Spec §13 Q9, answered 2026-09-09.
+
+    Kept in a separate namespace (`_alumni`) rather than merged into `dump`,
+    because these paths come off a DIFFERENT host that happens to share some
+    route names. `/alumni-settings` here and `/general-settings` there are both
+    "the CMS settings", and flattening them into one dictionary would let the
+    alumni site quietly overwrite the university's own data on any future name
+    collision.
+
+    A failure here never stops the run even for a `required` endpoint. The
+    alumni site is one portion of the corpus; the university's own site is all
+    the others, and a dead vendor host should not take them down with it.
+    """
+    results: dict[str, object] = {}
+    for endpoint in config.ALUMNI_ENDPOINTS:
+        url = f"{config.ALUMNI_API}{endpoint.path}"
+        try:
+            response = client.get(url)
+            if response.status != 200:
+                raise RuntimeError(f"HTTP {response.status}")
+            results[endpoint.path] = {
+                "status": response.status,
+                "note": endpoint.note,
+                "body": json.loads(response.content.decode("utf-8")),
+            }
+            log.info("alumni   %-46s %7d bytes", endpoint.path, len(response.content))
+        except Exception as exc:                     # noqa: BLE001
+            results[endpoint.path] = {"status": None,
+                                      "error": f"{type(exc).__name__}: {exc}"}
+            log.warning("alumni %s FAILED (%s) - continuing", endpoint.path, exc)
+    dump["_alumni"] = results
+
+
 def build_url_plan(dump: dict) -> list[tuple[str, str]]:
     """The residual crawl plan: only what stage 2 cannot produce from JSON.
 
@@ -146,23 +222,19 @@ def build_url_plan(dump: dict) -> list[tuple[str, str]]:
     for path, why in config.STATIC_ROUTES:
         add(f"{config.SITE}{path}", why)
 
-    # The head's profile, one per entity, for every entity type rather than
-    # departments only: faculties, institutes and centres each have one too.
-    # Spec Appendix B, closed 2026-09-09.
+    # Head profiles are NO LONGER planned here, and the reason is worth keeping.
     #
-    # Read from `_entity_details` and NOT from `_entities()`: the list rows on
-    # /administrative-departments carry no `department_head` at all, so the same
-    # loop over the list silently plans nothing. Only the per-entity detail
-    # payload has it.
-    for detail in (dump.get("_entity_details") or {}).values():
-        if not isinstance(detail, dict) or "error" in detail:
-            continue
-        entity = detail.get("data") if isinstance(detail.get("data"), dict) else detail
-        head = entity.get("department_head") if isinstance(entity, dict) else None
-        if isinstance(head, dict) and head.get("slug"):
-            add(f"{config.SITE}"
-                f"{config.HEAD_PROFILE_TEMPLATE.format(slug=encode_slug(head['slug']))}",
-                "head's profile page; no API endpoint, found by the Appendix B diff")
+    # This loop used to plan 30 URLs, one per entity head, because that was the
+    # only way to reach a faculty member's page. The API endpoint behind those
+    # pages was found on 2026-09-09 and returns all 374 faculty, so the same 30
+    # people are now built from JSON along with the other 344.
+    #
+    # Rendering them as well produced 28 documents claimed by two portions - the
+    # same person, same URL, same id, from two sources. The API copy wins: it is
+    # the same content without the 12,000 characters of navigation and footer
+    # that the rendered page wraps around it.
+    #
+    # See builders/academic.build_faculty_members.
 
     for entity in _entities(dump):
         if entity.get("type") != "academic":
@@ -173,6 +245,13 @@ def build_url_plan(dump: dict) -> list[tuple[str, str]]:
         for template in config.DEPT_SUBPAGE_TEMPLATES:
             add(f"{config.SITE}{template.format(slug=encode_slug(slug))}",
                 "per-department page with no API coverage")
+
+        for template in config.DEPT_ACADEMIC_TEMPLATES:
+            add(f"{config.SITE}{template.format(slug=encode_slug(slug))}",
+                "per-department academic page; verified real for EEE")
+
+    for path, why in config.ALUMNI_STATIC_ROUTES:
+        add(f"{config.ALUMNI_SITE}{path}", why)
 
     for url in config.EXTERNAL_ENTRY_POINTS:
         add(url, "separate host; not scanned for an API of its own (spec §13 Q9)")

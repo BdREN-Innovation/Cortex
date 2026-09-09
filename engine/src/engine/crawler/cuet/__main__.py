@@ -15,8 +15,8 @@ from .builders import PORTIONS, portion_names
 
 log = logging.getLogger("cuet_scraper")
 
-STAGES = ("discover", "content", "merge", "plan", "capture", "files",
-          "audit", "verify", "all")
+STAGES = ("discover", "content", "merge", "plan", "capture", "reharvest",
+          "files", "audit", "verify", "all")
 
 
 def _setup_logging(verbose: bool) -> None:
@@ -143,6 +143,13 @@ def main(argv: list[str] | None = None) -> int:
                 summary["pages_captured"] = len(result.documents)
                 for warning in result.warnings:
                     errors.append({"stage": "content", "error": warning})
+
+            elif stage == "reharvest":
+                # Re-run link discovery over the HTML stage 4 already saved.
+                # Offline: changing what counts as a link must not cost another
+                # round of requests to somebody else's server. Spec 4.4.
+                from . import capture
+                capture.rebuild_shard(out)
 
             elif stage == "merge":
                 report = merge.run(out)

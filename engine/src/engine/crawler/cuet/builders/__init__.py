@@ -21,9 +21,10 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Callable
 
-from . import academic, general, news, notices
+from . import academic, alumni, general, news, notices
 
-__all__ = ["Portion", "PORTIONS", "builders_for", "portion_names"]
+__all__ = ["Portion", "PORTIONS", "builders_for", "owner_of_url",
+           "portion_names"]
 
 
 @dataclass(frozen=True)
@@ -41,10 +42,18 @@ class Portion:
     builders: tuple[Callable, ...]
     sections: tuple[str, ...]
     site_areas: tuple[str, ...]
+    url_prefixes: tuple[str, ...] = ()
 
 
 # Owner is a name, not a placeholder. An unowned portion is one nobody is
 # checking, which is how a whole content type goes missing quietly.
+#
+# `general` and `notices` are still unowned on purpose. Neither maps to one
+# person: `general` holds a teammate's About and Research pages alongside the
+# academic-information pages, and `notices` holds the NOC notices alongside the
+# four other notice types somebody else owns. Putting one name on either would
+# claim work that is not that person's, so they stay unowned until the split is
+# agreed. That is a smaller problem than a wrong name.
 PORTIONS: tuple[Portion, ...] = (
     Portion(
         name="general",
@@ -53,21 +62,30 @@ PORTIONS: tuple[Portion, ...] = (
         sections=("_cms", "home"),
         site_areas=("About menu", "Campus life", "Prospective students",
                     "Research highlights", "Student Organizations"),
+        url_prefixes=("/about", "/administration", "/apa", "/directorate",
+                      "/section", "/office", "/student", "/research",
+                      "/research-area", "/research-highlights",
+                      "/research-type", "/directories", "/downloads",
+                      "/e-resources"),
     ),
     Portion(
         name="academic",
-        owner="UNASSIGNED",
-        builders=(academic.build_entities, academic.build_curricula),
+        owner="Samonwita Sarker",
+        builders=(academic.build_entities, academic.build_curricula,
+                  academic.build_faculty_members),
         sections=("academic",),
         site_areas=("Academic menu", "/departments", "/faculty",
                     "/institutes", "/centers", "Curricula"),
+        url_prefixes=("/department", "/departments", "/faculty", "/institutes",
+                      "/centers", "/academic-information", "/profile"),
     ),
     Portion(
         name="news-events",
-        owner="UNASSIGNED",
+        owner="Samonwita Sarker",
         builders=(news.build_news, news.build_events),
         sections=("news-events",),
         site_areas=("News & Events menu", "/news/<id>", "/event-details/<id>"),
+        url_prefixes=("/news", "/event-details", "/news-events", "/events"),
     ),
     Portion(
         name="notices",
@@ -76,8 +94,58 @@ PORTIONS: tuple[Portion, ...] = (
         sections=("top-bar", "admission", "academic", "_unsorted"),
         site_areas=("Notices menu", "Top-bar notice links",
                     "/notices/noc", "/notices/all-notice"),
+        url_prefixes=("/notices", "/notice", "/admission"),
+    ),
+    # The only portion on a host other than cuet.ac.bd. Its `url_prefixes` are
+    # therefore full URLs rather than paths, so that `/news` on the alumni site
+    # is not attributed to the news-events portion, which owns the university's
+    # own /news.
+    Portion(
+        name="alumni",
+        owner="Samonwita Sarker",
+        builders=(alumni.build_alumni_pages, alumni.build_alumni_responsibilities,
+                  alumni.build_alumni_news, alumni.build_alumni_directory),
+        sections=("alumni",),
+        site_areas=("ALUMNI link in the top bar", "alumni.cuet.ac.bd"),
+        url_prefixes=("https://alumni.cuet.ac.bd",),
     ),
 )
+
+
+def owner_of_url(url: str) -> str | None:
+    """Which portion a site URL belongs to, by longest matching prefix.
+
+    Used by `--stage verify` so the Appendix B gap diff can say WHOSE gap each
+    unplanned URL is. Without it the check reports one corpus-wide number, and
+    a number that mixes four people's unfinished work is a number nobody acts
+    on: everybody reads it as somebody else's problem.
+
+    Longest match wins, so a portion can claim `/notices/noc` while another
+    keeps `/notices`. Returns None when nothing claims it, which is itself
+    worth seeing - an unclaimed area is one the four-way split missed.
+
+    `url_prefixes` is documentation and reporting, exactly like `sections`. It
+    does not restrict what any builder may write.
+    """
+    trimmed = url.split("?")[0]
+    # A portion on another host claims whole URLs; the rest claim paths on
+    # cuet.ac.bd. Checking the URL form first means alumni.cuet.ac.bd/news is
+    # attributed to alumni rather than to whoever owns /news.
+    for portion in PORTIONS:
+        for prefix in portion.url_prefixes:
+            if prefix.startswith("http") and (
+                    trimmed == prefix or trimmed.startswith(prefix + "/")):
+                return portion.name
+    path = trimmed.split("cuet.ac.bd", 1)[-1] or "/"
+    best: tuple[int, str | None] = (0, None)
+    for portion in PORTIONS:
+        for prefix in portion.url_prefixes:
+            if prefix.startswith("http"):
+                continue
+            claims = path == prefix or path.startswith(prefix + "/")
+            if claims and len(prefix) > best[0]:
+                best = (len(prefix), portion.name)
+    return best[1]
 
 
 def portion_names() -> tuple[str, ...]:
