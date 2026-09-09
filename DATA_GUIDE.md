@@ -11,7 +11,7 @@ Data in Cortex is organized into two primary categories based on its lifecycle a
 | Site | Location | Type | What's Included | Primary Format |
 |---|---|---|---|---|
 | **CUET** | [`engine/corpus/cuet/`](file:///c:/Users/User/Cortex/engine/corpus/cuet) | **Curated Reference Corpus** | Pre-processed Markdown, clean API text, HTML triples, per-portion shards | `.md`, `.json`, `.html`, `documents.jsonl`, `pages.jsonl` |
-| **BDREN** | [`engine/data/sites/bdren/bdren-20260908T212837Z/`](file:///c:/Users/User/Cortex/engine/data/sites/bdren/bdren-20260908T212837Z) | **Crawler Runtime Run** | Crawled web pages, raw HTML snapshot, downloaded PDFs | `raw/*.html`, `docs/*.pdf`, `manifest.json`, `pages.jsonl` |
+| **BDREN** | [`engine/data/sites/bdren/bdren-20260909T110121Z/`](file:///c:/Users/User/Cortex/engine/data/sites/bdren/bdren-20260909T110121Z) | **Crawler Runtime Run** | Crawled web pages, raw HTML snapshot, downloaded PDFs | `raw/*.html`, `docs/*.pdf`, `manifest.json`, `pages.jsonl` |
 | **BUBT** | [`engine/data/sites/bubt/bubt-20260908T220949Z/`](file:///c:/Users/User/Cortex/engine/data/sites/bubt/bubt-20260908T220949Z) | **Crawler Runtime Run** | 100+ crawled web pages, raw HTML, routines & academic PDFs | `raw/*.html`, `docs/*.pdf`, `manifest.json`, `pages.jsonl` |
 | **Green Univ.** | [`engine/data/sites/green/green-20260908T220124Z/`](file:///c:/Users/User/Cortex/engine/data/sites/green/green-20260908T220124Z) | **Crawler Runtime Run** | Crawled pages snapshot, raw HTML | `raw/*.html`, `manifest.json`, `pages.jsonl` |
 
@@ -71,10 +71,10 @@ engine/data/sites/<site>/<site>-<timestamp>/
 ```
 
 ### Sites Captured
-1. **BDREN (`engine/data/sites/bdren/bdren-20260908T212837Z/`)**:
-   - `pages.jsonl`: 5 captured pages.
-   - `docs/`: 5 downloaded document PDFs.
-   - `raw/`: 5 raw HTML files.
+1. **BDREN (`engine/data/sites/bdren/bdren-20260909T110121Z/`)**:
+   - `pages.jsonl`: 40 captured pages.
+   - `docs/`: 33 downloaded document PDFs.
+   - `raw/`: 40 raw HTML files.
 2. **BUBT (`engine/data/sites/bubt/bubt-20260908T220949Z/`)**:
    - `pages.jsonl`: 100 captured pages.
    - `docs/`: Academic routines and program syllabus PDFs (`BBA-routine.pdf`, `msc-in-cse.pdf`, etc.).
