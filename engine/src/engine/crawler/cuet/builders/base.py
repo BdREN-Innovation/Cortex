@@ -5,7 +5,7 @@ without any of them editing a file the others also edit. Nothing here is
 portion-specific — if you find yourself adding something that only your portion
 needs, it belongs in your own module, not in this one.
 
-Spec: docs/cuet/SPEC.md §6.8.
+Spec: CUET_SCRAPER_SPEC.md §6.8.
 """
 
 from __future__ import annotations

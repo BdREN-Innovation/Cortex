@@ -89,7 +89,11 @@ Download the folders and place them at these paths:
 |--------------------------|---------------------------------------------|
 | `01_scraped_documents/*` | `engine/corpus/cuet/_files/`                |
 | `02_api_metadata/*`      | `engine/corpus/cuet/_meta/`                 |
-| `03_scraper_specs/*`     | now committed at `docs/cuet/` — skip        |
+| `03_scraper_specs/*`     | the repo root                               |
+
+The specs are worth restoring rather than skipping if you are working on the
+CUET scraper: its code cites them 123 times, and each citation is where the
+reasoning behind a measured constant lives.
 
 The Drive folder contains a `README.md` with full details on what each file is,
 the naming conventions, and important notes for the embedding team.

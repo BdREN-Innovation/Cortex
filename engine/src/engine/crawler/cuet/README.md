@@ -4,9 +4,14 @@ Captures **cuet.ac.bd** for the Cortex pipeline. API-first: roughly 530 of the
 documents come from CUET's own JSON API in about 45 requests, and the headless
 browser is used only for the handful of pages the API cannot reach.
 
-Specification: [`docs/cuet/SPEC.md`](../../../../../docs/cuet/SPEC.md) (Part 1)
-and [`docs/cuet/SPEC_PART2.md`](../../../../../docs/cuet/SPEC_PART2.md). Every
-`Spec §6.3` in the code points into those.
+Specification: `CUET_SCRAPER_SPEC.md` (Part 1) and `CUET_SCRAPER_SPEC_PART2.md`.
+Every `Spec §6.3` in the code points into those.
+
+**They are not in the repo.** Both are gitignored and kept on Google Drive, with
+`SCRAPE_INVENTORY.md` beside them; the link is in the
+[root README](../../../../../README.md). Download them to the repo root before
+you change a constant in `config.py`, because the reasoning behind each measured
+value is in the section the comment cites.
 
 Output: [`engine/corpus/cuet/`](../../../../corpus/cuet/), which has its own
 README describing the corpus for whoever embeds it.

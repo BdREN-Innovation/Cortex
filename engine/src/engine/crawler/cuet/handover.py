@@ -99,7 +99,9 @@ def write_manifest(out: Path, *, run_id: str, started: str, finished: str,
 README = """# CUET capture — what this is and how to use it
 
 Produced by the CUET scraper at `engine/src/engine/crawler/cuet/`.
-Specification: `docs/cuet/SPEC.md` (Part 1) and `docs/cuet/SPEC_PART2.md`.
+Specification: `CUET_SCRAPER_SPEC.md` (Part 1) and
+`CUET_SCRAPER_SPEC_PART2.md`. Both are gitignored and live on Google Drive;
+the repo README has the link.
 
 ## Read this before you embed anything
 
@@ -225,7 +227,7 @@ of keeping the raw payloads.
   contain zero image files; if it ever does, that is a bug worth reporting.
 - **Nothing behind a login.** No authenticated request was made.
 - Sections deliberately out of scope for Part 1 — Research, most Notice types,
-  Administration, APA — are listed in `docs/cuet/SPEC_PART2.md`. Their raw
+  Administration, APA — are listed in `CUET_SCRAPER_SPEC_PART2.md`. Their raw
   API payloads are already in `_meta/api_dump.json`.
 
 ## Provenance

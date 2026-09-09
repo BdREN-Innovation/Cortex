@@ -4,7 +4,7 @@ Numbers here that look arbitrary are not. Where a value was measured against the
 live site, the measurement is in the comment beside it, because the next person
 to touch this file needs to know whether they are changing a guess or a finding.
 
-Spec: docs/cuet/SPEC.md §8.
+Spec: CUET_SCRAPER_SPEC.md §8.
 """
 
 from __future__ import annotations
