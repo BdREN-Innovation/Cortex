@@ -1,0 +1,54 @@
+{
+  "url": "https://cuet.ac.bd/profile/faculty-member/dr-muhammad-abdur-rahman-bhuiyan",
+  "canonical_url": "https://cuet.ac.bd/profile/faculty-member/dr-muhammad-abdur-rahman-bhuiyan",
+  "page_id": "f7565ed512d4aa26",
+  "doc_key": "https://cuet.ac.bd/profile/faculty-member/dr-muhammad-abdur-rahman-bhuiyan",
+  "section": "academic",
+  "group": "profiles",
+  "section_path": [
+    "Academic",
+    "Faculty",
+    "Civil Engineering",
+    "Dr. M. Abdur Rahman Bhuiyan"
+  ],
+  "title": "Dr. M. Abdur Rahman Bhuiyan",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T18:07:21Z",
+  "html_path": "academic/profiles/dr-muhammad-abdur-rahman-bhuiyan__f7565ed5.html",
+  "markdown_path": "academic/profiles/dr-muhammad-abdur-rahman-bhuiyan__f7565ed5.md",
+  "text_chars": 7121,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 3,
+  "double_escaped": false,
+  "files": [
+    {
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/690318369403f.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/6906e2d7d9e9a.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/6906e2a8426fb.pdf"
+    }
+  ],
+  "slug": "dr-muhammad-abdur-rahman-bhuiyan",
+  "department": "Civil Engineering",
+  "employee_status": "running",
+  "admin_type": "faculty_member",
+  "private_fields_dropped": [
+    "nid",
+    "date_of_birth",
+    "blood_group",
+    "father_name",
+    "mother_name",
+    "permanent_address",
+    "religion",
+    "file_no",
+    "prl_date",
+    "district_id",
+    "profile.personal_email",
+    "profile.address"
+  ]
+}

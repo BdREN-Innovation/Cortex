@@ -1,0 +1,49 @@
+{
+  "url": "https://cuet.ac.bd/centers",
+  "canonical_url": "https://cuet.ac.bd/centers",
+  "page_id": "8f2b2ac4d19549d0",
+  "doc_key": "https://cuet.ac.bd/centers",
+  "section": "academic",
+  "group": "centers",
+  "section_path": [
+    "Academic",
+    "Centers",
+    "centers"
+  ],
+  "title": "CUET Academic Center",
+  "source": "browser",
+  "status": 200,
+  "fetched_at": "2026-09-09T07:31:53Z",
+  "html_path": "academic/centers/centers__8f2b2ac4.html",
+  "markdown_path": "academic/centers/centers__8f2b2ac4.md",
+  "text_chars": 11929,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 7,
+  "double_escaped": false,
+  "files": [
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf"
+    },
+    {
+      "url": "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf"
+    }
+  ],
+  "planned_reason": "listing page",
+  "content_state": "published"
+}

@@ -1,0 +1,54 @@
+{
+  "url": "https://cuet.ac.bd/profile/faculty-member/nusrat-jahan-usha",
+  "canonical_url": "https://cuet.ac.bd/profile/faculty-member/nusrat-jahan-usha",
+  "page_id": "cb7aff86631ca4e4",
+  "doc_key": "https://cuet.ac.bd/profile/faculty-member/nusrat-jahan-usha",
+  "section": "academic",
+  "group": "profiles",
+  "section_path": [
+    "Academic",
+    "Faculty",
+    "Biomedical Engineering",
+    "Nusrat Jahan Usha"
+  ],
+  "title": "Nusrat Jahan Usha",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T18:07:21Z",
+  "html_path": "academic/profiles/nusrat-jahan-usha__cb7aff86.html",
+  "markdown_path": "academic/profiles/nusrat-jahan-usha__cb7aff86.md",
+  "text_chars": 2183,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 3,
+  "double_escaped": false,
+  "files": [
+    {
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/6a7dfd6c59a31.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/6a7cee4c67302.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/6a7cefd30f8e2.pdf"
+    }
+  ],
+  "slug": "nusrat-jahan-usha",
+  "department": "Biomedical Engineering",
+  "employee_status": "running",
+  "admin_type": "faculty_member",
+  "private_fields_dropped": [
+    "nid",
+    "date_of_birth",
+    "blood_group",
+    "father_name",
+    "mother_name",
+    "permanent_address",
+    "religion",
+    "file_no",
+    "prl_date",
+    "district_id",
+    "profile.personal_email",
+    "profile.address"
+  ]
+}

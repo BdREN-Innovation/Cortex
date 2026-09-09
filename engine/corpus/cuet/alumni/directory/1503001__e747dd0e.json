@@ -1,0 +1,32 @@
+{
+  "url": "https://alumni.cuet.ac.bd/alumnis/1503001",
+  "canonical_url": "https://alumni.cuet.ac.bd/alumnis/1503001",
+  "page_id": "e747dd0e8cac26e3",
+  "doc_key": "https://alumni.cuet.ac.bd/alumnis/1503001",
+  "section": "alumni",
+  "group": "directory",
+  "section_path": [
+    "Alumni",
+    "Directory",
+    "Mr Raihan"
+  ],
+  "title": "Mr Raihan",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T18:07:21Z",
+  "html_path": "alumni/directory/1503001__e747dd0e.html",
+  "markdown_path": "alumni/directory/1503001__e747dd0e.md",
+  "text_chars": 222,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "student_id": "1503001",
+  "site": "alumni",
+  "private_fields_dropped": [
+    "email",
+    "phone",
+    "address"
+  ]
+}

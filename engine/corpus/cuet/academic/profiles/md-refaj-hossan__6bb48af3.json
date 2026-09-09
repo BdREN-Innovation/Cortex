@@ -1,0 +1,48 @@
+{
+  "url": "https://cuet.ac.bd/profile/faculty-member/md-refaj-hossan",
+  "canonical_url": "https://cuet.ac.bd/profile/faculty-member/md-refaj-hossan",
+  "page_id": "6bb48af3989a4c35",
+  "doc_key": "https://cuet.ac.bd/profile/faculty-member/md-refaj-hossan",
+  "section": "academic",
+  "group": "profiles",
+  "section_path": [
+    "Academic",
+    "Faculty",
+    "Computer Science & Engineering",
+    "Md. Refaj Hossan"
+  ],
+  "title": "Md. Refaj Hossan",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T18:07:21Z",
+  "html_path": "academic/profiles/md-refaj-hossan__6bb48af3.html",
+  "markdown_path": "academic/profiles/md-refaj-hossan__6bb48af3.md",
+  "text_chars": 2435,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 1,
+  "double_escaped": false,
+  "files": [
+    {
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/699e17c1b3f6c.pdf"
+    }
+  ],
+  "slug": "md-refaj-hossan",
+  "department": "Computer Science & Engineering",
+  "employee_status": "running",
+  "admin_type": "faculty_member",
+  "private_fields_dropped": [
+    "nid",
+    "date_of_birth",
+    "blood_group",
+    "father_name",
+    "mother_name",
+    "permanent_address",
+    "religion",
+    "file_no",
+    "prl_date",
+    "district_id",
+    "profile.personal_email",
+    "profile.address"
+  ]
+}

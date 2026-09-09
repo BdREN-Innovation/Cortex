@@ -1,0 +1,32 @@
+{
+  "url": "https://alumni.cuet.ac.bd/notices",
+  "canonical_url": "https://alumni.cuet.ac.bd/notices",
+  "page_id": "d7f7dd5f1ccfd5cb",
+  "doc_key": "https://alumni.cuet.ac.bd/notices?_notice=332",
+  "section": "alumni",
+  "group": "notices",
+  "section_path": [
+    "Alumni",
+    "Notices",
+    "Alumni Notice"
+  ],
+  "title": "Alumni Notice",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T18:07:21Z",
+  "html_path": "alumni/notices/notices__d7f7dd5f.html",
+  "markdown_path": "alumni/notices/notices__d7f7dd5f.md",
+  "text_chars": 89,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 1,
+  "double_escaped": false,
+  "files": [
+    {
+      "url": "https://app.cuet.thetork.com/storage/Notices/6909be6a16322.pdf"
+    }
+  ],
+  "notice_id": 332,
+  "site": "alumni",
+  "publish_date": null
+}

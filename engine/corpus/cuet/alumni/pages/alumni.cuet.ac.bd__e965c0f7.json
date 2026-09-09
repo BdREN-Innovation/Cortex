@@ -1,0 +1,27 @@
+{
+  "url": "https://alumni.cuet.ac.bd/",
+  "canonical_url": "https://alumni.cuet.ac.bd",
+  "page_id": "e965c0f7bcd5b50d",
+  "doc_key": "https://alumni.cuet.ac.bd/?_key=home_about_us",
+  "section": "alumni",
+  "group": "pages",
+  "section_path": [
+    "Alumni",
+    "Home About Us"
+  ],
+  "title": "Home About Us",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T18:07:21Z",
+  "html_path": "alumni/pages/alumni.cuet.ac.bd__e965c0f7.html",
+  "markdown_path": "alumni/pages/alumni.cuet.ac.bd__e965c0f7.md",
+  "text_chars": 608,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "cms_key": "home_about_us",
+  "renders_page": "/",
+  "site": "alumni"
+}
