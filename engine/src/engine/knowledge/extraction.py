@@ -1,115 +1,133 @@
-"""Saved HTML -> title, clean prose, tables, breadcrumb.
-
-Run *offline* against the HTML Team A captured. That is the point: reading a
-page differently costs a re-extract (about a second) instead of a re-crawl (an
-hour, and another thousand requests to somebody else's server).
-
-This file decides how good everything downstream can possibly be. If chrome
-leaks into `text`, it gets embedded, retrieved, and returned to a user as an
-answer. Judge your work by reading the output, not by whether it runs.
-
-TEAM B OWNS THIS FILE.
-
-Decisions you own
------------------
-* What parses the HTML, and do you hand-roll the main-content hunt or use
-  something purpose-built for boilerplate removal? Both are reasonable; they
-  win on different kinds of site. Try one against a real page before deciding.
-* How do you find the main content when a page has no <main> or <article>?
-* How do you know a breadcrumb when you see one? Sites disagree about markup.
-  What is your fallback when there is none — and remember that an empty
-  `section_path` produces an answer that cannot say where it came from.
-* Alt text: some is content ("Revenue by quarter"), some is chrome ("logo").
-  What is your rule for telling them apart? String length is a trap.
-* What counts as whitespace worth collapsing, and what is meaningful layout?
-
-"""
+"""Saved HTML -> title, clean prose, tables, breadcrumb."""
 
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from bs4 import BeautifulSoup, NavigableString, Tag
 
-# Elements that are never page content.
 STRIP_TAGS = ["script", "style", "noscript", "template", "svg", "iframe", "form"]
-# Elements that are usually chrome. Remove only when the page has a <main> or
-# <article> to fall back on, so a simple page is never blanked out entirely.
 CHROME_TAGS = ["nav", "header", "footer", "aside"]
-
 MAIN_SELECTORS = ["main", "article", "[role=main]", "#content", ".content", "#main"]
 
 
 @dataclass
 class SiteSelectors:
-    """Per-site overrides, set in `configs/extract.<site>.yaml` — never in code.
-
-    One config file per site means nobody edits a shared module to fix a site,
-    so several people can tune several sites at once without colliding.
-
-    Reach for these only when the generic extractor gets a page wrong.
-    """
-
-    # CSS selector for the element holding the article body. Overrides the
-    # generic <main>/<article> hunt.
     main: str = ""
-    # Selectors to delete before extracting: cookie bars, "related articles",
-    # share widgets — anything repeated on every page that would poison chunks.
     drop: list[str] = field(default_factory=list)
-    # CSS selector for the breadcrumb, when the generic hunt misses it.
     breadcrumb: str = ""
 
 
 @dataclass
 class Extracted:
-    """One page, read for meaning."""
-
     title: str
     text: str
     section_path: list[str] = field(default_factory=list)
     meta: dict = field(default_factory=dict)
-    # Markdown renderings of every <table>, in page order. Already inlined into
-    # `text`; carried separately so the caller can mirror them to tables/.
     tables: list[dict] = field(default_factory=list)
 
 
 def rows_to_markdown(rows: list[list[str]]) -> str:
-    """Render a grid of cells as a markdown table.
+    if not rows:
+        return ""
+    width = max(len(r) for r in rows)
+    norm = []
+    for r in rows:
+        cells = [str(c).replace("|", "\\|").replace("\n", " ").strip() for c in r]
+        cells += [""] * (width - len(cells))
+        norm.append(cells)
+    header, *body = norm
+    lines = ["| " + " | ".join(header) + " |", "| " + " | ".join("---" for _ in header) + " |"]
+    for row in body:
+        lines.append("| " + " | ".join(row) + " |")
+    return "\n".join(lines)
 
-    Worth building once and calling from both the HTML and the PDF path — a
-    table is a table whichever format it arrived in.
 
-    Two things will bite you: rows of unequal length stop being a table, and a
-    cell containing a "|" splits itself into two columns unless you deal with
-    it. Decide how, and make sure it happens exactly once.
-    """
-    raise NotImplementedError
+def table_to_markdown(table: Tag) -> str:
+    rows: list[list[str]] = []
+    for tr in table.find_all("tr"):
+        cells: list[str] = []
+        for cell in tr.find_all(["td", "th"]):
+            text = cell.get_text(" ", strip=True)
+            colspan = int(cell.get("colspan", 1) or 1)
+            cells.extend([text] * colspan)  # repeat merged cell across columns
+        if cells:
+            rows.append(cells)
+    return rows_to_markdown(rows)
 
 
-def table_to_markdown(table) -> str:
-    """Render one HTML table element as markdown.
+def _extract_breadcrumb(soup: BeautifulSoup, override_selector: str) -> list[str]:
+    candidates = [override_selector] if override_selector else []
+    candidates += ["nav[aria-label='breadcrumb']", ".breadcrumb", ".breadcrumbs", ".crumbs"]
+    for sel in candidates:
+        if not sel:
+            continue
+        el = soup.select_one(sel)
+        if el:
+            crumbs = [a.get_text(strip=True) for a in el.find_all("a")]
+            crumbs = [c for c in crumbs if c]
+            if crumbs:
+                return crumbs
+    return []
 
-    Real tables use `colspan` and `rowspan`. Work out what a merged cell should
-    become in a flat markdown grid before you meet one in production.
-    """
-    raise NotImplementedError
+
+def _collapse_blank_lines(text: str) -> str:
+    lines = [line.strip() for line in text.splitlines()]
+    return "\n".join(line for line in lines if line)
 
 
 def extract(html: str, url: str, selectors: SiteSelectors | None = None) -> Extracted:
-    """Read saved HTML for meaning.
+    selectors = selectors or SiteSelectors()
+    soup = BeautifulSoup(html, "html.parser")
 
-    Must produce: a title, clean prose with no site chrome in it, a breadcrumb
-    in `section_path`, any `<meta>` worth keeping, and every `<table>` rendered
-    as markdown.
+    # Site-specific junk removal must happen before anything else reads the doc.
+    for sel in selectors.drop:
+        for el in soup.select(sel):
+            el.decompose()
 
-    Tables belong **inline, where they were**. A table lifted out of its page is
-    a grid of numbers with nothing saying what they mean; the chunker can only
-    embed what is adjacent to it.
+    title = soup.title.get_text(strip=True) if soup.title else ""
 
-    One ordering constraint that is easy to get wrong: `selectors.drop` has to
-    run before anything else reads the document. Junk removed late has already
-    contaminated your title and your breadcrumb.
+    meta = {}
+    desc = soup.find("meta", attrs={"name": "description"})
+    if desc and desc.get("content"):
+        meta["description"] = desc["content"].strip()
 
-    Note what is NOT here: links, canonical URL and lang. Those are Team A's
-    business and arrive on the CrawledPage record. This module reads for
-    meaning only.
-    """
-    raise NotImplementedError
+    section_path = _extract_breadcrumb(soup, selectors.breadcrumb)
+
+    for tag_name in STRIP_TAGS:
+        for el in soup.find_all(tag_name):
+            el.decompose()
+
+    main_el = soup.select_one(selectors.main) if selectors.main else None
+    if main_el is None:
+        for sel in MAIN_SELECTORS:
+            main_el = soup.select_one(sel)
+            if main_el:
+                break
+
+    if main_el is not None:
+        for tag_name in CHROME_TAGS:
+            for el in main_el.find_all(tag_name):
+                el.decompose()
+        root = main_el
+    else:
+        # No <main>/<article> found — don't strip chrome, or a simple page
+        # could get blanked out entirely.
+        root = soup.body or soup
+
+    tables: list[dict] = []
+    for i, table in enumerate(root.find_all("table")):
+        md = table_to_markdown(table)
+        if md:
+            tables.append({"index": i, "markdown": md})
+            table.replace_with(NavigableString("\n" + md + "\n"))
+
+    for img in root.find_all("img"):
+        alt = (img.get("alt") or "").strip()
+        if len(alt.split()) >= 3:
+            img.replace_with(NavigableString(alt))
+        else:
+            img.decompose()
+
+    text = _collapse_blank_lines(root.get_text(separator="\n", strip=True))
+
+    return Extracted(title=title, text=text, section_path=section_path, meta=meta, tables=tables)
