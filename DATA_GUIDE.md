@@ -30,12 +30,12 @@ naming a single owner would claim work that is not theirs.
 
 ### Samonwita Sarker's part
 
-Six areas of the website, **641 of the 679 documents** in the corpus.
+Six areas of the website, **649 of the 687 documents** in the corpus.
 
 | Area | Documents | Where it is on the site |
 |---|---|---|
 | Homepage | 1 | `/` |
-| Academic | 450 | `/departments`, `/department/<slug>`, `/faculty`, `/institutes`, `/centers`, `/academic-information`, `/profile/faculty-member/<slug>` |
+| Academic | 458 | `/departments`, `/department/<slug>`, `/faculty`, `/institutes`, `/centers`, `/academic-information`, `/profile/faculty-member/<slug>` |
 | News & Events | 163 | `/news/<id>`, `/event-details/<id>`, `/news-events`, `/events`, `/student/events` |
 | Alumni | 15 | the whole `alumni.cuet.ac.bd` host |
 | Admission | 6 | `/admission`, `/admission/msc`, `/fsc`, `/student/undergraduate-student`, `/student/postgraduate-student`, `/notices/scholarship-financial-aids` |
@@ -56,7 +56,7 @@ organisations and the combined notice listing, which belong to other portions.
 | **Green University** | `engine/data/sites/green/green-20260908T220124Z/` | Crawler runtime run | `raw/*.html`, `pages.jsonl` |
 
 The CUET corpus is different in kind from the other three. It was built
-API-first: **626 of its 679 documents came from CUET's public JSON API**, and
+API-first: **634 of its 687 documents came from CUET's public JSON API**, and
 only 53 from a headless browser. API documents arrive as clean prose with no
 navigation, banner or footer, so there is nothing for a boilerplate stripper to
 remove.
@@ -72,7 +72,7 @@ a document is right, open the URL.
 
 | Folder | Docs | Where it is on the live site |
 |---|---|---|
-| `academic/profiles/` | 374 | Every faculty member, `/profile/faculty-member/<slug>` |
+| `academic/profiles/` | 382 | Every faculty member, `/profile/faculty-member/<slug>`. Covers all three employee statuses: 374 current, 2 on leave, 6 retired |
 | `news-events/news/` | 157 | News & Events → News, `/news/<id>` |
 | `academic/departments/` | 55 | `/department/<slug>` for 18 departments, plus each one's `/academic/undergraduate` and `/academic/postgraduate` |
 | `home/organizations/` | 15 | Student Organizations, `/student/organization/<slug>` |
@@ -94,7 +94,7 @@ a document is right, open the URL.
 | `admission/notices/` | 1 | Notices → Scholarship & Financial Aids |
 | `alumni/notices/` | 1 | `alumni.cuet.ac.bd/notices` |
 | `home/` | 1 | The site homepage, `/` |
-| **Total** | **679** | |
+| **Total** | **687** | |
 
 This table is regenerated from disk by `--stage merge` into
 `engine/corpus/cuet/README.md`. It is reproduced here for convenience; that file
@@ -174,7 +174,7 @@ Run with `python -m engine.crawler.cuet --stage <name>`.
 
 | Stage | File | What it does |
 |---|---|---|
-| `discover` | `discover.py` | Fetches all 17 API endpoints plus 30 entity details, 374 faculty profiles and 7 alumni endpoints. Saves every response verbatim to `_meta/api_dump.json` before parsing. Builds the residual URL plan. |
+| `discover` | `discover.py` | Fetches all 17 API endpoints plus 30 entity details, 382 faculty profiles and 7 alumni endpoints. Saves every response verbatim to `_meta/api_dump.json` before parsing. Builds the residual URL plan. |
 | `content` | `content.py` | Turns the saved payloads into documents. Runs one or more portions; each writes its own shard. |
 | `merge` | `merge.py` | Assembles the shards into the corpus files. No network. |
 | `plan` | `discover.py` | Prints the residual URL plan. |
@@ -212,7 +212,7 @@ them.
 | File | Lines | Produces |
 |---|---|---|
 | `__init__.py` | 164 | The portion registry. The one shared file, deliberately tiny. |
-| `academic.py` | 306 | Departments, faculties, institutes, centres, curricula, and all 374 faculty profiles. |
+| `academic.py` | 306 | Departments, faculties, institutes, centres, curricula, and all 382 faculty profiles. |
 | `alumni.py` | 267 | The alumni site's CMS pages, news, notices, responsibilities and directory. |
 | `base.py` | 222 | The `Document` model, link harvesting, shared helpers. Nothing portion-specific. |
 | `notices.py` | 133 | Every notice type, as index documents. |
@@ -221,7 +221,7 @@ them.
 
 ### 4.4 Tests
 
-`engine/tests/crawler/cuet/`, **198 tests**, no network required.
+`engine/tests/crawler/cuet/`, **201 tests**, no network required.
 
 | File | Tests | Covers |
 |---|---|---|
@@ -230,7 +230,7 @@ them.
 | `test_coverage.py` | 24 | Placeholder pages, dismissals, gap attribution |
 | `test_alumni.py` | 15 | The alumni portion and its privacy rule |
 | `test_portions.py` | 15 | The multi-person split |
-| `test_faculty.py` | 14 | Faculty profiles and their privacy rule |
+| `test_faculty.py` | 17 | Faculty profiles, their privacy rule, and every employee status |
 | `test_capture.py` | 12 | Failed-render and 404 detection |
 | `test_shards.py` | 12 | Shard building and the resume case |
 | `test_harvest.py` | 10 | Link harvesting and HTML entity decoding |
@@ -273,6 +273,11 @@ curriculum. They are kept rather than dropped, because thin-page filtering
 belongs downstream where it can be reconsidered. Filter them if you want.
 
 **6. 122 documents contain Bangla.** Verified as correctly decoded, no mojibake.
+**7. Faculty documents cover three employee statuses.** 374 current staff, 2 on
+leave and 6 retired, 382 in all. The endpoint defaults to current staff without
+saying so, which is how the other 8 were missed on the first pass. Each document
+records `employee_status`, so filtering to current staff is your choice to make.
+
 
 ---
 

@@ -178,6 +178,20 @@ ENTITY_DETAIL = "/administrative-departments/{slug}"
 # detail adds the profile intro, education, experience, research, publications,
 # courses, supervisions and awards.
 FACULTY_LIST = "/app-admins?admin_type=faculty_member"
+
+# The endpoint DEFAULTS to serving current staff only, and says nothing about
+# it. `?admin_type=faculty_member` with no status filter returns 374 rows, every
+# one of them `running`, which reads exactly like a complete roster.
+#
+# It is not. The site's own Faculty Members menu has three tabs, and the other
+# two hold people: 2 on leave and 6 retired. VERIFIED 2026-09-10 by probing the
+# status values one at a time, because the value is a prop passed from each
+# route's page component and never appears as a literal in the shared bundles.
+#
+# 382 people, not 374. Retired and on-leave faculty are still part of a
+# university's public record, and a question about a former head of department
+# should not come back empty.
+FACULTY_STATUSES = ("running", "on_leave", "retired")
 FACULTY_DETAIL = "/app-admins/{slug}"
 
 # Dropped from every faculty record before anything is written.

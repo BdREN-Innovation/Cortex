@@ -140,16 +140,30 @@ def _fetch_faculty(client: Client, dump: dict) -> None:
     already carries name, department, position and work email, so a failure
     costs the profile prose rather than the person.
     """
-    try:
-        listing = client.get_json(f"{config.API}{config.FACULTY_LIST}")
-    except Exception as exc:                         # noqa: BLE001
-        log.warning("faculty roster FAILED: %s - no faculty documents", exc)
-        dump["_faculty"] = {"error": f"{type(exc).__name__}: {exc}"}
-        return
+    # One request per status. Asking without a status returns current staff only
+    # and looks complete, which is how 8 people were missed on the first pass.
+    rows: list[dict] = []
+    seen: set[str] = set()
+    for status in config.FACULTY_STATUSES:
+        url = f"{config.API}{config.FACULTY_LIST}&employee_status={status}"
+        try:
+            listing = client.get_json(url)
+        except Exception as exc:                     # noqa: BLE001
+            log.warning("faculty roster (%s) FAILED: %s", status, exc)
+            continue
+        found = listing.get("data") if isinstance(listing, dict) else None
+        found = [r for r in found if isinstance(r, dict)] if isinstance(found, list) else []
+        new_rows = [r for r in found if r.get("slug") and r["slug"] not in seen]
+        seen.update(r["slug"] for r in new_rows)
+        rows.extend(new_rows)
+        log.info("faculty roster %-10s %3d people", status, len(found))
 
-    rows = listing.get("data") if isinstance(listing, dict) else None
-    rows = [r for r in rows if isinstance(r, dict)] if isinstance(rows, list) else []
-    log.info("faculty roster: %d people", len(rows))
+    if not rows:
+        log.warning("faculty roster empty - no faculty documents")
+        dump["_faculty"] = {"error": "roster empty for every status"}
+        return
+    log.info("faculty roster: %d people across %d status(es)",
+             len(rows), len(config.FACULTY_STATUSES))
 
     details: dict[str, object] = {}
     for i, row in enumerate(rows, 1):

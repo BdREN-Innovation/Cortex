@@ -171,3 +171,33 @@ def test_every_person_gets_a_distinct_document():
     rows = [dict(ROW, slug=f"person-{i}", name=f"Person {i}") for i in range(5)]
     result = _build(_dump(rows=rows, details={}))
     assert len({d.url for d in result.documents}) == 5
+
+
+# -- every status, not just the current staff ------------------------------
+
+def test_all_three_employee_statuses_are_fetched():
+    """The endpoint defaults to current staff and says nothing about it.
+
+    Asking with no status filter returns 374 rows, all `running`, which reads
+    exactly like a complete roster. It is not: 2 people are on leave and 6 are
+    retired, and the site's own Faculty Members menu has a tab for each.
+    """
+    assert set(config.FACULTY_STATUSES) == {"running", "on_leave", "retired"}
+
+
+def test_people_of_every_status_become_documents():
+    """A retired professor is still part of the university's public record."""
+    rows = [dict(ROW, slug=f"p{i}", name=f"Person {i}", employee_status=st)
+            for i, st in enumerate(config.FACULTY_STATUSES)]
+    result = _build(_dump(rows=rows, details={}))
+    assert len(result.documents) == len(config.FACULTY_STATUSES)
+    assert {d.extra["employee_status"] for d in result.documents} == set(
+        config.FACULTY_STATUSES)
+
+
+def test_the_status_is_recorded_so_downstream_can_filter():
+    """Team B may want current staff only. That is their call to make, and they
+    can only make it if the status survives into the document."""
+    result = _build(_dump(rows=[dict(ROW, employee_status="retired")], details={}))
+    assert result.documents[0].extra["employee_status"] == "retired"
+    assert "retired" in result.documents[0].html
