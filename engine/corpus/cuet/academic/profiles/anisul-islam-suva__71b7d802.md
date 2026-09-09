@@ -10,7 +10,7 @@ Phone: 8801521449201
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Bangladesh University of Engineering and Technology - 0, B.Sc(Engineering)
 - Chittagong University of Engineering & Technology and Universitetet i Agder, Norway - 01 Sep 2022, 01 Sep 2024, 0, M.Sc. Engineering

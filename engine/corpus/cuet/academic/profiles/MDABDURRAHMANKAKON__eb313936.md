@@ -16,6 +16,8 @@ Status: running
 
 *Beyond research, I embrace cross-cultural learning — having participated in exchange programs, industry visits, and leadership initiatives across Japan — and remain driven by a curiosity for emerging technologies and their real-world applications.*
 
+## Other
+
 ### **Courses Offered:**
 
 #### **Theory Courses:**
@@ -78,7 +80,7 @@ Conducted thesis supervision for 15 batch and 16 batch students. Published  4 c
 
 I was the convenor of Mechatronics Carnival 2022. I launched the program from the scratch. I involved with fund raising, sponsor management, program management and finally the carnival finished successfully.
 
-## Education
+## Education (listed)
 
 - Saga University, Japan - 01 Oct 2024, 30 Sep 2027, 0,
 

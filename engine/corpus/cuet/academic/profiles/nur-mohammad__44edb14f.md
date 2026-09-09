@@ -14,8 +14,12 @@ Status: running
 
 Dr. Nur Mohammad has expertise in electricity market model for the future smart grid, transactive control, renewable energy (PV and wind) integration, frequency regulation, energy storage management, maximum power point tracking, demand-side management, electricity pricing, auction-based demand response mechanism design, convex optimization, bi-level optimization, game theory, power system network economics.
 
+## Education
+
 **PhD** in Power System Economics, Demand Response
 **MSc** and **BSc** Engg. in EEE
+
+## Other
 
 ** Professional Membership **
 
@@ -52,7 +56,7 @@ Dr. Nur Mohammad has expertise in electricity market model for the future smart 
 
  Involve in **revising and correcting written material to improve** language, technical accuracy and making it ready for publication.
 
-## Education
+## Education (listed)
 
 - Queensland University of Technology (QUT) - 15 Jul 2014, 14 Feb 2018, 0, PhD
 

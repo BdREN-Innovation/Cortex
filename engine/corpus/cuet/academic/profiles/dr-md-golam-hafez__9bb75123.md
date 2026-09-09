@@ -14,10 +14,14 @@ Dr. Md. Golam Hafez is a Professor in the Department of Mathematics at Chittagon
 
 Dr. Hafez has held several international academic positions, including Visiting Scientist at Bharathiar University, Coimbatore, India, under the India Science and Research Fellowship (ISRF), and Visiting Professor at Periyar University, Salem, India. His research focuses on theoretical and computational plasma physics, mathematical physics, fractional calculus, analytical and numerical solutions of nonlinear evolution equations, bifurcation analysis, and chaotic dynamics. He also contributes to interdisciplinary fields such as biomathematics and control engineering.
 
+## Education
+
 - *Ph.D. in Applied Mathematics, University of Rajshahi, 2018. Thesis: Nonlinear ion-acoustic waves in unmagnetized relativistic plasmas.*
 - *M. Phil. in Mathematical and Physical Sciences, University of Chittagong, 2011. Thesis: Studies of Gauge Theories in Quantum Field Theory.*
 - [*M. Sc*](https://m.sc/)*. in Applied Mathematics, University of Rajshahi, 2006. Graduated First Class, 2nd out of 130 students. Thesis: Studies on Modern Elementary Particles.*
 - [*B. Sc*](https://b.sc/)*. (4-year Honors) in Mathematics, University of Rajshahi, 2004. Graduated First Class.*
+
+## Other
 
 [https://scholar.google.com/citations?hl=en&user=kSxFhj0AAAAJ](https://scholar.google.com/citations?hl=en&user=kSxFhj0AAAAJ)
 

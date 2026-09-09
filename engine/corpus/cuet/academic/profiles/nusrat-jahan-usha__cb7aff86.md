@@ -10,7 +10,7 @@ Status: running
 
 Nusrat Jahan Usha is a Lecturer in the Department of Biomedical Engineering at Chittagong University of Engineering & Technology (CUET), Chattogram, Bangladesh. She joined the department in December 2025. She received her B.Sc. degree in Biomedical Engineering from CUET in 2025, graduating as a member of the first graduating batch of the department with the** **highest CGPA in the batch**. **She is currently pursuing her M.Sc. degree in Electrical and Electronic Engineering at CUET. Her research interests include biosensors design and fabrication, nano materials synthesis, and wearable healthcare technologies.
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering & Technology - 01 Aug 2025, 1, M.Sc. Engineering, Electrical and Electronic Engineering
 - Chittagong University of Engineering & Technology - 05 Feb 2020, 31 Jul 2025, 0, B.Sc(Engineering), Biomedical Engineering

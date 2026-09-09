@@ -10,7 +10,7 @@ Phone: 01721279962
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology (CUET) - 05 Feb 2020, 16 Jul 2025, 0, B.Sc(Engineering), Materials and Metallurgical Engineering (MME)
 

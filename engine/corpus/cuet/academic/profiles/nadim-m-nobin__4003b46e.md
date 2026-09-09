@@ -10,7 +10,7 @@ Phone: 01767310070
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Pabna University of Science and Technology - 01 Oct 2022, 01 Jan 2024, 0,
 

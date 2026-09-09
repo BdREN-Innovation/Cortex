@@ -10,7 +10,7 @@ Phone: 8801815231060
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Yamagata University, Japan - 0, PhD
 

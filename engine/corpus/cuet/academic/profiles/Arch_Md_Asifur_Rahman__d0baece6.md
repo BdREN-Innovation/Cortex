@@ -10,7 +10,7 @@ Phone: 01680945241
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Texas Tech University, Texas, USA - 16 Aug 2026, 0, M.Sc., Master of Landscape Architecture (MLA)
 - Chittagong University of Engineering and Technology (CUET) - 19 Mar 2015, 16 Jan 2022, 0,

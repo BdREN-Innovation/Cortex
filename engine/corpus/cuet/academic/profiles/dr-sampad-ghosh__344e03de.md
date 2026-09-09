@@ -14,9 +14,13 @@ To know about me, I'd like to request you to visit my personal website.
 
 https://sampadghosh.wixsite.com/s-ghosh/about
 
+## Education
+
 - Doctor of Philosophy from Kyushu University, Japan, 2020
 - Master of Science from Kyushu University, Japan, 2017
 - Bachelor of Science in Engineering from CUET, 2009
+
+## Other
 
 For more, please visit me website.
 

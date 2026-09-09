@@ -14,7 +14,7 @@ Welcome to my academic and professional hub, where science meets innovation to a
 
 This website serves as a platform to share my research contributions, academic journey, and collaborative projects with students, colleagues, and the global scientific community. Whether you’re here to explore cutting-edge research, seek mentorship, or collaborate on impactful projects, I hope this site provides valuable insights into my work and inspires meaningful engagement.
 
-## Education
+## Education (listed)
 
 - School of Chemical Engineering, The University of Queensland (UQ), St. Lucia, Brisbane, Queensland, Australia - 0, PhD
 - Department of Chemical and Process Engineering, Universiti Kebangsaan Malaysia, Malaysia - 0, M.Sc. Engineering

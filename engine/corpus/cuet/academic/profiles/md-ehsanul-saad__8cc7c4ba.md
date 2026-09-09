@@ -12,7 +12,7 @@ Room: 1103
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Bangladesh University of Engineering and Technology (BUET) - 01 Jul 2023, 1, M.Sc. Engineering, Civil Engineering (Transportation)
 - Bangladesh University of Engineering and Technology - 31 Mar 2018, 27 May 2023, 0, B.Sc(Engineering), Civil Engineering

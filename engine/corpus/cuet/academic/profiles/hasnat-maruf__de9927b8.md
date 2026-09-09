@@ -10,6 +10,8 @@ Phone: +880-1815825737
 
 Status: running
 
+## Education
+
 Ph.D.(Physics),
 
 M.Phil.(Physics) (CUET);
@@ -17,6 +19,8 @@ M.Phil.(Physics) (CUET);
 M.S.(Thesis)(1st Place) ,
 
  B.Sc.(Hons.) (CU)
+
+## Other
 
 ## **                                   Researches and Publications**
 

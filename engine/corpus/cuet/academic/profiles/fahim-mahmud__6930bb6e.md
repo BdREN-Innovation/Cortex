@@ -10,6 +10,8 @@ Phone: 8801913909430
 
 Status: running
 
+## Education
+
 B. Sc. (EEE, CUET)
 
 ## Research

@@ -18,6 +18,8 @@ Moreover, Mr. Hridoy was a member of the Organizing Committee of the 6th IEOM Ba
 
 Currently, he is pursuing his Doctor of Philosophy (PhD) degree in Japan as a recipient of the prestigious Japanese Government (MEXT) Scholarship, where he continues to advance his research and academic career.
 
+## Other
+
 | #### **Additional Responsibilities:** |
 | --- |
 
@@ -68,7 +70,7 @@ Currently, he is pursuing his Doctor of Philosophy (PhD) degree in Japan as a re
 - ET-6030: Control Theories and Applications
 - ET-6031: Mechatronics and Energy Automation
 
-## Education
+## Education (listed)
 
 - Saga University, Japan - 01 Oct 2025, 0,
 

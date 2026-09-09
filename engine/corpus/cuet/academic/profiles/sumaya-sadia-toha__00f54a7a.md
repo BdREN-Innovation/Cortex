@@ -10,7 +10,7 @@ Phone: 1883005231
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering & Technology (CUET) - 23 Jul 2023, 1, M.Sc. Engineering, Transportation Engineering
 - Chittagong University of Engineering & Technology (CUET) - 26 Jan 2018, 10 May 2023, 0, B.Sc(Engineering), Civil Engineering

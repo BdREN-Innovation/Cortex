@@ -14,7 +14,7 @@ As an academician and researcher, I specialize in the exciting intersection of A
 
 With hands-on expertise in leading frameworks such as PyTorch, TensorFlow, and Keras, I actively contribute to cutting-edge research in multimodal AI and related domains. My goal is to advance the frontiers of responsible, impactful AI through collaborative projects and a relentless focus on ethical, user-focused innovation.
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology (CUET) - 09 Feb 2020, 27 Jul 2025, 0, B.Sc(Engineering), Computer Science and Engineering
 - Chittagong University of Engineering and Technology (CUET) - 05 Jan 2026, 05 Jan 2028, 0,

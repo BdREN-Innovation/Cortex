@@ -10,7 +10,7 @@ Phone: +88 01717 228515
 
 Status: running
 
-## Education
+## Education (listed)
 
 - BUET - 0, Masters Equivalent, Architecture
 

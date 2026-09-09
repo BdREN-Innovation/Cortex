@@ -12,7 +12,7 @@ Status: running
 
 **Robiul Hossain Chy is from Banshkhali, Chittagong. He completed B.Sc in Civil Engineering from Chittagong University of Engg. & Tech.(CUET) in the year of July, 2024.  Before joining CUET, he worked as a faculty member at Port City International University located at Chittagong. Currently, he is pursuing  M.Sc in Civil Engg. at CUET.**
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Tech. - 0,
 

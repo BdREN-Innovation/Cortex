@@ -16,9 +16,11 @@ Dr. Sazzad has noteworthy industrial experiences before he started his academic 
 
 His research focuses on advanced materials/metal refining; development of new materials and extraction processes; quality development of reinforced steel; thermodynamics and kinetics study of materials processing. Apart from the professional world, he would like to play cricket, badminton, and roaming around.
 
+## Education
+
 Doctor of Philosophy  (PhD)
 
-## Education
+## Education (listed)
 
 - Swinburne University of Engineering & Technology, Melbourne, Australia - 12 Mar 2012, 06 Apr 2016, 0,
 

@@ -12,6 +12,8 @@ Status: running
 
 **Dr. Md. Arafat Rahman** is a Professor of the Department of Mechanical Engineering, Chittagong University of Engineering and Technology (CUET), Bangladesh. He is offering lectures on various courses at the undergraduate and postgraduate levels. **His main research interests are in the fields of vehicle dynamics, vibration, material science, and electrochemistry. Dr. Rahman finished his PhD degree fr**om the Faculty of Science, Engineering, and Technology (FSET), **Swinburne University of Technology (SUT)** in April 2016. He worked on nanoporous materials as electrodes for lithium batteries, especially lithium-ion batteries (LIBs). He developed different types of nanoporous materials, and their performance as anodes of LIBs was evaluated. Till date, several research articles from these investigations have been reported in various journals. **Apart from PhD study, he was two-times elected FSET student representative of SUT, helped students reach their voice to university authorities.** He also took part in various volunteer work inside and outside of SUT. **Dr. Rahman likes to engage with people through academic and research-related posts since ideas and communication start to flow through a collaborative process.**
 
+## Education
+
 PhD (Material Science & Engineering), **Swinburne University of Technology**,** Australia**), M. Sc. Engg. (EV Design Engg., **University of Ulsan, ** **South Korea**), B.Sc Engg. (Mechanical Engg., **CUET**, **Bangladesh**).
 
 **PhD Thesis Title:** Porous anode materials for high-performance lithium-ion batteries
@@ -19,6 +21,8 @@ PhD (Material Science & Engineering), **Swinburne University of Technology**,**
 **MSc. Engg. Thesis Title: **Design of vehicle suspension system with negative stiffness
 
 **BSc. Engg. Thesis Title:** Design and Fabrication of PC Interfaced Anemometer
+
+## Other
 
 **Administrative Experiences (Additional Charges)    **
 
@@ -30,7 +34,7 @@ PhD (Material Science & Engineering), **Swinburne University of Technology**,**
 | **Assistant Provost, **Bangabandhu Hall | Do | ***June 2016 to June 2019*** |
 | **Assistant Provost, **Dr. Qudrat-E-Khuda Hall | Do | ***June 2010 to September 2012.*** |
 
-## Education
+## Education (listed)
 
 - Swinburne University of Technology , Australia - 23 Sep 2012, 28 Apr 2016, 0, PhD
 - University of Ulsan, South Korea - 01 Mar 2008, 01 Feb 2010, 0, M.Sc. Engineering

@@ -12,7 +12,7 @@ Room: 1208
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Indian Institute of Technology (IIT), Kharagpur, Indian - 08 Apr 1998, 28 Apr 2001, 0, PhD, Civil Engineering
 - Indian Institute of Technology (IIT), Kharagpur, Indian - 09 Apr 1992, 09 Apr 1993, 0, M.Sc. Engineering, Civil Engineering

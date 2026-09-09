@@ -10,7 +10,7 @@ Phone: 013 3089 2789
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology - 26 Jul 2023, 29 Apr 2025, 0,
 

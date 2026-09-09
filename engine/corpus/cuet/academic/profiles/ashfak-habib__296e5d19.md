@@ -12,7 +12,7 @@ Room: 3514
 
 Status: running
 
-## Education
+## Education (listed)
 
 - University of Malaya - 0,
 

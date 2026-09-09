@@ -8,6 +8,8 @@ Email: khadija.ete@cuet.ac.bd
 
 Status: running
 
+## Education
+
 M.Sc. in ETE , CUET
 B.Sc in ETE, CUET
 

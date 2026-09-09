@@ -18,6 +18,8 @@ Over the past two decades, he has conducted over 20 research projects collaborat
 
 Prof. Islam's career exemplifies his unwavering dedication to advancing civil engineering through leadership, research, and education, making significant contributions nationally and internationally. His Google Scholar profile can be found [here](https://scholar.google.com/citations?user=CH8KMCsAAAAJ&hl=en).
 
+## Other
+
 ### **Researches and Publications**
 
 | **Serial No** | **Title** | **Authors** | **Information's** | **Year** |
@@ -269,7 +271,7 @@ Sustainable concrete construction; Cement chemistry; Alternative brick producti
 
 ----------------------------------------------------------
 
-## Education
+## Education (listed)
 
 - University of Dundee, United Kingdom - 0,
 

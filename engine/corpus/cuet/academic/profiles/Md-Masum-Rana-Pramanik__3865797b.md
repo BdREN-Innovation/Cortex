@@ -14,11 +14,13 @@ Status: running
 
 Md. Masum Rana Pramanik is a faculty member of Department of Nuclear Engineering, Chittagong University of Engineering and Technology (CUET), Bangladesh. Md. Masum Rana Pramanik was born in Gaibandha city, Rangpur, Bangladesh, in 1995. He received the B.Sc. degree in Mechanical engineering from the Chittagong University of Engineering & Technology (CUET), Chattogram, in 2017. He has done M.Sc. degree in Nuclear Engineering from National Research Nuclear University, MEPhI, (Moscow, Russia) in 2020. He was an employee of Nuclear Power Plant Company Bangladesh Limited (NPCBL), Rooppur, Bangladesh. His research interests include Design & Safety of Nuclear Power Plant (NPP), Nuclear Reactor, Small Modular Reactor (SMR), Nuclear Fuel Enrichment Process, Nuclear Medicine, Radiation, Spent Nuclear Fuel (SNF), nuclear weapon, Fluid Dynamics, Nanofluid, Heat Transfer, Fluid Machinery, Thermodynamic etc.
 
+## Education
+
 M.Sc. in Nuclear Engineering from National Research Nuclear University, MEPhI (Moscow, Russia).
 
 B.Sc. in Mechanical Engineering from Chittagong University of Engineering & Technology (CUET), Bangladesh.
 
-## Education
+## Education (listed)
 
 - National Research Nuclear University- MEPhI, Moscow, Russia - 21 Sep 2018, 20 Jul 2020, 0, M.Sc. Engineering, Nuclear Engineeing
 - Chittagong University of Engineering & Technology, CUET - 06 Mar 2013, 17 Nov 2017, 0, B.Sc(Engineering), Mechanical Engineering

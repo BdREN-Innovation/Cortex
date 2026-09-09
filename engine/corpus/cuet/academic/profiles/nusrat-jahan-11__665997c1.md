@@ -10,7 +10,7 @@ Phone: 01744273653
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittaagong University of Engineering and Technology - 0, PhD, Physics
 

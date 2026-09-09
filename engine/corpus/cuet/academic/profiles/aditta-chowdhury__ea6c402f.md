@@ -10,7 +10,7 @@ Phone: 1837368230
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology - 05 Nov 2020, 26 Sep 2023, 0, M.Sc.
 - Chittagong University of Engineering and Technology - 18 Mar 2015, 10 Sep 2019, 0, B.Sc(Engineering)

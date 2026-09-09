@@ -10,7 +10,7 @@ Phone: +8801914930902; +8801721204139
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Jagannath University, Dhaka - 0, Honors, Bachelor of Social Sciences in Sociology
 - Jagannath University, Dhaka - 0, M.S.S., Master of Social Sciences in Sociology

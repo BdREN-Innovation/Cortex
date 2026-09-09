@@ -10,7 +10,7 @@ Phone: +8801521255774
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Sherpur Govt. Victoria Academy - 01 Jan 2013, 31 Dec 2015, 0, SSC, Science
 - Govt. SCience College, Dhaka - 01 Jan 2015, 31 Mar 2017, 0, HSC, Science

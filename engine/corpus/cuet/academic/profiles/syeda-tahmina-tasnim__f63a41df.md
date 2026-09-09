@@ -16,9 +16,11 @@ As an educator, I have taught diverse courses ranging from design studios and ar
 
 Through my publications and ongoing research, I am committed to decolonizing architectural history and contributing to a more inclusive understanding of South Asian architectural heritage. I believe that architecture is not just about buildings—it's about the stories, cultures, and communities that shape our spaces.
 
+## Education
+
 I hold a Bachelor of Architecture degree from Chittagong University of Engineering & Technology (CUET), where I graduated first in my class with first-class honors. I completed my Master of Architecture at Bangladesh University of Engineering & Technology (BUET) in History, Theory and Criticism stream.
 
-## Education
+## Education (listed)
 
 - Bangladesh University of Engineering & Technology - 02 Jul 2022, 13 Apr 2025, 0, Masters Equivalent, Architecture (History, Theory & Criticism)
 - Chittagong university of Engineering & Technology - 01 Mar 2011, 07 Mar 2017, 0, Graduation Equivalent, Architecture

@@ -10,7 +10,7 @@ Phone: istiaque@cuet.ac.bd
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Khulna University of Engineering and Technology (KUET), Bangladesh - 31 Jan 2007, 31 May 2011, 0,
 

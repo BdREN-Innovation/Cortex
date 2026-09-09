@@ -10,7 +10,7 @@ Phone: 01718250907
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Korea National University of Transportation, South Korea - 0, PhD
 

@@ -8,7 +8,7 @@ Email: afroza@cuet.ac.bd
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology (CUET) - 0,
 

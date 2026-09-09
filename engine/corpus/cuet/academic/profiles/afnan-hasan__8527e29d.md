@@ -10,7 +10,7 @@ Phone: 1303042334
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Saga University, JAPAN - 0, PhD
 - Chittagong University of Engineering and Technology - 0,

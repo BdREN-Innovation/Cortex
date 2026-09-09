@@ -12,7 +12,7 @@ Room: 9213
 
 Status: running
 
-## Education
+## Education (listed)
 
 - CUET - 04 Jul 2019, 14 Nov 2024, 0, PhD, Nuclear and Health Physics
 - BUET - 09 Jul 2014, 13 Sep 2018, 0, M.Phil, Medical Physics

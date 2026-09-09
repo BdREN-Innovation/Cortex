@@ -74,13 +74,15 @@ While CUET's primary focus remains technical education, language and communicati
 
 Mashiur Rahman's instruction in English and communication supports CUET's mission to produce well-rounded engineers. His courses address the linguistic and rhetorical requirements of engineering professions, providing students with necessary tools for academic and career development.
 
+## Other
+
 #### Full-time Father, Tech Savvy.
 An avid follower of a trend called simplicity.
 Insurmountably selective of social circles
 
 Tenure  @ Department of Humanities, CUET
 
-## Education
+## Education (listed)
 
 - Government City College - 0,
 

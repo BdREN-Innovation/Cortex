@@ -12,11 +12,15 @@ Status: running
 
 Carrier Objective is to become a significant contributor in the field of Urban & Regional Planning of Bangladesh & want to do research on contemporary issues of Bangladesh specially on Urban Planning ,Climate Change & Disaster Management, Land Management & Development.
 
+## Education
+
 - **PhD in Urban & Regional Planning**, Jahangirnagar University, Bangladesh, 2020.
 - **Masters of Urban & Regional Planning**, Bangladesh University of Engineering & Technology (BUET), Bangladesh, 2010.
 - **Bachelor of Urban & Rural Planning**, Khulna University, Bangladesh, 2004.
 - **Higher Secondary Certificate,** Jahangirnagar University School & College, Bangladesh, 1999.
 - **Secondary School Certificate,** Jahangirnagar University School & College, Bangladesh, 1997.
+
+## Other
 
 **PROFESSIONAL AFFILIATION/MEMBERSHIP**
 

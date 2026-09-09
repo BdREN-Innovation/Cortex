@@ -14,7 +14,7 @@ Status: running
 
 A committed academic with more than 15 years of experience at leading Bangladeshi academic institutions and abroad through research activities and teaching students from various backgrounds. Currently engaged in academic/research collaboration with several universities to excel in my academic career as well as engage in consultancy work.
 
-## Education
+## Education (listed)
 
 - Department of Chemical and Process Engineering, Universiti Kebangsaan Malaysia. - 0, PhD
 - Department of Chemistry, University of Chittagong. - 0, M.Sc.

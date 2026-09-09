@@ -12,6 +12,8 @@ Status: running
 
 **About myself, **Selim Hussen was born in Habiganj, Bangladesh. Teaching is what he loves with his mind, and therefore, he has been teaching since 2019 at different universities. Before joining CUET, Mr. Hussen worked as a Lecturer in Mathematics at Hamdard University Bangladesh, University of Skill Enrichment and Technology, and Z.H. Sikder University of Science and Technology. Throughout his academic life, he has been meticulous in learning and likes to spread the light of knowledge. As recognition of his academic excellence, he has been awarded the Bangladesh Prime Minister Gold Medal Award, the A F Mujibur Rahman Foundation Gold Medal Award for the excellence of results in B.Sc. and M.Sc., Scholarship of University Grant Commission (UGC), Bangladesh, Jagannath University Merit Scholarship, and NST fellowships for his M.Sc. and MPhil programs. He has attended research conferences from home and abroad and always feels research interest. He always bears in mind that if one gives the world the best he has, the best will come to him in return.
 
+## Education
+
 **Academic Background**
 
 - Master of Philosophy (MPhil). Fluid Dynamics, from the Department of Mathematics, Jagannath University, Dhaka, with specialization in Numerical Heat Transfer and fluid flows, Advanced Numerical Methods, and Fluid Dynamics**. **Year: 2025
@@ -39,6 +41,8 @@ Project Title: **Numerical Estimation of Telegraph Equation**
 - Scholarship of University Grants Commission (UGC), Bangladesh
 - Jagannath University Merit Scholarship
 - Merit scholarships in primary level (class five) and Junior level (Class -8). Stood first in the combined merit list of an academic evaluation test in class -8(secondary level) held in my District as a whole
+
+## Other
 
 **Academic Background**
 

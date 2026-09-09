@@ -12,13 +12,15 @@ Status: running
 
 **Mr. Abdullah Al Rifat** is a Assistant Professor of the Department of Mechanical Engineering, Chittagong University of Engineering and Technology (CUET), Bangladesh. **Mr. Abdullah Al Rifat **completed his both M.Sc. and B.Sc. degree from the department of Mechanical Engineering, CUET.  His M.Sc. thesis was on **“Study the Effect of Piston Bowl Shape on Combustion and Emission of a Dual-Fuel Engine”.  **Till date, three research articles from these investigations have been reported in various scopus and non-scopus journals. From Dec 2024 to present, given additional responsibilities as an Assistant Provost, Hall Administration Shaheed Abu Sayeed Hall, CUET.  Also, from Oct 24 to present, providing services in academic activities as a course co-ordinator of Mechanical Engineering-23 Batch.
 
+## Other
+
 **Academic and Administrative Responsibilities**
 
 | Dec 2024 to present | Assistant Provost, Hall Administration Shaheed Abu Sayeed Hall, CUET |
 | --- | --- |
 | Oct 2024 to present | Course Co-Ordinator Mechanical Engineering, Batch-2023, CUET |
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology - 17 Aug 2023, 23 Oct 2025, 0,
 

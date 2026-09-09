@@ -10,7 +10,7 @@ Phone: 01886260886
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering & Technology - 17 Aug 2023, 0, M.Sc. Engineering
 - Notre Dame College - 01 Sep 2015, 30 Jun 2017, 0, HSC

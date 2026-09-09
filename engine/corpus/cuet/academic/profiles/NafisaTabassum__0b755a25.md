@@ -10,7 +10,7 @@ Phone: 01533514139
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering & Technology - 31 Jul 2025, 0,
 

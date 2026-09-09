@@ -10,7 +10,7 @@ Phone: +8801623798037
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering & Technology (CUET) - 05 Feb 2020, 19 Aug 2025, 0, B.Sc(Engineering), Petroleum & Mining Engineering
 

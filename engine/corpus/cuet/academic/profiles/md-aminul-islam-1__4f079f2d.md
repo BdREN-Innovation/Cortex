@@ -10,7 +10,7 @@ Phone: 8801837888835
 
 Status: running
 
-## Education
+## Education (listed)
 
 - University of Waterloo - 01 Sep 2008, 31 Aug 2010, 0, M.Sc.
 - CUET - 15 Sep 1998, 01 Sep 2003, 0, B.Sc(Engineering), Mechanical

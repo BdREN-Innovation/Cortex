@@ -16,6 +16,8 @@ During his time at DUET, Mr. Rahman actively contributed not only as an academic
 
 Presently, Mr. Rahman is the academic course coordinator for the 2022 Batch in the Department of Civil Engineering. In addition to his academic responsibilities, he served as Publication Secretary of the CUET Teachers' Association during the 2024-2025 tenure.
 
+## Other
+
 #### **Ongoing Projects:**
 
 1. Title: ***Establishing Knowledge Hub for Sustainable Low-Carbon and Advanced Construction Materials*** -under the Higher Education Acceleration and Transformation (HEAT) Project. || Funding Agency: People's Republic of Bangladesh**, **University Grants Commission (UGC), Bangladesh, and The World Bank || Sub Project No.: 13258 || SPMT Members: Prof. Dr. G. M. Sadiqul Islam (SPM), Prof. Dr. Md. Moinul Islam, Prof. Dr. Aysha Akter, **Md. Asifur Rahman**
@@ -39,7 +41,7 @@ Presently, Mr. Rahman is the academic course coordinator for the 2022 Batch in t
 1. Reviewer in **Discover Concrete and Cement**, Springer Nature (https://link.springer.com/journal/44416)
 1. Reviewer in **Malaysian Journal of Civil Engineering, **Universiti Teknologi Malaysia (https://journals.utm.my/mjce)
 
-## Education
+## Education (listed)
 
 - Department of Civil Engineering, Chittagong University of Engineering and Technology - 05 Sep 2022, 19 Jun 2025, 0, M.Sc., Civil Engineering
 - Department of Civil Engineering, Chittagong University of Engineering and Technology - 25 Feb 2016, 17 May 2021, 0, B.Sc., Civil Engineering

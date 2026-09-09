@@ -10,7 +10,7 @@ Phone: +8801878790960,+8801618790960
 
 Status: running
 
-## Education
+## Education (listed)
 
 - CUET - 0, B.Sc(Engineering)
 - CUET,Bangladesh - 0, M.Sc.

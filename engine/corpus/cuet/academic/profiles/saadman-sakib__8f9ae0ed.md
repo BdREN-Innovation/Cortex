@@ -12,7 +12,7 @@ Status: running
 
 I am a dedicated research fellow working at the intersection of Artificial Intelligence (AI) and Human-Computer Interaction (HCI), with a strong focus on Computer Vision, Vision Language Models (VLMs), and Large Language Models (LLMs). My research is driven by a passion for creating technology that is not only powerful but also intuitive, trustworthy, and collaborative. I aim to solve real-world challenges by developing AI systems that people can effectively work with. I have hands-on experience with leading frameworks such as Keras, PyTorch, and TensorFlow, and I am always eager to explore the latest advancements in the field. My goal is to drive the development of cutting-edge, human-centered AI solutions, leveraging my research insights to make a meaningful impact on the future of technology.
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering & Technology - 01 Oct 2021, 0, M.Sc., Computer Science and Engineering
 - Chittagong University of Engineering & Technology - 01 Feb 2016, 17 Aug 2021, 0, B.Sc(Engineering), Computer Science and Engineering

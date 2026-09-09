@@ -10,6 +10,8 @@ Phone: 8801738638164
 
 Status: running
 
+## Education
+
 M.Sc. Engg. in Computer Science and Engineering (CUET)
 
 B.Sc. in Computer Science and Engineering (CUET)

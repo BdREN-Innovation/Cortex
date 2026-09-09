@@ -10,6 +10,8 @@ Phone: 8801783756981
 
 Status: running
 
+## Education
+
 Ph.D from Saga University, Japan
 
 M.Sc from Saga University, Japan

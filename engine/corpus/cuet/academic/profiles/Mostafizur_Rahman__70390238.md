@@ -12,6 +12,8 @@ Status: running
 
 Mostafizur Rahman received his Ph.D degree in Mechanical Engineering (Self-healing Materials) from Yokohama National University (YNU), Japan in 2024. He pursued his M.Sc. degree in Mechanical Engineering  (Machine Dynamics & Vibration) with CGPA 4.00 out of 4.00 from CUET in 2019. He completed his B.Sc. degree  in Mechanical Engineering with CGPA 3.80 out of 4.00 from  CUET in 2015. He got Japanese government scholarship (MEXT) for carrying out doctoral reserach work. He was awarded "CUET Alumuni Merit award and Technical Scholarship" for outstanding results in undergraduate study. He was also awarded Board (Jessore) scholarship for result in HSC. He started his very first professional career in Pran-Rfl Group as Trainee Engineer and later promoted to Assistant Manager. Later, he jointed as Lecturer at Department of Mechanical Engineering in Chittagong University of Engineering and Technology (CUET) on 8th January 2017. He worked as Assistant Professor at Department of Mechanical Engineering in Chittagong University of Engineering and Technology (CUET) from 7th January 2020 to 3rd February 2026. Currently, he is working as Associate Professor at Department of Mechanical Engineering in Chittagong University of Engineering and Technology (CUET).
 
+## Education
+
 Ph.D in Mechanical Engineering from Yokohama National University (YNU), Japan
 
 M.Sc. in Mechanical Engineering from CUET
@@ -26,7 +28,7 @@ B.Sc. in Mechanical Engineering from CUET
 
 **Expertise: **Simcenter FeMap with Nastran, LS-DYNA, SolidWorks, Python, MATLAB
 
-## Education
+## Education (listed)
 
 - Ail Has Luxmipur High School - 01 Jan 2003, 01 Jul 2008, 0, SSC, Science
 - Chuadanga Government College - 03 Aug 2008, 01 Aug 2010, 0, HSC, Science

@@ -26,9 +26,11 @@ He has been serving in the Department of Civil Engineering at CUET since Novembe
 
 Chittagong University of Engineering and Technology (CUET) is a leading institution in Bangladesh offering undergraduate and postgraduate programs in engineering, architecture, and urban planning, committed to advancing technological education and innovation. Dr. Mondal’s work aligns with CUET’s mission of fostering research excellence and contributing to national development through engineering solutions
 
+## Education
+
 Dr. Bipul Chandra Mondal completed his academic journey with a focus on civil engineering, earning advanced degrees that have equipped him with deep expertise in the field. His educational background provides a strong foundation in both theoretical principles and practical applications, supporting his research and professional work. The combination of rigorous academic training and hands-on experience has prepared him to address complex challenges in pipeline integrity, fracture mechanics, and construction materials.
 
-## Education
+## Education (listed)
 
 - Memorial University of Newfoundland - 0, PhD
 - Chittagong University of Engineering and Technology - 0, M.Sc. Engineering

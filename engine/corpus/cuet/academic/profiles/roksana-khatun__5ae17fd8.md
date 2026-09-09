@@ -10,6 +10,8 @@ Phone: 01782-618134
 
 Status: running
 
+## Education
+
 B Sc (Hons),
 
 M Sc (Chemistry) ( 1st Class 1st), RU

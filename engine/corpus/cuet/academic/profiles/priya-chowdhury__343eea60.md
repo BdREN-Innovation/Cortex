@@ -10,7 +10,7 @@ Phone: 1690121089
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering & Technology - 0, B.Sc(Engineering)
 

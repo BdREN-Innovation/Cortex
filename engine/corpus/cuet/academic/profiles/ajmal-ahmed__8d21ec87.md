@@ -20,7 +20,7 @@ Creativity drives my approach to both teaching and research. I work effectively 
 
 Beyond academics, I enjoy traveling and exploring new places, cycling for fitness and refreshment, and capturing meaningful moments through photography. I am also actively involved in sports, particularly football, cricket, table tennis, and badminton, which help me maintain physical fitness, teamwork, and mental resilience.
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology (CUET) - 0, M.Sc. Engineering, Electrical and Electronic Engineering (EEE)
 - Chittagong University of Engineering and Technology (CUET) - 05 Feb 2019, 30 May 2024, 0, B.Sc(Engineering), Electrical and Electronic Engineering (EEE)

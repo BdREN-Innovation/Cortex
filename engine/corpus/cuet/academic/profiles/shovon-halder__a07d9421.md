@@ -16,7 +16,7 @@ Status: running
 
 Since joining the CUET faculty in March 2016, Shovon has been dedicated to both pedagogy and departmental governance. He was promoted to **Assistant Professor** in October 2019 and has since conducted a wide range of theory and sessional courses. Beyond the classroom, he actively contributes to quality assurance and curriculum development as a member of the **Program Self-Assessment Committee (PSAC)**. His professional standing is further distinguished by his membership in the **Institution of Engineers, Bangladesh (IEB, M/50737)**. Shovon also extends his expertise into the professional sector as a **Consultant** for the **Bureau of Research, Testing, and Consultation (BRTC)**, where he actively contributes to various industrial projects and research initiatives, effectively bridging the gap between classroom theory and real-world engineering applications.
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering & Technology - 22 Jun 2016, 03 Jul 2025, 0,
 

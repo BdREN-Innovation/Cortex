@@ -10,7 +10,7 @@ Phone: 01862431245
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering & Technology - 05 Feb 2019, 24 Jun 2024, 0, B.Sc(Engineering), Petroleum and Mining Engineering
 

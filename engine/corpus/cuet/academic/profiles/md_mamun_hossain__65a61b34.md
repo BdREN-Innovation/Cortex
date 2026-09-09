@@ -10,7 +10,7 @@ Phone: +880 1623795440
 
 Status: running
 
-## Education
+## Education (listed)
 
 - University of Wollongong - 07 Jul 2022, 0, PhD
 - Chittagong University of Engineering & Technology - 01 Jun 2018, 05 Dec 2021, 0, M.Sc. Engineering

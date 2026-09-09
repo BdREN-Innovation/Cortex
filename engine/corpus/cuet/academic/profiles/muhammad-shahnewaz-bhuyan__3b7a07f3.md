@@ -14,6 +14,8 @@ Status: running
 
 Muhammad Shahnewaz Bhuyan is from Kishoreganj, Bangladesh. Before joining CUET, he served at Sylhet Cadet College, Sylhet-3101, as a Lecturer of Mathematics from 19 October 2019 to 11 November 2023. He completed both an M.S. (Thesis) and a B.Sc. (Hons) in Mathematics from Shahjalal University of Science & Technology (SUST), Sylhet-3114. Mr. Bhuyan completed his HSC from Bir Shrestha Munshi Abdur Rouf Public College, Dhaka-1205, and SSC from Sararchar Sibnath Bahumukhi High School, Sararchar, Kishoreganj-2337. He loves to gather and share knowledge. He also enjoys teaching mathematics.
 
+## Other
+
 **ORCID:** [https://orcid.org/0000-0002-4215-103X](https://orcid.org/0000-0002-4215-103X)
 
 **Google Scholar:** [https://scholar.google.com/citations?user=yMSFr2UAAAAJ&hl=en](https://scholar.google.com/citations?user=yMSFr2UAAAAJ&hl=en)
@@ -26,7 +28,7 @@ Muhammad Shahnewaz Bhuyan is from Kishoreganj, Bangladesh. Before joining CUET, 
 
 **Web of Science Researcher ID:** HTS-4636-2023
 
-## Education
+## Education (listed)
 
 - Shahjalal University of Science and Technology - 0,
 

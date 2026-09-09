@@ -14,7 +14,7 @@ Status: running
 
 I am a Professor in the Dept. of Civil Eng., Chittagong University of Engineering and Technology (CUET), Bangladesh. I obtained M. Eng. & PhD in Structural Engineering (Civil) from Memorial University of Newfoundland, Canada in 2001 & 2005 and B. Sc. in Civil Engineering from Rajshahi University of Engineering and Technology (RUET), Bangladesh in 1995. I was a postdoctoral fellow of Memorial University of Newfoundland, Canada (2009) and University Kebangsan Malaysia (2011-2012). I have been working as a Director in Institute of Earthquake Engineering Research (IEER), CUET since February 2025. I was Dean, Faculty of Civil and Environmental Engineering (2019-2021), Director, Bureau of Research Testing and Consultation (BRTC) (May 2023 - December 2024) and Head, Dept. of Civil Enginering (2013-2015), Dept. of Architecture (2009-2013), Disaster of Engineering Management (2018-2019), CUET. My research interests are structural health monitoring, fracture mechanics, retrofitting and restrengthening, composite structure, FEM & TCC. I have published more than 75 papers in different national and international journals and conferences.
 
-## Education
+## Education (listed)
 
 - Memorial University of Newfoundland (MUN), Canada - 21 Sep 2001, 20 Aug 2005, 0, PhD, Structural Engineering
 - Memorialn University of Newfoundland (MUN) Canada - 20 Sep 1999, 20 Aug 2001, 0, M.Eng, Civil Engineering

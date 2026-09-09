@@ -10,7 +10,7 @@ Phone: 8801716963388
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology, Chattogram - 01 Jan 2026, 1, PhD, Water Resources Engineering
 - Asian Institute of Technology, Thailand - 04 Aug 2013, 31 May 2015, 0, M.Sc. Engineering, Water Engineering and Management

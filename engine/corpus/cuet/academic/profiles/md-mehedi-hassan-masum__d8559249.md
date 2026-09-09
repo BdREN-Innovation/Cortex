@@ -16,9 +16,13 @@ His research expertise spans a wide range of** environmental and civil engineeri
 
 Md. Masum has been actively engaged in **collaborative research, publishing scholarly works and contributing to knowledge-sharing platforms**. His academic journey demonstrates a consistent focus on flood resilience, river system monitoring, and sustainable water management, with a special interest in how **engineering solutions** can be adapted to developing country contexts like Bangladesh.
 
+## Education
+
 Md. Mehedi Hassan Masum completed his **Bachelor of Science (B.Sc.) in Civil Engineering** at Chittagong University of Engineering & Technology (CUET), Bangladesh. For his undergraduate thesis, he worked on *“Performance Evaluation of Drainage Network using HEC-HMS 4.2 under Different Climatic and Land Use Conditions: A Case Study.”* He later pursued his **Master of Science (M.Sc.) in Civil Engineering** at CUET, where his thesis was titled *“Modeling of LIDs in Context of Sustainable Urban Drainage System,”* submitted in April 2023.
 
 Currently, he is undertaking his **Ph.D. in Civil Engineering** at **The University of Tokyo** (REEL Lab), Japan. His doctoral research focuses on hydrological and socio-hydrological modeling, flood resilience, river health monitoring, and sustainable urban drainage systems. This academic journey reflects his strong commitment to advancing water resources management, urban flood resilience, and environmental sustainability through both technical innovation and interdisciplinary approaches.
+
+## Other
 
 Activities
 
@@ -27,7 +31,7 @@ Activities
 - President (4th Year Representative), Civil Engineering Student Association (CESA), CUET — November 2018 to June 2019
 - Program Planning Secretary, Greater Comilla Student Forum, CUET — June 2018 to June 2019
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering & Technology (CUET) - 01 Apr 2015, 19 Jun 2024, 0,
 

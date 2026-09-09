@@ -10,7 +10,7 @@ Phone: 01875567878
 
 Status: running
 
-## Education
+## Education (listed)
 
 - CUET - 0, M.Sc. Engineering, EEE
 - CUET - 0, B.Sc(Engineering), EEE

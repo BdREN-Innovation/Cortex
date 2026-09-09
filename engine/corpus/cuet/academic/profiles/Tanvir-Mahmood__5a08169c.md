@@ -18,11 +18,13 @@ With a blend of data, design, and real-world context, I aim to drive smarter pla
 
 Always open to new ideas, global connections, and bold solutions for a more sustainable future. ***Let’s build resilient, inclusive futures — together! ***
 
+## Education
+
 Currently, I am pursuing my Master of Urban and Regional Planning at Chittagong University of Engineering & Technology.
 
 .
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology (CUET) - 23 Feb 2017, 21 Aug 2022, 0, B.Sc., Urban and Regional Planning
 

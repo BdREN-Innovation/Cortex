@@ -10,6 +10,8 @@ Phone: 88031714953
 
 Status: running
 
+## Education
+
 PhD, Heriot-Watt University, Edinburgh, UK
 
 MEngg. (Mechanical Engineering), University Teknologi Malaysia, Malaysia

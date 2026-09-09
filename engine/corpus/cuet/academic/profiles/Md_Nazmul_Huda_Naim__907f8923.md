@@ -18,6 +18,8 @@ His academic interests have evolved from transportation planning at the undergra
 
 At CUET, he is committed to advancing research and education that contribute to sustainable development, climate resilience, and evidence-based planning practices.
 
+## Education
+
 MURP: Chittagong University of Engineering and Technology (Ongoing)
 
 BURP: Chittagong University of Engineering and Technology (2018)

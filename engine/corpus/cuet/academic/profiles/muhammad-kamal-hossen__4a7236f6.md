@@ -10,7 +10,7 @@ Phone: +880-1816-012649, +880-1745-723385
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Shakpura Model High School, Chattogram Board - 0,
 

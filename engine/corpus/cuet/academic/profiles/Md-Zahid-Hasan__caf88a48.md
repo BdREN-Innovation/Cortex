@@ -12,7 +12,7 @@ Room: Academic Building-6, Room no- 9102
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Jagannath University, Dhaka - 19 Mar 2018, 20 Feb 2020, 0,
 

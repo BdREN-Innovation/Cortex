@@ -10,7 +10,7 @@ Phone: 01774147230
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Khulna University - 01 Jan 2014, 21 Dec 2018, 0, B.Sc(Engineering)
 - Khulna University - 20 Jun 2019, 14 Jun 2021, 0, M.Sc.

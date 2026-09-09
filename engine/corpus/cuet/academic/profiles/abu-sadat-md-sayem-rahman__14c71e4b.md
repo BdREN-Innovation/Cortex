@@ -10,9 +10,11 @@ Phone: 01318503244
 
 Status: running
 
+## Education
+
 B.Sc. (BUET), M.Sc. (BUET)
 
-## Education
+## Education (listed)
 
 - Bangladesh University of Engineering and Technology - 0,
 

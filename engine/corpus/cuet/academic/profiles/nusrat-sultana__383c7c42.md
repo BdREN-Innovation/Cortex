@@ -12,9 +12,11 @@ Status: running
 
 My research centers on applying artificial intelligence and machine learning to solve complex engineering problems in manufacturing, supply chains, and healthcare. Through interdisciplinary research and student mentorship, I aim to develop intelligent systems that create meaningful societal and industrial impact.
 
+## Education
+
 I received both my B.Sc. and M.Sc. degrees in Mechatronics and Industrial Engineering from Chittagong University of Engineering and Technology (CUET). My master's research focused on AI-driven medical decision support, while my broader academic interests include machine learning, large language models, industrial AI, and intelligent optimization.
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering & Technology - 0, M.Sc. Engineering, Mechanical Engineering
 - Chittagong University of Engineering & Technology - 0, B.Sc(Engineering), Mechatronics & Industrial Engineering

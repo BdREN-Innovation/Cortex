@@ -14,11 +14,15 @@ Md. Farhad Hossain is an Assistant Professor in the Department of Electronics an
 
 His research spans two primary areas: **antenna engineering for next-generation wireless communication** and **deep learning for intelligent systems**. On the antenna side, he focuses on machine-learning-assisted beam-steering microstrip patch arrays, reconfigurable antennas, and 6G Terahertz (THz) MIMO systems. In parallel, he has supervised and contributed to deep learning research applied to domains such as biomedical imaging,  remote sensing, multimodal learning, and natural language understanding. He has authored publications in reputed international journals and conferences, reflecting a broad contribution to both communication systems and AI applications. He is also engaged in academic service, currently serving as a Assistant Provost of Shaheed Tareeq Huda Hall.
 
+## Education
+
 Farhad earned his B.Sc. (2018) and M.Sc. (2024) degrees in Electronics and Telecommunication Engineering from CUET, where he specialized in antenna design and intelligent signal processing.
+
+## Other
 
 Farhad has academic and research experience across antenna systems, next-generation communication technologies, and deep learning-based intelligent systems. He has supervised projects on topics ranging from reconfigurable antenna design to advanced AI frameworks for image, speech, and text processing. His work emphasizes the integration of theory and practice, with multiple publications in IEEE and international journals and conferences. In addition to research and teaching, he contributes to student mentorship and university service as a Hall Representative of Shaheed Tareeq Huda Hall.
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology - 0,
 

@@ -10,7 +10,7 @@ Room: 1204
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Bangladesh University of Engineering & Technology (BUET) - 12 May 1995, 28 Jun 2001, 0, B.Sc(Engineering), Civil Engineering
 - Asian Institute of Technology (AIT), Bangkok, Thailand - 18 Aug 2004, 24 May 2006, 0,

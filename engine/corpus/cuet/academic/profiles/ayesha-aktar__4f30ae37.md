@@ -8,6 +8,8 @@ Email: aysha_akter@cuet.ac.bd
 
 Status: running
 
+## Education
+
 BSc Engg (KUET)
 
 M Engg (BUET)

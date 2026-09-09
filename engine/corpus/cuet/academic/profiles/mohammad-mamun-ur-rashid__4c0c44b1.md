@@ -10,7 +10,7 @@ Phone: +8801888300257
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Shahjalal University of Science and Technology - 01 Jun 2005, 18 Dec 2010, 0, B.Sc(Engineering)
 - Memorial University of Newfoundland - 07 Jan 2016, 30 Apr 2018, 0, M.Eng

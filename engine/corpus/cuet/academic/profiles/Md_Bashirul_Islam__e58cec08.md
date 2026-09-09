@@ -10,7 +10,7 @@ Phone: +8801518436966
 
 Status: running
 
-## Education
+## Education (listed)
 
 - King Fahd University of Petroleum and Minerals (KFUPM), KSA - 06 Jan 2026, 1,
 

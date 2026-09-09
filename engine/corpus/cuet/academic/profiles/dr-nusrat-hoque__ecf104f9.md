@@ -14,6 +14,8 @@ Status: running
 
 I am a dedicated, Allah-fearing person balancing an introverted nature with a deep love for teaching.
 
+## Education
+
 **I earned my BSc from Bangladesh University of Engineering and Technology (BUET), an MSc from the University of Calgary, Canada, and PhD from the University of Malaya, Malaysia. **
 
 ## Research

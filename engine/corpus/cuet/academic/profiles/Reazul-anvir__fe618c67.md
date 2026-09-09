@@ -14,7 +14,7 @@ Status: running
 
 Reazul Haque Tanvir is a faculty member in the Department of Civil Engineering with research interests centered on **environmental sustainability**, particularly **solid waste management, plastic waste characterization, and air quality assessment**. His work emphasizes data-driven and context-specific approaches to addressing urban and institutional environmental challenges. In parallel, he has a strong academic interest in **structural analysis and base isolation–based research**, aiming to contribute to the development of **resilient and sustainable infrastructure systems**. His long-term goal is to pursue interdisciplinary research that integrates environmental and structural engineering perspectives to support informed policy and engineering practice.
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology - 11 Jul 2025, 0, M.Sc., Civil and Environmental Engineering
 - Chittagong University of Engineering and Technology - 03 Feb 2020, 17 Jun 2025, 0, B.Sc(Engineering), Civil Engineering

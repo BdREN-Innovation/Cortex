@@ -14,7 +14,7 @@ Status: running
 
 I am Pollen Chakma, currently serving as an Assistant Professor in the Department of Water Resources Engineering at Chittagong University of Engineering and Technology (CUET), Bangladesh. I earned both my BSc and MSc in Civil Engineering from CUET, with a focus on Water Resources Engineering. My primary research interests include storm surge modelling, hydrologic and hydrodynamic modelling,  flood mapping, remote sensing application in water resources engineering and hydrologic extremes, with particular emphasis on assessing the impacts of climate change on coastal and urban water systems. At present, I am engaged in several funded research projects concerning rainwater harvesting in hilly regions, multi-hazard resilience of coastal communities, and climate change-induced urban flooding
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology(CUET) - 10 May 2018, 01 Oct 2024, 0, M.Sc., Civil Engineering
 - Chittagong University of Engineering and Technology(CUET) - 01 Apr 2013, 01 Aug 2017, 0, B.Sc., Civil Engineering

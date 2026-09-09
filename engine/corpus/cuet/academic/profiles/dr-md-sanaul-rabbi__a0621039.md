@@ -10,7 +10,7 @@ Phone: 8801717-300305
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Rangpur Govt. College - 20 Jul 2000, 20 Jun 2002, 0, HSC
 - Gaibandha Govt. Boys High School - 0, SSC

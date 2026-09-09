@@ -10,7 +10,7 @@ Phone: 01850786660
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology - 0, Architecture
 

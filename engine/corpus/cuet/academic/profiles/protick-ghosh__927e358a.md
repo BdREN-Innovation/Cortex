@@ -16,6 +16,8 @@ Protick completed his B.Sc. in Mechanical Engineering from CUET in June 2024 and
 
 He looks forward to continuous growth — both as an educator and a lifelong learner.
 
+## Education
+
 **B. Sc. in Mechanical Engineering, CUET**
 
 **M. Sc. in Mechanical Engineering, CUET  (Ongoing)**

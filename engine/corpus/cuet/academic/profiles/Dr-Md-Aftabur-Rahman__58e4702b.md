@@ -19,7 +19,7 @@ A Ph.D. in Civil Engineering (Geotechnical Engineering) with 17 (seventeen) year
 - Published more than 50 (fifty) papers, including 19 (nineteen) journals and 35 (thirty-five) proceedings.
 - Independent consultant in geotechnical projects, to be specific, in sub-soil investigations, slope stability analysis, ground improvement design, and excavation support systems.
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering & Technology, Bangladesh - 22 Feb 2004, 11 Sep 2008, 0,
 

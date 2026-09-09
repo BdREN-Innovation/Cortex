@@ -10,7 +10,7 @@ Phone: 01521219244
 
 Status: running
 
-## Education
+## Education (listed)
 
 - BUET - 01 Apr 2023, 1, M.Sc. Engineering, Petroleum and Mineral Resources Engineering
 - CUET - 24 Feb 2017, 16 Sep 2022, 0, B.Sc(Engineering), Petroleum and Mining Engineering

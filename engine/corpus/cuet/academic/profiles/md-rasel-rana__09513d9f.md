@@ -12,7 +12,7 @@ Room: 4401
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Bangladesh University of Engineering & Technology - 13 Jul 2023, 0,
 

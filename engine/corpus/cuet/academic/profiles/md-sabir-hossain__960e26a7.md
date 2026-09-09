@@ -18,7 +18,7 @@ Beyond academia, I founded the Be Researcher World Forum (BRWF) to cultivate a g
 
 🌐 More at https://sites.google.com/view/msabirh
 
-## Education
+## Education (listed)
 
 - King Fahd University of Petroleum and Minerals (KFUPM) - 13 Aug 2023, 1, PhD, Computer Science
 - Chittagong University of Engineering and Technology (CUET) - 01 Mar 2016, 27 Jun 2019, 0, M.Sc. Engineering, Computer Science and Engineering (CSE)

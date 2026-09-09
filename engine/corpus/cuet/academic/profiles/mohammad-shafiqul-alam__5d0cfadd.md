@@ -10,7 +10,7 @@ Phone: 8801856723244
 
 Status: running
 
-## Education
+## Education (listed)
 
 - University of Dhaka - 0, M.Sc. Engineering, Nuclear Engineering
 - University of Dhaka - 0, B.Sc(Engineering), Nuclear Engineering

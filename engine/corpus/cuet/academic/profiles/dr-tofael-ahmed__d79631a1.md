@@ -8,7 +8,7 @@ Email: tofael@cuet.ac.bd
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology - 0, B.Sc(Engineering), Electrical and Electronic Engineering
 - University of Malaya, Malaysia - 0, M.Sc. Engineering, Electricity and Energy

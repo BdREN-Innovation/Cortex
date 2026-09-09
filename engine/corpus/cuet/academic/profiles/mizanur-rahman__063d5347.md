@@ -12,11 +12,15 @@ Status: running
 
 Dr. M. M. Rahman has expertise in energy modeling, Energy management, Hydrogen economy, Fuel cell technology, Catalytic processes, Bio- fuel and Renewable energy. He is also working as a consultant, advisor and expert member of many government, autonomous and private organizations.
 
+## Education
+
 **PhD in Sustainable Technology (Nanomaterials, Hydrogen and Fuel Cell), Sydney University, Australia**
 
 **MSc Engineering in Energy (Biofuel and IC Engine), Royal Institute of Technology, Sweden**
 
 **BSc. in Mechanical Engineering, Bangladesh**
+
+## Other
 
 **Professional Membership:**
 

@@ -12,7 +12,7 @@ Status: running
 
 Welcome. I believe the next great leap in mechanical engineering will be powered by **sustainability and data**. My mission is to mentor students in harnessing **Machine Learning** to break new ground in **Solar and Hydrogen Technologies**. Here, we move beyond traditional thermodynamics and mechanics to ask: How can we teach a wind farm to optimize itself? How do we design a hydrogen electrolyzer that learns? Let's build the answers together.
 
-## Education
+## Education (listed)
 
 - CUET - 19 Mar 2020, 20 Jul 2025, 0, B.Sc(Engineering), Mechanical Engineering
 

@@ -8,7 +8,7 @@ Email: hasanmurad@cuet.ac.bd
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Bangladesh University of Engineering and Technology - 07 Jul 2014, 22 Oct 2018, 0, B.Sc(Engineering)
 

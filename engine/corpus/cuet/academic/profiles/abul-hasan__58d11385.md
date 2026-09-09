@@ -12,6 +12,8 @@ Status: running
 
 Md. Abul Hasan is a Professor of Structural Engineering at Chittagong University of Engineering and Technology. Dr. Hasan's research focuses on the life-cycle cost, probabilistic hazard assessment, bridge maintenance, and corrosion-induced deterioration in RC structures. His current work is focused on the performance investigation of the repaired bridge through experimental, analytical and computational approaches.
 
+## Education
+
 Ph.D. in Bridge Maintenance Engineering, Waseda University, Tokyo, Japan.
 
 M.Sc. in Structural Engineering, CUET, Chittagong, Bangladesh.

@@ -16,7 +16,7 @@ Status: running
 
 During his undergraduate studies, he secured First Position with Honors in his B.Sc. in Civil Engineering and was also awarded Merit Awards in recognition of his academic excellence. He is currently pursuing his M.Sc. in Civil Engineering with a specialization in Structural Engineering. His academic and research interests include structural analysis, structural design, and innovative construction practices.
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology - 04 Sep 2024, 0, M.Sc. Engineering
 - Chittagong University of Engineering and Technology - 19 Feb 2019, 01 Jun 2024, 0, B.Sc(Engineering)

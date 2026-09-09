@@ -10,6 +10,8 @@ Phone: 01762388882
 
 Status: running
 
+## Education
+
 B.Sc. (BUET)
 
 M.Sc. (CUET) Ongoing

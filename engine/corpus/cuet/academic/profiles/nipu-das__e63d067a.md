@@ -10,6 +10,8 @@ Phone: 8801732051996
 
 Status: running
 
+## Education
+
 Qualification
 
 B.Sc. Engg. (CUET)

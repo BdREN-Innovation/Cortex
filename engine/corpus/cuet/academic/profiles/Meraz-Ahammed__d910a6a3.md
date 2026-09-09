@@ -12,10 +12,12 @@ Room: IET Faculty Room
 
 Status: running
 
+## Education
+
 - ***M.Sc in Mechanical Engineering (CUET)***
 - ***B.Sc in Mechanical Engineering (CUET)***
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering & Technology(CUET) - 0, B.Sc(Engineering), Mechanical Engineering
 - Chittagong University of Engineering & Technology(CUET) - 0, M.Sc., Mechanical Engineering

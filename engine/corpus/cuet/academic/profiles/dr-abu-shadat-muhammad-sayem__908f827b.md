@@ -18,7 +18,7 @@ He received his Master of Mechanical Engineering degree from Hokkaido University
 
 In leadership capacity, Dr. Sayem performs his role as a President of CUET Teachers Associations for the period of 2022-23, Prior to that Dr. Sayem working as a member RHDC, RECAB at CQ University, Australia and Vice Chairman Academic, E3 program, Hokkaido University, Japan. Dr. Sayem has extensive experience about research grant writing and management along with wide range of collaboration at Higher Degree Institution around the world, particularly Europe , Australia, Japan , New Zealand and USA.
 
-## Education
+## Education (listed)
 
 - School of Engineering and Technology (SET), Central Queensland University, Rockhampton, Australia. - 0, PhD, Mechanical Engineering
 - Hokkaido University, Japan. - 0, M.Sc. Engineering, Mechanical and Intelligence System Engineering.

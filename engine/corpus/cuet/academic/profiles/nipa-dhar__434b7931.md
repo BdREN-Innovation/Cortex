@@ -10,7 +10,7 @@ Phone: +880-1814334573
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology (CUET) - 0, M.Sc. Engineering, EEE
 - Chittagong University of Engineering and Technology (CUET) - 0, B.Sc(Engineering), EEE

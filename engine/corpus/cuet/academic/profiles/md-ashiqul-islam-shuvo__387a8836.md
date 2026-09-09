@@ -12,7 +12,7 @@ Status: running
 
 **Md. Ashiqul Islam Shuvo** is a Lecturer in the Department of Petroleum and Mining Engineering at Chittagong University of Engineering & Technology (CUET), Bangladesh. He completed his Bachelor of Science in Petroleum and Mining Engineering from CUET with first-class honors and is currently pursuing a Ph.D. in Petroleum Engineering at the University of Oklahoma, USA, on approved study leave. His research interests include reservoir geomechanics, rock mechanics, pore pressure–stress interaction, subsurface characterization, and data-driven modeling in petroleum engineering. He has research experience in those fields and has published in peer-reviewed journals. Mr. Shuvo is actively engaged in both teaching and research, with a strong commitment to advancing education and research capacity in petroleum geology and reservoir geomechanics.
 
-## Education
+## Education (listed)
 
 - The University of Oklahoma, USA - 01 Jan 2025, 31 Dec 2029, 0, PhD, Petroleum Engineering
 - Chittagong University of Engineering and Technology - 25 Feb 2016, 20 Jun 2021, 0, B.Sc(Engineering), Petroleum and Mining Engineering

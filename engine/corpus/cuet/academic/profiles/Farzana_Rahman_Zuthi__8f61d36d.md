@@ -14,7 +14,7 @@ Status: running
 
 Dr. Mst. Farzana Rahman Zuthi is a Professor in the Department of Civil Engineering at Chittagong University of Engineering and Technology (CUET), Bangladesh, where she has been serving since 2005. She earned her Ph.D. in Civil Engineering (Environmental Engineering) from the University of Technology Sydney, Australia (2014), supported by the Australian Government Postgraduate Scholarship. Her research spans water quality, wastewater treatment, solid and plastic waste management, and environmental health risk assessment. She served as Scientific Director of the SCIP Plastics Project- an international collaboration funded by the German Federal Ministry for the Environment (BMUV)- and is currently serving as the Head (Additional Charge) of the Department of Water Resources Engineering at CUET.
 
-## Education
+## Education (listed)
 
 - University of Technology Sydney, Australia - 08 Oct 2014, 0,
 

@@ -12,7 +12,7 @@ Status: running
 
 I am Md. Samiun Basir, graduated in Water Resources Engineering from Bangladesh University of Engineering & Technology. I've completed M.Sc in Water Resources Engineering from Bangladesh University of Engineering & Technology and currently working as an Assistant Professor in the Department of Water Resources Engineering, Chittagong University of Engineering and Technology.
 
-## Education
+## Education (listed)
 
 - Bangladesh University of Engineering and Technology - 15 Sep 2015, 0, B.Sc(Engineering), Water Resources Engineering
 - Bangladesh University of Engineering and Technology - 03 Dec 2022, 0, M.Sc. Engineering, Water Resources Engineering

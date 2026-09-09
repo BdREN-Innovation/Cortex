@@ -10,6 +10,8 @@ Phone: 01725098236
 
 Status: running
 
+## Education
+
 B.Sc. Engg. (WRE), CUET
 M.Sc. Engg. (CE), CUET (Ongoing)
 

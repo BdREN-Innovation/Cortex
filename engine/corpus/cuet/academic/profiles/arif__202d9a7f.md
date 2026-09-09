@@ -10,11 +10,13 @@ Phone: 01521331635
 
 Status: running
 
+## Education
+
 M.Sc. in ETE, CUET (Ongoing)
 
 B.Sc. in ETE, CUET
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology - 25 Feb 2016, 07 Apr 2022, 0, B.Sc(Engineering)
 

@@ -32,10 +32,14 @@ Status: running
 
 **                                                                       **Khulna 9100, Bangladesh
 
+## Education
+
 | January 2008 – January 2012 | : | **Doctor of Philosophy in Water Engineering & Management,**   Asian Institute of Technology (AIT), Thailand. Dissertation title: *Optimal allocation of water based on economic and environmental criteria: Cases from Bangladesh and Indonesia* (Medium of instruction English) |
 | --- | --- | --- |
 | October 2003 – September 2005 | : | **M. Sc. in Environmental Sanitation**   Center for Environmental Sanitation & Technology, University of Gent, BelgiumObtained with **Great Distinction** and 78.25% Marks. Thesis undertaken: *Low cost treatment of municipal solid waste in Khulna City, Bangladesh. *(Medium of instruction English) |
 | June 1993 –      June 1997   Exam held on 2000 | : | **B. Sc. in Civil Engineering**   Bangladesh University of Engineering and Technology (BUET) Dhaka, Bangladesh,  Obtained CGPA 3.56 in scale of 4.00. Thesis undertaken: *Arsenic Removal – Performance Evaluation of Nanofilter. *(Medium of instruction English) |
+
+## Other
 
 **Awards/Distinctions**
 
@@ -96,7 +100,7 @@ April 2001 to date Consultant, Bureau of Research, Testing and Consultation, Dep
 
 2013 – 2015 Member of the Consulting Team Structural Retrofitting of Factory Buildings in Chittagong
 
-## Education
+## Education (listed)
 
 - AIT, Bangkok - 07 Jan 2007, 23 Aug 2011, 0, PhD, Water Engineering & Management
 - University of Ghent, Belgium - 01 Sep 2003, 31 Aug 2005, 0, M.Sc., Environmental Sanitation

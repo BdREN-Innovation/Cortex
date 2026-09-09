@@ -10,9 +10,11 @@ Phone: +8801912321547
 
 Status: running
 
+## Education
+
 B.Arch, MSc in Human Settlements(MscHS) from Khulna University; MSc in Urban Management and Development (Housing Track) from Erusmus University of Rotterdam, The Netherlands
 
-## Education
+## Education (listed)
 
 - Khulna University - 0, M.Sc.
 

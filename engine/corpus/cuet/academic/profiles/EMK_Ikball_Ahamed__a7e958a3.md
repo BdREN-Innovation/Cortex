@@ -10,7 +10,7 @@ Phone: 88
 
 Status: running
 
-## Education
+## Education (listed)
 
 - The University of Tokyo - 19 Sep 2025, 0, PhD, Electrical Engineering and Information Sytems
 - Chittagong University of Engineering and Technology - 30 Sep 2020, 0, M.Sc. Engineering, Electrical and Electronic Engineering

@@ -20,7 +20,7 @@ Mr. Chowdhury has authored and co-authored several peer-reviewed conference publ
 
 In addition to his academic responsibilities, he is actively involved in professional development, technical competitions, and academic service, having served as a competition coordinator, content writer, judge, and event organizer at national-level engineering events. His professional interests focus on research-driven teaching, interdisciplinary collaboration, and the development of resilient and sustainable infrastructure.
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology (CUET) - 31 Jul 2025, 0, M.Sc. Engineering
 - Chittagong University of Engineering and Technology (CUET) - 05 Feb 2019, 11 Jun 2024, 0, B.Sc(Engineering)

@@ -10,7 +10,7 @@ Phone: +880 1717031546
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology - 14 Feb 2006, 31 Jul 2025, 0,
 

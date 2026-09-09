@@ -10,7 +10,7 @@ Phone: +8801676132393
 
 Status: running
 
-## Education
+## Education (listed)
 
 - University of Malaysia Pahang Al-Sultan Abdullah (UMPSA), Malaysia - 0, PhD, Environmental Engineering
 

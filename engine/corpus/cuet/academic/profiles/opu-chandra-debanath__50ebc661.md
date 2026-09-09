@@ -16,7 +16,7 @@ Dr. Opu Chandra Debanath has been working as an Associate Professor in the Civil
 
 Beyond teaching core undergraduate courses in Civil Engineering, Dr. Debanath is an active member of Bureau of Research Testing and Consultation (BRTC), CUET. His commitment to both academic excellence and practical applications has positioned him as a key contributor to the civil engineering community, driving innovation and collaboration in his field.
 
-## Education
+## Education (listed)
 
 - University of Tsukuba - 04 Oct 2021, 25 Mar 2024, 0, PhD
 - Chittagong University of Engineering & Technology, Bangladesh - 03 Jul 2016, 05 Aug 2019, 0, M.Sc. Engineering

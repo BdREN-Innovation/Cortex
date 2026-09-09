@@ -12,6 +12,8 @@ Status: running
 
 Sancoy Barua received the MSc (in 2023) and BSc (in 2018), both degrees in Electrical and Electronic Engineering (EEE), from Chittagong University of Engineering and Technology (CUET). He has been working with Chittagong University of Engineering and Technology (CUET) as an academic faculty member since 2019. His current research interests include the electricity market model for the smart grid, energy management systems, energy storage scheduling, demand-side management, demand response mechanism design, bi-level optimization, game theory, smart home optimization, and renewable penetration in the utility grid.
 
+## Education
+
 1. **Master of Science in Electrical and Electronic Engineering**
 
 - Chittagong University of Engineering & Technology (CUET), Bangladesh, Feb. 2023.

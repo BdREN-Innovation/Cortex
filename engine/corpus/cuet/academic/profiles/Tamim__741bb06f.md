@@ -16,9 +16,11 @@ Status: running
 
 Mr. Tamim was born in Barishal, Bangladesh, and raised in Dhaka, where he pursued his early education. He earned his **Bachelor of Science (B.Sc.) in Civil Engineering** from **CUET** in **2022**, followed by his **Master of Science (M.Sc.) in Civil Engineering** from the same institution in **2024**. He currently serves as the **Academic Course Coordinator** for the **2022 Batch** in the **Department of Water Resources Engineering**, contributing to both academic leadership and student development. He is currently based in Chattogram, Bangladesh for teaching and professional engagements, contributing to the field of Water Resources Engineering.
 
+## Education
+
 Md. Tamim completed his schooling (SSC) from Motijheel Government Boys' High School, Dhaka, and then pursued his Higher Secondary education (HSC) from Dhaka College, Dhaka where he was honored to receive the Talentpool Scholarship from Dhaka Board for his HSC results. After that, he completed his B.Sc. in Civil Engineering from CUET in 2022, securing the first merit position. Recently, he has finished his M.Sc. in Civil Engineering, majoring in Water Resources Engineering, from the same university.
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering & Technology (CUET) - 10 Oct 2022, 21 Aug 2025, 0, M.Sc. Engineering
 - Chittagong University of Engineering & Technology (CUET) - 26 Jan 2017, 22 Aug 2022, 0, B.Sc(Engineering)

@@ -12,7 +12,7 @@ Room: Pre- Engineering Building, 1st floor
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Trechnology - 06 Sep 2022, 25 Sep 2025, 0, M.Phil, Physics
 - Jagannath university, Dhaka - 19 Mar 2018, 20 Feb 2020, 0, M.Sc., Physics

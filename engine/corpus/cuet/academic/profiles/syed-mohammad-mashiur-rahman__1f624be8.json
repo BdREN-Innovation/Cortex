@@ -17,20 +17,20 @@
   "fetched_at": "2026-09-09T18:07:21Z",
   "html_path": "academic/profiles/syed-mohammad-mashiur-rahman__1f624be8.html",
   "markdown_path": "academic/profiles/syed-mohammad-mashiur-rahman__1f624be8.md",
-  "text_chars": 7308,
+  "text_chars": 7327,
   "render_ok": true,
   "attempts": 1,
   "links_found": 3,
   "double_escaped": false,
   "files": [
     {
-      "url": "https://cuet.ac.bd/compressed/Final%20UG%20Bulletin%202022.pdf"
-    },
-    {
       "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/681214cf081b8.pdf"
     },
     {
       "url": "https://www.cuet.ac.bd/notice/urp_2022.pdf"
+    },
+    {
+      "url": "https://cuet.ac.bd/compressed/Final%20UG%20Bulletin%202022.pdf"
     }
   ],
   "slug": "syed-mohammad-mashiur-rahman",

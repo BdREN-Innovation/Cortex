@@ -22,11 +22,13 @@ In addition to research, he has served as a **trainer** in professional courses 
 
 Through his teaching, research, and professional collaborations, Md. Kamrul Islam continues to work towards building climate-resilient and sustainable urban and regional systems in Bangladesh and beyond.
 
+## Education
+
 | **Master of Urban and Regional Planning By Course and Thesis **   Chittagong University of Engineering and Technology, Chattogram, Bangladesh    **CGPA:** 3.67 out of 4.00   **Thesis Title:** *Exploring Vulnerability to Coastal Erosion and Local Community Adaptation in Chattogram, Bangladesh.* |  |
 | --- | --- |
 | **Bachelor of Urban and Regional Planning**   Chittagong University of Engineering and Technology, Chattogram, Bangladesh    **CGPA:** 3.76 out of 4.00    **Thesis Title: ***Spatio-Temporal Assessment of Ecological Disturbance and its Impact on Environment in Cyclone-Prone Coastal Area of Bangladesh.* |  |
 
-## Education
+## Education (listed)
 
 - Rajshahi Government City College - 04 Mar 2008, 08 Dec 2010, 0, HSC
 

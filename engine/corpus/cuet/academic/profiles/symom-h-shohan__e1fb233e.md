@@ -14,7 +14,7 @@ I am an academician and researcher working in the areas of Artificial Intelligen
 
 My current research focuses on NLP in healthcare, visual reasoning, and evaluating the behavior and reliability of large language models in low-resource languages. I am particularly interested in developing responsible and impactful AI systems that address real-world challenges through multimodal understanding and language technologies.
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology (CUET) - 07 Feb 2020, 27 Jul 2025, 0, B.Sc(Engineering), Computer Science and Engineering
 - Chittagong University of Engineering and Technology (CUET) - 05 Jan 2026, 1, M.Sc. Engineering, Computer Science and Engineering

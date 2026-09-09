@@ -10,7 +10,7 @@ Phone: 01757001567
 
 Status: running
 
-## Education
+## Education (listed)
 
 - CUET - 09 Jan 2023, 19 Jan 2026, 0, M.Sc. Engineering, Urban & Regional Planning
 - CUET - 13 Mar 2011, 19 Sep 2015, 0, B.Sc(Engineering), Urban & Regional Planning

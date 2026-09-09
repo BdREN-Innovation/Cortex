@@ -12,6 +12,8 @@ Status: running
 
 Prof. Dr Sajal Chowdhury finished PhD at Melbourne School of Design, Faculty of Architecture, Building and Planning at the University of Melbourne. His research focuses on "Environmental Experience Design (EXD)". Prof. Dr. Sajal completed B.Arch and M.Arch from BUET, Bangladesh and M.Eng from Hokkaido University, Japan (as MEXT Scholar) on "Human Thermal Environment”. He is Professor and Head at the Department of Architecture, CUET, Bangladesh. He has expertise in various building environmental simulation tools-techniques e.g., Energy Plus, Open Studio, Ecotect, Radiance, Velux, DiaLux, ESP-r, SPSS, NVivo, etc and also involved as a 'Research Architect' at GrACe, BUET. Dr. Sajal has published several numbers of international journals, conferences and seminar papers on ‘Environmental Experience Design, Building Energy, Comfort and IEQ’ issues. He has won the 2016 Building Simulation Group award from “The Chartered Institution of Building Services Engineers (CIBSE)” for the application and development of advanced simulation techniques. He is an active member of "ZEMCH EXD Global Network".
 
+## Education
+
 **PhD** [Melbourne School of Design (MSD),The University of Melbourne, Australia]
 
 **M.Eng** [Human Environmental System (Environmental Ergonomics), Hokkaido University, Japan]
@@ -28,6 +30,8 @@ Prof. Dr Sajal Chowdhury finished PhD at Melbourne School of Design, Faculty of 
 | M. Eng | Indoor Heat Stress Evaluation for Factories in the Tropics |
 | M. Arch | Study of Thermal Performance of Building Envelope of Readymade Garment Factories in Dhaka |
 | B. Arch | Design Approach of Energy Efficient Ready-made Garments Factory (Design Thesis) |
+
+## Other
 
 **Prof. Dr Sajal Chowdhury**
 

@@ -10,7 +10,7 @@ Phone: 01990867065
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Shahjalal University of Science and Technology - 0,
 

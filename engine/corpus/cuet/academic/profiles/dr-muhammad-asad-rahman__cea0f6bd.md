@@ -10,9 +10,11 @@ Phone: 000
 
 Status: running
 
+## Education
+
 Doctor of Philosophy in Communication Engineering
 
-## Education
+## Education (listed)
 
 - Saga University, Japan - 0,
 

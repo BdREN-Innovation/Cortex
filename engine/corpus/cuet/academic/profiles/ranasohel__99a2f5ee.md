@@ -16,6 +16,8 @@ I am currently working as Assistant Professor at the "Institute of Earthquake En
 
 My research emphasizes on resilience-informed, functionality-oriented, and human-centered decision-making for disaster risk reduction of the built environment in the face of multiple hazards incorporating climate extremes considering physical and socio-economic impacts.
 
+## Education
+
 **Master of Earthquake Engineering **
 
 Chittagong University of Engineering and Technology
@@ -23,6 +25,8 @@ Chittagong University of Engineering and Technology
 **B. Sc.  in Civil Engineering**
 
 Chittagong University of Engineering and Technology
+
+## Other
 
 **PEER REVIEWER**
 

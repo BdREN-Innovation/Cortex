@@ -10,6 +10,8 @@ Phone: 8801939571421
 
 Status: running
 
+## Education
+
 Ph D in Plasma Physics(RU),
 
 M. Phil. in Mathematics (CUET),

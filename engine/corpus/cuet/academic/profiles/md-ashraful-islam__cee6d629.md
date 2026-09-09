@@ -10,7 +10,7 @@ Phone: 01767153617
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Bangladesh University of Engineering and Technology - 0,
 

@@ -15,9 +15,13 @@ Status: running
 | I am from Chattogram, Bangladesh. I had joined the Department of Mathematics at Chittagong University of Engineering and Technology (CUET) in the year 2005. I also had served as Head of the Department from 31/8/2020 to 30/08/2022.  I am the founder moderator of CUET Math Club.   At Present Supervising 10 Ph.D. and 5 M. Sc. Students. A total of  20 (2 Ph.D. , 16 M.Phil., and 2 M. Sc. ) students have completed their Postgraduate degrees under my supervision. |  |
 | --- | --- |
 
+## Education
+
 - Ph.D. ( Mathematics)
 - M.Sc. ( Applied Mathematics)
 - B.Sc. (Hons.) in Mathematics
+
+## Other
 
 Conducting Ph.D./M. Phil. /M. Engg Courses in Mathematics, Mechanical Engg. and Energy Technology.
 
@@ -29,7 +33,7 @@ Conducting Ph.D./M. Phil. /M. Engg Courses in Mathematics, Mechanical Engg. and 
 
 I am also conducting different courses of Mathematics, Applied Mathematics at the undergraduate level (Bachelor of Engineering) in Civil, Computer Science, Electrical and Electronic, ETE, Mechanical Engineering & Architecture Departments).
 
-## Education
+## Education (listed)
 
 - University of Chittagong, Bangladesh - 0, B.Sc., Mathematics
 - University of Chittagong, Bangladesh - 0, M.Sc., Applied Mathematics

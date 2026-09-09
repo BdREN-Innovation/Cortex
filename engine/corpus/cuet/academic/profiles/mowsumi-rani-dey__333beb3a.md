@@ -14,6 +14,8 @@ Status: running
 
 Mowsumi Rani Dey is currently serving as an Assistant Professor in the Department of Humanities at Chittagong University of Engineering and Technology (CUET), Bangladesh. She previously held the position of Lecturer in the same department from December 2021 to April 2025. She completed both her Bachelor's and Master's degrees in Sociology from Jagannath University, Dhaka. Her academic and research interests include youth studies, family dynamics, social media, globalization, and culture. She is deeply committed to advancing knowledge through both teaching and scholarly research.
 
+## Education
+
 **Master of Social Science (MSS) in Sociology (2019)**
 
 Jagannath University, Dhaka, Bangladesh.
@@ -22,7 +24,7 @@ Jagannath University, Dhaka, Bangladesh.
 
 Jagannath University, Dhaka, Bangladesh.
 
-## Education
+## Education (listed)
 
 - Jagannath University, Dhaka, Bangladesh. - 04 Mar 2018, 03 Mar 2019, 0, M.S.S., Sociology
 - Jagannath University, Dhaka, Bangladesh. - 01 Feb 2015, 01 Feb 2018, 0, Honors, Sociology

@@ -10,7 +10,7 @@ Phone: 1711133916
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Savar Adher Chandra High School - 0, SSC, Science
 - Jahangir Nagar University College - 0, HSC, Science

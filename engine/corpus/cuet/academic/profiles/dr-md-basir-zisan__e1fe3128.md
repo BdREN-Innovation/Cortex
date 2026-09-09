@@ -12,9 +12,11 @@ Room: 1322
 
 Status: running
 
+## Education
+
 Prof. Dr. Md. Basir Zisan earned his Doctor of Philosophy from Kyoto University, Japan, in 2021. Prior to this, he completed his Master of Engineering in Civil Engineering at Hokkaido University, Japan. He obtained his Bachelor of Science in Civil Engineering from the Department of Civil Engineering, Chittagong University of Engineering and Technology, in May 2009.
 
-## Education
+## Education (listed)
 
 - Kyoto University, Japan - 01 Oct 2018, 24 Sep 2021, 0,
 

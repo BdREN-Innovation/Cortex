@@ -18,6 +18,8 @@ Amit Imtiaz, University of Sheffield (UK) Graduate, currently working as an Assi
 
 His Graduation thesis project "Breathing Hydrological Infrastructure" has been nominated for Archiprix International Hunter Douglas Award 2017. It is the only nomination for Bangladesh since Archiprix started. In 2017, he worked on a publication on the works of an Indian Architect Titled "Anupama Kundoo: Building Knowledge, Building Community"; published from Germany. From May 25, 2018- June 01, 2018 with the collaboration from Archiprix International & BUET he curated an exhibition titled "Archiprix Exhibition Bangladesh 2018". He is now teaching and doing his architectural practice from Chittagong, Bangladesh. His projects has been exhibited in numerous national and international exhibitions in Bangladesh, India and United Kingdom.
 
+## Other
+
 #### Achievements/ Design Awards
 
 ***International Competition***
@@ -177,7 +179,7 @@ His Graduation thesis project "Breathing Hydrological Infrastructure" has been n
 - wege zur architektur, Published from Germany
 - https://anupamakundoo.com/publications/
 
-## Education
+## Education (listed)
 
 - University of Sheffield, United Kingdom - 15 Sep 2022, 30 Sep 2023, 0,
 

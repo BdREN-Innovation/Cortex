@@ -16,7 +16,7 @@ Mr. Zubair completed both his M.Sc. and B.Sc. in Civil Engineering from CUET. Hi
 
 He is also an active member and consultant of the Bureau of Research, Testing, and Consultation, where he contributes to professional services involving testing, research, and consultancy for governmental and non-governmental organizations. In addition to his research activities, Mr. Zubair is actively involved in teaching undergraduate courses related to environmental engineering, water and wastewater treatment, and disaster management. His teaching approach emphasizes practical understanding, analytical thinking, and the use of modern engineering tools.
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology - 22 Sep 2022, 11 Nov 2025, 0, M.Sc. Engineering, Civil Engineering
 - Chittagong University of Engineering and Technology - 26 Feb 2017, 22 Jul 2022, 0, B.Sc(Engineering), Civil Engineering

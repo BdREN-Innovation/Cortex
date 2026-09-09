@@ -16,6 +16,8 @@ He completed his M.Sc. in Mechanical Engineering at CUET. He accomplished h
 
 His research interests are Renewable Energy, Biodiesel, and composite materials. Currently, he is researching biomass gasification to examine the characteristics of synthesized gas and the performance of the engine using syngas as fuel.
 
+## Other
+
 ## **Theory Courses Offered **
 
 **ME451: Machine Tools and Tool Engineering **
@@ -48,7 +50,7 @@ His research interests are Renewable Energy, Biodiesel, and composite materials.
 
 **ME278: Strength of Materials Sessional **
 
-## Education
+## Education (listed)
 
 - CUET, Bangladesh, 2025 - 19 Jan 2025, 0, M.Sc. Engineering
 - CUET, Bangladesh, 2022 - 0, B.Sc(Engineering)

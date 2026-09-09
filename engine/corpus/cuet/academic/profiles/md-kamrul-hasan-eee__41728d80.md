@@ -10,7 +10,7 @@ Phone: 8801672672998
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology - 0, B.Sc(Engineering)
 - Chittagong University of Engineering and Technology - 0, M.Sc.

@@ -11,7 +11,7 @@ Status: running
 Sumit Majumder received his B.Sc. degree in Electrical and Electronic Engineering from the Bangladesh University of Engineering and Technology (BUET), Dhaka, Bangladesh, in 2007. He later earned his M.A.Sc. and Ph.D. in Electrical and Computer Engineering from McMaster University, Hamilton, ON, Canada, in 2011 and 2020, respectively. Dr. Majumder has over five years of industry experience in the design, simulation, integration, and testing of electronic devices and systems at home and abroad.
 He is currently an Assistant Professor in the Department of Biomedical Engineering at Chittagong University of Engineering and Technology (CUET), Chattogram, Bangladesh and a Senior Member of IEEE. His research interests include wearable sensors, biomedical electronics, AI-based diagnosis, assistive technologies, and smart textiles.
 
-## Education
+## Education (listed)
 
 - McMaster University, Hamilton, Canada - 0,
 

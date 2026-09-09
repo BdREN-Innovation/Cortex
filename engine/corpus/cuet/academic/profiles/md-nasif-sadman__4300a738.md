@@ -8,7 +8,7 @@ Email: nasif.arch@cuet.ac.bd
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Dhaka Residential Model College (DRMC) - 02 Jan 2005, 09 May 2013, 0, SSC, Science
 - Notre Dame College (NDC) - 01 Jul 2013, 09 Aug 2015, 0, HSC, Science

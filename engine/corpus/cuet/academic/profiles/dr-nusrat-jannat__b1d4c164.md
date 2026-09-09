@@ -10,6 +10,8 @@ Phone: .
 
 Status: running
 
+## Education
+
 **PhD** [Liverpool John Moores University, Liverpool, United Kingdom]
 
 **B.Arch** [Bangladesh University of Engineering and Technology (BUET) Bangladesh]

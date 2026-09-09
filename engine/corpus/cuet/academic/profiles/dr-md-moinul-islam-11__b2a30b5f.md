@@ -20,7 +20,11 @@ Status: running
 
 **Prof. Dr. Md. Moinul Islam** has made significant contributions to research and academia through his extensive scholarly work and leadership in academic affairs. He has authored **28 research papers** published in **national and international journals**, **56 papers** presented at **national and international conferences**, and **one book chapter**, reflecting his active engagement in advancing knowledge in the field of civil engineering. In addition to his research accomplishments, Prof. Islam has played a pivotal role in academic administration and policy-making. He served as the **Chairman **of the **Central Admission Committee** for the **Combined Admission Test of CUET, KUET, and RUET** during the **2020–2021** session, and as a **Member** of the same committee in **2021–2022** and **2022–2023**. He also served as the **Chairman** of the **Local Admission Committee** at **CUET **for three consecutive academic sessions **(2020–21, 2021–22, and 2022–23)**. His leadership in these critical academic responsibilities demonstrates his commitment to ensuring transparency, quality, and efficiency in the university admission process and higher education governance.
 
+## Education
+
 **Dr. Md. Moinul Islam** obtained his **Ph.D. in Civil Engineering** from the Chittagong University of Engineering and Technology (CUET), where his research focused on the durability of Bangladeshi fly ash blended cement concrete. He also received his **M.Sc. in Civil Engineering** from CUET, conducting research on the durability of Bangladeshi slag blended cement concrete. Dr. Islam completed his **B.Sc. in Civil Engineering** from CUET with Honors and secured First position with First Class. Dr. Islam was awarded **Universtiy Gold Medal **from Chittagong University of Engineering & Technology, Chattogram in the year 1998 for securing **highest CGPA among all the recipients of Bachelor's degree in the session 1994-95**. Earlier in his academic career, he completed both his SSC and HSC under the Jashore Board, achieving star marks in both examinations.
+
+## Other
 
 | **Research Topic at UG and PG Level :** |  |
 | --- | --- |
@@ -28,7 +32,7 @@ Status: running
 | **M.Sc. Engg. Program:** Behavior of Slag Concrete in Marine Environment    Chittagong University of Engineering & Technology, Chittagong. |  |
 | **PhD Program:** Durability of Reinforced Blended Cement Concrete in Marine Environment   Chittagong University of Engineering & Technology, Chittagong. |  |
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering and Technology - 31 May 2014, 0, PhD, Civil Engineering
 - Chittagong University of Engineering and Technology - 01 Feb 2007, 0, M.Sc. Engineering, Civil Engineering

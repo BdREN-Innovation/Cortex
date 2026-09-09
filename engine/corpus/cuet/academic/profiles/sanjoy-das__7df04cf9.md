@@ -12,7 +12,7 @@ Room: R/N: 1310
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering & Technology (CUET) - 01 Jun 2014, 25 May 2023, 0, M.Sc. Engineering, Civil Engineering (Branch: Geotechnical Engg.)
 - Chittagong University of Engineering & Technology (CUET) - 02 Mar 2008, 12 Sep 2012, 0, B.Sc(Engineering), Civil Engineering (Branch: Structural Engg.)

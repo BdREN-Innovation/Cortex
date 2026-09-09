@@ -22,7 +22,11 @@ Prof. Ali maintains research collaborations with scientists and research groups 
 
 Dr. Ali successfully completed several research projects, including those funded by TWAS, UGC Bangladesh, MOST, DRE CUET, and Khulna University, demonstrating his broader impact and dedication to advancing scientific knowledge in Physics and Materials Science.
 
+## Education
+
 Prof. Ali's academic journey includes the successful completion of his B.Sc (Honours), M.Sc., M.Phil., and Ph.D. degrees in Physics, with a specialization in Condensed Matter Physics.
+
+## Other
 
 Prof. Ali is the Principal Investigator of the Advanced Computational Materials Research Laboratory (ACMRL), which receives funding [a total of 40810 USD] from The World Academy of Sciences (TWAS).
 
@@ -39,7 +43,7 @@ Dr. Ali successfully completed several research projects, including those funded
 - Project member: CUET DRE Project: 2014-2016 (300000 BDT), 2017-19 (450000 BDT), 2021-23 (450000 BDT).
 - Project member: University Grants Commission, Bangladesh, 2021-22 (298000 BDT).
 
-## Education
+## Education (listed)
 
 - University of Rajshahi - 01 Jan 2010, 23 May 2011, 0,
 

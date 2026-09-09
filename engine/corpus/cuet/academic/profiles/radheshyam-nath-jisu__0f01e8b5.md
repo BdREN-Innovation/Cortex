@@ -10,7 +10,7 @@ Phone: +8801521227537
 
 Status: running
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering & Technology - 01 Oct 2020, 01 Nov 2023, 0, M.Sc. Engineering, Mechanical Engineering
 - Chittagong University of Engineering & Technology - 01 Mar 2015, 15 Oct 2019, 0, B.Sc., Mechanical Engineering

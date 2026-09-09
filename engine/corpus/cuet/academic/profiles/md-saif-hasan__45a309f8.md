@@ -14,7 +14,7 @@ Status: running
 
 I am a **Lecturer** at **CUET MME** with a deep passion for **Materials Science**. My research focuses on advancing **sustainable technologies**, specifically through the development of **innovative material solutions**, **energy storage optimization**, and **resource recovery**. I am dedicated to mentoring the next generation of engineers and exploring how materials innovation can drive a more resilient and sustainable future.
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering & Technology - 0,
 

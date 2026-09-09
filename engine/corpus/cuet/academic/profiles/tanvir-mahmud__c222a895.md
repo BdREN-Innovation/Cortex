@@ -14,7 +14,7 @@ Status: running
 
 Md Tanvir Mahmud is a lecturer in the Department of Mechanical Engineering at Chittagong University of Engineering and Technology (CUET), Bangladesh. He was born in Gangni in 1998 and has been serving at CUET since May 4, 2025. Tanvir completed his B.Sc. in Mechanical Engineering from CUET in June 2024 and is currently pursuing his M.Sc. at Chittagong University of Engineering & Technology.
 
-## Education
+## Education (listed)
 
 - Chittagong University of Engineering & Technology - 0, M.Sc. Engineering
 - Chittagong University of Engineering & Technology - 0, B.Sc(Engineering)
