@@ -1,7 +1,6 @@
 # CUET capture — what this is and how to use it
 
-Produced by `cuet_scraper`. Specification: `CUET_SCRAPER_SPEC.md` (Part 1) and
-`CUET_SCRAPER_SPEC_PART2.md` in the repository root.
+Produced by `cuet_scraper`.
 
 ## Read this before you embed anything
 
