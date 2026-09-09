@@ -234,3 +234,10 @@ gdrive_upload/
 
 # Legacy standalone scraper (now at engine/src/engine/crawler/cuet/)
 cuet_scraper/
+
+# Crawl/pipeline output (generated, not source) — Team A/B/C runtime data
+data/
+engine/data/
+
+# macOS
+.DS_Store
