@@ -270,7 +270,27 @@ def test_exclude_patterns_do_not_reject_documents(url):
 
 def test_allowed_hosts_includes_the_api():
     assert in_allowed_host("https://api.cuet.ac.bd/api/v1/notices")
-    assert not in_allowed_host("https://alumni.cuet.ac.bd/")
+
+
+def test_the_alumni_host_is_now_allowed():
+    """This assertion used to be the opposite, and the change is the point.
+
+    Spec 13 Q9 left alumni.cuet.ac.bd out of scope pending a decision, so the
+    host was excluded and the test pinned that. The decision was taken on
+    2026-09-09 - its robots.txt is a 404 and its pages carry no robots meta,
+    the same as the main site - and the host is now a portion of the corpus.
+    """
+    assert in_allowed_host("https://alumni.cuet.ac.bd/")
+    assert in_allowed_host("https://api.cuet.thetork.com/api/v1/alumni-settings")
+
+
+def test_the_vendor_staging_host_is_still_excluded():
+    """`cuet.thetork.com` is a staging leak; `api.` and `app.` on that domain
+    are the alumni site's live backend. Matching is exact, so allowing the
+    latter must not quietly allow the former."""
+    from engine.crawler.cuet.paths import is_excluded_url
+    assert is_excluded_url("https://cuet.thetork.com/anything")
+    assert not is_excluded_url("https://api.cuet.thetork.com/api/v1/alumnis")
 
 
 # --------------------------------------------------------------------------
