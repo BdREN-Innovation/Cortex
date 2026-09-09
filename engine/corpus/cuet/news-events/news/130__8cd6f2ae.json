@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/130",
+  "canonical_url": "https://cuet.ac.bd/news/130",
+  "page_id": "8cd6f2aeb7f907b4",
+  "doc_key": "https://cuet.ac.bd/news/130",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "News Title"
+  ],
+  "title": "News Title",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/130__8cd6f2ae.html",
+  "markdown_path": "news-events/news/130__8cd6f2ae.md",
+  "text_chars": 740,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 130,
+  "date": "2025-04-07",
+  "headline_only": false
+}

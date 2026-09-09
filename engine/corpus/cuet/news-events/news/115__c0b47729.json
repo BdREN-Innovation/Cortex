@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/115",
+  "canonical_url": "https://cuet.ac.bd/news/115",
+  "page_id": "c0b47729734f59c9",
+  "doc_key": "https://cuet.ac.bd/news/115",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "CESER Launches Climate Resilience Research Initiative"
+  ],
+  "title": "CESER Launches Climate Resilience Research Initiative",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/115__c0b47729.html",
+  "markdown_path": "news-events/news/115__c0b47729.md",
+  "text_chars": 319,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 115,
+  "date": "2025-01-15",
+  "headline_only": false
+}

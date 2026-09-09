@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/95",
+  "canonical_url": "https://cuet.ac.bd/news/95",
+  "page_id": "5fd5fa398acefe4f",
+  "doc_key": "https://cuet.ac.bd/news/95",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Seminar on \"Emerging Trends in Electrical Engineering\""
+  ],
+  "title": "Seminar on \"Emerging Trends in Electrical Engineering\"",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/95__5fd5fa39.html",
+  "markdown_path": "news-events/news/95__5fd5fa39.md",
+  "text_chars": 464,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 95,
+  "date": "2025-04-05",
+  "headline_only": false
+}

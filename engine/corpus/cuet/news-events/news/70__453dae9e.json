@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/70",
+  "canonical_url": "https://cuet.ac.bd/news/70",
+  "page_id": "453dae9e3a9aa181",
+  "doc_key": "https://cuet.ac.bd/news/70",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Workshop on \"Smart Automation Systems\""
+  ],
+  "title": "Workshop on \"Smart Automation Systems\"",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/70__453dae9e.html",
+  "markdown_path": "news-events/news/70__453dae9e.md",
+  "text_chars": 518,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 70,
+  "date": "2025-01-15",
+  "headline_only": false
+}

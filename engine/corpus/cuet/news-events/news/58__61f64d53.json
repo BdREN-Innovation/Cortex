@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/58",
+  "canonical_url": "https://cuet.ac.bd/news/58",
+  "page_id": "61f64d53e3f72213",
+  "doc_key": "https://cuet.ac.bd/news/58",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Field Visit on \"Landslide Risk Assessment in Hilly Regions\" Conducted by DEE"
+  ],
+  "title": "Field Visit on \"Landslide Risk Assessment in Hilly Regions\" Conducted by DEE",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/58__61f64d53.html",
+  "markdown_path": "news-events/news/58__61f64d53.md",
+  "text_chars": 524,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 58,
+  "date": "2025-01-25",
+  "headline_only": false
+}

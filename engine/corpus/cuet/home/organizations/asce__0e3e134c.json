@@ -1,0 +1,26 @@
+{
+  "url": "https://cuet.ac.bd/student/organization/asce",
+  "canonical_url": "https://cuet.ac.bd/student/organization/asce",
+  "page_id": "0e3e134c4cf84642",
+  "doc_key": "https://cuet.ac.bd/student/organization/asce",
+  "section": "home",
+  "group": "organizations",
+  "section_path": [
+    "Student Organizations",
+    "ASCE Student Chaptar, CUET"
+  ],
+  "title": "ASCE Student Chaptar, CUET",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "home/organizations/asce__0e3e134c.html",
+  "markdown_path": "home/organizations/asce__0e3e134c.md",
+  "text_chars": 2919,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "asce",
+  "org_type": "academic"
+}

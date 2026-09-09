@@ -1,0 +1,31 @@
+{
+  "url": "https://cuet.ac.bd/department/cse",
+  "canonical_url": "https://cuet.ac.bd/department/cse",
+  "page_id": "6c8ce1d3201e08e2",
+  "doc_key": "https://cuet.ac.bd/department/cse",
+  "section": "academic",
+  "group": "departments",
+  "section_path": [
+    "Academic",
+    "Departments",
+    "Electrical & Computer Eng.",
+    "Computer Science & Engineering"
+  ],
+  "title": "Computer Science & Engineering",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "academic/departments/cse__6c8ce1d3.html",
+  "markdown_path": "academic/departments/cse__6c8ce1d3.md",
+  "text_chars": 4747,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "cse",
+  "entity_type": "academic",
+  "short_name": "CSE",
+  "email": "headcse@cuet.ac.bd",
+  "phone": "02-334490150, Ext: 2300"
+}

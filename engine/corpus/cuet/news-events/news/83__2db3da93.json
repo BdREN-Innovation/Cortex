@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/83",
+  "canonical_url": "https://cuet.ac.bd/news/83",
+  "page_id": "2db3da9373488c7d",
+  "doc_key": "https://cuet.ac.bd/news/83",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Field Visit to National Particle Accelerator Lab"
+  ],
+  "title": "Field Visit to National Particle Accelerator Lab",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/83__2db3da93.html",
+  "markdown_path": "news-events/news/83__2db3da93.md",
+  "text_chars": 390,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 83,
+  "date": "2024-12-10",
+  "headline_only": false
+}

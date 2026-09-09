@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/180",
+  "canonical_url": "https://cuet.ac.bd/news/180",
+  "page_id": "ef312edb47e290c5",
+  "doc_key": "https://cuet.ac.bd/news/180",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "CUET's 143rd Syndicate Meeting Held"
+  ],
+  "title": "CUET's 143rd Syndicate Meeting Held",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/180__ef312edb.html",
+  "markdown_path": "news-events/news/180__ef312edb.md",
+  "text_chars": 1624,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 180,
+  "date": "2026-05-14",
+  "headline_only": false
+}

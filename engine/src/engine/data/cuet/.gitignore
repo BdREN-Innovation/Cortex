@@ -1,5 +1,0 @@
-# Heavy binary data: PDFs (~428 MB) and raw API dump (~3.5 MB)
-# These are backed up on Google Drive — see repo README for the link.
-_files/
-_meta/api_dump.json
-_meta/chunk_cache/

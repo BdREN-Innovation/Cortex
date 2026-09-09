@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/55",
+  "canonical_url": "https://cuet.ac.bd/news/55",
+  "page_id": "994fd0deb3ba3041",
+  "doc_key": "https://cuet.ac.bd/news/55",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "AI in Telecommunication\" Symposium Engages ETE Students at CUET"
+  ],
+  "title": "AI in Telecommunication\" Symposium Engages ETE Students at CUET",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/55__994fd0de.html",
+  "markdown_path": "news-events/news/55__994fd0de.md",
+  "text_chars": 555,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 55,
+  "date": "2025-01-28",
+  "headline_only": false
+}

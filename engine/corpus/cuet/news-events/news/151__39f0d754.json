@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/151",
+  "canonical_url": "https://cuet.ac.bd/news/151",
+  "page_id": "39f0d7542baf6038",
+  "doc_key": "https://cuet.ac.bd/news/151",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "141th Syndicate Meeting held CUET."
+  ],
+  "title": "141th Syndicate Meeting held CUET.",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/151__39f0d754.html",
+  "markdown_path": "news-events/news/151__39f0d754.md",
+  "text_chars": 1553,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 151,
+  "date": "2025-11-25",
+  "headline_only": false
+}

@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/64",
+  "canonical_url": "https://cuet.ac.bd/news/64",
+  "page_id": "ef48d8fd9b02ff8c",
+  "doc_key": "https://cuet.ac.bd/news/64",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Seminar on \"Climate Change and Water Resources\""
+  ],
+  "title": "Seminar on \"Climate Change and Water Resources\"",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/64__ef48d8fd.html",
+  "markdown_path": "news-events/news/64__ef48d8fd.md",
+  "text_chars": 403,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 64,
+  "date": "2025-01-26",
+  "headline_only": false
+}

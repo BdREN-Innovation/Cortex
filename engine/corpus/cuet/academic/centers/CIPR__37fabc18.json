@@ -1,0 +1,30 @@
+{
+  "url": "https://cuet.ac.bd/centers/CIPR",
+  "canonical_url": "https://cuet.ac.bd/centers/CIPR",
+  "page_id": "37fabc1807db53af",
+  "doc_key": "https://cuet.ac.bd/centers/CIPR",
+  "section": "academic",
+  "group": "centers",
+  "section_path": [
+    "Academic",
+    "Centers",
+    "Center for Industrial Problems Research"
+  ],
+  "title": "Center for Industrial Problems Research",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "academic/centers/CIPR__37fabc18.html",
+  "markdown_path": "academic/centers/CIPR__37fabc18.md",
+  "text_chars": 1105,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "CIPR",
+  "entity_type": "center",
+  "short_name": "CIPR",
+  "email": "ipr@cuet.ac.bd",
+  "phone": null
+}

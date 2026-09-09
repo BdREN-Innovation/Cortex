@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/176",
+  "canonical_url": "https://cuet.ac.bd/news/176",
+  "page_id": "52bf775a1504bd3b",
+  "doc_key": "https://cuet.ac.bd/news/176",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Independence Day and National Day 2026 celebrated at CUET."
+  ],
+  "title": "Independence Day and National Day 2026 celebrated at CUET.",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/176__52bf775a.html",
+  "markdown_path": "news-events/news/176__52bf775a.md",
+  "text_chars": 1366,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 176,
+  "date": "2026-03-26",
+  "headline_only": false
+}

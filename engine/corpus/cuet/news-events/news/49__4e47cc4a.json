@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/49",
+  "canonical_url": "https://cuet.ac.bd/news/49",
+  "page_id": "4e47cc4ad9f2a191",
+  "doc_key": "https://cuet.ac.bd/news/49",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Conference on Resilient Architecture Held at CUET."
+  ],
+  "title": "Conference on Resilient Architecture Held at CUET.",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/49__4e47cc4a.html",
+  "markdown_path": "news-events/news/49__4e47cc4a.md",
+  "text_chars": 3556,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 49,
+  "date": "2024-12-18",
+  "headline_only": false
+}

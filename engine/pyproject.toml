@@ -30,8 +30,8 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/engine"]
-# Exclude scraped data from the wheel — it's runtime output, not distributable code.
-exclude = ["src/engine/data"]
+# No data exclusion needed: the captured corpus lives at engine/corpus/,
+# outside the package, so it is not a wheel input in the first place.
 
 [tool.black]
 line-length = 100

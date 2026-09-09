@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/97",
+  "canonical_url": "https://cuet.ac.bd/news/97",
+  "page_id": "76e9c368e1da4e34",
+  "doc_key": "https://cuet.ac.bd/news/97",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "CSE Department Launches Cutting-Edge Research Initiatives to Address Global Challenges"
+  ],
+  "title": "CSE Department Launches Cutting-Edge Research Initiatives to Address Global Challenges",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/97__76e9c368.html",
+  "markdown_path": "news-events/news/97__76e9c368.md",
+  "text_chars": 1513,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 97,
+  "date": "2025-01-18",
+  "headline_only": false
+}

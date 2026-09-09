@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/113",
+  "canonical_url": "https://cuet.ac.bd/news/113",
+  "page_id": "ccc67c2e90d174f7",
+  "doc_key": "https://cuet.ac.bd/news/113",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "IICT Hosts National Workshop on Cybersecurity Trends and Challenges"
+  ],
+  "title": "IICT Hosts National Workshop on Cybersecurity Trends and Challenges",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/113__ccc67c2e.html",
+  "markdown_path": "news-events/news/113__ccc67c2e.md",
+  "text_chars": 248,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 113,
+  "date": "2025-01-15",
+  "headline_only": false
+}

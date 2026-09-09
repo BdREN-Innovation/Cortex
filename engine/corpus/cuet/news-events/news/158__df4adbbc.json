@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/158",
+  "canonical_url": "https://cuet.ac.bd/news/158",
+  "page_id": "df4adbbc89f20e75",
+  "doc_key": "https://cuet.ac.bd/news/158",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "11th QAC meeting held at CUET"
+  ],
+  "title": "11th QAC meeting held at CUET",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/158__df4adbbc.html",
+  "markdown_path": "news-events/news/158__df4adbbc.md",
+  "text_chars": 1220,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 158,
+  "date": "2025-12-17",
+  "headline_only": false
+}

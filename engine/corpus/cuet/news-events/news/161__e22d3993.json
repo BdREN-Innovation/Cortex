@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/161",
+  "canonical_url": "https://cuet.ac.bd/news/161",
+  "page_id": "e22d39938a7ebf9f",
+  "doc_key": "https://cuet.ac.bd/news/161",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "CUET Observes Mourning and Holds Doa Mahfil for Former Prime Minister Begum Khaleda Zia."
+  ],
+  "title": "CUET Observes Mourning and Holds Doa Mahfil for Former Prime Minister Begum Khaleda Zia.",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/161__e22d3993.html",
+  "markdown_path": "news-events/news/161__e22d3993.md",
+  "text_chars": 525,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 161,
+  "date": "2026-01-02",
+  "headline_only": false
+}

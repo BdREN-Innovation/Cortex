@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/171",
+  "canonical_url": "https://cuet.ac.bd/news/171",
+  "page_id": "2d5de8f91b68b826",
+  "doc_key": "https://cuet.ac.bd/news/171",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "CUET VC congratulates and wishes Honorable Prime Minister Mr. Tarique Rahman."
+  ],
+  "title": "CUET VC congratulates and wishes Honorable Prime Minister Mr. Tarique Rahman.",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/171__2d5de8f9.html",
+  "markdown_path": "news-events/news/171__2d5de8f9.md",
+  "text_chars": 1031,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 171,
+  "date": "2026-02-17",
+  "headline_only": false
+}

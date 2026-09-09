@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/186",
+  "canonical_url": "https://cuet.ac.bd/news/186",
+  "page_id": "16a20cb34a9997a3",
+  "doc_key": "https://cuet.ac.bd/news/186",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Orientation program for undergraduate courses for the academic year 2025-26 held at CUET."
+  ],
+  "title": "Orientation program for undergraduate courses for the academic year 2025-26 held at CUET.",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/186__16a20cb3.html",
+  "markdown_path": "news-events/news/186__16a20cb3.md",
+  "text_chars": 2966,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 186,
+  "date": "2026-07-02",
+  "headline_only": false
+}

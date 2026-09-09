@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/107",
+  "canonical_url": "https://cuet.ac.bd/news/107",
+  "page_id": "65943cfb59326e00",
+  "doc_key": "https://cuet.ac.bd/news/107",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "IET Launches Renewable Energy Research Lab"
+  ],
+  "title": "IET Launches Renewable Energy Research Lab",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/107__65943cfb.html",
+  "markdown_path": "news-events/news/107__65943cfb.md",
+  "text_chars": 352,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 107,
+  "date": "2025-01-17",
+  "headline_only": false
+}

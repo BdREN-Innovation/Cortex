@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/89",
+  "canonical_url": "https://cuet.ac.bd/news/89",
+  "page_id": "3659f23a4c58e266",
+  "doc_key": "https://cuet.ac.bd/news/89",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Seminar on \"Advancements in Nuclear Energy and Safety\""
+  ],
+  "title": "Seminar on \"Advancements in Nuclear Energy and Safety\"",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/89__3659f23a.html",
+  "markdown_path": "news-events/news/89__3659f23a.md",
+  "text_chars": 362,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 89,
+  "date": "2025-01-12",
+  "headline_only": false
+}

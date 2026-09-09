@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/189",
+  "canonical_url": "https://cuet.ac.bd/news/189",
+  "page_id": "e130d0cfa541c35b",
+  "doc_key": "https://cuet.ac.bd/news/189",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "A meeting on IQAC's annual activities and work plan was held at CUET."
+  ],
+  "title": "A meeting on IQAC's annual activities and work plan was held at CUET.",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/189__e130d0cf.html",
+  "markdown_path": "news-events/news/189__e130d0cf.md",
+  "text_chars": 1361,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 189,
+  "date": "2026-07-14",
+  "headline_only": false
+}

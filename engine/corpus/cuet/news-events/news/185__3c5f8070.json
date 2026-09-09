@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/185",
+  "canonical_url": "https://cuet.ac.bd/news/185",
+  "page_id": "3c5f8070d347ad1c",
+  "doc_key": "https://cuet.ac.bd/news/185",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Farewell and welcome ceremony completed at CUET's URP department ."
+  ],
+  "title": "Farewell and welcome ceremony completed at CUET's URP department .",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/185__3c5f8070.html",
+  "markdown_path": "news-events/news/185__3c5f8070.md",
+  "text_chars": 729,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 185,
+  "date": "2026-06-26",
+  "headline_only": false
+}

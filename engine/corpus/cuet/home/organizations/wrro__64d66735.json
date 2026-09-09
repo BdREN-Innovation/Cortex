@@ -1,0 +1,26 @@
+{
+  "url": "https://cuet.ac.bd/student/organization/wrro",
+  "canonical_url": "https://cuet.ac.bd/student/organization/wrro",
+  "page_id": "64d6673576136707",
+  "doc_key": "https://cuet.ac.bd/student/organization/wrro",
+  "section": "home",
+  "group": "organizations",
+  "section_path": [
+    "Student Organizations",
+    "Water Resources and Research Organization"
+  ],
+  "title": "Water Resources and Research Organization",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "home/organizations/wrro__64d66735.html",
+  "markdown_path": "home/organizations/wrro__64d66735.md",
+  "text_chars": 2351,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "wrro",
+  "org_type": "academic"
+}

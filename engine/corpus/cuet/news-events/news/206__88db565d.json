@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/206",
+  "canonical_url": "https://cuet.ac.bd/news/206",
+  "page_id": "88db565d9cf4c40d",
+  "doc_key": "https://cuet.ac.bd/news/206",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Meherunnesa Prima MSc Thesis Defence"
+  ],
+  "title": "Meherunnesa Prima MSc Thesis Defence",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/206__88db565d.html",
+  "markdown_path": "news-events/news/206__88db565d.md",
+  "text_chars": 1439,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 206,
+  "date": "2026-08-13",
+  "headline_only": false
+}

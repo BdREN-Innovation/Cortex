@@ -1,0 +1,26 @@
+{
+  "url": "https://cuet.ac.bd/academic-information/undergraduate-studies",
+  "canonical_url": "https://cuet.ac.bd/academic-information/undergraduate-studies",
+  "page_id": "0c81d7f3b4107f6f",
+  "doc_key": "https://cuet.ac.bd/academic-information/undergraduate-studies",
+  "section": "_cms",
+  "group": "",
+  "section_path": [
+    "CMS",
+    "undergraduate_prospective"
+  ],
+  "title": "academic-information / undergraduate-studies",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "_cms/undergraduate-studies__0c81d7f3.html",
+  "markdown_path": "_cms/undergraduate-studies__0c81d7f3.md",
+  "text_chars": 7512,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "cms_key": "undergraduate_prospective",
+  "renders_page": "/academic-information/undergraduate-studies"
+}

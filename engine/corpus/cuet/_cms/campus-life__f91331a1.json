@@ -1,0 +1,26 @@
+{
+  "url": "https://cuet.ac.bd/about/campus-life",
+  "canonical_url": "https://cuet.ac.bd/about/campus-life",
+  "page_id": "f91331a1bb6e5a64",
+  "doc_key": "https://cuet.ac.bd/about/campus-life",
+  "section": "_cms",
+  "group": "",
+  "section_path": [
+    "CMS",
+    "campus_life"
+  ],
+  "title": "about / campus-life",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "_cms/campus-life__f91331a1.html",
+  "markdown_path": "_cms/campus-life__f91331a1.md",
+  "text_chars": 3683,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "cms_key": "campus_life",
+  "renders_page": "/about/campus-life"
+}

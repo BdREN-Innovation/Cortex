@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/65",
+  "canonical_url": "https://cuet.ac.bd/news/65",
+  "page_id": "1ce9fca2e13aef11",
+  "doc_key": "https://cuet.ac.bd/news/65",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Workshop on \"Advanced Manufacturing Technologies\""
+  ],
+  "title": "Workshop on \"Advanced Manufacturing Technologies\"",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/65__1ce9fca2.html",
+  "markdown_path": "news-events/news/65__1ce9fca2.md",
+  "text_chars": 462,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 65,
+  "date": "2025-01-12",
+  "headline_only": false
+}

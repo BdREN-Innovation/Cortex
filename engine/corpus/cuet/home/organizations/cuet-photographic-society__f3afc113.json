@@ -1,0 +1,26 @@
+{
+  "url": "https://cuet.ac.bd/student/organization/cuet-photographic-society",
+  "canonical_url": "https://cuet.ac.bd/student/organization/cuet-photographic-society",
+  "page_id": "f3afc113618bad22",
+  "doc_key": "https://cuet.ac.bd/student/organization/cuet-photographic-society",
+  "section": "home",
+  "group": "organizations",
+  "section_path": [
+    "Student Organizations",
+    "CUET Photographic Society"
+  ],
+  "title": "CUET Photographic Society",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "home/organizations/cuet-photographic-society__f3afc113.html",
+  "markdown_path": "home/organizations/cuet-photographic-society__f3afc113.md",
+  "text_chars": 57,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "cuet-photographic-society",
+  "org_type": "academic"
+}

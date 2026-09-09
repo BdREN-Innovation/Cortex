@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/174",
+  "canonical_url": "https://cuet.ac.bd/news/174",
+  "page_id": "cac76e4b5209d39d",
+  "doc_key": "https://cuet.ac.bd/news/174",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "চুয়েটে ‘উচ্চশিক্ষা ও গবেষণা কমিটি’র ৫১তম সভা অনুষ্ঠিত"
+  ],
+  "title": "চুয়েটে ‘উচ্চশিক্ষা ও গবেষণা কমিটি’র ৫১তম সভা অনুষ্ঠিত",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/news/174__cac76e4b.html",
+  "markdown_path": "news-events/news/174__cac76e4b.md",
+  "text_chars": 641,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 174,
+  "date": "2026-03-11",
+  "headline_only": false
+}

@@ -1,0 +1,31 @@
+{
+  "url": "https://cuet.ac.bd/event-details/138",
+  "canonical_url": "https://cuet.ac.bd/event-details/138",
+  "page_id": "147b9f00e7fe235f",
+  "doc_key": "https://cuet.ac.bd/event-details/138",
+  "section": "news-events",
+  "group": "event-details",
+  "section_path": [
+    "News & Events",
+    "Events",
+    "1st International Conference on Integrated Urban and Regional Planning (ICIURP 2027)."
+  ],
+  "title": "1st International Conference on Integrated Urban and Regional Planning (ICIURP 2027).",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T14:22:02Z",
+  "html_path": "news-events/event-details/138__147b9f00.html",
+  "markdown_path": "news-events/event-details/138__147b9f00.md",
+  "text_chars": 1432,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "event_id": 138,
+  "from": "28 January 2027",
+  "to": "29 January 2027",
+  "location": null,
+  "link": "https://iciurp.cuet.ac.bd/",
+  "headline_only": false
+}
