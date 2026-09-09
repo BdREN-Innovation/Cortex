@@ -76,6 +76,24 @@ uv run python scripts/progress.py     # 0/54 — this is the assignment
 uv run engine --help                  # the CLI wiring is already in place
 ```
 
+### Restore gitignored data
+
+Some files are too large for Git (scraped PDFs, raw API dumps, scraper specs).
+They are stored on Google Drive:
+
+> **[📁 Cortex — Gitignored Data (Google Drive)](https://drive.google.com/drive/folders/1FhWXKBVmA1X_y4S0mvD5qgIQgtiZ7xVA)**
+
+Download the folders and place them at these paths:
+
+| Drive Folder             | Restore To (relative to repo root)    |
+|--------------------------|---------------------------------------|
+| `01_scraped_documents/*` | `cuet_scraper/cuet_data/_files/`      |
+| `02_api_metadata/*`      | `cuet_scraper/cuet_data/_meta/`       |
+| `03_scraper_specs/*`     | repo root (`Cortex/`)                 |
+
+The Drive folder contains a `README.md` with full details on what each file is,
+the naming conventions, and important notes for the embedding team.
+
 ---
 
 ## 2. Working with uv
