@@ -1,0 +1,49 @@
+{
+  "url": "https://cuet.ac.bd/department/cse/academic/postgraduate",
+  "canonical_url": "https://cuet.ac.bd/department/cse/academic/postgraduate",
+  "page_id": "58da73b753f01e81",
+  "doc_key": "https://cuet.ac.bd/department/cse/academic/postgraduate",
+  "section": "academic",
+  "group": "departments",
+  "section_path": [
+    "Academic",
+    "Departments",
+    "postgraduate"
+  ],
+  "title": "Chittagong University of Engineering and Technology.",
+  "source": "browser",
+  "status": 200,
+  "fetched_at": "2026-09-09T17:21:53Z",
+  "html_path": "academic/departments/postgraduate__58da73b7.html",
+  "markdown_path": "academic/departments/postgraduate__58da73b7.md",
+  "text_chars": 12815,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 7,
+  "double_escaped": false,
+  "files": [
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf"
+    },
+    {
+      "url": "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+    }
+  ],
+  "planned_reason": "per-department academic page; verified real for EEE",
+  "content_state": "placeholder"
+}

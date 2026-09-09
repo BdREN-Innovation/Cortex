@@ -149,7 +149,6 @@ def to_clean_document(meta: dict) -> CleanDocument:
     )
 
 
-
 def run(dump: dict, out: Path | None = None,
         portions: list[str] | None = None) -> Stage2Result:
     """Build and write one portion's documents, plus its shard.
@@ -173,36 +172,121 @@ def run(dump: dict, out: Path | None = None,
     selected = portions or list(portion_names())
     log.info("content: building portion(s) %s", ", ".join(selected))
 
-    for builder in builders_for(portions):
-        before = len(result.documents)
-        builder(dump, result)
-        log.info("%-28s produced %4d documents", builder.__name__,
-                 len(result.documents) - before)
+    (out / "_meta").mkdir(parents=True, exist_ok=True)
 
-    meta_dir = out / "_meta"
-    meta_dir.mkdir(parents=True, exist_ok=True)
+    # ONE SHARD PER PORTION, always - even when this run builds all four.
+    #
+    # An earlier version wrote a single shard named after everything it built,
+    # so a full run produced `academic+general+news-events+notices.json` while
+    # the four per-portion shards from previous runs stayed on disk. The merge
+    # then read the same documents twice and reported duplicate ids as
+    # warnings, which is a corpus assembled from files that disagree about how
+    # many there are.
+    #
+    # Building portion by portion also makes a full run and four separate runs
+    # produce byte-identical files, which is the property the whole shard
+    # design exists for: what is on disk must not depend on how somebody
+    # happened to invoke the tool.
+    combined = Stage2Result()
+    for name in selected:
+        portion = Stage2Result()
+        for builder in builders_for([name]):
+            before = len(portion.documents)
+            builder(dump, portion)
+            log.info("%-28s produced %4d documents", builder.__name__,
+                     len(portion.documents) - before)
 
-    rows = []
-    for doc in result.documents:
-        # A document whose HTML yields no text is not a document. This happens
-        # for records that carry only a banner image, and for events whose
-        # description is an empty <p>. Dropping them here beats writing a row
-        # that fails CleanDocument.validate() downstream — and it is NOT the
-        # thin-page filtering spec §4.4 forbids, because the raw payload is
-        # still in _meta/api_dump.json and nothing has been discarded.
-        if not to_markdown(doc.html).strip():
-            log.info("skipping %s: no text after conversion", doc.key)
-            result.warnings.append(f"empty_document:{doc.key}")
-            continue
-        rows.append(write_document(doc, out, fetched_at))
+        rows = []
+        for doc in portion.documents:
+            # A document whose HTML yields no text is not a document. This
+            # happens for records that carry only a banner image, and for
+            # events whose description is an empty <p>. Dropping them here
+            # beats writing a row that fails CleanDocument.validate()
+            # downstream - and it is NOT the thin-page filtering spec 4.4
+            # forbids, because the raw payload is still in
+            # _meta/api_dump.json and nothing has been discarded.
+            if not to_markdown(doc.html).strip():
+                log.info("skipping %s: no text after conversion", doc.key)
+                portion.warnings.append(f"empty_document:{doc.key}")
+                continue
+            rows.append(write_document(doc, out, fetched_at))
 
-    write_shard(out, selected, rows, result)
-    result.rows = rows
+        write_shard(out, [name], rows, portion)
+        _fold_into(combined, portion, rows)
+
+    result = combined
     log.info("content: %d documents across %d portion(s), "
              "%d files discovered, %d pages discovered",
-             len(rows), len(selected), len(result.found_files),
+             len(result.rows), len(selected), len(result.found_files),
              len(result.found_pages))
     return result
+
+
+def _fold_into(combined: Stage2Result, portion: Stage2Result,
+               rows: list[dict]) -> None:
+    """Accumulate one portion's output into the run's combined result.
+
+    The return value of `run` is what callers and tests read, so it still has
+    to describe the whole run even though the files are written per portion.
+
+    `linked_from` is unioned rather than overwritten, for the same reason
+    `harvest` accumulates it: the same PDF is linked from pages in several
+    portions, and keeping only the last one seen loses every other source.
+    """
+    combined.documents.extend(portion.documents)
+    combined.rows.extend(rows)
+    combined.warnings.extend(portion.warnings)
+    combined.found_pages |= portion.found_pages
+    for url, record in portion.found_files.items():
+        existing = combined.found_files.get(url)
+        if existing is None:
+            combined.found_files[url] = dict(record)
+            continue
+        merged = list(existing.get("linked_from", []))
+        for source in record.get("linked_from", []):
+            if source not in merged:
+                merged.append(source)
+        existing["linked_from"] = merged
+
+
+def rows_on_disk(out: Path, *, source: str) -> list[dict]:
+    """Re-read every document already written with the given `source`.
+
+    Stage 2 rebuilds a whole portion every time it runs, so its shard can be
+    written from the rows it just produced. **Stage 4 cannot**, because it is
+    resumable: it skips URLs already captured, so its rows hold only the pages
+    rendered on this run. Writing the shard from those alone drops every page
+    captured previously, which is silent data loss, not a stale count.
+
+    That is not hypothetical. A three-page smoke test after three listing pages
+    had already been captured left a shard with three documents and six
+    documents on disk.
+
+    Reading the sidecars back makes the shard a function of what exists rather
+    than of what this run happened to do, which is correct under `--limit`,
+    `--section` and an interrupted run alike.
+    """
+    rows: list[dict] = []
+    skip = {"_meta", "_shards", "_files"}
+    for path in sorted(out.rglob("*.json")):
+        if skip & set(path.relative_to(out).parts):
+            continue
+        try:
+            meta = json.loads(path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            log.warning("skipping unreadable sidecar %s", path)
+            continue
+        if not isinstance(meta, dict) or meta.get("source") != source:
+            continue
+        markdown = out / meta.get("markdown_path", "")
+        if not markdown.is_file():
+            log.warning("%s has no markdown at %s; skipping",
+                        path.name, meta.get("markdown_path"))
+            continue
+        meta["_text"] = markdown.read_text(encoding="utf-8")
+        meta["_json_path"] = path
+        rows.append(meta)
+    return rows
 
 
 def write_shard(out: Path, portions: list[str], rows: list[dict],

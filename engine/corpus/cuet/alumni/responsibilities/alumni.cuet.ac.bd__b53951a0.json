@@ -1,0 +1,27 @@
+{
+  "url": "https://alumni.cuet.ac.bd/",
+  "canonical_url": "https://alumni.cuet.ac.bd",
+  "page_id": "b53951a01d6350d1",
+  "doc_key": "https://alumni.cuet.ac.bd/?_responsibility=scholarship",
+  "section": "alumni",
+  "group": "responsibilities",
+  "section_path": [
+    "Alumni",
+    "Responsibilities",
+    "Scholarship"
+  ],
+  "title": "Scholarship",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T18:07:21Z",
+  "html_path": "alumni/responsibilities/alumni.cuet.ac.bd__b53951a0.html",
+  "markdown_path": "alumni/responsibilities/alumni.cuet.ac.bd__b53951a0.md",
+  "text_chars": 103,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "scholarship",
+  "site": "alumni"
+}

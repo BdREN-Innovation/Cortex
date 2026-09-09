@@ -1,0 +1,49 @@
+{
+  "url": "https://cuet.ac.bd/academic-information",
+  "canonical_url": "https://cuet.ac.bd/academic-information",
+  "page_id": "65adce1ff0af7585",
+  "doc_key": "https://cuet.ac.bd/academic-information",
+  "section": "academic",
+  "group": "information",
+  "section_path": [
+    "Academic",
+    "Information",
+    "academic-information"
+  ],
+  "title": "Academic Information | CUET",
+  "source": "browser",
+  "status": 200,
+  "fetched_at": "2026-09-09T07:28:38Z",
+  "html_path": "academic/information/academic-information__65adce1f.html",
+  "markdown_path": "academic/information/academic-information__65adce1f.md",
+  "text_chars": 24655,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 7,
+  "double_escaped": false,
+  "files": [
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf"
+    },
+    {
+      "url": "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf"
+    }
+  ],
+  "planned_reason": "landing page, no endpoint found",
+  "content_state": "published"
+}

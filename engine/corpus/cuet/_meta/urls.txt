@@ -1,4 +1,5 @@
 https://cuet.ac.bd	# homepage; fully server-rendered, but the only source for its own layout
+https://cuet.ac.bd/academic-information/academic-calendars	# real page, no endpoint; the 3 calendar notices are separate from it
 https://cuet.ac.bd/academic-information	# landing page, no endpoint found
 https://cuet.ac.bd/academic-information/international-students	# no endpoint found
 https://cuet.ac.bd/admission	# no endpoint found
@@ -14,53 +15,41 @@ https://cuet.ac.bd/departments	# listing page; the 18 entities are already captu
 https://cuet.ac.bd/faculty	# listing page
 https://cuet.ac.bd/institutes	# listing page
 https://cuet.ac.bd/centers	# listing page
-https://cuet.ac.bd/profile/faculty-member/mohammad-jashim-uddin	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/dr-muhammad-rashidul-hasan	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/mizanur-rahman	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/dr-mohammad-abu-kauser	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/qdhossain_94	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/prof-dr-asiful-hoque	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/dr-sudip-kumar-pal	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/chairman	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/dr-nusrat-hoque	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/dr-md-ibrahim-khan	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/dr-jamal-uddin-ahamed	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/dr-md-rabiul-alam	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/nur-mohammad	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/MMRoshid	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/shah-alam	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/yahmed	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/dr-md-ashraf-ali	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/dr-suman-dey	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/dr-fowzia-gulshana-rashid-lopa	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/sajal_chowdhury	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/dr-prasanjit-das	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/dr-abu-shadat-muhammad-sayem	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/dr-muhammad-mostafa-kamal-bhuiya	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/Farzana_Rahman_Zuthi	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/dr-maruful-hasan-mazumder	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/dr-md-reaz-akter-mullick	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/nipu-das	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/dr-tofael-ahmed	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/dr-pranab-kumar-dhar	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/profile/faculty-member/dr-md-jahedul-islam	# head's profile page; no API endpoint, found by the Appendix B diff
-https://cuet.ac.bd/dept/NE/postgraduate	# per-department page with no API coverage
-https://cuet.ac.bd/dept/MME/postgraduate	# per-department page with no API coverage
-https://cuet.ac.bd/dept/Mathematics/postgraduate	# per-department page with no API coverage
-https://cuet.ac.bd/dept/Chemistry/postgraduate	# per-department page with no API coverage
-https://cuet.ac.bd/dept/Physics/postgraduate	# per-department page with no API coverage
-https://cuet.ac.bd/dept/hum/postgraduate	# per-department page with no API coverage
-https://cuet.ac.bd/dept/URP/postgraduate	# per-department page with no API coverage
-https://cuet.ac.bd/dept/Architecture/postgraduate	# per-department page with no API coverage
-https://cuet.ac.bd/dept/MIE/postgraduate	# per-department page with no API coverage
-https://cuet.ac.bd/dept/PME/postgraduate	# per-department page with no API coverage
-https://cuet.ac.bd/dept/ME/postgraduate	# per-department page with no API coverage
-https://cuet.ac.bd/dept/WRE/postgraduate	# per-department page with no API coverage
-https://cuet.ac.bd/dept/DEM/postgraduate	# per-department page with no API coverage
-https://cuet.ac.bd/dept/CE/postgraduate	# per-department page with no API coverage
-https://cuet.ac.bd/dept/BME/postgraduate	# per-department page with no API coverage
-https://cuet.ac.bd/dept/EEE/postgraduate	# per-department page with no API coverage
-https://cuet.ac.bd/dept/cse/postgraduate	# per-department page with no API coverage
-https://cuet.ac.bd/dept/ETE/postgraduate	# per-department page with no API coverage
+https://cuet.ac.bd/department/NE/academic/postgraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/NE/academic/undergraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/MME/academic/postgraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/MME/academic/undergraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/Mathematics/academic/postgraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/Mathematics/academic/undergraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/Chemistry/academic/postgraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/Chemistry/academic/undergraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/Physics/academic/postgraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/Physics/academic/undergraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/hum/academic/postgraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/hum/academic/undergraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/URP/academic/postgraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/URP/academic/undergraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/Architecture/academic/postgraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/Architecture/academic/undergraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/MIE/academic/postgraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/MIE/academic/undergraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/PME/academic/postgraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/PME/academic/undergraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/ME/academic/postgraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/ME/academic/undergraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/WRE/academic/postgraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/WRE/academic/undergraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/DEM/academic/postgraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/DEM/academic/undergraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/CE/academic/postgraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/CE/academic/undergraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/BME/academic/postgraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/BME/academic/undergraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/EEE/academic/postgraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/EEE/academic/undergraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/cse/academic/postgraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/cse/academic/undergraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/ETE/academic/postgraduate	# per-department academic page; verified real for EEE
+https://cuet.ac.bd/department/ETE/academic/undergraduate	# per-department academic page; verified real for EEE
 https://admissioncuet.ac.bd	# separate host; not scanned for an API of its own (spec §13 Q9)
 https://admissioncuet.ac.bd/about-us	# separate host; not scanned for an API of its own (spec §13 Q9)

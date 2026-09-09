@@ -29,7 +29,10 @@ import logging
 from datetime import datetime, timezone
 from pathlib import Path
 
+from urllib.parse import urlsplit
+
 from . import config, handover
+from .paths import canonical
 from .content import SHARDS
 
 log = logging.getLogger(__name__)
@@ -63,6 +66,52 @@ def load_shards(out: Path) -> list[dict]:
         log.info("shard %-24s %5d documents", path.name,
                  len(shards[-1].get("documents", [])))
     return shards
+
+
+
+def write_known_gaps(out: Path, planned: dict[str, str],
+                     captured: set[str]) -> Path:
+    """State, in the corpus, what is missing and why.
+
+    A corpus that is silently short of two pages looks the same as one that is
+    complete. Anyone reading it later - Team B, or whoever picks this up next
+    term - has no way to tell an unreachable host from an oversight unless the
+    corpus says so itself.
+
+    So the gap is written down next to the data rather than left in a commit
+    message or a person's memory. Each entry names the URL, the reason, and
+    whether anything can be done about it.
+    """
+    entries = []
+    for url, why in sorted(planned.items()):
+        if url in captured:
+            continue
+        host = urlsplit(url).netloc
+        reason = config.UNRESOLVABLE_HOSTS.get(host)
+        entries.append({
+            "url": url,
+            "planned_because": why,
+            "state": "unreachable" if reason else "not captured",
+            "reason": reason or "planned but not captured; see _meta/errors.json",
+            "actionable": not reason,
+        })
+
+    payload = {
+        "note": ("Planned URLs that are not in the corpus, with the reason for "
+                 "each. An entry with actionable=false cannot be fixed by "
+                 "re-running: the host does not resolve."),
+        "generated_by": "--stage merge",
+        "count": len(entries),
+        "gaps": entries,
+    }
+    path = out / "_meta" / "known_gaps.json"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2),
+                    encoding="utf-8")
+    if entries:
+        log.info("known gaps: %d planned URL(s) not captured, reasons in %s",
+                 len(entries), path.name)
+    return path
 
 
 def run(out: Path | None = None) -> dict:
@@ -131,6 +180,19 @@ def run(out: Path | None = None) -> dict:
                    ensure_ascii=False, indent=2), encoding="utf-8")
     (meta_dir / "found_pages.txt").write_text(
         "\n".join(sorted(found_pages)) + "\n", encoding="utf-8")
+
+    # Written before the README so the README can quote a settled number.
+    planned: dict[str, str] = {}
+    plan_path = out / "_meta" / "urls.txt"
+    if plan_path.exists():
+        for line in plan_path.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            url, _, why = line.partition("\t")
+            planned[canonical(url.strip())] = why.lstrip("# ").strip()
+    write_known_gaps(out, planned,
+                     {canonical(d["canonical_url"]) for d in ordered_docs})
 
     handover.write_readme(out)
     handover.write_manifest(

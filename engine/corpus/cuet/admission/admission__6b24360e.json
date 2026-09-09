@@ -1,0 +1,123 @@
+{
+  "url": "https://cuet.ac.bd/admission",
+  "canonical_url": "https://cuet.ac.bd/admission",
+  "page_id": "6b24360ec040e69b",
+  "doc_key": "https://cuet.ac.bd/admission",
+  "section": "admission",
+  "group": "",
+  "section_path": [
+    "Admission",
+    "admission"
+  ],
+  "title": "Admission - CUET",
+  "source": "browser",
+  "status": 200,
+  "fetched_at": "2026-09-09T07:30:17Z",
+  "html_path": "admission/admission__6b24360e.html",
+  "markdown_path": "admission/admission__6b24360e.md",
+  "text_chars": 20417,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 32,
+  "double_escaped": false,
+  "files": [
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9fcbc103ee7.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9658235b26a.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a95b2cceee56.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a97c280ce17c.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9e43141c1d1.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9547e6376ea.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9e3ffda69c9.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a97c2c31dab7.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9547321292c.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a904767f03a7.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a8d614660d2e.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9063ff3c05c.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a952512d0c04.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9547126abc8.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a904896771d7.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9547409f807.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9fcf839188d.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a97acedbeb86.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a999cccbc09f.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9684c7eb76e.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf"
+    },
+    {
+      "url": "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a93b3e89dbb9.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9fd352aa049.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9509dfefb37.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a96589f8ce08.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a96584727c44.pdf"
+    }
+  ],
+  "planned_reason": "no endpoint found",
+  "content_state": "published"
+}

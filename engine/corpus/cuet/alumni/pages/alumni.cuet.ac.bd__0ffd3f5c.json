@@ -1,0 +1,27 @@
+{
+  "url": "https://alumni.cuet.ac.bd/",
+  "canonical_url": "https://alumni.cuet.ac.bd",
+  "page_id": "0ffd3f5c9b1d6723",
+  "doc_key": "https://alumni.cuet.ac.bd/?_key=privacy_policy",
+  "section": "alumni",
+  "group": "pages",
+  "section_path": [
+    "Alumni",
+    "Privacy Policy"
+  ],
+  "title": "Privacy Policy",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T18:07:21Z",
+  "html_path": "alumni/pages/alumni.cuet.ac.bd__0ffd3f5c.html",
+  "markdown_path": "alumni/pages/alumni.cuet.ac.bd__0ffd3f5c.md",
+  "text_chars": 58,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "cms_key": "privacy_policy",
+  "renders_page": "/",
+  "site": "alumni"
+}

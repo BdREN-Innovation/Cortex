@@ -1,0 +1,28 @@
+{
+  "url": "https://alumni.cuet.ac.bd/news/149",
+  "canonical_url": "https://alumni.cuet.ac.bd/news/149",
+  "page_id": "ac4b6ca7a79359af",
+  "doc_key": "https://alumni.cuet.ac.bd/news/149",
+  "section": "alumni",
+  "group": "news",
+  "section_path": [
+    "Alumni",
+    "News",
+    "CUET Alumni Lead Research in Renewable Energy"
+  ],
+  "title": "CUET Alumni Lead Research in Renewable Energy",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T18:07:21Z",
+  "html_path": "alumni/news/149__ac4b6ca7.html",
+  "markdown_path": "alumni/news/149__ac4b6ca7.md",
+  "text_chars": 177,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 149,
+  "date": "2025-11-04",
+  "site": "alumni"
+}

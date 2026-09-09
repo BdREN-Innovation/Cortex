@@ -1,0 +1,28 @@
+{
+  "url": "https://alumni.cuet.ac.bd/news/148",
+  "canonical_url": "https://alumni.cuet.ac.bd/news/148",
+  "page_id": "f7c09392c7671c90",
+  "doc_key": "https://alumni.cuet.ac.bd/news/148",
+  "section": "alumni",
+  "group": "news",
+  "section_path": [
+    "Alumni",
+    "News",
+    "Alumni Give Back: Scholarship Fund Launched"
+  ],
+  "title": "Alumni Give Back: Scholarship Fund Launched",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T18:07:21Z",
+  "html_path": "alumni/news/148__f7c09392.html",
+  "markdown_path": "alumni/news/148__f7c09392.md",
+  "text_chars": 154,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 148,
+  "date": "2025-11-01",
+  "site": "alumni"
+}

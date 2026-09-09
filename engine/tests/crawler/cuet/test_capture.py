@@ -83,3 +83,65 @@ def test_not_found_does_not_fire_on_a_real_page_mentioning_404():
     body = ("Computer Science & Engineering. " * 40
             + "Our web course covers error handling and the 404 status code.")
     assert not looks_not_found(body)
+
+
+# --------------------------------------------------------------------------
+# The 404-below-the-fold bug, 2026-09-09
+# --------------------------------------------------------------------------
+
+def _site_404(prefix_chars: int = 14_000) -> str:
+    """The site's 404 as it actually renders: full chrome, error in the middle.
+
+    This shape is the whole problem. The not-found block sits below the entire
+    navigation, so a check that only reads the opening sees nothing but a
+    perfectly ordinary page.
+    """
+    chrome = "Chittagong University of Engineering and Technology. " * 400
+    return (chrome[:prefix_chars]
+            + "\n# 4 0 4\nThe page you were looking for could not be found.\n"
+            + "[Return to home page](/)\n" + chrome[:2000])
+
+
+def test_a_404_rendered_below_the_navigation_is_detected():
+    """Eighteen /dept/<slug>/postgraduate pages were saved as real documents
+    because the marker check stopped after the first 600 characters."""
+    assert looks_not_found(_site_404())
+
+
+def test_a_404_is_detected_however_far_down_it_sits():
+    assert looks_not_found(_site_404(prefix_chars=40_000))
+
+
+def test_the_other_wording_of_the_error_is_detected():
+    assert looks_not_found("nav nav nav\n\nOops! Page Not Found\n\nfooter")
+
+
+def test_a_real_page_discussing_404s_is_still_not_a_404():
+    """The reason the loose markers stay confined to the opening. Widening
+    them to the whole document would discard real content."""
+    body = ("Computer Science & Engineering. " * 60
+            + "The web course covers error handling and the 404 status code. "
+            + "Students learn why a 404 differs from a 500.")
+    assert not looks_not_found(body)
+
+
+def test_a_404_page_would_never_have_passed_the_length_check():
+    """Length cannot substitute for content detection here.
+
+    The site's 404 carries the full layout, so it comfortably exceeds
+    EMPTY_RENDER_THRESHOLD. All eighteen were byte-identical at 11,552
+    characters of stored text and passed on crawl4ai's larger markdown.
+    """
+    page = _site_404()
+    assert len(page) > config.EMPTY_RENDER_THRESHOLD
+    assert not render_failed(page, "<div>no empty table here</div>")[0]
+    assert looks_not_found(page)
+
+
+def test_no_per_department_subpage_template_is_configured():
+    """The route the spec called the one per-department page does not exist.
+
+    Verified by rendering all eighteen: every one returns the site's 404. Left
+    as a test so re-adding it requires a deliberate change here too.
+    """
+    assert config.DEPT_SUBPAGE_TEMPLATES == ()

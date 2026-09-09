@@ -1,0 +1,48 @@
+{
+  "url": "https://cuet.ac.bd/profile/faculty-member/Dr-Md-Aftabur-Rahman",
+  "canonical_url": "https://cuet.ac.bd/profile/faculty-member/Dr-Md-Aftabur-Rahman",
+  "page_id": "58e4702b5624ee71",
+  "doc_key": "https://cuet.ac.bd/profile/faculty-member/Dr-Md-Aftabur-Rahman",
+  "section": "academic",
+  "group": "profiles",
+  "section_path": [
+    "Academic",
+    "Faculty",
+    "Civil Engineering",
+    "Md. Aftabur Rahman"
+  ],
+  "title": "Md. Aftabur Rahman",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T18:07:21Z",
+  "html_path": "academic/profiles/Dr-Md-Aftabur-Rahman__58e4702b.html",
+  "markdown_path": "academic/profiles/Dr-Md-Aftabur-Rahman__58e4702b.md",
+  "text_chars": 3074,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 1,
+  "double_escaped": false,
+  "files": [
+    {
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/69e08eba8d5d3.pdf"
+    }
+  ],
+  "slug": "Dr-Md-Aftabur-Rahman",
+  "department": "Civil Engineering",
+  "employee_status": "running",
+  "admin_type": "faculty_member",
+  "private_fields_dropped": [
+    "nid",
+    "date_of_birth",
+    "blood_group",
+    "father_name",
+    "mother_name",
+    "permanent_address",
+    "religion",
+    "file_no",
+    "prl_date",
+    "district_id",
+    "profile.personal_email",
+    "profile.address"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "url": "https://cuet.ac.bd/profile/faculty-member/nur-mohammad",
+  "canonical_url": "https://cuet.ac.bd/profile/faculty-member/nur-mohammad",
+  "page_id": "44edb14f870bb764",
+  "doc_key": "https://cuet.ac.bd/profile/faculty-member/nur-mohammad",
+  "section": "academic",
+  "group": "profiles",
+  "section_path": [
+    "Academic",
+    "Faculty",
+    "Electrical and Electronic Engineering",
+    "Dr. Nur Mohammad"
+  ],
+  "title": "Dr. Nur Mohammad",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T18:07:21Z",
+  "html_path": "academic/profiles/nur-mohammad__44edb14f.html",
+  "markdown_path": "academic/profiles/nur-mohammad__44edb14f.md",
+  "text_chars": 5040,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 2,
+  "double_escaped": false,
+  "files": [
+    {
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/68ce1925d52e1.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/68ce1aa4c0295.pdf"
+    }
+  ],
+  "slug": "nur-mohammad",
+  "department": "Electrical and Electronic Engineering",
+  "employee_status": "running",
+  "admin_type": "faculty_member",
+  "private_fields_dropped": [
+    "nid",
+    "date_of_birth",
+    "blood_group",
+    "father_name",
+    "mother_name",
+    "permanent_address",
+    "religion",
+    "file_no",
+    "prl_date",
+    "district_id",
+    "profile.personal_email",
+    "profile.address"
+  ]
+}

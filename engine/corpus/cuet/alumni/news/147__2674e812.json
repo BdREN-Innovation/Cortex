@@ -1,0 +1,28 @@
+{
+  "url": "https://alumni.cuet.ac.bd/news/147",
+  "canonical_url": "https://alumni.cuet.ac.bd/news/147",
+  "page_id": "2674e81217e356f6",
+  "doc_key": "https://alumni.cuet.ac.bd/news/147",
+  "section": "alumni",
+  "group": "news",
+  "section_path": [
+    "Alumni",
+    "News",
+    "Alumni Meet 2025: Networking and Career Growth"
+  ],
+  "title": "Alumni Meet 2025: Networking and Career Growth",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T18:07:21Z",
+  "html_path": "alumni/news/147__2674e812.html",
+  "markdown_path": "alumni/news/147__2674e812.md",
+  "text_chars": 159,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 147,
+  "date": "2025-11-02",
+  "site": "alumni"
+}

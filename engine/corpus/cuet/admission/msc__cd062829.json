@@ -1,0 +1,48 @@
+{
+  "url": "https://cuet.ac.bd/admission/msc",
+  "canonical_url": "https://cuet.ac.bd/admission/msc",
+  "page_id": "cd0628295fc6a626",
+  "doc_key": "https://cuet.ac.bd/admission/msc",
+  "section": "admission",
+  "group": "",
+  "section_path": [
+    "Admission",
+    "msc"
+  ],
+  "title": "Chittagong University of Engineering and Technology.",
+  "source": "browser",
+  "status": 200,
+  "fetched_at": "2026-09-09T07:30:28Z",
+  "html_path": "admission/msc__cd062829.html",
+  "markdown_path": "admission/msc__cd062829.md",
+  "text_chars": 32486,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 7,
+  "double_escaped": false,
+  "files": [
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf"
+    },
+    {
+      "url": "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf"
+    }
+  ],
+  "planned_reason": "found only in CMS content, spec §4.11; no endpoint",
+  "content_state": "published"
+}

@@ -1,0 +1,27 @@
+{
+  "url": "https://alumni.cuet.ac.bd/",
+  "canonical_url": "https://alumni.cuet.ac.bd",
+  "page_id": "29a5c148dac69988",
+  "doc_key": "https://alumni.cuet.ac.bd/?_responsibility=help-university",
+  "section": "alumni",
+  "group": "responsibilities",
+  "section_path": [
+    "Alumni",
+    "Responsibilities",
+    "Help Our University"
+  ],
+  "title": "Help Our University",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T18:07:21Z",
+  "html_path": "alumni/responsibilities/alumni.cuet.ac.bd__29a5c148.html",
+  "markdown_path": "alumni/responsibilities/alumni.cuet.ac.bd__29a5c148.md",
+  "text_chars": 1878,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "help-university",
+  "site": "alumni"
+}
