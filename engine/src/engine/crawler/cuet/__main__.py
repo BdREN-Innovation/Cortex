@@ -9,12 +9,14 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from . import audit, config, content, discover, files
+from . import audit, config, content, discover, files, merge
 from .api import Client
+from .builders import PORTIONS, portion_names
 
 log = logging.getLogger("cuet_scraper")
 
-STAGES = ("discover", "content", "plan", "capture", "files", "audit", "all")
+STAGES = ("discover", "content", "merge", "plan", "capture", "files",
+          "audit", "all")
 
 
 def _setup_logging(verbose: bool) -> None:
@@ -31,17 +33,39 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         description="Capture the CUET public website. API-first; the browser "
                     "is used only where the API does not reach.",
     )
-    parser.add_argument("--stage", required=True, choices=STAGES)
+    parser.add_argument("--stage", choices=STAGES,
+                        help="required unless --list-portions is given")
     parser.add_argument("--out", type=Path, default=config.OUT)
     parser.add_argument("--limit", type=int, default=None,
                         help="take the first N items after all other filters, "
                              "so a first run of a new configuration is cheap")
     parser.add_argument("--section", action="append", default=None,
-                        help="restrict to one section key; repeatable")
+                        help="restrict browser capture to one section key; repeatable")
+    parser.add_argument("--portion", action="append", default=None,
+                        help="restrict the content stage to one portion of the "
+                             "site; repeatable. Default: every portion. Run "
+                             "--list-portions to see who owns what.")
+    parser.add_argument("--list-portions", action="store_true",
+                        help="print the portion registry and exit")
     parser.add_argument("--force", action="store_true",
                         help="ignore resume state and re-fetch")
     parser.add_argument("--verbose", action="store_true", help="DEBUG logging")
     args = parser.parse_args(argv)
+
+    if not args.stage and not args.list_portions:
+        parser.error("--stage is required")
+
+    # An unknown portion name is a fatal error for the same reason an unknown
+    # section is: a typo that silently builds nothing looks exactly like a
+    # portion whose builders produced nothing, and only one of those is a bug
+    # you can find.
+    if args.portion:
+        unknown = [p for p in args.portion if p not in portion_names()]
+        if unknown:
+            parser.error(
+                f"unknown portion(s): {', '.join(unknown)}. "
+                f"Valid names: {', '.join(portion_names())}"
+            )
 
     # An unknown section name is a fatal error listing the valid names, never a
     # silent empty run. Spec §5.
@@ -55,9 +79,23 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     return args
 
 
+def _print_portions() -> int:
+    """Who owns which slice of the site, and where each one lands on disk."""
+    print("\nPortions of cuet.ac.bd. Run one with --portion <name>.\n")
+    for portion in PORTIONS:
+        print(f"  {portion.name:<12} owner: {portion.owner}")
+        print(f"  {'':<12} site:   {', '.join(portion.site_areas)}")
+        print(f"  {'':<12} writes: {', '.join(portion.sections)}/")
+        print(f"  {'':<12} shard:  _shards/{portion.name}.json\n")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     args = _parse_args(argv)
     _setup_logging(args.verbose)
+
+    if args.list_portions:
+        return _print_portions()
 
     if config.CONTACT.startswith("REPLACE_ME"):
         # A warning, not a refusal: blocking a smoke test over this would be
@@ -76,6 +114,7 @@ def main(argv: list[str] | None = None) -> int:
         "run_id": run_id,
         "started_at": started.isoformat().replace("+00:00", "Z"),
         "stage": args.stage,
+        "portions": args.portion or list(portion_names()),
         "urls_planned": 0, "pages_captured": 0, "cms_documents": 0,
         "failed_renders": 0, "not_found": 0, "errors": 0,
         "files_downloaded": 0, "files_bytes": 0, "images_skipped": 0,
@@ -83,8 +122,9 @@ def main(argv: list[str] | None = None) -> int:
                    "user_agent": config.USER_AGENT, "obey_robots": config.OBEY_ROBOTS},
     }
     errors: list[dict] = []
-    stages = ("discover", "content", "files", "audit") if args.stage == "all" \
-        else (args.stage,)
+    # `merge` runs last in `all`: it reads what every earlier stage wrote.
+    stages = ("discover", "content", "files", "audit", "merge") \
+        if args.stage == "all" else (args.stage,)
 
     try:
         dump = None
@@ -97,11 +137,15 @@ def main(argv: list[str] | None = None) -> int:
 
             elif stage == "content":
                 dump = dump or _load_dump(out)
-                result = content.run(dump, out)
+                result = content.run(dump, out, portions=args.portion)
                 summary["cms_documents"] = len(result.documents)
                 summary["pages_captured"] = len(result.documents)
                 for warning in result.warnings:
                     errors.append({"stage": "content", "error": warning})
+
+            elif stage == "merge":
+                report = merge.run(out)
+                summary["merged"] = report
 
             elif stage == "files":
                 result = files.run(client, out, force=args.force, limit=args.limit)
@@ -147,7 +191,16 @@ def _load_dump(out: Path) -> dict:
     path = out / "_meta" / "api_dump.json"
     if not path.exists():
         raise SystemExit(f"{path} not found. Run --stage discover first.")
-    return json.loads(path.read_text(encoding="utf-8"))
+    dump = json.loads(path.read_text(encoding="utf-8"))
+
+    # Dumps taken before `_fetched_at` existed fall back to when the file was
+    # written, which is the same moment discover would have stamped. Using the
+    # current time instead would date every document to its rebuild and churn
+    # the whole corpus on every run.
+    if not dump.get("_fetched_at"):
+        dump["_fetched_at"] = datetime.fromtimestamp(
+            path.stat().st_mtime, timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return dump
 
 
 if __name__ == "__main__":

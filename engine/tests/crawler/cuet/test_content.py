@@ -8,6 +8,8 @@ said it did.
 from __future__ import annotations
 
 from engine.crawler.cuet import config, content
+from engine.crawler.cuet.builders import academic, general, news, notices
+from engine.crawler.cuet.builders.base import _setting_value
 from engine.crawler.cuet.markdown import to_markdown, unescape_once
 
 
@@ -24,15 +26,15 @@ def test_setting_value_unwraps_the_id_key_value_envelope():
     string as spec §3.3 describes. Reading it as a string yielded 0 of 8 CMS
     documents and only a warning."""
     settings = {"about_us": {"id": 9, "key": "about_us", "value": "<p>Body</p>"}}
-    assert content._setting_value(settings, "about_us") == "<p>Body</p>"
+    assert _setting_value(settings, "about_us") == "<p>Body</p>"
 
 
 def test_setting_value_still_accepts_a_bare_string():
-    assert content._setting_value({"about_us": "<p>Body</p>"}, "about_us") == "<p>Body</p>"
+    assert _setting_value({"about_us": "<p>Body</p>"}, "about_us") == "<p>Body</p>"
 
 
 def test_setting_value_missing_key_is_empty_not_an_error():
-    assert content._setting_value({}, "about_us") == ""
+    assert _setting_value({}, "about_us") == ""
 
 
 def test_build_cms_produces_a_document_per_key():
@@ -41,7 +43,7 @@ def test_build_cms_produces_a_document_per_key():
         for i, key in enumerate(config.CMS_CONTENT_KEYS)
     }}}
     result = _result()
-    content.build_cms(dump, result)
+    general.build_cms(dump, result)
     assert len(result.documents) == len(config.CMS_CONTENT_KEYS)
     assert {d.section for d in result.documents} == {"_cms"}
 
@@ -54,7 +56,7 @@ def test_build_cms_detects_and_unescapes_double_escaping():
         "value": "<h2>Research Areas</h2><p>&lt;p&gt;Nested&lt;/p&gt;</p>",
     }}}}
     result = _result()
-    content.build_cms(dump, result)
+    general.build_cms(dump, result)
     doc = result.documents[0]
     assert doc.double_escaped
     assert "&lt;p&gt;" not in doc.html
@@ -80,7 +82,7 @@ def test_notices_become_index_documents_not_one_per_notice():
         _notice(i, "Offices Orders/NOC") for i in range(1, 121)
     ]}}}
     result = _result()
-    content.build_notices(dump, result)
+    notices.build_notices(dump, result)
     expected = -(-120 // config.NOTICES_PER_DOCUMENT)     # ceil
     assert len(result.documents) == expected
     # every notice's PDF is still recorded individually
@@ -92,7 +94,7 @@ def test_notice_documents_have_distinct_keys_but_one_citation_url():
         _notice(i, "Offices Orders/NOC") for i in range(1, 121)
     ]}}}
     result = _result()
-    content.build_notices(dump, result)
+    notices.build_notices(dump, result)
     assert len({d.key for d in result.documents}) == len(result.documents)
     assert {d.url for d in result.documents} == {"https://cuet.ac.bd/notices/noc"}
 
@@ -105,7 +107,7 @@ def test_out_of_scope_notices_are_recorded_but_not_downloaded():
         _notice(2, "Student Notices"),
     ]}}}
     result = _result()
-    content.build_notices(dump, result)
+    notices.build_notices(dump, result)
     by_url = {r["category"]: r for r in result.found_files.values()}
     assert by_url["Offices Orders/NOC"]["download"] is True
     assert by_url["Student Notices"]["download"] is False
@@ -116,7 +118,7 @@ def test_notice_pdf_double_slash_is_canonicalised():
     file is stored twice. Spec §4.7."""
     dump = {"/notices": {"body": {"data": [_notice(1, "Offices Orders/NOC")]}}}
     result = _result()
-    content.build_notices(dump, result)
+    notices.build_notices(dump, result)
     url = next(iter(result.found_files))
     assert "//storage" not in url
     assert url.startswith("https://app.cuet.ac.bd/storage/")
@@ -129,7 +131,7 @@ def test_different_out_of_scope_types_do_not_collide():
         _notice(1, "Student Notices"), _notice(2, "General Notices"),
     ]}}}
     result = _result()
-    content.build_notices(dump, result)
+    notices.build_notices(dump, result)
     assert len({d.key for d in result.documents}) == 2
 
 
@@ -150,7 +152,7 @@ def test_news_with_empty_description_is_kept_not_dropped():
          "description": "", "date": "2025-02-11"},
     ]}}}
     result = _result()
-    content.build_news(dump, result)
+    news.build_news(dump, result)
     assert len(result.documents) == 1
     text = to_markdown(result.documents[0].html)
     assert "Smart Electronics" in text
@@ -171,7 +173,7 @@ def test_event_keeps_its_conference_url_even_with_a_body():
          "from": "28 January 2027", "link": "https://iciurp.cuet.ac.bd/"},
     ]}}}
     result = _result()
-    content.build_events(dump, result)
+    news.build_events(dump, result)
     assert len(result.documents) == 2
     for doc in result.documents:
         assert "cuet.ac.bd" in to_markdown(doc.html)
@@ -184,7 +186,7 @@ def test_only_a_record_with_no_title_at_all_could_be_empty():
     """The floor: a headline body is never blank, so nothing is dropped."""
     dump = {"/news": {"body": {"data": [{"id": 1, "title": None, "description": ""}]}}}
     result = _result()
-    content.build_news(dump, result)
+    news.build_news(dump, result)
     assert to_markdown(result.documents[0].html).strip()
 
 
@@ -204,7 +206,7 @@ def test_entity_body_uses_headed_sections_in_a_fixed_order():
         "contacts": [{"purpose": "Office", "email": "a@b.c", "phone": "1"}],
     }}}}
     result = _result()
-    content.build_entities(dump, result)
+    academic.build_entities(dump, result)
     doc = result.documents[0]
     text = to_markdown(doc.html)
     assert text.index("About") < text.index("Vision") < text.index("Mission")
@@ -220,7 +222,7 @@ def test_entity_breadcrumb_comes_from_academic_faculty():
         "academicFaculty": {"title": "Electrical & Computer Eng."},
     }}}}
     result = _result()
-    content.build_entities(dump, result)
+    academic.build_entities(dump, result)
     assert result.documents[0].section_path == [
         "Academic", "Departments", "Electrical & Computer Eng.", "CSE"]
 

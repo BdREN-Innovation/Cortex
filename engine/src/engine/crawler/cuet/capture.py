@@ -21,7 +21,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from . import config
-from .content import Document, Stage2Result, harvest, write_document
+from .builders.base import Document, Stage2Result, harvest
+from .content import write_document, write_shard
 from .paths import canonical, group_for_url, page_path, section_for_url
 
 log = logging.getLogger(__name__)
@@ -161,6 +162,7 @@ async def _capture_all(plan: list[tuple[str, str]], out: Path, *,
     )
 
     result_bag = Stage2Result()
+    rows: list[dict] = []
     errors: list[dict] = []
     captured = failed = not_found = 0
     semaphore = asyncio.Semaphore(config.CAPTURE_CONCURRENCY)
@@ -218,7 +220,13 @@ async def _capture_all(plan: list[tuple[str, str]], out: Path, *,
                     doc.files = harvest(html, url, result_bag,
                                         linked_from=url,
                                         meta={"document_type": "page"})
-                    write_document(doc, out)
+                    # The row was previously discarded, which meant a
+                    # browser-captured page landed on disk and then reached
+                    # nothing: no documents.jsonl, no pages.jsonl, no manifest
+                    # count. Three real captures sat orphaned that way. Keeping
+                    # it puts browser pages through the same shard-and-merge
+                    # path as everything else.
+                    rows.append(write_document(doc, out))
                     captured += 1
                     log.info("capture %6d chars  %s", len(markdown), url)
                     return
@@ -234,6 +242,12 @@ async def _capture_all(plan: list[tuple[str, str]], out: Path, *,
             group = plan[start:start + batch]
             await asyncio.gather(*(one(u, w) for u, w in group))
             await asyncio.sleep(config.DELAY * len(group))
+
+    # Stage 4 owns one shard, exactly as each content portion owns one. It is
+    # named for the stage rather than for a person because what lands here is
+    # decided by the residual URL plan, not by whose slice of the site it is.
+    if rows:
+        write_shard(out, ["browser"], rows, result_bag)
 
     meta = out / "_meta"
     _merge_found(meta / "found_files.json", result_bag.found_files)

@@ -2,7 +2,7 @@
 
 Three outputs, each for a different reader:
 
-* `README.md`      — a person opening `cuet_data/` for the first time
+* `README.md`      — a person opening `corpus/cuet/` for the first time
 * `pages.jsonl`    — `engine extract`, which expects a run directory
 * `manifest.json`  — the same, plus counts and errors
 
@@ -33,6 +33,10 @@ def write_pages_jsonl(rows: list[dict], out: Path) -> int:
     `engine extract --run <dir>` is the whole interface between capture and
     extraction (engine/src/engine/knowledge/README.md §3), and `content_path`
     must point at a file that actually exists inside the run directory.
+
+    Rows arrive from the shards, already reduced to the CrawledPage fields by
+    `content._crawled_page_row`, so this function does no re-derivation. It is
+    called by `merge.py` and nowhere else.
     """
     written = 0
     with (out / "pages.jsonl").open("w", encoding="utf-8") as handle:
@@ -43,11 +47,11 @@ def write_pages_jsonl(rows: list[dict], out: Path) -> int:
                 canonical_url=row["canonical_url"],
                 status=row.get("status", 200),
                 content_type="text/html",
-                content_path=row["html_path"],
+                content_path=row["content_path"],
                 fetched_at=row["fetched_at"],
                 depth=0,
                 links=[],
-                document_links=[f["url"] for f in row.get("files", [])],
+                document_links=row.get("document_links", []),
                 parent_url="",
                 meta={"source": row.get("source", "api"),
                       "section": row.get("section", ""),
@@ -63,10 +67,19 @@ def write_pages_jsonl(rows: list[dict], out: Path) -> int:
 
 
 def write_manifest(out: Path, *, run_id: str, started: str, finished: str,
-                   documents: int, pages: int, files: dict, errors: list) -> None:
+                   documents: int, pages: int, files: dict, errors: list,
+                   portions: list[str] | None = None) -> None:
+    """Counts, errors and provenance for the merged corpus.
+
+    `portions` records which slices of the site this corpus actually contains.
+    A corpus merged from three shards out of four is not broken, but it IS
+    incomplete, and the manifest is the only place that difference is visible
+    once the terminal output is gone.
+    """
     manifest = {
         "run_id": run_id,
         "site": "cuet",
+        "portions": portions or [],
         "seeds": [config.SITE, config.API],
         "started_at": started,
         "finished_at": finished,
@@ -85,8 +98,8 @@ def write_manifest(out: Path, *, run_id: str, started: str, finished: str,
 
 README = """# CUET capture — what this is and how to use it
 
-Produced by `cuet_scraper`. Specification: `CUET_SCRAPER_SPEC.md` (Part 1) and
-`CUET_SCRAPER_SPEC_PART2.md` in the repository root.
+Produced by the CUET scraper at `engine/src/engine/crawler/cuet/`.
+Specification: `docs/cuet/SPEC.md` (Part 1) and `docs/cuet/SPEC_PART2.md`.
 
 ## Read this before you embed anything
 
@@ -107,26 +120,79 @@ should show a reader, and it always resolves on cuet.ac.bd. `doc_key` is what
 `doc_id` is derived from. They differ only where one real page yields several
 documents — see "Notices" below. Cite `url`; join on `page_id`.
 
-## Layout
+**4. `documents.jsonl` is generated, not committed.** Run `--stage merge` after
+pulling. See "The generated files" below.
 
-```
-cuet_data/
-├── documents.jsonl   CleanDocument rows for the API-derived content
-├── pages.jsonl       CrawledPage rows — the `engine extract --run` interface
-├── manifest.json     counts, errors, config
-├── _meta/            api_dump.json (raw responses), urls.txt, found_*.txt,
-│                     endpoints.json (audit), errors.json, run.json
-├── _cms/             the 8 page bodies from /general-settings
-├── academic/         departments, institutes, centers, faculties, curricula
-├── home/             homepage body, student organisations
-├── top-bar/          NOC notices
-├── news-events/      news and events
-└── _files/           every downloaded PDF, flat, plus index.json
-```
+## Which folder is which part of the website
+
+Every content folder maps to somewhere a visitor can actually go. If you are
+checking whether a document is right, open the URL in the last column.
+
+| Folder | Documents | Where it is on cuet.ac.bd | Portion |
+|---|---|---|---|
+| `_cms/` | 8 | About menu (`/about/cuet`, `/about/history`, `/about/vision-and-mission`, `/about/campus-life`), prospective students (`/academic-information/undergraduate-studies`, `/academic-information/graduate-studies`), research (`/research/research-highlights`, `/research/research-area`) | general |
+| `home/organizations/` | 15 | Student Organizations, `/student/organization/<slug>` | general |
+| `academic/departments/` | 18 | Academic → Departments, `/department/<slug>` | academic |
+| `academic/faculty/` | 5 | Academic → Faculties, `/faculty/<slug>` | academic |
+| `academic/institutes/` | 4 | Academic → Institutes, `/institutes/<slug>` | academic |
+| `academic/centers/` | 3 | Academic → Centers, `/centers/<slug>` | academic |
+| `academic/information/` | 2 | Curriculum lists shown under `/academic-information` | academic |
+| `academic/notices/` | 1 | Notices → Academic Calender, `/notices/academic-calender` | notices |
+| `admission/notices/` | 2 | Notices → Scholarship & Financial Aids, `/notices/scholarship-financial-aids` | notices |
+| `top-bar/notices/` | 5 | The top-bar NOC link, `/notices/noc` | notices |
+| `news-events/news/` | 157 | News & Events → News, `/news/<id>` | news-events |
+| `news-events/event-details/` | 3 | News & Events → Events, `/event-details/<id>` | news-events |
+| `news-events/listing/` | 3 | The listing pages themselves, `/news-events`, `/events`, `/student/events`. Browser-captured, not API-derived | browser |
+| `_unsorted/notices/` | 15 | Notice types out of scope for Part 1, all listed at `/notices/all-notice` | notices |
+
+Three folders hold no page content:
+
+| Folder | What it is |
+|---|---|
+| `_shards/` | One file per portion. **The committed source of truth.** |
+| `_meta/` | Provenance: `api_dump.json`, the audit, the URL plan, errors |
+| `_files/` | Every downloaded PDF, flat, plus `index.json` |
+
+`_unsorted/` is not a mistake here. Those 15 documents are the notice types
+Part 1 deliberately leaves out of scope; they all cite `/notices/all-notice`,
+which is the real page the site lists them on. A document arriving in
+`_unsorted/` from anywhere else IS a mistake and means the section map in
+`config.SECTIONS` has a gap.
 
 Files are flat in `_files/` on purpose: the same PDF is linked from many pages,
 so a per-section copy would leave no canonical one. `_files/index.json` carries
 the title, date, category, department and `linked_from` list for each.
+
+## The generated files, and why they are not committed
+
+```
+corpus/cuet/
+├── _shards/          COMMITTED. One JSON per portion — the source of truth.
+├── <section folders> COMMITTED. The .html/.md/.json triple per document.
+├── _files/           On Google Drive, too large for git.
+├── _meta/            api_dump.json on Drive; the rest generated.
+│
+├── documents.jsonl   GENERATED by --stage merge
+├── pages.jsonl       GENERATED — the `engine extract --run` interface
+├── manifest.json     GENERATED — counts, errors, which portions are present
+└── README.md         GENERATED — this file
+```
+
+If `documents.jsonl` is missing, nothing is wrong. Run:
+
+```bash
+python -m engine.crawler.cuet --stage merge
+```
+
+It reads `_shards/`, needs no network, and takes about a second. Those files are
+generated rather than committed because four people each rebuild them in full,
+and a committed file that four people rewrite is a merge conflict on every pull
+request in a format nobody can resolve by hand. The shards do not have that
+problem: one file per portion, one owner each.
+
+The merge is deterministic — documents sort by `doc_id`, files and pages by URL
+— so two people merging the same shards get byte-identical output. That is what
+makes "just regenerate it" a real answer.
 
 ## Two shapes of document, and why
 
@@ -159,7 +225,7 @@ of keeping the raw payloads.
   contain zero image files; if it ever does, that is a bug worth reporting.
 - **Nothing behind a login.** No authenticated request was made.
 - Sections deliberately out of scope for Part 1 — Research, most Notice types,
-  Administration, APA — are listed in `CUET_SCRAPER_SPEC_PART2.md`. Their raw
+  Administration, APA — are listed in `docs/cuet/SPEC_PART2.md`. Their raw
   API payloads are already in `_meta/api_dump.json`.
 
 ## Provenance
