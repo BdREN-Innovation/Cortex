@@ -1,0 +1,42 @@
+{
+  "run_id": "green-20260908T220124Z",
+  "site": "green",
+  "seeds": [
+    "https://green.edu.bd/"
+  ],
+  "started_at": "2026-09-08T22:01:24.727017+00:00",
+  "finished_at": "2026-09-08T22:01:34.598220+00:00",
+  "pages_fetched": 5,
+  "pages_written": 5,
+  "pages_skipped": 0,
+  "errors": [],
+  "config": {
+    "site": "green",
+    "seeds": [
+      "https://green.edu.bd/"
+    ],
+    "allowed_domains": [
+      "green.edu.bd"
+    ],
+    "include_patterns": [],
+    "exclude_patterns": [],
+    "max_depth": 3,
+    "max_pages": 5,
+    "fetch": {
+      "user_agent": "CortexEngine/0.1 (+https://github.com/BdREN-Innovation/Cortex)",
+      "delay_seconds": 1.5,
+      "timeout_seconds": 20,
+      "max_retries": 2,
+      "max_bytes": 5000000,
+      "max_asset_bytes": 20000000,
+      "obey_robots": true,
+      "concurrency": 3
+    },
+    "assets": {
+      "download_documents": true,
+      "max_documents": 5
+    }
+  },
+  "assets_saved": {},
+  "documents_parsed": 0
+}

@@ -1,0 +1,82 @@
+{
+  "run_id": "bubt-20260908T220949Z",
+  "site": "bubt",
+  "seeds": [
+    "https://www.bubt.edu.bd/"
+  ],
+  "started_at": "2026-09-08T22:09:49.019133+00:00",
+  "finished_at": "2026-09-08T22:13:25.999964+00:00",
+  "pages_fetched": 100,
+  "pages_written": 100,
+  "pages_skipped": 2,
+  "errors": [],
+  "config": {
+    "site": "bubt",
+    "seeds": [
+      "https://www.bubt.edu.bd/"
+    ],
+    "allowed_domains": [
+      "bubt.edu.bd"
+    ],
+    "include_patterns": [],
+    "exclude_patterns": [],
+    "max_depth": 5,
+    "max_pages": 100,
+    "fetch": {
+      "user_agent": "CortexEngine/0.1 (+https://github.com/BdREN-Innovation/Cortex)",
+      "delay_seconds": 1.5,
+      "timeout_seconds": 20,
+      "max_retries": 2,
+      "max_bytes": 5000000,
+      "max_asset_bytes": 20000000,
+      "obey_robots": true,
+      "concurrency": 3
+    },
+    "assets": {
+      "download_documents": true,
+      "max_documents": 100
+    }
+  },
+  "assets_saved": {
+    "https://bubt.edu.bd/assets/frontend/uploads/class-routines/2026/fall/bba/BBA-routine.pdf": "docs/0001-BBA-routine.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/class-routines/2026/fall/cse/msc-in-cse.pdf": "docs/0002-msc-in-cse.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/LL_M_48_Routine_Spring_2026.pdf": "docs/0003-LL_M_48_Routine_Spring_2026.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/class-routines/2026/fall/textile/Evening-routine-Fall-2026.pdf": "docs/0004-Evening-routine-Fall-2026.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/class-routines/2026/fall/civil/Civil-DH-Routine.pdf": "docs/0005-Civil-DH-Routine.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/class-routines/2026/fall/economics/Economics-52-1.pdf": "docs/0006-Economics-52-1.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/class-routines/2026/fall/economics/Economics-52-2.pdf": "docs/0007-Economics-52-2.pdf",
+    "https://www.bubt.edu.bd/assets/frontend/uploads/class-routines/2026/fall/law/LLB-Intake-56.pdf": "docs/0008-LLB-Intake-56.pdf",
+    "https://www.bubt.edu.bd/assets/frontend/uploads/class-routines/2026/fall/law/Fall-2026-Routine-LLB-Honours.pdf": "docs/0009-Fall-2026-Routine-LLB-Honours.pdf",
+    "https://www.bubt.edu.bd/assets/frontend/uploads/class-routines/2026/fall/law/LLM-INTAKE-49.pdf": "docs/0010-LLM-INTAKE-49.pdf",
+    "https://www.bubt.edu.bd/assets/frontend/uploads/class-routines/2026/fall/law/LLM-INTAKE-50.pdf": "docs/0011-LLM-INTAKE-50.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/class-routines/2026/fall/mba/Class-Schedule-Fall-2026.pdf": "docs/0012-Class-Schedule-Fall-2026.pdf",
+    "https://www.bubt.edu.bd/assets/frontend/uploads/exam-routine/summer-2026/final-exam/Student-Code-of-Conduct-Summer-2026.pdf": "docs/0013-Student-Code-of-Conduct-Summer-2026.pdf",
+    "https://www.bubt.edu.bd/assets/frontend/uploads/exam-routine/spring-2026/exam-mid/law/Day-Routine-LLB-Hons.pdf": "docs/0014-Day-Routine-LLB-Hons.pdf",
+    "https://www.bubt.edu.bd/assets/frontend/uploads/exam-routine/spring-2026/exam-mid/law/LLM-PROGRAM-Routine.pdf": "docs/0015-LLM-PROGRAM-Routine.pdf",
+    "https://www.bubt.edu.bd/assets/frontend/uploads/exam-routine/summer-2026/final-exam/revised/Day-Revised-2.pdf": "docs/0016-Day-Revised-2.pdf",
+    "https://www.bubt.edu.bd/assets/frontend/uploads/exam-routine/summer-2026/final-exam/revised/BBA-Revised.pdf": "docs/0017-BBA-Revised.pdf",
+    "https://www.bubt.edu.bd/assets/frontend/uploads/exam-routine/summer-2026/final-exam/revised/Evening-Revisied.pdf": "docs/0018-Evening-Revisied.pdf",
+    "https://www.bubt.edu.bd/assets/frontend/uploads/exam-routine/summer-2026/final-exam/MBA(NB).pdf": "docs/0019-MBA(NB).pdf",
+    "https://www.bubt.edu.bd/assets/frontend/uploads/exam-routine/viva-voce/Viva-Voce-Examination-Schedule-of-BBA-Program-Summer-2026.pdf": "docs/0020-Viva-Voce-Examination-Schedule-of-BBA-Program-Summer-2026.pdf",
+    "https://www.bubt.edu.bd/assets/frontend/uploads/exam-routine/viva-voce/Viva-Voce-Examination-Schedule-of-B.Sc-(Hons)-in-Economics-EDE-Program-Summer-2026.pdf": "docs/0021-Viva-Voce-Examination-Schedule-of-B.Sc-(Hons)-in-Economics-EDE-Program-Summer-2026.pdf",
+    "https://www.bubt.edu.bd/storage/notices/5G38POQl9ANcsk5fc6xL5YX3rwZOFfdhJGvCAdbO.pdf": "docs/0022-5G38POQl9ANcsk5fc6xL5YX3rwZOFfdhJGvCAdbO.pdf",
+    "https://www.bubt.edu.bd/storage/notices/8McLsbIbPj3nbomjLcJdkgJTXgRZDmQEeZuVHsmo.pdf": "docs/0023-8McLsbIbPj3nbomjLcJdkgJTXgRZDmQEeZuVHsmo.pdf",
+    "https://www.bubt.edu.bd/storage/notices/wmvRjvgroyAY3wjI6VB2Xg0M6F59tdF8PYpCWHBb.pdf": "docs/0024-wmvRjvgroyAY3wjI6VB2Xg0M6F59tdF8PYpCWHBb.pdf",
+    "https://www.bubt.edu.bd/storage/notices/R9RYy9XcueTdImcwS0LgzdD1PmptaqXYu9M61Xj1.pdf": "docs/0025-R9RYy9XcueTdImcwS0LgzdD1PmptaqXYu9M61Xj1.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/class-routines/2026/fall/law/LLB-Intake-56.pdf": "docs/0026-LLB-Intake-56.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/class-routines/2026/fall/law/Fall-2026-Routine-LLB-Honours.pdf": "docs/0027-Fall-2026-Routine-LLB-Honours.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/class-routines/2026/fall/law/LLM-INTAKE-49.pdf": "docs/0028-LLM-INTAKE-49.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/class-routines/2026/fall/law/LLM-INTAKE-50.pdf": "docs/0029-LLM-INTAKE-50.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/exam-routine/summer-2026/final-exam/Student-Code-of-Conduct-Summer-2026.pdf": "docs/0030-Student-Code-of-Conduct-Summer-2026.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/exam-routine/spring-2026/exam-mid/law/Day-Routine-LLB-Hons.pdf": "docs/0031-Day-Routine-LLB-Hons.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/exam-routine/spring-2026/exam-mid/law/LLM-PROGRAM-Routine.pdf": "docs/0032-LLM-PROGRAM-Routine.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/exam-routine/summer-2026/final-exam/revised/Day-Revised-2.pdf": "docs/0033-Day-Revised-2.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/exam-routine/summer-2026/final-exam/revised/BBA-Revised.pdf": "docs/0034-BBA-Revised.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/exam-routine/summer-2026/final-exam/revised/Evening-Revisied.pdf": "docs/0035-Evening-Revisied.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/exam-routine/summer-2026/final-exam/MBA(NB).pdf": "docs/0036-MBA(NB).pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/exam-routine/viva-voce/Viva-Voce-Examination-Schedule-of-BBA-Program-Summer-2026.pdf": "docs/0037-Viva-Voce-Examination-Schedule-of-BBA-Program-Summer-2026.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/exam-routine/viva-voce/Viva-Voce-Examination-Schedule-of-B.Sc-(Hons)-in-Economics-EDE-Program-Summer-2026.pdf": "docs/0038-Viva-Voce-Examination-Schedule-of-B.Sc-(Hons)-in-Economics-EDE-Program-Summer-2026.pdf",
+    "https://bubt.edu.bd/assets/frontend/uploads/documents/department/land-and-justice/Law-Strategic-Plan-1.pdf": "docs/0039-Law-Strategic-Plan-1.pdf"
+  },
+  "documents_parsed": 0
+}
