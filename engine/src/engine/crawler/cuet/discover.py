@@ -11,6 +11,7 @@ Also builds `_meta/urls.txt` — the residual crawl plan, which after the
 from __future__ import annotations
 
 import json
+from datetime import datetime, timezone
 import logging
 from pathlib import Path
 
@@ -64,6 +65,16 @@ def run(client: Client, out: Path | None = None) -> dict:
 
     entities = _entities(dump)
     _fetch_entity_details(client, dump, entities)
+
+    # When these bytes actually came off CUET's servers. Stage 2 stamps it onto
+    # every document as `fetched_at`, because a document built today from a dump
+    # taken last week was NOT fetched today, and a citation that says otherwise
+    # is wrong about the one thing a reader would check.
+    #
+    # It also makes rebuilding idempotent: re-running a portion against an
+    # unchanged dump rewrites byte-identical files instead of a few hundred
+    # timestamp-only diffs.
+    dump["_fetched_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     (meta / "api_dump.json").write_text(
         json.dumps(dump, ensure_ascii=False, indent=2), encoding="utf-8"

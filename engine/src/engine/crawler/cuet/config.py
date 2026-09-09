@@ -4,7 +4,7 @@ Numbers here that look arbitrary are not. Where a value was measured against the
 live site, the measurement is in the comment beside it, because the next person
 to touch this file needs to know whether they are changing a guess or a finding.
 
-Spec: CUET_SCRAPER_SPEC.md §8.
+Spec: docs/cuet/SPEC.md §8.
 """
 
 from __future__ import annotations
@@ -20,7 +20,19 @@ from pathlib import Path
 SITE = "https://cuet.ac.bd"
 API = "https://api.cuet.ac.bd/api/v1"
 
-OUT = Path("cuet_data")
+# Resolved from this file, NOT from the working directory.
+#
+# It was a relative path until four people needed to run this. `Path("cuet_data")`
+# means "wherever you happened to be standing", so the corpus landed in a
+# different place for each person and none of those places was the one the repo
+# tracks. Anchoring it here means `--stage content` writes into the committed
+# corpus whether you ran it from the repo root, from `engine/`, or from an IDE
+# with its own idea of the working directory. `--out` still overrides, which is
+# how you point a trial run somewhere disposable.
+#
+# parents: [0] cuet [1] crawler [2] engine [3] src [4] engine/ [5] repo root
+_ENGINE_DIR = Path(__file__).resolve().parents[4]
+OUT = _ENGINE_DIR / "corpus" / "cuet"
 FILES = OUT / "_files"
 META = OUT / "_meta"
 CMS = OUT / "_cms"
