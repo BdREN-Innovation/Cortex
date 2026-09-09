@@ -2,7 +2,7 @@
 #
 #   uv run engine crawl --config configs/crawl.bdren.yaml
 #
-# OWNER: Mifta (Team A)
+# OWNER: Mehenaz (Team A)
 
 site: bdren
 
@@ -21,6 +21,38 @@ seeds:
   - https://www.bdren.net.bd/events
   - https://www.bdren.net.bd/news
   - https://www.bdren.net.bd/notices
+  # Pagination seeds: the nav menu on every page floods the frontier with the
+  # same ~18 service-catalog links before these listing pages' *own* older
+  # pages get queued, so at max_pages=40 they never got reached (2026-09-09
+  # run: 0 news/event detail pages captured). Seeding pages directly avoids
+  # that race.
+  - https://www.bdren.net.bd/notices?page=2
+  - https://www.bdren.net.bd/notices?page=3
+  - https://www.bdren.net.bd/notices?page=4
+  - https://www.bdren.net.bd/notices?page=5
+  - https://www.bdren.net.bd/notices?page=6
+  - https://www.bdren.net.bd/notices?page=7
+  - https://www.bdren.net.bd/notices?page=8
+  - https://www.bdren.net.bd/notices?page=9
+  - https://www.bdren.net.bd/notices?page=10
+  - https://www.bdren.net.bd/notices?page=11
+  - https://www.bdren.net.bd/notices?page=12
+  - https://www.bdren.net.bd/notices?page=13
+  - https://www.bdren.net.bd/news?page=2
+  - https://www.bdren.net.bd/news?page=3
+  - https://www.bdren.net.bd/news?page=4
+  - https://www.bdren.net.bd/news?page=5
+  - https://www.bdren.net.bd/news?page=6
+  - https://www.bdren.net.bd/news?page=7
+  - https://www.bdren.net.bd/news?page=8
+  - https://www.bdren.net.bd/news?page=9
+  - https://www.bdren.net.bd/news?page=10
+  - https://www.bdren.net.bd/news?page=11
+  - https://www.bdren.net.bd/news?page=12
+  - https://www.bdren.net.bd/news?page=13
+  - https://www.bdren.net.bd/news?page=14
+  - https://www.bdren.net.bd/news?page=15
+  - https://www.bdren.net.bd/news?page=16
   - https://www.bdren.net.bd/projects
   - https://www.bdren.net.bd/career
   - https://www.bdren.net.bd/resourceshub
@@ -41,11 +73,15 @@ exclude_patterns:
   - "\\.(png|jpe?g|gif|webp|svg|bmp|ico)$"
 
 max_depth: 3
-max_pages: 40
+# Was 40 — that was exactly consumed by the 22 seeds + the 18 service-catalog
+# nav links repeated on every page, so no news/event/notice detail page ever
+# got crawled. Raised well above seed count + nav-link count so real content
+# survives the budget.
+max_pages: 250
 
 assets:
   download_documents: true
-  max_documents: 60
+  max_documents: 90
 
 fetch:
   user_agent: "CortexEngine/0.1 (+https://github.com/BdREN-Innovation/Cortex)"
