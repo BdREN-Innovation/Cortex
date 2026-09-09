@@ -1,23 +1,51 @@
 ﻿# Crawl config for bdren.net.bd.
+#
+#   uv run engine crawl --config configs/crawl.bdren.yaml
+#
+# OWNER: Mifta (Team A)
 
 site: bdren
 
 seeds:
-  - https://bdren.net.bd/
+  - https://www.bdren.net.bd/
+  - https://www.bdren.net.bd/about/history
+  - https://www.bdren.net.bd/about/company
+  - https://www.bdren.net.bd/about/bdren-governance
+  - https://www.bdren.net.bd/about/team-bdren
+  - https://www.bdren.net.bd/contact
+  - https://www.bdren.net.bd/network/network-maps
+  - https://www.bdren.net.bd/member/apply
+  - https://www.bdren.net.bd/member/category
+  - https://www.bdren.net.bd/member/connected-members
+  - https://www.bdren.net.bd/member/partners
+  - https://www.bdren.net.bd/events
+  - https://www.bdren.net.bd/news
+  - https://www.bdren.net.bd/notices
+  - https://www.bdren.net.bd/projects
+  - https://www.bdren.net.bd/career
+  - https://www.bdren.net.bd/resourceshub
+  - https://www.bdren.net.bd/resourceshub/annual-report
+  - https://www.bdren.net.bd/nocreport
+  - https://www.bdren.net.bd/list-of-r-and-e-networks
+  - https://www.bdren.net.bd/faqs
+  - https://www.bdren.net.bd/service/tariff-of-bdren-services
 
 allowed_domains:
-  - bdren.net.bd
+  - www.bdren.net.bd
 
 include_patterns: []
-
-exclude_patterns: []
+exclude_patterns:
+  - "\\?s="
+  - "/login"
+  - "/logout"
+  - "\\.(png|jpe?g|gif|webp|svg|bmp|ico)$"
 
 max_depth: 3
-max_pages: 5
+max_pages: 40
 
 assets:
   download_documents: true
-  max_documents: 5
+  max_documents: 60
 
 fetch:
   user_agent: "CortexEngine/0.1 (+https://github.com/BdREN-Innovation/Cortex)"
@@ -27,4 +55,4 @@ fetch:
   max_bytes: 5000000
   max_asset_bytes: 20000000
   obey_robots: true
-  concurrency: 3
+  concurrency: 1
