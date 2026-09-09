@@ -9,14 +9,14 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from . import audit, config, content, discover, files, merge
+from . import audit, config, content, discover, files, merge, verify
 from .api import Client
 from .builders import PORTIONS, portion_names
 
 log = logging.getLogger("cuet_scraper")
 
 STAGES = ("discover", "content", "merge", "plan", "capture", "files",
-          "audit", "all")
+          "audit", "verify", "all")
 
 
 def _setup_logging(verbose: bool) -> None:
@@ -122,6 +122,7 @@ def main(argv: list[str] | None = None) -> int:
                    "user_agent": config.USER_AGENT, "obey_robots": config.OBEY_ROBOTS},
     }
     errors: list[dict] = []
+    exit_code = 0
     # `merge` runs last in `all`: it reads what every earlier stage wrote.
     stages = ("discover", "content", "files", "audit", "merge") \
         if args.stage == "all" else (args.stage,)
@@ -154,6 +155,19 @@ def main(argv: list[str] | None = None) -> int:
                 summary["images_skipped"] = result.get("images_skipped", 0)
                 errors.extend(result["errors"])
 
+            elif stage == "verify":
+                # The definition of done, spec §10. Offline, and the exit code
+                # is the point: a corpus that fails this should not be handed
+                # to Team B as if it were finished.
+                report = verify.run(out)
+                summary["verify"] = {
+                    "checks": len(report.checks),
+                    "failures": [c.spec for c in report.failures],
+                    "waived": [c.spec for c in report.waivers],
+                }
+                if report.failures:
+                    exit_code = 1
+
             elif stage == "audit":
                 report = audit.run(client, out)
                 summary["undocumented_endpoints"] = report["undocumented"]
@@ -184,7 +198,7 @@ def main(argv: list[str] | None = None) -> int:
                  run_id, (finished - started).total_seconds(),
                  client.request_count, len(errors))
 
-    return 0
+    return exit_code
 
 
 def _load_dump(out: Path) -> dict:

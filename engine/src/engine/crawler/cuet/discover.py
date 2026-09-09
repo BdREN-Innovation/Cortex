@@ -146,6 +146,24 @@ def build_url_plan(dump: dict) -> list[tuple[str, str]]:
     for path, why in config.STATIC_ROUTES:
         add(f"{config.SITE}{path}", why)
 
+    # The head's profile, one per entity, for every entity type rather than
+    # departments only: faculties, institutes and centres each have one too.
+    # Spec Appendix B, closed 2026-09-09.
+    #
+    # Read from `_entity_details` and NOT from `_entities()`: the list rows on
+    # /administrative-departments carry no `department_head` at all, so the same
+    # loop over the list silently plans nothing. Only the per-entity detail
+    # payload has it.
+    for detail in (dump.get("_entity_details") or {}).values():
+        if not isinstance(detail, dict) or "error" in detail:
+            continue
+        entity = detail.get("data") if isinstance(detail.get("data"), dict) else detail
+        head = entity.get("department_head") if isinstance(entity, dict) else None
+        if isinstance(head, dict) and head.get("slug"):
+            add(f"{config.SITE}"
+                f"{config.HEAD_PROFILE_TEMPLATE.format(slug=encode_slug(head['slug']))}",
+                "head's profile page; no API endpoint, found by the Appendix B diff")
+
     for entity in _entities(dump):
         if entity.get("type") != "academic":
             continue

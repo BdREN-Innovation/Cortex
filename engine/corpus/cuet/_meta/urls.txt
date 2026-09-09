@@ -14,6 +14,36 @@ https://cuet.ac.bd/departments	# listing page; the 18 entities are already captu
 https://cuet.ac.bd/faculty	# listing page
 https://cuet.ac.bd/institutes	# listing page
 https://cuet.ac.bd/centers	# listing page
+https://cuet.ac.bd/profile/faculty-member/mohammad-jashim-uddin	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/dr-muhammad-rashidul-hasan	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/mizanur-rahman	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/dr-mohammad-abu-kauser	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/qdhossain_94	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/prof-dr-asiful-hoque	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/dr-sudip-kumar-pal	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/chairman	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/dr-nusrat-hoque	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/dr-md-ibrahim-khan	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/dr-jamal-uddin-ahamed	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/dr-md-rabiul-alam	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/nur-mohammad	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/MMRoshid	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/shah-alam	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/yahmed	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/dr-md-ashraf-ali	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/dr-suman-dey	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/dr-fowzia-gulshana-rashid-lopa	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/sajal_chowdhury	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/dr-prasanjit-das	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/dr-abu-shadat-muhammad-sayem	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/dr-muhammad-mostafa-kamal-bhuiya	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/Farzana_Rahman_Zuthi	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/dr-maruful-hasan-mazumder	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/dr-md-reaz-akter-mullick	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/nipu-das	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/dr-tofael-ahmed	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/dr-pranab-kumar-dhar	# head's profile page; no API endpoint, found by the Appendix B diff
+https://cuet.ac.bd/profile/faculty-member/dr-md-jahedul-islam	# head's profile page; no API endpoint, found by the Appendix B diff
 https://cuet.ac.bd/dept/NE/postgraduate	# per-department page with no API coverage
 https://cuet.ac.bd/dept/MME/postgraduate	# per-department page with no API coverage
 https://cuet.ac.bd/dept/Mathematics/postgraduate	# per-department page with no API coverage

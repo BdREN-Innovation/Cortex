@@ -329,7 +329,11 @@ SECTIONS: dict[str, SectionRule] = {
     "academic": SectionRule(
         subdir="academic",
         prefixes=("/academic-information", "/faculty", "/departments",
-                  "/department/", "/dept/", "/institutes", "/centers"),
+                  "/department/", "/dept/", "/institutes", "/centers",
+                  # The heads of departments, faculties, institutes and centres.
+                  # Without this rule all 30 land in _unsorted, which the
+                  # definition of done forbids. Added 2026-09-09.
+                  "/profile/faculty-member/"),
     ),
     "admission": SectionRule(
         subdir="admission",
@@ -364,6 +368,7 @@ GROUPS: tuple[tuple[str, str], ...] = (
     ("/student/organization/", "organizations"),
     ("/student/organizations", "organizations"),
     ("/notices/", "notices"),
+    ("/profile/faculty-member/", "profiles"),
 )
 
 # Multi-segment paths under these prefixes join their last TWO segments, so
@@ -401,6 +406,26 @@ STATIC_ROUTES: tuple[tuple[str, str], ...] = (
 # /department/<slug>/contact IS covered: it is the `contacts` array on the
 # entity detail endpoint. Spec §3.5.
 DEPT_SUBPAGE_TEMPLATES = ("/dept/{slug}/postgraduate",)
+
+# The head's profile page, one per entity. Found 2026-09-09 by the Appendix B
+# gap diff — five of these were in `found_pages.txt` and in no plan, which is
+# exactly the discovered-but-unplanned case that procedure exists to catch.
+#
+# The diff found five; there are thirty. The five are the entities whose body
+# HTML happens to embed the link, but EVERY one of the 30 entities carries
+# `department_head.slug`, so the route is derived from data rather than from
+# whichever pages happened to mention it. Deriving it is also what spec §3.4
+# requires: prefer the API's slug over one scraped out of markup.
+#
+# Two of the thirty are worth knowing about before you read the output:
+#
+#   * IEER's head is linked via `cuet.thetork.com`, the vendor domain (§4.11).
+#     The slug is the same, so the cuet.ac.bd URL built here is the right one
+#     and the vendor link is simply not followed.
+#   * These are dynamic routes, so a wrong slug returns HTTP 200 and renders
+#     not-found on the client (§4.5). Stage 4's content-based detection is what
+#     catches that; status codes cannot.
+HEAD_PROFILE_TEMPLATE = "/profile/faculty-member/{slug}"
 
 # VERIFIED 2026-09-08: admissioncuet.ac.bd has NO DNS RECORD. Confirmed against
 # a public resolver, with cuet.ac.bd resolving normally in the same check.

@@ -235,9 +235,16 @@ def write_shard(out: Path, portions: list[str], rows: list[dict],
         documents.append(clean.__dict__)
         pages.append(_crawled_page_row(row))
 
+    # `captured_at`, not `built_at`. A wall-clock build time changes on every
+    # run, so re-running a portion that produced identical documents still
+    # rewrote its shard and showed up as a diff saying nothing. Deriving it from
+    # the content means an unchanged rebuild is byte-identical, which is the
+    # same property the documents themselves have.
+    captured = max((row.get("fetched_at") or "" for row in rows), default="") or _now()
+
     payload = {
         "portions": sorted(portions),
-        "built_at": _now(),
+        "captured_at": captured,
         "documents": documents,
         "pages": pages,
         "found_files": list(result.found_files.values()),

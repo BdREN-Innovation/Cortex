@@ -76,6 +76,10 @@ uv run python scripts/progress.py     # 0/54 — this is the assignment
 uv run engine --help                  # the CLI wiring is already in place
 ```
 
+### Scraped Data & Corpus Guide
+
+For a complete map of all scraped datasets (CUET, BUBT, BDREN, Green University), their directory structures, and usage instructions for the embedding and knowledge pipeline, see the **[Cortex Data Inventory & Guide](DATA_GUIDE.md)**.
+
 ### Restore gitignored data
 
 Some files are too large for Git (scraped PDFs, raw API dumps, scraper specs).

@@ -2,7 +2,7 @@
   "portions": [
     "academic"
   ],
-  "built_at": "2026-09-09T06:47:07Z",
+  "captured_at": "2026-09-08T14:22:02Z",
   "documents": [
     {
       "doc_id": "ce8e1eee5a06c703",
@@ -1270,7 +1270,7 @@
       "category": "Undergraduate"
     },
     {
-      "url": "https://www.cuet.ac.bd/downloads/Guideline%20for%20Masters%20student.pdf",
+      "url": "https://www.cuet.ac.bd/downloads/post-graduate.pdf",
       "linked_from": [
         "https://cuet.ac.bd/academic-information"
       ],
@@ -1279,7 +1279,7 @@
       "category": "Postgraduate"
     },
     {
-      "url": "https://www.cuet.ac.bd/downloads/post-graduate.pdf",
+      "url": "https://www.cuet.ac.bd/downloads/Guideline%20for%20Masters%20student.pdf",
       "linked_from": [
         "https://cuet.ac.bd/academic-information"
       ],
