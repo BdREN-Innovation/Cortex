@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/163",
+  "canonical_url": "https://cuet.ac.bd/news/163",
+  "page_id": "381854556d97090b",
+  "doc_key": "https://cuet.ac.bd/news/163",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "চুয়েট উপাচার্যের সাথে নব-গঠিত চুয়েটের শিক্ষক সমিতির সৌজন্য সাক্ষাৎ"
+  ],
+  "title": "চুয়েট উপাচার্যের সাথে নব-গঠিত চুয়েটের শিক্ষক সমিতির সৌজন্য সাক্ষাৎ",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T17:08:09Z",
+  "html_path": "news-events/news/163__38185455.html",
+  "markdown_path": "news-events/news/163__38185455.md",
+  "text_chars": 1202,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 163,
+  "date": "2026-01-18",
+  "headline_only": false
+}

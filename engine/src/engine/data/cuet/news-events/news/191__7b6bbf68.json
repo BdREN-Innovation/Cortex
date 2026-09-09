@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/191",
+  "canonical_url": "https://cuet.ac.bd/news/191",
+  "page_id": "7b6bbf68e860db50",
+  "doc_key": "https://cuet.ac.bd/news/191",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "A condolence meeting was held in memory of Arnab Saha, a student of CUET who passed away untimely."
+  ],
+  "title": "A condolence meeting was held in memory of Arnab Saha, a student of CUET who passed away untimely.",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T17:08:09Z",
+  "html_path": "news-events/news/191__7b6bbf68.html",
+  "markdown_path": "news-events/news/191__7b6bbf68.md",
+  "text_chars": 1912,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 191,
+  "date": "2026-07-29",
+  "headline_only": false
+}

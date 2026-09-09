@@ -1,0 +1,26 @@
+{
+  "url": "https://cuet.ac.bd/student/organization/computer-club",
+  "canonical_url": "https://cuet.ac.bd/student/organization/computer-club",
+  "page_id": "853f00eb408fe4a2",
+  "doc_key": "https://cuet.ac.bd/student/organization/computer-club",
+  "section": "home",
+  "group": "organizations",
+  "section_path": [
+    "Student Organizations",
+    "Computer Club"
+  ],
+  "title": "Computer Club",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T17:08:10Z",
+  "html_path": "home/organizations/computer-club__853f00eb.html",
+  "markdown_path": "home/organizations/computer-club__853f00eb.md",
+  "text_chars": 359,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "computer-club",
+  "org_type": "academic"
+}

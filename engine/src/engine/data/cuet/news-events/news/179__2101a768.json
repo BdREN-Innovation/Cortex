@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/179",
+  "canonical_url": "https://cuet.ac.bd/news/179",
+  "page_id": "2101a768cffd42f3",
+  "doc_key": "https://cuet.ac.bd/news/179",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "It is our responsibility to raise a talented generation in the country: Humam Quader Chowdhury"
+  ],
+  "title": "It is our responsibility to raise a talented generation in the country: Humam Quader Chowdhury",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T17:08:09Z",
+  "html_path": "news-events/news/179__2101a768.html",
+  "markdown_path": "news-events/news/179__2101a768.md",
+  "text_chars": 2089,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 179,
+  "date": "2026-05-15",
+  "headline_only": false
+}

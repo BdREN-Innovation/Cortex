@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/43",
+  "canonical_url": "https://cuet.ac.bd/news/43",
+  "page_id": "9462ec780ff968f0",
+  "doc_key": "https://cuet.ac.bd/news/43",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "CUET Model United Nations 2025"
+  ],
+  "title": "CUET Model United Nations 2025",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T17:08:10Z",
+  "html_path": "news-events/news/43__9462ec78.html",
+  "markdown_path": "news-events/news/43__9462ec78.md",
+  "text_chars": 652,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 43,
+  "date": "2025-01-08",
+  "headline_only": false
+}

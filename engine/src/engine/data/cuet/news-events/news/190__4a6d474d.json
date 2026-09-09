@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/190",
+  "canonical_url": "https://cuet.ac.bd/news/190",
+  "page_id": "4a6d474da0e8982e",
+  "doc_key": "https://cuet.ac.bd/news/190",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "New Vice Chancellor Professor Dr. Abu Sadat Muhammad Sayem joins CUET."
+  ],
+  "title": "New Vice Chancellor Professor Dr. Abu Sadat Muhammad Sayem joins CUET.",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T17:08:09Z",
+  "html_path": "news-events/news/190__4a6d474d.html",
+  "markdown_path": "news-events/news/190__4a6d474d.md",
+  "text_chars": 1094,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 190,
+  "date": "2026-07-28",
+  "headline_only": false
+}

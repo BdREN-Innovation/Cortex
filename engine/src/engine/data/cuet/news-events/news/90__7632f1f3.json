@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/90",
+  "canonical_url": "https://cuet.ac.bd/news/90",
+  "page_id": "7632f1f3a6a0c933",
+  "doc_key": "https://cuet.ac.bd/news/90",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Workshop on \"Nuclear Reactor Design and Simulation\""
+  ],
+  "title": "Workshop on \"Nuclear Reactor Design and Simulation\"",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T17:08:10Z",
+  "html_path": "news-events/news/90__7632f1f3.html",
+  "markdown_path": "news-events/news/90__7632f1f3.md",
+  "text_chars": 382,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 90,
+  "date": "2024-12-28",
+  "headline_only": false
+}

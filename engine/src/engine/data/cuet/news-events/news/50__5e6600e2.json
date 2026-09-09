@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/50",
+  "canonical_url": "https://cuet.ac.bd/news/50",
+  "page_id": "5e6600e21db5f745",
+  "doc_key": "https://cuet.ac.bd/news/50",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "A Seminar Titled “Advancing Nuclear safety and Expanding Scope of Nuclear Medicine Application” Held at CUET."
+  ],
+  "title": "A Seminar Titled “Advancing Nuclear safety and Expanding Scope of Nuclear Medicine Application” Held at CUET.",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T17:08:10Z",
+  "html_path": "news-events/news/50__5e6600e2.html",
+  "markdown_path": "news-events/news/50__5e6600e2.md",
+  "text_chars": 1921,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 50,
+  "date": "2024-12-17",
+  "headline_only": false
+}

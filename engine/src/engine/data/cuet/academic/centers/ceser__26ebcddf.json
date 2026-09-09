@@ -1,0 +1,30 @@
+{
+  "url": "https://cuet.ac.bd/centers/ceser",
+  "canonical_url": "https://cuet.ac.bd/centers/ceser",
+  "page_id": "26ebcddf6c57ac3a",
+  "doc_key": "https://cuet.ac.bd/centers/ceser",
+  "section": "academic",
+  "group": "centers",
+  "section_path": [
+    "Academic",
+    "Centers",
+    "Center for Environmental Science & Engineering Research"
+  ],
+  "title": "Center for Environmental Science & Engineering Research",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T17:08:09Z",
+  "html_path": "academic/centers/ceser__26ebcddf.html",
+  "markdown_path": "academic/centers/ceser__26ebcddf.md",
+  "text_chars": 5575,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "ceser",
+  "entity_type": "center",
+  "short_name": "ceser",
+  "email": "nusrat_hoque@cuet.ac.bd",
+  "phone": "8801789265151"
+}

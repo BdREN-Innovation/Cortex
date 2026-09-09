@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/54",
+  "canonical_url": "https://cuet.ac.bd/news/54",
+  "page_id": "24fa5427d2409b3f",
+  "doc_key": "https://cuet.ac.bd/news/54",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Workshop on \"IoT Solutions for Smart Cities\" Conducted by ETE Department"
+  ],
+  "title": "Workshop on \"IoT Solutions for Smart Cities\" Conducted by ETE Department",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T17:08:09Z",
+  "html_path": "news-events/news/54__24fa5427.html",
+  "markdown_path": "news-events/news/54__24fa5427.md",
+  "text_chars": 523,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 54,
+  "date": "2025-01-22",
+  "headline_only": false
+}

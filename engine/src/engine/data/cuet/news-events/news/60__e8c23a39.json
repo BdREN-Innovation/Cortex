@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/60",
+  "canonical_url": "https://cuet.ac.bd/news/60",
+  "page_id": "e8c23a394691ed28",
+  "doc_key": "https://cuet.ac.bd/news/60",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Seminar on \"Sustainable Urban Drainage Systems\""
+  ],
+  "title": "Seminar on \"Sustainable Urban Drainage Systems\"",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T17:08:09Z",
+  "html_path": "news-events/news/60__e8c23a39.html",
+  "markdown_path": "news-events/news/60__e8c23a39.md",
+  "text_chars": 400,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 60,
+  "date": "2025-01-19",
+  "headline_only": false
+}

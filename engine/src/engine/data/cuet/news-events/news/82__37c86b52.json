@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/82",
+  "canonical_url": "https://cuet.ac.bd/news/82",
+  "page_id": "37c86b527c1220b7",
+  "doc_key": "https://cuet.ac.bd/news/82",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "International Conference on \"Advances in Material Science\""
+  ],
+  "title": "International Conference on \"Advances in Material Science\"",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T17:08:10Z",
+  "html_path": "news-events/news/82__37c86b52.html",
+  "markdown_path": "news-events/news/82__37c86b52.md",
+  "text_chars": 365,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 82,
+  "date": "2024-12-20",
+  "headline_only": false
+}

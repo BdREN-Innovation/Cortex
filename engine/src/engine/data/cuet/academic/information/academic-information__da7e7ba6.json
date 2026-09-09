@@ -1,0 +1,37 @@
+{
+  "url": "https://cuet.ac.bd/academic-information",
+  "canonical_url": "https://cuet.ac.bd/academic-information",
+  "page_id": "da7e7ba653de19e2",
+  "doc_key": "https://cuet.ac.bd/academic-information?_curricula=undergraduate",
+  "section": "academic",
+  "group": "information",
+  "section_path": [
+    "Academic",
+    "Curricula",
+    "Undergraduate"
+  ],
+  "title": "Undergraduate curricula",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T17:08:10Z",
+  "html_path": "academic/information/academic-information__da7e7ba6.html",
+  "markdown_path": "academic/information/academic-information__da7e7ba6.md",
+  "text_chars": 21467,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "curriculum_type": "undergraduate",
+  "curriculum_ids": [
+    31,
+    29,
+    25,
+    19,
+    17,
+    15,
+    12,
+    9,
+    1
+  ]
+}

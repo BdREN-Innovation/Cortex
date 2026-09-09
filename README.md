@@ -85,11 +85,11 @@ They are stored on Google Drive:
 
 Download the folders and place them at these paths:
 
-| Drive Folder             | Restore To (relative to repo root)    |
-|--------------------------|---------------------------------------|
-| `01_scraped_documents/*` | `cuet_scraper/cuet_data/_files/`      |
-| `02_api_metadata/*`      | `cuet_scraper/cuet_data/_meta/`       |
-| `03_scraper_specs/*`     | repo root (`Cortex/`)                 |
+| Drive Folder             | Restore To (relative to repo root)          |
+|--------------------------|---------------------------------------------|
+| `01_scraped_documents/*` | `engine/src/engine/data/cuet/_files/`       |
+| `02_api_metadata/*`      | `engine/src/engine/data/cuet/_meta/`        |
+| `03_scraper_specs/*`     | reference only (not needed in repo)         |
 
 The Drive folder contains a `README.md` with full details on what each file is,
 the naming conventions, and important notes for the embedding team.
@@ -289,6 +289,10 @@ Cortex/
         ├── contracts/        GIVEN. Shared schemas — the only cross-team surface.
         │                     Frozen after day 3. Imports no team package.
         ├── crawler/          TEAM A. fetcher, frontier, discover, pipeline
+        │   └── cuet/         CUET site-specific scraper (API-first capture)
+        ├── data/             Scraped output — one subfolder per site (COMMITTED)
+        │   └── cuet/         documents.jsonl, pages.jsonl, manifest, section dirs
+        │                     Heavy files (_files/, api_dump.json) on Google Drive
         ├── knowledge/        TEAM B. extraction, parsers, pdf, documents, chunking,
         │                             embedding, store, indexer, retriever, rag
         ├── evaluation/       TEAM C. dataset, metrics/, runner, report

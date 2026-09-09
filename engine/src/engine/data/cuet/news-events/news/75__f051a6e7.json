@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/75",
+  "canonical_url": "https://cuet.ac.bd/news/75",
+  "page_id": "f051a6e79f0838b6",
+  "doc_key": "https://cuet.ac.bd/news/75",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "Industrial Tour to Steel Manufacturing Plant"
+  ],
+  "title": "Industrial Tour to Steel Manufacturing Plant",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T17:08:10Z",
+  "html_path": "news-events/news/75__f051a6e7.html",
+  "markdown_path": "news-events/news/75__f051a6e7.md",
+  "text_chars": 349,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 75,
+  "date": "2024-10-22",
+  "headline_only": false
+}

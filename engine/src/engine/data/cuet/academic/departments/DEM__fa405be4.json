@@ -1,0 +1,31 @@
+{
+  "url": "https://cuet.ac.bd/department/DEM",
+  "canonical_url": "https://cuet.ac.bd/department/DEM",
+  "page_id": "fa405be4c458f4f1",
+  "doc_key": "https://cuet.ac.bd/department/DEM",
+  "section": "academic",
+  "group": "departments",
+  "section_path": [
+    "Academic",
+    "Departments",
+    "Civil and Environment Eng.",
+    "Disaster Engineering And Management"
+  ],
+  "title": "Disaster Engineering And Management",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T17:08:09Z",
+  "html_path": "academic/departments/DEM__fa405be4.html",
+  "markdown_path": "academic/departments/DEM__fa405be4.md",
+  "text_chars": 3574,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "DEM",
+  "entity_type": "academic",
+  "short_name": "DEM",
+  "email": "headdem@cuet.ac.bd",
+  "phone": "01609495478"
+}

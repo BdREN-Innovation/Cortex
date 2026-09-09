@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/200",
+  "canonical_url": "https://cuet.ac.bd/news/200",
+  "page_id": "2b75167c2d033cf1",
+  "doc_key": "https://cuet.ac.bd/news/200",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "CUET VC congratulates Mirza Fakhrul Islam Alamgir on being elected as His Excellency the President."
+  ],
+  "title": "CUET VC congratulates Mirza Fakhrul Islam Alamgir on being elected as His Excellency the President.",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T17:08:09Z",
+  "html_path": "news-events/news/200__2b75167c.html",
+  "markdown_path": "news-events/news/200__2b75167c.md",
+  "text_chars": 956,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 200,
+  "date": "2026-08-20",
+  "headline_only": false
+}

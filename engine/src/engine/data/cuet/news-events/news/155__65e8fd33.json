@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/155",
+  "canonical_url": "https://cuet.ac.bd/news/155",
+  "page_id": "65e8fd33806cfca2",
+  "doc_key": "https://cuet.ac.bd/news/155",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "CUET Teachers' Association Executive Council Election Completed"
+  ],
+  "title": "CUET Teachers' Association Executive Council Election Completed",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T17:08:09Z",
+  "html_path": "news-events/news/155__65e8fd33.html",
+  "markdown_path": "news-events/news/155__65e8fd33.md",
+  "text_chars": 1651,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 155,
+  "date": "2025-12-10",
+  "headline_only": false
+}

@@ -1,0 +1,28 @@
+{
+  "url": "https://cuet.ac.bd/news/160",
+  "canonical_url": "https://cuet.ac.bd/news/160",
+  "page_id": "fcc1fa523876ee69",
+  "doc_key": "https://cuet.ac.bd/news/160",
+  "section": "news-events",
+  "group": "news",
+  "section_path": [
+    "News & Events",
+    "News",
+    "CUET VC mourns over Khaleda Zia’s death."
+  ],
+  "title": "CUET VC mourns over Khaleda Zia’s death.",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-08T17:08:09Z",
+  "html_path": "news-events/news/160__fcc1fa52.html",
+  "markdown_path": "news-events/news/160__fcc1fa52.md",
+  "text_chars": 1007,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "news_id": 160,
+  "date": "2025-12-30",
+  "headline_only": false
+}
