@@ -1,0 +1,30 @@
+{
+  "url": "https://cuet.ac.bd/section/transport-section",
+  "canonical_url": "https://cuet.ac.bd/section/transport-section",
+  "page_id": "674c8bddccd266da",
+  "doc_key": "https://cuet.ac.bd/section/transport-section",
+  "section": "administration",
+  "group": "sections",
+  "section_path": [
+    "Offices & Sections",
+    "Transport"
+  ],
+  "title": "Transport",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T23:04:29Z",
+  "html_path": "administration/sections/transport-section__674c8bdd.html",
+  "markdown_path": "administration/sections/transport-section__674c8bdd.md",
+  "text_chars": 120,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "transport-section",
+  "entity_id": 45,
+  "entity_type": "section",
+  "short_name": "transport-section",
+  "has_prose": false,
+  "footer_group": "office_section"
+}

@@ -81,12 +81,12 @@ max_pages: 250
 
 assets:
   download_documents: true
-  max_documents: 90
+  max_documents: 200
 
 fetch:
   user_agent: "CortexEngine/0.1 (+https://github.com/BdREN-Innovation/Cortex)"
   delay_seconds: 1.5
-  timeout_seconds: 20
+  timeout_seconds: 30
   max_retries: 2
   max_bytes: 5000000
   max_asset_bytes: 20000000

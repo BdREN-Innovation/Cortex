@@ -11,7 +11,9 @@ __pycache__/
 build/
 develop-eggs/
 dist/
-downloads/
+# Anchored to the repo root: unanchored, this stock pip-cache rule also
+# swallows engine/corpus/cuet/resources/downloads/.
+/downloads/
 eggs/
 .eggs/
 lib/
@@ -234,3 +236,12 @@ gdrive_upload/
 
 # Legacy standalone scraper (now at engine/src/engine/crawler/cuet/)
 cuet_scraper/
+
+# Crawl/pipeline output (generated, not source) — Team A/B/C runtime data
+data/
+engine/data/
+
+# macOS
+.DS_Store
+
+engine/upload_02/

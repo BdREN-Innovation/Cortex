@@ -1,0 +1,30 @@
+{
+  "url": "https://cuet.ac.bd/directorate/research-extension",
+  "canonical_url": "https://cuet.ac.bd/directorate/research-extension",
+  "page_id": "d140de5df034a514",
+  "doc_key": "https://cuet.ac.bd/directorate/research-extension",
+  "section": "administration",
+  "group": "directorates",
+  "section_path": [
+    "Directorates",
+    "Directorate of Research and Extension"
+  ],
+  "title": "Directorate of Research and Extension",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T23:04:29Z",
+  "html_path": "administration/directorates/research-extension__d140de5d.html",
+  "markdown_path": "administration/directorates/research-extension__d140de5d.md",
+  "text_chars": 2792,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "research-extension",
+  "entity_id": 47,
+  "entity_type": "directorate",
+  "short_name": "DRE",
+  "has_prose": true,
+  "footer_group": "directorates"
+}

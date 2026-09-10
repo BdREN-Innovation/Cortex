@@ -1,0 +1,45 @@
+{
+  "url": "https://cuet.ac.bd/research/conference-paper",
+  "canonical_url": "https://cuet.ac.bd/research/conference-paper",
+  "page_id": "6e602cab2fdbe254",
+  "doc_key": "https://cuet.ac.bd/research/conference-paper?_part=4",
+  "section": "research",
+  "group": "publications",
+  "section_path": [
+    "Research",
+    "Conference Paper"
+  ],
+  "title": "Conference Paper (4 of 4)",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T23:04:29Z",
+  "html_path": "research/publications/conference-paper__6e602cab.html",
+  "markdown_path": "research/publications/conference-paper__6e602cab.md",
+  "text_chars": 6251,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 2,
+  "double_escaped": false,
+  "files": [
+    {
+      "url": "https://iccesd.kuet.ac.bd/2022/Papers/TRE-4473.pdf"
+    },
+    {
+      "url": "https://icceiruet.org/wp-content/uploads/2025/12/Proceeding-ICCEI-2025.pdf"
+    }
+  ],
+  "research_type": "Conference Paper",
+  "research_slug": "conference-paper",
+  "publication_count": 22,
+  "publication_total": 202,
+  "authors": [
+    "Muhammad Shahnewaz Bhuyan",
+    "Selim Hussen",
+    "Shajib Paul",
+    "Shuvo Biswas",
+    "Syeda Tahmina Tasnim",
+    "Symom Hossain Shohan",
+    "Tanvir Mahmood",
+    "Wasif Abu Dujana"
+  ]
+}

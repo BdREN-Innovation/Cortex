@@ -70,6 +70,15 @@ ENDPOINTS: tuple[Endpoint, ...] = (
     Endpoint("/app-admin-research-types", note="1,560 publications. 1.24 MB. Part 2"),
     Endpoint("/apa-sections", note="7 sections, 35 APA types. Part 2"),
     Endpoint("/download-types", note="2 download categories"),
+    # Found 2026-09-09 in the browser's Network tab, not by grep: the frontend
+    # builds this call with query params attached, so a quoted-string search of
+    # the JS bundles misses it — the same reason ENTITY_DETAIL needed a note.
+    # /download-types gives only the 2 category labels; THIS is the file rows.
+    # ~135 forms, curricula and official lists, each with a direct PDF link.
+    # All three params are sent empty by the page itself and return everything;
+    # they are the table's filter controls, not pagination.
+    Endpoint("/downloads?search=&download_type_slug=&administrative_department_id=",
+             note="~135 downloadable files with titles and departments"),
     Endpoint("/home-counters", note="STALE COUNTS - capture, never derive. Spec §3.3"),
     # Found by --stage audit on its first real run, 2026-09-08 - not by hand.
     # Returns every field null (students, graduates, officers, teachers,
@@ -468,6 +477,14 @@ NOTICE_TYPES_IN_SCOPE = {
 # to a size that chunks sensibly for embedding.
 NOTICES_PER_DOCUMENT = 60
 
+# Same idea as NOTICES_PER_DOCUMENT. 133 files across 2 types, so this only
+# splits the large one; it exists so the two are tuned in the same place.
+DOWNLOADS_PER_DOCUMENT = 60
+
+# 1,358 journal papers is 23 documents at this size. Same tuning axis as
+# NOTICES_PER_DOCUMENT and DOWNLOADS_PER_DOCUMENT.
+RESEARCH_PER_DOCUMENT = 60
+
 # Capturing metadata for out-of-scope notices costs nothing (they arrive in the
 # same response); downloading their PDFs does. Separate decisions, so separate
 # switches. Part 2 §3.4.
@@ -500,6 +517,46 @@ SECTIONS: dict[str, SectionRule] = {
         exact=("/",),
         prefixes=("/about/cuet", "/about/campus-life",
                   "/student/organizations", "/student/organization/"),
+    ),
+    # /about/cuet and /about/campus-life stay with `home`: longest-prefix wins,
+    # and "/about/cuet" beats "/about". This picks up the rest of the About
+    # menu, including /about/history and /about/vision-and-mission, which are
+    # in CMS_CONTENT_KEYS and were landing in _unsorted.
+    "about": SectionRule(
+        subdir="about",
+        prefixes=("/about",),
+    ),
+    # The Administration menu and the footer's Directorates and
+    # "Offices & Sections" columns. 21 entities from /footer-data joined to
+    # /administrative-departments; /apa is the same family and has no other home.
+    "administration": SectionRule(
+        subdir="administration",
+        prefixes=("/administration", "/directorate", "/office", "/section", "/apa"),
+    ),
+    # The Resources column in the footer and the file-bearing half of the
+    # Facilities menu. /directories and /e-resources have no endpoint and are
+    # browser-capture targets; the rule is here so they route correctly when
+    # they arrive.
+    "resources": SectionRule(
+        subdir="resources",
+        prefixes=("/downloads", "/e-resources", "/directories"),
+    ),
+    # The four publication routes, listed one by one rather than as a bare
+    # "/research", for two reasons.
+    #
+    # Matching is plain `str.startswith`, not segment-aware, so "/research"
+    # would also claim /research-area, /research-highlights and
+    # /research-type/publication — three root-level routes the footer links
+    # that are not under /research/ at all.
+    #
+    # And /research/research-highlights and /research/research-area are CMS
+    # pages that `build_cms` files under `_cms`; a broad rule would route them
+    # somewhere else and deepen a disagreement that is still undecided. See
+    # HANDOVER-general.md.
+    "research": SectionRule(
+        subdir="research",
+        prefixes=("/research/journal-paper", "/research/conference-paper",
+                  "/research/partnership", "/research/mou"),
     ),
     "top-bar": SectionRule(
         subdir="top-bar",
@@ -556,6 +613,17 @@ GROUPS: tuple[tuple[str, str], ...] = (
     ("/student/organizations", "organizations"),
     ("/notices/", "notices"),
     ("/profile/faculty-member/", "profiles"),
+    ("/directorate", "directorates"),
+    ("/office", "offices"),
+    ("/section", "sections"),
+    ("/apa", "apa"),
+    ("/downloads", "downloads"),
+    ("/directories", "directories"),
+    ("/e-resources", "e-resources"),
+    ("/research/journal-paper", "publications"),
+    ("/research/conference-paper", "publications"),
+    ("/research/partnership", "publications"),
+    ("/research/mou", "publications"),
 )
 
 # Multi-segment paths under these prefixes join their last TWO segments, so

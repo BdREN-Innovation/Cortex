@@ -1,0 +1,30 @@
+{
+  "url": "https://cuet.ac.bd/section/security",
+  "canonical_url": "https://cuet.ac.bd/section/security",
+  "page_id": "78e5c23393edf38d",
+  "doc_key": "https://cuet.ac.bd/section/security",
+  "section": "administration",
+  "group": "sections",
+  "section_path": [
+    "Offices & Sections",
+    "Security Section"
+  ],
+  "title": "Security Section",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T23:04:29Z",
+  "html_path": "administration/sections/security__78e5c233.html",
+  "markdown_path": "administration/sections/security__78e5c233.md",
+  "text_chars": 837,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "security",
+  "entity_id": 66,
+  "entity_type": "section",
+  "short_name": "security",
+  "has_prose": true,
+  "footer_group": "office_section"
+}

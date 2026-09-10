@@ -51,7 +51,7 @@ organisations and the combined notice listing, which belong to other portions.
 | Site | Location | Type | Format |
 |---|---|---|---|
 | **CUET** | `engine/corpus/cuet/` | Curated reference corpus | `.md`, `.json`, `.html` triples, `documents.jsonl`, `pages.jsonl` |
-| **BDREN** | `engine/data/sites/bdren/bdren-20260909T110121Z/` | Crawler runtime run | 40 pages, 33 PDFs | `raw/*.html`, `docs/*.pdf`, `pages.jsonl` |
+| **BDREN** | `engine/data/sites/bdren/bdren-20260910T030134Z/` | Crawler runtime run | 250 pages, 200 documents (179 PDF + 7 XLSX + misc) |
 | **BUBT** | `engine/data/sites/bubt/bubt-20260908T220949Z/` | Crawler runtime run | `raw/*.html`, `docs/*.pdf`, `pages.jsonl` |
 | **Green University** | `engine/data/sites/green/green-20260908T220124Z/` | Crawler runtime run | `raw/*.html`, `pages.jsonl` |
 
@@ -407,10 +407,15 @@ engine/data/sites/<site>/<site>-<timestamp>/
 ```
 
 ### Sites Captured
-1. **BDREN (`engine/data/sites/bdren/bdren-20260909T110121Z/`)**:
-   - `pages.jsonl`: 40 captured pages.
-   - `docs/`: 33 downloaded document PDFs.
-   - `raw/`: 40 raw HTML files.
+1. **BDREN (`engine/data/sites/bdren/bdren-20260910T030134Z/`)**:
+   - `pages.jsonl`: 250 captured pages (up from 40 — the previous run's page
+     budget was consumed entirely by repeated nav-menu links, so no /news or
+     /events detail pages were ever reached; pagination seeds fixed this).
+   - `docs/`: 200 downloaded documents (PDF + XLSX) — raised from an earlier
+     90-document cap after confirming ~180 unique notice PDFs existed on
+     the site; timeout also raised from 20s to 30s to avoid transient
+     fetch failures on larger files.
+   - `raw/`: 250 raw HTML files.
 2. **BUBT (`engine/data/sites/bubt/bubt-20260908T220949Z/`)**:
    - `pages.jsonl`: 100 captured pages.
    - `docs/`: Academic routines and program syllabus PDFs (`BBA-routine.pdf`, `msc-in-cse.pdf`, etc.).
@@ -422,7 +427,7 @@ engine/data/sites/<site>/<site>-<timestamp>/
 ```bash
 cd engine
 uv run engine extract --run data/sites/bubt/bubt-20260908T220949Z
-uv run engine extract --run data/sites/bdren/bdren-20260909T110121Z
+uv run engine extract --run data/sites/bdren/bdren-20260910T030134Z
 uv run engine extract --run data/sites/green/green-20260908T220124Z
 ```
 
