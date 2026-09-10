@@ -29,6 +29,24 @@ _SRC_RE = re.compile(r'src=["\']([^"\']+)["\']', re.I)
 _FILE_URL_RE = re.compile(
     r'https?://[^\s"\'<>]+?\.(?:pdf|docx?|xlsx?|pptx?|zip|csv)', re.I
 )
+# Unescaping a CMS value leaves the wrapper its editor put around it holding
+# block-level children: `<p><p>text</p><ul>...</ul></p>`. No parser keeps that
+# nesting — every one auto-closes the outer <p> at the first block child — so
+# the tree the markdown converter walks stops matching the tree the .html file
+# shows. These patterns delete the wrapper rather than leave it to be guessed.
+#
+# Both match only sequences that cannot occur in valid HTML (`<p><p`, `<p><ul`,
+# or `</ul></p>` with no opener), so well-formed values are left alone.
+_BLOCK_IN_P = ("p", "ul", "ol", "div", "table", "blockquote",
+               "h1", "h2", "h3", "h4", "h5", "h6")
+_P_BEFORE_BLOCK = re.compile(
+    r"<p\s*>\s*(?=<(?:" + "|".join(_BLOCK_IN_P) + r")\b)", re.I)
+_P_AFTER_BLOCK = re.compile(
+    r"(</(?:" + "|".join(_BLOCK_IN_P) + r")>\s*)</p\s*>", re.I)
+# A bare `&` is what unescaping a legitimate `&amp;` leaves behind ("Industry &
+# Government Collaboration"). Entities that are already well formed stay as they
+# are; `convert_charrefs` decodes both, so the markdown is identical either way.
+_BARE_AMP = re.compile(r"&(?!(?:[a-zA-Z][a-zA-Z0-9]*|#\d+|#[xX][0-9a-fA-F]+);)")
 
 
 def _now() -> str:
@@ -157,12 +175,35 @@ def harvest(html: str, base: str, result: Stage2Result, *,
     return files
 
 
+def _normalise_unescaped(html: str) -> str:
+    """Make an unescaped CMS value well formed.
+
+    Unescaping is only half the job. The value arrives as a real wrapper around
+    escaped markup — `<h2>..</h2><p>&lt;p&gt;..&lt;ul&gt;..`  — so once the
+    inner layer becomes tags, that wrapper holds block children and the document
+    is no longer well formed. Dropping the wrapper is what the parsers do
+    silently anyway; doing it here means the .html on disk says the same thing
+    they infer.
+    """
+    for pattern, repl in ((_P_BEFORE_BLOCK, ""), (_P_AFTER_BLOCK, r"\1")):
+        for _ in range(10):  # bounded: nesting this deep is already a bug
+            html, n = pattern.subn(repl, html)
+            if not n:
+                break
+    return _BARE_AMP.sub("&amp;", html)
+
+
 def _clean_html(value: str, result: Stage2Result, label: str) -> tuple[str, bool]:
-    """Return (html, was_double_escaped). Spec §3.3, §6.8."""
+    """Return (html, was_escaped). Spec §3.3, §6.8.
+
+    The flag is named `double_escaped` throughout for continuity, but what is
+    actually found in the wild is ONE escaped layer inside an unescaped wrapper:
+    `&amp;lt;` appears nowhere in the corpus. Unescaping twice would corrupt it.
+    """
     if value and any(marker in value for marker in config.DOUBLE_ESCAPE_MARKERS):
-        log.warning("double-escaped CMS value: %s (unescaping once)", label)
+        log.warning("escaped markup in CMS value: %s (unescaping once)", label)
         result.warnings.append(f"double_escaped:{label}")
-        return unescape_once(value), True
+        return _normalise_unescaped(unescape_once(value)), True
     return value or "", False
 
 

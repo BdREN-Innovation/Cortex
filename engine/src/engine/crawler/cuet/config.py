@@ -446,9 +446,15 @@ CMS_CONTENT_KEYS = {
     "research_area":             "/research/research-area",
 }
 
-# research_highlight and research_area are DOUBLE-ESCAPED: their values contain
-# literal &lt;p&gt; rather than real tags. Unescape once, flag it, log it.
-# Spec §3.3 and §6.8.
+# research_highlight and research_area arrive as an unescaped wrapper around an
+# ESCAPED body: `<h2>..</h2><p>` then `&lt;p&gt; .. &lt;ul&gt;` rather than real
+# tags. Verified 2026-09-10: one layer, not two — `&amp;lt;` occurs nowhere in
+# /general-settings, so unescape exactly once, then drop the wrapper left
+# holding block children. Flag it, log it. Spec §3.3 and §6.8.
+#
+# The name is historical; `double_escaped` is the field every document carries.
+# These markers are what identifies such a value: escaped block tags, which no
+# page legitimately shows as visible text.
 DOUBLE_ESCAPE_MARKERS = ("&lt;p&gt;", "&lt;div", "&lt;h2&gt;", "&lt;ul&gt;", "&lt;br")
 
 # --------------------------------------------------------------------------

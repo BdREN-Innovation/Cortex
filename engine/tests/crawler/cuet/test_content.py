@@ -7,6 +7,8 @@ said it did.
 
 from __future__ import annotations
 
+import re
+
 from engine.crawler.cuet import config, content
 from engine.crawler.cuet.builders import academic, general, news, notices
 from engine.crawler.cuet.builders.base import _setting_value
@@ -61,6 +63,53 @@ def test_build_cms_detects_and_unescapes_double_escaping():
     assert doc.double_escaped
     assert "&lt;p&gt;" not in doc.html
     assert any(w.startswith("double_escaped:") for w in result.warnings)
+
+
+def test_unescaped_cms_value_is_left_well_formed():
+    """The escaped body sits inside a real wrapper, so unescaping alone leaves
+    `<p><p>..</p><ul>..</ul></p>` — block children inside a <p>, which no parser
+    keeps. Verified against the live values 2026-09-10."""
+    dump = {"/general-settings": {"body": {"research_area": {
+        "id": 22, "key": "research_area",
+        "value": ("<h2>Research Areas</h2><p>&lt;p&gt;Intro&lt;/p&gt; "
+                  "&lt;ul&gt; &lt;li&gt;One&lt;/li&gt; &lt;/ul&gt;</p>"),
+    }}}}
+    result = _result()
+    general.build_cms(dump, result)
+    html = result.documents[0].html
+    assert "<ul>" in html and "<li>One</li>" in html
+    # the wrapper is gone: no <p> holds a block child, and none is left unclosed
+    assert html.count("<p>") == html.count("</p>")
+    assert "<p><p>" not in html.replace(" ", "")
+    assert "</p></p>" not in html.replace(" ", "")
+
+
+def test_legitimate_ampersand_survives_unescaping():
+    """Unescaping turns a correct `&amp;` into a bare `&`, which is no longer
+    valid HTML. It has to be put back, not left for the next reader to trip on."""
+    dump = {"/general-settings": {"body": {"research_area": {
+        "id": 22, "key": "research_area",
+        "value": ("<h2>Areas</h2><p>&lt;ul&gt;&lt;li&gt;Electrical &amp; "
+                  "Electronic&lt;/li&gt;&lt;/ul&gt;</p>"),
+    }}}}
+    result = _result()
+    general.build_cms(dump, result)
+    html = result.documents[0].html
+    assert "Electrical &amp; Electronic" in html
+    assert not re.search(r"&(?!(?:[a-zA-Z][a-zA-Z0-9]*|#\d+);)", html)
+
+
+def test_well_formed_cms_value_is_not_touched():
+    """The normaliser must only fire on nesting that cannot occur in valid HTML,
+    or every other CMS page would be rewritten too."""
+    clean = "<h2>History</h2><p>Founded in 1968.</p><ul><li>A &amp; B</li></ul>"
+    dump = {"/general-settings": {"body": {
+        "history": {"id": 3, "key": "history", "value": clean}}}}
+    result = _result()
+    general.build_cms(dump, result)
+    assert result.documents[0].html == clean
+    assert not result.documents[0].double_escaped
+    assert not [w for w in result.warnings if w.startswith("double_escaped:")]
 
 
 # --------------------------------------------------------------------------
