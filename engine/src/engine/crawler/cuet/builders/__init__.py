@@ -21,7 +21,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Callable
 
-from . import academic, alumni, general, news, notices
+from . import (about, academic, alumni, facilities, general, news,
+               notices, research)
 
 __all__ = ["Portion", "PORTIONS", "builders_for", "owner_of_url",
            "portion_names"]
@@ -57,8 +58,10 @@ class Portion:
 PORTIONS: tuple[Portion, ...] = (
     Portion(
         name="general",
-        owner="UNASSIGNED",
-        builders=(general.build_cms, general.build_student_organizations),
+        owner="Dipika Nath",
+        builders=(general.build_cms, general.build_student_organizations,
+                  about.build_administration, facilities.build_downloads,
+                  research.build_research),
         sections=("_cms", "home"),
         site_areas=("About menu", "Campus life", "Prospective students",
                     "Research highlights", "Student Organizations"),
@@ -89,7 +92,7 @@ PORTIONS: tuple[Portion, ...] = (
     ),
     Portion(
         name="notices",
-        owner="UNASSIGNED",
+        owner="Dipika Nath",
         builders=(notices.build_notices,),
         sections=("top-bar", "admission", "academic", "_unsorted"),
         site_areas=("Notices menu", "Top-bar notice links",

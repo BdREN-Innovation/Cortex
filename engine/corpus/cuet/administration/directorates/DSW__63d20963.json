@@ -1,0 +1,30 @@
+{
+  "url": "https://cuet.ac.bd/directorate/DSW",
+  "canonical_url": "https://cuet.ac.bd/directorate/DSW",
+  "page_id": "63d2096390a92474",
+  "doc_key": "https://cuet.ac.bd/directorate/DSW",
+  "section": "administration",
+  "group": "directorates",
+  "section_path": [
+    "Directorates",
+    "Directorate Of Student's Welfare"
+  ],
+  "title": "Directorate Of Student's Welfare",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T23:04:29Z",
+  "html_path": "administration/directorates/DSW__63d20963.html",
+  "markdown_path": "administration/directorates/DSW__63d20963.md",
+  "text_chars": 2260,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "DSW",
+  "entity_id": 37,
+  "entity_type": "directorate",
+  "short_name": "DSW",
+  "has_prose": true,
+  "footer_group": "directorates"
+}

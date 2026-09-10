@@ -1,0 +1,30 @@
+{
+  "url": "https://cuet.ac.bd/section/medical-center",
+  "canonical_url": "https://cuet.ac.bd/section/medical-center",
+  "page_id": "b33c326158eaa10e",
+  "doc_key": "https://cuet.ac.bd/section/medical-center",
+  "section": "administration",
+  "group": "sections",
+  "section_path": [
+    "Offices & Sections",
+    "Medical Center"
+  ],
+  "title": "Medical Center",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T23:04:29Z",
+  "html_path": "administration/sections/medical-center__b33c3261.html",
+  "markdown_path": "administration/sections/medical-center__b33c3261.md",
+  "text_chars": 145,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "slug": "medical-center",
+  "entity_id": 44,
+  "entity_type": "section",
+  "short_name": "medical-center",
+  "has_prose": true,
+  "footer_group": "office_section"
+}

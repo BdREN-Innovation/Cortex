@@ -1,0 +1,37 @@
+{
+  "url": "https://cuet.ac.bd/research/journal-paper",
+  "canonical_url": "https://cuet.ac.bd/research/journal-paper",
+  "page_id": "1ceeaaf2ce74e4e0",
+  "doc_key": "https://cuet.ac.bd/research/journal-paper?_part=10",
+  "section": "research",
+  "group": "publications",
+  "section_path": [
+    "Research",
+    "Journal Paper"
+  ],
+  "title": "Journal Paper (10 of 23)",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T23:04:29Z",
+  "html_path": "research/publications/journal-paper__1ceeaaf2.html",
+  "markdown_path": "research/publications/journal-paper__1ceeaaf2.md",
+  "text_chars": 15064,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 1,
+  "double_escaped": false,
+  "files": [
+    {
+      "url": "https://icmerecuet.org/wp-content/uploads/2025/01/ICMERE-2023-PI-87.pdf"
+    }
+  ],
+  "research_type": "Journal Paper",
+  "research_slug": "journal-paper",
+  "publication_count": 60,
+  "publication_total": 1358,
+  "authors": [
+    "Dr. Md. Moinul Islam",
+    "Dr. Mohammad Islam Miah",
+    "Dr. Mostafizur Rahman"
+  ]
+}

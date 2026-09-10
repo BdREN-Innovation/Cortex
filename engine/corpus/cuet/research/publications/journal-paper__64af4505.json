@@ -1,0 +1,43 @@
+{
+  "url": "https://cuet.ac.bd/research/journal-paper",
+  "canonical_url": "https://cuet.ac.bd/research/journal-paper",
+  "page_id": "64af4505e01b6c7d",
+  "doc_key": "https://cuet.ac.bd/research/journal-paper?_part=22",
+  "section": "research",
+  "group": "publications",
+  "section_path": [
+    "Research",
+    "Journal Paper"
+  ],
+  "title": "Journal Paper (22 of 23)",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T23:04:29Z",
+  "html_path": "research/publications/journal-paper__64af4505.html",
+  "markdown_path": "research/publications/journal-paper__64af4505.md",
+  "text_chars": 14611,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 1,
+  "double_escaped": false,
+  "files": [
+    {
+      "url": "https://ijeber.com/uploads2024/ijeber_04_272.pdf"
+    }
+  ],
+  "research_type": "Journal Paper",
+  "research_slug": "journal-paper",
+  "publication_count": 60,
+  "publication_total": 1358,
+  "authors": [
+    "Nipa Dhar",
+    "Pollen Chakma",
+    "Pravatosh Chowdhury",
+    "Radheshyam Nath Jisu",
+    "S M Mashiur Rahman",
+    "Saadman Sakib",
+    "Sajib Sarker",
+    "Samen Bairagi",
+    "Sancoy Barua"
+  ]
+}

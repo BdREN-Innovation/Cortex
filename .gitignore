@@ -241,3 +241,5 @@ engine/data/
 
 # macOS
 .DS_Store
+
+engine/upload_02/
