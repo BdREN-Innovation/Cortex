@@ -1,0 +1,37 @@
+{
+  "url": "https://cuet.ac.bd/downloads",
+  "canonical_url": "https://cuet.ac.bd/downloads",
+  "page_id": "9d87e7dc023b0726",
+  "doc_key": "https://cuet.ac.bd/downloads?_type=appointment-related&_part=1",
+  "section": "resources",
+  "group": "downloads",
+  "section_path": [
+    "Downloads",
+    "Appointment Related"
+  ],
+  "title": "Appointment Related",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T23:04:29Z",
+  "html_path": "resources/downloads/downloads__9d87e7dc.html",
+  "markdown_path": "resources/downloads/downloads__9d87e7dc.md",
+  "text_chars": 697,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "download_type": "Appointment Related",
+  "download_count": 8,
+  "download_ids": [
+    124,
+    123,
+    125,
+    121,
+    122,
+    126,
+    127,
+    128
+  ],
+  "listing_url": "https://cuet.ac.bd/downloads"
+}
