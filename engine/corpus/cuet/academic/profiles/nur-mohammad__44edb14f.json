@@ -24,10 +24,10 @@
   "double_escaped": false,
   "files": [
     {
-      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/68ce1aa4c0295.pdf"
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/68ce1925d52e1.pdf"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/68ce1925d52e1.pdf"
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/68ce1aa4c0295.pdf"
     }
   ],
   "origin": "API /app-admins/{slug}",

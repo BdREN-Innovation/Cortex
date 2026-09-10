@@ -12,7 +12,7 @@
   "title": "The Comptroller",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-09T23:04:29Z",
+  "fetched_at": "2026-09-09T18:07:21Z",
   "html_path": "administration/sections/comptroller-of-accounts__9afd8fd4.html",
   "markdown_path": "administration/sections/comptroller-of-accounts__9afd8fd4.md",
   "text_chars": 2637,
@@ -21,10 +21,13 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /administrative-departments + /footer-data",
   "slug": "comptroller-of-accounts",
   "entity_id": 41,
   "entity_type": "office",
   "short_name": "comptroller-office",
   "has_prose": true,
-  "footer_group": "office_section"
+  "footer_group": "office_section",
+  "portion": "general",
+  "owner": "Dipika Nath"
 }

@@ -12,7 +12,7 @@
   "title": "about / campus-life",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-09T23:04:29Z",
+  "fetched_at": "2026-09-09T18:07:21Z",
   "html_path": "_cms/campus-life__f91331a1.html",
   "markdown_path": "_cms/campus-life__f91331a1.md",
   "text_chars": 3683,
@@ -25,5 +25,5 @@
   "cms_key": "campus_life",
   "renders_page": "/about/campus-life",
   "portion": "general",
-  "owner": "UNASSIGNED"
+  "owner": "Dipika Nath"
 }

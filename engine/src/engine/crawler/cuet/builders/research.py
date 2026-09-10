@@ -173,6 +173,7 @@ def build_research(dump: dict, result: Stage2Result) -> None:
                 group="publications",
                 section_path=["Research", type_title],
                 extra={
+                    "origin": "API /app-admin-research-types",
                     "research_type": type_title,
                     "research_slug": slug,
                     "publication_count": len(page),

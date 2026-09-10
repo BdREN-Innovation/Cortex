@@ -1098,7 +1098,7 @@
         "section": "admission",
         "origin": "browser render (crawl4ai + Chromium)",
         "portion": "notices",
-        "owner": "UNASSIGNED"
+        "owner": "Dipika Nath"
       },
       "doc_type": "page",
       "assets": []
@@ -1122,7 +1122,7 @@
         "section": "admission",
         "origin": "browser render (crawl4ai + Chromium)",
         "portion": "notices",
-        "owner": "UNASSIGNED"
+        "owner": "Dipika Nath"
       },
       "doc_type": "page",
       "assets": []
@@ -1146,7 +1146,7 @@
         "section": "admission",
         "origin": "browser render (crawl4ai + Chromium)",
         "portion": "notices",
-        "owner": "UNASSIGNED"
+        "owner": "Dipika Nath"
       },
       "doc_type": "page",
       "assets": []
@@ -1170,7 +1170,7 @@
         "section": "admission",
         "origin": "browser render (crawl4ai + Chromium)",
         "portion": "general",
-        "owner": "UNASSIGNED"
+        "owner": "Dipika Nath"
       },
       "doc_type": "page",
       "assets": []
@@ -1194,7 +1194,7 @@
         "section": "admission",
         "origin": "browser render (crawl4ai + Chromium)",
         "portion": "general",
-        "owner": "UNASSIGNED"
+        "owner": "Dipika Nath"
       },
       "doc_type": "page",
       "assets": []
@@ -1218,7 +1218,7 @@
         "section": "home",
         "origin": "browser render (crawl4ai + Chromium)",
         "portion": "general",
-        "owner": "UNASSIGNED"
+        "owner": "Dipika Nath"
       },
       "doc_type": "page",
       "assets": []
@@ -1268,7 +1268,7 @@
         "section": "news-events",
         "origin": "browser render (crawl4ai + Chromium)",
         "portion": "general",
-        "owner": "UNASSIGNED"
+        "owner": "Dipika Nath"
       },
       "doc_type": "page",
       "assets": []
@@ -1318,7 +1318,7 @@
         "section": "top-bar",
         "origin": "browser render (crawl4ai + Chromium)",
         "portion": "notices",
-        "owner": "UNASSIGNED"
+        "owner": "Dipika Nath"
       },
       "doc_type": "page",
       "assets": []
@@ -1333,13 +1333,13 @@
       "content_path": "academic/centers/centers__8f2b2ac4.html",
       "fetched_at": "2026-09-09T07:31:53Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1357,13 +1357,13 @@
       "content_path": "academic/departments/departments__7266ea26.html",
       "fetched_at": "2026-09-09T07:31:20Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1381,13 +1381,13 @@
       "content_path": "academic/departments/postgraduate__000485d3.html",
       "fetched_at": "2026-09-09T17:21:07Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1405,13 +1405,13 @@
       "content_path": "academic/departments/postgraduate__024efe15.html",
       "fetched_at": "2026-09-09T17:21:28Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1429,13 +1429,13 @@
       "content_path": "academic/departments/postgraduate__0c4e45ea.html",
       "fetched_at": "2026-09-09T17:20:55Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1453,13 +1453,13 @@
       "content_path": "academic/departments/postgraduate__14502acc.html",
       "fetched_at": "2026-09-09T17:21:36Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1477,13 +1477,13 @@
       "content_path": "academic/departments/postgraduate__1de5f4f8.html",
       "fetched_at": "2026-09-09T17:21:20Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1501,13 +1501,13 @@
       "content_path": "academic/departments/postgraduate__245bec32.html",
       "fetched_at": "2026-09-09T17:21:49Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1525,13 +1525,13 @@
       "content_path": "academic/departments/postgraduate__3be93e04.html",
       "fetched_at": "2026-09-09T17:21:15Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1549,13 +1549,13 @@
       "content_path": "academic/departments/postgraduate__5539dc7c.html",
       "fetched_at": "2026-09-09T17:21:03Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1573,13 +1573,13 @@
       "content_path": "academic/departments/postgraduate__58da73b7.html",
       "fetched_at": "2026-09-09T17:21:53Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1597,13 +1597,13 @@
       "content_path": "academic/departments/postgraduate__748e35d6.html",
       "fetched_at": "2026-09-09T17:21:11Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1621,13 +1621,13 @@
       "content_path": "academic/departments/postgraduate__9797494e.html",
       "fetched_at": "2026-09-09T17:21:24Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1645,13 +1645,13 @@
       "content_path": "academic/departments/postgraduate__a400f344.html",
       "fetched_at": "2026-09-09T17:20:59Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1669,14 +1669,14 @@
       "content_path": "academic/departments/postgraduate__abf59438.html",
       "fetched_at": "2026-09-09T17:20:46Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
-        "https://www.cuet.ac.bd/downloads/post-graduate.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
         "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
+        "https://www.cuet.ac.bd/downloads/post-graduate.pdf",
         "https://www.cuet.ac.bd/downloads/Guideline%20for%20Masters%20student.pdf"
       ],
       "source": "browser",
@@ -1695,13 +1695,13 @@
       "content_path": "academic/departments/postgraduate__b5c43325.html",
       "fetched_at": "2026-09-09T17:20:50Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1719,13 +1719,13 @@
       "content_path": "academic/departments/postgraduate__c162e086.html",
       "fetched_at": "2026-09-09T17:21:57Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1743,13 +1743,13 @@
       "content_path": "academic/departments/postgraduate__c43b7651.html",
       "fetched_at": "2026-09-09T17:21:32Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1767,13 +1767,13 @@
       "content_path": "academic/departments/postgraduate__dd5ff7f3.html",
       "fetched_at": "2026-09-09T17:21:45Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1791,13 +1791,13 @@
       "content_path": "academic/departments/postgraduate__f3de48b3.html",
       "fetched_at": "2026-09-09T17:21:40Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1815,13 +1815,13 @@
       "content_path": "academic/departments/undergraduate__002e194c.html",
       "fetched_at": "2026-09-09T17:21:47Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1839,13 +1839,13 @@
       "content_path": "academic/departments/undergraduate__013bcc01.html",
       "fetched_at": "2026-09-09T17:21:05Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1863,13 +1863,13 @@
       "content_path": "academic/departments/undergraduate__12d82ef2.html",
       "fetched_at": "2026-09-09T17:21:18Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1887,14 +1887,14 @@
       "content_path": "academic/departments/undergraduate__157531a9.html",
       "fetched_at": "2026-09-09T17:20:53Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/69e479fa7ce5b.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/69e479fa7ce5b.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1912,13 +1912,13 @@
       "content_path": "academic/departments/undergraduate__27f4a49c.html",
       "fetched_at": "2026-09-09T17:21:34Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1936,13 +1936,13 @@
       "content_path": "academic/departments/undergraduate__2a1f07df.html",
       "fetched_at": "2026-09-09T17:21:43Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1960,13 +1960,13 @@
       "content_path": "academic/departments/undergraduate__525a6913.html",
       "fetched_at": "2026-09-09T17:21:22Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -1984,13 +1984,13 @@
       "content_path": "academic/departments/undergraduate__57887c18.html",
       "fetched_at": "2026-09-09T17:21:09Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -2008,13 +2008,13 @@
       "content_path": "academic/departments/undergraduate__6c920281.html",
       "fetched_at": "2026-09-09T17:21:13Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -2032,13 +2032,13 @@
       "content_path": "academic/departments/undergraduate__6ee23fbc.html",
       "fetched_at": "2026-09-09T17:21:59Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -2056,13 +2056,13 @@
       "content_path": "academic/departments/undergraduate__7bc1067d.html",
       "fetched_at": "2026-09-09T17:20:57Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -2080,13 +2080,13 @@
       "content_path": "academic/departments/undergraduate__9d033289.html",
       "fetched_at": "2026-09-09T17:21:55Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -2104,13 +2104,13 @@
       "content_path": "academic/departments/undergraduate__9df6c588.html",
       "fetched_at": "2026-09-09T17:20:48Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -2128,13 +2128,13 @@
       "content_path": "academic/departments/undergraduate__a18fec39.html",
       "fetched_at": "2026-09-09T17:21:01Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -2152,13 +2152,13 @@
       "content_path": "academic/departments/undergraduate__afaf2b0c.html",
       "fetched_at": "2026-09-09T17:21:51Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -2176,13 +2176,13 @@
       "content_path": "academic/departments/undergraduate__cada3671.html",
       "fetched_at": "2026-09-09T17:21:38Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -2200,13 +2200,13 @@
       "content_path": "academic/departments/undergraduate__dca44aa5.html",
       "fetched_at": "2026-09-09T17:21:26Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -2224,13 +2224,13 @@
       "content_path": "academic/departments/undergraduate__f82c0401.html",
       "fetched_at": "2026-09-09T17:21:30Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -2248,13 +2248,13 @@
       "content_path": "academic/faculty/faculty__4da55b7d.html",
       "fetched_at": "2026-09-09T07:31:32Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -2272,16 +2272,16 @@
       "content_path": "academic/information/academic-calendars__1917ee9a.html",
       "fetched_at": "2026-09-09T07:53:02Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/678d2ae699242.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6784971d106d6.pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
-        "https://app.cuet.ac.bd/storage/Notices/67849752aff05.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6784971d106d6.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/67849752aff05.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
         "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/678d2ae699242.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -2299,13 +2299,13 @@
       "content_path": "academic/information/academic-information__65adce1f.html",
       "fetched_at": "2026-09-09T07:28:38Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -2323,13 +2323,13 @@
       "content_path": "academic/information/international-students__1df95c2e.html",
       "fetched_at": "2026-09-09T07:28:49Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -2347,13 +2347,13 @@
       "content_path": "academic/institutes/institutes__2f7a56fb.html",
       "fetched_at": "2026-09-09T07:31:43Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "academic",
@@ -2371,38 +2371,38 @@
       "content_path": "admission/admission__6b24360e.html",
       "fetched_at": "2026-09-09T07:30:17Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/6a96584727c44.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a952512d0c04.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a9547321292c.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a9509dfefb37.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a904767f03a7.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a9fd352aa049.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a9658235b26a.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a9547126abc8.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a9e43141c1d1.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a96589f8ce08.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a97c280ce17c.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a9063ff3c05c.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a9547e6376ea.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a97acedbeb86.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a9fcbc103ee7.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a9684c7eb76e.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a93b3e89dbb9.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a904896771d7.pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a999cccbc09f.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a904767f03a7.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a93b3e89dbb9.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
-        "https://app.cuet.ac.bd/storage/Notices/6a95b2cceee56.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a9e3ffda69c9.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a999cccbc09f.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a9658235b26a.pdf",
         "https://app.cuet.ac.bd/storage/Notices/6a9fcf839188d.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a8d614660d2e.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a9684c7eb76e.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a9547e6376ea.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/6a97acedbeb86.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a97c280ce17c.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a9063ff3c05c.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a9e3ffda69c9.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a9e43141c1d1.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a95b2cceee56.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a952512d0c04.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a96589f8ce08.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a96584727c44.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a9547409f807.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a9fd352aa049.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a9547126abc8.pdf",
         "https://app.cuet.ac.bd/storage/Notices/6a97c2c31dab7.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a9547409f807.pdf"
+        "https://app.cuet.ac.bd/storage/Notices/6a904896771d7.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a8d614660d2e.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a9fcbc103ee7.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a9547321292c.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a9509dfefb37.pdf"
       ],
       "source": "browser",
       "section": "admission",
@@ -2419,14 +2419,14 @@
       "content_path": "admission/fsc__6436925b.html",
       "fetched_at": "2026-09-09T07:30:38Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/6931497d31d10.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
         "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6931497d31d10.pdf"
       ],
       "source": "browser",
       "section": "admission",
@@ -2443,13 +2443,13 @@
       "content_path": "admission/msc__cd062829.html",
       "fetched_at": "2026-09-09T07:30:28Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "admission",
@@ -2466,13 +2466,13 @@
       "content_path": "admission/postgraduate-student__116ea41a.html",
       "fetched_at": "2026-09-09T07:30:59Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "admission",
@@ -2489,13 +2489,13 @@
       "content_path": "admission/undergraduate-student__63cd2437.html",
       "fetched_at": "2026-09-09T07:30:48Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "admission",
@@ -2512,13 +2512,13 @@
       "content_path": "home/cuet.ac.bd__898e5a2a.html",
       "fetched_at": "2026-09-09T17:20:44Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "home",
@@ -2535,13 +2535,13 @@
       "content_path": "news-events/listing/events__cee9fed7.html",
       "fetched_at": "2026-09-08T17:47:16Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "news-events",
@@ -2559,13 +2559,13 @@
       "content_path": "news-events/listing/events__f66269ca.html",
       "fetched_at": "2026-09-08T17:47:27Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "news-events",
@@ -2583,13 +2583,13 @@
       "content_path": "news-events/listing/news-events__ee580a8c.html",
       "fetched_at": "2026-09-08T17:47:04Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
       ],
       "source": "browser",
       "section": "news-events",
@@ -2607,38 +2607,38 @@
       "content_path": "top-bar/notices/noc__f798b469.html",
       "fetched_at": "2026-09-09T07:31:10Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/Notices/6a96584727c44.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a952512d0c04.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a84239e90bb2.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a872fc6ad71e.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a85732c0b6d7.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a84232f4cafb.pdf",
         "https://app.cuet.ac.bd/storage/Notices/6a87306423d27.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a7461743f9e2.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a7461174b2f1.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
         "https://app.cuet.ac.bd/storage/Notices/6a799e872f026.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a6b139df1d82.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a999cccbc09f.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a6f13dc78726.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a9658235b26a.pdf",
         "https://app.cuet.ac.bd/storage/Notices/6a6b1357a4a55.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a872fc6ad71e.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a9547e6376ea.pdf",
+        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
+        "https://app.cuet.ac.bd/storage/Notices/6a795e120fc3f.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a6b139df1d82.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a6b18857028a.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a85732c0b6d7.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a9e43141c1d1.pdf",
+        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a952512d0c04.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a6ed345e4412.pdf",
         "https://app.cuet.ac.bd/storage/Notices/6a814d8519111.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a96584727c44.pdf",
         "https://app.cuet.ac.bd/storage/Notices/6a84243e171a2.pdf",
         "https://app.cuet.ac.bd/storage/Notices/6a74901c9e49c.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a9658235b26a.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a9e43141c1d1.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a795e120fc3f.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a9547e6376ea.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a6b18857028a.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a84232f4cafb.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a6f13dc78726.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a999cccbc09f.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a6ed345e4412.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a7461174b2f1.pdf",
-        "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
-        "https://app.cuet.ac.bd/storage/Notices/6a8730bde1d0f.pdf",
-        "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip",
-        "https://app.cuet.ac.bd/storage/Notices/6a8d614660d2e.pdf"
+        "https://app.cuet.ac.bd/storage/Notices/6a84239e90bb2.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a7461743f9e2.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a8d614660d2e.pdf",
+        "https://app.cuet.ac.bd/storage/Notices/6a8730bde1d0f.pdf"
       ],
       "source": "browser",
       "section": "top-bar",
@@ -2651,66 +2651,7 @@
   ],
   "found_files": [
     {
-      "url": "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
-      "linked_from": [
-        "https://cuet.ac.bd/centers",
-        "https://cuet.ac.bd/departments",
-        "https://cuet.ac.bd/department/hum/academic/postgraduate",
-        "https://cuet.ac.bd/department/ME/academic/postgraduate",
-        "https://cuet.ac.bd/department/Mathematics/academic/postgraduate",
-        "https://cuet.ac.bd/department/DEM/academic/postgraduate",
-        "https://cuet.ac.bd/department/MIE/academic/postgraduate",
-        "https://cuet.ac.bd/department/EEE/academic/postgraduate",
-        "https://cuet.ac.bd/department/Architecture/academic/postgraduate",
-        "https://cuet.ac.bd/department/Physics/academic/postgraduate",
-        "https://cuet.ac.bd/department/cse/academic/postgraduate",
-        "https://cuet.ac.bd/department/URP/academic/postgraduate",
-        "https://cuet.ac.bd/department/PME/academic/postgraduate",
-        "https://cuet.ac.bd/department/Chemistry/academic/postgraduate",
-        "https://cuet.ac.bd/department/NE/academic/postgraduate",
-        "https://cuet.ac.bd/department/MME/academic/postgraduate",
-        "https://cuet.ac.bd/department/ETE/academic/postgraduate",
-        "https://cuet.ac.bd/department/WRE/academic/postgraduate",
-        "https://cuet.ac.bd/department/BME/academic/postgraduate",
-        "https://cuet.ac.bd/department/CE/academic/postgraduate",
-        "https://cuet.ac.bd/department/BME/academic/undergraduate",
-        "https://cuet.ac.bd/department/Physics/academic/undergraduate",
-        "https://cuet.ac.bd/department/Architecture/academic/undergraduate",
-        "https://cuet.ac.bd/department/MME/academic/undergraduate",
-        "https://cuet.ac.bd/department/WRE/academic/undergraduate",
-        "https://cuet.ac.bd/department/CE/academic/undergraduate",
-        "https://cuet.ac.bd/department/MIE/academic/undergraduate",
-        "https://cuet.ac.bd/department/hum/academic/undergraduate",
-        "https://cuet.ac.bd/department/URP/academic/undergraduate",
-        "https://cuet.ac.bd/department/ETE/academic/undergraduate",
-        "https://cuet.ac.bd/department/Mathematics/academic/undergraduate",
-        "https://cuet.ac.bd/department/cse/academic/undergraduate",
-        "https://cuet.ac.bd/department/NE/academic/undergraduate",
-        "https://cuet.ac.bd/department/Chemistry/academic/undergraduate",
-        "https://cuet.ac.bd/department/EEE/academic/undergraduate",
-        "https://cuet.ac.bd/department/DEM/academic/undergraduate",
-        "https://cuet.ac.bd/department/PME/academic/undergraduate",
-        "https://cuet.ac.bd/department/ME/academic/undergraduate",
-        "https://cuet.ac.bd/faculty",
-        "https://cuet.ac.bd/academic-information/academic-calendars",
-        "https://cuet.ac.bd/academic-information",
-        "https://cuet.ac.bd/academic-information/international-students",
-        "https://cuet.ac.bd/institutes",
-        "https://cuet.ac.bd/admission",
-        "https://cuet.ac.bd/fsc",
-        "https://cuet.ac.bd/admission/msc",
-        "https://cuet.ac.bd/student/postgraduate-student",
-        "https://cuet.ac.bd/student/undergraduate-student",
-        "https://cuet.ac.bd",
-        "https://cuet.ac.bd/events",
-        "https://cuet.ac.bd/student/events",
-        "https://cuet.ac.bd/news-events",
-        "https://cuet.ac.bd/notices/noc"
-      ],
-      "document_type": "page"
-    },
-    {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
+      "url": "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
       "linked_from": [
         "https://cuet.ac.bd/centers",
         "https://cuet.ac.bd/departments",
@@ -2828,65 +2769,6 @@
       "document_type": "page"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf",
-      "linked_from": [
-        "https://cuet.ac.bd/centers",
-        "https://cuet.ac.bd/departments",
-        "https://cuet.ac.bd/department/hum/academic/postgraduate",
-        "https://cuet.ac.bd/department/ME/academic/postgraduate",
-        "https://cuet.ac.bd/department/Mathematics/academic/postgraduate",
-        "https://cuet.ac.bd/department/DEM/academic/postgraduate",
-        "https://cuet.ac.bd/department/MIE/academic/postgraduate",
-        "https://cuet.ac.bd/department/EEE/academic/postgraduate",
-        "https://cuet.ac.bd/department/Architecture/academic/postgraduate",
-        "https://cuet.ac.bd/department/Physics/academic/postgraduate",
-        "https://cuet.ac.bd/department/cse/academic/postgraduate",
-        "https://cuet.ac.bd/department/URP/academic/postgraduate",
-        "https://cuet.ac.bd/department/PME/academic/postgraduate",
-        "https://cuet.ac.bd/department/Chemistry/academic/postgraduate",
-        "https://cuet.ac.bd/department/NE/academic/postgraduate",
-        "https://cuet.ac.bd/department/MME/academic/postgraduate",
-        "https://cuet.ac.bd/department/ETE/academic/postgraduate",
-        "https://cuet.ac.bd/department/WRE/academic/postgraduate",
-        "https://cuet.ac.bd/department/BME/academic/postgraduate",
-        "https://cuet.ac.bd/department/CE/academic/postgraduate",
-        "https://cuet.ac.bd/department/BME/academic/undergraduate",
-        "https://cuet.ac.bd/department/Physics/academic/undergraduate",
-        "https://cuet.ac.bd/department/Architecture/academic/undergraduate",
-        "https://cuet.ac.bd/department/MME/academic/undergraduate",
-        "https://cuet.ac.bd/department/WRE/academic/undergraduate",
-        "https://cuet.ac.bd/department/CE/academic/undergraduate",
-        "https://cuet.ac.bd/department/MIE/academic/undergraduate",
-        "https://cuet.ac.bd/department/hum/academic/undergraduate",
-        "https://cuet.ac.bd/department/URP/academic/undergraduate",
-        "https://cuet.ac.bd/department/ETE/academic/undergraduate",
-        "https://cuet.ac.bd/department/Mathematics/academic/undergraduate",
-        "https://cuet.ac.bd/department/cse/academic/undergraduate",
-        "https://cuet.ac.bd/department/NE/academic/undergraduate",
-        "https://cuet.ac.bd/department/Chemistry/academic/undergraduate",
-        "https://cuet.ac.bd/department/EEE/academic/undergraduate",
-        "https://cuet.ac.bd/department/DEM/academic/undergraduate",
-        "https://cuet.ac.bd/department/PME/academic/undergraduate",
-        "https://cuet.ac.bd/department/ME/academic/undergraduate",
-        "https://cuet.ac.bd/faculty",
-        "https://cuet.ac.bd/academic-information/academic-calendars",
-        "https://cuet.ac.bd/academic-information",
-        "https://cuet.ac.bd/academic-information/international-students",
-        "https://cuet.ac.bd/institutes",
-        "https://cuet.ac.bd/admission",
-        "https://cuet.ac.bd/fsc",
-        "https://cuet.ac.bd/admission/msc",
-        "https://cuet.ac.bd/student/postgraduate-student",
-        "https://cuet.ac.bd/student/undergraduate-student",
-        "https://cuet.ac.bd",
-        "https://cuet.ac.bd/events",
-        "https://cuet.ac.bd/student/events",
-        "https://cuet.ac.bd/news-events",
-        "https://cuet.ac.bd/notices/noc"
-      ],
-      "document_type": "page"
-    },
-    {
       "url": "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf",
       "linked_from": [
         "https://cuet.ac.bd/centers",
@@ -2946,7 +2828,7 @@
       "document_type": "page"
     },
     {
-      "url": "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf",
       "linked_from": [
         "https://cuet.ac.bd/centers",
         "https://cuet.ac.bd/departments",
@@ -3064,6 +2946,124 @@
       "document_type": "page"
     },
     {
+      "url": "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf",
+      "linked_from": [
+        "https://cuet.ac.bd/centers",
+        "https://cuet.ac.bd/departments",
+        "https://cuet.ac.bd/department/hum/academic/postgraduate",
+        "https://cuet.ac.bd/department/ME/academic/postgraduate",
+        "https://cuet.ac.bd/department/Mathematics/academic/postgraduate",
+        "https://cuet.ac.bd/department/DEM/academic/postgraduate",
+        "https://cuet.ac.bd/department/MIE/academic/postgraduate",
+        "https://cuet.ac.bd/department/EEE/academic/postgraduate",
+        "https://cuet.ac.bd/department/Architecture/academic/postgraduate",
+        "https://cuet.ac.bd/department/Physics/academic/postgraduate",
+        "https://cuet.ac.bd/department/cse/academic/postgraduate",
+        "https://cuet.ac.bd/department/URP/academic/postgraduate",
+        "https://cuet.ac.bd/department/PME/academic/postgraduate",
+        "https://cuet.ac.bd/department/Chemistry/academic/postgraduate",
+        "https://cuet.ac.bd/department/NE/academic/postgraduate",
+        "https://cuet.ac.bd/department/MME/academic/postgraduate",
+        "https://cuet.ac.bd/department/ETE/academic/postgraduate",
+        "https://cuet.ac.bd/department/WRE/academic/postgraduate",
+        "https://cuet.ac.bd/department/BME/academic/postgraduate",
+        "https://cuet.ac.bd/department/CE/academic/postgraduate",
+        "https://cuet.ac.bd/department/BME/academic/undergraduate",
+        "https://cuet.ac.bd/department/Physics/academic/undergraduate",
+        "https://cuet.ac.bd/department/Architecture/academic/undergraduate",
+        "https://cuet.ac.bd/department/MME/academic/undergraduate",
+        "https://cuet.ac.bd/department/WRE/academic/undergraduate",
+        "https://cuet.ac.bd/department/CE/academic/undergraduate",
+        "https://cuet.ac.bd/department/MIE/academic/undergraduate",
+        "https://cuet.ac.bd/department/hum/academic/undergraduate",
+        "https://cuet.ac.bd/department/URP/academic/undergraduate",
+        "https://cuet.ac.bd/department/ETE/academic/undergraduate",
+        "https://cuet.ac.bd/department/Mathematics/academic/undergraduate",
+        "https://cuet.ac.bd/department/cse/academic/undergraduate",
+        "https://cuet.ac.bd/department/NE/academic/undergraduate",
+        "https://cuet.ac.bd/department/Chemistry/academic/undergraduate",
+        "https://cuet.ac.bd/department/EEE/academic/undergraduate",
+        "https://cuet.ac.bd/department/DEM/academic/undergraduate",
+        "https://cuet.ac.bd/department/PME/academic/undergraduate",
+        "https://cuet.ac.bd/department/ME/academic/undergraduate",
+        "https://cuet.ac.bd/faculty",
+        "https://cuet.ac.bd/academic-information/academic-calendars",
+        "https://cuet.ac.bd/academic-information",
+        "https://cuet.ac.bd/academic-information/international-students",
+        "https://cuet.ac.bd/institutes",
+        "https://cuet.ac.bd/admission",
+        "https://cuet.ac.bd/fsc",
+        "https://cuet.ac.bd/admission/msc",
+        "https://cuet.ac.bd/student/postgraduate-student",
+        "https://cuet.ac.bd/student/undergraduate-student",
+        "https://cuet.ac.bd",
+        "https://cuet.ac.bd/events",
+        "https://cuet.ac.bd/student/events",
+        "https://cuet.ac.bd/news-events",
+        "https://cuet.ac.bd/notices/noc"
+      ],
+      "document_type": "page"
+    },
+    {
+      "url": "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf",
+      "linked_from": [
+        "https://cuet.ac.bd/centers",
+        "https://cuet.ac.bd/departments",
+        "https://cuet.ac.bd/department/hum/academic/postgraduate",
+        "https://cuet.ac.bd/department/ME/academic/postgraduate",
+        "https://cuet.ac.bd/department/Mathematics/academic/postgraduate",
+        "https://cuet.ac.bd/department/DEM/academic/postgraduate",
+        "https://cuet.ac.bd/department/MIE/academic/postgraduate",
+        "https://cuet.ac.bd/department/EEE/academic/postgraduate",
+        "https://cuet.ac.bd/department/Architecture/academic/postgraduate",
+        "https://cuet.ac.bd/department/Physics/academic/postgraduate",
+        "https://cuet.ac.bd/department/cse/academic/postgraduate",
+        "https://cuet.ac.bd/department/URP/academic/postgraduate",
+        "https://cuet.ac.bd/department/PME/academic/postgraduate",
+        "https://cuet.ac.bd/department/Chemistry/academic/postgraduate",
+        "https://cuet.ac.bd/department/NE/academic/postgraduate",
+        "https://cuet.ac.bd/department/MME/academic/postgraduate",
+        "https://cuet.ac.bd/department/ETE/academic/postgraduate",
+        "https://cuet.ac.bd/department/WRE/academic/postgraduate",
+        "https://cuet.ac.bd/department/BME/academic/postgraduate",
+        "https://cuet.ac.bd/department/CE/academic/postgraduate",
+        "https://cuet.ac.bd/department/BME/academic/undergraduate",
+        "https://cuet.ac.bd/department/Physics/academic/undergraduate",
+        "https://cuet.ac.bd/department/Architecture/academic/undergraduate",
+        "https://cuet.ac.bd/department/MME/academic/undergraduate",
+        "https://cuet.ac.bd/department/WRE/academic/undergraduate",
+        "https://cuet.ac.bd/department/CE/academic/undergraduate",
+        "https://cuet.ac.bd/department/MIE/academic/undergraduate",
+        "https://cuet.ac.bd/department/hum/academic/undergraduate",
+        "https://cuet.ac.bd/department/URP/academic/undergraduate",
+        "https://cuet.ac.bd/department/ETE/academic/undergraduate",
+        "https://cuet.ac.bd/department/Mathematics/academic/undergraduate",
+        "https://cuet.ac.bd/department/cse/academic/undergraduate",
+        "https://cuet.ac.bd/department/NE/academic/undergraduate",
+        "https://cuet.ac.bd/department/Chemistry/academic/undergraduate",
+        "https://cuet.ac.bd/department/EEE/academic/undergraduate",
+        "https://cuet.ac.bd/department/DEM/academic/undergraduate",
+        "https://cuet.ac.bd/department/PME/academic/undergraduate",
+        "https://cuet.ac.bd/department/ME/academic/undergraduate",
+        "https://cuet.ac.bd/faculty",
+        "https://cuet.ac.bd/academic-information/academic-calendars",
+        "https://cuet.ac.bd/academic-information",
+        "https://cuet.ac.bd/academic-information/international-students",
+        "https://cuet.ac.bd/institutes",
+        "https://cuet.ac.bd/admission",
+        "https://cuet.ac.bd/fsc",
+        "https://cuet.ac.bd/admission/msc",
+        "https://cuet.ac.bd/student/postgraduate-student",
+        "https://cuet.ac.bd/student/undergraduate-student",
+        "https://cuet.ac.bd",
+        "https://cuet.ac.bd/events",
+        "https://cuet.ac.bd/student/events",
+        "https://cuet.ac.bd/news-events",
+        "https://cuet.ac.bd/notices/noc"
+      ],
+      "document_type": "page"
+    },
+    {
       "url": "https://www.cuet.ac.bd/downloads/post-graduate.pdf",
       "linked_from": [
         "https://cuet.ac.bd/department/NE/academic/postgraduate"
@@ -3085,13 +3085,6 @@
       "document_type": "page"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Notices/678d2ae699242.pdf",
-      "linked_from": [
-        "https://cuet.ac.bd/academic-information/academic-calendars"
-      ],
-      "document_type": "page"
-    },
-    {
       "url": "https://app.cuet.ac.bd/storage/Notices/6784971d106d6.pdf",
       "linked_from": [
         "https://cuet.ac.bd/academic-information/academic-calendars"
@@ -3106,32 +3099,9 @@
       "document_type": "page"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a96584727c44.pdf",
+      "url": "https://app.cuet.ac.bd/storage/Notices/678d2ae699242.pdf",
       "linked_from": [
-        "https://cuet.ac.bd/admission",
-        "https://cuet.ac.bd/notices/noc"
-      ],
-      "document_type": "page"
-    },
-    {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a952512d0c04.pdf",
-      "linked_from": [
-        "https://cuet.ac.bd/admission",
-        "https://cuet.ac.bd/notices/noc"
-      ],
-      "document_type": "page"
-    },
-    {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a9547321292c.pdf",
-      "linked_from": [
-        "https://cuet.ac.bd/admission"
-      ],
-      "document_type": "page"
-    },
-    {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a9509dfefb37.pdf",
-      "linked_from": [
-        "https://cuet.ac.bd/admission"
+        "https://cuet.ac.bd/academic-information/academic-calendars"
       ],
       "document_type": "page"
     },
@@ -3143,9 +3113,17 @@
       "document_type": "page"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a9fd352aa049.pdf",
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a93b3e89dbb9.pdf",
       "linked_from": [
         "https://cuet.ac.bd/admission"
+      ],
+      "document_type": "page"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a999cccbc09f.pdf",
+      "linked_from": [
+        "https://cuet.ac.bd/admission",
+        "https://cuet.ac.bd/notices/noc"
       ],
       "document_type": "page"
     },
@@ -3158,36 +3136,14 @@
       "document_type": "page"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a9547126abc8.pdf",
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9fcf839188d.pdf",
       "linked_from": [
         "https://cuet.ac.bd/admission"
       ],
       "document_type": "page"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a9e43141c1d1.pdf",
-      "linked_from": [
-        "https://cuet.ac.bd/admission",
-        "https://cuet.ac.bd/notices/noc"
-      ],
-      "document_type": "page"
-    },
-    {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a96589f8ce08.pdf",
-      "linked_from": [
-        "https://cuet.ac.bd/admission"
-      ],
-      "document_type": "page"
-    },
-    {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a97c280ce17c.pdf",
-      "linked_from": [
-        "https://cuet.ac.bd/admission"
-      ],
-      "document_type": "page"
-    },
-    {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a9063ff3c05c.pdf",
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9684c7eb76e.pdf",
       "linked_from": [
         "https://cuet.ac.bd/admission"
       ],
@@ -3209,35 +3165,28 @@
       "document_type": "page"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a9fcbc103ee7.pdf",
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a97c280ce17c.pdf",
       "linked_from": [
         "https://cuet.ac.bd/admission"
       ],
       "document_type": "page"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a9684c7eb76e.pdf",
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9063ff3c05c.pdf",
       "linked_from": [
         "https://cuet.ac.bd/admission"
       ],
       "document_type": "page"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a93b3e89dbb9.pdf",
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9e3ffda69c9.pdf",
       "linked_from": [
         "https://cuet.ac.bd/admission"
       ],
       "document_type": "page"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a904896771d7.pdf",
-      "linked_from": [
-        "https://cuet.ac.bd/admission"
-      ],
-      "document_type": "page"
-    },
-    {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a999cccbc09f.pdf",
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9e43141c1d1.pdf",
       "linked_from": [
         "https://cuet.ac.bd/admission",
         "https://cuet.ac.bd/notices/noc"
@@ -3252,14 +3201,58 @@
       "document_type": "page"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a9e3ffda69c9.pdf",
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a952512d0c04.pdf",
+      "linked_from": [
+        "https://cuet.ac.bd/admission",
+        "https://cuet.ac.bd/notices/noc"
+      ],
+      "document_type": "page"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a96589f8ce08.pdf",
       "linked_from": [
         "https://cuet.ac.bd/admission"
       ],
       "document_type": "page"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a9fcf839188d.pdf",
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a96584727c44.pdf",
+      "linked_from": [
+        "https://cuet.ac.bd/admission",
+        "https://cuet.ac.bd/notices/noc"
+      ],
+      "document_type": "page"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9547409f807.pdf",
+      "linked_from": [
+        "https://cuet.ac.bd/admission"
+      ],
+      "document_type": "page"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9fd352aa049.pdf",
+      "linked_from": [
+        "https://cuet.ac.bd/admission"
+      ],
+      "document_type": "page"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9547126abc8.pdf",
+      "linked_from": [
+        "https://cuet.ac.bd/admission"
+      ],
+      "document_type": "page"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a97c2c31dab7.pdf",
+      "linked_from": [
+        "https://cuet.ac.bd/admission"
+      ],
+      "document_type": "page"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a904896771d7.pdf",
       "linked_from": [
         "https://cuet.ac.bd/admission"
       ],
@@ -3274,14 +3267,21 @@
       "document_type": "page"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a97c2c31dab7.pdf",
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9fcbc103ee7.pdf",
       "linked_from": [
         "https://cuet.ac.bd/admission"
       ],
       "document_type": "page"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a9547409f807.pdf",
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9547321292c.pdf",
+      "linked_from": [
+        "https://cuet.ac.bd/admission"
+      ],
+      "document_type": "page"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a9509dfefb37.pdf",
       "linked_from": [
         "https://cuet.ac.bd/admission"
       ],
@@ -3295,21 +3295,7 @@
       "document_type": "page"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a84239e90bb2.pdf",
-      "linked_from": [
-        "https://cuet.ac.bd/notices/noc"
-      ],
-      "document_type": "page"
-    },
-    {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a872fc6ad71e.pdf",
-      "linked_from": [
-        "https://cuet.ac.bd/notices/noc"
-      ],
-      "document_type": "page"
-    },
-    {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a85732c0b6d7.pdf",
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a84232f4cafb.pdf",
       "linked_from": [
         "https://cuet.ac.bd/notices/noc"
       ],
@@ -3323,7 +3309,7 @@
       "document_type": "page"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a7461743f9e2.pdf",
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a7461174b2f1.pdf",
       "linked_from": [
         "https://cuet.ac.bd/notices/noc"
       ],
@@ -3337,7 +3323,7 @@
       "document_type": "page"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a6b139df1d82.pdf",
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a6f13dc78726.pdf",
       "linked_from": [
         "https://cuet.ac.bd/notices/noc"
       ],
@@ -3345,6 +3331,48 @@
     },
     {
       "url": "https://app.cuet.ac.bd/storage/Notices/6a6b1357a4a55.pdf",
+      "linked_from": [
+        "https://cuet.ac.bd/notices/noc"
+      ],
+      "document_type": "page"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a872fc6ad71e.pdf",
+      "linked_from": [
+        "https://cuet.ac.bd/notices/noc"
+      ],
+      "document_type": "page"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a795e120fc3f.pdf",
+      "linked_from": [
+        "https://cuet.ac.bd/notices/noc"
+      ],
+      "document_type": "page"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a6b139df1d82.pdf",
+      "linked_from": [
+        "https://cuet.ac.bd/notices/noc"
+      ],
+      "document_type": "page"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a6b18857028a.pdf",
+      "linked_from": [
+        "https://cuet.ac.bd/notices/noc"
+      ],
+      "document_type": "page"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a85732c0b6d7.pdf",
+      "linked_from": [
+        "https://cuet.ac.bd/notices/noc"
+      ],
+      "document_type": "page"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a6ed345e4412.pdf",
       "linked_from": [
         "https://cuet.ac.bd/notices/noc"
       ],
@@ -3372,42 +3400,14 @@
       "document_type": "page"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a795e120fc3f.pdf",
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a84239e90bb2.pdf",
       "linked_from": [
         "https://cuet.ac.bd/notices/noc"
       ],
       "document_type": "page"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a6b18857028a.pdf",
-      "linked_from": [
-        "https://cuet.ac.bd/notices/noc"
-      ],
-      "document_type": "page"
-    },
-    {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a84232f4cafb.pdf",
-      "linked_from": [
-        "https://cuet.ac.bd/notices/noc"
-      ],
-      "document_type": "page"
-    },
-    {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a6f13dc78726.pdf",
-      "linked_from": [
-        "https://cuet.ac.bd/notices/noc"
-      ],
-      "document_type": "page"
-    },
-    {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a6ed345e4412.pdf",
-      "linked_from": [
-        "https://cuet.ac.bd/notices/noc"
-      ],
-      "document_type": "page"
-    },
-    {
-      "url": "https://app.cuet.ac.bd/storage/Notices/6a7461174b2f1.pdf",
+      "url": "https://app.cuet.ac.bd/storage/Notices/6a7461743f9e2.pdf",
       "linked_from": [
         "https://cuet.ac.bd/notices/noc"
       ],

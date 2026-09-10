@@ -12,7 +12,7 @@
   "title": "Conference Paper (4 of 4)",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-09T23:04:29Z",
+  "fetched_at": "2026-09-09T18:07:21Z",
   "html_path": "research/publications/conference-paper__6e602cab.html",
   "markdown_path": "research/publications/conference-paper__6e602cab.md",
   "text_chars": 6251,
@@ -28,6 +28,7 @@
       "url": "https://icceiruet.org/wp-content/uploads/2025/12/Proceeding-ICCEI-2025.pdf"
     }
   ],
+  "origin": "API /app-admin-research-types",
   "research_type": "Conference Paper",
   "research_slug": "conference-paper",
   "publication_count": 22,
@@ -41,5 +42,7 @@
     "Symom Hossain Shohan",
     "Tanvir Mahmood",
     "Wasif Abu Dujana"
-  ]
+  ],
+  "portion": "general",
+  "owner": "Dipika Nath"
 }

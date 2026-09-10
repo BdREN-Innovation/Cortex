@@ -24,13 +24,13 @@
   "double_escaped": false,
   "files": [
     {
-      "url": "https://cuet.ac.bd/compressed/Final%20UG%20Bulletin%202022.pdf"
-    },
-    {
       "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/681214cf081b8.pdf"
     },
     {
       "url": "https://www.cuet.ac.bd/notice/urp_2022.pdf"
+    },
+    {
+      "url": "https://cuet.ac.bd/compressed/Final%20UG%20Bulletin%202022.pdf"
     }
   ],
   "origin": "API /app-admins/{slug}",

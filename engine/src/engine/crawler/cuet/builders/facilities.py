@@ -169,6 +169,7 @@ def build_downloads(dump: dict, result: Stage2Result) -> None:
                 group="downloads",
                 section_path=["Downloads", type_title],
                 extra={
+                    "origin": "API /downloads + /download-types",
                     "download_type": type_title,
                     "download_count": len(page),
                     "download_ids": [r.get("id") for r in page],

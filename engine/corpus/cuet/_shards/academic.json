@@ -11600,8 +11600,8 @@
       "content_path": "academic/profiles/nur-mohammad__44edb14f.html",
       "fetched_at": "2026-09-09T18:07:21Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/68ce1aa4c0295.pdf",
-        "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/68ce1925d52e1.pdf"
+        "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/68ce1925d52e1.pdf",
+        "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/68ce1aa4c0295.pdf"
       ],
       "source": "api",
       "section": "academic",
@@ -11843,9 +11843,9 @@
       "content_path": "academic/profiles/dr-muhammad-abdur-rahman-bhuiyan__f7565ed5.html",
       "fetched_at": "2026-09-09T18:07:21Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/6906e2a8426fb.pdf",
+        "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/690318369403f.pdf",
         "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/6906e2d7d9e9a.pdf",
-        "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/690318369403f.pdf"
+        "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/6906e2a8426fb.pdf"
       ],
       "source": "api",
       "section": "academic",
@@ -14864,9 +14864,9 @@
       "content_path": "academic/profiles/syed-mohammad-mashiur-rahman__1f624be8.html",
       "fetched_at": "2026-09-09T18:07:21Z",
       "document_links": [
-        "https://cuet.ac.bd/compressed/Final%20UG%20Bulletin%202022.pdf",
         "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/681214cf081b8.pdf",
-        "https://www.cuet.ac.bd/notice/urp_2022.pdf"
+        "https://www.cuet.ac.bd/notice/urp_2022.pdf",
+        "https://cuet.ac.bd/compressed/Final%20UG%20Bulletin%202022.pdf"
       ],
       "source": "api",
       "section": "academic",
@@ -16602,9 +16602,9 @@
       "content_path": "academic/profiles/nusrat-jahan-usha__cb7aff86.html",
       "fetched_at": "2026-09-09T18:07:21Z",
       "document_links": [
+        "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/6a7cefd30f8e2.pdf",
         "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/6a7dfd6c59a31.pdf",
-        "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/6a7cee4c67302.pdf",
-        "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/6a7cefd30f8e2.pdf"
+        "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/6a7cee4c67302.pdf"
       ],
       "source": "api",
       "section": "academic",
@@ -16759,8 +16759,8 @@
       "content_path": "academic/profiles/nadim-m-nobin__4003b46e.html",
       "fetched_at": "2026-09-09T18:07:21Z",
       "document_links": [
-        "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/6a2fad4c93920.pdf",
-        "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/6a2fab5ebb59c.pdf"
+        "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/6a2fab5ebb59c.pdf",
+        "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/6a2fad4c93920.pdf"
       ],
       "source": "api",
       "section": "academic",
@@ -17822,15 +17822,6 @@
       "category": "Undergraduate"
     },
     {
-      "url": "https://www.cuet.ac.bd/downloads/Guideline%20for%20Masters%20student.pdf",
-      "linked_from": [
-        "https://cuet.ac.bd/academic-information"
-      ],
-      "document_type": "curriculum",
-      "title": "Postgraduate Studies",
-      "category": "Postgraduate"
-    },
-    {
       "url": "https://www.cuet.ac.bd/downloads/post-graduate.pdf",
       "linked_from": [
         "https://cuet.ac.bd/academic-information"
@@ -17840,14 +17831,23 @@
       "category": "Postgraduate"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/68ce1aa4c0295.pdf",
+      "url": "https://www.cuet.ac.bd/downloads/Guideline%20for%20Masters%20student.pdf",
+      "linked_from": [
+        "https://cuet.ac.bd/academic-information"
+      ],
+      "document_type": "curriculum",
+      "title": "Postgraduate Studies",
+      "category": "Postgraduate"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/68ce1925d52e1.pdf",
       "linked_from": [
         "https://cuet.ac.bd/profile/faculty-member/nur-mohammad"
       ],
       "document_type": "faculty_profile"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/68ce1925d52e1.pdf",
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/68ce1aa4c0295.pdf",
       "linked_from": [
         "https://cuet.ac.bd/profile/faculty-member/nur-mohammad"
       ],
@@ -17861,7 +17861,7 @@
       "document_type": "faculty_profile"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/6906e2a8426fb.pdf",
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/690318369403f.pdf",
       "linked_from": [
         "https://cuet.ac.bd/profile/faculty-member/dr-muhammad-abdur-rahman-bhuiyan"
       ],
@@ -17875,7 +17875,7 @@
       "document_type": "faculty_profile"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/690318369403f.pdf",
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/6906e2a8426fb.pdf",
       "linked_from": [
         "https://cuet.ac.bd/profile/faculty-member/dr-muhammad-abdur-rahman-bhuiyan"
       ],
@@ -17910,13 +17910,6 @@
       "document_type": "faculty_profile"
     },
     {
-      "url": "https://cuet.ac.bd/compressed/Final%20UG%20Bulletin%202022.pdf",
-      "linked_from": [
-        "https://cuet.ac.bd/profile/faculty-member/syed-mohammad-mashiur-rahman"
-      ],
-      "document_type": "faculty_profile"
-    },
-    {
       "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/681214cf081b8.pdf",
       "linked_from": [
         "https://cuet.ac.bd/profile/faculty-member/syed-mohammad-mashiur-rahman"
@@ -17927,6 +17920,20 @@
       "url": "https://www.cuet.ac.bd/notice/urp_2022.pdf",
       "linked_from": [
         "https://cuet.ac.bd/profile/faculty-member/syed-mohammad-mashiur-rahman"
+      ],
+      "document_type": "faculty_profile"
+    },
+    {
+      "url": "https://cuet.ac.bd/compressed/Final%20UG%20Bulletin%202022.pdf",
+      "linked_from": [
+        "https://cuet.ac.bd/profile/faculty-member/syed-mohammad-mashiur-rahman"
+      ],
+      "document_type": "faculty_profile"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/6a7cefd30f8e2.pdf",
+      "linked_from": [
+        "https://cuet.ac.bd/profile/faculty-member/nusrat-jahan-usha"
       ],
       "document_type": "faculty_profile"
     },
@@ -17945,21 +17952,14 @@
       "document_type": "faculty_profile"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/6a7cefd30f8e2.pdf",
-      "linked_from": [
-        "https://cuet.ac.bd/profile/faculty-member/nusrat-jahan-usha"
-      ],
-      "document_type": "faculty_profile"
-    },
-    {
-      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/6a2fad4c93920.pdf",
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/6a2fab5ebb59c.pdf",
       "linked_from": [
         "https://cuet.ac.bd/profile/faculty-member/nadim-m-nobin"
       ],
       "document_type": "faculty_profile"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/6a2fab5ebb59c.pdf",
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/6a2fad4c93920.pdf",
       "linked_from": [
         "https://cuet.ac.bd/profile/faculty-member/nadim-m-nobin"
       ],

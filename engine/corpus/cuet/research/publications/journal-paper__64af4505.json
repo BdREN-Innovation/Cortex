@@ -12,7 +12,7 @@
   "title": "Journal Paper (22 of 23)",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-09T23:04:29Z",
+  "fetched_at": "2026-09-09T18:07:21Z",
   "html_path": "research/publications/journal-paper__64af4505.html",
   "markdown_path": "research/publications/journal-paper__64af4505.md",
   "text_chars": 14611,
@@ -25,6 +25,7 @@
       "url": "https://ijeber.com/uploads2024/ijeber_04_272.pdf"
     }
   ],
+  "origin": "API /app-admin-research-types",
   "research_type": "Journal Paper",
   "research_slug": "journal-paper",
   "publication_count": 60,
@@ -39,5 +40,7 @@
     "Sajib Sarker",
     "Samen Bairagi",
     "Sancoy Barua"
-  ]
+  ],
+  "portion": "general",
+  "owner": "Dipika Nath"
 }

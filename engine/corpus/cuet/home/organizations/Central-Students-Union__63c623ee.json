@@ -12,7 +12,7 @@
   "title": "Central Students' Union",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-09T23:04:29Z",
+  "fetched_at": "2026-09-09T18:07:21Z",
   "html_path": "home/organizations/Central-Students-Union__63c623ee.html",
   "markdown_path": "home/organizations/Central-Students-Union__63c623ee.md",
   "text_chars": 396,
@@ -25,5 +25,5 @@
   "slug": "Central-Students-Union",
   "org_type": "academic",
   "portion": "general",
-  "owner": "UNASSIGNED"
+  "owner": "Dipika Nath"
 }

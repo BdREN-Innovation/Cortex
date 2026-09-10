@@ -175,6 +175,7 @@ def build_administration(dump: dict, result: Stage2Result) -> None:
                 group=group,
                 section_path=[crumb, title],
                 extra={
+                    "origin": "API /administrative-departments + /footer-data",
                     "slug": slug,
                     "entity_id": entry.get("id"),
                     "entity_type": entry.get("type") or "office",

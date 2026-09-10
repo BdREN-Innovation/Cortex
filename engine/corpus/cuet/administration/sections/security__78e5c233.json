@@ -12,7 +12,7 @@
   "title": "Security Section",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-09T23:04:29Z",
+  "fetched_at": "2026-09-09T18:07:21Z",
   "html_path": "administration/sections/security__78e5c233.html",
   "markdown_path": "administration/sections/security__78e5c233.md",
   "text_chars": 837,
@@ -21,10 +21,13 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /administrative-departments + /footer-data",
   "slug": "security",
   "entity_id": 66,
   "entity_type": "section",
   "short_name": "security",
   "has_prose": true,
-  "footer_group": "office_section"
+  "footer_group": "office_section",
+  "portion": "general",
+  "owner": "Dipika Nath"
 }

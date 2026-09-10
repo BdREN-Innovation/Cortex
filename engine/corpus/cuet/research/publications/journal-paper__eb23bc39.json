@@ -12,7 +12,7 @@
   "title": "Journal Paper (8 of 23)",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-09T23:04:29Z",
+  "fetched_at": "2026-09-09T18:07:21Z",
   "html_path": "research/publications/journal-paper__eb23bc39.html",
   "markdown_path": "research/publications/journal-paper__eb23bc39.md",
   "text_chars": 15517,
@@ -21,11 +21,14 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /app-admin-research-types",
   "research_type": "Journal Paper",
   "research_slug": "journal-paper",
   "publication_count": 60,
   "publication_total": 1358,
   "authors": [
     "Dr. Md. Golam Hafez"
-  ]
+  ],
+  "portion": "general",
+  "owner": "Dipika Nath"
 }

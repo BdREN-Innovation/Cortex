@@ -12,7 +12,7 @@
   "title": "Downloads (1 of 3)",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-09T23:04:29Z",
+  "fetched_at": "2026-09-09T18:07:21Z",
   "html_path": "resources/downloads/downloads__d0cefda5.html",
   "markdown_path": "resources/downloads/downloads__d0cefda5.md",
   "text_chars": 4777,
@@ -21,6 +21,7 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /downloads + /download-types",
   "download_type": "Downloads",
   "download_count": 60,
   "download_ids": [
@@ -85,5 +86,7 @@
     48,
     49
   ],
-  "listing_url": "https://cuet.ac.bd/downloads"
+  "listing_url": "https://cuet.ac.bd/downloads",
+  "portion": "general",
+  "owner": "Dipika Nath"
 }

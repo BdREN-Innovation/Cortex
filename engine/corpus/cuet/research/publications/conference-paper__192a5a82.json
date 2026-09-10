@@ -12,7 +12,7 @@
   "title": "Conference Paper (2 of 4)",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-09T23:04:29Z",
+  "fetched_at": "2026-09-09T18:07:21Z",
   "html_path": "research/publications/conference-paper__192a5a82.html",
   "markdown_path": "research/publications/conference-paper__192a5a82.md",
   "text_chars": 15483,
@@ -21,6 +21,7 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /app-admin-research-types",
   "research_type": "Conference Paper",
   "research_slug": "conference-paper",
   "publication_count": 60,
@@ -28,5 +29,7 @@
   "authors": [
     "Dr. Md. Sanaul Rabbi",
     "Dr. Mohammad Islam Miah"
-  ]
+  ],
+  "portion": "general",
+  "owner": "Dipika Nath"
 }

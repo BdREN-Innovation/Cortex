@@ -12,7 +12,7 @@
   "title": "Journal Paper (18 of 23)",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-09T23:04:29Z",
+  "fetched_at": "2026-09-09T18:07:21Z",
   "html_path": "research/publications/journal-paper__d88540ec.html",
   "markdown_path": "research/publications/journal-paper__d88540ec.md",
   "text_chars": 13763,
@@ -21,6 +21,7 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /app-admin-research-types",
   "research_type": "Journal Paper",
   "research_slug": "journal-paper",
   "publication_count": 60,
@@ -31,5 +32,7 @@
     "Md. Aminul Islam",
     "Md. Ashiqul Islam Shuvo",
     "Md. Asifur Rahman"
-  ]
+  ],
+  "portion": "general",
+  "owner": "Dipika Nath"
 }
