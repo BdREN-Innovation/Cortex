@@ -425,7 +425,7 @@ light. They live on Drive:
 
 | Drive folder | Local destination | Contents |
 |---|---|---|
-| `01_scraped_documents/*` | `engine/corpus/cuet/_files/` | CUET notice and circular PDFs, plus `index.json` |
+| `01_scraped_documents/*.pdf` | `engine/corpus/cuet/_files/` | CUET notice and circular PDFs. **PDFs only, see below** |
 | `02_api_metadata/*` | `engine/corpus/cuet/_meta/` | `api_dump.json`, every API response verbatim |
 | `03_scraper_specs/*` | repo root | `CUET_SCRAPER_SPEC.md`, `CUET_SCRAPER_SPEC_PART2.md` |
 
@@ -436,6 +436,21 @@ made fixing an HTML-entity bug across 1,127 URLs cost one second rather than 61
 requests.
 
 ---
+
+### `_files/index.json` lives in the repo, not on Drive
+
+There is a copy of `index.json` in the Drive folder from before this file was
+committed. **Do not restore it.** Copy the PDFs across and leave the index alone.
+
+The Drive copy is the older, thinner form: it has `linked_from` as bare URLs and
+no `sources`, so restoring it over the repo copy silently removes the mapping
+from every PDF back to the documents that link it, and nothing would fail to
+tell you. The repo copy is the one that is kept up to date, because
+`--stage merge` rewrites it every run.
+
+The safe move is to delete `index.json` from the Drive folder so there is one
+copy of it and no way to pick the wrong one. If it stays there, restoring PDFs
+should be a file-type copy of `*.pdf`, never a folder sync.
 
 ## 9. Summary for developers
 

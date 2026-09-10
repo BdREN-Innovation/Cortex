@@ -215,6 +215,65 @@ of keeping the raw payloads.
   Administration, APA — are listed in `CUET_SCRAPER_SPEC_PART2.md`. Their raw
   API payloads are already in `_meta/api_dump.json`.
 
+## Where each document and each PDF came from
+
+`source` tells you `api` or `browser`. That is a category, not an origin: it
+does not say WHICH endpoint produced a document, so a wrong extraction cannot be
+traced back to the payload that caused it. Two files answer that.
+
+**`_meta/provenance.jsonl`** - one row per document, then one per file.
+
+```json
+{"kind": "document", "doc_id": "...", "title": "Civil Engineering",
+ "live_url": "https://cuet.ac.bd/department/CE",
+ "origin": "API /administrative-departments/{slug}", "source": "api",
+ "section": "academic", "portion": "academic", "owner": "Samonwita Sarker",
+ "fetched_at": "...", "content_path": "academic/departments/CE__....html",
+ "raw_payload": "_meta/api_dump.json"}
+```
+
+`raw_payload` is the point. For an API document it names the dump the bytes are
+still in; for a browser one it names the saved render. Either way a disagreement
+is settled against bytes instead of by re-crawling.
+
+This file is REGENERATED, like `documents.jsonl`, so it is not committed. Run
+`--stage merge` and it appears. If it is missing, nothing is wrong.
+
+**`_files/index.json`** - the same mapping from the PDF side, and the file to
+open while holding a PDF. Each entry keeps what the downloader knew and adds a
+resolved `sources` list:
+
+```json
+{"url": ".../69e479fa7ce5b.pdf", "local": "_files/de1bedf5__69e479fa7ce5b.pdf",
+ "bytes": 2912170, "title": "Term-wise Course Distribution...",
+ "document_type": "page", "downloaded": true,
+ "linked_from": ["https://cuet.ac.bd/academic-information", "..."],
+ "sources": [{"doc_id": "...", "title": "Postgraduate curricula",
+              "live_url": "https://cuet.ac.bd/academic-information",
+              "section": "academic", "portion": "academic",
+              "owner": "Samonwita Sarker",
+              "origin": "API /academic-curriculums"}],
+ "unresolved_links": []}
+```
+
+| Field | Meaning |
+|---|---|
+| `linked_from` | The page URLs that link this file. Unchanged from before. |
+| `sources` | Those URLs resolved into the documents themselves. Added. |
+| `unresolved_links` | Links that match no document, named rather than dropped. |
+| `local` | Where the PDF is under `_files/`. Absent until stage 5 downloads it. |
+| `downloaded` | Whether the bytes are on disk, as opposed to only known about. |
+
+**A PDF may have several sources and all are kept.** 39 files are linked from
+more than one document - the same circular appears on a notice index, a
+department page and sometimes a profile. Picking one would invent a relationship
+the site does not have.
+
+**This index IS committed**, unlike the PDFs beside it. `local`, `bytes` and
+`content_type` are facts only the downloader knows; regenerating the file
+offline recovers the mapping but loses those, and the only way back would be to
+re-download every PDF.
+
 ## Provenance
 
 `_meta/api_dump.json` holds every API response verbatim, saved before any
@@ -309,8 +368,13 @@ def _folder_table(out: Path) -> str:
 
 
 def write_readme(out: Path) -> None:
+    # `replace`, NOT `format`. This README is a document full of JSON examples
+    # and `{slug}` route templates, and str.format treats every brace as a
+    # field: adding one example with a JSON object in it made the whole merge
+    # stage raise KeyError. A single placeholder substitution has no such
+    # relationship with the surrounding text.
     (out / "README.md").write_text(
-        README.format(folder_table=_folder_table(out)), encoding="utf-8")
+        README.replace("{folder_table}", _folder_table(out)), encoding="utf-8")
 
 
 def write_all(out: Path, rows: list[dict], *, run_id: str, started: str,
