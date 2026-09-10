@@ -125,6 +125,7 @@ dependencies = [
     { name = "pdfplumber" },
     { name = "pymupdf" },
     { name = "pypdf" },
+    { name = "pytesseract" },
     { name = "pyyaml" },
 ]
 
@@ -148,6 +149,7 @@ requires-dist = [
     { name = "pillow", marker = "extra == 'ocr'", specifier = ">=12.3.0" },
     { name = "pymupdf", specifier = ">=1.28.2" },
     { name = "pypdf", specifier = ">=6.18.0" },
+    { name = "pytesseract", specifier = ">=0.3.13" },
     { name = "pytesseract", marker = "extra == 'ocr'", specifier = ">=0.3.13" },
     { name = "pyyaml", specifier = ">=6.0" },
 ]

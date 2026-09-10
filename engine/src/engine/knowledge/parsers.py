@@ -13,16 +13,45 @@ that's all resolved here.
 
 import zipfile
 
-from .pdf import extract_pymupdf, extract_pdfplumber, is_garbled, extract_ocr, lacks_common_words
+from .pdf import (
+    extract_pymupdf,
+    extract_pdfplumber,
+    extract_pdfplumber_positioned,
+    has_real_tables,
+    is_garbled,
+    extract_ocr,
+    lacks_common_words,
+)
 
-PDF_ENGINES = {"pymupdf": extract_pymupdf, "pdfplumber": extract_pdfplumber}
+PDF_ENGINES = {
+    "pymupdf": extract_pymupdf,
+    "pdfplumber": extract_pdfplumber,
+    "pdfplumber_positioned": extract_pdfplumber_positioned,
+}
 
 
-def parse_pdf(path: str, engine: str = "pymupdf") -> dict:
+# is_garbled() and lacks_common_words() both deliberately punt (return
+# False) on text shorter than their own thresholds — reasonable so they
+# don't false-flag short legitimate documents, but it means anything
+# under both thresholds slips past unchecked. That's exactly the gap a
+# watermark-only text layer falls into (e.g. "CamScanner", 10 chars) —
+# real text, non-garbled, but not real content. This floor catches it.
+MIN_TRUSTED_CHARS = 30  # comfortably below the shortest real doc in the CUET corpus (334 chars)
+
+
+def parse_pdf(path: str, engine: str = "auto") -> dict:
+    if engine == "auto":
+        engine = "pdfplumber_positioned" if has_real_tables(path) else "pymupdf"
     text, tables = PDF_ENGINES[engine](path)
     ocr_used = False
+    # ...rest of the function is unchanged from here
 
-    if not text.strip() or is_garbled(text) or lacks_common_words(text):
+    if (
+        not text.strip()
+        or len(text.strip()) < MIN_TRUSTED_CHARS
+        or is_garbled(text)
+        or lacks_common_words(text)
+    ):
         text, tables = extract_ocr(path)
         ocr_used = True
 

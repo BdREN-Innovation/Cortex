@@ -32,7 +32,7 @@ def rows_to_markdown(rows: list[list[str]]) -> str:
     width = max(len(r) for r in rows)
     norm = []
     for r in rows:
-        cells = [str(c).replace("|", "\\|").replace("\n", " ").strip() for c in r]
+        cells = ["" if c is None else str(c).replace("|", "\\|").replace("\n", " ").strip() for c in r]
         cells += [""] * (width - len(cells))
         norm.append(cells)
     header, *body = norm

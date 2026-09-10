@@ -14,3 +14,7 @@ __pycache__/
 .env
 .env.*
 !.env.example
+
+corpus/*/_files/
+corpus/*/*.jsonl
+extract_log.txt
