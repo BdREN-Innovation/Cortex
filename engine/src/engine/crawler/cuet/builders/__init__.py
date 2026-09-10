@@ -49,12 +49,11 @@ class Portion:
 # Owner is a name, not a placeholder. An unowned portion is one nobody is
 # checking, which is how a whole content type goes missing quietly.
 #
-# `general` and `notices` are still unowned on purpose. Neither maps to one
-# person: `general` holds a teammate's About and Research pages alongside the
-# academic-information pages, and `notices` holds the NOC notices alongside the
-# four other notice types somebody else owns. Putting one name on either would
-# claim work that is not that person's, so they stay unowned until the split is
-# agreed. That is a smaller problem than a wrong name.
+# Every portion now has an owner. `notices` is the one that still does not map
+# cleanly to one person: the six NOC documents in it are Samonwita's and the
+# other notice types are Dipika's. It is filed under Dipika, who owns most of
+# it, not because the boundary is right — worth splitting when the team next
+# agrees one.
 PORTIONS: tuple[Portion, ...] = (
     Portion(
         name="general",

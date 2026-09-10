@@ -289,17 +289,23 @@ them.
 
 ### 4.3 The builders
 
-`builders/` holds one module per portion, so owners never edit the same file.
+`builders/` holds at least one module per portion, so owners never edit the same
+file. A portion may own several: `general` is split across four, one per menu of
+the site, because one module covering About, Administration, Research and
+Facilities would be the thing two people edit at once.
 
-| File | Lines | Produces |
-|---|---|---|
-| `__init__.py` | 164 | The portion registry. The one shared file, deliberately tiny. |
-| `academic.py` | 306 | Departments, faculties, institutes, centres, curricula, and all 382 faculty profiles. |
-| `alumni.py` | 267 | The alumni site's CMS pages, news, notices, responsibilities and directory. |
-| `base.py` | 222 | The `Document` model, link harvesting, shared helpers. Nothing portion-specific. |
-| `notices.py` | 133 | Every notice type, as index documents. |
-| `news.py` | 86 | News items and events. |
-| `general.py` | 66 | CMS page bodies and student organisations. |
+| File | Lines | Portion | Produces |
+|---|---|---|---|
+| `academic.py` | 309 | academic | Departments, faculties, institutes, centres, curricula, and all 382 faculty profiles. |
+| `alumni.py` | 272 | alumni | The alumni site's CMS pages, news, notices, responsibilities and directory. |
+| `base.py` | 222 | — | The `Document` model, link harvesting, shared helpers. Nothing portion-specific. |
+| `about.py` | 198 | general | The Administration menu: 6 directorates, 3 offices, 6 sections. Joins `/footer-data` for the routes to `/administrative-departments` for the bodies. |
+| `research.py` | 193 | general | The Research menu: 1,560 publications across 4 types, from one `/app-admin-research-types` call. |
+| `facilities.py` | 181 | general | The Facilities menu: the Downloads library, 133 files from `/downloads`. That endpoint is not in the original seventeen — it was found in the Network tab, not by grep. |
+| `__init__.py` | 169 | — | The portion registry. The one shared file, deliberately tiny. |
+| `notices.py` | 134 | notices | Every notice type, as index documents. |
+| `news.py` | 88 | news-events | News items and events. |
+| `general.py` | 68 | general | CMS page bodies and student organisations. |
 
 ### 4.4 Tests
 
