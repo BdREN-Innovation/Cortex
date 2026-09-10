@@ -22,15 +22,16 @@ portion owns its own builder module and writes its own shard.
 | `academic` | **Samonwita Sarker** | Departments, faculties, institutes, centres, academic information, all faculty profiles |
 | `news-events` | **Samonwita Sarker** | News items, events, and the listing pages |
 | `alumni` | **Samonwita Sarker** | The whole of `alumni.cuet.ac.bd` |
-| `notices` | unassigned | All notice types. The NOC notices in it are Samonwita's; the other types are not |
-| `general` | unassigned | About menu, research pages, student organisations |
+| `notices` | **Dipika Nath** | All notice types. The NOC notices in it are Samonwita's; the other types are Dipika's |
+| `general` | **Dipika Nath** | About menu, Administration, Research, Facilities, student organisations |
 
-`notices` and `general` are deliberately unowned. Neither maps to one person, and
-naming a single owner would claim work that is not theirs.
+Every portion now has an owner. `notices` is the one that still does not map
+cleanly to one person: the six NOC documents in it are Samonwita's and the other
+notice types are Dipika's. Worth splitting when the team next agrees a boundary.
 
 ### Samonwita Sarker's part
 
-Six areas of the website, **649 of the 687 documents** in the corpus.
+Six areas of the website, **634 of the 735 documents** in the corpus.
 
 | Area | Documents | Where it is on the site |
 |---|---|---|
@@ -56,7 +57,7 @@ organisations and the combined notice listing, which belong to other portions.
 | **Green University** | `engine/data/sites/green/green-20260908T220124Z/` | Crawler runtime run | `raw/*.html`, `pages.jsonl` |
 
 The CUET corpus is different in kind from the other three. It was built
-API-first: **634 of its 687 documents came from CUET's public JSON API**, and
+API-first: **682 of its 735 documents came from CUET's public JSON API**, and
 only 53 from a headless browser. API documents arrive as clean prose with no
 navigation, banner or footer, so there is nothing for a boilerplate stripper to
 remove.
@@ -70,31 +71,27 @@ remove.
 Every content folder corresponds to somewhere a visitor can go. To check whether
 a document is right, open the URL.
 
-| Folder | Docs | Where it is on the live site |
-|---|---|---|
-| `academic/profiles/` | 382 | Every faculty member, `/profile/faculty-member/<slug>`. Covers all three employee statuses: 374 current, 2 on leave, 6 retired |
-| `news-events/news/` | 157 | News & Events → News, `/news/<id>` |
-| `academic/departments/` | 55 | `/department/<slug>` for 18 departments, plus each one's `/academic/undergraduate` and `/academic/postgraduate` |
-| `home/organizations/` | 15 | Student Organizations, `/student/organization/<slug>` |
-| `_unsorted/notices/` | 15 | Notice types out of scope for Part 1, all listed at `/notices/all-notice` |
-| `_cms/` | 8 | About menu, prospective-student pages, research pages |
-| `top-bar/notices/` | 6 | The top-bar NOC link, `/notices/noc` |
-| `academic/faculty/` | 6 | Academic → Faculties, `/faculty` and `/faculty/<slug>` |
-| `academic/information/` | 5 | `/academic-information` and its pages |
-| `academic/institutes/` | 5 | Academic → Institutes, `/institutes/<slug>` |
-| `admission/` | 5 | The Admission menu |
-| `academic/centers/` | 4 | Academic → Centers, `/centers/<slug>` |
-| `alumni/news/` | 4 | `alumni.cuet.ac.bd/news/<id>` |
-| `alumni/pages/` | 4 | `alumni.cuet.ac.bd/` and `/about` |
-| `alumni/responsibilities/` | 4 | Alumni responsibilities, on the alumni homepage |
-| `news-events/event-details/` | 3 | News & Events → Events, `/event-details/<id>` |
-| `news-events/listing/` | 3 | `/news-events`, `/events`, `/student/events` |
-| `alumni/directory/` | 2 | `alumni.cuet.ac.bd/alumnis/<id>` |
-| `academic/notices/` | 1 | Notices → Academic Calender |
-| `admission/notices/` | 1 | Notices → Scholarship & Financial Aids |
-| `alumni/notices/` | 1 | `alumni.cuet.ac.bd/notices` |
-| `home/` | 1 | The site homepage, `/` |
-| **Total** | **687** | |
+**The full table lives in `engine/corpus/cuet/README.md`**, regenerated from
+disk by `--stage merge`. It is not repeated here: it was, and the copy went
+stale twice in one day, once claiming 2 documents in a folder holding 5 and once
+missing 374 faculty profiles entirely. One table that cannot lie beats two that
+can disagree.
+
+The shape of it, for orientation:
+
+| Folder | Docs | Where it is on the live site | Portion |
+|---|---|---|---|
+| `academic/profiles/` | 382 | Every faculty member, `/profile/faculty-member/<slug>` | academic |
+| `news-events/news/` | 157 | News & Events -> News, `/news/<id>` | news-events |
+| `academic/departments/` | 55 | `/department/<slug>`, plus each one's `/academic/undergraduate` and `/academic/postgraduate` | academic |
+| `research/publications/` | 29 | Research menu, `/research/<type>` | general |
+| `academic/` (rest) | 21 | Faculties, institutes, centres, academic information | academic |
+| `alumni/` | 15 | The whole `alumni.cuet.ac.bd` host | alumni |
+| `administration/` | 15 | Directorates, offices, sections | general |
+| `home/organizations/` | 15 | Student Organizations | general |
+| `_unsorted/notices/` | 15 | Notice types out of scope for Part 1 | notices |
+| everything else | 31 | CMS pages, admission, NOC, listings, downloads, homepage | mixed |
+| **Total** | **735** | | |
 
 This table is regenerated from disk by `--stage merge` into
 `engine/corpus/cuet/README.md`. It is reproduced here for convenience; that file
@@ -166,7 +163,7 @@ browser, plus the portion, its owner, the live URL, and where the raw bytes are:
 render for browser ones, so any disagreement is settled against bytes rather than
 by re-crawling.
 
-The 687 documents come from 14 distinct origins:
+The 735 documents come from 17 distinct origins:
 
 | Documents | Origin |
 |---|---|
@@ -174,16 +171,19 @@ The 687 documents come from 14 distinct origins:
 | 157 | API `/news` |
 | 53 | browser render (crawl4ai + Chromium) |
 | 30 | API `/administrative-departments/{slug}` |
+| 29 | API `/app-admin-research-types` |
 | 22 | API `/notices` + `/notice-types` |
+| 15 | API `/administrative-departments` + `/footer-data` |
 | 15 | API `/student-organizations` |
 | 8 | API `/general-settings` |
+| 4 | API `/downloads` + `/download-types` |
 | 4 each | alumni `/alumni-settings`, `/alumni-home-data` (news), `/alumni-responsibilities` |
 | 3 | API `/events` |
 | 2 each | alumni `/alumnis`, API `/academic-curriculums` |
 | 1 | alumni `/alumni-home-data` (notices) |
 
 **`_files/index.json`** is the same mapping from the PDF side, and it is where to
-look while holding a file. Each of the 1,001 entries carries the download fields
+look while holding a file. Each of the 1,138 entries carries the download fields
 plus a resolved `sources` list:
 
 ```json
@@ -202,14 +202,14 @@ plus a resolved `sources` list:
 
 Three things about it are deliberate.
 
-- **A PDF may have several sources, and all are kept.** 39 files are linked from
+- **A PDF may have several sources, and all are kept.** 40 files are linked from
   more than one document. Keeping one would invent a relationship the site does
   not have.
 - **`linked_from` is untouched and `sources` is additive**, so anything already
   reading the URL list keeps working.
 - **A link that resolves to no document is named in `unresolved_links`** rather
   than silently producing an empty `sources`, which would read as a bug. All
-  1,001 currently resolve.
+  1,138 currently resolve.
 
 Both files are regenerated by `--stage merge`, offline. The index preserves
 `local`, `bytes` and `content_type` across rebuilds, so a metadata change never
@@ -303,7 +303,7 @@ them.
 
 ### 4.4 Tests
 
-`engine/tests/crawler/cuet/`, **201 tests**, no network required.
+`engine/tests/crawler/cuet/`, **213 tests**, no network required.
 
 | File | Tests | Covers |
 |---|---|---|
@@ -313,6 +313,7 @@ them.
 | `test_alumni.py` | 15 | The alumni portion and its privacy rule |
 | `test_portions.py` | 15 | The multi-person split |
 | `test_faculty.py` | 17 | Faculty profiles, their privacy rule, and every employee status |
+| `test_provenance.py` | 11 | The document and PDF mapping |
 | `test_capture.py` | 12 | Failed-render and 404 detection |
 | `test_shards.py` | 12 | Shard building and the resume case |
 | `test_harvest.py` | 10 | Link harvesting and HTML entity decoding |

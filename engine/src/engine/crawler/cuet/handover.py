@@ -336,6 +336,15 @@ FOLDER_MAP: dict[str, tuple[str, str]] = {
     "alumni/directory": ("alumni.cuet.ac.bd directory, `/alumnis/<id>`", "alumni"),
     "alumni/responsibilities": ("Alumni responsibilities, shown on the alumni "
                                 "homepage", "alumni"),
+    "administration/directorates": ("Administration -> Directorates, "
+                                    "`/directorate/<slug>`", "general"),
+    "administration/offices": ("Administration -> Offices, `/office/<slug>`",
+                               "general"),
+    "administration/sections": ("Administration -> Sections, `/section/<slug>`",
+                                "general"),
+    "research/publications": ("Research menu, `/research/<type>` and "
+                              "`/research-type/<slug>`", "general"),
+    "resources/downloads": ("Facilities -> Downloads, `/downloads`", "general"),
     "_unsorted/notices": ("Notice types out of scope for Part 1, all listed at "
                           "`/notices/all-notice`", "notices"),
 }
