@@ -437,20 +437,24 @@ requests.
 
 ---
 
-### `_files/index.json` lives in the repo, not on Drive
+### Two copies of `_files/index.json`, and which one wins
 
-There is a copy of `index.json` in the Drive folder from before this file was
-committed. **Do not restore it.** Copy the PDFs across and leave the index alone.
+The repository copy wins. It is at `engine/corpus/cuet/_files/index.json` and
+`--stage merge` rewrites it on every run.
 
-The Drive copy is the older, thinner form: it has `linked_from` as bare URLs and
-no `sources`, so restoring it over the repo copy silently removes the mapping
-from every PDF back to the documents that link it, and nothing would fail to
-tell you. The repo copy is the one that is kept up to date, because
-`--stage merge` rewrites it every run.
+A copy is also kept on Drive beside the PDFs, so that folder is self-contained.
+That copy is a **mirror**, and it goes stale as soon as anybody runs merge.
 
-The safe move is to delete `index.json` from the Drive folder so there is one
-copy of it and no way to pick the wrong one. If it stays there, restoring PDFs
-should be a file-type copy of `*.pdf`, never a folder sync.
+**Restoring from Drive means copying `*.pdf` only.** Never sync the folder
+wholesale. An older `index.json` landing on top of the repo copy removes the
+`sources` mapping from every entry, and nothing fails to tell you: the corpus
+still loads, the PDFs still open, and every file quietly loses its link back to
+the documents that reference it.
+
+`_files/README.md` is generated next to the index and carries its generation
+date and file counts. It goes to Drive with the index, so somebody standing in
+the Drive folder can see how old that copy is before restoring anything. When
+the index changes, re-upload both together.
 
 ## 9. Summary for developers
 
