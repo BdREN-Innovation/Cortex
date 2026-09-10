@@ -18,6 +18,10 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["black>=24.1", "flake8>=7.0"]
+ocr = [
+    "pillow>=12.3.0",
+    "pytesseract>=0.3.13",
+]
 
 [project.scripts]
 engine = "engine.cli.main:main"
