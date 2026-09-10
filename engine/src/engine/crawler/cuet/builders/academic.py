@@ -99,7 +99,8 @@ def build_entities(dump: dict, result: Stage2Result) -> None:
             group={"academic": "departments", "institute": "institutes",
                    "center": "centers", "faculty": "faculty"}[etype],
             section_path=crumb,
-            extra={"slug": slug, "entity_type": etype,
+            extra={"origin": f"API {config.ENTITY_DETAIL}",
+                   "slug": slug, "entity_type": etype,
                    "short_name": entity.get("short_name"),
                    "email": entity.get("email"), "phone": entity.get("phone")},
         )
@@ -150,7 +151,8 @@ def build_curricula(dump: dict, result: Stage2Result) -> None:
             title=f"{label} curricula", html="\n".join(body),
             section="academic", group="information",
             section_path=["Academic", "Curricula", label],
-            extra={"curriculum_type": curriculum_type,
+            extra={"origin": "API /academic-curriculums",
+                   "curriculum_type": curriculum_type,
                    "curriculum_ids": [r.get("id") for r in group]},
         ))
 
@@ -290,7 +292,8 @@ def build_faculty_members(dump: dict, result: Stage2Result) -> None:
             url=url, title=name, html=body,
             section="academic", group="profiles",
             section_path=["Academic", "Faculty", department or "CUET", name],
-            extra={"slug": slug, "department": department,
+            extra={"origin": f"API {config.FACULTY_DETAIL}",
+                   "slug": slug, "department": department,
                    "employee_status": person.get("employee_status"),
                    "admin_type": person.get("admin_type"),
                    "private_fields_dropped":

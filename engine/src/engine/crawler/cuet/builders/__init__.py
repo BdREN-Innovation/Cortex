@@ -62,7 +62,9 @@ PORTIONS: tuple[Portion, ...] = (
         sections=("_cms", "home"),
         site_areas=("About menu", "Campus life", "Prospective students",
                     "Research highlights", "Student Organizations"),
-        url_prefixes=("/about", "/administration", "/apa", "/directorate",
+        # "/" matches the homepage and nothing else: the prefix test is an
+        # exact match or a match on prefix + "/", and "//" never occurs.
+        url_prefixes=("/", "/about", "/administration", "/apa", "/directorate",
                       "/section", "/office", "/student", "/research",
                       "/research-area", "/research-highlights",
                       "/research-type", "/directories", "/downloads",
@@ -94,7 +96,7 @@ PORTIONS: tuple[Portion, ...] = (
         sections=("top-bar", "admission", "academic", "_unsorted"),
         site_areas=("Notices menu", "Top-bar notice links",
                     "/notices/noc", "/notices/all-notice"),
-        url_prefixes=("/notices", "/notice", "/admission"),
+        url_prefixes=("/notices", "/notice", "/admission", "/fsc"),
     ),
     # The only portion on a host other than cuet.ac.bd. Its `url_prefixes` are
     # therefore full URLs rather than paths, so that `/news` on the alumni site

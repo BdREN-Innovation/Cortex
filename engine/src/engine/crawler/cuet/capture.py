@@ -21,6 +21,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from . import config
+from .builders import PORTIONS, owner_of_url
 from .builders.base import Document, Stage2Result, harvest
 from .content import rows_on_disk, write_document, write_shard
 from .paths import canonical, group_for_url, page_path, section_for_url
@@ -243,7 +244,15 @@ async def _capture_all(plan: list[tuple[str, str]], out: Path, *,
                         group=group_for_url(url),
                         section_path=_breadcrumb(url),
                         source="browser",
-                        extra={"planned_reason": why, "render_ok": True,
+                        extra={"origin": "browser render (crawl4ai + Chromium)",
+                               # Stage 4 is not a portion, so the portion is
+                               # derived from the URL. Without it a browser
+                               # page is the one kind of document with nobody's
+                               # name on it, which is how a broken render sits
+                               # unnoticed.
+                               "portion": _portion_of(url),
+                               "owner": _owner_of_portion(_portion_of(url)),
+                               "planned_reason": why, "render_ok": True,
                                "content_state": ("placeholder"
                                                  if looks_placeholder(markdown)
                                                  else "published")},
@@ -333,6 +342,18 @@ def rebuild_shard(out: Path | None = None) -> Path:
     return path
 
 
+
+def _portion_of(url: str) -> str:
+    return owner_of_url(url) or "unclaimed"
+
+
+def _owner_of_portion(name: str) -> str:
+    for portion in PORTIONS:
+        if portion.name == name:
+            return portion.owner
+    return "unknown"
+
+
 def _backfill_content_state(row: dict, out: Path) -> None:
     """Give an older sidecar the `content_state` field, from bytes on disk.
 
@@ -345,9 +366,18 @@ def _backfill_content_state(row: dict, out: Path) -> None:
     correct corpus stays byte-identical and produces no diff.
     """
     state = "placeholder" if looks_placeholder(row.get("_text", "")) else "published"
-    if row.get("content_state") == state:
+    portion = _portion_of(row.get("url", ""))
+    owner = _owner_of_portion(portion)
+    unchanged = (row.get("content_state") == state
+                 and row.get("portion") == portion
+                 and row.get("owner") == owner
+                 and row.get("origin"))
+    if unchanged:
         return
     row["content_state"] = state
+    row.setdefault("origin", "browser render (crawl4ai + Chromium)")
+    row["portion"] = portion
+    row["owner"] = owner
     sidecar = row.get("_json_path")
     if not sidecar:
         return

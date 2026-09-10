@@ -248,12 +248,18 @@ def test_rewriting_an_already_correct_sidecar_is_skipped(tmp_path):
     """
     from engine.crawler.cuet.capture import _backfill_content_state
 
+    # A sidecar counts as settled only when every backfilled field is already
+    # right. The backfill grew from content_state alone to also carrying
+    # origin, portion and owner, so a row missing those is NOT settled.
     sidecar = tmp_path / "page.json"
     sidecar.write_text('{"content_state": "published", "kept": true}',
                        encoding="utf-8")
     before = sidecar.read_bytes()
     row = {"_json_path": sidecar, "_text": "Real content.",
-           "content_state": "published"}
+           "url": "https://cuet.ac.bd/news-events",
+           "content_state": "published",
+           "origin": "browser render (crawl4ai + Chromium)",
+           "portion": "news-events", "owner": "Samonwita Sarker"}
     _backfill_content_state(row, tmp_path)
     assert sidecar.read_bytes() == before
 
@@ -265,7 +271,9 @@ def test_the_private_keys_never_reach_the_sidecar(tmp_path):
 
     sidecar = tmp_path / "page.json"
     sidecar.write_text("{}", encoding="utf-8")
-    row = {"_json_path": sidecar, "_text": "Real content.", "url": "u"}
+    row = {"_json_path": sidecar, "_text": "Real content.",
+           "url": "https://cuet.ac.bd/news-events"}
     _backfill_content_state(row, tmp_path)
     written = json.loads(sidecar.read_text(encoding="utf-8"))
-    assert set(written) == {"url", "content_state"}
+    assert set(written) == {"url", "content_state", "origin", "portion", "owner"}
+    assert not any(k.startswith("_") for k in written)

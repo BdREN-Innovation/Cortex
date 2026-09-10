@@ -37,7 +37,8 @@ def build_cms(dump: dict, result: Stage2Result) -> None:
         doc = Document(
             url=url, title=path.strip("/").replace("/", " / "), html=html,
             section="_cms", group="", section_path=["CMS", key],
-            extra={"cms_key": key, "renders_page": path},
+            extra={"origin": "API /general-settings",
+                   "cms_key": key, "renders_page": path},
             double_escaped=escaped,
         )
         doc.files = harvest(html, config.SITE, result, linked_from=url,
@@ -57,7 +58,8 @@ def build_student_organizations(dump: dict, result: Stage2Result) -> None:
             url=url, title=row.get("title") or slug, html=html,
             section="home", group="organizations",
             section_path=["Student Organizations", row.get("title") or slug],
-            extra={"slug": slug, "org_type": row.get("type")},
+            extra={"origin": "API /student-organizations",
+                   "slug": slug, "org_type": row.get("type")},
             double_escaped=escaped,
         )
         doc.files = harvest(html, config.SITE, result, linked_from=url,

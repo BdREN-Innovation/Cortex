@@ -114,6 +114,135 @@ def write_known_gaps(out: Path, planned: dict[str, str],
     return path
 
 
+
+def write_provenance(out: Path, documents: list[dict], found_files: dict) -> Path:
+    """Where every document and every PDF came from, as one machine-readable file.
+
+    Team B receives text and PDFs with no way to answer "where did this come
+    from?" unless the corpus says so. `source` already records api or browser,
+    but that is a category, not an origin: it does not say WHICH endpoint built
+    a document, and a wrong extraction cannot be traced back to the payload that
+    caused it.
+
+    One JSON object per line, documents first, then files. Every row carries
+    enough to go back to the live site AND back to the saved bytes, so a
+    disagreement can be settled without re-crawling.
+    """
+    rows: list[dict] = []
+    for doc in documents:
+        meta = doc.get("meta") or {}
+        rows.append({
+            "kind": "document",
+            "doc_id": doc["doc_id"],
+            "title": doc.get("title"),
+            "live_url": doc.get("canonical_url"),
+            "origin": meta.get("origin", "unrecorded"),
+            "source": meta.get("source"),
+            "section": meta.get("section"),
+            "portion": meta.get("portion"),
+            "owner": meta.get("owner"),
+            "fetched_at": doc.get("fetched_at"),
+            "content_path": doc.get("html_path"),
+            "raw_payload": ("_meta/api_dump.json" if meta.get("source") == "api"
+                            else doc.get("html_path")),
+        })
+
+    # A PDF is not "from" one page. The same circular is linked from a notice
+    # index, a department page and sometimes a profile, and dropping all but the
+    # last would misattribute it. `linked_from` is a list for that reason.
+    for url in sorted(found_files):
+        record = found_files[url]
+        rows.append({
+            "kind": "file",
+            "file_url": url,
+            "document_type": record.get("document_type"),
+            "linked_from": record.get("linked_from", []),
+            "local": record.get("local"),
+            "title": record.get("title"),
+        })
+
+    path = out / "_meta" / "provenance.jsonl"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as handle:
+        for row in rows:
+            handle.write(json.dumps(row, ensure_ascii=False) + chr(10))
+    log.info("provenance: %d documents + %d files -> %s",
+             len(documents), len(found_files), path.name)
+    return path
+
+
+
+def write_file_index(out: Path, documents: list[dict], found_files: dict) -> Path:
+    """Rewrite `_files/index.json` so every PDF says which documents it came from.
+
+    Stage 5 writes this file when it downloads, and what it records is what the
+    downloader knows: the URL, the bytes, the local name, and a list of page
+    URLs. That is not enough to answer the question somebody actually has while
+    holding a PDF - "what is this, and which part of the site is it from?" - and
+    answering it meant joining three files by hand.
+
+    So the page URLs are resolved into the documents themselves, and the
+    document's section, portion, owner and originating endpoint travel with
+    them. `linked_from` is left exactly as it was, because things already read
+    it; `sources` is the added, resolved form.
+
+    A PDF is deliberately allowed several sources. The same circular is linked
+    from a notice index, a department page and sometimes a profile, and picking
+    one would be inventing a relationship the site does not have.
+
+    Runs offline off the shards, so the index can be rebuilt after a metadata
+    change without re-downloading 285 PDFs.
+    """
+    index_path = out / "_files" / "index.json"
+    existing: dict[str, dict] = {}
+    if index_path.exists():
+        try:
+            rows = json.loads(index_path.read_text(encoding="utf-8"))
+            existing = {r["url"]: r for r in rows if isinstance(r, dict) and r.get("url")}
+        except (json.JSONDecodeError, OSError):
+            log.warning("could not read %s; rebuilding it from scratch", index_path)
+
+    by_url: dict[str, dict] = {}
+    for doc in documents:
+        meta = doc.get("meta") or {}
+        by_url[doc.get("canonical_url")] = {
+            "doc_id": doc["doc_id"],
+            "title": doc.get("title"),
+            "live_url": doc.get("canonical_url"),
+            "section": meta.get("section"),
+            "portion": meta.get("portion"),
+            "owner": meta.get("owner"),
+            "origin": meta.get("origin"),
+        }
+
+    rows = []
+    for url in sorted(found_files):
+        record = found_files[url]
+        linked = record.get("linked_from", [])
+        sources = [by_url[u] for u in linked if u in by_url]
+        row = dict(existing.get(url, {}))
+        row.update({
+            "url": url,
+            "document_type": record.get("document_type"),
+            "linked_from": linked,
+            "sources": sources,
+            # A file linked only from a page that produced no document would
+            # otherwise look unattached. Saying so is better than an empty list
+            # that reads like a bug.
+            "unresolved_links": [u for u in linked if u not in by_url],
+            "downloaded": bool(row.get("local")),
+        })
+        rows.append(row)
+
+    index_path.parent.mkdir(parents=True, exist_ok=True)
+    index_path.write_text(json.dumps(rows, ensure_ascii=False, indent=2),
+                          encoding="utf-8")
+    resolved = sum(1 for r in rows if r["sources"])
+    log.info("file index: %d files, %d resolved to a document, %d downloaded",
+             len(rows), resolved, sum(1 for r in rows if r["downloaded"]))
+    return index_path
+
+
 def run(out: Path | None = None) -> dict:
     """Merge every shard into the corpus files. Returns the counts."""
     out = out or config.OUT
@@ -191,6 +320,8 @@ def run(out: Path | None = None) -> dict:
                 continue
             url, _, why = line.partition("\t")
             planned[canonical(url.strip())] = why.lstrip("# ").strip()
+    write_provenance(out, ordered_docs, found_files)
+    write_file_index(out, ordered_docs, found_files)
     write_known_gaps(out, planned,
                      {canonical(d["canonical_url"]) for d in ordered_docs})
 
