@@ -22,10 +22,13 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /events",
   "event_id": 136,
   "from": "10 December 2026",
   "to": "12 December 2026",
   "location": null,
   "link": "https://icace.cuet.ac.bd/",
-  "headline_only": false
+  "headline_only": false,
+  "portion": "news-events",
+  "owner": "Samonwita Sarker"
 }

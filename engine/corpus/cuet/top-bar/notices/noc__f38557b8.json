@@ -21,6 +21,7 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /notices + /notice-types",
   "notice_type": "Offices Orders/NOC",
   "notice_count": 60,
   "notice_ids": [
@@ -86,5 +87,7 @@
     817
   ],
   "listing_url": "https://cuet.ac.bd/notices/noc",
-  "in_scope": true
+  "in_scope": true,
+  "portion": "notices",
+  "owner": "UNASSIGNED"
 }

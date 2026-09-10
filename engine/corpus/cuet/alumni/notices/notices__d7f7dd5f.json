@@ -26,7 +26,10 @@
       "url": "https://app.cuet.thetork.com/storage/Notices/6909be6a16322.pdf"
     }
   ],
+  "origin": "ALUMNI API /alumni-home-data (alumni_notices)",
   "notice_id": 332,
   "site": "alumni",
-  "publish_date": null
+  "publish_date": null,
+  "portion": "alumni",
+  "owner": "Samonwita Sarker"
 }

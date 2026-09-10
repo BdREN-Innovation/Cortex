@@ -21,6 +21,7 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /notices + /notice-types",
   "notice_type": "Scholarship & Financial Aids",
   "notice_count": 15,
   "notice_ids": [
@@ -41,5 +42,7 @@
     12
   ],
   "listing_url": "https://cuet.ac.bd/notices/scholarship-financial-aids",
-  "in_scope": true
+  "in_scope": true,
+  "portion": "notices",
+  "owner": "UNASSIGNED"
 }

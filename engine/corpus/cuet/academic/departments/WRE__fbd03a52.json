@@ -23,9 +23,12 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /administrative-departments/{slug}",
   "slug": "WRE",
   "entity_type": "academic",
   "short_name": "WRE",
   "email": "headwre@cuet.ac.bd",
-  "phone": null
+  "phone": null,
+  "portion": "academic",
+  "owner": "Samonwita Sarker"
 }

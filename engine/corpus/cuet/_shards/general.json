@@ -20,7 +20,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "_cms"
+        "section": "_cms",
+        "origin": "API /general-settings",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -41,7 +44,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "_cms"
+        "section": "_cms",
+        "origin": "API /general-settings",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -62,7 +68,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "_cms"
+        "section": "_cms",
+        "origin": "API /general-settings",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -83,7 +92,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "_cms"
+        "section": "_cms",
+        "origin": "API /general-settings",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -104,7 +116,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "_cms"
+        "section": "_cms",
+        "origin": "API /general-settings",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -125,7 +140,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "_cms"
+        "section": "_cms",
+        "origin": "API /general-settings",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -146,7 +164,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "_cms"
+        "section": "_cms",
+        "origin": "API /general-settings",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -167,7 +188,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "_cms"
+        "section": "_cms",
+        "origin": "API /general-settings",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -188,7 +212,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "home"
+        "section": "home",
+        "origin": "API /student-organizations",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -209,7 +236,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "home"
+        "section": "home",
+        "origin": "API /student-organizations",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -230,7 +260,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "home"
+        "section": "home",
+        "origin": "API /student-organizations",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -251,7 +284,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "home"
+        "section": "home",
+        "origin": "API /student-organizations",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -272,7 +308,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "home"
+        "section": "home",
+        "origin": "API /student-organizations",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -293,7 +332,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "home"
+        "section": "home",
+        "origin": "API /student-organizations",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -314,7 +356,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "home"
+        "section": "home",
+        "origin": "API /student-organizations",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -335,7 +380,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "home"
+        "section": "home",
+        "origin": "API /student-organizations",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -356,7 +404,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "home"
+        "section": "home",
+        "origin": "API /student-organizations",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -377,7 +428,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "home"
+        "section": "home",
+        "origin": "API /student-organizations",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -398,7 +452,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "home"
+        "section": "home",
+        "origin": "API /student-organizations",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -419,7 +476,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "home"
+        "section": "home",
+        "origin": "API /student-organizations",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -440,7 +500,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "home"
+        "section": "home",
+        "origin": "API /student-organizations",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -461,7 +524,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "home"
+        "section": "home",
+        "origin": "API /student-organizations",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []
@@ -482,7 +548,10 @@
       "lang": "en",
       "meta": {
         "source": "api",
-        "section": "home"
+        "section": "home",
+        "origin": "API /student-organizations",
+        "portion": "general",
+        "owner": "UNASSIGNED"
       },
       "doc_type": "page",
       "assets": []

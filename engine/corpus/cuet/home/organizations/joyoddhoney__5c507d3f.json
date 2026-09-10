@@ -21,6 +21,9 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /student-organizations",
   "slug": "joyoddhoney",
-  "org_type": "academic"
+  "org_type": "academic",
+  "portion": "general",
+  "owner": "UNASSIGNED"
 }

@@ -23,9 +23,12 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /administrative-departments/{slug}",
   "slug": "MIE",
   "entity_type": "academic",
   "short_name": "MIE",
   "email": "prasanjit@cuet.ac.bd",
-  "phone": "016-42997909"
+  "phone": "016-42997909",
+  "portion": "academic",
+  "owner": "Samonwita Sarker"
 }

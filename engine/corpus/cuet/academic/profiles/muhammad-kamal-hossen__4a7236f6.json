@@ -27,6 +27,7 @@
       "url": "https://ugc.portal.gov.bd/sites/default/files/files/ugc.portal.gov.bd/page/6772bb60_d7fd_4f37_a841_4b53de89bcaf/2024-01-22-07-09-6a369e3c8daa7acb116e88239abf712a.pdf"
     }
   ],
+  "origin": "API /app-admins/{slug}",
   "slug": "muhammad-kamal-hossen",
   "department": "Computer Science & Engineering",
   "employee_status": "running",
@@ -44,5 +45,7 @@
     "district_id",
     "profile.personal_email",
     "profile.address"
-  ]
+  ],
+  "portion": "academic",
+  "owner": "Samonwita Sarker"
 }

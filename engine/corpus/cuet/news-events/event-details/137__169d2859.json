@@ -22,10 +22,13 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /events",
   "event_id": 137,
   "from": "21 January 2027",
   "to": "23 January 2027",
   "location": null,
   "link": "https://ecce2027.cuet.ac.bd/",
-  "headline_only": true
+  "headline_only": true,
+  "portion": "news-events",
+  "owner": "Samonwita Sarker"
 }
