@@ -199,6 +199,28 @@ def _make_run_id(site: str) -> str:
     return f"{site}-{timestamp}"
 
 
+
+
+
+
+def _document_subfolder(url: str) -> str:
+    """Derive a section-name subfolder from a document URL's path."""
+
+    path = urlsplit(url).path.strip("/")
+    segments = path.split("/")
+
+    if not segments or not segments[0]:
+        return "misc"
+
+    return _safe_filename(segments[0], fallback="misc")
+
+
+
+
+
+
+
+
 def _document_filename(url: str, ordinal: int) -> str:
     """Create a safe filename for a downloaded document."""
 
@@ -332,8 +354,21 @@ async def crawl_async(
 
                     page_id = make_doc_id(canonical_url)
 
+
+
+
+
+
+                    html_subfolder = _document_subfolder(
+                        raw_page.url
+                    )
+                    html_subfolder_dir = raw_dir / html_subfolder
+                    html_subfolder_dir.mkdir(
+                        parents=True, exist_ok=True
+                    )
+
                     html_filename = f"{page_id}.html"
-                    html_path = raw_dir / html_filename
+                    html_path = html_subfolder_dir / html_filename
 
                     try:
                         html_path.write_text(
@@ -356,7 +391,7 @@ async def crawl_async(
                         continue
 
                     relative_content_path = str(
-                        Path("raw") / html_filename
+                        Path("raw") / html_subfolder / html_filename
                     ).replace("\\", "/")
 
                     page_record = CrawledPage(
@@ -454,12 +489,22 @@ async def crawl_async(
                             if asset is None:
                                 continue
 
+                            subfolder = _document_subfolder(
+                                document_url
+                            )
                             filename = _document_filename(
                                 document_url,
                                 document_ordinal,
                             )
 
-                            document_path = docs_dir / filename
+                            subfolder_dir = docs_dir / subfolder
+                            subfolder_dir.mkdir(
+                                parents=True, exist_ok=True
+                            )
+
+                            document_path = (
+                                subfolder_dir / filename
+                            )
 
                             try:
                                 document_path.write_bytes(asset.content)
@@ -480,7 +525,7 @@ async def crawl_async(
                             documents_saved += 1
 
                             relative_document_path = str(
-                                Path("docs") / filename
+                            Path("docs") / subfolder / filename
                             ).replace("\\", "/")
 
                             assets_saved[
