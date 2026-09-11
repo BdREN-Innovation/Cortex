@@ -46,6 +46,18 @@ The remaining 38 documents are the About pages, the research pages, the student
 organisations and the combined notice listing, which belong to other portions.
 
 ---
+## 1b. Who built BDREN
+
+Unlike CUET (multiple portions, multiple owners), BDREN was crawled and
+extracted end-to-end by one person.
+
+| Area | Owner | What they own |
+|---|---|---|
+| Crawl config & pagination fix | **Mifta** | `configs/crawl.bdren.yaml` — seed list, pagination seeding for /news and /notices, page/document budget tuning |
+| HTML → documents.jsonl extraction | **Mifta** | `engine/src/engine/knowledge/bdren/bdren_extraction.py` — self-contained, not the shared `engine extract` pipeline |
+
+If something in the bdren dataset looks wrong, the known gaps are listed under
+Section 7; anything not covered there is worth asking Mifta about directly.
 
 ## 2. High-level data map
 
