@@ -423,10 +423,14 @@ engine/data/sites/<site>/<site>-<timestamp>/
      the site; timeout also raised from 20s to 30s to avoid transient
      fetch failures on larger files.
    - `raw/`: 250 raw HTML files.
+   - `documents.jsonl`: 224 clean documents already extracted (HTML → title/text/
+     tables/breadcrumb), via a self-contained extractor at
+     engine/src/engine/knowledge/bdren/bdren_extraction.py — NOT the shared
+     engine extract pipeline, since that's still unbuilt. Re-run the command
+     below if the crawl run changes.
    - Both `docs/` and `raw/` are now organized into per-section subfolders
      (e.g. `docs/notice/`, `docs/resourceshub/`, `raw/news/`, `raw/events/`)
-     derived from each URL's path, instead of one flat directory — this
-     applies to all Team A sites going forward, not just BDREN.
+     derived from each URL's path, instead of one flat directory.
 2. **BUBT (`engine/data/sites/bubt/bubt-20260908T220949Z/`)**:
    - `pages.jsonl`: 100 captured pages.
    - `docs/`: Academic routines and program syllabus PDFs (`BBA-routine.pdf`, `msc-in-cse.pdf`, etc.).
@@ -435,10 +439,24 @@ engine/data/sites/<site>/<site>-<timestamp>/
    - `pages.jsonl`: 5 captured pages.
    - `raw/`: 5 raw HTML files.
 
+### Known gaps in the BDREN extraction
+
+- **Bangla content exists and is untested for correct decoding.** At least one
+  news article (`/news?page=13`) is fully in Bangla. Unlike CUET's 122 verified
+  Bangla documents, this has not been checked for mojibake — worth confirming
+  before Team B picks an embedding model.
+- **7 `service-catalog`/`service` pages captured only boilerplate** (office
+  address/phone, no real service description) — likely JS content that didn't
+  finish rendering before capture. These pages passed the min-length filter
+  but carry no real content. Listed here rather than silently included:
+  gpu-service, data-center-colocation-service, training-and-workshop-service,
+  grants-and-financial-assistance-service, smart-classroom-service,
+  software-services, erp-module-service.
+
 ```bash
 cd engine
+uv run python -m engine.knowledge.bdren.bdren_extraction data/sites/bdren/bdren-20260911T042956Z
 uv run engine extract --run data/sites/bubt/bubt-20260908T220949Z
-uv run engine extract --run data/sites/bdren/bdren-20260911T042956Z
 uv run engine extract --run data/sites/green/green-20260908T220124Z
 ```
 
