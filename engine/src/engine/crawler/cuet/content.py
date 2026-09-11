@@ -28,7 +28,7 @@ from pathlib import Path
 from engine.contracts.documents import CleanDocument, content_hash
 
 from . import config
-from .builders import builders_for, portion_names
+from .builders import PORTIONS, builders_for, portion_names
 from .builders.base import (Document, Stage2Result, _clean_html, _headline_body,
                             _now, harvest)
 from .markdown import to_markdown
@@ -145,8 +145,27 @@ def to_clean_document(meta: dict) -> CleanDocument:
         html_path=meta["html_path"],
         lang="en",
         doc_type="page",
-        meta={"source": meta["source"], "section": meta["section"]},
+        # Provenance travels WITH the row. A reader of documents.jsonl who
+        # cannot tell which endpoint produced a document has no way to check it
+        # against the saved payload, and no way to know who to ask.
+        meta={"source": meta["source"], "section": meta["section"],
+              "origin": meta.get("origin", "unrecorded"),
+              "portion": meta.get("portion"), "owner": meta.get("owner")},
     )
+
+
+
+def _owner_of(portion_name: str) -> str:
+    """The person answerable for a portion, recorded on every document.
+
+    Team B reads a document and needs to know who to ask about it. The registry
+    already holds the answer; without copying it onto the document they would
+    have to read the source to find out.
+    """
+    for portion in PORTIONS:
+        if portion.name == portion_name:
+            return portion.owner
+    return "unknown"
 
 
 def run(dump: dict, out: Path | None = None,
@@ -209,6 +228,11 @@ def run(dump: dict, out: Path | None = None,
                 log.info("skipping %s: no text after conversion", doc.key)
                 portion.warnings.append(f"empty_document:{doc.key}")
                 continue
+            # Stamped here rather than in each builder: the loop already knows
+            # which portion is running, and a builder that had to remember its
+            # own portion name would be one rename away from lying about it.
+            doc.extra.setdefault("portion", name)
+            doc.extra.setdefault("owner", _owner_of(name))
             rows.append(write_document(doc, out, fetched_at))
 
         write_shard(out, [name], rows, portion)

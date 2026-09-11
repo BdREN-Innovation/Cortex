@@ -21,7 +21,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Callable
 
-from . import academic, alumni, general, news, notices
+from . import (about, academic, alumni, facilities, general, news,
+               notices, research)
 
 __all__ = ["Portion", "PORTIONS", "builders_for", "owner_of_url",
            "portion_names"]
@@ -48,21 +49,24 @@ class Portion:
 # Owner is a name, not a placeholder. An unowned portion is one nobody is
 # checking, which is how a whole content type goes missing quietly.
 #
-# `general` and `notices` are still unowned on purpose. Neither maps to one
-# person: `general` holds a teammate's About and Research pages alongside the
-# academic-information pages, and `notices` holds the NOC notices alongside the
-# four other notice types somebody else owns. Putting one name on either would
-# claim work that is not that person's, so they stay unowned until the split is
-# agreed. That is a smaller problem than a wrong name.
+# Every portion now has an owner. `notices` is the one that still does not map
+# cleanly to one person: the six NOC documents in it are Samonwita's and the
+# other notice types are Dipika's. It is filed under Dipika, who owns most of
+# it, not because the boundary is right — worth splitting when the team next
+# agrees one.
 PORTIONS: tuple[Portion, ...] = (
     Portion(
         name="general",
-        owner="UNASSIGNED",
-        builders=(general.build_cms, general.build_student_organizations),
+        owner="Dipika Nath",
+        builders=(general.build_cms, general.build_student_organizations,
+                  about.build_administration, facilities.build_downloads,
+                  research.build_research),
         sections=("_cms", "home"),
         site_areas=("About menu", "Campus life", "Prospective students",
                     "Research highlights", "Student Organizations"),
-        url_prefixes=("/about", "/administration", "/apa", "/directorate",
+        # "/" matches the homepage and nothing else: the prefix test is an
+        # exact match or a match on prefix + "/", and "//" never occurs.
+        url_prefixes=("/", "/about", "/administration", "/apa", "/directorate",
                       "/section", "/office", "/student", "/research",
                       "/research-area", "/research-highlights",
                       "/research-type", "/directories", "/downloads",
@@ -89,12 +93,12 @@ PORTIONS: tuple[Portion, ...] = (
     ),
     Portion(
         name="notices",
-        owner="UNASSIGNED",
+        owner="Dipika Nath",
         builders=(notices.build_notices,),
         sections=("top-bar", "admission", "academic", "_unsorted"),
         site_areas=("Notices menu", "Top-bar notice links",
                     "/notices/noc", "/notices/all-notice"),
-        url_prefixes=("/notices", "/notice", "/admission"),
+        url_prefixes=("/notices", "/notice", "/admission", "/fsc"),
     ),
     # The only portion on a host other than cuet.ac.bd. Its `url_prefixes` are
     # therefore full URLs rather than paths, so that `/news` on the alumni site

@@ -12,7 +12,7 @@
   "title": "Water Resources and Research Organization",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-09T18:07:21Z",
+  "fetched_at": "2026-09-09T23:04:29Z",
   "html_path": "home/organizations/wrro__64d66735.html",
   "markdown_path": "home/organizations/wrro__64d66735.md",
   "text_chars": 2351,
@@ -21,6 +21,9 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /student-organizations",
   "slug": "wrro",
-  "org_type": "academic"
+  "org_type": "academic",
+  "portion": "general",
+  "owner": "Dipika Nath"
 }

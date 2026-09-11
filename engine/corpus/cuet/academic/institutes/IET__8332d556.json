@@ -22,9 +22,12 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /administrative-departments/{slug}",
   "slug": "IET",
   "entity_type": "institute",
   "short_name": "IET",
   "email": "jamal@cuet.ac.bd",
-  "phone": "01720-641636"
+  "phone": "01720-641636",
+  "portion": "academic",
+  "owner": "Samonwita Sarker"
 }

@@ -11,7 +11,9 @@ __pycache__/
 build/
 develop-eggs/
 dist/
-downloads/
+# Anchored to the repo root: unanchored, this stock pip-cache rule also
+# swallows engine/corpus/cuet/resources/downloads/.
+/downloads/
 eggs/
 .eggs/
 lib/
@@ -241,3 +243,5 @@ engine/data/
 
 # macOS
 .DS_Store
+
+engine/upload_02/

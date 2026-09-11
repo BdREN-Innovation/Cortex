@@ -23,13 +23,16 @@
   "double_escaped": false,
   "files": [
     {
+      "url": "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf"
+    },
+    {
       "url": "https://app.cuet.ac.bd/storage/Downloads/CUET-logo-and-directions.zip"
-    },
-    {
-      "url": "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf"
-    },
-    {
-      "url": "https://app.cuet.ac.bd/storage/Notices/67849752aff05.pdf"
     },
     {
       "url": "https://app.cuet.ac.bd/storage/Notices/678d2ae699242.pdf"
@@ -38,21 +41,21 @@
       "url": "https://app.cuet.ac.bd/storage/Notices/6784971d106d6.pdf"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Downloads/Teacher List of CUET-2026 (26.07.2026).pdf"
-    },
-    {
-      "url": "https://cuet.ac.bd/assets/pdf/professor-list-26.07.2026.pdf"
-    },
-    {
       "url": "https://app.cuet.ac.bd/storage/Notices/6a66d4ebbeb68.pdf"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Downloads/Officers List of CUET-2026 (26.07.2026).pdf"
+      "url": "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/Downloads/Staff List of CUET-2026 (26.07.2026).pdf"
+      "url": "https://app.cuet.ac.bd/storage/Notices/68d0d0992efd5.pdf"
+    },
+    {
+      "url": "https://app.cuet.ac.bd/storage/Notices/67849752aff05.pdf"
     }
   ],
   "planned_reason": "real page, no endpoint; the 3 calendar notices are separate from it",
-  "content_state": "published"
+  "content_state": "published",
+  "origin": "browser render (crawl4ai + Chromium)",
+  "portion": "academic",
+  "owner": "Samonwita Sarker"
 }

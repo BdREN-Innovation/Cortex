@@ -1,0 +1,32 @@
+{
+  "url": "https://cuet.ac.bd/research/mou",
+  "canonical_url": "https://cuet.ac.bd/research/mou",
+  "page_id": "f8d290329d8595b3",
+  "doc_key": "https://cuet.ac.bd/research/mou",
+  "section": "research",
+  "group": "publications",
+  "section_path": [
+    "Research",
+    "Mou"
+  ],
+  "title": "Mou",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T23:04:29Z",
+  "html_path": "research/publications/mou__f8d29032.html",
+  "markdown_path": "research/publications/mou__f8d29032.md",
+  "text_chars": 70,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "origin": "API /app-admin-research-types",
+  "research_type": "Mou",
+  "research_slug": "mou",
+  "publication_count": 0,
+  "publication_total": 0,
+  "authors": [],
+  "portion": "general",
+  "owner": "Dipika Nath"
+}

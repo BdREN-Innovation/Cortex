@@ -12,7 +12,7 @@
   "title": "academic-information / undergraduate-studies",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-09T18:07:21Z",
+  "fetched_at": "2026-09-09T23:04:29Z",
   "html_path": "_cms/undergraduate-studies__0c81d7f3.html",
   "markdown_path": "_cms/undergraduate-studies__0c81d7f3.md",
   "text_chars": 7512,
@@ -21,6 +21,9 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /general-settings",
   "cms_key": "undergraduate_prospective",
-  "renders_page": "/academic-information/undergraduate-studies"
+  "renders_page": "/academic-information/undergraduate-studies",
+  "portion": "general",
+  "owner": "Dipika Nath"
 }

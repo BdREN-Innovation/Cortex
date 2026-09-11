@@ -30,6 +30,7 @@
       "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Achievements-Awards/6a2fad4c93920.pdf"
     }
   ],
+  "origin": "API /app-admins/{slug}",
   "slug": "nadim-m-nobin",
   "department": "Physics",
   "employee_status": "running",
@@ -47,5 +48,7 @@
     "district_id",
     "profile.personal_email",
     "profile.address"
-  ]
+  ],
+  "portion": "academic",
+  "owner": "Samonwita Sarker"
 }

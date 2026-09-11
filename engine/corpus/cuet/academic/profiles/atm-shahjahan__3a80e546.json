@@ -23,6 +23,7 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /app-admins/{slug}",
   "slug": "atm-shahjahan",
   "department": "Urban and Regional Planning",
   "employee_status": "running",
@@ -40,5 +41,7 @@
     "district_id",
     "profile.personal_email",
     "profile.address"
-  ]
+  ],
+  "portion": "academic",
+  "owner": "Samonwita Sarker"
 }

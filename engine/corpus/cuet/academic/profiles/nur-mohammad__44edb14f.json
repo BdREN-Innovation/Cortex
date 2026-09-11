@@ -30,6 +30,7 @@
       "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/68ce1aa4c0295.pdf"
     }
   ],
+  "origin": "API /app-admins/{slug}",
   "slug": "nur-mohammad",
   "department": "Electrical and Electronic Engineering",
   "employee_status": "running",
@@ -47,5 +48,7 @@
     "district_id",
     "profile.personal_email",
     "profile.address"
-  ]
+  ],
+  "portion": "academic",
+  "owner": "Samonwita Sarker"
 }

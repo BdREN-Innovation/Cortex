@@ -1,0 +1,34 @@
+{
+  "url": "https://cuet.ac.bd/research/journal-paper",
+  "canonical_url": "https://cuet.ac.bd/research/journal-paper",
+  "page_id": "98d9f2182a3211f7",
+  "doc_key": "https://cuet.ac.bd/research/journal-paper?_part=5",
+  "section": "research",
+  "group": "publications",
+  "section_path": [
+    "Research",
+    "Journal Paper"
+  ],
+  "title": "Journal Paper (5 of 23)",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T23:04:29Z",
+  "html_path": "research/publications/journal-paper__98d9f218.html",
+  "markdown_path": "research/publications/journal-paper__98d9f218.md",
+  "text_chars": 16144,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "origin": "API /app-admin-research-types",
+  "research_type": "Journal Paper",
+  "research_slug": "journal-paper",
+  "publication_count": 60,
+  "publication_total": 1358,
+  "authors": [
+    "Dr. Md. Ashraf Ali"
+  ],
+  "portion": "general",
+  "owner": "Dipika Nath"
+}

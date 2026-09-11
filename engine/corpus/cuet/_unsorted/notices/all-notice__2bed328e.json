@@ -21,6 +21,7 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /notices + /notice-types",
   "notice_type": "Student Notices",
   "notice_count": 60,
   "notice_ids": [
@@ -86,5 +87,7 @@
     624
   ],
   "listing_url": "https://cuet.ac.bd/notices/all-notice",
-  "in_scope": false
+  "in_scope": false,
+  "portion": "notices",
+  "owner": "Dipika Nath"
 }

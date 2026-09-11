@@ -60,3 +60,22 @@ def test_every_mapped_folder_names_a_place_on_the_site():
     for folder, (where, portion) in FOLDER_MAP.items():
         assert where.strip(), folder
         assert portion.strip(), folder
+
+
+def test_the_readme_renders_with_braces_in_it(tmp_path):
+    """The README carries JSON examples and `{slug}` route templates.
+
+    It was built with str.format, which reads every brace as a field, so adding
+    one example containing a JSON object made the whole merge stage raise
+    KeyError after it had already written two files. Rendering it must not
+    depend on the prose avoiding braces.
+    """
+    from engine.crawler.cuet.handover import write_readme
+    (tmp_path / "home").mkdir()
+    (tmp_path / "home" / "d.json").write_text(json.dumps({"page_id": "x"}),
+                                              encoding="utf-8")
+    write_readme(tmp_path)
+    text = (tmp_path / "README.md").read_text(encoding="utf-8")
+    assert "{folder_table}" not in text
+    assert '"kind": "document"' in text
+    assert "| `home/` | 1 |" in text

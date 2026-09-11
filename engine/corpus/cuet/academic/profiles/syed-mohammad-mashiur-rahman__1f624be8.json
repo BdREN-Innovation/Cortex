@@ -33,6 +33,7 @@
       "url": "https://cuet.ac.bd/compressed/Final%20UG%20Bulletin%202022.pdf"
     }
   ],
+  "origin": "API /app-admins/{slug}",
   "slug": "syed-mohammad-mashiur-rahman",
   "department": "Humanities",
   "employee_status": "running",
@@ -50,5 +51,7 @@
     "district_id",
     "profile.personal_email",
     "profile.address"
-  ]
+  ],
+  "portion": "academic",
+  "owner": "Samonwita Sarker"
 }

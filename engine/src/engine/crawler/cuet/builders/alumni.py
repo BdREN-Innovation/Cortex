@@ -122,7 +122,8 @@ def build_alumni_pages(dump: dict, result: Stage2Result) -> None:
             title=key.replace("_", " ").title(),
             html=html, section="alumni", group="pages",
             section_path=["Alumni", key.replace("_", " ").title()],
-            extra={"cms_key": key, "renders_page": path, "site": "alumni"},
+            extra={"origin": "ALUMNI API /alumni-settings",
+                   "cms_key": key, "renders_page": path, "site": "alumni"},
             double_escaped=escaped,
         )
         doc.files = harvest(html, config.ALUMNI_SITE, result, linked_from=url,
@@ -149,7 +150,8 @@ def build_alumni_responsibilities(dump: dict, result: Stage2Result) -> None:
             title=row.get("title") or slug, html=html,
             section="alumni", group="responsibilities",
             section_path=["Alumni", "Responsibilities", row.get("title") or slug],
-            extra={"slug": slug, "site": "alumni"},
+            extra={"origin": "ALUMNI API /alumni-responsibilities",
+                   "slug": slug, "site": "alumni"},
             double_escaped=escaped,
         )
         doc.files = harvest(html, config.ALUMNI_SITE, result, linked_from=url,
@@ -185,7 +187,8 @@ def build_alumni_news(dump: dict, result: Stage2Result) -> None:
             url=url, title=row.get("title") or f"News {row['id']}", html=html,
             section="alumni", group="news",
             section_path=["Alumni", "News", row.get("title") or str(row["id"])],
-            extra={"news_id": row["id"], "date": row.get("date"), "site": "alumni"},
+            extra={"origin": "ALUMNI API /alumni-home-data (alumni_news)",
+                   "news_id": row["id"], "date": row.get("date"), "site": "alumni"},
             double_escaped=escaped,
         )
         doc.files = harvest(html, config.ALUMNI_SITE, result, linked_from=url,
@@ -212,7 +215,8 @@ def build_alumni_news(dump: dict, result: Stage2Result) -> None:
             title=row.get("title") or f"Notice {row['id']}", html=html,
             section="alumni", group="notices",
             section_path=["Alumni", "Notices", row.get("title") or str(row["id"])],
-            extra={"notice_id": row["id"], "site": "alumni",
+            extra={"origin": "ALUMNI API /alumni-home-data (alumni_notices)",
+                   "notice_id": row["id"], "site": "alumni",
                    "publish_date": row.get("publish_date")},
         )
         doc.files = harvest(html, config.ALUMNI_SITE, result, linked_from=url,
@@ -258,7 +262,8 @@ def build_alumni_directory(dump: dict, result: Stage2Result) -> None:
             html=_headline_body(name, facts) + ("\n" + html if html.strip() else ""),
             section="alumni", group="directory",
             section_path=["Alumni", "Directory", name],
-            extra={"student_id": person.get("studentID"), "site": "alumni",
+            extra={"origin": "ALUMNI API /alumnis",
+                   "student_id": person.get("studentID"), "site": "alumni",
                    "private_fields_dropped": list(config.ALUMNI_PRIVATE_FIELDS)},
             double_escaped=escaped,
         )

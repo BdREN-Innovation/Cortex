@@ -22,7 +22,10 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /news",
   "news_id": 64,
   "date": "2025-01-26",
-  "headline_only": false
+  "headline_only": false,
+  "portion": "news-events",
+  "owner": "Samonwita Sarker"
 }

@@ -27,6 +27,7 @@
       "url": "https://app.cuet.ac.bd/storage/Downloads/6829726fe4acf.pdf"
     }
   ],
+  "origin": "API /app-admins/{slug}",
   "slug": "dr-mohammad-islam-miah",
   "department": "Petroleum And Mining Engineering",
   "employee_status": "running",
@@ -44,5 +45,7 @@
     "district_id",
     "profile.personal_email",
     "profile.address"
-  ]
+  ],
+  "portion": "academic",
+  "owner": "Samonwita Sarker"
 }

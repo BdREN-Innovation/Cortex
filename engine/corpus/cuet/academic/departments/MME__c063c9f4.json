@@ -23,9 +23,12 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /administrative-departments/{slug}",
   "slug": "MME",
   "entity_type": "academic",
   "short_name": "MME",
   "email": "headmme@cuet.ac.bd",
-  "phone": "+880-31-714911 Ext. 4300"
+  "phone": "+880-31-714911 Ext. 4300",
+  "portion": "academic",
+  "owner": "Samonwita Sarker"
 }

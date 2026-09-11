@@ -22,15 +22,16 @@ portion owns its own builder module and writes its own shard.
 | `academic` | **Samonwita Sarker** | Departments, faculties, institutes, centres, academic information, all faculty profiles |
 | `news-events` | **Samonwita Sarker** | News items, events, and the listing pages |
 | `alumni` | **Samonwita Sarker** | The whole of `alumni.cuet.ac.bd` |
-| `notices` | unassigned | All notice types. The NOC notices in it are Samonwita's; the other types are not |
-| `general` | unassigned | About menu, research pages, student organisations |
+| `notices` | **Dipika Nath** | All notice types. The NOC notices in it are Samonwita's; the other types are Dipika's |
+| `general` | **Dipika Nath** | About menu, Administration, Research, Facilities, student organisations |
 
-`notices` and `general` are deliberately unowned. Neither maps to one person, and
-naming a single owner would claim work that is not theirs.
+Every portion now has an owner. `notices` is the one that still does not map
+cleanly to one person: the six NOC documents in it are Samonwita's and the other
+notice types are Dipika's. Worth splitting when the team next agrees a boundary.
 
 ### Samonwita Sarker's part
 
-Six areas of the website, **649 of the 687 documents** in the corpus.
+Six areas of the website, **634 of the 735 documents** in the corpus.
 
 | Area | Documents | Where it is on the site |
 |---|---|---|
@@ -51,12 +52,12 @@ organisations and the combined notice listing, which belong to other portions.
 | Site | Location | Type | Format |
 |---|---|---|---|
 | **CUET** | `engine/corpus/cuet/` | Curated reference corpus | `.md`, `.json`, `.html` triples, `documents.jsonl`, `pages.jsonl` |
-| **BDREN** | `engine/data/sites/bdren/bdren-20260909T150353Z/` | Crawler runtime run | 250 pages, 90 PDFs |
+| **BDREN** | `engine/data/sites/bdren/bdren-20260910T030134Z/` | Crawler runtime run | 250 pages, 200 documents (179 PDF + 7 XLSX + misc) |
 | **BUBT** | `engine/data/sites/bubt/bubt-20260908T220949Z/` | Crawler runtime run | `raw/*.html`, `docs/*.pdf`, `pages.jsonl` |
 | **Green University** | `engine/data/sites/green/green-20260908T220124Z/` | Crawler runtime run | `raw/*.html`, `pages.jsonl` |
 
 The CUET corpus is different in kind from the other three. It was built
-API-first: **634 of its 687 documents came from CUET's public JSON API**, and
+API-first: **682 of its 735 documents came from CUET's public JSON API**, and
 only 53 from a headless browser. API documents arrive as clean prose with no
 navigation, banner or footer, so there is nothing for a boilerplate stripper to
 remove.
@@ -70,31 +71,27 @@ remove.
 Every content folder corresponds to somewhere a visitor can go. To check whether
 a document is right, open the URL.
 
-| Folder | Docs | Where it is on the live site |
-|---|---|---|
-| `academic/profiles/` | 382 | Every faculty member, `/profile/faculty-member/<slug>`. Covers all three employee statuses: 374 current, 2 on leave, 6 retired |
-| `news-events/news/` | 157 | News & Events → News, `/news/<id>` |
-| `academic/departments/` | 55 | `/department/<slug>` for 18 departments, plus each one's `/academic/undergraduate` and `/academic/postgraduate` |
-| `home/organizations/` | 15 | Student Organizations, `/student/organization/<slug>` |
-| `_unsorted/notices/` | 15 | Notice types out of scope for Part 1, all listed at `/notices/all-notice` |
-| `_cms/` | 8 | About menu, prospective-student pages, research pages |
-| `top-bar/notices/` | 6 | The top-bar NOC link, `/notices/noc` |
-| `academic/faculty/` | 6 | Academic → Faculties, `/faculty` and `/faculty/<slug>` |
-| `academic/information/` | 5 | `/academic-information` and its pages |
-| `academic/institutes/` | 5 | Academic → Institutes, `/institutes/<slug>` |
-| `admission/` | 5 | The Admission menu |
-| `academic/centers/` | 4 | Academic → Centers, `/centers/<slug>` |
-| `alumni/news/` | 4 | `alumni.cuet.ac.bd/news/<id>` |
-| `alumni/pages/` | 4 | `alumni.cuet.ac.bd/` and `/about` |
-| `alumni/responsibilities/` | 4 | Alumni responsibilities, on the alumni homepage |
-| `news-events/event-details/` | 3 | News & Events → Events, `/event-details/<id>` |
-| `news-events/listing/` | 3 | `/news-events`, `/events`, `/student/events` |
-| `alumni/directory/` | 2 | `alumni.cuet.ac.bd/alumnis/<id>` |
-| `academic/notices/` | 1 | Notices → Academic Calender |
-| `admission/notices/` | 1 | Notices → Scholarship & Financial Aids |
-| `alumni/notices/` | 1 | `alumni.cuet.ac.bd/notices` |
-| `home/` | 1 | The site homepage, `/` |
-| **Total** | **687** | |
+**The full table lives in `engine/corpus/cuet/README.md`**, regenerated from
+disk by `--stage merge`. It is not repeated here: it was, and the copy went
+stale twice in one day, once claiming 2 documents in a folder holding 5 and once
+missing 374 faculty profiles entirely. One table that cannot lie beats two that
+can disagree.
+
+The shape of it, for orientation:
+
+| Folder | Docs | Where it is on the live site | Portion |
+|---|---|---|---|
+| `academic/profiles/` | 382 | Every faculty member, `/profile/faculty-member/<slug>` | academic |
+| `news-events/news/` | 157 | News & Events -> News, `/news/<id>` | news-events |
+| `academic/departments/` | 55 | `/department/<slug>`, plus each one's `/academic/undergraduate` and `/academic/postgraduate` | academic |
+| `research/publications/` | 29 | Research menu, `/research/<type>` | general |
+| `academic/` (rest) | 21 | Faculties, institutes, centres, academic information | academic |
+| `alumni/` | 15 | The whole `alumni.cuet.ac.bd` host | alumni |
+| `administration/` | 15 | Directorates, offices, sections | general |
+| `home/organizations/` | 15 | Student Organizations | general |
+| `_unsorted/notices/` | 15 | Notice types out of scope for Part 1 | notices |
+| everything else | 31 | CMS pages, admission, NOC, listings, downloads, homepage | mixed |
+| **Total** | **735** | | |
 
 This table is regenerated from disk by `--stage merge` into
 `engine/corpus/cuet/README.md`. It is reproduced here for convenience; that file
@@ -111,11 +108,16 @@ and means `config.SECTIONS` has a gap.
 |---|---|
 | `_shards/` | One JSON file per portion. **The committed source of truth.** |
 | `_meta/` | Provenance: the raw API dump, the URL plan, errors, known gaps |
-| `_files/` | Every downloaded PDF, flat, plus `index.json` |
+| `_files/` | Every downloaded PDF, flat, plus `index.json` and a note |
 
 Files are flat in `_files/` because the same PDF is linked from many pages, so a
-per-section copy would leave no canonical one. `_files/index.json` carries the
-title, date, category, department and `linked_from` list for each.
+per-section copy would leave no canonical one.
+
+What is committed from `_files/` is only `index.json` and `README.md`; the PDFs
+themselves are on Drive. The index is committed even though merge regenerates
+it, because `local`, `bytes` and `content_type` are facts only the downloader
+knows: rebuilding it offline recovers the mapping but loses where all 284 PDFs
+are, and the only way back would be re-downloading them.
 
 ### 3.3 Every document is three files
 
@@ -140,14 +142,94 @@ Useful sidecar fields:
 | `content_state` | `"published"`, or `"placeholder"` where the page exists but CUET has not published its content |
 | `private_fields_dropped` | Present on people records. Names the fields deliberately not stored. |
 
+### 3.4 Provenance: where each document and each PDF came from
+
+Two generated files answer "where is this from?" without reading the crawler.
+
+**`_meta/provenance.jsonl`** has one row per document and one per file. A
+document row names the endpoint that produced it, not just whether it was API or
+browser, plus the portion, its owner, the live URL, and where the raw bytes are:
+
+```json
+{"kind": "document", "doc_id": "...", "title": "Civil Engineering",
+ "live_url": "https://cuet.ac.bd/department/CE",
+ "origin": "API /administrative-departments/{slug}", "source": "api",
+ "section": "academic", "portion": "academic", "owner": "Samonwita Sarker",
+ "fetched_at": "...", "content_path": "academic/departments/CE__....html",
+ "raw_payload": "_meta/api_dump.json"}
+```
+
+`raw_payload` points at `_meta/api_dump.json` for API documents and at the saved
+render for browser ones, so any disagreement is settled against bytes rather than
+by re-crawling.
+
+The 735 documents come from 17 distinct origins:
+
+| Documents | Origin |
+|---|---|
+| 382 | API `/app-admins/{slug}` |
+| 157 | API `/news` |
+| 53 | browser render (crawl4ai + Chromium) |
+| 30 | API `/administrative-departments/{slug}` |
+| 29 | API `/app-admin-research-types` |
+| 22 | API `/notices` + `/notice-types` |
+| 15 | API `/administrative-departments` + `/footer-data` |
+| 15 | API `/student-organizations` |
+| 8 | API `/general-settings` |
+| 4 | API `/downloads` + `/download-types` |
+| 4 each | alumni `/alumni-settings`, `/alumni-home-data` (news), `/alumni-responsibilities` |
+| 3 | API `/events` |
+| 2 each | alumni `/alumnis`, API `/academic-curriculums` |
+| 1 | alumni `/alumni-home-data` (notices) |
+
+**`_files/index.json`** is the same mapping from the PDF side, and it is where to
+look while holding a file. Each of the 1,138 entries carries the download fields
+plus a resolved `sources` list:
+
+```json
+{"url": "https://app.cuet.ac.bd/storage/Downloads/....pdf",
+ "local": "_files/de1bedf5__....pdf", "bytes": 2912170,
+ "title": "Term-wise Course Distribution and Related Information",
+ "document_type": "page", "downloaded": true,
+ "linked_from": ["https://cuet.ac.bd/academic-information", "..."],
+ "sources": [{"doc_id": "...", "title": "Postgraduate curricula",
+              "live_url": "https://cuet.ac.bd/academic-information",
+              "section": "academic", "portion": "academic",
+              "owner": "Samonwita Sarker",
+              "origin": "API /academic-curriculums"}],
+ "unresolved_links": []}
+```
+
+Three things about it are deliberate.
+
+- **A PDF may have several sources, and all are kept.** 40 files are linked from
+  more than one document. Keeping one would invent a relationship the site does
+  not have.
+- **`linked_from` is untouched and `sources` is additive**, so anything already
+  reading the URL list keeps working.
+- **A link that resolves to no document is named in `unresolved_links`** rather
+  than silently producing an empty `sources`, which would read as a bug. All
+  1,138 currently resolve.
+
+Both files are regenerated by `--stage merge`, offline. The index preserves
+`local`, `bytes` and `content_type` across rebuilds, so a metadata change never
+means re-downloading the PDFs.
+
 ### 3.4 Files generated by merge, not committed
 
 ```
-documents.jsonl   CleanDocument rows
-pages.jsonl       the engine extract --run interface
-manifest.json     counts, errors, which portions are present
-README.md         the folder table above, regenerated
+documents.jsonl          CleanDocument rows
+pages.jsonl              the engine extract --run interface
+manifest.json            counts, errors, which portions are present
+README.md                the folder table above, regenerated
+_meta/provenance.jsonl   the document and file mapping
+_meta/found_files.*      every file URL discovered
 ```
+
+Two files under `_files/` are regenerated by merge as well and ARE committed,
+which is the one deliberate exception: `index.json`, for the reason in 3.2, and
+`README.md` beside it, which records when the index was generated so the copy on
+Drive can be checked against it.
 
 If these are missing, nothing is wrong:
 
@@ -207,21 +289,27 @@ them.
 
 ### 4.3 The builders
 
-`builders/` holds one module per portion, so owners never edit the same file.
+`builders/` holds at least one module per portion, so owners never edit the same
+file. A portion may own several: `general` is split across four, one per menu of
+the site, because one module covering About, Administration, Research and
+Facilities would be the thing two people edit at once.
 
-| File | Lines | Produces |
-|---|---|---|
-| `__init__.py` | 164 | The portion registry. The one shared file, deliberately tiny. |
-| `academic.py` | 306 | Departments, faculties, institutes, centres, curricula, and all 382 faculty profiles. |
-| `alumni.py` | 267 | The alumni site's CMS pages, news, notices, responsibilities and directory. |
-| `base.py` | 222 | The `Document` model, link harvesting, shared helpers. Nothing portion-specific. |
-| `notices.py` | 133 | Every notice type, as index documents. |
-| `news.py` | 86 | News items and events. |
-| `general.py` | 66 | CMS page bodies and student organisations. |
+| File | Lines | Portion | Produces |
+|---|---|---|---|
+| `academic.py` | 309 | academic | Departments, faculties, institutes, centres, curricula, and all 382 faculty profiles. |
+| `alumni.py` | 272 | alumni | The alumni site's CMS pages, news, notices, responsibilities and directory. |
+| `base.py` | 222 | — | The `Document` model, link harvesting, shared helpers. Nothing portion-specific. |
+| `about.py` | 198 | general | The Administration menu: 6 directorates, 3 offices, 6 sections. Joins `/footer-data` for the routes to `/administrative-departments` for the bodies. |
+| `research.py` | 193 | general | The Research menu: 1,560 publications across 4 types, from one `/app-admin-research-types` call. |
+| `facilities.py` | 181 | general | The Facilities menu: the Downloads library, 133 files from `/downloads`. That endpoint is not in the original seventeen — it was found in the Network tab, not by grep. |
+| `__init__.py` | 169 | — | The portion registry. The one shared file, deliberately tiny. |
+| `notices.py` | 134 | notices | Every notice type, as index documents. |
+| `news.py` | 88 | news-events | News items and events. |
+| `general.py` | 68 | general | CMS page bodies and student organisations. |
 
 ### 4.4 Tests
 
-`engine/tests/crawler/cuet/`, **201 tests**, no network required.
+`engine/tests/crawler/cuet/`, **213 tests**, no network required.
 
 | File | Tests | Covers |
 |---|---|---|
@@ -231,6 +319,7 @@ them.
 | `test_alumni.py` | 15 | The alumni portion and its privacy rule |
 | `test_portions.py` | 15 | The multi-person split |
 | `test_faculty.py` | 17 | Faculty profiles, their privacy rule, and every employee status |
+| `test_provenance.py` | 11 | The document and PDF mapping |
 | `test_capture.py` | 12 | Failed-render and 404 detection |
 | `test_shards.py` | 12 | Shard building and the resume case |
 | `test_harvest.py` | 10 | Link harvesting and HTML entity decoding |
@@ -325,11 +414,14 @@ engine/data/sites/<site>/<site>-<timestamp>/
 ```
 
 ### Sites Captured
-1. **BDREN (`engine/data/sites/bdren/bdren-20260909T150353Z/`)**:
+1. **BDREN (`engine/data/sites/bdren/bdren-20260910T030134Z/`)**:
    - `pages.jsonl`: 250 captured pages (up from 40 — the previous run's page
      budget was consumed entirely by repeated nav-menu links, so no /news or
      /events detail pages were ever reached; pagination seeds fixed this).
-   - `docs/`: 90 downloaded document PDFs.
+   - `docs/`: 200 downloaded documents (PDF + XLSX) — raised from an earlier
+     90-document cap after confirming ~180 unique notice PDFs existed on
+     the site; timeout also raised from 20s to 30s to avoid transient
+     fetch failures on larger files.
    - `raw/`: 250 raw HTML files.
 2. **BUBT (`engine/data/sites/bubt/bubt-20260908T220949Z/`)**:
    - `pages.jsonl`: 100 captured pages.
@@ -342,7 +434,7 @@ engine/data/sites/<site>/<site>-<timestamp>/
 ```bash
 cd engine
 uv run engine extract --run data/sites/bubt/bubt-20260908T220949Z
-uv run engine extract --run data/sites/bdren/bdren-20260909T150353Z
+uv run engine extract --run data/sites/bdren/bdren-20260910T030134Z
 uv run engine extract --run data/sites/green/green-20260908T220124Z
 ```
 
@@ -357,7 +449,7 @@ light. They live on Drive:
 
 | Drive folder | Local destination | Contents |
 |---|---|---|
-| `01_scraped_documents/*` | `engine/corpus/cuet/_files/` | CUET notice and circular PDFs, plus `index.json` |
+| `01_scraped_documents/*.pdf` | `engine/corpus/cuet/_files/` | CUET notice and circular PDFs. **PDFs only, see below** |
 | `02_api_metadata/*` | `engine/corpus/cuet/_meta/` | `api_dump.json`, every API response verbatim |
 | `03_scraper_specs/*` | repo root | `CUET_SCRAPER_SPEC.md`, `CUET_SCRAPER_SPEC_PART2.md` |
 
@@ -368,6 +460,25 @@ made fixing an HTML-entity bug across 1,127 URLs cost one second rather than 61
 requests.
 
 ---
+
+### Two copies of `_files/index.json`, and which one wins
+
+The repository copy wins. It is at `engine/corpus/cuet/_files/index.json` and
+`--stage merge` rewrites it on every run.
+
+A copy is also kept on Drive beside the PDFs, so that folder is self-contained.
+That copy is a **mirror**, and it goes stale as soon as anybody runs merge.
+
+**Restoring from Drive means copying `*.pdf` only.** Never sync the folder
+wholesale. An older `index.json` landing on top of the repo copy removes the
+`sources` mapping from every entry, and nothing fails to tell you: the corpus
+still loads, the PDFs still open, and every file quietly loses its link back to
+the documents that reference it.
+
+`_files/README.md` is generated next to the index and carries its generation
+date and file counts. It goes to Drive with the index, so somebody standing in
+the Drive folder can see how old that copy is before restoring anything. When
+the index changes, re-upload both together.
 
 ## 9. Summary for developers
 

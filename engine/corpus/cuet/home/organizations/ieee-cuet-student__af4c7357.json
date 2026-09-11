@@ -12,7 +12,7 @@
   "title": "IEEE CUET Student Branch",
   "source": "api",
   "status": 200,
-  "fetched_at": "2026-09-09T18:07:21Z",
+  "fetched_at": "2026-09-09T23:04:29Z",
   "html_path": "home/organizations/ieee-cuet-student__af4c7357.html",
   "markdown_path": "home/organizations/ieee-cuet-student__af4c7357.md",
   "text_chars": 3736,
@@ -21,6 +21,9 @@
   "links_found": 0,
   "double_escaped": false,
   "files": [],
+  "origin": "API /student-organizations",
   "slug": "ieee-cuet-student",
-  "org_type": "academic"
+  "org_type": "academic",
+  "portion": "general",
+  "owner": "Dipika Nath"
 }

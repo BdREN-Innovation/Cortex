@@ -24,15 +24,16 @@
   "double_escaped": false,
   "files": [
     {
-      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/6906e2a8426fb.pdf"
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/690318369403f.pdf"
     },
     {
       "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/6906e2d7d9e9a.pdf"
     },
     {
-      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/690318369403f.pdf"
+      "url": "https://app.cuet.ac.bd/storage/websites/App-Admin-Courses/6906e2a8426fb.pdf"
     }
   ],
+  "origin": "API /app-admins/{slug}",
   "slug": "dr-muhammad-abdur-rahman-bhuiyan",
   "department": "Civil Engineering",
   "employee_status": "running",
@@ -50,5 +51,7 @@
     "district_id",
     "profile.personal_email",
     "profile.address"
-  ]
+  ],
+  "portion": "academic",
+  "owner": "Samonwita Sarker"
 }
