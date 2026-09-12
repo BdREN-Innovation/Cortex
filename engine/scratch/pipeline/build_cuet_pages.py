@@ -11,8 +11,8 @@ INDEX_PATH = FILES_DIR / "index.json"
 
 # Adjust these two if your extracted zip folders live somewhere else.
 ZIP_SOURCES = [
-    Path(r"C:\Users\USER\Downloads\scratch\zip1\01_scraped_documents"),   # older, 9/8
-    Path(r"C:\Users\USER\Downloads\scratch\zip2\02_scrapped_documents"),  # newer, 9/9 — wins on collision
+    Path(r"C:\Users\USER\Desktop\Attachment\01_scraped_documents"),
+    Path(r"C:\Users\USER\Desktop\Attachment\02_scrapped_documents"),
 ]
 
 CONTENT_TYPE_BY_EXT = {
@@ -36,20 +36,50 @@ def merge_files() -> int:
             copied += 1
     return copied
 
+def merge_indexes():
+    merged = []
+
+    for src_dir in ZIP_SOURCES:
+        index_file = src_dir / "index.json"
+
+        if not index_file.exists():
+            print(f"missing index: {index_file}")
+            continue
+
+        with index_file.open(encoding="utf-8") as f:
+            entries = json.load(f)
+
+        print(f"{src_dir.name}: {len(entries)} index entries")
+        merged.extend(entries)
+
+    with INDEX_PATH.open("w", encoding="utf-8") as f:
+        json.dump(merged, f, ensure_ascii=False, indent=2)
+
+    print(f"merged index entries: {len(merged)}")
+
 
 def build_pages():
     entries = json.loads(INDEX_PATH.read_text(encoding="utf-8"))
+
+    seen_local = set()
+
     pages = []
     skipped_not_downloaded = 0
     skipped_missing_file = 0
 
     for entry in entries:
-        if not entry.get("downloaded"):
+        if not entry.get("downloaded", entry.get("download", False)):
             skipped_not_downloaded += 1
             continue
 
         local = entry.get("local", "")
         filename = Path(local).name
+
+        if filename in seen_local:
+            continue
+
+        seen_local.add(filename)
+
         file_path = FILES_DIR / filename
 
         if not file_path.exists():
@@ -90,8 +120,11 @@ def build_pages():
 
 def main():
     FILES_DIR.mkdir(parents=True, exist_ok=True)
+
     copied = merge_files()
     print(f"copied {copied} files from zips into {FILES_DIR}")
+
+    merge_indexes()
 
     pages, skipped_not_downloaded, skipped_missing_file = build_pages()
 

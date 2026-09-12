@@ -36,6 +36,11 @@ class CleanDocument:
     tables: list[dict] = field(default_factory=list)
     source_path: str = ""
     meta: dict = field(default_factory=dict)
+    canonical_url: str = ""  # added: chunking.py reads this; stub-default = url
+
+    def __post_init__(self) -> None:
+        if not self.canonical_url:
+            self.canonical_url = self.url
 
     def validate(self) -> None:
         if not self.doc_id or not self.url or not self.text.strip():
