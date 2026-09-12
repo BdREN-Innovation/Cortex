@@ -48,16 +48,20 @@ organisations and the combined notice listing, which belong to other portions.
 ---
 ## 1b. Who built BDREN
 
-Unlike CUET (multiple portions, multiple owners), BDREN was crawled and
-extracted end-to-end by one person.
+BDREN was crawled and extracted by two people: Mifta (Rishta) set up the
+crawler and the extraction pipeline; Tasmia (Team C) later fixed a pagination
+gap, raised the document/timeout budget, verified coverage, and reorganized
+the crawler's output layout.
 
 | Area | Owner | What they own |
 |---|---|---|
-| Crawl config & pagination fix | **Mifta** | `configs/crawl.bdren.yaml` — seed list, pagination seeding for /news and /notices, page/document budget tuning |
-| HTML → documents.jsonl extraction | **Mifta** | `engine/src/engine/knowledge/bdren/bdren_extraction.py` — self-contained, not the shared `engine extract` pipeline |
+| Crawl config & pagination fix (initial) | **Mifta (Rishta)** | `configs/crawl.bdren.yaml` — seed list, pagination seeding for /news and /notices, initial page/document budget tuning |
+| HTML → documents.jsonl extraction | **Mifta (Rishta)** | `engine/src/engine/knowledge/bdren/bdren_extraction.py` — self-contained, not the shared `engine extract` pipeline |
+| Config re-tuning & coverage verification | **Tasmia (Team C)** | `configs/crawl.bdren.yaml` — raised `max_documents` (90→200) and `timeout_seconds` (20s→30s) after confirming ~180 unique notice PDFs existed on-site; verified pagination coverage (notices page 1–13, news page 1–16) and nav-menu section coverage against the live site; removed superseded run folders |
+| Per-section subfolder organization | **Tasmia (Team C)** | `engine/src/engine/crawler/pipeline.py` — added `_document_subfolder()`, splitting `docs/` and `raw/` into per-section subfolders (e.g. `docs/notice/`, `raw/news/`) derived from each URL's path; applies to all Team A sites crawled going forward, not just BDREN |
 
 If something in the bdren dataset looks wrong, the known gaps are listed under
-Section 7; anything not covered there is worth asking Mifta about directly.
+Section 7; anything not covered there is worth asking Mifta or Tasmia directly.
 
 ## 2. High-level data map
 
