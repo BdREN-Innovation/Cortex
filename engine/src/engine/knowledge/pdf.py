@@ -189,7 +189,111 @@ def lacks_common_words(text: str, min_words: int = 20) -> bool:
     hits = sum(1 for w in words if w in _COMMON_ENGLISH_WORDS)
     return hits == 0
 
+# Bengali Unicode block. Used to exempt windows whose source lines contain
+# real Bengali script from the "no common English words" garbled check —
+# without this, a legitimate Bengali paragraph with a couple of scattered
+# Latin OCR-noise words (e.g. "Or", "RE", "SMT") gets flagged as garbled,
+# since it will never contain English common words either.
+_BENGALI_RE = re.compile(r"[\u0980-\u09FF]")
+_BENGALI_BLEED_MAX_FRACTION = 0.5  # above this: coherent Bengali content, exempt.
+                                     # below this (but >0): scattered bleed — corruption signal.
 
+# Characters that show up in registrar signature-block / stamp noise
+# (e.g. "Approved @@@ 45% ®®®" style OCR artifacts) but essentially never
+# appear at this density in legitimate English or Bengali prose.
+_KNOWN_SUSPECT_RE = re.compile(r"[@%®©™§¶#*~]")
+_SUSPECT_MAX_FRACTION = 0.15  # tune against known cases, same as Bengali bleed
+
+
+def has_garbled_paragraph(
+    text: str,
+    min_words: int = 8,
+    min_garbled_windows: int = 3,
+    local_span: int = 6,
+) -> bool:
+    """Windowed version of lacks_common_words(), so a document's clean
+    English boilerplate can't mask a garbled region elsewhere in the same
+    document.
+
+    [... existing docstring about blank-line split and Bengali exemption
+    stays as-is ...]
+
+    Fourth fix: replaced the global ratio (garbled_windows / total_windows
+    >= min_garbled_ratio) with a local density check — flag the doc if any
+    span of `local_span` consecutive windows contains at least
+    `min_garbled_windows` garbled ones. The global ratio silently failed on
+    long documents with a small, localized corrupt region (confirmed: the
+    known-bad MME syllabus has ~15 corrupt windows out of ~500, diluted
+    below any reasonable global threshold).
+
+    Fifth fix (this change): a window can now be flagged as garbled by
+    EITHER of two independent signals, checked per-window:
+      1. Bengali bleed: some Bengali characters present (not a majority-
+         Bengali window) AND zero common English words in the window.
+      2. Suspect-char density: a high fraction of registrar-stamp/signature
+         noise characters (@, %, ®, etc.) AND zero common English words.
+    This is the suspect-char widening that was meant to catch signature-
+    block noise but was never actually wired into this function — only the
+    Bengali-bleed signal was present before. Both signals feed the same
+    local-density flagging logic; a window matching either one counts as
+    garbled for the sliding-window check.
+    """
+    lines = [l.strip() for l in text.split("\n") if l.strip()]
+    window: list[str] = []
+    window_lines: list[str] = []
+    garbled_flags: list[bool] = []
+
+    for line in lines:
+        window.extend(_WORD_RE.findall(line))
+        window_lines.append(line)
+        if len(window) >= min_words:
+            joined = " ".join(window_lines)
+            non_space = joined.replace(" ", "")
+            hits = None  # compute lazily, shared by both checks below
+
+            def _common_word_hits() -> int:
+                nonlocal hits
+                if hits is None:
+                    hits = sum(1 for w in window if w.lower() in _COMMON_ENGLISH_WORDS)
+                return hits
+
+            is_garbled = False
+
+            # Signal 1: Bengali bleed
+            bengali_chars = _BENGALI_RE.findall(joined)
+            bengali_fraction = len(bengali_chars) / len(non_space) if non_space else 0.0
+            if 0 < bengali_fraction <= _BENGALI_BLEED_MAX_FRACTION:
+                if _common_word_hits() == 0:
+                    is_garbled = True
+
+            # Signal 2: suspect-char density (registrar stamp / signature noise)
+            if not is_garbled:
+                suspect_chars = _KNOWN_SUSPECT_RE.findall(joined)
+                suspect_fraction = len(suspect_chars) / len(non_space) if non_space else 0.0
+                if suspect_fraction >= _SUSPECT_MAX_FRACTION:
+                    if _common_word_hits() == 0:
+                        is_garbled = True
+
+            garbled_flags.append(is_garbled)
+            window = []
+            window_lines = []
+
+    total_windows = len(garbled_flags)
+    if total_windows < min_garbled_windows:
+        return False
+
+    # Sliding-window local density check: does any span of `local_span`
+    # consecutive windows contain at least `min_garbled_windows` bad ones?
+    span = min(local_span, total_windows)
+    current_bad = sum(garbled_flags[:span])
+    if current_bad >= min_garbled_windows:
+        return True
+    for i in range(span, total_windows):
+        current_bad += garbled_flags[i] - garbled_flags[i - span]
+        if current_bad >= min_garbled_windows:
+            return True
+
+    return False
 def extract_ocr(path: str, lang: str = "ben+eng", dpi: int = 300) -> tuple[str, list]:
     """Renders each page to an image via fitz (already a pdf.py dependency)
     and runs Tesseract. No text-layer trust involved, so font encoding

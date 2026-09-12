@@ -21,6 +21,7 @@ from .pdf import (
     is_garbled,
     extract_ocr,
     lacks_common_words,
+    has_garbled_paragraph,  # added
 )
 
 PDF_ENGINES = {
@@ -46,12 +47,28 @@ def parse_pdf(path: str, engine: str = "auto") -> dict:
     ocr_used = False
     # ...rest of the function is unchanged from here
 
+    bad_empty = not text.strip()
+    bad_short = len(text.strip()) < MIN_TRUSTED_CHARS
+    bad_garbled = is_garbled(text)
+    bad_common = lacks_common_words(text)
+
     if (
-        not text.strip()
-        or len(text.strip()) < MIN_TRUSTED_CHARS
-        or is_garbled(text)
-        or lacks_common_words(text)
+        bad_empty
+        or bad_short
+        or bad_garbled
+        or bad_common
     ):
+        print(
+            "OCR TRIGGER:",
+            path,
+            {
+                "empty": bad_empty,
+                "short": bad_short,
+                "garbled": bad_garbled,
+                "common_words": bad_common,
+                "chars": len(text.strip()),
+            },
+        )
         text, tables = extract_ocr(path)
         ocr_used = True
 
