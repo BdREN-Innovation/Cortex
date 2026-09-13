@@ -10,9 +10,26 @@ from collections import deque
 from dataclasses import dataclass, field
 from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
 
+
 # Query parameters that normally do not change page content.
+#
+# We intentionally remove only well-known tracking parameters.
+# Functional parameters such as ?page=2, ?category=laptop, ?id=123, etc.
+# are preserved because they may point to genuinely different content.
 TRACKING_PARAMS = re.compile(
-    r"^(utm_|fbclid|gclid|mc_cid|mc_eid|ref$|source$)",
+    r"^(?:"
+    r"utm_.*|"
+    r"fbclid|"
+    r"gclid|"
+    r"dclid|"
+    r"msclkid|"
+    r"mc_cid|"
+    r"mc_eid|"
+    r"ref|"
+    r"source|"
+    r"_ga|"
+    r"_gl"
+    r")$",
     re.IGNORECASE,
 )
 
@@ -21,12 +38,12 @@ def canonicalize(url: str) -> str:
     """Return one stable URL for URLs that represent the same page.
 
     Examples:
-        https://X.test/a/                 -> https://x.test/a
-        https://x.test/a#section          -> https://x.test/a
-        https://x.test/a?utm_source=news  -> https://x.test/a
-        https://x.test/a?b=2&a=1          -> https://x.test/a?a=1&b=2
-        https://x.test//a//b              -> https://x.test/a/b
-        https://x.test:443/a              -> https://x.test/a
+        https://X.test/a/                  -> https://x.test/a
+        https://x.test/a#section           -> https://x.test/a
+        https://x.test/a?utm_source=news   -> https://x.test/a
+        https://x.test/a?b=2&a=1           -> https://x.test/a?a=1&b=2
+        https://x.test//a//b                -> https://x.test/a/b
+        https://x.test:443/a                -> https://x.test/a
     """
     parts = urlsplit(url.strip())
 
@@ -35,8 +52,10 @@ def canonicalize(url: str) -> str:
 
     scheme = parts.scheme.lower()
 
-    # urlsplit().hostname removes the brackets from IPv6 addresses and
-    # lowercases normal hostnames.
+    # Only HTTP(S) URLs belong in the web frontier.
+    if scheme not in {"http", "https"}:
+        raise ValueError(f"Unsupported URL scheme: {scheme}")
+
     hostname = parts.hostname
     if not hostname:
         raise ValueError(f"Invalid URL hostname: {url}")
@@ -44,7 +63,11 @@ def canonicalize(url: str) -> str:
     hostname = hostname.lower()
 
     # Preserve a non-default port.
-    port = parts.port
+    try:
+        port = parts.port
+    except ValueError as exc:
+        raise ValueError(f"Invalid URL port: {url}") from exc
+
     if port is not None:
         if not (
             (scheme == "http" and port == 80)
@@ -52,14 +75,14 @@ def canonicalize(url: str) -> str:
         ):
             hostname = f"{hostname}:{port}"
 
-    # Collapse repeated slashes in the path.
+    # Collapse repeated slashes.
     path = re.sub(r"/+", "/", parts.path or "/")
 
-    # Keep the root slash, but remove unnecessary trailing slashes elsewhere.
+    # Root keeps its slash, other paths lose an unnecessary trailing slash.
     if path != "/":
         path = path.rstrip("/")
 
-    # Remove tracking parameters and sort the remaining parameters.
+    # Remove known tracking parameters while preserving functional query params.
     query_params = [
         (key, value)
         for key, value in parse_qsl(
@@ -69,11 +92,12 @@ def canonicalize(url: str) -> str:
         if not TRACKING_PARAMS.match(key)
     ]
 
+    # Query order should not make an otherwise identical URL unique.
     query_params.sort()
 
     query = urlencode(query_params, doseq=True)
 
-    # Fragment is deliberately removed.
+    # URL fragments are client-side anchors and are not separate pages.
     return urlunsplit(
         (
             scheme,
@@ -94,7 +118,7 @@ class ScopeRules:
     exclude_patterns: list[str] = field(default_factory=list)
     max_depth: int = 3
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         """Compile include/exclude regex patterns once."""
         self._include_patterns = [
             re.compile(pattern, re.IGNORECASE)
@@ -106,7 +130,6 @@ class ScopeRules:
             for pattern in self.exclude_patterns
         ]
 
-        # Normalize allowed domains.
         self.allowed_domains = [
             domain.lower().strip().rstrip(".")
             for domain in self.allowed_domains
@@ -124,7 +147,6 @@ class ScopeRules:
         except ValueError:
             return False
 
-        # Domain restriction.
         if self.allowed_domains:
             domain_allowed = any(
                 hostname == domain
@@ -154,14 +176,13 @@ class ScopeRules:
 
 
 class Frontier:
-    """Breadth-first queue that never hands out the same page twice."""
+    """Breadth-first queue that never hands out the same canonical URL twice."""
 
     def __init__(self, seeds: list[str], rules: ScopeRules):
         self.rules = rules
         self._queue: deque[tuple[str, int]] = deque()
         self._seen: set[str] = set()
 
-        # Add seeds at depth 0.
         for seed in seeds:
             self.add(seed, 0)
 
@@ -180,7 +201,6 @@ class Frontier:
 
         self._seen.add(canonical_url)
         self._queue.append((canonical_url, depth))
-
         return True
 
     def add_links(
