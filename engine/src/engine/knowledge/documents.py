@@ -75,6 +75,8 @@ def _is_pdf(page: CrawledPage) -> bool:
 def _is_docx(page: CrawledPage) -> bool:
     return page.content_type == "docx" or str(page.content_path).lower().endswith(".docx")
 
+def _is_doc(page: CrawledPage) -> bool:
+    return str(page.content_path).lower().endswith(".doc")
 
 def _tables_to_assets(
     run_dir: Path, page: CrawledPage, raw_tables: list, config: ExtractConfig
@@ -183,12 +185,12 @@ def _process_pdf(run_dir: Path, page: CrawledPage, config: ExtractConfig) -> Cle
     )
 
 
-def _process_docx(run_dir: Path, page: CrawledPage, config: ExtractConfig) -> CleanDocument | None:
-    docx_path = run_dir / page.content_path
-    parsed = parse_document(str(docx_path))
+def _process_doc(run_dir: Path, page: CrawledPage, config: ExtractConfig) -> CleanDocument | None:
+    doc_path = run_dir / page.content_path
+    parsed = parse_document(str(doc_path))
 
     if parsed["empty"] or len(parsed["text"].strip()) < config.min_text_chars:
-        log.info("drop thin/empty docx: %s", page.url)
+        log.info("drop thin/empty doc: %s", page.url)
         return None
 
     text = parsed["text"]
@@ -242,8 +244,8 @@ def extract_documents(
         try:
             if _is_pdf(page):
                 doc = _process_pdf(run_dir, page, config)
-            elif _is_docx(page):
-                doc = _process_docx(run_dir, page, config)
+            elif _is_docx(page) or _is_doc(page):
+                doc = _process_doc(run_dir, page, config)
             else:
                 doc = _process_html(run_dir, page, config)
         except Exception:
@@ -263,7 +265,7 @@ def extract_documents(
 
         if _is_pdf(page):
             n_pdf += 1
-        elif _is_docx(page):
+        elif _is_docx(page) or _is_doc(page):
             n_docx += 1
 
         if doc.content_hash in seen_content_hashes:

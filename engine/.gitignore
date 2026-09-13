@@ -18,3 +18,12 @@ __pycache__/
 corpus/*/_files/
 corpus/*/*.jsonl
 extract_log.txt
+
+# Generated scratch corpus
+scratch/corpus/
+
+# Generated embedding files
+scratch/tests/embeddings/
+
+# Generated evaluation samples
+scratch/tests/eval/sample_chunks.jsonl

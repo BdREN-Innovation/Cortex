@@ -156,14 +156,14 @@ class OpenAIEmbedder:
         for start in range(0, len(texts), self.batch_size):
             batch = texts[start:start + self.batch_size]
             rows.extend(_embed_with_retry(self._call, batch, self.max_retries, "openai"))
-            vectors = normalise(np.array(rows, dtype=np.float32))
-
-            if vectors.shape[1] != self.dimensions:
-                raise ValueError(
-                    f"Expected {self.dimensions} dimensions, got {vectors.shape[1]}"
-                )
-
-            return vectors
+        vectors = normalise(np.array(rows, dtype=np.float32))
+        
+        if vectors.shape[1] != self.dimensions:
+            raise ValueError(
+                f"Expected {self.dimensions} dimensions, got {vectors.shape[1]}"
+            )
+        
+        return vectors
 
     def _call(self, batch: list[str]) -> list[list[float]]:
         resp = self._client.embeddings.create(model=self.name, input=batch)

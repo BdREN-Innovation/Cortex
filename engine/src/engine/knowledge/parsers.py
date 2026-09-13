@@ -12,6 +12,9 @@ that's all resolved here.
 """
 
 import zipfile
+import subprocess
+import tempfile
+from pathlib import Path
 
 from .pdf import (
     extract_pymupdf,
@@ -39,6 +42,27 @@ PDF_ENGINES = {
 # real text, non-garbled, but not real content. This floor catches it.
 MIN_TRUSTED_CHARS = 30  # comfortably below the shortest real doc in the CUET corpus (334 chars)
 
+def parse_doc(path: str) -> dict:
+    with tempfile.TemporaryDirectory() as tmp:
+
+        subprocess.run(
+            [
+                r"C:\Program Files\LibreOffice\program\soffice.exe",
+                "--headless",
+                "--convert-to",
+                "docx",
+                "--outdir",
+                tmp,
+                path,
+            ],
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+
+        docx_path = Path(tmp) / (Path(path).stem + ".docx")
+
+        return parse_docx(str(docx_path))
 
 def parse_pdf(path: str, engine: str = "auto") -> dict:
     if engine == "auto":
@@ -133,12 +157,14 @@ def parse_document(path: str) -> dict:
     """Single entry point — dispatches by extension, falling back to
     content-sniffing when the extension is missing or untrustworthy."""
     ext = path.rsplit(".", 1)[-1].lower() if "." in path else None
-    file_type = ext if ext in ("pdf", "docx") else sniff_type(path)
+    file_type = ext if ext in ("pdf", "docx", "doc") else sniff_type(path)
 
     if file_type == "pdf":
         return parse_pdf(path)
     if file_type == "docx":
         return parse_docx(path)
+    if file_type == "doc":
+        return parse_doc(path)
     raise ValueError(f"Unsupported or unrecognized file type: {path}")
 
 

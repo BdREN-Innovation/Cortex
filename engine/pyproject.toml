@@ -19,6 +19,7 @@ dependencies = [
     "pytesseract>=0.3.13",
     "python-docx>=1.2.0",
     "python-dotenv>=1.2.3",
+    "voyageai>=0.5.0",
 ]
 
 [project.optional-dependencies]
