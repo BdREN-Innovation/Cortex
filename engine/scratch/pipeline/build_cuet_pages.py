@@ -11,8 +11,8 @@ INDEX_PATH = FILES_DIR / "index.json"
 
 # Adjust these two if your extracted zip folders live somewhere else.
 ZIP_SOURCES = [
-    Path(r"C:\Users\USER\Desktop\Attachment\01_scraped_documents"),
     Path(r"C:\Users\USER\Desktop\Attachment\02_scrapped_documents"),
+    Path(r"C:\Users\USER\Desktop\Attachment\01_scraped_documents"),
 ]
 
 CONTENT_TYPE_BY_EXT = {
@@ -37,7 +37,7 @@ def merge_files() -> int:
     return copied
 
 def merge_indexes():
-    merged = []
+    best = {}
 
     for src_dir in ZIP_SOURCES:
         index_file = src_dir / "index.json"
@@ -50,12 +50,38 @@ def merge_indexes():
             entries = json.load(f)
 
         print(f"{src_dir.name}: {len(entries)} index entries")
-        merged.extend(entries)
+
+        for entry in entries:
+            local = entry.get("local", "")
+            if not local:
+                continue
+
+            filename = Path(local).name
+
+            current = best.get(filename)
+
+            if current is None:
+                best[filename] = entry
+                continue
+
+            # Prefer richer metadata
+            def score(item):
+                value = 0
+                value += 10 if item.get("sources") else 0
+                value += 5 if item.get("downloaded") else 0
+                value += 5 if item.get("download") else 0
+                value += len(item.keys())
+                return value
+
+            if score(entry) > score(current):
+                best[filename] = entry
+
+    merged = list(best.values())
 
     with INDEX_PATH.open("w", encoding="utf-8") as f:
         json.dump(merged, f, ensure_ascii=False, indent=2)
 
-    print(f"merged index entries: {len(merged)}")
+    print(f"merged unique index entries: {len(merged)}")
 
 
 def build_pages():
@@ -91,6 +117,21 @@ def build_pages():
         fetched_at = datetime.fromtimestamp(file_path.stat().st_mtime, tz=timezone.utc).isoformat()
 
         sources = entry.get("sources", [])
+
+        if not sources:
+            linked = entry.get("linked_from", [])
+
+            sources = [
+                {
+                    "live_url": url,
+                    "title": entry.get("title", ""),
+                    "category": entry.get("category", ""),
+                    "author": entry.get("author", ""),
+                    "published_date": entry.get("published_date", ""),
+                    "origin": "CUET crawl",
+                }
+                for url in linked
+            ]
         parent_url = sources[0]["live_url"] if sources else (entry.get("linked_from") or [""])[0]
 
         page = {

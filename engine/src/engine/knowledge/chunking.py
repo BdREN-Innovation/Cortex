@@ -174,7 +174,7 @@ def _pack_paragraphs(text: str, paragraphs: list[tuple[int, int]], config: Chunk
         else:
             atomic.append((p_start, p_end))
 
-        chunks: list[tuple[int, int]] = []
+    chunks: list[tuple[int, int]] = []
     i = 0
     n = len(atomic)
     prev_max_atom_idx = -1  # last atom index included in the previously emitted chunk
@@ -278,6 +278,7 @@ def chunk_document(doc: CleanDocument, config: ChunkConfig | None = None) -> lis
             title=doc.title,
             section_path=doc.section_path,
             token_estimate=estimate_tokens(chunk_text),
+            meta=doc.meta,
         ))
     return chunks
 

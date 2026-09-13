@@ -173,8 +173,13 @@ def _process_pdf(run_dir: Path, page: CrawledPage, config: ExtractConfig) -> Cle
         fetched_at=page.fetched_at,
         section_path=_section_path_for(page),
         doc_type="pdf",
-        assets=_tables_to_assets(run_dir, page, parsed.get("tables", []), config),
-        meta={"ocr_used": parsed.get("ocr_used", False)},
+        assets=_tables_to_assets(run_dir, page, parsed.get("tables", []), config), 
+        meta={
+            **page.meta,
+            "source_url": page.url,
+            "content_type": page.content_type,
+            "ocr_used": parsed.get("ocr_used", False),
+        },
     )
 
 
@@ -203,8 +208,12 @@ def _process_docx(run_dir: Path, page: CrawledPage, config: ExtractConfig) -> Cl
         # "docx" entry, since collapsing it into "page" loses the distinction
         # documents.py currently tracks (n_pdf/n_docx counts below).
         doc_type="page",
-        assets=_tables_to_assets(run_dir, page, parsed.get("tables", []), config),
-        meta={},
+        assets=_tables_to_assets(run_dir, page, parsed.get("tables", []), config), 
+        meta={
+            **page.meta,
+            "source_url": page.url,
+            "content_type": page.content_type,
+        },
     )
 
 
