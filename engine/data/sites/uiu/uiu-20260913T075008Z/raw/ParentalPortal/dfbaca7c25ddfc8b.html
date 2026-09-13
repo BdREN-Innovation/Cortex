@@ -1,0 +1,202 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head id="Head1"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>
+	Parental Portal Login
+</title>
+        <link rel="shortcut icon" href="/Images/favicon.ico">
+    <link href="../ParentalPortal/clientsideresources/lib/Font-Awesome/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet"><link href="../ParentalPortal/clientsideresources/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"><link href="../ParentalPortal/clientsideresources/lib/MDB/css/mdb.min.css" rel="stylesheet">
+    
+    
+    <script src="../ParentalPortal/clientsideresources/lib/MDB/js/jquery-3.3.1.min.js"></script>
+    
+    <script src="../ParentalPortal/clientsideresources/lib/MDB/js/popper.min.js"></script>
+    <script src="../ParentalPortal/clientsideresources/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            new WOW().init();
+        });
+    </script>
+    <style type="text/css">
+        .intro-2 {
+            background: url("clientsideresources/images/uiu.jpg") no-repeat center center;
+            background-size: cover;
+            opacity: 0.95;
+        }
+
+        /*.top-nav-collapse {
+            background-color: #3f51b5 !important;
+        }*/
+
+        /*.navbar:not(.top-nav-collapse) {
+            background: transparent !important;
+        }*/
+
+        @media (max-width: 768px) {
+            #CC .navbar:not(.top-nav-collapse) {
+                background: #3f51b5 !important;
+            }
+        }
+
+        .hm-gradient .full-bg-img {
+            background: -webkit-linear-gradient(45deg, rgba(83, 125, 210, 0.20), rgba(178, 30, 123, 0.2) 100%);
+            background: -webkit-gradient(linear, 45deg, from(rgba(29, 236, 197, 0.2)), to(rgba(96, 0, 136, 0.2)));
+            background: linear-gradient(to 45deg, rgba(29, 236, 197, 0.2), rgba(96, 0, 136, 0.2) 100%);
+        }
+        .full-bg-img {
+            height:100vh !important;
+        }
+        #CC .card {
+            background-color: rgba(229, 228, 255, 0.6);
+            /*background-color: rgba(246, 139, 31, 0.30);*/
+        }
+        .bg-card-2 {
+            background-color: rgba(255, 142, 13, 0.60) !important;
+            /*background-color: rgba(246, 139, 31, 0.30);*/
+        }
+        #CC .md-form .prefix {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        #CC .md-form label {
+            color: #ffffff;
+        }
+
+        #CC h6 {
+            line-height: 1.7;
+        }
+
+        @media (max-width: 740px) {
+            #CC .full-height,
+            #CC .full-height body,
+            #CC .full-height header,
+            #CC .full-height header .view {
+                height: 1040px;
+            }
+        }
+
+
+        .pointer:hover,
+        .pointer:focus{
+            cursor:pointer;
+        }
+
+        /*#StudentListPills .nav-item {
+            background-color: white;
+        }
+        #StudentListPills .nav-item .active {
+            background-color:rgb(0, 123, 255);
+        }*/
+    </style>
+<style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style></head>
+<body>
+    <form name="form1" method="post" action="./GuardianLogIn.aspx" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="VfGUhum84SceJmyQcnZh68Jbh58BQYzYM9fwBVp1ZJdgYoqNGiyJnIFnm+J0c5+f9XRfkJ/cqq+IeS6tEU1uJ9S0GzTSMAkGcUgOKLvEnwdC+XxK5wjsYVAiMEhafM5q6nX+skUD/evHogSDUXrVSA==">
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="144AAF2A">
+<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="">        
+        
+        <header>
+            <section id="CC" class="view intro-2 hm-gradient">
+                <div class="full-bg-img">
+                    <div class="container flex-center">
+                        <div class="d-flex align-items-center content-height">
+                            <div class="row flex-center pt-2 mt-1">
+                                <div class="col-md-4">
+                                
+                                    <div class="card wow fadeInLeft animated" data-wow-delay="0.3s" style="visibility: visible; animation-name: fadeInLeft; animation-delay: 0.3s;">
+                                        <div class="card-body">
+                                        
+                                            <div class="text-center">
+                                                <img class="img-fluid justify-content-center m-auto" src="clientsideresources/images/uiu-logo.png" width="102" height="91">
+                                                                                     
+                                            </div>
+                                            <div class="">
+                                                <span id="LblMessage"></span>
+                                            </div>
+
+                                            <div class="md-form mb-1">
+                                                <i class="fa fa-envelope prefix text-warning active mt-0"></i>
+                                                <input name="StudentRoll" type="text" id="StudentRoll" class="form-control border-0" placeholder="Roll">
+                                                
+                                                <span class="small text-danger pl-5"></span>
+                                            </div>
+
+                                            <div class="md-form mb-1">
+                                                <i class="fa fa-lock prefix text-warning active mt-0"></i>
+                                                <input name="Password" type="password" id="Password" class="form-control border-0" placeholder="Password">
+                                            
+                                                
+                                                
+                                                <span class="small text-danger pl-5"></span>
+                                            </div>
+
+                                            <div class="text-center small d-flex justify-content-between">
+                                                <div class="custom-control custom-checkbox hoverable">
+                                                    <input type="checkbox" class="custom-control-input pointer" id="defaultUnchecked">
+                                                    <label for="defaultUnchecked" class="custom-control-label pointer">
+                                                        Remember me?
+                                                    </label>
+                                                </div>
+                                                <a class="hoverable">Forgot password/PIN?</a>
+                                            </div>
+
+                                            <div class="text-center">
+                                                <i class="btn btn-sm btn-warning waves-input-wrapper waves-effect waves-light" style="color:rgb(255, 255, 255);background:rgba(0, 0, 0, 0)"><input type="submit" name="LogIn" value="Log in" id="LogIn" class="waves-button-input" style="background-color:rgba(0,0,0,0);"></i>
+                                                <hr class="hr-light mb-3 mt-4">
+
+                                                <div class="inline-ul text-center d-flex justify-content-center">
+                                                    <a type="button" class="blue-text mx-2">
+                                                        <i class="fab fa-facebook"></i>
+                                                    </a>
+                                                    <a type="button" class="blue-text mx-2">
+                                                        <i class="fab fa-twitter"></i>
+                                                    </a>
+                                                    <a type="button" class="blue-text mx-2">
+                                                        <i class="fab fa-linkedin"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                        
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <div class="col-md-8 col-xl-7 offset-xl-1 text-center text-md-left mb-5">
+                                    <div class="white-text">
+                                        <h1 class="h1-responsive font-weight-bold wow fadeInRight animated" data-wow-delay="0.3s" style="visibility: visible; animation-name: fadeInRight; animation-delay: 0.3s;">Parental Portal </h1>
+                                        <h2 class="h2-responsive font-weight-bold wow fadeInRight animated" data-wow-delay="0.3s" style="visibility: visible; animation-name: fadeInRight; animation-delay: 0.3s;">United International University (UIU) </h2>
+                                        <hr class="hr-light wow fadeInRight animated" data-wow-delay="0.3s" style="visibility: visible; animation-name: fadeInRight; animation-delay: 0.3s;">
+                                        <h6 class="wow fadeInRight animated" data-wow-delay="0.3s" style="visibility: visible; animation-name: fadeInRight; animation-delay: 0.3s;">
+                                            UIU Academic Support provides a personal and practical approach to academic study and opportunities for both undergraduate and postgraduate students to develop their learning strategies. It also provides specialist academic support for students.
+                                        </h6>
+                                        <br>
+                                        <a href="http://www.uiu.ac.bd/" class="btn btn-outline-white wow fadeInRight waves-effect waves-light animated" data-wow-delay="0.3s" style="visibility: visible; animation-name: fadeInRight; animation-delay: 0.3s;">Learn more</a>
+                                        
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+        <footer>
+            <!--Copyright-->
+            <div class="footer-copyright pt-3 text-center">
+                ©  Copyright:
+                <a href="#"> UIU </a>
+            </div>
+            <div class="footer-copyright text-center">
+                by <a href="www.edusoftconsultants.com">Edusoft Consultants Ltd.</a>
+            </div>
+            <!--/.Copyright-->
+        </footer>
+        
+    </form>
+    <script src="../ParentalPortal/clientsideresources/lib/MDB/js/mdb.min.js"></script><div class="hiddendiv common"></div>
+    <script src="../ParentalPortal/clientsideresources/lib/highstock/highstock-all.js"></script>
+
+
+</body></html>

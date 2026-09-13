@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1"><title>
+	UIU EMS LogIn
+</title><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="/Images/favicon.ico">
+    
+    <style type="text/css">
+        input.button {
+            color: #ffffff;
+            font-weight: normal;
+            font-size: 10pt;
+            font-weight: 500;
+            font-family: Tahoma;
+            vertical-align: middle;
+            border: solid 1px #bc7039;
+            background: #c2743c;
+            padding: 1px 1px 1px 1px;
+            cursor: pointer;
+            width: 75px;
+            height: 26px;
+            letter-spacing: 1px;
+        }
+
+            input.button:hover {
+                background: #719a9f top;
+                border: solid 1px #71ACB4;
+                color: #454240;
+            }
+
+        .footer {
+            border-top: 1px solid #ff6a00;
+            padding-top: 10px;
+            width: 75%;
+            margin: 0 auto;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            color: #5d5d5d;
+        }
+    </style>
+
+    
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="../Content/assets/fonts/fontawesome/css/fontawesome-all.min.css">
+    <!-- animation css -->
+    <link rel="stylesheet" href="../Content/assets/plugins/animation/css/animate.min.css">
+    <!-- vendor css -->
+    <link rel="stylesheet" href="../Content/assets/css/style.css">
+    
+    
+
+
+
+    <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-6FTCD3PM2F&amp;cx=c&amp;_slc=1"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript">
+
+
+        function InProgress() {
+            var panelProg = $get('divProgress');
+            var panelProg1 = $get('logMain_Button1');
+            panelProg.style.display = '';
+            panelProg1.disabled = true;
+        }
+
+        function onComplete() {
+            var panelProg = $get('divProgress');
+            var panelProg1 = $get('logMain_Button1');
+            panelProg.style.display = 'none';
+            panelProg1.disabled = false;
+        }
+    </script>
+    <script type="text/javascript">
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-62803724-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</head>
+
+<body>
+    <form name="frmLogIn" method="post" action="./LogIn.aspx" id="frmLogIn">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="IFeqYOSgFRjchoKmJtemTwpRHxZULO4DseSarb6uG4/RcCrs4ruyn1vNT9gDHl/aePbJDLeW2hzp5KSJcqoKfvTpJq5KyDRQv//IfR2bMEVHrG/fwjVObPMLklkLo+tKCQXCm6YQcyEJhq90PMcBQMR61tvv5VKfb1h+3XqtPywjmzp54dkbwVaZez7OHqSq">
+
+
+<script src="/ScriptResource.axd?d=qUuTGsKPn3v4zLwV70cInoI5vwK-GpWTZxoifuOg-zIe9FyWT4unvBVTYymLMmoKpQTMhMzlyohFMGeiG2Wr1l3KD_lD_Sn3AHoM6XWWT2iDAuy9SVCc4wdhScbL_0nnz_D2OM0fjq2SPEYp9H1U5Q2&amp;t=610a7411" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=4r2fx0YqHiLLHep0pNiwHuXQmZ0uJkaSA2j9kODF0ytDQDjokKG0MJPrL1TFuj6bVaPsAcSDqCBlCXIn2VU5Pbx43r0_2OWCc1IWxjTnoskt0UBwiFT1gOPD_csy0WFJ5PJ7aKFEIypy1XhfNYjUMg2&amp;t=610a7411" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=a0zOxAZGE_iohDYlmeTpcY6VDuKAmHU1yVmojwrWQ7GZ3-B3dHIn1HXrmy0Lz9MfIRoU3YWMmn4BJh9Ppdb0FNsHzMIxlXiGc6JqJqJkyAj8WImcWwFkCgrYi7O7hwoxgUMC8KiCjbGHpbLQoJS8IQ2&amp;t=610a7411" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=YN-XEjTDO-Z9GaiI1mrsYfueHJogOAyzulFrYuKIDKaQ600TjhHFvIDIOmbJ3yqX_JbD_chBmIhDtZJM93sovmGLg4O4x3iIvlVFKE4xDMKLV5yTSKeif03oVLV4Qe_4IY-vaE62M8bXEifp6ih8_Q2&amp;t=610a7411" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=SatnRF6iYWb1B209gzsM3hRiqT794kGLhOVqWuAzgf1Yqr8Be4wJNKt3FTOX5LmFuMbcceFX0v1sujbBvSmTl_7vKBBF0s28SXcXZmFYiFIM1-1oHqQ84YhM8Qa7oOJEnsBfNwMVEEmD7BmvaUMH9A2&amp;t=610a7411" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=aAjYeb5tJ95rGWgGEhWR-tIAGv_caKjOpkxXpuRTkUk9hteURZspixGwFgBatY-fK-IZC4kSyynREWuni1H_vNj6RKpgKL-9V5d3Hkkoc3CBgariJC7FGBFHzj_IRiJK4Ssio_OH_MvTg1jWiE6kZhj-zNta4w2ZSJ2MiQIHfKY1&amp;t=610a7411" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=c58N57RNoVXz14pBPzbr2G9NjZ1JiEygWoJwpEDhuGnqxVyd5YMqJaZFAYS7JLdjZDbis3FOOGXkEtILG9ZjY_mabmyVAgrj4L3lB2APPeCdCi8x3Et1mMEuWPrI-FZ1tzDo8LyQSSxyl17SUV6kIuAZxMM_CUNecfeMydlTnMmOimVU6Wg2rgUs8njOxt_O0&amp;t=610a7411" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="A0A15FC2">
+<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="">
+<input type="hidden" name="__PREVIOUSPAGE" id="__PREVIOUSPAGE" value="AwFmxkCCLMkcmuiTnsfvxvdDXvAwHHo6EH44m_GZR82Y2EAW5FMKi0ITf_LRhf_EfLSiwjIjFycdzfPfjLHQ5CogMfubnpShT1czuhOcqwM1">
+
+
+        <div id="upMain">
+	
+                
+
+
+                    <table id="logMain" cellspacing="0" cellpadding="0" border="0" height="114" width="100%">
+		<tbody><tr>
+			<td><font face="Verdana" color="#333333">
+
+
+
+                            <div class="auth-wrapper">
+                                <div class="auth-content">
+                                    <div class="auth-bg">
+                                        <span class="r"></span>
+                                        <span class="r s"></span>
+                                        <span class="r s"></span>
+                                        <span class="r"></span>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <div class="mb-1">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        
+                                                        <img style="display:block;width:90px;margin: 0 auto;" src="../Images/uiu_logo_update.png">
+                                                    </div>
+                                                    
+                                                </div>
+                                                
+                                            </div>
+                                            <h3 class="mb-4">Login</h3>
+                                            <div class="input-group">
+                                                
+                                                <input name="logMain$UserName" type="text" id="logMain_UserName" class="form-control" placeholder="Enter your Login Id/username">
+                                                
+                                                
+                                            </div>
+                                            <div>
+                                                &nbsp;
+                                            </div>
+                                            <div class="input-group mb-4">
+                                                
+                                                <input name="logMain$Password" type="password" id="logMain_Password" class="form-control" placeholder="Enter your password">
+                             
+                                            </div>
+                                            <!-- <div class="form-group text-left">
+                                                <div class="checkbox checkbox-fill d-inline">
+                                                    <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked="">
+                                                    <label for="checkbox-fill-a1" class="cr"> Save Details</label>
+                                                </div>
+                                            </div> -->
+                                            
+                                                 <input type="submit" name="logMain$Button1" value="LOG IN" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;logMain$Button1&quot;, &quot;&quot;, true, &quot;logMain&quot;, &quot;&quot;, false, false))" id="logMain_Button1" class="btn btn-primary shadow-2 mb-4" style="width: 100%;">
+                                            
+                                            <div id="divProgress" style="display: none; z-index: 1000;">
+                                                <img id="logMain_LoadingImage" src="../Images/Img/working.gif" height="30" width="30" border="0">
+                                            </div>
+                                            <p class="mb-2 text-muted">Forgot password? <a id="logMain_A1" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;logMain$A1&quot;, &quot;&quot;, false, &quot;&quot;, &quot;../PasswordRecovery.aspx&quot;, false, true))">Reset</a></p>
+                         
+                                                
+                                            <!-- <p class="mb-0 text-muted">Don’t have an account? <a href="auth-signup.html">Signup</a></p> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            </font></td>
+		</tr>
+	</tbody></table>
+                    
+
+                 
+</div>
+
+        
+
+
+        <div><div id="UpdatePanel2">
+	
+            
+</div></div>
+
+        <div class="footer" style="Text-align: center">
+            <div>
+                Powered by <b>Edusoft Consultants Ltd</b><br>
+                Copyright © 2013 - <span id="lblCurrentYear">2026</span> Edusoft Consultants Ltd. All rights reserved.
+
+                <br>
+                <span id="lblBrowserFingerprint"></span>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../Content/assets/js/vendor-all.min.js"></script>
+	    <script type="text/javascript" src="../Content/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.Animation.UpdatePanelAnimationBehavior, {"OnUpdated":"{\"AnimationName\":\"Parallel\",\"duration\":\"0\",\"AnimationChildren\":[{\"AnimationName\":\"ScriptAction\",\"Script\":\"onComplete();\",\"AnimationChildren\":[]},{\"AnimationName\":\"EnableAction\",\"TargetScript\":\"$get(\\u0027Button1\\u0027)\",\"Enabled\":\"true\",\"AnimationChildren\":[]}]}","OnUpdating":"{\"AnimationName\":\"Parallel\",\"duration\":\"0\",\"AnimationChildren\":[{\"AnimationName\":\"ScriptAction\",\"Script\":\"InProgress();\",\"AnimationChildren\":[]},{\"AnimationName\":\"EnableAction\",\"TargetScript\":\"$get(\\u0027Button1\\u0027)\",\"Enabled\":\"false\",\"AnimationChildren\":[]}]}","id":"UpdatePanelAnimationExtender1"}, null, null, $get("UpdatePanel2"));
+});
+//]]>
+</script>
+</form>
+
+
+</body></html>

@@ -1,0 +1,957 @@
+<!DOCTYPE html><html lang="zxx"><head>
+
+    <title>UIU Library</title>
+
+    <!-- Favicon -->
+    <link href="https://library.uiu.ac.bd/assets/images/favicon.ico" rel="icon" type="image/x-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i%7CLato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://library.uiu.ac.bd/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Mobile Menu -->
+    <link href="https://library.uiu.ac.bd/assets/css/mmenu.css" rel="stylesheet" type="text/css">
+    <link href="https://library.uiu.ac.bd/assets/css/mmenu.positioning.css" rel="stylesheet" type="text/css">
+
+    <!-- Stylesheet -->
+    <link href="https://library.uiu.ac.bd/assets/style.css" rel="stylesheet" type="text/css">
+
+<style>
+    .cart-main {
+        padding: 50px 0;
+    }
+    .page-banner {
+        min-height: unset;
+    }
+</style><style type="text/css">@media screen and (max-width:991px) {.harvey-test{}}@media screen and (min-width:992px) {.harvey-test{}}</style></head>
+
+
+
+<body class="layout-v2"><div id="wrap">
+
+    <!-- Start: Header Section -->
+    <style>
+.new-badge {
+    display: inline-block;
+    background: #ffeb00;
+    color: #000;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 1px 4px;
+    border-radius: 2px;
+    margin-right: 6px;
+    transform: rotate(-20deg);
+    animation: flash 0.8s infinite;
+    box-shadow: 0 0 5px rgba(255,0,0,.7);
+}
+
+@keyframes flash {
+    0%, 100% {
+        opacity: 1;
+        transform: rotate(-20deg) scale(1);
+    }
+    50% {
+        opacity: 0.2;
+        transform: rotate(-20deg) scale(1.2);
+    }
+}
+</style>
+
+<!-- Start: Header Section -->
+<header id="header" class="navbar-wrapper">
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-default">
+                <div class="col-sm-12">
+
+                    <!-- Header Topbar -->
+                    <div class="header-topbar hidden-sm hidden-xs">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="topbar-info">
+                                    <a href="tel:09604848848"><i class="fa fa-phone"></i>09604-848-848</a>
+                                    <span>/</span>
+                                    <a href="mailto:library@uiu.ac.bd"><i class="fa fa-envelope"></i>library@uiu.ac.bd</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="topbar-links">
+                                    <a href="https://koha.uiu.ac.bd"><i class="fa fa-lock"></i>Login / Register</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-light">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="navbar-header">
+                                    <div class="navbar-brand">
+                                        <h1>
+                                            <a href="https://library.uiu.ac.bd/">
+                                                <img src="https://library.uiu.ac.bd/assets/images/Shaheed-Irfan-Library-Logo-PNG.png" alt="UIU Library" style="height:50px;" width="4000" height="1063">
+                                            </a>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="navbar-collapse hidden-sm hidden-xs">
+                                    <ul class="nav navbar-nav">
+                                        <li class="dropdown active">
+                                            <a href="https://library.uiu.ac.bd/">Home</a>
+                                            
+                                        </li>
+                                        <li class="dropdown">
+                                            <a data-toggle="dropdown" class="dropdown-toggle disabled">About</a>
+                                            
+                                            <ul class="dropdown-menu">
+                                                <li><a href="https://library.uiu.ac.bd/about">About Shaheed Irfan Library</a></li>
+                                                <li><a href="https://www.uiu.ac.bd/people/library/" target="_blank">Library Personnel</a></li>
+                                            </ul>
+                                            
+                                           
+                                        </li>
+                                        <li><a href="https://library.uiu.ac.bd/resource">Resource</a></li>
+                                        <li class="dropdown">
+                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="https://library.uiu.ac.bd/shadhinota-corner">Shadhinota Corner</a>
+                                            
+                                        </li>
+                                        <li><a target="_blank" href="https://library.uiu.ac.bd/requisition/login">Requisition</a></li>
+                                        
+                                                                                    <li class="dropdown">
+                                                <a data-toggle="dropdown" class="dropdown-toggle disabled">
+                                                    <span class="new-badge">NEW</span>
+                                                    Arrivals
+                                                </a>
+                                            
+                                                <ul class="dropdown-menu">
+                                                                                                            <li>
+                                                            <a href="https://library.uiu.ac.bd/books/261">
+                                                                Spring 2026                                                            </a>
+                                                        </li>
+                                                                                                            <li>
+                                                            <a href="https://library.uiu.ac.bd/books/253">
+                                                                Fall 2025                                                            </a>
+                                                        </li>
+                                                                                                            <li>
+                                                            <a href="https://library.uiu.ac.bd/books/252">
+                                                                Summer 2025                                                            </a>
+                                                        </li>
+                                                                                                            <li>
+                                                            <a href="https://library.uiu.ac.bd/books/251">
+                                                                Spring 2025                                                            </a>
+                                                        </li>
+                                                                                                            <li>
+                                                            <a href="https://library.uiu.ac.bd/books/243">
+                                                                Fall 2024                                                            </a>
+                                                        </li>
+                                                                                                    </ul>
+                                            </li>
+                                                                                
+                                        <li class="dropdown">
+                                            <a style="border-bottom:none!important;" target="_blank" href="http://www.scopus.com">
+                                                <span class="new-badge">NEW</span>
+                                                Scopus
+                                            </a>
+                                        </li>
+                                        <!--<li class="dropdown">-->
+                                        <!--    <a data-toggle="dropdown" class="dropdown-toggle disabled" >Downloads</a>-->
+                                        <!--    <ul class="dropdown-menu">-->
+                                        <!--        <li><a href="https://library.uiu.ac.bd/requisition/login" target="_blank">Book Requisition Link</a></li>-->
+                                        <!--    </ul>-->
+                                        <!--</li>-->
+                                        <!--<li><a href="contact.html">Contact</a></li>-->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-menu hidden-lg hidden-md">
+                    <a href="#mobile-menu"><i class="fa fa-navicon"></i></a>
+                    <div id="mobile-menu">
+                         
+                        <ul class="nav navbar-nav">
+                                        <li class="dropdown active">
+                                            <a href="https://library.uiu.ac.bd/">Home</a>
+                                            
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="https://library.uiu.ac.bd/about">About</a>
+                                           
+                                        </li>
+                                        <li><a href="https://library.uiu.ac.bd/resource">Resource</a></li>
+                                        <li class="dropdown">
+                                            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="https://library.uiu.ac.bd/shadhinota-corner">Shadhinota Corner</a>
+                                            
+                                        </li>
+                                        
+                                        <li><a target="_blank" href="https://library.uiu.ac.bd/requisition/login">Requisition</a></li>
+                                        
+                                                                                    <li class="dropdown">
+                                                <a data-toggle="dropdown" class="dropdown-toggle disabled">
+                                                    <span class="new-badge">NEW</span>
+                                                    Arrivals
+                                                </a>
+                                            
+                                                <ul class="dropdown-menu">
+                                                                                                            <li>
+                                                            <a href="https://library.uiu.ac.bd/books/261">
+                                                                Spring 2026                                                            </a>
+                                                        </li>
+                                                                                                            <li>
+                                                            <a href="https://library.uiu.ac.bd/books/253">
+                                                                Fall 2025                                                            </a>
+                                                        </li>
+                                                                                                            <li>
+                                                            <a href="https://library.uiu.ac.bd/books/252">
+                                                                Summer 2025                                                            </a>
+                                                        </li>
+                                                                                                            <li>
+                                                            <a href="https://library.uiu.ac.bd/books/251">
+                                                                Spring 2025                                                            </a>
+                                                        </li>
+                                                                                                            <li>
+                                                            <a href="https://library.uiu.ac.bd/books/243">
+                                                                Fall 2024                                                            </a>
+                                                        </li>
+                                                                                                    </ul>
+                                            </li>
+                                                                                
+                                        <li class="dropdown">
+                                            <a style="border-bottom:none!important;" target="_blank" href="http://www.scopus.com">
+                                                <span class="new-badge">NEW</span>
+                                                Scopus
+                                            </a>
+                                        </li>
+                                        <li class="dropdown active">
+                                            <a href="http://koha.uiu.ac.bd/">Login / Register</a>
+                                            
+                                        </li>
+                                        <!--<li><a href="contact.html">Contact</a></li>-->
+                                    </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- End: Header Section -->    <!-- End: Header Section -->
+
+    <!-- Start: Page Banner -->
+    <section class="page-banner services-banner">
+        <div class="container">
+            <div class="banner-header">
+                <h2>Resource Added in Fall 2025</h2>
+                <span class="underline center"></span>
+                <!--<p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>-->
+            </div>
+            
+        </div>
+    </section>
+    <!-- End: Page Banner -->
+    <!-- Start: Cart Section -->
+    <div id="content" class="site-content">
+        <div id="primary" class="content-area">
+            <main id="main" class="site-main">
+                <div class="cart-main">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="page type-page status-publish hentry">
+                                    <div class="entry-content">
+                                        <div class="woocommerce table-tabs r-tabs" id="responsiveTabs">
+                                            <div id="allNew" class="tab-pane fade in active">
+                                                <table class="table table-bordered shop_table cart">
+                                                    <thead>
+                                                        <tr>
+                                                            
+                                                            <th class="product-price">Title</th>
+
+                                                            <th class="product-name">Details </th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15850"><strong>Computer Organization and Design: the hardware/software interface</strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/Computer_Organization_and_Design.png" alt="Computer Organization and Design: the hardware/software interface" width="70" height="111">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>Computer Organization and Design: the hardware/software interface, David A. Patterson / John L. Hennessy
+By:Patterson, David A
+Contributor(s): Hennessy, John L
+Publication details: USA: Morgan Kaufmann; 2014
+Edition: 5th Edition
+Description: xxii, 575p.: Illustrations; 24 cm
+ISBN: 9780124077263
+Subject(s): Computer Organization  Computer Engineering  Computer Interfaces
+DDC classification: 23 004.21 PAT</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15851"><strong>Microelectronic Circuits</strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/Microelectronic_Circuits1.png" alt="Microelectronic Circuits" width="70" height="111">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>Microelectronic Circuits / Adel S. Sedra , Kenneth C. Smith
+By:Sedra , Adel S
+Contributor(s): Smith , Kenneth C
+Publication details: New York : Oxford University Press , 2015 .
+Edition: 7th edition
+Description: xxviii , 1436 p , ; 26 cm
+ISBN: 9780199339136
+Subject(s): Microelectronic Circuits
+DDC classification: 621.3815 SED</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15849"><strong>Schaum's Outline of Programming with C</strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/Schaums_Outline_of_Programming_with_C.png" alt="Schaum's Outline of Programming with C" width="83" height="111">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>Schaum's Outline of Programming with C / Byron S. Gottfried
+By:Gottfried , Byron S
+Series: Schaum's Outline Series
+Publication details: USA : Mc Graw Hill , 1996 .
+Edition: 2nd edition
+Description: viii , 532 p . ; 25 cm
+ISBN: 9780070240353
+Subject(s): Programming with C
+DDC classification: 005.133 GOT</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15847"><strong>Data Communications and Networking: with TCP / IP Protocol Suite</strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/Data_Communications_and_Networking_with_TCP_IP_Protocol_Suite.png" alt="Data Communications and Networking: with TCP / IP Protocol Suite" width="70" height="111">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>Data Communications and Networking: with TCP / IP Protocol Suite. Behrouz A. Forouzan
+By:Forouzan, Behrouz A
+Publication details: New York : McGraw Hill ; 2022
+Edition: Sixth Edition
+Description: xxv, 834 p. : illustrations ; 24 cm
+ISBN: 9781260597820
+Subject(s): Data transmission systems  Computer networks
+DDC classification: 22 004.6 FOR</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15848"><strong>Systems Analysis And Design</strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/Systems_Analysis_And_Design.png" alt="Systems Analysis And Design" width="83" height="111">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>Systems Analysis And Design / Elias M . Awad .
+By:Awad , Elias M
+Publication details: USA : Richard D. IRWIN , 1985 .
+Edition: 2nd edition
+Description: xiv , 524 p . ; 25 cm
+ISBN: 0256028249
+Subject(s): Systems Analysis  Systems Design
+DDC classification: 004.21 AWA</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=12331"><strong>Principles of Electrical Machines</strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/Principles_of_Electrical_Machines.png" alt="Principles of Electrical Machines" width="70" height="111">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>Principles of Electrical Machines / V . K Mehta , Rohit Mehta .
+By:Mehta,V. K
+Contributor(s): Mehta , Rohit
+Publication details: New Delhi : S. Chand &amp; Company , 2009 .
+Description: x, 669p. 21 cm
+ISBN: 81-219-2191-0
+Subject(s): Electric Machinery
+DDC classification: 2nd Edition 621.313 MEH</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15846"><strong>Data Structures</strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/Data_Structures.png" alt="Data Structures" width="70" height="111">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>Data Structures / Edward M. Reingold, Wilfred J. Hansen
+By:Reingold, Edward M
+Contributor(s): Hansen, Wilfred J
+Series: Little, Brown Computer Systems Series
+Publication details: USA ; Little, Brown and Company; c1983
+Edition: 1st Edition
+Description: xiv, 450 p. : Illustrations; 24 cm
+ISBN: 9780316739510
+Subject(s): Computer Science
+DDC classification: 22 001.642 REI</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15547"><strong>Statistical Techniques in Business and Economics</strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/Statistical_Techniques_in_Business_and_Economics1.png" alt="Statistical Techniques in Business and Economics" width="70" height="111">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>Statistical Techniques in Business and Economics / Douglas A. Lind ; William G. Marchal ; Samuel A. Wathen
+By:Lind, Douglas A
+Contributor(s): William G. Marchal / Samuel A Wathen
+Series: The McGraw-Hill/Irwin series in operations and decision sciences
+Publication details: New York : McGraw Hill , c2024.
+Edition: 19th Edition [International student ed.]
+Description: xxvi, 874 p. : ill : chart, table, fig, pic, ; 27 cm
+ISBN: 9781266283536
+Subject(s): Economics--Statistical methods Commerci</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15843"><strong>Principles of Economics</strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/Principles_of_Economics.png" alt="Principles of Economics" width="78" height="111">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>Principles of Economics / Gregory N. Mankiw
+By:Mankiw, Gregory N
+Publication details: USA : Cengage; 2024
+Edition: 10th Edition
+Description: xxvii, 863 p. : Illustrations; 24 cm
+ISBN: 9780357722718
+Subject(s): Economics
+DDC classification: 22 330 MAN</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15844"><strong>Calculus: early transcendentals</strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/Calculus_early_transcendentals.png" alt="Calculus: early transcendentals" width="86" height="111">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>Calculus: early transcendentals / Howard Anton, Irl Bivens, Stephen Davis
+By:Anton, Howard
+Contributor(s): Bivens, Irl / Davis, Stephen
+Publication details: USA: John Wiley &amp; Sons, Inc.; c.2015
+Edition: 11th Edition
+Description: xxi, 1048 p.: Iiiustrations; 25 cm
+ISBN: 9781118883822
+Subject(s): Mathematics Calculus
+DDC classification: 22 515 ANT</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15845"><strong>Mathematics with Applications in Management and Economics</strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/Mathematics_with_Applications_in_Management_and_Economics.png" alt="Mathematics with Applications in Management and Economics" width="70" height="111">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>Mathematics with Applications in Management and Economics / Gordon D. Prichett and John C. Saber
+By:Prichett , Gordon D
+Contributor(s): Saber , John C
+Publication details: Dhaka : Irwin , 2003 .
+Edition: Seventh edition
+Description: xx , 1063 p . ; 25 cm
+ISBN: 0256092370
+Subject(s): Mathematics
+DDC classification: 510 BON</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15842"><strong>Fundamentals of Electric Circuits</strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/Fundamentals_of_Electric_Circuits.png" alt="Fundamentals of Electric Circuits" width="70" height="111">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>Fundamentals of Electric Circuits / Charles Alexander, Matthew Sadiku.
+By:Alexander , Charles K
+Contributor(s): Sadiku , Matthew
+Publication details: Dhaka : Mc Graw Hill , 2021 .
+Edition: Seventh Edition
+Description: xxiv , 903 p . ; 25 cm
+ISBN: 9781260570793
+Subject(s): Circuits
+DDC classification: 621.3192 ALE</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=13871"><strong>Teach Yourself C </strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/Teach_Yourself_C.png" alt="Teach Yourself C " width="89" height="111">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>Teach Yourself C / Herbert Schildt
+By:Schildt,Herbert
+Publication details: USA Osborne / McGraw Hill Companies Inc. 2012(Reprint 2017)
+Edition: 3rd Edition (Reprint 2017)
+Description: xiii, 640 p. 24 X 18 cm
+ISBN: 0-07-882311-0
+Subject(s): C (Computer program language)
+DDC classification: 3rd Edition 005.133</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15841"><strong>Applied Accounting Theory </strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/Applied_Accounting_Theory.png" alt="Applied Accounting Theory " width="70" height="111">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>Applied Accounting Theory / Dr. Dhiman Chowdhury , Dr. Md. Tapan Mahmud , Dr. Taslima Akther , Dr. Saifuddin Khan
+By:Chowdhury , Dr. Dhiman
+Contributor(s): Mahmud , Dr. Md. Tapan  Akther, Dr. Taslima  Khan , Dr. Saifuddin
+Publication details: Dhaka : Grantha Kutir , 2025 .
+Description: 480 p . ; 23 cm
+ISBN: 9789849614715
+Subject(s): Accounting
+DDC classification: 657.01 CHO</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15840"><strong>Principles of Development</strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/Principles_of_Development.png" alt="Principles of Development" width="70" height="111">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>Principles of Development / Lewis Wolpert , Cheryll Tickle , Alfonso Martinez Arias , prter Lawrence , James Locke .
+By:Wolpert , lewis
+Contributor(s): Tickle , Cheryll  Arias , Alfonso Martinez  Lawrence , prter  Locke , James
+Publication details: UK : Oxford University Press , 2019 .
+Edition: Sixth edition
+Description: xxiv , 741 p . ; 26 cm
+ISBN: 9780192520814
+Subject(s): Development Biology
+DDC classification: 571.8 WOL</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15839"><strong>Lehninger Principles of Biochemistry </strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/Lehninger_Principles_of_Biochemistry.png" alt="Lehninger Principles of Biochemistry " width="70" height="111">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>Lehninger Principles of Biochemistry / David Nelson , Michael Cox ,
+By:Nelson , David L
+Contributor(s): Cox , Michael
+Publication details: USA : Macmillan Learning , 2021 .
+Edition: 8th edition
+Description: xxxiii , 1096 p. ; 26 cm
+ISBN: 978131922800-2
+Subject(s): Biochemistry
+DDC classification: 572 NEL</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15838"><strong>Molecular Biology of The Cell</strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/Molecular_Biology_of_The_Cell.png" alt="Molecular Biology of The Cell" width="85" height="111">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>Molecular Biology of The Cell / Bruce Alberts , Rebecca Heald , Alexander Johnson , David Morgan , Martin Raff , Keith Roberts , Peter Walter
+By:Alberts , Bruce
+Contributor(s): Heald, Rebecca  Johnson , Alexander  Raff , Martin  Morgan , David  Roberts, Keith  Walter, Peter
+Publication details: Canada : W.W .Norton &amp; Company , 2022
+Edition: 7th edition
+Description: xxxviii , 1404 p . ; ill.; 26 cm
+ISBN: 9780393884821
+Subject(s): Biology
+DDC classification: 572.8 ALB</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15837"><strong>Molecular Cell Biology </strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/Molecular_Cell_Biology1.png" alt="Molecular Cell Biology " width="70" height="111">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>Molecular Cell Biology / Harvey Lodish , Arnold Berk ,Chris A . Kaiser , Monty Krieger, Anthony Bretscher, Hidde Ploegh, Angelika Amon , Kelsey C . Martin
+By:Lodish , Harvey
+Contributor(s): Berk , Arnold  Kaiser, Chris A  Krieger , Monty  Ploegh, , Hidde  Bretscher, Anthony  Ploegh , Hidde  Amon , Angelika  Martin , Kelsey C
+Publication details: USA : W. H Freeman , 2016 .
+Edition: 8th edition
+Description: xi , 1170 p .; ill.; 25 cm
+ISBN: 9781464183393
+Subject(s): Biology
+DDC classificat</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15836"><strong>বাঙালির চিন্তামূলক রচনা সমগ্র : বাঙালির সমাজচিন্তা</strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/Screenshot_2026-03-04_105550.jpg" alt="বাঙালির চিন্তামূলক রচনা সমগ্র : বাঙালির সমাজচিন্তা" width="111" height="54">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>বাঙালির চিন্তামূলক রচনা সমগ্র : বাঙালির সমাজচিন্তা / আহমাদ মাযহার ,শিপ্রা সরকার ,যতীন সরকার, কুদরত-ই-হুদা (সম্পাদক )
+By:বিশ্ব সাহিত্য কেন্দ্র
+Contributor(s): মাযহার, আহমাদ  সরকার, শিপ্রা  সরকার, যতীন  হুদা, কুদরত-ই
+Publication details: ঢাকা : বিশ্ব সাহিত্য কেন্দ্র , ২০২৫.
+Edition: ১ম-১১তম খণ্ড
+Description: ৫২০ পৃষ্ঠা, ৩২৭ পৃষ্ঠা, ৪৩৮ পৃষ্ঠা, ৪০৩ পৃষ্ঠা , ৩১১ পৃষ্ঠা , ৪৭১ পৃষ্ঠা, ৩৭৫ পৃষ্ঠা, ২৫৫ পৃষ্ঠা, ৩২৪ পৃষ্ঠা , ২৫২পৃষ্ঠা, ৩৬৮ পৃষ্ঠা ২২ সেমি
+ISBN: 9789843966254
+Subject(s): বাঙালি সমাজ
+</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15835"><strong>বাঙালির চিন্তামূলক রচনা সংগ্রহ : বাঙালির রাজনীতি চিন্তা</strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/link-bann-pc_rajniti-chinta.jpg" alt="বাঙালির চিন্তামূলক রচনা সংগ্রহ : বাঙালির রাজনীতি চিন্তা" width="111" height="30">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>বাঙালির চিন্তামূলক রচনা সংগ্রহ : বাঙালির রাজনীতি চিন্তা / বিশ্ব সাহিত্য কেন্দ্র
+By:বিশ্ব সাহিত্য কেন্দ্র
+Publication details: ঢাকা : বিশ্ব সাহিত্য কেন্দ্র , ২০২৫
+Edition: ১ম খণ্ড -২৩ খণ্ড
+Description: ৫৩৯ পৃষ্ঠা ,৪৭৯ পৃষ্ঠা, ৫২২পৃষ্ঠা, ৪৭০ পৃষ্ঠা , ৩৫৩ পৃষ্ঠা , ৪৪৫ পৃষ্ঠা, ৪৯৮ পৃষ্ঠা, ৪৯৫ পৃষ্ঠা, ৫৫৯ পৃষ্ঠা, ৫৮৬পৃষ্ঠা, ৪৭৯ পৃষ্ঠা, ৬০৫ পৃষ্ঠা , ৫৭০ পৃষ্ঠা , ৩৪০পৃষ্ঠা, ৬১৮ পৃষ্ঠা, ৩৬৩ পৃষ্ঠা, ৪১৫ পৃষ্ঠা, ৪০৬ পৃষ্ঠা, ৪৪৪পৃষ্ঠা, ৪৩৩ পৃষ্ঠা, ৪৭৪পৃষ্ঠা, ৫৪৮ পৃষ্ঠা ২২সেমি
+ISBN: 9789843966148
+Subj</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15832"><strong>বাঙালির চিন্তামূলক রচনা সমগ্র : বাঙালির শিক্ষাচিন্তা </strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/বাঙালির_চিন্তামূলক_রচনা_সমগ্র_বাঙালির_শিক্ষাচিন্তা.png" alt="বাঙালির চিন্তামূলক রচনা সমগ্র : বাঙালির শিক্ষাচিন্তা " width="74" height="111">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>বাঙালির চিন্তামূলক রচনা সমগ্র : বাঙালির শিক্ষাচিন্তা / মাসুদুজ্জামান , শোয়াইব জিবরান
+By:বিশ্ব সাহিত্য কেন্দ্র
+Contributor(s): মাসুদুজ্জামান  শোয়াইব জিবরান
+Series: বাঙালির চিন্তামূলক রচনা সমগ্র
+Publication details: ঢাকা : বিশ্ব সাহিত্য কেন্দ্র , ২০২৪ .
+Edition: ১ম -১০ম খন্ড
+Description: ৩৪৯ পৃ , ৩৫৩ পৃ , ২২০ পৃ , ১৫৯পৃ , ২১১পৃ ,২০১পৃ ,২৭৩ পৃ, ২২৯ পৃ, ২৭৫ পৃ
+ISBN: 97898499495-1-0
+Subject(s): বাঙালির শিক্ষাচিন্তা
+DDC classification: 370.95492 GIB</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15831"><strong>বাঙালির চলচ্চিত্র চিন্তা </strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/news/opac-image9.png" alt="বাঙালির চলচ্চিত্র চিন্তা " width="111" height="89">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>বাঙালির চলচ্চিত্র চিন্তা / সাজেদুল আউয়াল (সম্পাদক)
+By:বিশ্বসাহিত্য কেন্দ্র
+Series: বাঙালির চিন্তামূলক রচনা সমগ্র
+Publication details: ঢাকা : বিশ্বসাহিত্য কেন্দ্র , ২০২৪ .
+Edition: ১ম খন্ড-১০ম খন্ড
+Description: ৩৪১ পৃ, ৪৯২ পৃ, ৩২২ পৃ, ৪৬৩ পৃ, ২৯৩ পৃ, ৩৪৫ পৃ, ৩৮৩ পৃ , ২৬২ পৃ, ৩৪৯ পৃ, ৩৩৭ পৃ ২২ সেমি
+ISBN: 9789849815785
+Subject(s): বাঙালির চলচ্চিত্র -- বাংলাদেশ
+DDC classification: 791.43095492 AWW</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                    <tr class="cart_item">
+                                                                
+                                                                <td data-title="Product" class="product-price" data-th="Title"><span class="bt-content">
+                                                                    <a href="https://koha.uiu.ac.bd/cgi-bin/koha/opac-detail.pl?biblionumber=15830"><strong>বাঙালির চিন্তামূলক রচনা সংগ্রহ : বাঙালির শিল্প চিন্তা </strong></a><br><br>    
+                                                                    <span class="product-thumbnail">
+                                                                        <img style="width: 100px; height: 100px;" src="https://library.uiu.ac.bd/uploads/book/default.jpg" alt="বাঙালির চিন্তামূলক রচনা সংগ্রহ : বাঙালির শিল্প চিন্তা ">
+
+                                                                    </span>
+                                                                </span></td>
+                                                                <td data-title="Price" class="product-name" data-th="Details "><span class="bt-content">
+                                                                    <p>বাঙালির চিন্তামূলক রচনা সংগ্রহ : বাঙালির শিল্প চিন্তা / মইনুদ্দীন খালেদ
+By:বিশ্বসাহিত্য কেন্দ্র প্রকাশনা
+Series: বাঙালির চিন্তামূলক রচনা সংগ্রহ | বাঙালির চিন্তামূলক রচনা সংগ্রহ ; ১ম - ১১তম খন্ড
+Publication details: ঢাকা : বিশ্বসাহিত্য কেন্দ্র প্রকাশনা, ২০২৪
+Edition: প্রথম খন্ড-একাদশ খন্ড
+Description: ২৫৪ পৃ , ২৭১ পৃ ,৩১৭পৃ ,১২৬পৃ ,২১০পৃ ,৩২৪পৃ ,৩১৮পৃ ,২৭১পৃ ,১০১পৃ ,২৪৩পৃ ,১৭২পৃ , ২২ সেমি
+ISBN: 978984990881 4
+Subject(s): বাঙালির শিল্প চিন্তা -- বাংলাদেশ
+DDC classification: 709.5492 KHA</p>
+                                                                </span></td>
+                                                            </tr>
+                                                                                                                
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div><!-- .entry-content -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <!-- End: Cart Section -->
+
+    <!-- Footer -->
+
+
+
+    
+    <footer class="site-footer">
+        <div class="container">
+            <div id="footer-widgets">
+            
+                <div class="row">
+                    <div class="col-md-2 widget-container">
+                        <div class="widget widget_social_icons">
+                            <ul>
+                                <li>
+                                    <a class="facebook" href="https://www.facebook.com/uiuinfo" target="_blank">
+                                        <span>
+                                                <i class="fa fa-facebook-f"></i>
+                                            </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="rss" href="https://www.instagram.com/uiuofficial/" target="_blank">
+                                        <span>
+                                                <i class="fa fa-instagram"></i>
+                                            </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="youtube" href="https://www.youtube.com/channel/UCRt5IHIN_lhbAic3hfrS2mA" target="_blank">
+                                        <span>
+                                                <i class="fa fa-youtube"></i>
+                                            </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="linkedin" href="https://bd.linkedin.com/school/united-international-university/" target="_blank">
+                                        <span>
+                                                <i class="fa fa-linkedin"></i>
+                                            </span>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 widget-container">
+                        <div id="text-2" class="widget widget_text">
+                            <h3 class="footer-widget-title">Contact Us</h3>
+                            <span class="underline left"></span>
+                            <address>
+                                    <div class="info">
+                                        <i class="fa fa-location-arrow"></i>
+                                        <span>United City, Madani Avenue, Badda, Dhaka 1212, Bangladesh</span>
+                                    </div>
+                                    <div class="info">
+                                        <i class="fa fa-envelope"></i>
+                                        <span><a href="mailto:support@libraria.com">library@uiu.ac.bd</a></span>
+                                    </div>
+                                    <div class="info">
+                                        <i class="fa fa-phone"></i>
+                                        <span><a href="tel:09604-848-848">09604-848-848</a></span>
+                                    </div>
+                                </address>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-6 widget-container">
+                        <div id="nav_menu-2" class="widget widget_nav_menu">
+                            <h3 class="footer-widget-title">Quick Links</h3>
+                            <span class="underline left"></span>
+                            <div class="menu-quick-links-container">
+                                <ul id="menu-quick-links" class="menu">
+                                    <li><a href="http://www.uiu.ac.bd/">UIU Website</a></li>
+                                    <li><a href="http://elms.uiu.ac.bd/">eLMS</a></li>
+                                    <li><a href="https://ucam.uiu.ac.bd/Security/LogIn.aspx">UCAM</a></li>
+                                    <li><a href="https://library.uiu.ac.bd/download/form02.pdf">Membership Form</a></li>
+                                    <li><a href="https://library.uiu.ac.bd/requisition/login" target="_blank">Book Requisition</a></li>
+                                    <!--<li><a href="#">Board of Trustees</a></li>-->
+                                    <!--<li><a href="#">Budget</a></li>-->
+                                    <!--<li><a href="#">Annual Report</a></li>-->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix hidden-lg hidden-md hidden-xs tablet-margin-bottom"></div>
+                    <div class="col-md-2 col-sm-6 widget-container">
+                        <div id="text-4" class="widget widget_text">
+                            <h3 class="footer-widget-title">Timing</h3>
+                            <span class="underline left"></span>
+                            <div class="timming-text-widget">
+                                <time datetime="2017-02-13">During the Trimester, the library service hours are as follows:<br>Saturday  to Wednesday: 8.30 am to 9.00 pm
+<br><br>During Trimester Break, the library service hours are as follows:<br>Saturday-Wednesday: 8:30 am-6:00 pm</time>
+                                <!-- <time datetime="2017-02-13">Fri: 9 am - 6 pm</time>
+                                <time datetime="2017-02-13">Sat: 9 am - 5 pm</time> -->
+                                <time datetime="2017-02-13">•	Thursday and Friday: Closed.</time>
+                                <!-- <ul>
+                                    <li><a href="#">Closings</a></li>
+                                    <li><a href="#">Branches</a></li>
+                                </ul> -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="sub-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-text col-md-3">
+                        <p>© 2024 Shaheed Irfan Library. All rights reserved.</p>
+                    </div>
+                    <!--<div class="col-md-9 pull-right">
+                        <ul>
+                            <li><a href="index-2.html">Home</a></li>
+                            <li><a href="books-media-list-view.html">Books &amp; Media</a></li>
+                            <li><a href="news-events-list-view.html">News &amp; Events</a></li>
+                            <li><a href="#">Kids &amp; Teens</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="#">Research</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End: Footer -->
+
+    <!-- jQuery Latest Version 1.x -->
+    <script type="text/javascript" src="https://library.uiu.ac.bd/assets/js/jquery-1.12.4.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script type="text/javascript" src="https://library.uiu.ac.bd/assets/js/jquery-ui.min.js"></script>
+
+    <!-- jQuery Easing -->
+    <script type="text/javascript" src="https://library.uiu.ac.bd/assets/js/jquery.easing.1.3.js"></script>
+
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="https://library.uiu.ac.bd/assets/js/bootstrap.min.js"></script>
+
+    <!-- Mobile Menu -->
+    <script type="text/javascript" src="https://library.uiu.ac.bd/assets/js/mmenu.min.js"></script>
+
+    <!-- Harvey - State manager for media queries -->
+    <script type="text/javascript" src="https://library.uiu.ac.bd/assets/js/harvey.min.js"></script>
+
+    <!-- Waypoints - Load Elements on View -->
+    <script type="text/javascript" src="https://library.uiu.ac.bd/assets/js/waypoints.min.js"></script>
+
+    <!-- Facts Counter -->
+    <script type="text/javascript" src="https://library.uiu.ac.bd/assets/js/facts.counter.min.js"></script>
+
+    <!-- MixItUp - Category Filter -->
+    <script type="text/javascript" src="https://library.uiu.ac.bd/assets/js/mixitup.min.js"></script>
+
+    <!-- Owl Carousel -->
+    <script type="text/javascript" src="https://library.uiu.ac.bd/assets/js/owl.carousel.min.js"></script>
+
+    <!-- Accordion -->
+    <script type="text/javascript" src="https://library.uiu.ac.bd/assets/js/accordion.min.js"></script>
+
+    <!-- Responsive Tabs -->
+    <script type="text/javascript" src="https://library.uiu.ac.bd/assets/js/responsive.tabs.min.js"></script>
+
+    <!-- Responsive Table -->
+    <script type="text/javascript" src="https://library.uiu.ac.bd/assets/js/responsive.table.min.js"></script>
+
+    <!-- Masonry -->
+    <script type="text/javascript" src="https://library.uiu.ac.bd/assets/js/masonry.min.js"></script>
+
+    <!-- Carousel Swipe -->
+    <script type="text/javascript" src="https://library.uiu.ac.bd/assets/js/carousel.swipe.min.js"></script>
+
+    <!-- bxSlider -->
+    <script type="text/javascript" src="https://library.uiu.ac.bd/assets/js/bxslider.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script type="text/javascript" src="https://library.uiu.ac.bd/assets/js/main.js"></script>
+<script>
+    $(document).ready(function(){
+    $('#responsiveSubTabs .nav-tabs a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
+});
+</script>
+</div></body><!-- Start: Footer --></html>

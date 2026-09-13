@@ -1,0 +1,2588 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	
+
+		<meta charset="utf-8">
+		<title>2022 | 4th International Conference on Sustainable Technologies for Industry 4.0</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		<meta content="Conference, 2022, 2022-Conference, STI-2022, SIT, sti 2022, STI Conference" name="keywords">
+		<meta content="STI 2022 welcomes researchers, industry professionals and practitioners to display their scientific achievements and sustainable innovative industrial developments in the fields of computer science &amp; engineering, electrical &amp; electronic engineering, textile engineering, robotics and cyber-physical systems that are entering into Industry 4.0. STI 2022 will be held at the permanent campus of Green University of Bangladesh, Purbachal American City, Dhaka, Bangladesh during 18-19 December 2022. We are seeking original high-quality innovative research for submissions. All submissions to STI 2022 will be double blind peer reviewed. Accepted and presented papers will be published in the IEEE Explore digital library." name="description">
+
+		<meta name="google-site-verification" content="Ck3vhdrOoB9TfrGoKF5tIQTGms6oR3MDq-l79OUnxQ0">
+		<!-- Favicons -->
+		
+		<link rel="shortcut icon" type="image" href="img/sti_favicon.png">
+		<!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+		<!-- Bootstrap CSS File -->
+		<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Libraries CSS Files -->
+		<link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<link href="lib/animate/animate.min.css" rel="stylesheet">
+		<link href="lib/venobox/venobox.css" rel="stylesheet">
+		<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+
+		
+		<!-- Main Stylesheet File -->
+		
+		<link href="css/style.css" rel="stylesheet">
+		<style type="text/css">
+		.mytable tbody{
+		overflow-y: scroll;
+		height: 490px;
+		display: block;
+		overflow-x: hidden;
+		}
+		#mytable >tbody>tr>td{
+		height:20px;
+		padding:0px;
+		border-top: 0px;
+		}
+		.table-custom {
+		background: #33cc33;
+		}
+		.table-custom-2{
+		background: #ccccff;
+		height: 5px;
+		}
+
+
+
+		.list-timeline {
+  margin: 0;
+  padding: 5px 0;
+  position: relative
+}
+
+.list-timeline:before {
+  width: 1px;
+  background: #ccc;
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  content: ''
+}
+
+.list-timeline .list-timeline-item {
+  margin: 0;
+  padding: 0;
+  padding-left: 24px !important;
+  position: relative
+}
+
+.list-timeline .list-timeline-item:before {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: 2px solid #ccc;
+  position: absolute;
+  left: 0;
+  top: 4px;
+  content: '';
+  border-radius: 100%;
+  -webkit-transition: all .3 ease-in-out;
+  transition: all .3 ease-in-out
+}
+
+.list-timeline .list-timeline-item[data-toggle=collapse] {
+  cursor: pointer
+}
+
+.list-timeline .list-timeline-item.active:before,
+.list-timeline .list-timeline-item.show:before {
+  background: #ccc
+}
+
+.list-timeline.list-timeline-light .list-timeline-item.active:before,
+.list-timeline.list-timeline-light .list-timeline-item.show:before,
+.list-timeline.list-timeline-light:before {
+  background: #f8f9fa
+}
+
+.list-timeline .list-timeline-item.list-timeline-item-marker-middle:before {
+  top: 50%;
+  margin-top: -6px
+}
+
+.list-timeline.list-timeline-light .list-timeline-item:before {
+  border-color: #f8f9fa
+}
+
+.list-timeline.list-timeline-grey .list-timeline-item.active:before,
+.list-timeline.list-timeline-grey .list-timeline-item.show:before,
+.list-timeline.list-timeline-grey:before {
+  background: #e9ecef
+}
+
+.list-timeline.list-timeline-grey .list-timeline-item:before {
+  border-color: #e9ecef
+}
+
+.list-timeline.list-timeline-grey-dark .list-timeline-item.active:before,
+.list-timeline.list-timeline-grey-dark .list-timeline-item.show:before,
+.list-timeline.list-timeline-grey-dark:before {
+  background: #495057
+}
+
+.list-timeline.list-timeline-grey-dark .list-timeline-item:before {
+  border-color: #495057
+}
+
+.list-timeline.list-timeline-primary .list-timeline-item.active:before,
+.list-timeline.list-timeline-primary .list-timeline-item.show:before,
+.list-timeline.list-timeline-primary:before {
+  background: #55A79A
+}
+
+.list-timeline.list-timeline-primary .list-timeline-item:before {
+  border-color: #55A79A
+}
+
+.list-timeline.list-timeline-primary-dark .list-timeline-item.active:before,
+.list-timeline.list-timeline-primary-dark .list-timeline-item.show:before,
+.list-timeline.list-timeline-primary-dark:before {
+  background: #33635c
+}
+
+.list-timeline.list-timeline-primary-dark .list-timeline-item:before {
+  border-color: #33635c
+}
+
+.list-timeline.list-timeline-primary-faded .list-timeline-item.active:before,
+.list-timeline.list-timeline-primary-faded .list-timeline-item.show:before,
+.list-timeline.list-timeline-primary-faded:before {
+  background: rgba(85, 167, 154, .3)
+}
+
+.list-timeline.list-timeline-primary-faded .list-timeline-item:before {
+  border-color: rgba(85, 167, 154, .3)
+}
+
+.list-timeline.list-timeline-info .list-timeline-item.active:before,
+.list-timeline.list-timeline-info .list-timeline-item.show:before,
+.list-timeline.list-timeline-info:before {
+  background: #17a2b8
+}
+
+.list-timeline.list-timeline-info .list-timeline-item:before {
+  border-color: #17a2b8
+}
+
+.list-timeline.list-timeline-success .list-timeline-item.active:before,
+.list-timeline.list-timeline-success .list-timeline-item.show:before,
+.list-timeline.list-timeline-success:before {
+  background: #28a745
+}
+
+.list-timeline.list-timeline-success .list-timeline-item:before {
+  border-color: #28a745
+}
+
+.list-timeline.list-timeline-warning .list-timeline-item.active:before,
+.list-timeline.list-timeline-warning .list-timeline-item.show:before,
+.list-timeline.list-timeline-warning:before {
+  background: #ffc107
+}
+
+.list-timeline.list-timeline-warning .list-timeline-item:before {
+  border-color: #ffc107
+}
+
+.list-timeline.list-timeline-danger .list-timeline-item.active:before,
+.list-timeline.list-timeline-danger .list-timeline-item.show:before,
+.list-timeline.list-timeline-danger:before {
+  background: #dc3545
+}
+
+.list-timeline.list-timeline-danger .list-timeline-item:before {
+  border-color: #dc3545
+}
+
+.list-timeline.list-timeline-dark .list-timeline-item.active:before,
+.list-timeline.list-timeline-dark .list-timeline-item.show:before,
+.list-timeline.list-timeline-dark:before {
+  background: #343a40
+}
+
+.list-timeline.list-timeline-dark .list-timeline-item:before {
+  border-color: #343a40
+}
+
+.list-timeline.list-timeline-secondary .list-timeline-item.active:before,
+.list-timeline.list-timeline-secondary .list-timeline-item.show:before,
+.list-timeline.list-timeline-secondary:before {
+  background: #6c757d
+}
+
+.list-timeline.list-timeline-secondary .list-timeline-item:before {
+  border-color: #6c757d
+}
+
+.list-timeline.list-timeline-black .list-timeline-item.active:before,
+.list-timeline.list-timeline-black .list-timeline-item.show:before,
+.list-timeline.list-timeline-black:before {
+  background: #000
+}
+
+.list-timeline.list-timeline-black .list-timeline-item:before {
+  border-color: #000
+}
+
+.list-timeline.list-timeline-white .list-timeline-item.active:before,
+.list-timeline.list-timeline-white .list-timeline-item.show:before,
+.list-timeline.list-timeline-white:before {
+  background: #fff
+}
+
+.list-timeline.list-timeline-white .list-timeline-item:before {
+  border-color: #fff
+}
+
+.list-timeline.list-timeline-green .list-timeline-item.active:before,
+.list-timeline.list-timeline-green .list-timeline-item.show:before,
+.list-timeline.list-timeline-green:before {
+  background: #55A79A
+}
+
+.list-timeline.list-timeline-green .list-timeline-item:before {
+  border-color: #55A79A
+}
+
+.list-timeline.list-timeline-red .list-timeline-item.active:before,
+.list-timeline.list-timeline-red .list-timeline-item.show:before,
+.list-timeline.list-timeline-red:before {
+  background: #BE3E1D
+}
+
+.list-timeline.list-timeline-red .list-timeline-item:before {
+  border-color: #BE3E1D
+}
+
+.list-timeline.list-timeline-blue .list-timeline-item.active:before,
+.list-timeline.list-timeline-blue .list-timeline-item.show:before,
+.list-timeline.list-timeline-blue:before {
+  background: #00ADBB
+}
+
+.list-timeline.list-timeline-blue .list-timeline-item:before {
+  border-color: #00ADBB
+}
+
+.list-timeline.list-timeline-purple .list-timeline-item.active:before,
+.list-timeline.list-timeline-purple .list-timeline-item.show:before,
+.list-timeline.list-timeline-purple:before {
+  background: #b771b0
+}
+
+.list-timeline.list-timeline-purple .list-timeline-item:before {
+  border-color: #b771b0
+}
+
+.list-timeline.list-timeline-pink .list-timeline-item.active:before,
+.list-timeline.list-timeline-pink .list-timeline-item.show:before,
+.list-timeline.list-timeline-pink:before {
+  background: #CC164D
+}
+
+.list-timeline.list-timeline-pink .list-timeline-item:before {
+  border-color: #CC164D
+}
+
+.list-timeline.list-timeline-orange .list-timeline-item.active:before,
+.list-timeline.list-timeline-orange .list-timeline-item.show:before,
+.list-timeline.list-timeline-orange:before {
+  background: #e67e22
+}
+
+.list-timeline.list-timeline-orange .list-timeline-item:before {
+  border-color: #e67e22
+}
+
+.list-timeline.list-timeline-lime .list-timeline-item.active:before,
+.list-timeline.list-timeline-lime .list-timeline-item.show:before,
+.list-timeline.list-timeline-lime:before {
+  background: #b1dc44
+}
+
+.list-timeline.list-timeline-lime .list-timeline-item:before {
+  border-color: #b1dc44
+}
+
+.list-timeline.list-timeline-blue-dark .list-timeline-item.active:before,
+.list-timeline.list-timeline-blue-dark .list-timeline-item.show:before,
+.list-timeline.list-timeline-blue-dark:before {
+  background: #34495e
+}
+
+.list-timeline.list-timeline-blue-dark .list-timeline-item:before {
+  border-color: #34495e
+}
+
+.list-timeline.list-timeline-red-dark .list-timeline-item.active:before,
+.list-timeline.list-timeline-red-dark .list-timeline-item.show:before,
+.list-timeline.list-timeline-red-dark:before {
+  background: #a10f2b
+}
+
+.list-timeline.list-timeline-red-dark .list-timeline-item:before {
+  border-color: #a10f2b
+}
+
+.list-timeline.list-timeline-brown .list-timeline-item.active:before,
+.list-timeline.list-timeline-brown .list-timeline-item.show:before,
+.list-timeline.list-timeline-brown:before {
+  background: #91633c
+}
+
+.list-timeline.list-timeline-brown .list-timeline-item:before {
+  border-color: #91633c
+}
+
+.list-timeline.list-timeline-cyan-dark .list-timeline-item.active:before,
+.list-timeline.list-timeline-cyan-dark .list-timeline-item.show:before,
+.list-timeline.list-timeline-cyan-dark:before {
+  background: #008b8b
+}
+
+.list-timeline.list-timeline-cyan-dark .list-timeline-item:before {
+  border-color: #008b8b
+}
+
+.list-timeline.list-timeline-yellow .list-timeline-item.active:before,
+.list-timeline.list-timeline-yellow .list-timeline-item.show:before,
+.list-timeline.list-timeline-yellow:before {
+  background: #D4AC0D
+}
+
+.list-timeline.list-timeline-yellow .list-timeline-item:before {
+  border-color: #D4AC0D
+}
+
+.list-timeline.list-timeline-slate .list-timeline-item.active:before,
+.list-timeline.list-timeline-slate .list-timeline-item.show:before,
+.list-timeline.list-timeline-slate:before {
+  background: #5D6D7E
+}
+
+.list-timeline.list-timeline-slate .list-timeline-item:before {
+  border-color: #5D6D7E
+}
+
+.list-timeline.list-timeline-olive .list-timeline-item.active:before,
+.list-timeline.list-timeline-olive .list-timeline-item.show:before,
+.list-timeline.list-timeline-olive:before {
+  background: olive
+}
+
+.list-timeline.list-timeline-olive .list-timeline-item:before {
+  border-color: olive
+}
+
+.list-timeline.list-timeline-teal .list-timeline-item.active:before,
+.list-timeline.list-timeline-teal .list-timeline-item.show:before,
+.list-timeline.list-timeline-teal:before {
+  background: teal
+}
+
+.list-timeline.list-timeline-teal .list-timeline-item:before {
+  border-color: teal
+}
+
+.list-timeline.list-timeline-green-bright .list-timeline-item.active:before,
+.list-timeline.list-timeline-green-bright .list-timeline-item.show:before,
+.list-timeline.list-timeline-green-bright:before {
+  background: #2ECC71
+}
+
+.list-timeline.list-timeline-green-bright .list-timeline-item:before {
+  border-color: #2ECC71
+}
+		</style>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="../../../../www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2TYHDN6EKQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2TYHDN6EKQ');
+</script>
+		
+		
+	</head>
+	<body><button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>
+		<!--==========================
+		Header
+		============================-->
+		<header id="header">
+			<div class="container">
+				<div id="logo" class="pull-left">
+					<!-- Uncomment below if you prefer to use a text logo -->
+					<!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
+					<a href="#intro" class="scrollto"><img src="img/sti_favi.png" alt="STI 2022" title=""></a>
+				</div>
+				<nav id="nav-menu-container">
+					<ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;">
+						<li class="menu-active"><a href="#intro">Home</a></li>
+						<!-- <li><a href="#publication">Publication</a></li> -->
+						<!--  <li><a href="#about">About</a></li> -->
+						<li><a href="#speakers">Speakers</a></li>
+						<li><a href="#committees">Committees</a></li>
+						<li><a href="#cft">Call for Paper</a></li>
+						<li><a href="#important_dates">Important Dates</a></li>
+						<li><a href="#schedule">Schedule</a></li>
+						<li><a href="#guideline">Submission</a></li>
+                
+						<li><a href="#sponsors">Sponsors</a></li>
+						<li><a href="#venue">Venue</a></li>
+						<li><a href="https://fse.green.edu.bd/sti-2022/registration" class="about-btn scrollto" target="_Blank">Registration</a></li>
+						<!-- <li><a href="#footer">STI 2019</a></li> -->
+						<!--           <li><a href="#hotels">Hotels</a></li>
+						<li><a href="#gallery">Gallery</a></li> -->
+						
+						<!-- <li><a href="#schedule-gallery">Photo Gallery</a></li> -->
+						<!-- <li class="buy-tickets"><a href="#buy-tickets">Buy Tickets</a></li> -->
+				
+			
+					</ul>
+					</nav><!-- #nav-menu-container -->
+				</div>
+				</header><!-- #header -->
+				<!--==========================
+				Intro Section
+				============================-->
+				<section id="intro">
+					<div class="intro-container wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;">
+						<h1 class="mb-4 pb-0">4<sup><span style="text-transform: lowercase; color: #E46E2A">th</span></sup> International Conference on<br><span style="color: #E46E2A">Sustainable Technologies</span> for Industry <span style="color: #fff">4.0</span></h1>
+						<!-- <div class="pull-center" style="max-height: 10px;">					
+							<a href="#intro" class="scrollto"><img src="img/sti_favi.png" alt="STI-2022" title=""></a>
+						</div> -->
+						<p style="font-size: 40px;" class="mb-4 pb-0"><span style="color: #E46E2A">STI</span> <span style="color: #2770B0">2022</span></p>
+						<p class="mb-4 pb-0">17 - 18 December 2022, <br> Permanent Campus at Purbachal American City, Rupganj, Dhaka, Bangladesh <br>Green University of Bangladesh</p>
+						<div class="mb-2">
+							<span style="color: #fff">[ Note: Participants experiencing movement restriction due to COVID and other reasons will be allowed to present their works virtually ]</span>
+						</div>
+						<!-- <span class="blink_text" style="font-size: 25px;">Full Paper Submission: 30 September 2019 [Final]</span> -->
+						<a href="https://youtu.be/gs-Sb3no9uI" class="venobox play-btn mb-4 vbox-item" data-vbtype="video" data-autoplay="true"></a>
+
+						<!-- <p class="typewrite" data-type='[ "Online presentation will be allowed if the current mobility restriction continues due to Covid - 19"]'></p> -->
+
+        				<!-- <div class="row" >
+        					<div class="col-md-12">
+        							<marquee class="news-scroll" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"> <a href="#">Registration is open until November 10, 2022</a></marquee>
+							            
+							</div>
+						</div> -->
+							            
+							
+						<!-- <p>We shall keep the provision of physical and virtual pesentation session</p> -->
+						<div class="row">
+        					<!-- <div class="col-sm-6">
+        							<marquee class="news-scroll" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"> <a href="#">Final extended deadline for paper submission is Over</a></marquee>
+							            
+							</div> -->
+						</div>
+
+
+						
+						<div class="mb-4">
+							<a href="#about" class="about-btn scrollto ">About the Event</a>
+							<!-- <a href="https://fse.green.edu.bd/sti-2022/registration" class="about-btn scrollto" target="_Blank"> Registration </a> -->
+							<a href="#archivesection" class="about-btn scrollto "> Archive </a>
+						</div>
+						
+
+						
+					</div>
+				</section>
+				<main id="main">
+					<!--==========================
+					About Section
+					============================-->
+					<section id="about">
+						<div class="container">
+							<div class="section-header">
+								<h2> About The Event</h2>
+								<p style="text-align: justify;">WHY STI?<br>
+								● First conference in southeast Asia on Sustainable Technologies for Industry 4.0<br>
+								● Only conference in Bangladesh, which is technically sponsored by the central IEEE Computer Society<br>
+								● All the papers of our previous editions are included in the IEEE xplore digital library within short period of times<br>
+								● From the very first edition, all the accepted papers are included in the Scopus and other renowned databases<br>
+								● With each subsequent edition, involvement of international participants is increasing, e.g., 2019: 20 countries, 2020: 22 countries, and 2021: 35 countries<br>
+								● In our last edition (STI 2021), SEVEN (7) IEEE fellows have joined us as keynote speakers, and it is a common practice
+								</p>
+
+								<p style="text-align: justify;">CALL for Paper<br> STI conference provides a platform for facilitating and promoting innovative research on Industry 4.0 (or Industrial Revolution 4.0) by encompassing research areas related to smart industries, smart grids, intelligent transportation, real-time healthcare, and others that are bolstered by automation and cyber-physical systems. In addition, detailed studies and research are required to design and develop sustainable solutions for Industry 4.0 since they depend on the complex relations among humans, systems and objects, which is also covered in this conference.<br>
+
+								STI 2022 welcomes researchers, industry professionals, and practitioners to display their scientific achievements and sustainable solutions for industrial developments in the fields of computer science &amp; engineering, electrical &amp; electronic engineering, textile engineering, robotics and cyber-physical systems related to Industry 4.0. It will be hosted at the permanent campus of Green University of Bangladesh, Purbachal American City, Dhaka, Bangladesh during 17-18 December 2022.<br>
+								We are seeking original high-quality innovative research for submissions. All submissions to STI 2022 will go through a double-blind peer reviewing process. ACcepted and presented papers will be submitted to the IEEE Xplore digital library. Papers presenting original research are being sought within following tracks, but not limited to:
+							</p></div>
+							<div class="row">
+								<div class="col-lg-4">
+									<h3>Track 1: <br> <hr style="border: 1px solid white;">Intelligent Computing, Networking and Security Systems</h3> <hr style="border: 1px solid white;">
+									<p>● Augmented Reality, Virtual Reality, Bioinformatics<br>
+										● Computational Linguistic and Natural Language Processing<br>
+										●	Computer Vision, Image Processing and Pattern Recognition<br>
+										● Artificial Intelligence in Autonomous Vehicles<br>
+										● AI and  Machine Learning  in  Smart Grid Power System<br>
+										● Concurrence of 5G, Cloud, Fog and Edge Computing<br>
+										● AI in Robotics and Automation<br>
+										● Digital Twins<br>
+										● Data Mining Techniques for Business Intelligence<br>
+										● Transfer Learning in Industry Applications<br>
+										● Computer Network and Information Security<br>
+										● Big Data Analytics and Blockchain Technologies<br>
+
+										
+									</p>
+								</div>
+								<div class="col-lg-4">
+									<h3>Track 2: <br> <hr style="border: 1px solid white;">Energy, Robotics, Electronics, Sensors and Communications</h3><hr style="border: 1px solid white;">
+									<p>
+										● Smart Grid &amp; Micro Grid, Renewable Energy &amp; Sustainability<br>
+										● Nuclear Physics and Biochemical Engineering<br>
+										●	Industrial Automation, Robotic Design and Applications<br>
+										● Advanced Microcontrollers and Embedded Systems Design<br>
+										●  Green Electrical Components, Circuits, Devices and Systems<br>
+										● Control System and Power Electronics<br>
+										● VLSI Design and Graph Theory<br>
+										● Remote Sensing and Sensor Design<br>
+										● Sustainable Nanotechnology and Materials Science<br>
+										● Signal  Processing,  Telecommunications  and RF engineering<br>
+									</p>
+								</div>
+								<div class="col-lg-4">
+									<h3>Track 3: <br> <hr style="border: 1px solid white;">Textiles and Other Industry 4.0 Applications</h3><hr style="border: 1px solid white;">
+									<p>
+										● Smart Textiles and Clothes<br>
+										● Sustainable Machine Design<br>
+										● Automated Inspection and Maintenance<br>
+										●	 Green Manufacturing of Yarn &amp; Fabric and Fashion Design<br>
+										● Advanced Spinning, Dyeing, Printing and Finishing<br>
+										● Smart Home/City/Industries/Health/Agriculture<br>
+										● Autonomous and Unmanned Arial Vehicles<br>
+										● Smart Education (Education 4.0)<br>
+										● Industrial Policies Aligning SDG<br>
+										
+									</p>
+								</div>
+							</div>
+							<hr>
+
+						</div>
+					</section>
+
+					<section id="about-dhaka-ai">
+						<div class="container">
+							<div class="section-header">
+								<h2>STI Expo - 2022</h2>
+								<div class="text-center"><h3></h3></div>
+								<p style="text-align: justify;">STI Expo 2022 is a flagship event of the 3rd International Conference on Sustainable Technologies for Industry 4.0 (STI 2022). For the first time, STI Expo 2022 will create a common platform for researchers and industry practitioners to plan, discuss and achieve the goals of Industry 4.0. STI Expo 2022 is going to be organized with the purpose of amelioration of business relations, demonstration of industrial technologies and collaboration with industries for research projects. The event will also facilitate the exhibition of both new and upcoming technological products, presentation of the technological innovation targets for industrial revolution and an environment for the cooperation and development of new partnerships.</p>
+
+							</div>
+							
+
+							<div class="row justify-content-center">
+								
+								<div class="col-lg-12 text-center">
+									<a href="http://fse.green.edu.bd/sti-expo-2022/" class="about-btn scrollto " target="_blank">For More Information</a>	
+									
+								</div>
+								
+								
+							</div>
+						</div>
+					</section>
+
+
+ 
+					<section id="counter" class="section-with-bg wow fadeInUp" style="background: rgb(246, 247, 253); visibility: hidden; animation-name: none;">
+						<div class="section-header">
+					          <h2>Conference will start in</h2>
+					     </div>
+					<div class="container">
+					<div class="countdown">
+					  <div class="container days">
+					    <canvas id="days-canvas" width="200" height="200"></canvas>
+					    <svg width="200" height="200">
+					      <circle id="outer" cx="100" cy="100" r="90" fill="transparent" stroke-width="20" stroke="#0000cc" opacity="0.1"></circle>
+					    </svg>
+					    <div class="label">
+					      <span id="days-value"></span><br>
+					      <span>days</span>
+					    </div>
+					  </div>
+					  <div class="container hours">
+					    <canvas id="hours-canvas" width="200" height="200"></canvas>
+					    <svg width="200" height="200">
+					      <circle id="outer" cx="100" cy="100" r="90" fill="transparent" stroke-width="20" stroke="#FFA246" opacity="0.1"></circle>
+					    </svg>
+					    <div class="label">
+					      <span id="hours-value"></span><br>
+					      <span>hours</span>
+					    </div>
+					  </div>
+					  <div class="container minutes">
+					    <canvas id="minutes-canvas" width="200" height="200"></canvas>
+					    <svg width="200" height="200">
+					      <circle id="outer" cx="100" cy="100" r="90" fill="transparent" stroke-width="20" stroke="#E834B1" opacity="0.1"></circle>
+					    </svg>
+					    <div class="label">
+					      <span id="minutes-value"></span><br>
+					      <span>minutes</span>
+					    </div>
+					  </div>
+					  <div class="container seconds">
+					    <canvas id="seconds-canvas" width="200" height="200"></canvas>
+					    <svg width="200" height="200">
+					      <circle id="outer" cx="100" cy="100" r="90" fill="transparent" stroke-width="20" stroke="#3A55FF" opacity="0.1"></circle>
+					    </svg>
+					    <div class="label">
+					      <span id="seconds-value"></span><br>
+					      <span>seconds</span>
+					    </div>
+					  </div>
+					</div>
+					</div>
+					</section>
+
+                    
+                <section id="publication" class="wow fadeInUp" style="background: rgb(6, 10, 245); visibility: hidden; animation-name: none;">
+                        <div class="container">
+                            <div class="section-header">
+                                <h2>Publication</h2>
+                                <p style="text-align: justify; font-size: 14px; color:white">All accepted and registered full papers will be published in the <b>conference proceedings and submitted to IEEE Xplore Digital Library, and among them, selected extended papers will be submitted to the scopus indexed journals.</b> Here, It is noteworthy to mention that our past conferences are published in the international conference series by <b>Conference Publishing Services (CPS)</b> and archived in <b>IEEE Xplore digital library.</b></p>
+                            </div>
+
+                           <!--  <div class="row d-flex justify-content-center">
+                             
+                                <p style="text-align: justify; font-size: 14px; color:black">All accepted and registered full papers will be published in the <b>conference proceedings and submitted to IEEE Xplore Digital Library, and among them, selected extended papers will be submitted to the scopus indexed journals.</b> Here, It is noteworthy to mention that our past conferences are published in the international conference series by <b>Conference Publishing Services (CPS)</b> and archived in <b>IEEE Xplore digital library.</b></p>
+                            </div> -->
+                            <div class="row d-flex justify-content-center">
+                                 <div class="col-md-4">
+                                     <div class="carbon-example flex-wrapper">
+                                        <img src="https://findicons.com/files/icons/751/flash_black_edition/64/archive.png" alt="example design logo">
+                                        <div class="inner-wrapper">
+                                         <p style="text-align: left;"><a href="https://ieeexplore.ieee.org/xpl/conhome/9051611/proceeding" target="_blank"> 2019 International Conference on Sustainable Technologies for Industry 4.0 (STI)</a></p>
+                                        <p class="fine-print">ieeexplore.ieee.org</p>
+                                    </div>
+                                    </div>
+                                 </div>
+                                <div class="col-md-4">
+                                     <div class="carbon-example flex-wrapper">
+                                        <img src="https://findicons.com/files/icons/751/flash_black_edition/64/archive.png" alt="example design logo">
+                                        <div class="inner-wrapper">
+                                         <p style="text-align: left;"><a href="https://ieeexplore.ieee.org/xpl/conhome/9350314/proceeding" target="_blank"> 2020 2nd International Conference on Sustainable Technologies for Industry 4.0 (STI)</a></p>
+                                        <p class="fine-print">ieeexplore.ieee.org</p>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                     <div class="carbon-example flex-wrapper">
+                                        <img src="https://findicons.com/files/icons/751/flash_black_edition/64/archive.png" alt="example design logo">
+                                        <div class="inner-wrapper">
+                                         <p style="text-align: left;"><a href="https://ieeexplore.ieee.org/xpl/conhome/9732402/proceeding" target="_blank"> 2021 3rd International Conference on Sustainable Technologies for Industry 4.0 (STI)</a></p>
+                                        <p class="fine-print">ieeexplore.ieee.org</p>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                    </div>
+                </section>
+
+                <!--==========================
+					Speakers Section
+					============================-->
+					<section id="speakers" class="wow fadeInUp" style="visibility: hidden; animation-name: none;">
+						<div class="container">
+							<div class="section-header">
+								<h2>Keynote Speakers</h2>
+								<!-- <p>Here are some of our speakers</p> -->
+							</div>
+							<div class="row">
+								<div class="col-lg-4 col-md-6">
+									<div class="speaker">
+										<img src="img/speakers/bbc_lfieee.jpg" alt="" class="img-fluid" width="640" height="480">
+										<div class="details">
+											<h3><a href="speaker-details.html#speakers-details-1" target="”_blank”">Bidyut B. Chaudhuri</a></h3>
+											<p>IEEE Life Fellow<br>Techno India University, Kolkata</p><br>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<div class="speaker">
+										<img src="img/speakers/Frede_Blaabjerg_ieee.png" alt="" class="img-fluid" width="577" height="433">
+										<div class="details">
+											<h3><a href="speaker-details.html#speakers-details-1.0" target="”_blank”">Frede Blaabjerg</a></h3>
+											<p>IEEE Fellow<br>Aalborg University, Denmark</p><br>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<div class="speaker">
+										<img src="img/speakers/erikcambria_ieee.jpg" alt="" class="img-fluid" width="640" height="480">
+										<div class="details">
+											<h3><a href="speaker-details.html#speakers-details-2" target="”_blank”">Erik Cambria</a></h3>
+											<p>IEEE Fellow<br>Founder of SenticNet, Singapore</p><br>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<div class="speaker">
+										<img src="img/speakers/z-y-dong.jpg" alt="" class="img-fluid" width="640" height="480">
+										<div class="details">
+											<h3><a href="speaker-details.html#speakers-details-5" target="”_blank”">Z.Y. Dong</a></h3>
+											<p>IEEE Fellow<br>Nanyang Technological University, Singapore</p><br>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<div class="speaker">
+										<img src="img/speakers/cshong.jpg" alt="" class="img-fluid" width="640" height="480">
+										<div class="details">
+											<h3><a href="speaker-details.html#speakers-details-1.1" target="”_blank”">Choong Seon Hong</a></h3>
+											<p>Senior Member, IEEE<br> Kyung Hee University, South Korea</p><br>
+										</div>
+									</div>
+								</div>
+								 <div class="col-lg-4 col-md-6">
+									<div class="speaker">
+										<img src="img/speakers/Atif-Iqbal.jpg" alt="" class="img-fluid" width="640" height="480">
+										<div class="details">
+											<h3><a href="speaker-details.html#speakers-details-1.2" target="”_blank”">Atif Iqbal</a></h3>
+											<p>Fellow IET (UK), Fellow IE (India)<br>Professor, Qatar University</p><br>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<div class="speaker">
+										<img src="img/speakers/Tao_Hui.jpg" alt="" class="img-fluid" width="640" height="480">
+										<div class="details">
+											<h3><a href="speaker-details.html#speakers-details-4" target="”_blank”">Tao Hui</a></h3>
+											<p>Dean, School of Fashion<br> Wuhan Textile University</p><br>
+										</div>
+									</div>
+								</div>
+								
+								
+								
+								
+								<div class="col-lg-4 col-md-6">
+									<div class="speaker">
+										<img src="img/speakers/Nowshad-Amin.jpg" alt="" class="img-fluid" width="640" height="480">
+										<div class="details">
+											<h3><a href="speaker-details.html#speakers-details-6" target="”_blank”">Nowshad Amin</a></h3>
+											<p>Head of the Solar Energy Research Unit<br>Universiti Tenaga Nasional, Malaysia</p><br>
+										</div>
+									</div>
+								</div>
+								<!--<div class="col-lg-4 col-md-6">
+									<div class="speaker">
+										<img src="img/speakers/tapan-saha.jpg" alt="" class="img-fluid">
+										<div class="details">
+											<h3><a href="speaker-details.html#speakers-details-6.2" target=”_blank”>Tapan Saha</a></h3>
+											<p>IEEE Fellow<br>University of Queensland</p><br>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<div class="speaker">
+										<img src="img/speakers/chanchal-roy.jpg" alt="" class="img-fluid">
+										<div class="details">
+											<h3><a href="speaker-details.html#speakers-details-7" target=”_blank”>Chanchal Roy</a></h3>
+											<p>Professor<br>University of Saskatchewan</p><br>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<div class="speaker">
+										<img src="img/speakers/Dr-Zhi-Chen.jpg" alt="" class="img-fluid">
+										<div class="details">
+											<h3><a href="speaker-details.html#speakers-details-9" target=”_blank”>Dr. Zhi Chen</a></h3>
+											<p>Wuhan Textile University</p><br><br>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<div class="speaker">
+										<img src="img/speakers/dr-ashir.jpg" alt="" class="img-fluid">
+										<div class="details">
+											<h3><a href="speaker-details.html#speakers-details-10" target=”_blank”>Dr.-Ing. Moniruddoza Ashir</a></h3>
+											<p>Technical University of Dresden, Germany</p><br>
+										</div>
+									</div>
+								</div>
+
+								 <div class="col-lg-4 col-md-6">
+									<div class="speaker">
+										<img src="img/speakers/Yasir-Azman.jpg" alt="" class="img-fluid">
+										<div class="details">
+											<h3><a href="speaker-details.html#speakers-details-12" target=”_blank”>Mr. Yasir Azman</a></h3>
+											<p>Chief Executive Officer<br>Grameenphone</p><br>
+										</div>
+									</div>
+								</div> -->
+							</div> 
+							</div>
+							<div class="container mt-5">
+								<div class="section-header">
+								
+								
+							</div>
+							<h2 style="text-align: center;">Workshop Speaker</h2>
+							<div class="row d-flex justify-content-center">
+                            	
+                                 <div class="col-lg-4 col-md-6">
+									<div class="speaker">
+										<img src="img/speakers/dr-ali-moni.jpg" alt="" class="img-fluid" width="640" height="480">
+										<div class="details">
+											<h3><a href="speaker-details.html#speakers-details-7" target="”_blank”">Mohammad Ali Moni </a></h3>
+											<p>Senior Research Lecturer of AI &amp; Data Science<br> University of Queensland, Australia</p><br>
+										</div>
+									</div>
+								</div>
+                            
+                     </div>
+                     </div>
+						
+					</section>
+
+<!--==========================
+					Committees Section
+============================-->
+<section id="committees" class="wow fadeInUp" style="visibility: hidden; animation-name: none;">
+	<div class="container">
+		<div class="section-header">
+			<h2>Committees</h2>
+			<p></p>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-md-3">
+				<div class="committee">
+					<img src="img/ndustry-4.0.jpg" alt="" class="img-fluid" width="1280" height="768">
+					<div class="details">
+						<h3><a>Chief Patron</a></h3>
+						<hr>
+						<p class="ml-4">Mohammed Abdullah Al-Mamun, Chairman, BoT, Green University of Bangladesh<br><br></p>
+						<div class="social">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-3">
+				<div class="committee">
+					<img src="img/ndustry-4.0.jpg" alt="Speaker 2" class="img-fluid" width="1280" height="768">
+					<div class="details">
+						<h3><a>Patron</a></h3>
+						<hr>
+						<p class="ml-4">Md. Golam Samdani Fakir, Vice Chancellor, Green University of Bangladesh<br><br><br></p>
+						<div class="social">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-3">
+				<div class="committee">
+					<img src="img/ndustry-4.0.jpg" alt="Speaker 3" class="img-fluid" width="1280" height="768">
+					<div class="details">
+						<h3><a>General Chair</a></h3>
+						<hr>
+						<p class="ml-4">Md. Abdur Razzaque, Professor, University of Dhaka<br><br><br></p>
+						<div class="social">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-3">
+				<div class="committee">
+					<img src="img/ndustry-4.0.jpg" alt="Speaker 3" class="img-fluid" width="1280" height="768">
+					<div class="details">
+						<h3><a>Organizing Chair</a></h3>
+						<hr>
+						<p class="ml-4">Md. Saiful Azad, Dean (Acting), FSE, Green University of Bangladesh<br><br><br></p>
+						<div class="social">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-3">
+				<div class="committee">
+					<img src="img/ndustry-4.0.jpg" alt="Speaker 4" class="img-fluid" width="1280" height="768">
+					<div class="details">
+						<h3><a>General Co-Chair</a></h3>
+						<hr>
+						<p class="ml-4">Nitai Chandra Sutradhar, Green University of Bangladesh<br>
+						Molla Shahadat Hossain Lipu, Green University of Bangladesh</p>
+						<div class="social">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-3">
+				<div class="committee">
+					<img src="img/ndustry-4.0.jpg" alt="Speaker 5" class="img-fluid" width="1280" height="768">
+					<div class="details">
+						<h3><a>Advisory Panel</a></h3>
+						<hr>
+						<p class="scrollable ml-4">Muhammad Harunur Rashid<br> IEEE Fellow, USA <br>
+				Sajal Kumar Das<br>IEEE Fellow, USA<br>
+				Alamgir Hossain<br>Teesside University, UK<br>
+				Deng Zhongmi<br>China<br>
+				Rahamatullah Khondoker<br>Germany<br>
+				Md. Quamrul Ahsan<br>GUB<br>
+				Mohammad Kaykobad<br>BRAC<br>
+				Md. Monirul Islam<br>GUB
+			</p>
+						<div class="social">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-3">
+				<div class="committee">
+					<img src="img/ndustry-4.0.jpg" alt="Speaker 6" class="img-fluid" width="1280" height="768">
+					<div class="details">
+						<h3><a>TPC</a></h3>
+						<hr>
+						<p class="scrollable ml-4">
+							<span class="badge badge-dark">TPC Chair</span><br>
+					Md. Zahidul Islam<br>IU, Kushtia<br>
+						<span class="badge badge-dark">TPC Co-Chairs</span><br>
+					Rahamatullah Khondoker, Germany<br>
+							Mohammad Ali Moni, Australia<br>
+							Rishad Shafik, UK<br>
+							Xiao Chen, Denmark<br>
+							Jagannath Biswas, GUB<br>
+							Ratil H. Ashique, GUB<br>
+							Muhammad Aminur Rahaman, GUB
+				</p>
+						<div class="social">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-md-3">
+				<div class="committee">
+					<img src="img/ndustry-4.0.jpg" alt="Speaker 6" class="img-fluid" width="1280" height="768">
+					<div class="details">
+						<h3><a href="#">Award Committee</a></h3>
+						<hr>
+						<p class="scrollable ml-4">
+							<span class="badge badge-dark">Chair</span><br>
+							Md. Quamrul Ahsan, GUB<br>
+							<span class="badge badge-dark">Members</span><br>
+							Md. Monirul Islam, GUB<br>
+							Md. Zahidul Islam, IU
+						</p>
+						<div class="social">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-3">
+				<div class="committee">
+					<img src="img/ndustry-4.0.jpg" alt="Speaker 6" class="img-fluid" width="1280" height="768">
+					<div class="details">
+						<h3><a href="#">Fin. &amp; Spon. Comm</a></h3>
+						<hr>
+						<p class="scrollable ml-4">
+							<span class="badge badge-dark">Chair</span><br>
+							Md. Fayzur Rahman, GUB<br>
+							<span class="badge badge-dark">Members</span><br>
+							 Md. Ahsanul Alam, GUB<br>
+							 Solaiman Mia, GUB <br>
+							 A. A. Md. Monzur-Ul-Akhir, GUB<br> 
+							Jahidul Islam, GUB<br>
+							Md. Mahbubur Rahman, GUB   
+
+						</p>
+						<div class="social">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-md-3">
+				<div class="committee">
+					<img src="img/ndustry-4.0.jpg" alt="Speaker 6" class="img-fluid" width="1280" height="768">
+					<div class="details">
+						
+						<h3><a>Food and Refreshment </a></h3>
+						<hr>
+						<p class="scrollable ml-4">
+							<span class="badge badge-dark">Chair</span><br>
+							Md. Shariful Alam, GUB <br>
+							<span class="badge badge-dark">Co-Chair</span><br>
+							Tamim Al Mahmud, GUB<br>
+							<span class="badge badge-dark">Members</span><br>
+							Shamima Islam, GUB<br>
+							Md. Monirul Islam, GUB<br>
+							Subrata Pal, GUB<br>
+							Md. Kaikobad, GUB<br>
+							Md. Abul Khair, GUB<br>
+							Md. Kamrozzaman Kiron, GUB<br>
+							Montaser Abdul Quader, GUB<br>
+							Md. Mamunur Rahman, GUB
+
+
+						</p>
+						<div class="social">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-md-3">
+				<div class="committee">
+					<img src="img/ndustry-4.0.jpg" alt="Speaker 6" class="img-fluid" width="1280" height="768">
+					<div class="details">
+						<h3><a href="#">Venue &amp; Event Manag. Comm.</a></h3>
+						<hr>
+						<p class="scrollable ml-4">
+							<span class="badge badge-dark">Chair</span><br>
+							Nitai Chandra Sutradhar, GUB<br>
+							<span class="badge badge-dark">Co-Chair</span><br>
+							Md. Saiful Islam, Registrar (Acting), GUB <br>
+							<span class="badge badge-dark">Members</span><br>
+							Dr. Md. Faiz Al Faisal, GUB <br>
+						Mohammed Nazmus Shakib, GUB <br>
+						 Md. Mostafizur Rahman Biswas, GUB<br>
+							 Shahriar Mahmud Kabir, GUB<br>
+							Mahmudur Rahman, GUB<br>
+							Md. Mahbubur Rahman (Shahin), GUB 
+
+
+
+
+						</p>
+						<div class="social">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-4 col-md-3">
+				<div class="committee">
+					<img src="img/ndustry-4.0.jpg" alt="Speaker 6" class="img-fluid" width="1280" height="768">
+					<div class="details">
+						<h3><a href="#">Website &amp; Reg. Comm.</a></h3>
+						<hr>
+						<p class="scrollable ml-4">
+							<span class="badge badge-dark">Chair</span><br>
+							Md. Mostafijur Rahman<br>
+							<span class="badge badge-dark">Co-Chair</span><br>
+							Md. Mahmudul Islam Shawon, GUB<br>
+							<span class="badge badge-dark">Members</span><br>
+								 Umme Ruman, GUB<br>
+								 Md. Hasan Maruf, GUB<br>
+								Sumaiya Kabir, GUB<br>
+								M. M. Naushad Ali, GUB<br>
+							D.M. Saaduzzaman, GUB<br>
+							 Amit Mandal, GUB <br>
+								Imamul Islam, GUB<br>
+							Rushad Bin Sayeed, GUB
+						</p>
+						<div class="social">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-4 col-md-3">
+				<div class="committee">
+					<img src="img/ndustry-4.0.jpg" alt="Speaker 6" class="img-fluid" width="1280" height="768">
+					<div class="details">
+						<h3><a href="#">Accomm. &amp; Local Transport</a></h3>
+						<hr>
+						<p class="scrollable ml-4">
+							<span class="badge badge-dark">Chair</span><br>
+							Syed Ahsanul Kabir, GUB<br>
+							<span class="badge badge-dark">Members</span><br>
+
+							Md. Solaiman Mia, GUB<br>
+						 Md. Mobinul Haque, GUB<br>
+						 Md. Mutasim Uddin, GUB<br>
+						Mahmudur Rahman, GUB<br>
+							Md. Parvez Khosru, GUB
+
+
+						</p>
+						<div class="social">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-3">
+				<div class="committee">
+					<img src="img/ndustry-4.0.jpg" alt="Speaker 6" class="img-fluid" width="1280" height="768">
+					<div class="details">
+						
+						<h3><a>Publicity Committee</a></h3>
+						<hr>
+						<p class="scrollable ml-4">
+							
+
+							<span class="badge badge-dark">Members</span><br>
+							M. Shamim Kaiser, IIT<br>
+							ASM Shihavuddin, IUB<br>
+							Md. Faiz Al Faisal, GUB<br>
+							Mohammed Nazmus Shakib, GUB<br>
+							Nazib Abdun Nasir, GUB<br>
+							Md. Mostafizur Rahman Biswas, GUB<br>
+							Mufti Mahmud, NTU<br>
+							Md. Redowan Mahmud, RMIT
+
+
+						</p>
+						<div class="social">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-4 col-md-3">
+				<div class="committee">
+					<img src="img/ndustry-4.0.jpg" alt="Speaker 6" class="img-fluid" width="1280" height="768">
+					<div class="details">
+						
+						<h3><a>Publication Committee</a></h3>
+						<hr>
+						<p class="scrollable ml-4">
+							<span class="badge badge-dark">Chair</span><br>
+
+							Muhammad Aminur, GUB <br>
+
+							<span class="badge badge-dark">Members</span><br>
+							A. A. Md. Monzur-Ul-Akhir, GUB<br>
+							Suraiya Ireen, GUB<br>
+							Rokeya Khatun, GUB<br>
+							Palash Roy, GUB<br>
+							Md. Atikuzzaman, GUB<br>
+							Md. Parvez Hossain, GUB
+
+
+						</p>
+						<div class="social">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-md-3">
+				<div class="committee">
+					<img src="img/ndustry-4.0.jpg" alt="Speaker 6" class="img-fluid" width="1280" height="768">
+					<div class="details">
+						
+						<h3><a>Industrial Exhibition Committee</a></h3>
+						<hr>
+						<p class="scrollable ml-4">
+							<span class="badge badge-dark">Chair</span><br>
+							Molla Shahadat Hossain Lipu, GUB <br>
+							<span class="badge badge-dark">Members</span><br>
+							Ahmed Al Mansur, GUB<br>
+							Md. Asif Ul Haq, GUB<br>
+						 	Sadia Afroze, GUB<br>
+							Ahmed Iqbal Pritom, GUB<br>
+							Sourav Barua, GUB<br>
+							Md. Mazharul Helal, GUB
+							
+
+
+						</p>
+						<div class="social">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
+			
+
+		</div>
+
+
+
+</div>
+</section>
+
+<section id="committees" class="wow fadeInUp" style="visibility: hidden; animation-name: none;">
+						<div class="section-header">
+							<h2><strong> TPC Members</strong></h2>
+							</div>
+				<div class="container">
+							<div class="row">
+
+
+								<table class="table table-sm table-striped mytable">
+									
+
+
+
+						 			<tbody><tr>
+						                <td> <span style="font-weight:bold">Sander Ali</span><br> University of Sindh, Pakistan</td>
+						                <td><span style="font-weight:bold">Aslam Jarwar</span><br>University College London, UK</td>
+						                <td><span style="font-weight:bold">Chan Seng</span><br> Universiti Malaysia Perlis, Malaysia</td>
+						            </tr>
+
+									<tr>
+						                <td> <span style="font-weight:bold">Luis Villalba</span><br> Complutense University of Madrid, Spain </td>
+						                <td><span style="font-weight:bold">Amir Rahmani</span><br>National Yunlin University of Science and Technology, Taiwan</td>
+						                <td><span style="font-weight:bold">Lee Seng</span><br>Universiti Malaysia Perlis, Malaysia</td>
+						            </tr>
+
+
+						            <tr>
+						                <td> <span style="font-weight:bold">Muhammad Reza Kahar Aziz</span><br> Institut Teknologi Sumatera, Indonesia</td>
+						                <td><span style="font-weight:bold">Yukinori Sato</span><br>Toyohashi University of Technology, Japan</td>
+						                <td><span style="font-weight:bold">Yasushi Inoguchi</span><br> Japan Advanced Institute of Science and Technology, Japan</td>
+						            </tr>
+						            
+
+						 			<tr>
+						                <td> <span style="font-weight:bold">Ahsan Raja Chowdhury</span><br> Federation University, Australia </td>
+						                <td><span style="font-weight:bold">A. M. Jehad Sarkar	</span><br>Route1 Software Ltd, Canada </td>
+						                <td><span style="font-weight:bold">Abdul Rauf Bhatti		</span><br>Government University College, Pakistan </td>
+						            </tr>
+									<tr>
+						                <td><span style="font-weight:bold"> Ahmed Al Mansur	</span><br>	Green University of Bangladesh, Bangladesh </td>
+						                <td> <span style="font-weight:bold"> Ahmed Jubaer	</span><br>	Swinburne University of Technology, Malaysia </td>
+						                <td><span style="font-weight:bold"> Ahmedul Kabir	</span><br>	University of Dhaka, Bangladesh </td>
+						            </tr>
+						             <tr>
+						             	<td><span style="font-weight:bold">Aminul Islam	</span><br>	Technical University of Denmark, Denmark </td>
+										 <td><span style="font-weight:bold">A. B. M. Alim Al Islam </span><br>Bangladesh University of Engineering and Technology, Bangladesh  </td>
+						                
+						                <td><span style="font-weight:bold">You Yeow</span><br>	University Technology Malaysia, Malaysia </td>
+						            </tr>
+
+
+						            <tr>
+						            	<td><span style="font-weight:bold">Asma Enayet	 </span><br> University of Southern California, USA </td>
+						                <td><span style="font-weight:bold">Ashik Ahmed</span><br>Islamic University of Technology, Bangladesh </td>
+						                <td><span style="font-weight:bold">	</span></td>
+						                
+						            </tr>
+
+						            <tr>
+						            	<td><span style="font-weight:bold">Faisal Tariq	</span><br>	University of Glasgow, UK </td>
+						                <td><span style="font-weight:bold">Bikash Chandra Singh	</span><br>	Islamic University, Bangladesh </td>
+						                
+						                <td><span style="font-weight:bold">M. Ali Akber Dewan	</span><br>	Athabasca University, Canada </td>
+						                
+						            </tr>
+
+						            <tr>
+						                <td><span style="font-weight:bold">Fazlul Hasan Siddiqui	</span><br>	Dhaka University of Engineering &amp; Technology, Bangladesh </td>
+						                <td><span style="font-weight:bold">Fernaz Nur	</span><br>	Notre Dame University, USA </td>
+						                <td><span style="font-weight:bold">Golam Sarowar	</span><br>	Islamic University of Technology, Bangladesh </td>
+						            </tr>
+
+						            <tr>
+						                <td><span style="font-weight:bold">Guangbo Hao		</span><br>   University College Cork, Ireland </td>
+						                <td><span style="font-weight:bold">Khondokar Fida Hasan	</span><br>	Queensland University of Technology, Australia </td>
+						                <td><span style="font-weight:bold">Khondokar Habibul Kabir	</span><br>	Islamic University of Technology, Bangladesh </td>
+						            </tr>
+
+						            <tr>
+
+						                <td><span style="font-weight:bold">Lafifa Jamal	</span><br>	University of Dhaka, Bangladesh </td>
+						                <td><span style="font-weight:bold">M. Abdul Masud	</span><br>	Patuakhali Science and Technology University, Bangladesh </td>
+						                
+						                <td><span style="font-weight:bold">Md. Masbaul Alam Polash	</span><br>The University of Sydney, Australia</td>
+
+						                
+						            </tr>
+
+						            <tr>
+						                <td><span style="font-weight:bold">M. Julius Hossain	</span><br>	European Molecular Biology Laboratory, Germany </td>
+						                <td><span style="font-weight:bold">M. M. Mahbubul Syeed	</span><br>	American International University Bangladesh </td>
+						                <td><span style="font-weight:bold">Maheen Islam	</span><br>	East West University, Bangladesh </td>
+						            </tr>
+
+						            <tr>
+						                <td><span style="font-weight:bold">Md Nazmus Sakib	</span><br>	Davidson College, USA </td>
+						                <td><span style="font-weight:bold">Md. Abdullah-Al Wadud	</span><br>	King Saud University, KSA </td>
+						                <td><span style="font-weight:bold">Md. Abdur Razzaque	</span><br>	Green University of Bangladesh, Bangladesh </td>
+						            </tr>
+
+						            <tr>
+						                <td><span style="font-weight:bold">Md. Abu Layek	</span><br>	Jagannath University, Bangladesh </td>
+						                <td><span style="font-weight:bold">Md. Aktaruzzaman	</span><br>	Islamic University, Bangladesh </td>
+						                <td><span style="font-weight:bold">Md. Ashraful Alam	</span><br>	BRAC University, Bangladesh </td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Md. Ashraful Hoque	</span><br>	Islamic University of Technology, Bangladesh </td>
+						                <td><span style="font-weight:bold">Md. Atiqur Rahman Ahad	</span><br>	Osaka University, Japan </td>
+						                <td><span style="font-weight:bold">Md. Azam Hossain	</span><br>	Kyundong University, South Korea </td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Md. Fayzur Rahman	</span><br>	Green University of Bangladesh </td>
+						                <td><span style="font-weight:bold">Md. Forhad Rabbi	</span><br>	Shahjalal University of Science and Technology, Bangladesh </td>
+						                <td><span style="font-weight:bold">Md. Golam Rabiul Alam	</span><br>	BRAC University, Bangladesh </td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Md. Hasanul Kabir	</span><br>	Islamic University of Technology, Bangladesh </td>
+						                <td><span style="font-weight:bold">Md. Kafiul Islam	</span><br>	Independent University, Bangladesh </td>
+						                <td><span style="font-weight:bold">Md. Kamrul Hasan	</span><br>	Islamic University of Technology, Bangladesh </td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Md. Mahfuzur Rahman	</span><br>	North South University, Bangladesh </td>
+						                <td><span style="font-weight:bold">Md. Mainul Islam Mamun	</span><br>	University of Missouri-Kansas City, USA </td>
+						                <td><span style="font-weight:bold">Md. Majharul Haque	</span><br>	Bangladesh Bank, Bangladesh </td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Md. Manowarul Islam	</span><br> Jagannath University, Bangladesh</td>
+						                
+						                <td><span style="font-weight:bold">Md. Mokammel Haque	</span><br>Chittagong University of Engineering and Technology, Bangladesh</td>
+
+						                <td><span style="font-weight:bold">Dipankar Das	</span><br>	Rajshahi University, Bangladesh </td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Md. Monirul Islam	</span><br>	Bangladesh University of Engineering and Technology, Bangladesh</td>
+						                <td><span style="font-weight:bold">Md. Mosaddek Khan	</span><br>	University of Dhaka, Bangladesh</td>
+						                <td><span style="font-weight:bold">Md. Obaidur Rahman	</span><br>	Dhaka University of Engineering and Technology, Bangladesh</td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Md. Quamrul Ahsan	</span><br>	Green University of Bangladesh, Bangladesh</td>
+						                <td><span style="font-weight:bold">Md. Redowan Mahmud	</span><br>	The University of Melbourne, Australia</td>
+						                <td><span style="font-weight:bold">Md. Robiul Hoque	</span><br>	Islamic University, Bangladesh</td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Md. Ruhul Amin	</span><br>	Islamic University of Technology, Bangladesh</td>
+						                <td><span style="font-weight:bold">Md. Sadek Ali	</span><br>	Islamic University, Bangladesh</td>
+						                <td><span style="font-weight:bold"></span></td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Md. Shariful Islam	</span><br>	University of Dhaka, Bangladesh</td>
+						                <td><span style="font-weight:bold">Md. Sipon Miah	</span><br>	Islamic University, Bangladesh</td>
+						                <td><span style="font-weight:bold">Md. Zahidul Islam	</span><br>	Green University of Bangladesh</td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Mohammad Abu Yousuf	</span><br>	Jahangirnagar University, Bangladesh</td>
+						                <td><span style="font-weight:bold">Mohammad Kamrul Hasan	</span><br>	Universiti Kebangsaan Malaysia, Malaysia</td>
+						                <td><span style="font-weight:bold">Mohammad Rakibul Islam	</span><br>	Islamic University of Technology, Bangladesh</td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Mohammad Samiullah	</span><br>	University of Dhaka, Bangladesh</td>
+						                <td><span style="font-weight:bold">Mohammad Sanaullah Chowdhury	</span><br>  University of Chittagong, Bangladesh</td>
+						                <td><span style="font-weight:bold">Mohammad Shahriar Rahman	</span><br>	University of Liberal Arts, Bangladesh</td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Mohammad Shorif Uddin	</span><br>	Jahangirnagar University, Bangladesh</td>
+						                <td><span style="font-weight:bold">Mohammad Shoyaib	</span><br>	University of Dhaka, Bangladesh</td>
+						                <td><span style="font-weight:bold">Mohammed Moshiul Hoque	</span><br>	Chittagong University of Engineering &amp; Technology, Bangladesh</td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Mohammed Shafiul Alam Khan	</span><br>	Royal Holloway University of London</td>
+						                <td><span style="font-weight:bold">Moinul Islam Zaber	</span><br>	University of Dhaka. Bangladesh</td>
+						                <td><span style="font-weight:bold">Muhammad Aminur Rahaman	</span><br>	Green University of Bangladesh, Bangladesh</td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Muhammad Golam Kibria	</span><br>	University of Liberal Arts Bangladesh, Bangladesh</td>
+						                <td><span style="font-weight:bold">Muhammad Mostafa Monowar	</span><br>	King Abdul Aziz University, KSA</td>
+						                <td><span style="font-weight:bold">Nazma Tara	</span><br>	National University, Bangladesh</td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Nazmul Arefin	</span><br>	American International University of Bangladesh, Bangladesh</td>
+						                <td><span style="font-weight:bold">Nusrat Mehajabin	</span><br>	University of British Columbia, Canada</td>
+						                <td><span style="font-weight:bold">Omar Farrok	</span><br>	Ahsanullah University of Science and Technology, Bangladesh</td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Poompat Saengudomlert </span><br>	Bangkok University, Thailand</td>
+						                <td><span style="font-weight:bold">Ratil H Ashique	</span><br>	Green University of Bangladesh, Bangladesh</td>
+						                <td><span style="font-weight:bold">S. M. Abdur Razzak	</span><br>	Rajshahi University of Engineering &amp; Technology, Bangladesh</td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">S. M. Riazul Islam	</span><br>	Sejong University, South Korea</td>
+						                <td><span style="font-weight:bold">Saad Bin Arif	</span><br>	Aligarh Muslim University, India</td>
+						                <td><span style="font-weight:bold">Saif Huq	</span><br>	Institute of Technology, Sligo, Ireland</td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Sajal Kumar Das	</span><br>	Rajshahi University of Engineering &amp; Technology, Bangladesh</td>
+						                <td><span style="font-weight:bold">Sajib Mistry	</span><br>	The University of Sydney, Australia</td>
+						                <td><span style="font-weight:bold">Salimur Choudhury	</span><br>	Algoma University, Canada</td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Sarker Tanveer Ahmed Rumi	</span><br>	University of Dhaka, Bangladesh</td>
+						                <td><span style="font-weight:bold">Selina Sharmin	</span><br>	Jagannath University, Bangladesh</td>
+						                <td><span style="font-weight:bold">Shafaeat Hossain	</span><br>	Southern Connecticut State University, USA</td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Shaikh Muhammad Allayear	</span><br>	Daffodil International University, Bangladesh</td>
+						                <td><span style="font-weight:bold">Shamim Al Mamun	</span><br>	Jahangirnagar University, Bangladesh</td>
+						                <td><span style="font-weight:bold">Shayla Islam	</span><br>	UCSI University, Malaysia</td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Sheik Mohammad Mostakim Fattah	</span><br>	The University of Sydney, Australia</td>
+						                <td><span style="font-weight:bold">Sifat Momen</span><br>North South University, Bangladesh</td>
+						                <td><span style="font-weight:bold">Sujan Sarker	</span><br>	University of Dhaka, Bangladesh</td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Tamal Adhikary	</span><br>	University of Waterloo, Canada</td>
+						                <td><span style="font-weight:bold">Taskeed Jabid	</span><br>	East West University, Bangladesh</td>
+						                <td><span style="font-weight:bold">Taskin Jamal	</span><br>	Ahsanullah University of Science and Technology, Bangladesh</td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">Tushar Kanti Saha	</span><br>	Jatiya Kabi Kazi Nazrul Islam University, Bangladesh</td>
+						                <td><span style="font-weight:bold">Uzzal K. Acharjee	</span><br>	Jagannath University, Bangladesh</td>
+						                <td><span style="font-weight:bold">Zia Ush Shamszaman	</span><br>	University College Cork, Ireland</td>
+						            </tr>
+						            <tr>
+						                <td><span style="font-weight:bold">T. M. Shahriar Sazzad	</span><br>	Military Institute of Science and Technology, Bangladesh</td>
+						                <td><span style="font-weight:bold">Tahrima Rahman	</span><br>	The University of Texas at Dallas, USA</td>
+						                <td><span style="font-weight:bold">Anupam Kumar Bairagi	</span><br>	Khulna University </td>
+						            </tr>
+						            <tr>
+						                 <td><span style="font-weight:bold">Asaduzzaman Asad	</span><br>	Chittagong University of Engineering and Technology, Bangladesh </td>
+						                <td><span style="font-weight:bold"> Md. Motaharul Islam</span><br>United International University</td>
+						                <td><span style="font-weight:bold">Amit Kumar Das	</span><br>	East West University, Bangladesh </td>
+						               
+						            </tr>
+								</tbody></table>
+
+
+
+
+
+							</div>
+							</div>
+
+					
+					</section>
+					<!--==========================
+					Call for Paper Section
+					============================-->
+					<section id="cft" class="section-with-bg wow fadeInUp" style="visibility: hidden; animation-name: none;">
+						<div class="container-fluid">
+							<div class="section-header">
+								<h2>Call for Paper</h2>
+								<p></p>
+							</div>
+						</div>
+						<div class="container-fluid venue-gallery-container">
+							<div class="row no-gutters justify-content-center">										
+								<div class="col-md-8">
+									<div class="form-group ">
+										<img style="width: 80%;" src="Call-for-Papers.jpg" class="rounded mx-auto d-block" alt="STI-2022 CFP" width="720" height="989">		
+		    						</div>
+									<p align="center">
+										<a class="btn btn-primary btn-xl" href="Call-for-Papers.jpg" target="_blank">Download
+										</a>
+									</p>
+								</div>
+								
+							</div>
+						</div>
+					</section>
+					<!--==========================
+					Imortant Dates Section
+					============================-->
+					
+				<section id="important_dates" class="wow fadeInUp" style="visibility: hidden; animation-name: none;">
+						<div class="container">
+							<div class="section-header">
+								<h2>Important Dates</h2>
+							</div>
+							<dl class="row">
+								
+								<div class="col-md-2 card">
+									 <div class=" text-center">
+									  <div class="card-body">
+									    <h5 class="card-title" style="font-weight: bold">Full Paper Submission</h5>
+									    <del><p class="card-text" style="font-weight: bold;  font-size: 20px;background: #dceaff;"> 31  <br> <span class="eventdate"><del> August</del></span><br> 2022</p></del>
+<!-- 									    <a href="#" class="btn btn-primary">Go somewhere</a> -->
+									  
+										<p class="card-text" style="font-weight: bold;  font-size: 20px;background: #dceaff;"> 15  <br> <span class="eventdate"> september</span><br> 2022</p>
+									  </div>
+									</div>
+								</div>	
+								<div class="col-md-2 card">
+									 <div class=" text-center">
+									  <div class="card-body">
+									    <h5 class="card-title" style="font-weight: bold">Submission of Special Session, Tutorial and Workshop Proposal</h5>
+									    <p class="card-text" style="font-weight: bold;  font-size: 20px;background: #dceaff;">16 <br> <span class="eventdate">September</span> <br> 2022</p>
+<!-- 									    <a href="#" class="btn btn-primary">Go somewhere</a> -->
+									  </div>
+									</div>
+								</div>						
+
+								<div class="col-md-2 card">
+									 <div class=" text-center">
+									  <div class="card-body">
+									    <h5 class="card-title" style="font-weight: bold">Student Conference</h5>
+									    <p class="card-text" style="font-weight: bold;  font-size: 20px;background: #dceaff;">16 <br><span class="eventdate"> September</span> <br> 2022</p>
+<!-- 									    <a href="#" class="btn btn-primary">Go somewhere</a> -->
+									  </div>
+									</div>
+								</div>	
+
+								<div class="col-md-2 card">
+									 <div class=" text-center">
+									  <div class="card-body">
+									    <h5 class="card-title" style="font-weight: bold">Acceptance Notification</h5>
+									   <del> <p class="card-text" style="font-weight: bold;  font-size: 20px;background: #dceaff;"> 30 <br><span class="eventdate">September</span><br> 2022</p></del>
+<!-- 									    <a href="#" class="btn btn-primary">Go somewhere</a> -->
+									  <p class="card-text" style="font-weight: bold;  font-size: 20px;background: #dceaff;"> 15 <br><span class="eventdate">October</span><br> 2022</p>
+									  </div>
+									</div>
+								</div>
+
+								<div class="col-md-2 card">
+									 <div class=" text-center">
+									  <div class="card-body">
+									    <h5 class="card-title" style="font-weight: bold">Final Camera-Ready Paper Submission</h5>
+									    <del><p class="card-text" style="font-weight: bold;  font-size: 20px;background: #dceaff;">30<br><span class="eventdate"> October</span> <br> 2022</p></del>
+<!-- 									    <a href="#" class="btn btn-primary">Go somewhere</a> -->
+									  <p class="card-text" style="font-weight: bold;  font-size: 20px;background: #dceaff;">07<br><span class="eventdate"> November</span> <br> 2022</p>
+									  </div>
+									</div>
+								</div>	
+
+								<div class="col-md-2 card">
+									 <div class=" text-center">
+									  <div class="card-body">
+									    <h5 class="card-title" style="font-weight: bold">Conference Date</h5>
+									    <p class="card-text" style="font-weight: bold;  font-size: 20px;background: #dceaff;">17-18 <br>  <span class="eventdate">December</span><br> 2022</p>
+<!-- 									    <a href="#" class="btn btn-primary">Go somewhere</a> -->
+									  </div>
+									</div>
+								</div>	
+							
+					</dl></div>
+				</section>
+				<!--==========================
+				Schedule Section
+				============================-->
+				<section id="schedule" class="section-with-bg">
+					<div class="container wow fadeInUp" style="visibility: hidden; animation-name: none;">
+						<div class="section-header">
+							<h2>Schedule</h2>
+							<!-- <p>Here is our event schedule</p> -->
+						</div>
+
+
+						<div class="container">
+									<div class="section-header">
+										<h3 align="center">Event Schedule</h3>
+										<p></p>
+									</div>
+								</div>
+
+
+						<div class="container-fluid venue-gallery-container">
+							<div class="row no-gutters justify-content-center">										
+								<div class="col-md-8">
+									<div class="embed-responsive embed-responsive-4by3 mb-4">
+										<iframe class="embed-responsive-item" src="STI-2022-ScheduleV1.0.pdf"></iframe>
+									</div>
+									<p align="center">
+										<a class="btn btn-primary btn-xl" href="STI-2022-ScheduleV1.0.pdf" target="_blank">Download Event Schedule
+										</a>
+									</p>
+								</div>
+								
+							</div>
+						</div>
+
+
+
+
+
+						
+							<div class="row no-gutters">
+
+							<!-- Gallery Section
+							============================-->
+						<!-- 	<section id="gallery" class="wow fadeInUp">
+									<div class="container">
+											<div class="section-header">
+													<h3 align="center">Keynote and Technical Sessions</h3>
+													<p></p>
+											</div>
+									</div>
+									<div class="owl-carousel gallery-carousel">
+											<a href="img/session/KS_001.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/session/KS_001.jpg" alt=""></a>
+											<a href="img/session/KS_002.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/session/KS_002.jpg" alt=""></a>
+											<a href="img/session/TS_001.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/session/TS_001.jpg" alt=""></a>
+											<a href="img/session/TS_002.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/session/TS_002.jpg" alt=""></a>
+											<a href="img/session/TS_003.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/session/TS_003.jpg" alt=""></a>
+											<a href="img/session/TS_004.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/session/TS_004.jpg" alt=""></a>
+											<a href="img/session/TS_005.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/session/TS_005.jpg" alt=""></a>
+											<a href="img/session/TS_006.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/session/TS_006.jpg" alt=""></a>
+											
+									</div>
+									<div class="row justify-content-md-center">
+										
+										<div class="col-md-3">
+										<div class="form-group ">
+										<p align="center">
+										<a class="btn btn-success btn-xl" href="schedule/STI-2022-Program-Schedule-for-keynotes.pdf" target="_blank">Download Keynote Sessions
+										</a>
+										</p>		
+		    							</div>
+										</div>
+										<div class="col-md-3">
+										<div class="form-group ">
+										<p align="center">
+										<a class="btn btn-warning btn-xl" href="schedule/STI-2022-Program-Schedule-for-Technical-Sessions.pdf" target="_blank">Download Technical Sessions</a>
+										</p>		
+		    							</div>
+									
+										</div>
+
+									</div>
+							</section> -->
+						</div>
+								<div class="container">
+									<div class="section-header">
+										<h3 align="center">Transportation Schedule</h3>
+										<p></p>
+									</div>
+								</div>
+
+
+
+								<div class="container py-7">
+  
+  
+        <!-- Days -->
+        <div class="row">
+          <div class="col-lg-2 mb-3" id="Friday, Nov 13th">
+        
+          </div>
+          <div class="col-lg-4 mb-3" id="Saturday, Nov 14th">
+            <h4 class="mt-0 mb-3 text-dark op-8 font-weight-bold">
+              Up-Trip : 17/12/2022 and <br>18/12/2022
+            </h4>
+            <ul class="list-timeline list-timeline-primary">
+              <li class="list-timeline-item p-0 pb-3 pb-lg-4 d-flex flex-wrap flex-column">
+                <p class="my-0 text-dark flex-fw text-sm text-uppercase"><span class="text-inverse op-8">7:00 AM</span> - GUB, City Campus, Shewrapara</p>
+              </li>
+              <li class="list-timeline-item p-0 pb-3 pb-lg-4 d-flex flex-wrap flex-column" data-toggle="collapse" data-target="#day-2-item-2">
+                <p class="my-0 text-dark flex-fw text-sm text-uppercase"><span class="text-inverse op-8">7:05 AM</span> - Agargaon</p>
+                
+              </li>
+              <li class="list-timeline-item p-0 pb-3 pb-lg-4 d-flex flex-wrap flex-column">
+                <p class="my-0 text-dark flex-fw text-sm text-uppercase"><span class="text-inverse op-8">7:10 AM</span> - BAF Shaheen College Dhaka (Mohakhali)</p>
+              </li>
+              <li class="list-timeline-item p-0 pb-3 pb-lg-4 d-flex flex-wrap flex-column" data-toggle="collapse" data-target="#day-2-item-4">
+                <p class="my-0 text-dark flex-fw text-sm text-uppercase"><span class="text-inverse op-8">7:30 AM</span> - Kuril Bishwa Road Bus Stop</p>
+                
+              </li>
+              <li class="list-timeline-item p-0 pb-3 pb-lg-4 d-flex flex-wrap flex-column">
+                <p class="my-0 text-dark flex-fw text-sm text-uppercase"><span class="text-inverse op-8">8:00 AM</span> - GUB Permanent Campus</p>
+              </li>
+              
+            </ul>
+            <p align="center">
+			<a class="btn btn-primary btn-xl" href="schedule/17-18-up.pdf" target="_blank">Download Schedule</a></p>
+
+          </div>
+
+          <div class="col-lg-4 mb-3" id="Sunday, Nov 15th">
+            <h4 class="mt-0 mb-3 text-dark op-8 font-weight-bold">
+              Down-Trip : 17/12/2022 and <br>18/12/2022
+            </h4>
+            <ul class="list-timeline list-timeline-primary">
+              <li class="list-timeline-item p-0 pb-3 pb-lg-4 d-flex flex-wrap flex-column">
+                <p class="my-0 text-dark flex-fw text-sm text-uppercase"><span class="text-inverse op-8">Date: 17/12/2022, Time: 6:00 PM</span> - GUB Permanent campus to GUB City Campus</p>
+              </li>
+              <li class="list-timeline-item p-0 pb-3 pb-lg-4 d-flex flex-wrap flex-column" data-toggle="collapse" data-target="#day-3-item-2">
+                <p class="my-0 text-dark flex-fw text-sm text-uppercase"><span class="text-inverse op-8">Date: 18/12/2022, Time: 7:30 PM</span> - GUB Permanent campus to GUB City Campus</p>
+            
+              </li>
+            </ul>
+            <p align="center">
+			<a class="btn btn-primary btn-xl" href="schedule/17-18-down.pdf" target="_blank">Download Schedule</a></p>
+          </div>
+        </div>
+      </div>
+							
+					<!-- 		<div class="row justify-content-md-center">
+										
+										<div class="col-md-3">
+										<div class="form-group ">
+										<p align="center">
+										<a class="btn btn-primary btn-xl" href="schedule/Transportation-Schedule.pdf" target="_blank">Download Transportation Schedule
+										</a>
+										</p>		
+		    							</div>
+										</div>
+										
+
+							</div> -->
+							<div class="container">
+									<div class="section-header">
+										<h3 align="center">Information Desk Service</h3>
+										<p></p>
+									</div>
+								</div>
+							
+				<!-- 			<div class="row justify-content-md-center">
+										
+										<div class="col-md-3">
+										<div class="form-group ">
+										<p align="center">
+										<a class="btn btn-primary btn-xl" href="https://gather.town/app/OLjEC6fitNOnf4NK/STI:2020" target="_blank">Information Desk Service
+										</a>
+										</p>		
+		    							</div>
+										</div>
+										
+
+							</div> -->
+							
+						</div>
+
+						
+
+						<div class="row justify-content-md-center">
+							<div class="col-lg-2">
+									
+							</div>
+							<div class="col-lg-8">
+							<h2 id=":l6" class="hP" tabindex="-1" data-thread-perm-id="thread-f:1652319234671540293" data-legacy-thread-id="16ee3796ee247845">Best Paper Awards</h2>
+						
+						
+						
+						
+						<ul style="list-style-type: disc;">
+						<li><strong>Best Paper Award 1: BDT 10,000/=</strong></li>
+						<li><strong>Best Paper Award 2: BDT 8,000/= </strong></li>
+						<li><strong>Best Paper Award 3: BDT 6,000/=</strong></li>
+						<li><strong>Best Poster Paper Award : BDT 5,000/=</strong></li>
+						</ul>
+						
+							</div>
+					</div>						
+				
+			
+		</section>
+		<!--==========================
+			Submission Guideline Section
+			============================ -->
+		<section id="guideline" class="section-with-bg-2 wow fadeInUp" style="visibility: hidden; animation-name: none;">
+			<div class="container-fluid">
+						<div class="section-header">
+							<h2>Submission &amp; Registration Guidelines</h2>
+						</div>
+				<div class="row">
+					<div class="col-lg-1"></div>
+						<div class="col-lg-10">
+							<p><u><span style="font-size: 20px;"> <strong>Submission Guideline:</strong></span></u>
+									</p><ul>
+										<li>Prospective authors are invited to submit manuscripts reporting original unpublished research and recent developments in the topics related to the conference. It is required that the manuscript follows the standard IEEE format (IEEE standard double column, 10-point font).<br></li>
+										<li>Submitted paper should be in PDF format and should be of 4-8 pages
+										</li>
+										<li> Submissions must include title, abstract, keywords, body and references.
+										</li>
+										<li> Due to double-blind peer review requirement, paper must not contain author and affiliation information.
+										</li>
+										<li>Download the IEEE templates in <a href="conference-template-a4_STI_2022.docx" target="blank" download=""> Microsoft Word</a> and <a href="STI_2022_conference-latex-template.zip" target="blank" download=""> LaTeX</a> format.
+										</li>
+										<li>Authors are advised to upload full papers through Easy Chair conference management system using this link <a href="https://easychair.org/conferences/?conf=sti20220" target="blank"> https://easychair.org/conferences/?conf=sti20220</a></li>
+										</ul><br>
+										
+								<p></p>
+								<p><u><span style="font-size: 20px;"><strong>Camera-Ready Paper Submission Guidelines:</strong></span></u><br></p>
+								<ul>
+									<li><strong>IEEE TEMPLATE:</strong>Please use the IEEE templates to prepare your camera-ready paper for STI-2022. Download the IEEE camera-ready templates for STI-2022 in <a href="http://fse.green.edu.bd/sti-2022/conference-template-a4_STI_2022.docx">Microsoft Word</a> and <a href="http://fse.green.edu.bd/sti-2022/STI_2022_conference-latex-template.zip">LaTeX</a> format. 
+
+
+									</li>
+								</ul>
+								<ul>
+									<li><strong>AUTHORS NAME and AFFILIATIONS:</strong> Please add all authors with affiliations according to IEEE Template (Please use single block instead of n-blocks) for the conference and do not add page numbers.</li>
+								</ul>
+								<ul>
+									<li><strong>FOOTER:</strong> Please add one IEEE Copyright Code according to the following conditions (usually it will be <strong>978-1-6654-9045-0/22/$31.00 ©2022 IEEE</strong>) at the footer of the 1st page only (left column) of the paper.</li>
+								</ul>
+								<ul>
+									<ul>
+									<li>
+									For papers in which all authors are employed by the US government, the copyright notice is: U.S. Government work not protected by U.S. copyright.
+									</li>
+									<li>For papers in which all authors are employed by the US government, the copyright notice is: U.S. Government work not protected by U.S. copyright. For papers in which all authors are employed by a Crown government (UK, Canada, and Australia), the copyright notice is: <strong> 978-1-6654-9045-0/22/$31.00 ©2022 Crown </strong></li>
+									</ul>
+									<ul>
+									<li>For papers in which all authors are employed by the European Union, the copyright notice is: <strong>978-1-6654-9045-0/22/$31.00 ©2022 European Union</strong></li>
+									</ul>
+									<ul>
+									<li>For all other papers, the copyright notice is: <strong> 978-1-6654-9045-0/22/$31.00 ©2022 IEEE</strong></li>
+									</ul>
+								</ul>
+								<ul>
+									<li><strong>HEADER:</strong> Please add the Conference Title “<strong>2022 4<sup>th</sup> International Conference on Sustainable Technologies for Industry 4.0 (STI), 17-18 December, Dhaka</strong>” at the header of the right side of the paper.</li>
+								</ul>
+								<ul>
+								<li>
+									<strong>IEEE PDF eXpress:</strong> Please use the url<a href="https://ieee-pdf-express.org"> https://ieee-pdf-express.org</a> and <strong>conference ID 56238X</strong> to log in for the PDF eXpress site. <br>
+									Create an account first and then upload your manuscript for checking the compatibility.
+								</li>
+								</ul>
+
+								<!-- <ul style="list-style-type: disc;">
+									<li><strong>Electronic Copyright Form (eCF):</strong>
+										<ul>
+											<li>To complete eCF, please login using your Web Account credentials at the URL&nbsp; <a href="https://ecopyright.ieee.org/ECTT/login.do">https://ecopyright.ieee.org/ECTT/login.do</a></li>
+											<li>User ID and Password of each registered paper have already been sent to the first author email of each paper (only one corresponding author of each paper).</li>
+										</ul>
+									</li>
+								</ul> -->
+								<ul>
+									<li><strong>SUBMISSION:</strong> All camera-ready papers must be submitted electronically, in PDF format via the easy chair system.</li>
+								</ul>
+								
+								<br> 
+								<p><u><span style="font-size: 20px;"><strong>Registration fees :</strong></span></u><br>&nbsp; &nbsp; The following registration fees will be applied to all the participants(Authors/Attendees) of STI 2022</p>								
+
+							<table width="100%" cellspacing="0" cellpadding="0" border="1">
+									    <tbody style="text-align: center;">
+									        <tr height="20">
+									            <td colspan="2" rowspan="3" width="160" height="186">
+									            <p>
+												<strong>Category</strong>
+												</p>
+									            </td>
+									            <td colspan="4" width="333">
+									            	<p><strong>For Virtual Participation</strong></p>
+									                
+									            </td>
+									        </tr>
+									        
+									        <tr height="62">
+									        
+									            <td colspan="2" width="169">
+									               <p><strong>Early Bird Registration On or Before <br> <strike>October 31, 2022</strike><br><span style="color: red;"> November 07, 2022</span></strong></p>
+									            </td>
+									            <td colspan="2" width="164">
+									               <p><strong>Late Registration <br> <strike>October 31, 2022</strike><br><span style="color: red;"> Until November 15, 2022</span></strong></p>
+									            </td>
+									        </tr>
+									        <tr height="63">
+									            
+									            <td width="86">
+									                <p><strong>General</strong></p>
+									            </td>
+									            <td width="83">
+									                <p><strong>IEEE Member **</strong></p>
+									            </td>
+									            <td width="77">
+									                <p><strong>General</strong></p>
+									            </td>
+									            <td width="91">
+									                <p><strong>IEEE Member**</strong></p>
+									            </td>
+									        </tr>
+									        <tr height="40">
+									            <td rowspan="3" width="87" height="140">
+									                General
+									                <br>
+									                Author
+									            </td>
+									            <td width="73">
+									                Local
+									            </td>
+									        
+									            <td width="86">
+									                BDT 7500
+									            </td>
+									            <td width="83">
+									                BDT 6500
+									            </td>
+									            <td width="77">
+									                BDT 8500
+									            </td>
+									            <td width="87">
+									                BDT 7500
+									            </td>
+									        </tr>
+									        <tr height="40">
+									            <td width="73" height="40">
+									                SAARC Country
+									            </td>
+									            
+									            <td width="86">
+									                USD 140
+									            </td>
+									            <td width="83">
+									                USD 125
+									            </td>
+									            <td width="77">
+									                USD 150
+									            </td>
+									            <td width="87">
+									                USD 135
+									            </td>
+									        </tr>
+									        <tr height="60">
+									            <td width="73" height="60">
+									                Other Countries
+									            </td>
+									            
+									            <td width="86">
+									                USD 175
+									            </td>
+									            <td width="83">
+									                USD 155
+									            </td>
+									            <td width="77">
+									                USD 200
+									            </td>
+									            <td width="87">
+									                USD 165
+									            </td>
+									        </tr>
+									        <tr height="40">
+									            <td rowspan="3" width="87" height="140">
+									                General
+									                <br>
+									                Attendee
+									            </td>
+									            <td width="73">
+									                Local
+									            </td>
+									            
+									            <td colspan="2" width="86">
+									                BDT 5500
+									            </td>
+			
+									            <td colspan="2" width="86">
+									                BDT 6500
+									            </td>
+									        </tr>
+									        <tr height="40">
+									            <td width="73" height="40">
+									                SAARC Country
+									            </td>
+									            
+									            <td colspan="2" width="86">
+									                USD 105
+									            </td>
+									            
+									            <td colspan="2" width="77">
+									                USD 115
+									            </td>
+									            
+									        </tr>
+									        <tr height="60">
+									            <td width="73" height="60">
+									                Other Countries
+									            </td>
+									            
+									            <td colspan="2" width="86">
+									                USD 135
+									            </td>
+									            
+									            <td colspan="2" width="77">
+									                USD 145
+									            </td>
+									            
+									        </tr>
+									        <tr height="40">
+									            <td rowspan="3" width="87" height="140">
+									                Student
+									                <br>
+									                Author*
+									            </td>
+									            <td width="73">
+									                Local
+									            </td>
+									            
+									            <td width="86">
+									                BDT 5000
+									            </td>
+									            <td width="83">
+									                BDT 4500
+									            </td>
+									            <td width="77">
+									                BDT 5500
+									            </td>
+									            <td width="87">
+									                BDT 5000
+									            </td>
+									        </tr>
+									        <tr height="40">
+									            <td width="73" height="40">
+									                SAARC Country
+									            </td>
+									            
+									            <td width="86">
+									                USD 125
+									            </td>
+									            <td width="83">
+									                USD 95
+									            </td>
+									            <td width="77">
+									                USD 135
+									            </td>
+									            <td width="87">
+									                USD 105
+									            </td>
+									        </tr>
+									        <tr height="60">
+									            <td width="73" height="60">
+									                Other Countries
+									            </td>
+									            
+									            <td width="86">
+									                USD 155
+									            </td>
+									            <td width="83">
+									                USD 140
+									            </td>
+									            <td width="77">
+									                USD 165
+									            </td>
+									            <td width="87">
+									                USD 150
+									            </td>
+									        </tr>
+									        <tr height="40">
+									            <td rowspan="3" width="87" height="140">
+									                Student
+									                <br>
+									                Attendee*
+									            </td>
+									            <td width="73">
+									                Local
+									            </td>
+									            
+									            <td colspan="2" width="86">
+									                BDT 4000
+									            </td>
+			
+									            <td colspan="2" width="86">
+									                BDT 4500
+									            </td>
+									        </tr>
+									        <tr height="40">
+									            <td width="73" height="40">
+									                SAARC Country
+									            </td>
+									            
+									            <td colspan="2" width="86">
+									                USD 105
+									            </td>
+									            
+									            <td colspan="2" width="77">
+									                USD 115
+									            </td>
+									            
+									        </tr>
+									        <tr height="60">
+									            <td width="73" height="60">
+									                Other Countries
+									            </td>
+									            
+									            <td colspan="2" width="86">
+									                USD 135
+									            </td>
+									            
+									            <td colspan="2" width="77">
+									                USD 145
+									            </td>
+									            
+									        </tr>
+
+    									</tbody>
+							</table>
+							<br>
+
+								
+									<ul>
+										<li>
+												If an author has multiple accepted papers, the author has to pay full
+												registration fee for the first paper, 20% less of the regular registration for
+												the second and onward papers.
+									</li>
+									<li>
+											Please note that you have to upload the following documents in order to
+											avail the special discounted registration fee.You have to upload these
+											documents through the <a href="http://fse.green.edu.bd/sti-2022/registration" target="_blank"> online registration portal</a></li>
+											<li>
+												*Student Category Discount – Proof of current studentship from the enrolled
+											institution</li>
+											<li>
+											** IEEE Membership Category Discount – Proof of IEEE membership
+											</li>
+											<li>Please note that the papers related to Textile Engineering and the POSTER papers will not be sent to IEEE for uploading into Digital Library, the title, author information and Abstract will be published in hard copy proceedings only. Thus, the registration fee will be Tk. 2000/=(USD 25 for foreign authors) less than the regular fees for General Author.</li> 
+							 * The student author registration fee for a poster paper will be 60% of the
+							regular fee since the poster papers will not be sent to IEEE Xplore.
+							However, the authors will get registration kits and access to all sessions
+							including keynote speeches, technical sessions, invited talks, lunch,
+							dinner, coffee breaks, etc.
+						</ul>
+
+
+						<p><u><span style="font-size: 20px;"><strong>Poster Presentation Guidelines:</strong></span></u><br>
+						We are happy to share with you that for the virtual version of the STI 2022, we have planned an exciting innovative arrangement of poster presentations.</p>
+						<p>There will be a 2-hour poster session on the second day (19 Dec) where all the presenters will have their 5 mins video presentations, recorded before and displayed on a web portal. Each video record will have a link to the poster and link to the virtual room number where the presenter would be available. An audience can check out the video, the poster, and can meet the presenter in the specific virtual room for detailed conversations. All the participants hence are required to be present in the room from 30 mins prior to the very end of the session. A panel of 20+ expert members will also roam around the virtual rooms for sharing their comments and suggestions in addition to evaluating the merit of the works. All the details of the session will be communicated to the presenters in time.</p>						
+						<p>Your presentation video (5 min) and a single page poster should cover the KEY POINTS of your work. The ideal video and poster are designed to:</p>
+						<ul>
+							<li><strong>Attract attention of the audience</strong></li>
+							<li><strong>Provide a brief overview of your work</strong></li>
+							<li><strong>Initiate discussion and questions</strong></li>
+							<li><strong>Communicate the key contributions in brief</strong></li>
+						</ul>
+						<p>Once registration of your poster paper is completed, please upload your poster and video(5 min) link through <a href="https://fse.green.edu.bd/sti-2022/poster-paper-submission" target="_blank">http://fse.green.edu.bd/sti-2022/poster-paper-submission</a>  by 15 November 2022 </p>
+						<p>The title of your poster should appear at the top in CAPITAL letters about 25mm (1″) high. Use color to highlight and make your poster more attractive including pictures, diagrams, cartoons, figures, etc., wherever possible rather than only texts. The author(s) name(s) and affiliation(s) are to be put below the title.</p>
+						<p>There will be three "Best Poster Paper" awards for authors presenting their works. The posters will be reviewed by a panel of judges who will not only take into account the quality of the display but also the content of the work by asking a series of questions to the author(s). It is, therefore, necessary to be as ready for your poster presentation in your designated virtual room as you would be for an oral presentation.</p>
+						<p>Please note that your presented paper will be included in the STI conference proceedings but won't be published in the IEEE Xplore digital library.</p>
+						<p>All the registered poster paper presenters are entitled to:</p>
+						<ul>
+							<li><strong>Have their papers published in the STI 2022 Proceedings</strong></li>
+							<li><strong>Get constructive suggestions and feedback from the experts in the field</strong></li>
+							<li><strong>Compete for the Best poster paper award (prize money + certificates)</strong></li>
+							<li><strong>Receive an attractive set of Conference Kits</strong></li>
+							<li><strong>Access to all the keynotes, technical sessions, tutorial and workshops</strong></li>
+						</ul>
+						 
+						
+					</div>
+					
+					<div class="col-lg-1"></div>
+				</div>
+			</div>
+		
+	</section>
+
+	<!--==========================
+	Archive Section
+	============================-->
+                <section id="archivesection" class="wow fadeInUp" style="background: rgb(6, 10, 245); visibility: hidden; animation-name: none;">
+                        <div class="container">
+                            <div class="section-header">
+                                <h2>Archive</h2>
+                                <p style="text-align: justify; color: white;">We have successfully conducted two conferences. In our 1<sup>st</sup> event of STI 2019 gathered around 12 distinguished keynote speakers, 200+ authors, 100+ senior academicians, 30+ industry practitioners from 20+ countries of the World. In our 2<sup>nd</sup> event of STI 2020 gathered around 12 distinguished keynote speakers, 290+ authors, 100+ senior academicians, 30+ industry practitioners from 20+ countries of the World.And in our 3rd event of STI 2021 gathered around 10 distinguished keynote speakers, 250+ authors, 120+ senior academicians, and 35+ industry practitioners from 23+ countries of the World.</p>
+                            </div>
+                           
+                            <div class="row d-flex justify-content-center">
+                            	
+                                 <div class="col-md-4">
+                                     <div class="carbon-example flex-wrapper">
+                                        <img src="img/sti_favi_2019.png" alt="sti-2022">
+                                        <div class="inner-wrapper">
+                                         <p style="text-align: left;"><a href="http://fse.green.edu.bd/sti-2019/" target="_blank"> 2019 International Conference on Sustainable Technologies for Industry 4.0 (STI)</a></p>
+                                        <p class="fine-print">sti-2019</p>
+                                    </div>
+                                    </div>
+                                 </div>
+                                <div class="col-md-4">
+                                     <div class="carbon-example flex-wrapper">
+                                        <img src="img/sti_favi_2020.png" alt="sti-2020">
+                                        <div class="inner-wrapper">
+                                         <p style="text-align: left;"><a href="http://fse.green.edu.bd/sti-2020/" target="_blank"> 2020 2nd International Conference on Sustainable Technologies for Industry 4.0 (STI)</a></p>
+                                        <p class="fine-print">sti-2020</p>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                     <div class="carbon-example flex-wrapper">
+                                        <img src="img/sti_favi_2021.png" alt="sti-2021">
+                                        <div class="inner-wrapper">
+                                         <p style="text-align: left;"><a href="http://fse.green.edu.bd/sti-2021/" target="_blank"> 2021 3rd International Conference on Sustainable Technologies for Industry 4.0 (STI)</a></p>
+                                        <p class="fine-print">sti-2021</p>
+                                    </div>
+                                    </div>
+                                </div>
+                            
+                        </div>
+                            
+                    </div>
+                </section>
+
+
+
+
+
+
+	<!--==========================
+	Sponsors Section
+	============================-->
+	<section id="sponsors" class="section-with-bg wow fadeInUp" style="visibility: hidden; animation-name: none;">
+		<div class="container">
+			<div class="section-header">
+				<h2>Sponsors</h2>
+			</div>
+			<h3 style="text-align: center;">Technically Co-Sponsored by</h3>
+			       <div class="row d-flex justify-content-center">
+                            	
+                                 <div class="col-md-4">
+									<div class="sponsor-logo">
+										<img src="img/sponsors/IEEE_logo.jpg" class="img-fluid" alt="" width="572" height="276">
+									</div>
+                                 </div>
+                                <div class="col-md-4">
+                                     <div class="sponsor-logo">
+										<img src="img/sponsors/IEEE-CS_LogoTM-orange_jpeg.jpg" class="img-fluid" alt="" width="1560" height="478">
+									</div>
+                                </div>
+                            
+                     </div>
+
+			<h3 style="text-align: center; margin-top: 20px; ">Financial Co-Sponsors</h3>
+			<div class="row">
+				
+				<div class="col-lg-4 col-md-4 col-xs-3">
+					<div class="sponsor-logo">
+						<img src="img/sponsors/L-3.png" class="img-fluid" alt="" width="300" height="122">
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-xs-3">
+					<div class="sponsor-logo">
+						<img src="img/sponsors/US-Bangla.png" class="img-fluid" alt="" width="300" height="122">
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-xs-3">
+					<div class="sponsor-logo">
+						<img src="img/sponsors/southeast-Bank-limited.jpg" class="img-fluid" alt="" width="1200" height="1200">
+					</div>
+				</div>
+			</div>
+			<div class="row mt-2">
+				<div class="col-lg-4 col-md-4 col-xs-4">
+					<div class="sponsor-logo">
+						<img src="img/sponsors/sqaure-pharma.jpg" class="img-fluid" alt="" width="820" height="1052">
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-xs-3">
+					<div class="sponsor-logo">
+						<img src="img/sponsors/Beximco-pharma.jpg" class="img-fluid" alt="" width="900" height="600">
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-xs-3">
+					<div class="sponsor-logo">
+						<img src="img/sponsors/Moon-01.jpg" class="img-fluid" alt="" width="2048" height="2048">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+<!--==========================
+      Schedule-Gallery Section
+    ============================-->
+
+
+
+	<!--==========================
+	Venue Section
+	============================-->
+	<section id="venue" class="wow fadeInUp" style="visibility: hidden; animation-name: none;">
+		<div class="container-fluid">
+			<div class="section-header">
+				<h2>Event Venue</h2>
+				<!-- <p>Event venue location info and gallery</p> -->
+			</div>
+			<div class="row no-gutters">
+				<div class="col-lg-6 venue-map">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3649.704965787096!2d90.56360691538447!3d23.829088184550642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755cb94186a2a8b%3A0x3b2adfeb2db8814!2sGreen+University+of+Bangladesh+Parmanent+Campus!5e0!3m2!1sen!2sbd!4v1534507407998" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+				</div>
+				<div class="col-lg-6 venue-info">
+					<div class="row justify-content-center">
+						<div class="col-11 col-lg-8">
+							<h3>Purbachal American City, Rupgonj</h3>
+							<p></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid venue-gallery-container">
+			<div class="row no-gutters">
+				<div class="col-lg-3 col-md-4">
+					<div class="venue-gallery">
+						<a href="img/venue-gallery/op-01.jpg" class="venobox vbox-item" data-gall="venue-gallery">
+							<img src="img/venue-gallery/op-01.jpg" alt="" class="img-fluid" width="800" height="600">
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-4">
+					<div class="venue-gallery">
+						<a href="img/venue-gallery/op-06.jpg" class="venobox vbox-item" data-gall="venue-gallery">
+							<img src="img/venue-gallery/op-06.jpg" alt="" class="img-fluid" width="800" height="600">
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-4">
+					<div class="venue-gallery">
+						<a href="img/venue-gallery/op-09.jpg" class="venobox vbox-item" data-gall="venue-gallery">
+							<img src="img/venue-gallery/sti-2021-banner.jpg" alt="" class="img-fluid" width="800" height="600">
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-4">
+					<div class="venue-gallery">
+						<a href="img/venue-gallery/op-11.jpg" class="venobox vbox-item" data-gall="venue-gallery">
+							<img src="img/venue-gallery/op-11.jpg" alt="" class="img-fluid" width="800" height="600">
+						</a>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+	<!--==========================
+	Hotels Section
+	============================-->
+	<!-- <section id="hotels" class="section-with-bg wow fadeInUp">
+			<div class="container">
+					<div class="section-header">
+							<h2>Hotels</h2>
+							<p>Her are some nearby hotels</p>
+					</div>
+					<div class="row">
+							<div class="col-lg-4 col-md-6">
+									<div class="hotel">
+											<div class="hotel-img">
+													<img src="img/hotels/1.jpg" alt="Hotel 1" class="img-fluid">
+											</div>
+											<h3><a href="#">Hotel 1</a></h3>
+											<div class="stars">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+											</div>
+											<p>0.4 Mile from the Venue</p>
+									</div>
+							</div>
+							<div class="col-lg-4 col-md-6">
+									<div class="hotel">
+											<div class="hotel-img">
+													<img src="img/hotels/2.jpg" alt="Hotel 2" class="img-fluid">
+											</div>
+											<h3><a href="#">Hotel 2</a></h3>
+											<div class="stars">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star-half-full"></i>
+											</div>
+											<p>0.5 Mile from the Venue</p>
+									</div>
+							</div>
+							<div class="col-lg-4 col-md-6">
+									<div class="hotel">
+											<div class="hotel-img">
+													<img src="img/hotels/3.jpg" alt="Hotel 3" class="img-fluid">
+											</div>
+											<h3><a href="#">Hotel 3</a></h3>
+											<div class="stars">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+											</div>
+											<p>0.6 Mile from the Venue</p>
+									</div>
+							</div>
+					</div>
+			</div>
+	</section> -->
+
+
+	
+	<!--==========================
+	F.A.Q Section
+	============================-->
+	<!--     <section id="faq" class="wow fadeInUp">
+			<div class="container">
+					<div class="section-header">
+							<h2>F.A.Q </h2>
+					</div>
+					<div class="row justify-content-center">
+							<div class="col-lg-9">
+									<ul id="faq-list">
+											<li>
+													<a data-toggle="collapse" class="collapsed" href="#faq1">Non consectetur a erat nam at lectus urna duis? <i class="fa fa-minus-circle"></i></a>
+													<div id="faq1" class="collapse" data-parent="#faq-list">
+															<p>
+																	Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+															</p>
+													</div>
+											</li>
+											
+											<li>
+													<a data-toggle="collapse" href="#faq2" class="collapsed">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? <i class="fa fa-minus-circle"></i></a>
+													<div id="faq2" class="collapse" data-parent="#faq-list">
+															<p>
+																	Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+															</p>
+													</div>
+											</li>
+											
+											<li>
+													<a data-toggle="collapse" href="#faq3" class="collapsed">Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? <i class="fa fa-minus-circle"></i></a>
+													<div id="faq3" class="collapse" data-parent="#faq-list">
+															<p>
+																	Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+															</p>
+													</div>
+											</li>
+											
+											<li>
+													<a data-toggle="collapse" href="#faq4" class="collapsed">Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla? <i class="fa fa-minus-circle"></i></a>
+													<div id="faq4" class="collapse" data-parent="#faq-list">
+															<p>
+																	Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+															</p>
+													</div>
+											</li>
+											
+											<li>
+													<a data-toggle="collapse" href="#faq5" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="fa fa-minus-circle"></i></a>
+													<div id="faq5" class="collapse" data-parent="#faq-list">
+															<p>
+																	Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+															</p>
+													</div>
+											</li>
+											
+											<li>
+													<a data-toggle="collapse" href="#faq6" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="fa fa-minus-circle"></i></a>
+													<div id="faq6" class="collapse" data-parent="#faq-list">
+															<p>
+																	Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
+															</p>
+													</div>
+											</li>
+											
+									</ul>
+							</div>
+					</div>
+			</div>
+	</section> -->
+	<!--==========================
+	Subscribe Section
+	============================-->
+	<!--     <section id="subscribe">
+			<div class="container wow fadeInUp">
+					<div class="section-header">
+							<h2>Newsletter</h2>
+							<p></p>
+					</div>
+					<form method="POST" action="#">
+							<div class="form-row justify-content-center">
+									<div class="col-auto">
+											<input type="text" class="form-control" placeholder="Enter your Email">
+									</div>
+									<div class="col-auto">
+											<button type="submit">Subscribe</button>
+									</div>
+							</div>
+					</form>
+			</div>
+	</section> -->
+	
+	<!--==========================
+	Contact Section
+	============================-->
+
+
+</main>
+<!--==========================
+Footer
+============================-->
+<footer id="footer">
+<div class="footer-top">
+<div class="container" style="margin-top: 20px;">
+	<div class="row">
+		
+		<div class="col-lg-4 col-md-6 footer-links">
+			<h4>Address</h4>
+			<address>Permanent Campus: <br>Purbachal American City, Rupganj, Dhaka</address>
+			<address>City Campus: <br> 220/D, Begum Rokeya Sarani, Dhaka -1207, Bangladesh</address>
+		</div>
+		<div class="col-lg-4 col-md-6 footer-links">
+			<h4>Mobile Number</h4>
+			<p><strong><a href="tel:+8801733588677">+8801733588677</a></strong><br>
+				<strong><a href="tel:+8801716539541">+8801716539541</a></strong>
+			</p>
+		</div>
+		<div class="col-lg-4 col-md-6 footer-contact">
+			<h4>Email</h4>
+							
+			<p><a href="mailto:sti@green.edu.bd">sti@green.edu.bd</a></p>
+			
+			<div class="social-links">
+				
+				<a href="https://www.facebook.com/sti4gub" class="facebook"><i class="fa fa-facebook"></i></a>
+				<a href="https://twitter.com/GreenVarsity/status/1297772305926373376" class="facebook"><i class="fa fa-twitter"></i></a>
+				
+			
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<div class="container">
+<div class="copyright">
+	© Copyright <strong><a href="" target="_Blank"> <span style="color:white">Green University of Bangladesh </span></a></strong>. All Rights Reserved
+</div>
+<div class="credits">
+	
+</div>
+</div>
+</footer><!-- #footer -->
+<a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+<!-- JavaScript Libraries -->
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery/jquery-migrate.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/superfish/hoverIntent.js"></script>
+<script src="lib/superfish/superfish.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/venobox/venobox.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<!-- Contact Form JavaScript File -->
+<script src="contactform/contactform.js"></script>
+<script src="textTyper/textTyper.js"></script>
+
+
+<!-- Template Main Javascript File -->
+<script src="js/main.js"></script>
+<script>if( window.self == window.top ) { (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-55234356-4', 'auto'); ga('send', 'pageview'); } </script>
+
+
+
+
+
+<nav id="mobile-nav">
+					<ul class="" style="touch-action: pan-y;" id="">
+						<li class="menu-active"><a href="#intro">Home</a></li>
+						<!-- <li><a href="#publication">Publication</a></li> -->
+						<!--  <li><a href="#about">About</a></li> -->
+						<li><a href="#speakers">Speakers</a></li>
+						<li><a href="#committees">Committees</a></li>
+						<li><a href="#cft">Call for Paper</a></li>
+						<li><a href="#important_dates">Important Dates</a></li>
+						<li><a href="#schedule">Schedule</a></li>
+						<li><a href="#guideline">Submission</a></li>
+                
+						<li><a href="#sponsors">Sponsors</a></li>
+						<li><a href="#venue">Venue</a></li>
+						<li><a href="https://fse.green.edu.bd/sti-2022/registration" class="about-btn scrollto" target="_Blank">Registration</a></li>
+						<!-- <li><a href="#footer">STI 2019</a></li> -->
+						<!--           <li><a href="#hotels">Hotels</a></li>
+						<li><a href="#gallery">Gallery</a></li> -->
+						
+						<!-- <li><a href="#schedule-gallery">Photo Gallery</a></li> -->
+						<!-- <li class="buy-tickets"><a href="#buy-tickets">Buy Tickets</a></li> -->
+				
+			
+					</ul>
+					</nav><div id="mobile-body-overly"></div></body></html>

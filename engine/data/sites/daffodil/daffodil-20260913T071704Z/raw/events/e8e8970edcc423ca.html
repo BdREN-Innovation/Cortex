@@ -1,0 +1,696 @@
+<!DOCTYPE html><html lang="en-US" data-website-id="1" data-oe-company-name="Daffodil International University" data-browser="undefined,undefined"><head><style type="text/css">.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mark{position:relative;display:block;-webkit-animation:animateXMark .5s;animation:animateXMark .5s}.swal-icon--error__line{position:absolute;height:5px;width:47px;background-color:#f27474;display:block;top:37px;border-radius:2px}.swal-icon--error__line--left{-webkit-transform:rotate(45deg);transform:rotate(45deg);left:17px}.swal-icon--error__line--right{-webkit-transform:rotate(-45deg);transform:rotate(-45deg);right:16px}@-webkit-keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@-webkit-keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}.swal-icon--warning{border-color:#f8bb86;-webkit-animation:pulseWarning .75s infinite alternate;animation:pulseWarning .75s infinite alternate}.swal-icon--warning__body{width:5px;height:47px;top:10px;border-radius:2px;margin-left:-2px}.swal-icon--warning__body,.swal-icon--warning__dot{position:absolute;left:50%;background-color:#f8bb86}.swal-icon--warning__dot{width:7px;height:7px;border-radius:50%;margin-left:-4px;bottom:-11px}@-webkit-keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}@keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}.swal-icon--success{border-color:#a5dc86}.swal-icon--success:after,.swal-icon--success:before{content:"";border-radius:50%;position:absolute;width:60px;height:120px;background:#fff;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal-icon--success:before{border-radius:120px 0 0 120px;top:-7px;left:-33px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:60px 60px;transform-origin:60px 60px}.swal-icon--success:after{border-radius:0 120px 120px 0;top:-11px;left:30px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 60px;transform-origin:0 60px;-webkit-animation:rotatePlaceholder 4.25s ease-in;animation:rotatePlaceholder 4.25s ease-in}.swal-icon--success__ring{width:80px;height:80px;border:4px solid hsla(98,55%,69%,.2);border-radius:50%;box-sizing:content-box;position:absolute;left:-4px;top:-4px;z-index:2}.swal-icon--success__hide-corners{width:5px;height:90px;background-color:#fff;padding:1px;position:absolute;left:28px;top:8px;z-index:1;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal-icon--success__line{height:5px;background-color:#a5dc86;display:block;border-radius:2px;position:absolute;z-index:2}.swal-icon--success__line--tip{width:25px;left:14px;top:46px;-webkit-transform:rotate(45deg);transform:rotate(45deg);-webkit-animation:animateSuccessTip .75s;animation:animateSuccessTip .75s}.swal-icon--success__line--long{width:47px;right:8px;top:38px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-animation:animateSuccessLong .75s;animation:animateSuccessLong .75s}@-webkit-keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@-webkit-keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}@keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}.swal-icon--info{border-color:#c9dae1}.swal-icon--info:before{width:5px;height:29px;bottom:17px;border-radius:2px;margin-left:-2px}.swal-icon--info:after,.swal-icon--info:before{content:"";position:absolute;left:50%;background-color:#c9dae1}.swal-icon--info:after{width:7px;height:7px;border-radius:50%;margin-left:-3px;top:19px}.swal-icon{width:80px;height:80px;border-width:4px;border-style:solid;border-radius:50%;padding:0;position:relative;box-sizing:content-box;margin:20px auto}.swal-icon:first-child{margin-top:32px}.swal-icon--custom{width:auto;height:auto;max-width:100%;border:none;border-radius:0}.swal-icon img{max-width:100%;max-height:100%}.swal-title{color:rgba(0,0,0,.65);font-weight:600;text-transform:none;position:relative;display:block;padding:13px 16px;font-size:27px;line-height:normal;text-align:center;margin-bottom:0}.swal-title:first-child{margin-top:26px}.swal-title:not(:first-child){padding-bottom:0}.swal-title:not(:last-child){margin-bottom:13px}.swal-text{font-size:16px;position:relative;float:none;line-height:normal;vertical-align:top;text-align:left;display:inline-block;margin:0;padding:0 10px;font-weight:400;color:rgba(0,0,0,.64);max-width:calc(100% - 20px);overflow-wrap:break-word;box-sizing:border-box}.swal-text:first-child{margin-top:45px}.swal-text:last-child{margin-bottom:45px}.swal-footer{text-align:right;padding-top:13px;margin-top:13px;padding:13px 16px;border-radius:inherit;border-top-left-radius:0;border-top-right-radius:0}.swal-button-container{margin:5px;display:inline-block;position:relative}.swal-button{background-color:#7cd1f9;color:#fff;border:none;box-shadow:none;border-radius:5px;font-weight:600;font-size:14px;padding:10px 24px;margin:0;cursor:pointer}.swal-button:not([disabled]):hover{background-color:#78cbf2}.swal-button:active{background-color:#70bce0}.swal-button:focus{outline:none;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(43,114,165,.29)}.swal-button[disabled]{opacity:.5;cursor:default}.swal-button::-moz-focus-inner{border:0}.swal-button--cancel{color:#555;background-color:#efefef}.swal-button--cancel:not([disabled]):hover{background-color:#e8e8e8}.swal-button--cancel:active{background-color:#d7d7d7}.swal-button--cancel:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(116,136,150,.29)}.swal-button--danger{background-color:#e64942}.swal-button--danger:not([disabled]):hover{background-color:#df4740}.swal-button--danger:active{background-color:#cf423b}.swal-button--danger:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(165,43,43,.29)}.swal-content{padding:0 20px;margin-top:20px;font-size:medium}.swal-content:last-child{margin-bottom:20px}.swal-content__input,.swal-content__textarea{-webkit-appearance:none;background-color:#fff;border:none;font-size:14px;display:block;box-sizing:border-box;width:100%;border:1px solid rgba(0,0,0,.14);padding:10px 13px;border-radius:2px;transition:border-color .2s}.swal-content__input:focus,.swal-content__textarea:focus{outline:none;border-color:#6db8ff}.swal-content__textarea{resize:vertical}.swal-button--loading{color:transparent}.swal-button--loading~.swal-button__loader{opacity:1}.swal-button__loader{position:absolute;height:auto;width:43px;z-index:2;left:50%;top:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);text-align:center;pointer-events:none;opacity:0}.swal-button__loader div{display:inline-block;float:none;vertical-align:baseline;width:9px;height:9px;padding:0;border:none;margin:2px;opacity:.4;border-radius:7px;background-color:hsla(0,0%,100%,.9);transition:background .2s;-webkit-animation:swal-loading-anim 1s infinite;animation:swal-loading-anim 1s infinite}.swal-button__loader div:nth-child(3n+2){-webkit-animation-delay:.15s;animation-delay:.15s}.swal-button__loader div:nth-child(3n+3){-webkit-animation-delay:.3s;animation-delay:.3s}@-webkit-keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}@keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}.swal-overlay{position:fixed;top:0;bottom:0;left:0;right:0;text-align:center;font-size:0;overflow-y:auto;background-color:rgba(0,0,0,.4);z-index:10000;pointer-events:none;opacity:0;transition:opacity .3s}.swal-overlay:before{content:" ";display:inline-block;vertical-align:middle;height:100%}.swal-overlay--show-modal{opacity:1;pointer-events:auto}.swal-overlay--show-modal .swal-modal{opacity:1;pointer-events:auto;box-sizing:border-box;-webkit-animation:showSweetAlert .3s;animation:showSweetAlert .3s;will-change:transform}.swal-modal{width:478px;opacity:0;pointer-events:none;background-color:#fff;text-align:center;border-radius:5px;position:static;margin:20px auto;display:inline-block;vertical-align:middle;-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:50% 50%;transform-origin:50% 50%;z-index:10001;transition:opacity .2s,-webkit-transform .3s;transition:transform .3s,opacity .2s;transition:transform .3s,opacity .2s,-webkit-transform .3s}@media (max-width:500px){.swal-modal{width:calc(100% - 20px)}}@-webkit-keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}</style>
+                <meta charset="utf-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+                <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="google-site-verification" content="954YfqoPNBbBBDb17pujM3lx-4L1zE8v6xSeeKvJmy0">
+        <meta name="generator" content="Odoo">
+        
+        
+        
+            
+            
+            
+        
+        
+        
+            
+            
+            
+                
+                    
+                        <meta property="og:type" content="website">
+                    
+                
+                    
+                        <meta property="og:title" content="Events | Smart Edu - DIU">
+                    
+                
+                    
+                        <meta property="og:site_name" content="Daffodil International University">
+                    
+                
+                    
+                        <meta property="og:url" content="https://pd.daffodilvarsity.edu.bd/events">
+                    
+                
+                    
+                        <meta property="og:image" content="https://pd.daffodilvarsity.edu.bd/web/image/website/1/social_default_image?unique=ed88421">
+                    
+                
+            
+            
+            
+                
+                    <meta name="twitter:card" content="summary_large_image">
+                
+                    <meta name="twitter:title" content="Events | Smart Edu - DIU">
+                
+                    <meta name="twitter:image" content="https://pd.daffodilvarsity.edu.bd/web/image/website/1/social_default_image/300x300?unique=ed88421">
+                
+            
+        
+
+        
+            
+            
+        
+        <link rel="canonical" href="http://pd.daffodilvarsity.edu.bd/event">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    
+
+                <title> Events | Smart Edu - DIU </title>
+                <link type="image/x-icon" rel="shortcut icon" href="/web/image/website/1/favicon?unique=ed88421">
+    <link type="text/css" rel="stylesheet" href="/web/content/321595-454cab9/1/web.assets_common.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha512-PMjWzHVtwxdq7m7GIxBot5vdxUY+5aKP9wpKtvnNBZrVv1srI8tU6xvFMzG8crLNcMj/8Xl/WWmo/oAP/40p1g==" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha512-PMjWzHVtwxdq7m7GIxBot5vdxUY+5aKP9wpKtvnNBZrVv1srI8tU6xvFMzG8crLNcMj/8Xl/WWmo/oAP/40p1g==" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="/web/content/351613-47d3f55/1/web.assets_frontend.css">
+        
+    
+  
+
+                <script type="text/javascript">
+                    var odoo = {
+                    csrf_token: "e6d6800e056a62c515b51ecbbed9ff62ba72b2a3o",
+                    debug: "",
+                    };
+                </script>
+    <script type="text/javascript">
+                odoo.session_info = {"is_admin": false, "is_system": false, "is_website_user": true, "user_id": false, "is_frontend": true, "translationURL": "/website/translations", "cache_hashes": {"translations": "6b79f323218c2c0462983dbeea23bf35f3b8fa3c"}};
+            </script>
+    <script defer="defer" type="text/javascript" src="/web/content/321587-2778757/1/web.assets_common_minimal_js.js"></script>
+    <script defer="defer" type="text/javascript" src="/web/content/321588-c8db220/1/web.assets_frontend_minimal_js.js"></script>
+    
+        
+    
+    <script defer="defer" type="text/javascript" src="/web/content/321589-c64ed06/1/web.assets_common_lazy.js"></script>
+    <script type="text/javascript" src="https://meet.jit.si/external_api.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha512-2JBCbWoMJPH+Uj7Wq5OLub8E5edWHlTM4ar/YJkZh3plwB2INhhOC3eDoqHm1Za/ZOSksrLlURLoyXVdfQXqwg==" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha512-2JBCbWoMJPH+Uj7Wq5OLub8E5edWHlTM4ar/YJkZh3plwB2INhhOC3eDoqHm1Za/ZOSksrLlURLoyXVdfQXqwg==" crossorigin="anonymous"></script>
+    <script defer="defer" type="text/javascript" src="/web/content/351545-3b535dc/1/web.assets_frontend_lazy.js"></script>
+        
+    
+  
+
+                
+            <script type="text/javascript" src="/web/webclient/locale/en_US"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script></head>
+        <body class="">
+                
+        
+    
+            
+        <div id="wrapwrap" class="   ">
+      <header id="top" data-anchor="true" data-name="Header" class=" o_affix_enabled">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+                <div class="container">
+                    <a href="/" class="navbar-brand logo">
+            <span role="img" aria-label="Logo of Smart Edu - DIU" title="Smart Edu - DIU"><img src="/web/image/website/1/logo/Smart%20Edu%20-%20DIU?unique=ed88421" class="img img-fluid" alt="Smart Edu - DIU" width="1000" height="265"></span>
+        </a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#top_menu_collapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="top_menu_collapse">
+                        <ul class="nav navbar-nav ml-auto text-right o_menu_loading" id="top_menu">
+                            
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/">
+                <span>Official Site</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/user-guideline">
+                <span>User Guideline</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/venue">
+                <span>Venue Booking</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/software/requisition/form">
+                <span>Software Requisition</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/website/calendar">
+                <span>Appointment</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/courses">
+                <span>Courses</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/diu-wiki">
+                <span>DIU Wiki</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/startup-food">
+                <span>Startup Food</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="https://daffodilvarsity.edu.bd/lab-facilities">
+                <span>DIU Lab Facilities</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/transport-1">
+                <span>Transport</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/privacy-policy-diu-student">
+                <span>Privacy Policy</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/terms-condition">
+                <span>Terms &amp; Condition</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/contact-us">
+                <span>Admission  Query</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/website/activity/announcement">
+                <span>Job Placement</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li class="active">
+            <a class="nav-link " href="/events">
+                <span>Events</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/online-exams">
+                <span>Exams</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/blog">
+                <span>Blog</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/jobs">
+                <span>Jobs</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/alumni">
+                <span>Alumni</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/support_ticket">
+                <span>Support Ticket</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/corporate-sim/apply">
+                <span>Corporate SIM</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/new/ticket">
+                <span>Employee Supprot Ticket</span>
+            </a>
+        </li>
+        
+    
+        
+            
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <li>
+            <a class="nav-link " href="/wiki">
+                <span>Wiki</span>
+            </a>
+        </li>
+        
+    
+        
+    
+            
+            <li class="nav-item divider d-none"></li> <li class="nav-item o_wsale_my_cart d-none">
+                <a href="/shop/cart" class="nav-link">
+                    <i class="fa fa-shopping-cart"></i>
+                    My Cart <sup class="my_cart_quantity badge badge-primary" data-order-id=""></sup>
+                </a>
+            </li>
+            
+                
+                <li class="nav-item o_wsale_my_wish" style="display:none;">
+                    <a href="/shop/wishlist" class="nav-link">
+                        <i class="fa fa-heart"></i>
+                        Wishlist <sup class="my_wish_quantity o_animate_blink badge badge-primary">0</sup>
+                    </a>
+                </li>
+            
+        
+        
+                            
+                        
+            <li class="nav-item divider"></li>
+            <li class="nav-item">
+                <a class="nav-link" href="/web/login">
+                    <b>Sign in</b>
+                </a>
+            </li>
+        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+      
+    
+    
+      
+        <div id="wrap" class="o_wevent_index">
+            
+            
+            
+    <nav class="navbar navbar-light border-top shadow-sm d-print-none">
+        <div class="container">
+            <span class="navbar-brand h4 my-0 mr-4">Events</span>
+            <ul class="o_wevent_index_topbar_filters nav mr-n2">
+        <li class="nav-item dropdown mr-2 my-1 my-lg-0">
+            <a href="#" role="button" class="btn dropdown-toggle nav-link" data-toggle="dropdown">
+                <i class="fa fa-calendar"></i>
+                Next Events
+            </a>
+            <div class="dropdown-menu">
+                
+                    
+                        <a href="/event?date=all" class="dropdown-item d-flex align-items-center justify-content-between active">
+                            Next Events
+                            
+                        </a>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <a href="/event?date=old" class="dropdown-item d-flex align-items-center justify-content-between ">
+                            Past Events
+                            
+                        </a>
+                    
+                
+            </div>
+        </li>
+    
+        <li class="nav-item dropdown mr-2 my-1 my-lg-0">
+            <a href="#" role="button" class="btn dropdown-toggle nav-link" data-toggle="dropdown">
+                <i class="fa fa-folder-open"></i>
+                All Categories
+            </a>
+            <div class="dropdown-menu">
+                
+                    
+                        <a href="/event?type=all" class="dropdown-item d-flex align-items-center justify-content-between active">
+                            All Categories
+                            <span class="badge badge-pill badge-primary ml-3">0</span>
+                        </a>
+                    
+                
+            </div>
+        </li>
+    
+        <li class="nav-item dropdown mr-2 my-1 my-lg-0">
+            <a href="#" role="button" class="btn dropdown-toggle nav-link" data-toggle="dropdown">
+                <i class="fa fa-map-marker"></i>
+                All countries
+            </a>
+            <div class="dropdown-menu">
+                
+                    
+                        <a href="/event?country=all" class="dropdown-item d-flex align-items-center justify-content-between active">
+                            All Countries
+                            <span class="badge badge-pill badge-primary ml-auto">0</span>
+                        </a>
+                    
+                
+            </div>
+        </li>
+    </ul>
+            
+    <form method="get" class="o_wevent_event_searchbar_form my-1 my-lg-0 ml-auto pl-lg-3" action="/event">
+            
+            <div role="search" class="input-group ml-auto pl-lg-3">
+        <input type="text" name="search" class="search-query form-control oe_search_box" placeholder="Search..." value="">
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary oe_search_button" aria-label="Search" title="Search"><i class="fa fa-search"></i>
+            
+        </button>
+        </div>
+    </div>
+
+            
+                
+            
+                
+            
+                
+            
+                
+            
+            
+                
+                
+            
+        </form>
+    
+        </div>
+    </nav>
+
+            <div id="oe_structure_we_index_1" class="oe_structure"></div>
+            <div class="o_wevent_events_list opt_event_list_cards_bg">
+                <div class="container">
+                    <div class="row">
+                        <div id="o_wevent_index_main_col" class="col-md my-5 opt_events_list_columns">
+                            <div class="row">
+                                
+    
+    
+    
+        <div class="col-12">
+            <div class="h2 mb-3">No events found.</div>
+            
+        </div>
+    
+    
+    <div class="form-inline justify-content-center my-3">
+        
+        
+    
+    </div>
+
+                            </div>
+                        </div>
+        
+    <div id="o_wevent_index_sidebar" class="col-lg-4 ml-lg-3 ml-xl-5 my-5">
+        <div class="o_wevent_sidebar_block">
+            <h6 class="o_wevent_sidebar_title">About us</h6>
+            <p>Use this paragrah to write a short text about your events or company.</p>
+        </div>
+        <div id="oe_structure_website_event_about_us_1" class="oe_structure"></div>
+    
+        <div class="o_wevent_sidebar_block">
+            <h6 class="o_wevent_sidebar_title">Follow Us</h6>
+            <div class="o_wevent_sidebar_social mx-n1">
+                <a class="o_wevent_social_link" href="https://www.facebook.com/daffodilvarsity.edu.bd"><i class="fa fa-facebook text-facebook" aria-label="Facebook" title="Facebook"></i></a>
+                <a class="o_wevent_social_link" href="https://twitter.com/daffodilvarsity"><i class="fa fa-twitter text-twitter" aria-label="Twitter" title="Twitter"></i></a>
+                <a class="o_wevent_social_link" href="https://www.linkedin.com/school/daffodil-international-university/"><i class="fa fa-linkedin text-linkedin" aria-label="LinkedIn" title="LinkedIn"></i></a>
+                <a class="o_wevent_social_link" href="https://www.youtube.com/user/webmasterdiu"><i class="fa fa-youtube-play text-youtube" aria-label="Youtube" title="Youtube"></i></a>
+                
+                
+            </div>
+        </div>
+        <div id="oe_structure_website_event_follow_us_1" class="oe_structure"></div>
+    
+        <h6 class="o_wevent_sidebar_title">Photos</h6>
+        <a href="/event">
+            <figure class="o_wevent_sidebar_block o_wevent_sidebar_figure figure">
+                <img class="figure-img img-fluid rounded" src="/website_event/static/src/img/event_past_0.jpg" alt="" width="1000" height="667">
+                <figcaption class="figure-caption">A past event</figcaption>
+            </figure>
+        </a>
+        <a href="/event">
+            <figure class="o_wevent_sidebar_block o_wevent_sidebar_figure figure">
+                <img class="figure-img img-fluid rounded" src="/website_event/static/src/img/event_training_0.jpg" alt="" width="800" height="571">
+                <figcaption class="figure-caption">Our Trainings</figcaption>
+            </figure>
+        </a>
+    
+        <div class="o_wevent_sidebar_block">
+            <h6 class="o_wevent_sidebar_title">Categories</h6>
+            
+                
+                    <a class="badge badge-secondary o_wevent_badge mb-2" href="/event?type=all">All Categories</a>
+                
+            
+        </div>
+    
+        <div class="o_wevent_sidebar_block card">
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p><em>Write here a quote from one of your attendees. It gives confidence in your events.</em></p>
+                    <footer class="blockquote-footer">Author</footer>
+                </blockquote>
+            </div>
+        </div>
+    
+        <div class="o_wevent_sidebar_block">
+            
+    <div class="s_country_events_list oe_country_events ">
+        <div class="country_events_list">
+            <h6 class="o_wevent_sidebar_title">
+                <i class="fa fa-globe mr-2"></i>Upcoming Events
+            </h6>
+        </div>
+    </div>
+
+        </div>
+    </div>
+
+    
+                    </div>
+                </div>
+            </div>
+            <div id="oe_structure_we_index_2" class="oe_structure"></div>
+        </div>
+    
+    
+  <footer id="bottom" data-anchor="true" class="bg-light o_footer">
+        <div id="footer" class="oe_structure oe_structure_solo">
+      
+    </div>
+  <div class="o_footer_copyright">
+          <div class="container py-3">
+            <div class="row">
+              <div class="col-sm text-center text-sm-left text-muted">
+                
+        
+    
+                <span class="">
+                  <div style="text-align: center;">
+                    <span style="font-size: 1rem;">Copyright ©</span>
+                  </div>
+                </span>
+                <span itemprop="name">Daffodil International University</span>
+        
+    <ul class="js_language_selector mb0 list-inline">
+        <li class="list-inline-item">
+            <div class="dropup">
+                <button class="btn btn-sm btn-secondary dropdown-toggle nav-link" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <span>English (US)</span>
+                    <span class="caret ml4"></span>
+                </button>
+                <div class="dropdown-menu" role="menu">
+                    
+                        <a class="dropdown-item js_change_lang" href="/bn_IN/events" data-url_code="bn_IN">
+                             বাংলা
+                        </a>
+                    
+                        <a class="dropdown-item js_change_lang" href="/events" data-url_code="en">
+                            English (US)
+                        </a>
+                    
+                </div>
+            </div>
+        </li>
+        
+    </ul>
+
+    
+              </div>
+              <div class="col-sm text-center text-sm-right o_not_editable">
+                
+        <div class="o_brand_promotion">
+            </div>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+                
+            
+        
+    
+  
+               <div id="chatbot_window"><!-- Chatbot -->
+<div id="body">
+  <!-- CSS & JS -->
+  <!-- <link rel="stylesheet" type="text/css" href="/daffodil_chatbot/static/src/css/chatbot.css"/> -->
+  <style type="text/css">
+    body,html{background:#efefef;height:100%}#center-text{display:flex;flex:1;flex-direction:column;justify-content:center;align-items:center;height:100%}#chat-circle{position:fixed;bottom:50px;right:50px;background:#5a5eb9;width:80px;height:80px;border-radius:50%;color:#fff;padding:28px;cursor:pointer;box-shadow:0 3px 16px 0 rgba(0,0,0,.6),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12)}.btn#my-btn{background:#fff;padding-top:13px;padding-bottom:12px;border-radius:45px;padding-right:40px;padding-left:40px;color:#5865c3}#chat-overlay{background:rgba(255,255,255,.1);position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;display:none}.chat-box{display:none;background:#efefef;position:fixed;right:30px;bottom:50px;width:350px;max-width:85vw;max-height:100vh;border-radius:5px;box-shadow:0 5px 35px 9px #ccc}.chat-box-toggle{float:right;margin-right:15px;cursor:pointer}.chat-box-header{background:#5a5eb9;height:70px;border-top-left-radius:5px;border-top-right-radius:5px;color:#fff;text-align:center;font-size:20px;padding-top:17px}.chat-box-body{position:relative;height:370px;height:auto;border:1px solid #ccc;overflow:hidden}.chat-box-body:after{content:"";background-image:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAgOCkiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGNpcmNsZSBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIgY3g9IjE3NiIgY3k9IjEyIiByPSI0Ii8+PHBhdGggZD0iTTIwLjUuNWwyMyAxMW0tMjkgODRsLTMuNzkgMTAuMzc3TTI3LjAzNyAxMzEuNGw1Ljg5OCAyLjIwMy0zLjQ2IDUuOTQ3IDYuMDcyIDIuMzkyLTMuOTMzIDUuNzU4bTEyOC43MzMgMzUuMzdsLjY5My05LjMxNiAxMC4yOTIuMDUyLjQxNi05LjIyMiA5LjI3NC4zMzJNLjUgNDguNXM2LjEzMSA2LjQxMyA2Ljg0NyAxNC44MDVjLjcxNSA4LjM5My0yLjUyIDE0LjgwNi0yLjUyIDE0LjgwNk0xMjQuNTU1IDkwcy03LjQ0NCAwLTEzLjY3IDYuMTkyYy02LjIyNyA2LjE5Mi00LjgzOCAxMi4wMTItNC44MzggMTIuMDEybTIuMjQgNjguNjI2cy00LjAyNi05LjAyNS0xOC4xNDUtOS4wMjUtMTguMTQ1IDUuNy0xOC4xNDUgNS43IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTg1LjcxNiAzNi4xNDZsNS4yNDMtOS41MjFoMTEuMDkzbDUuNDE2IDkuNTIxLTUuNDEgOS4xODVIOTAuOTUzbC01LjIzNy05LjE4NXptNjMuOTA5IDE1LjQ3OWgxMC43NXYxMC43NWgtMTAuNzV6IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIvPjxjaXJjbGUgZmlsbD0iIzAwMCIgY3g9IjcxLjUiIGN5PSI3LjUiIHI9IjEuNSIvPjxjaXJjbGUgZmlsbD0iIzAwMCIgY3g9IjE3MC41IiBjeT0iOTUuNSIgcj0iMS41Ii8+PGNpcmNsZSBmaWxsPSIjMDAwIiBjeD0iODEuNSIgY3k9IjEzNC41IiByPSIxLjUiLz48Y2lyY2xlIGZpbGw9IiMwMDAiIGN4PSIxMy41IiBjeT0iMjMuNSIgcj0iMS41Ii8+PHBhdGggZmlsbD0iIzAwMCIgZD0iTTkzIDcxaDN2M2gtM3ptMzMgODRoM3YzaC0zem0tODUgMThoM3YzaC0zeiIvPjxwYXRoIGQ9Ik0zOS4zODQgNTEuMTIybDUuNzU4LTQuNDU0IDYuNDUzIDQuMjA1LTIuMjk0IDcuMzYzaC03Ljc5bC0yLjEyNy03LjExNHpNMTMwLjE5NSA0LjAzbDEzLjgzIDUuMDYyLTEwLjA5IDcuMDQ4LTMuNzQtMTIuMTF6bS04MyA5NWwxNC44MyA1LjQyOS0xMC44MiA3LjU1Ny00LjAxLTEyLjk4N3pNNS4yMTMgMTYxLjQ5NWwxMS4zMjggMjAuODk3TDIuMjY1IDE4MGwyLjk0OC0xOC41MDV6IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIvPjxwYXRoIGQ9Ik0xNDkuMDUgMTI3LjQ2OHMtLjUxIDIuMTgzLjk5NSAzLjM2NmMxLjU2IDEuMjI2IDguNjQyLTEuODk1IDMuOTY3LTcuNzg1LTIuMzY3LTIuNDc3LTYuNS0zLjIyNi05LjMzIDAtNS4yMDggNS45MzYgMCAxNy41MSAxMS42MSAxMy43MyAxMi40NTgtNi4yNTcgNS42MzMtMjEuNjU2LTUuMDczLTIyLjY1NC02LjYwMi0uNjA2LTE0LjA0MyAxLjc1Ni0xNi4xNTcgMTAuMjY4LTEuNzE4IDYuOTIgMS41ODQgMTcuMzg3IDEyLjQ1IDIwLjQ3NiAxMC44NjYgMy4wOSAxOS4zMzEtNC4zMSAxOS4zMzEtNC4zMSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvZz48L3N2Zz4=);opacity:.1;top:0;left:0;bottom:0;right:0;height:100%;position:absolute;z-index:-1}#chat-input{background:#f4f7f9;width:100%;position:relative;height:47px;padding-top:10px;padding-right:50px;padding-bottom:10px;padding-left:15px;border:none;resize:none;outline:0;border:1px solid #ccc;color:#888;border-top:none;border-bottom-right-radius:5px;border-bottom-left-radius:5px;overflow:hidden}.chat-input>form{margin-bottom:0}#chat-input::-webkit-input-placeholder{color:#ccc}#chat-input::-moz-placeholder{color:#ccc}#chat-input:-ms-input-placeholder{color:#ccc}#chat-input:-moz-placeholder{color:#ccc}.chat-submit{position:absolute;bottom:3px;right:10px;background:0 0;box-shadow:none;border:none;border-radius:50%;color:#5a5eb9;width:35px;height:35px}.chat-logs{padding:15px;height:370px;overflow-y:scroll}@media only screen and (max-width:500px){.chat-logs{height:40vh}}.chat-msg.user>.msg-avatar img{width:45px;height:45px;border-radius:50%;float:left;width:15%}.chat-msg.self>.msg-avatar img{width:45px;height:45px;border-radius:50%;float:right;width:15%}.cm-msg-text{background:#fff;padding:10px 15px 10px 15px;color:#666;max-width:75%;float:left;margin-left:10px;position:relative;margin-bottom:20px;border-radius:30px}.chat-msg{clear:both}.chat-msg.self>.cm-msg-text{float:right;margin-right:10px;background:#5a5eb9;color:#fff;overflow-wrap:anywhere}.cm-msg-button>ul>li{list-style:none;float:left;width:50%}.cm-msg-button{clear:both;margin-bottom:70px}#chat-circle{right:20px;bottom:30px;padding:0;z-index:999999999;justify-content:center}.chat-box{right:15px;bottom:20px;z-index:999999999}.chat-box-header{height:auto;padding-top:0;padding:10px;font-size:14px;font-weight:700}.chat-box-toggle{margin-right:0;margin:0 5px}#chat-input{height:auto;border:none}.chat-submit{width:auto;height:auto;border-radius:.25rem;position:relative;right:unset;bottom:unset}
+  </style>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <!-- <script type="text/javascript" src="/daffodil_chatbot/static/src/js/chatbot.js"></script> -->
+  <script type="text/javascript">
+    $(function(){var t=0;function a(a,e){var c="";c+="<div id='cm-msg-"+ ++t+"' class=\"chat-msg "+e+'">',c+='          <span class="msg-avatar">',c+="self"==e?'            <img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png">':'            <img src="https://3.bp.blogspot.com/-vO7C5BPCaCQ/WigyjG6Q8lI/AAAAAAAAfyQ/1tobZMMwZ2YEI0zx5De7kD31znbUAth0gCLcBGAs/s200/TOMI_avatar_full.png">',c+="          </span>",c+='          <div class="cm-msg-text">',c+=a,c+="          </div>",c+="        </div>",$(".chat-logs").append(c),$("#cm-msg-"+t).hide().fadeIn(300),"self"==e&&$("#chat-input").val(""),$(".chat-logs").stop().animate({scrollTop:$(".chat-logs")[0].scrollHeight},1e3)}$("#chat-submit").click(function(t){t.preventDefault();var e=$("#chat-input").val();if(""==e.trim())return!1;a(e,"self");setTimeout(function(){var t="?query="+e+"&channel=diudiu";const c=window.location.origin+"/chatbot"+t;var s=new XMLHttpRequest;s.onreadystatechange=function(){if(4==this.readyState&&200==this.status){var t=JSON.parse(s.responseText);answer='<p class="card-text">'+t.answer+"</p>",url_tag_start='<a href="'+t.main_url+'">',url_tag_end="</a>",card_start='<div class="card">',card_end="</div>",image='<img src="'+t.image+'" class="card-img-top">',card_body_start='<div class="card-body">',card_body_end="</div>",title='<h5 class="card-title">'+t.title+"</h5>",description='<p class="card-text">'+t.description+"</p>",response_html=answer+url_tag_start+card_start+image+card_body_start+title+description+card_body_end+card_end+url_tag_end,n=t.main_url.length,n<3?a(answer,"user"):a(response_html,"user")}},s.open("GET",c,!0),s.send()},1e3)}),$(document).delegate(".chat-btn","click",function(){$(this).attr("chat-value");var t=$(this).html();$("#chat-input").attr("disabled",!1),a(t,"self")}),$("#chat-circle").click(function(){$("#chat-circle").toggle("scale"),$(".chat-box").toggle("scale");const t=window.location.origin+"/chatbot/default_message";var e=new XMLHttpRequest;e.onreadystatechange=function(){4==this.readyState&&200==this.status&&a(e.responseText,"user")},e.open("GET",t,!0),e.send()}),$(".chat-box-close").click(function(){const t=window.location.origin+"/chatbot/chatting_log";var a=new XMLHttpRequest;a.onreadystatechange=function(){4==this.readyState&&this.status},a.open("GET",t,!0),a.send(),$("#chat-circle").toggle("scale"),$(".chat-box").toggle("scale"),$(".chat-logs").html("")}),$(".chat-box-minimize").click(function(){$("#chat-circle").toggle("scale"),$(".chat-box").toggle("scale")})});
+  </script>
+
+  
+  <!-- Chat Window -->
+  <div id="chat-circle" class="btn btn-raised d-flex align-content-center flex-wrap">
+    <div id="chat-overlay"></div>
+    <span class="chat-circle-content">ChatBot</span>
+  </div>
+
+  <div class="chat-box">
+    <div class="chat-box-header text-left">
+      <span class="chat-box-header-title">ChatBot</span>
+      <span class="chat-box-toggle chat-box-close pull-right"><i class="fa fa-times"></i></span>
+      <span class="chat-box-toggle chat-box-minimize pull-right"><i class="fa fa-window-minimize"></i></span>
+    </div>
+
+    <div class="chat-box-body">
+      <div class="chat-box-overlay"></div>
+      <div class="chat-logs"></div>
+    </div>
+
+    <div class="chat-input">
+      <form onsubmit="return false;">
+        <div class="input-group">
+          <input type="text" id="chat-input" placeholder="Your question or query...">
+<!--          <button type="submit" class="chat-submit btn" id="chat-voice"><i class="fa fa-microphone"></i></button>-->
+          <button type="submit" class="chat-submit btn" id="chat-submit">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+</div>
+           
+        
+    
+</body></html>

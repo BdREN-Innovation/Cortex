@@ -77,7 +77,7 @@ max_depth: 3
 # nav links repeated on every page, so no news/event/notice detail page ever
 # got crawled. Raised well above seed count + nav-link count so real content
 # survives the budget.
-max_pages: 250
+max_pages: 200
 
 assets:
   download_documents: true

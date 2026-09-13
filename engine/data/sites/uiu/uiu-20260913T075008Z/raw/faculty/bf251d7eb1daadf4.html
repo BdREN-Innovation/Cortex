@@ -1,0 +1,2065 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.5",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseout","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),await this.T(),await this.F(),await this.j(),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise(t=>setTimeout(t,500-Date.now()+this.lastTouchEnd)),this.I(),this.H(),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))},{isRocket:!0})}o(){window.addEventListener("pageshow",t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0},{isRocket:!0}),window.addEventListener("pagehide",()=>{this.onFirstUserAction=null},{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",function i(o){o.changedTouches[0]&&t.changedTouches[0]&&Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}),"INPUT"===o.target.tagName&&"text"===o.target.type||(o.target.dispatchEvent(new TouchEvent("touchend",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new MouseEvent("mouseover",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1,clientX:o.changedTouches[0].clientX,clientY:o.changedTouches[0].clientY})),event.preventDefault()))},{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,t.composedPath&&t.composedPath()[0].getRootNode()instanceof ShadowRoot&&(t.rocketTarget=t.composedPath()[0]),this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach(t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.addEventListener("visibilitychange",this.userEventHandler,{isRocket:!0})}U(){this.userEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.removeEventListener("visibilitychange",this.userEventHandler,{isRocket:!0}),this.savedUserEvents.forEach(t=>{(t.rocketTarget||t.target).dispatchEvent(new window[t.constructor.name](t.type,t))})}m(){const t="return false",e=Array.from(this.attributeEvents,t=>"data-rocket-"+t),i="["+this.attributeEvents.join("],[")+"]",o="[data-rocket-"+this.attributeEvents.join("],[data-rocket-")+"]",s=(e,i,o)=>{o&&o!==t&&(e.setAttribute("data-rocket-"+i,o),e["rocket"+i]=new Function("event",o),e.setAttribute(i,t))};new MutationObserver(t=>{for(const n of t)"attributes"===n.type&&(n.attributeName.startsWith("data-rocket-")||this.everythingLoaded?n.attributeName.startsWith("data-rocket-")&&this.everythingLoaded&&this.N(n.target,n.attributeName.substring(12)):s(n.target,n.attributeName,n.target.getAttribute(n.attributeName))),"childList"===n.type&&n.addedNodes.forEach(t=>{if(t.nodeType===Node.ELEMENT_NODE)if(this.everythingLoaded)for(const i of[t,...t.querySelectorAll(o)])for(const t of i.getAttributeNames())e.includes(t)&&this.N(i,t.substring(12));else for(const e of[t,...t.querySelectorAll(i)])for(const t of e.getAttributeNames())this.attributeEvents.includes(t)&&s(e,t,e.getAttribute(t))})}).observe(document,{subtree:!0,childList:!0,attributeFilter:[...this.attributeEvents,...e]})}I(){this.attributeEvents.forEach(t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach(e=>{this.N(e,t)})})}N(t,e){const i=t.getAttribute("data-rocket-"+e);i&&(t.setAttribute(e,i),t.removeAttribute("data-rocket-"+e))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):(t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o}),"mouseenter"!==e&&"mouseleave"!==e||t.originalAddEventListener.call(this,e,t.savedUserEvents.push,o))},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}J(t,e){this.savedEventListeners=this.savedEventListeners.filter(i=>{let o=i.type,s=i.target||window;return e!==o||t!==s||(this.B(o,s)&&(i.type="rocket-"+o),this.$(i),!1)})}H(){EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener,this.savedEventListeners.forEach(t=>this.$(t))}$(t){t.remove?this.originalRemoveEventListener.call(t.target,t.type,t.func,t.options):this.originalAddEventListener.call(t.target,t.type,t.func,t.options)}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map(t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e})),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,()=>{e[t].forEach(t=>t())},{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout(()=>i.bind(document)(o)):i.bind(document)(o)}return"function"==typeof i&&(t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s)),this},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise(t=>{this.userActionTriggered?t():this.onFirstUserAction=t})}async L(){return new Promise(t=>{document.addEventListener("DOMContentLoaded",()=>{this.realDomReadyFired=!0,t()},{isRocket:!0})})}async j(){return this.realWindowLoadedFired?Promise.resolve():new Promise(t=>{window.addEventListener("load",t,{isRocket:!0})})}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver(t=>{for(const e of t)e.addedNodes.forEach(t=>{"SCRIPT"!==t.tagName||!t.src||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise(e=>{const i=()=>{const i=this.pendingScripts.findIndex(e=>e.script===t);i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)})})})}),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async F(){await this.X(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.F()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this.Y(t,"preconnect")}async G(t){if(await this.K(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise(e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))}),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",()=>{i.setAttribute("data-rocket-status","failed-network"),e()},{isRocket:!0}),setTimeout(()=>{i.isConnected||e()},1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.G(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())},{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}});t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.G(e),this.C(t)):Promise.resolve()}O(){this.Y([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}Y(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach(t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}}),document.head.appendChild(o)}W(){this.trash.forEach(t=>t.remove())}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(document,"DOMContentLoaded"),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.K(),this.J(window,"DOMContentLoaded"),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(window,"load"),window.dispatchEvent(new Event("rocket-load")),await this.K(),window.rocketonload&&window.rocketonload(),await this.K(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this.K(),this.J(window,"pageshow");const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.K(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async K(){Date.now()-this.lastBreath>45&&(await this.X(),this.lastBreath=Date.now())}async X(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}B(t,e=window){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();
+</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<link rel="icon" type="image/x-icon" href=" https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/fav.png">
+	
+	<link rel="preload" href="/wp-content/uploads/sites/3/2024/12/World-Scientist-Congrats-Slider-update.jpg" as="image">
+	
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v28.4 (Yoast SEO v28.4) - https://yoast.com/product/yoast-seo-premium-wordpress/ -->
+	<title>Dr. Dewan Md. Farid - UIU - Department of CSE</title>
+<link data-rocket-prefetch="" href="https://www.gstatic.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://fonts.googleapis.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://cdnjs.cloudflare.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://www.googletagmanager.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://www.google.com" rel="dns-prefetch">
+<link data-rocket-preload="" as="style" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&amp;ver=7.1&amp;display=swap" rel="preload">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&amp;ver=7.1&amp;display=swap" media="all" onload="this.media='all'" rel="stylesheet">
+<noscript data-wpr-hosted-gf-parameters=""><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&#038;ver=7.1&#038;display=swap"></noscript><link rel="preload" data-rocket-preload="" as="image" href="https://cse.uiu.ac.bd/wp-content/uploads/sites/3/2023/11/Dr.-Dewan-Md.-Farid-240x300.jpg" fetchpriority="high">
+	<link rel="canonical" href="https://cse.uiu.ac.bd/faculty/dewanfarid/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Dr. Dewan Md. Farid">
+	<meta property="og:url" content="https://cse.uiu.ac.bd/faculty/dewanfarid/">
+	<meta property="og:site_name" content="UIU - Department of CSE">
+	<meta property="article:modified_time" content="2026-07-05T10:22:34+00:00">
+	<meta property="og:image" content="https://cse.uiu.ac.bd/wp-content/uploads/sites/3/2023/11/default_image_uiu.jpg">
+	<meta property="og:image:width" content="960">
+	<meta property="og:image:height" content="540">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:label1" content="Est. reading time">
+	<meta name="twitter:data1" content="1 minute">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/cse.uiu.ac.bd\/faculty\/dewanfarid\/","url":"https:\/\/cse.uiu.ac.bd\/faculty\/dewanfarid\/","name":"Dr. Dewan Md. Farid - UIU - Department of CSE","isPartOf":{"@id":"https:\/\/cse.uiu.ac.bd\/#website"},"primaryImageOfPage":{"@id":"https:\/\/cse.uiu.ac.bd\/faculty\/dewanfarid\/#primaryimage"},"image":{"@id":"https:\/\/cse.uiu.ac.bd\/faculty\/dewanfarid\/#primaryimage"},"thumbnailUrl":"https:\/\/cse.uiu.ac.bd\/wp-content\/uploads\/sites\/3\/2023\/11\/default_image_uiu.jpg","datePublished":"2023-11-09T07:15:03+00:00","dateModified":"2026-07-05T10:22:34+00:00","breadcrumb":{"@id":"https:\/\/cse.uiu.ac.bd\/faculty\/dewanfarid\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/cse.uiu.ac.bd\/faculty\/dewanfarid\/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/cse.uiu.ac.bd\/faculty\/dewanfarid\/#primaryimage","url":"https:\/\/cse.uiu.ac.bd\/wp-content\/uploads\/sites\/3\/2023\/11\/default_image_uiu.jpg","contentUrl":"https:\/\/cse.uiu.ac.bd\/wp-content\/uploads\/sites\/3\/2023\/11\/default_image_uiu.jpg","width":960,"height":540},{"@type":"BreadcrumbList","@id":"https:\/\/cse.uiu.ac.bd\/faculty\/dewanfarid\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/cse.uiu.ac.bd\/"},{"@type":"ListItem","position":2,"name":"Faculty Members","item":"https:\/\/cse.uiu.ac.bd\/faculty\/"},{"@type":"ListItem","position":3,"name":"Dr. Dewan Md. Farid"}]},{"@type":"WebSite","@id":"https:\/\/cse.uiu.ac.bd\/#website","url":"https:\/\/cse.uiu.ac.bd\/","name":"UIU - Department of CSE","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/cse.uiu.ac.bd\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="UIU - Department of CSE » Feed" href="https://cse.uiu.ac.bd/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://cse.uiu.ac.bd/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcse.uiu.ac.bd%2Ffaculty%2Fdewanfarid%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://cse.uiu.ac.bd/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcse.uiu.ac.bd%2Ffaculty%2Fdewanfarid%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link data-minify="1" rel="stylesheet" id="uiu-departmental-style-css" href="https://cse.uiu.ac.bd/wp-content/cache/min/3/wp-content/themes/uiu-cse/style.css?ver=1788769043" media="all">
+
+<link rel="stylesheet" id="uiu-departmental-font-awesome-icon-style-css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css?ver=7.1" media="all">
+<link data-minify="1" rel="stylesheet" id="uiu-departmental-pickr-style-css" href="https://cse.uiu.ac.bd/wp-content/cache/min/3/npm/@simonwep/pickr/dist/themes/nano.min.css?ver=1788769043" media="all">
+<link rel="stylesheet" id="uiu-departmental-pico-bootstrap-grid-min-style-css" href="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/css/pico-bootstrap-grid.min.css?ver=1.0.0" media="all">
+<link rel="stylesheet" id="uiu-departmental-pico-min-style-css" href="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/css/pico.min.css?ver=1.0.0" media="all">
+<link data-minify="1" rel="stylesheet" id="uiu-departmental-variable-style-css" href="https://cse.uiu.ac.bd/wp-content/cache/min/3/wp-content/themes/uiu-cse/css/variables.css?ver=1788769043" media="all">
+<link data-minify="1" rel="stylesheet" id="uiu-departmental-theme-style-css" href="https://cse.uiu.ac.bd/wp-content/cache/min/3/wp-content/themes/uiu-cse/css/theme-styles.css?ver=1788769043" media="all">
+<link data-minify="1" rel="stylesheet" id="scss-css" href="https://cse.uiu.ac.bd/wp-content/cache/min/3/wp-content/cache/busting/3/sccss.css?ver=1788769043" media="all">
+<!--n2css--><!--n2js-->
+<!-- Google tag (gtag.js) snippet added by Site Kit -->
+<!-- Google Analytics snippet added by Site Kit -->
+<script type="text/rocketlazyloadscript" id="google_gtagjs-js" data-rocket-src="https://www.googletagmanager.com/gtag/js?id=GT-5DC8LD9" async=""></script>
+<script type="text/rocketlazyloadscript" id="google_gtagjs-js-after">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag("set","linker",{"domains":["cse.uiu.ac.bd"]});
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "GT-5DC8LD9");
+//# sourceURL=google_gtagjs-js-after
+</script>
+<link rel="https://api.w.org/" href="https://cse.uiu.ac.bd/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://cse.uiu.ac.bd/wp-json/wp/v2/faculty/949"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://cse.uiu.ac.bd/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 7.1">
+<link rel="shortlink" href="https://cse.uiu.ac.bd/?p=949">
+<meta name="generator" content="Site Kit by Google 1.186.0"><style id="wp-custom-css">
+body.single-faculty #navbar #uiu-global-nav .logo-close-menu .logo {
+    margin-left: 0.75rem;
+    padding: 0.25rem 0;
+    transition: 0.25s;
+    color: var(--white-color);
+    height: 34px;
+}
+</style>
+<style id="sccss">.profile-btn-links {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+
+/* uii block tab */
+.block-uiu-tab .tab-content  {
+	overflow-x: auto;
+}
+
+.post-type-archive-lab-facilities #primary #departmental-lab-hero *  {
+	color: #000;
+}
+
+.post-type-archive-lab-facilities #primary #all-labs {
+	padding-bottom: 2rem
+}
+
+.post-type-archive-lab-facilities #primary #all-labs h5, .post-type-archive-lab-facilities #primary #all-labs p {
+	color: #000
+}
+
+/* notice, event, news single */
+.notice-template-default #hero-single  .content .main-title, .single-event #hero-single  .content .main-title{
+	text-transform: unset;
+	letter-spacing: unset;
+}
+
+/* no data found message */
+.not-found-error {
+	width: 100%;
+	text-align: center;
+	margin: 4rem 0 3rem;
+}
+
+.not-found-error .error-message {
+	color: #000 !important;
+	font-size: 2rem !important;
+	font-weight: 500 !important;
+	margin-bottom: 2rem !important;
+}
+
+.not-found-error .back-to-link {
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    background: var(--uiu-color);
+    color: #fff;
+    font-size: .9rem;
+    font-weight: 500;
+    margin: auto 1rem;
+}
+
+.not-found-error .back-to-link:hover {
+    background: #282828;
+}
+
+
+#follow-us h1 {
+	color: #000 !important;
+}
+/* faculty single menu icon  */
+@media screen and (max-width: 1100px) {
+.faculty-template-default.single-faculty .fa, .fa-brands, .fa-classic, .fa-regular, .fa-sharp, .fa-solid, .fab, .far, .fas {
+    display: contents !important;
+}
+}
+
+
+/* color isssue */
+.single-news main, .single-notice main, .single-event main {
+	color: #000
+}
+
+.single-news main a, .single-notice main a, .single-event main a {
+	color: hsl(195deg, 85%, 41%)
+}
+
+/* Enter Your Custom CSS Here */
+section#archive-hero {
+    padding: 1rem 0 !important;
+}
+#archive-hero .content .left-content .short-details {
+    margin-top: 0.5rem;
+}
+#archive-hero .content .right-content {
+    text-align: right;
+}
+#archive-hero .content .right-content img {
+    max-height: 250px;
+    width: unset!important;
+}
+nav.uiu-custom-breadcrumbs a {
+    color: var(--primary)!important;
+}
+/* success story archive */
+#all-alumni .stub-img-holder {
+    height: 400px !important;
+}
+
+#all-alumni .archive-alumni-details {
+	height: unset !important;
+	padding-bottom: .5rem !important;
+}
+
+/* no time for indicate */
+section .sub-header, section .section-sub-heading, section .section-subtitle {
+	color: #000 !important
+}
+
+article {
+	background: #fff !important;
+}
+
+#welcome-section  p {
+    color: #000 !important
+}
+
+#why-uiu  p {
+    color: #000 !important
+}
+
+#follow-us .heading, #follow-us .section-heading {
+    color: #000
+}
+
+#faculty-2  p {
+	color: #000 !important
+}
+
+#program p {
+	color: #000;
+}
+
+#success-stories .details p {
+   color: #000;
+}
+
+.widgettitle {
+	color: #000;
+	padding-left: 1rem;
+	padding-top: 1rem;
+	font-size: 1.3rem;
+	margin-bottom: unset;
+
+}
+
+#all-news * {
+	color: #000 !important;
+}
+
+
+#all-news a h3 {
+	color: #000 !important;
+}
+
+.news-template-default main * {
+	color: #000;
+}
+
+#more-news *, #more-news a h3 {
+	color: #000 !important;
+}
+
+#archive-hero .content .left-content .short-details {
+    color: #000;
+}
+
+#notice-container * {
+	color: #000 !important;
+}
+
+#notice-container .main-comp a {
+	color: hsl(195deg, 85%, 41%) !important;
+}
+
+#notice-container .side-comp .item .item-title {
+    color: #fff !important;
+}
+
+#all-events *, #all-events a h3, #all-events .events-date {
+	color: #000 !important;
+}
+
+#all-events .events-date {
+	font-weight: 600 !important
+}
+
+.event-template-default #main * , #hero-single #main {
+	color: #000 !important;
+}
+
+
+.event-template-default #main a , #hero-single #main a {
+	color: hsl(195deg, 85%, 41%) !important;
+}
+
+.event-template-default #main .single-content .title {
+	color: #fff !important;
+}
+
+.event-template-default #hero-single, .notice-template-default #hero-single {
+	padding-top: 2rem !important;
+	margin-bottom: unset;
+}
+
+.event-template-default  #hero-single .main-title, .notice-template-default #hero-single .main-title {
+	color: #000 !important;
+}
+
+.notice-template-default  main {
+	margin-top: unset !important;
+}
+
+.success_story-template-default main, #success-single-header h5 {
+	color : #000  !important
+}
+
+#success-single-header .success-img-title .success-name {
+	height: unset !important;
+}
+
+#course-plan-container .main-comp * {
+	color: #000 !important
+}
+
+#course-plan-container .main-comp article {
+	background: #fff !important;
+}
+
+
+
+.post-type-archive-lab-facilities main  #departmental-lab-hero * {
+	color: #000 !important;
+}
+
+/* no time for indicate location */
+
+
+
+
+
+/* text justify */
+.text-justify {
+	text-align: justify !important;
+}
+
+
+#main, main {
+		padding-top: 0 !important
+}
+
+#primary {
+	padding-top: 0 !important;
+}
+
+.post-type-archive-success_story #main {
+	padding-top: 0 !important;
+}
+
+/* reset some css */
+@media screen and (max-width: 1400px) {
+	#main-container .main-content p, #main-container .main-content ul, #main-container .main-content ol, #main-container .main-content li {
+    font-size: .8rem !important;
+    margin-bottom: .5rem !important;
+}
+	
+	#uiu-media .gallery-details .news-title {
+    font-size: .85rem !important
+}
+	
+	#archive-hero {
+    margin-bottom: unset !important;
+		padding: 2rem 0 0 !important;
+}
+	
+	.uiu-custom-breadcrumbs li {
+		padding: .5rem .25rem
+	}
+	
+}
+
+/* navbar */
+
+@media screen and (max-width: 1400px) {
+	#navbar .menu_feature_image {
+     width: unset !important; 
+    max-width: 350px !important;
+    max-height: 190px !important;
+}
+	
+	#navbar  .menu_description, #navbar   .menu_title {
+		display: none !important;
+	}
+	
+	#navbar #uiu-departmental-nav .sub-menu .sub-menu-link-container .menu-item {
+		margin-bottom: 0 !important;
+	}
+	
+	#navbar #uiu-departmental-nav .sub-menu .sub-menu-link-container .menu-item a {
+		height: unset !important;
+	}
+}
+
+
+@media screen and (max-width: 1100px) {
+	
+	#navbar #uiu-departmental-nav .menu-item  {
+		margin-bottom: 0 !important
+	}
+	
+	#navbar #uiu-departmental-nav .menu-item a {
+		height: unset !important;
+	}
+	
+		
+/* 	#archive-hero {
+		padding-top: 3rem !important;
+		padding-bottom: 2rem !important
+	} */
+}
+
+
+
+
+/* archive hero */
+@media screen and (max-width: 992px) {
+	#archive-hero .content .right-content {
+    display: none !important;
+}
+}
+
+
+
+/* shadow and button add on lab archive page */
+
+#all-labs .single-content {
+	box-shadow: 2px 2px 10px 6px rgba(0, 0, 0, 0.137254902);
+}
+
+#all-labs .card-details {
+	display: flex !important;
+	flex-direction: column;
+	
+}
+
+#all-labs .single-content .single-link {
+	margin-top: auto;
+	background: var(--uiu-color);
+	padding: .5rem 1.25rem;
+	color: #fff;
+	border-radius: 3px;
+	font-size: .9rem;
+	font-weight: 600;
+	width: fit-content
+}
+
+#all-labs .single-content .single-link i {
+	display: none
+}
+
+
+
+/* image height change for cse news in main page */
+#dept-news .news-sm-img-holder {
+	height: 150px !important
+}
+
+
+/* single event */
+#event-info-container #event-info {
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+		margin-bottom: 0 !important;
+
+}
+
+
+#event-info-container {
+	height: 200px
+}
+
+
+
+@media screen and (max-width: 768px) {
+	#event-info-container {
+		flex-direction: column;
+	}
+	
+	
+#event-info-container {
+	height: unset
+}
+
+	
+	#event-info-container .event-date {
+		padding-top: 0 !important;
+		width: 100px !important
+		
+	}
+	
+	#event-info-container .event-date::before  {
+		display: block !important;
+		    height: 0;
+	    width: 0;
+	    top: 0 !important;
+	    bottom: 0 !important;
+	    left: 100px !important;
+	    border: none !important;
+	    border-top: 100px solid #f68b1f !important;
+	    border-right: 100px solid transparent !important;
+	}
+	
+	#event-info-container .event-date::after {
+		display: block !important;
+		height: 0;
+	    width: 0 !important;
+	    top: unset !important;
+	    bottom: 0 !important;
+	    left: 100px !important;
+	    border: none !important;
+	    border-bottom: 100px solid #f68b1f !important;
+	    border-right: 100px solid transparent !important;
+	}
+	
+}
+
+
+
+
+/* campus life statistics */
+#campus-life .state .analytics {
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+
+#campus-life .state .analytics h2 {
+    margin-bottom: unset !important
+}
+
+#campus-life .state .analytics .item {
+    margin-bottom: .5rem !important
+}
+
+#campus-life .analytics .desc  {
+    margin-top: .5rem !important
+}
+
+
+/* reset css for  list item */
+#main-container .main-content ol , #main-container .main-content ul {
+	padding-left: 1rem
+}
+
+#main-container .main-content ol ol, #main-container .main-content ul ol, #main-container .main-content ol ul, #main-container .main-content ul ol, #main-container ul ul {
+	padding-left: 1.5rem;
+	font-size: .9em;
+}
+
+
+/* contact form css fixing */
+.custom-accordion-group .custom-accordion .custom-accordion-btn {
+    max-width: unset;
+}
+
+
+
+/* footer */
+#footer .lower-part p {
+    color: #fff !important;
+}
+
+
+
+/* authorities */
+@media screen and (max-width: 600px) {
+	.top-row {
+    margin-top: 30px !important;
+}
+}
+
+
+/* course curriculumn summery table */
+.summery-table {
+    width: 100%;
+    overflow: auto;
+}
+
+#main {
+	padding-top: 0 !important;
+}
+	 
+
+body:not(.home):not(.faculty-template-default)  #main {
+			margin-top: 65px !important;
+	}
+
+@media screen and (max-width: 1100px) {
+	
+	#navbar #responsive-btn {
+		padding-left: 1rem !important;
+		padding-right: 1rem !important;
+	}
+	
+	body.admin-bar:not(.home) #page {
+		margin-top: 65px !important;
+	}
+	
+	body.admin-bar:not(.home) #main {
+		margin-top: unset !important;
+	}
+}
+
+
+
+.block-uiu-tab .tabs button {
+    white-space: nowrap;
+}
+
+/* search bar design */
+
+#navbar #uiu-global-nav #header-search-bar {
+    border-radius: unset;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 35px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    width: 15rem;
+    gap: 0;
+}
+
+@media screen and (max-width: 1100px) {
+	#navbar #uiu-global-nav #header-search-bar {
+		margin-top: -10px !important;
+	}
+	
+	#navbar #uiu-global-nav #header-search-bar .search-field, #navbar #uiu-global-nav #header-search-bar label  {
+		width: 100%;
+	}
+	
+	#navbar #uiu-global-nav #header-search-bar.mobile-search {
+		margin-top: 1px !important;
+	}
+}
+
+input.search-field {
+    font-weight: normal;
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    line-height: 1.2;
+    text-shadow: none;
+    border: unset !important;
+    box-shadow: none;
+    height: 35px;
+	overflow: hidden;
+    position: relative;
+    z-index: 2;
+    padding: .2rem .5rem !important;
+    margin: 0 !important;
+    width: calc(15rem - 100px);
+    background: #fff !important;
+    border-radius: unset !important;
+		margin-top: 5px !important;
+}
+
+
+input.search-submit {
+    width: 100px;
+    height: 35px;
+    background-image: -webkit-linear-gradient(180deg, rgb(246, 139, 31), rgb(246, 139, 31));
+    float: unset;
+    border: unset;
+    border-radius: unset;
+    cursor: pointer;
+    margin: unset;
+    font-size: .75rem;
+    padding: .25rem .5rem;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+
+@media screen and (max-width: 1100px) {
+    #navbar #uiu-global-nav .search-form.mobile-search {
+        padding: 0 !important;
+        justify-content: flex-start !important;
+        padding-top: 114px !important;
+        max-width: 100% !important;
+        margin: unset;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh !important;
+        width: 100vw !important;
+        flex-direction: column;
+        background: var(--dark-color);
+        border: none;
+    }
+	
+	#navbar #uiu-global-nav .search-form {
+		margin-top: unset !important;
+		width: 100% !important;
+	}
+}
+
+
+
+nav.uiu-custom-breadcrumbs ul li:not(:first-of-type) a {
+    margin-left: 0.35rem !important;
+}
+
+
+	/* fixed wp default gallery */
+	figure.wp-block-gallery.has-nested-images {
+			margin-top: 1.5rem;
+			display: flex;
+			align-items: normal;
+			flex-wrap: wrap;
+			gap: .5rem;
+	}
+
+	.wp-block-gallery.has-nested-images figure.wp-block-image {
+		border-radius: 3px;
+		overflow: hidden;
+	}
+
+	/* fixed wp default gallery end */</style><noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><style id="wpr-lazyload-bg-container"></style><style id="wpr-lazyload-bg-exclusion"></style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle"></style>
+</noscript>
+<script type="application/javascript">const rocket_pairs = []; const rocket_excluded_pairs = [];</script><meta name="generator" content="WP Rocket 3.23.3.3" data-wpr-features="wpr_lazyload_css_bg_img wpr_delay_js wpr_defer_js wpr_minify_js wpr_lazyload_images wpr_preconnect_external_domains wpr_oci wpr_minify_css wpr_cdn wpr_preload_links wpr_desktop"><link href="https://www.googletagmanager.com" rel="preconnect"><link href="https://www.google.com" rel="preconnect"></head>
+
+<body class="wp-singular faculty-template-default single single-faculty postid-949 wp-theme-uiu-cse">
+		<div id="page" class="site">
+		<a class="skip-link screen-reader-text" href="#primary">Skip to content</a>
+		<header id="navbar">
+
+			<div id="uiu-global-nav">
+
+				<nav class="container-fluid">
+
+					<div class="logo-close-menu">
+
+						<span id="menu-bars">
+							<i class="fa-solid fa-bars"></i>
+						</span>
+
+						<a class="logo" href="https://uiu.ac.bd/">
+							<i class="fa-solid fa-house"></i>
+						</a>
+
+
+						<span id="seacrh" class="seacrh ">
+							<i class="fa-solid fa-magnifying-glass"></i>
+						</span>
+
+					</div>
+
+					<div class="uiu-global-header-menu"><ul id="menu-uiu-header" class="menu"><li id="menu-item-1558" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1558"><a target="_blank" href="https://www.uiu.ac.bd/">UIU Home</a></li>
+<li id="menu-item-1335" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1335"><a target="_blank" href="https://dspace.uiu.ac.bd/">DSpace</a></li>
+<li id="menu-item-1336" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1336"><a target="_blank" href="https://library.uiu.ac.bd/">Library</a></li>
+<li id="menu-item-1337" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1337"><a target="_blank" href="https://www.uiu.ac.bd/academics/faculty-members/">Faculty Members</a></li>
+<li id="menu-item-1338" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1338"><a target="_blank" href="https://degver.uiu.ac.bd/">Degree Verification</a></li>
+<li id="menu-item-1339" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1339"><a target="_blank" href="https://www.uiu.ac.bd/important-contact/">Important Contact</a></li>
+<li id="menu-item-1340" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1340"><a target="_blank" href="https://admission.uiu.ac.bd/Admission/Home.aspx">Apply Online</a></li>
+</ul></div>					    <ul class="profile-login">
+				        <li id="menu-item-1615" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1615"><a href="https://cse.uiu.ac.bd/profile-login/">Profile Login</a></li>                        </ul>
+					<div id="header-search-bar" class="search-form">
+						<form role="search" method="get" class="search-form" action="https://cse.uiu.ac.bd/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search …" value="" name="s">
+				</label>
+				<input type="submit" class="search-submit" value="Search">
+			</form>					</div>
+
+				</nav>
+
+			</div>
+
+			<div id="uiu-departmental-nav">
+
+				<nav class="container-fluid">
+
+					<div id="responsive-btn" class="dep-name-res-icon">
+
+						<a class="department-logo" href="https://cse.uiu.ac.bd/"> <img src="https://cse.uiu.ac.bd/wp-content/uploads/sites/3/2023/12/cropped-cse.png" alt="UIU - Department of CSE" width="1000" height="249"></a>
+
+						<span class="responsive-btn">
+							<i class="fa-solid fa-bars-staggered"></i>
+						</span>
+
+					</div>
+
+					<div class="uiu-departmental-header-menu"><ul id="menu-cse-header" class="menu"><li id="menu-item-1363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1363"><a href="https://cse.uiu.ac.bd/">Home</a></li>
+<li id="menu-item-762" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-762"><a href="https://cse.uiu.ac.bd/about-cse/">About</a>
+<ul class="sub-menu">
+<div class="container"><div class="sub-menu-feature">
+                      <img class="menu_feature_image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/menu-background.jpg"><noscript><img class="menu_feature_image" src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/menu-background.jpg" alt=""></noscript>
+                      <div class="heading-text menu_title">
+                        Research
+                      </div>
+                      <div class="text menu_description">
+                        
+                      </div>
+                    </div><div class="sub-menu-link-container">	<li id="menu-item-766" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-766"><a href="https://cse.uiu.ac.bd/about-cse/welcome-message/">Welcome Message</a></li>
+	<li id="menu-item-764" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-764"><a href="https://cse.uiu.ac.bd/about-cse/mission-vision/">Mission &amp; Vision</a></li>
+	<li id="menu-item-763" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-763"><a href="https://cse.uiu.ac.bd/about-cse/industry-advisory-panel/">Industry Advisory Panel</a></li>
+	<li id="menu-item-767" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-767"><a href="https://cse.uiu.ac.bd/about-cse/why-cse-at-uiu/">Why CSE at UIU</a></li>
+	<li id="menu-item-765" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-765"><a href="https://cse.uiu.ac.bd/about-cse/news-and-events/">News and Events</a></li>
+	<li id="menu-item-1348" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1348"><a href="https://cse.uiu.ac.bd/graduate-employment-2/">Graduate Employment</a></li>
+	<li id="menu-item-801" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-801"><a href="https://cse.uiu.ac.bd/success_story/">Success Stories</a></li>
+	<li id="menu-item-802" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-802"><a href="http://alumni.cse.uiu.ac.bd/">Alumni</a></li>
+</div></div></ul>
+</li>
+<li id="menu-item-761" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-761"><a href="https://cse.uiu.ac.bd/ug-program/">BSc in CSE</a>
+<ul class="sub-menu">
+<div class="container"><div class="sub-menu-feature">
+                      <img class="menu_feature_image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/menu-background.jpg"><noscript><img class="menu_feature_image" src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/menu-background.jpg" alt=""></noscript>
+                      <div class="heading-text menu_title">
+                        Research
+                      </div>
+                      <div class="text menu_description">
+                        
+                      </div>
+                    </div><div class="sub-menu-link-container">	<li id="menu-item-1751" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1751"><a href="https://cse.uiu.ac.bd/ug-program/bscse-academic-calendar/">Academic Calendar</a></li>
+	<li id="menu-item-2966" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2966"><a href="https://cse.uiu.ac.bd/ug-program/curriculum/">Curriculum</a></li>
+	<li id="menu-item-543" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-543"><a href="https://cse.uiu.ac.bd/ug-program/course-plan/">Course Plan</a></li>
+	<li id="menu-item-544" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-544"><a href="https://cse.uiu.ac.bd/ug-program/course-description/">Course Description</a></li>
+	<li id="menu-item-768" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-768"><a href="https://cse.uiu.ac.bd/ug-program/mentor-list/">Mentor List</a></li>
+	<li id="menu-item-508" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-508"><a href="https://www.uiu.ac.bd/admission/admission-notice/">Admission</a></li>
+</div></div></ul>
+</li>
+<li id="menu-item-769" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-769"><a href="https://datascience.uiu.ac.bd/">BSc in Data Science</a>
+<ul class="sub-menu">
+<div class="container"><div class="sub-menu-feature">
+                      <img class="menu_feature_image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/menu-background.jpg"><noscript><img class="menu_feature_image" src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/menu-background.jpg" alt=""></noscript>
+                      <div class="heading-text menu_title">
+                        Research
+                      </div>
+                      <div class="text menu_description">
+                        
+                      </div>
+                    </div><div class="sub-menu-link-container">	<li id="menu-item-771" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-771"><a href="https://admission.uiu.ac.bd/">Admission</a></li>
+	<li id="menu-item-772" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-772"><a href="https://datascience.uiu.ac.bd/ug-program/program-requirement/">Requirements</a></li>
+	<li id="menu-item-773" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-773"><a href="https://datascience.uiu.ac.bd/about-data-science/why-data-science-at-uiu/">Why Data Science at UIU</a></li>
+	<li id="menu-item-774" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-774"><a href="https://datascience.uiu.ac.bd/ug-program/curriculum-structure/">Curriculum Structure</a></li>
+	<li id="menu-item-2970" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2970"><a href="https://datascience.uiu.ac.bd/ug-program/curriculum/">Curriculum</a></li>
+	<li id="menu-item-775" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-775"><a href="https://datascience.uiu.ac.bd/ug-program/course-plan/">Course Plan</a></li>
+</div></div></ul>
+</li>
+<li id="menu-item-776" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-776"><a href="https://cse.uiu.ac.bd/graduate-program/">MSc in CSE</a>
+<ul class="sub-menu">
+<div class="container"><div class="sub-menu-feature">
+                      <img class="menu_feature_image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/menu-background.jpg"><noscript><img class="menu_feature_image" src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/menu-background.jpg" alt=""></noscript>
+                      <div class="heading-text menu_title">
+                        Research
+                      </div>
+                      <div class="text menu_description">
+                        
+                      </div>
+                    </div><div class="sub-menu-link-container">	<li id="menu-item-777" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-777"><a href="https://cse.uiu.ac.bd/graduate-program/mscse-academic-calendar/">Academic Calendar</a></li>
+	<li id="menu-item-778" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-778"><a href="https://cse.uiu.ac.bd/graduate-program/available-mscse-tracks/">Available MSCSE Tracks</a></li>
+	<li id="menu-item-779" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-779"><a href="https://cse.uiu.ac.bd/graduate-program/course-description/">Course Description</a></li>
+	<li id="menu-item-780" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-780"><a href="https://cse.uiu.ac.bd/graduate-program/program-requirement/">Program Requirement</a></li>
+	<li id="menu-item-781" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-781"><a href="https://cse.uiu.ac.bd/graduate-program/upcoming-trimester-info/">Upcoming Trimester Info</a></li>
+	<li id="menu-item-782" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-782"><a href="https://uiu.ac.bd/admission/admission-notice/">Admission</a></li>
+</div></div></ul>
+</li>
+<li id="menu-item-1353" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1353"><a href="https://cse.uiu.ac.bd/faculty/">Faculty Members</a></li>
+<li id="menu-item-785" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-785"><a href="https://cse.uiu.ac.bd/publications/">Research</a>
+<ul class="sub-menu">
+<div class="container"><div class="sub-menu-feature">
+                      <img class="menu_feature_image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/menu-background.jpg"><noscript><img class="menu_feature_image" src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/menu-background.jpg" alt=""></noscript>
+                      <div class="heading-text menu_title">
+                        Research
+                      </div>
+                      <div class="text menu_description">
+                        
+                      </div>
+                    </div><div class="sub-menu-link-container">	<li id="menu-item-786" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-786"><a href="https://cse.uiu.ac.bd/publications/books/">Books</a></li>
+	<li id="menu-item-787" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-787"><a href="https://cse.uiu.ac.bd/publications/conference-paper/">Conference Paper</a></li>
+	<li id="menu-item-788" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-788"><a href="https://cse.uiu.ac.bd/publications/graduate-projects/">Graduate Projects</a></li>
+	<li id="menu-item-789" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-789"><a href="https://cse.uiu.ac.bd/publications/ietf-rfc/">IETF RFC</a></li>
+	<li id="menu-item-790" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-790"><a href="https://cse.uiu.ac.bd/publications/internet-draft/">Internet Draft</a></li>
+	<li id="menu-item-791" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-791"><a href="https://cse.uiu.ac.bd/publications/journal-paper/">Journal Paper</a></li>
+	<li id="menu-item-792" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-792"><a href="https://cse.uiu.ac.bd/publications/sponsored-research-projects/">Sponsored Research Projects</a></li>
+	<li id="menu-item-793" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-793"><a href="https://cse.uiu.ac.bd/publications/technical-bulletin/">Technical Bulletin</a></li>
+	<li id="menu-item-794" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-794"><a href="https://cse.uiu.ac.bd/publications/undergraduate-projects/">Undergraduate Projects</a></li>
+</div></div></ul>
+</li>
+<li id="menu-item-795" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-795"><a href="https://cse.uiu.ac.bd/facilities/">Facilities</a>
+<ul class="sub-menu">
+<div class="container"><div class="sub-menu-feature">
+                      <img class="menu_feature_image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/menu-background.jpg"><noscript><img class="menu_feature_image" src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/menu-background.jpg" alt=""></noscript>
+                      <div class="heading-text menu_title">
+                        Research
+                      </div>
+                      <div class="text menu_description">
+                        
+                      </div>
+                    </div><div class="sub-menu-link-container">	<li id="menu-item-1280" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1280"><a href="https://cse.uiu.ac.bd/lab-facilities/">Lab Facilities</a></li>
+	<li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-796"><a href="https://cse.uiu.ac.bd/facilities/it-services/">IT Services</a></li>
+</div></div></ul>
+</li>
+<li id="menu-item-1478" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1478"><a href="https://cse.uiu.ac.bd/notice/">Notices</a></li>
+<li id="menu-item-806" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-806"><a href="https://cse.uiu.ac.bd/contact/">Contact</a></li>
+</ul></div>				</nav>
+			</div>
+		</header>
+
+		<!-- #masthead -->
+
+<main id="main" class="site-main" role="main">
+
+    <!-- Profile Main Info -->
+    <div id="profile-main-info">
+        <div class="container">
+            <div class="main-info row g-3">
+                <div class="profile-image col-12 col-md-4 col-lg-3">
+                    <div class="profile-img-holder">
+                                                <img fetchpriority="high" src="https://cse.uiu.ac.bd/wp-content/uploads/sites/3/2023/11/Dr.-Dewan-Md.-Farid-240x300.jpg" alt="Dr. Dewan Md. Farid" title="Dr. Dewan Md. Farid" width="240" height="300">
+                    </div>
+                </div>
+
+                <div class="profile-main-details col-12 col-md-8 col-lg-9">
+                    <h2 class="profile-title">
+                        Dr. Dewan Md. Farid                    </h2>
+
+                    <h3 class="profile-desc">
+                        <span>
+                                                        Professor- Dept. of CSE &amp; Director - MSCSE Program                        </span>
+                    </h3>
+
+                    <div class="contact-desc">
+                        <p>
+                            <span class="property">ROOM: </span>
+                            <span>412</span>
+                        </p>
+
+                        <p>
+                            <span class="property">PABX: </span>
+                            <span>3191</span>
+                        </p>
+                    </div>
+
+                    <p class="profile-email">
+                        <span class="property">Email:</span>
+                        <span>dewanfarid@cse.uiu.ac.bd</span>
+                    </p>
+
+                    
+                                    </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Details Tab -->
+    <div id="profile-detail-tab">
+        <div class="container">
+
+            <!-- Breadcrumb Navigation -->
+            <nav id="breadcrumb" aria-label="breadcrumb">
+                <ul>
+                    <li><a href="https://cse.uiu.ac.bd">Home</a></li>
+                    <li><a href="https://cse.uiu.ac.bd/faculty">Faculty Profiles</a></li>
+                </ul>
+            </nav>
+
+            <div class="details-tab-container row">
+                <div class="details-tab col-12 col-lg-3">
+                    <!-- Details Tab -->
+                    <ul>
+                        <!-- You can add additional tabs here if needed -->
+                    </ul>
+                </div>
+
+                <!-- Details Container -->
+                <div class="details-container col-12 col-lg-9">
+                                                                        <div class="details-block">
+                                <h3 class="details-block-title">Biography</h3>
+                                <div class="details"><p>Prof. Dr. Dewan Md. Farid is the Director of M.Sc. in Computer Science &amp; Engineering Program, and Professor of Computer Science &amp; Engineering at United International University. He is former Dean of School of Engineering of Southeast University. He is an IEEE Senior Member and Member ACM.</p>
+<p>Prof. Farid worked as a Postdoctoral Fellow/Staff at the following research labs/groups: (1) Computational Intelligence Group (CIG), Department of Computer Science and Digital Technology, University of Northumbria at Newcastle, UK in 2013, (2) Computational Modelling Lab (CoMo) and Artificial Intelligence Research Group, Department of Computer Science, Vrije Universiteit Brussel, Belgium in 2015-2016, and (3) Decision and Information Systems for Production systems (DISP) Laboratory, IUT Lumi`ere – Universit´e Lyon 2, France in 2020. Prof. Farid was a Visiting Faculty at the Faculty of Engineering, University of Porto, Portugal, and the College of Information and Communication Technology (CICT), Can Tho University, Vietnam. He holds a PhD in Computer Science and Engineering from Jahangirnagar University in 2012. Part of his PhD research has been done at ERIC Laboratory, University Lumi`ere Lyon 2, France by Erasmus-Mundus ECW eLink PhD Exchange Program. His PhD was fully funded by the Ministry of Science &amp; Information and Communication Technology, Government of the People’s Republic of Bangladesh and European Union (EU) eLink project.</p>
+<p>Prof. Farid has published 182 peer-reviewed scientific articles, including 45 highly esteemed journals like Expert Systems with Applications, IEEE Access, PLOS ONE, Neural Networks, Journal of Theoretical Biology, Journal of Neuroscience Methods, Bioinformatics, Scientific Reports (Nature), Proteins and so on in the field of Machine Learning, Data Mining, Data Science and Big Data. Prof. Farid received the following awards: (1) Dr. Fatema Rashid Best Paper Award (2nd Position) for the paper titled “KNNTree: A new method to ameliorate k-nearest neighbour classification using decision tree” in 3rd International Conference on Electrical Computer and Communication Engineering (ECCE 2023), CUET, Chittagong, Bangladesh, (2) Best Paper Award for the paper titled ”Layered ensemble learning for effective binary classification” in 2nd International Conference on Emerging Technology in Data Mining and Information Security (IEMIS 2020), Kolkata, India, (3) JuliaCon 2019 Travel Award for attending Julia Conference at the University of Maryland, Baltimore, USA, and (4) United Group Research Award 2016 in the field of Science and Engineering. He received the following research funds as Principal Investigator: (1) a2i Innovation Fund of Innov-A-Thon 2018 (Ideabank ID No.: 12502) from a2i-Access to Information Program – II, Information and Communication Technology (ICT) Division, Government of the People’s Republic of Bangladesh, and (2) Project Code:<br>
+UIU/IAR/01/2021/SE/23 received from Institute for Advanced Research (IAR), United International University.</p>
+<p>Prof. Farid received the following Erasmus Mundus scholarships: (1) LEADERS (Leading mobility between Europe and Asia in Developing Engineering Education and Research) to undertake a staff level mobility at the Faculty of Engineering, University of Porto, Portugal in 2015, (2) cLink (Centre of excellence for Learning, Innovation, Networking and Knowledge) for pursuing Postdoc at University of Northumbria at Newcastle, UK in 2013, and (3) eLink (east west Link for Innovation, Networking and Knowledge exchange) for pursuing Ph.D. at University Lumi`ere Lyon 2, France in 2009. Prof. Farid also received Senior Fellowship I and II awards from National Science &amp; Information and Communication Technology (NSICT), Ministry of Science &amp; Information and Communication Technology, Government of the People’s Republic of Bangladesh respectively in 2008 and 2011 for pursuing Ph.D. at Jahangirnagar University. He visited 19 countries to attend international conferences, research and higher education. Prof. Farid delivered several invited/keynote talks including an invited research talk at Data to AI Group (DAI), Laboratory for Information and Decision Systems (LIDS), Massachusetts Institute of Technology (MIT), Cambridge, Massachusetts, USA.</p>
+</div>
+                            </div>
+                                                    <div class="details-block">
+                                <h3 class="details-block-title">Awards, Honours, and Research Funding</h3>
+                                <div class="details"><ol>
+<li>
+<div class="page" title="Page 1">
+<div class="layoutArea">
+<div class="column">
+<p>&nbsp;</p>
+<table class="footable phone footable-loaded">
+<tbody>
+<tr>
+<td class="expand" width="75">Year</td>
+<td width="525">Award</td>
+</tr>
+<tr>
+<td class="expand">2023</td>
+<td>
+<div class="page" title="Page 2">
+<div class="layoutArea">
+<div class="column">
+<p>Dr. Fatema Rashid Best Paper Award (2nd Position) for the paper titled “KNNTree: A new method to ameliorate k-nearest neighbour classification using decision tree” in 3rd International Conference on Electrical Computer and Communication Engineering (ECCE 2023), CUET, Chittagong, Bangladesh.</p>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="expand" width="75">2021</td>
+<td width="525">Research project funding (Project Code: UIU/IAR/01/2021/SE/23) received from Institute for Advanced Research (IAR), United International University. Grant: BDT990,000.00 and duration: 24 months.</td>
+</tr>
+<tr>
+<td class="expand">2020</td>
+<td>Best Paper Award for the paper titled “Layered ensemble learning for effective binary classification” in&nbsp;<em>2nd International Conference on Emerging Technology in Data Mining and Information Security (IEMIS 2020)</em>, Kolkata, India.</td>
+</tr>
+<tr>
+<td class="expand" width="75">2019</td>
+<td width="525">JuliaCon Travel Award for attending Julia Conference 2019 at the University ofMaryland, Baltimore, MD, USA.</td>
+</tr>
+<tr>
+<td class="expand" width="75">2019</td>
+<td width="525">a2i Innovation Fund of Innov-A-Thon 2018 (Ideabank ID No.: 12502) from a2i-Access to Information Program – II, Information &amp; Communication TechnologyDivision, Government of the People’s Republic of Bangladesh. Grant: BDT2,416,550.00.</td>
+</tr>
+<tr>
+<td class="expand" width="75">2016</td>
+<td width="525">United Group Research Award in the field of Science and Engineering.</td>
+</tr>
+<tr>
+<td class="expand" width="75">2015</td>
+<td width="525">Erasmus Mundus LEADERS (Leading mobility between Europe and Asia inDeveloping Engineering Education and Research) to undertake a staff level mobilityat the Faculty of Engineering, University of Porto, Portugal.</td>
+</tr>
+<tr>
+<td class="expand" width="75">2013</td>
+<td width="525">Erasmus Mundus cLink (Centre of excellence for Learning, Innovation, Networking and Knowledge) for pursuing postdoctoral research at the Computational IntelligenceGroup (CIG), Department of Computer Science and Digital Technology, University ofNorthumbria at Newcastle, UK.</td>
+</tr>
+<tr>
+<td class="expand" width="75">2011</td>
+<td width="525">Senior Fellowship II awarded by National Science &amp; Information andCommunication Technology (NSICT), Ministry of Science &amp; Information andCommunication Technology, Government of Bangladesh for pursuing Ph.D. researchat Jahangirnagar University, Bangladesh.</td>
+</tr>
+<tr>
+<td class="expand" width="75">2009</td>
+<td width="525">Erasmus Mundus eLink (east west Link for Innovation, Networking and Knowledgeexchange) for pursuing Ph.D. research at ERIC laboratory, University Lumi`ere Lyon 2,France.</td>
+</tr>
+<tr>
+<td class="expand" width="75">2008</td>
+<td width="525">Senior Fellowship I awarded by National Science &amp; Information and CommunicationTechnology (NSICT), Ministry of Science &amp; Information and CommunicationTechnology, Government of Bangladesh for pursuing Ph.D. research at Jahangirnagar University, Bangladesh.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+                            </div>
+                                                    <div class="details-block">
+                                <h3 class="details-block-title">Experience</h3>
+                                <div class="details"><ul>
+<li><strong>Professor</strong>, Dept. of Computer Science &amp; Engineering – November 02, 2021 – present. United International University, Bangladesh.</li>
+<li><strong>Associate Professor</strong>, Dept. of Computer Science &amp; Engineering – January&nbsp;30, 2017 – November 01, 2021. United International University, Bangladesh.</li>
+<li><strong>Postdoctoral Fellow</strong>, Decision and Information Systems for Production systems (DISP) Laboratory – November 15, 2019 – November 15, 2020. IUT Lumière – Université Lyon 2, France.</li>
+<li><strong>Assistant Professor</strong>, Dept. of Computer Science &amp; Engineering – September 26, 2012 – January 29, 2017. United International University, Bangladesh.</li>
+<li><strong>Postdoctoral Fellow</strong>, Computational Modeling Lab (CoMo) – May 22, 2015 – September 30, 2016. Department of Computer Science, Vrije Universiteit Brussel, Belgium.</li>
+<li><strong>Visiting Faculty</strong>, Faculty of Engineering – June 1, 2016 – June 30, 2016. University of Porto, Portugal.</li>
+<li><strong>Coordinator</strong>&nbsp;(In-charge), Institute of Natural Sciences – July 1, 2014 – February 28, 2015. United International University, Bangladesh.</li>
+<li><strong>Postdoctoral Fellow</strong>, Computational Intelligence Group (CIG) – January 29, 2013 – November 27, 2013. Department of Computer Science &amp; Digital Technology, University of Northumbria at Newcastle, UK.</li>
+<li>
+<div class="page" title="Page 1">
+<div class="layoutArea">
+<div class="column">
+<p><strong>Part-time Faculty</strong>, Department of Computer Science and Engineering – June 2007 – August 2012, United International University, Bangladesh</p>
+</div>
+<p>New Line</p>
+</div>
+</div>
+</li>
+</ul>
+</div>
+                            </div>
+                                                    <div class="details-block">
+                                <h3 class="details-block-title">Education</h3>
+                                <div class="details"><p><strong>Post Doc</strong>, Decision and Information Systems for Production systems (DISP) Laboratory, IUT Lumière – Université Lyon 2, France in 2020.</p>
+<p><strong>Post Doc</strong>, Department of Computer Science, Vrije Universiteit Brussel, Belgium in 2015-2016.</p>
+<p><strong>Post Doc</strong>, Department of Computer Science and Digital Technology, University of Northumbria at Newcastle, UK in 2013.</p>
+<p><strong>PhD in Computer Science &amp; Engineering</strong>, Jahangirnagar University, Bangladesh in September 2012. Part of this Ph.D. has been done at ERIC Laboratory, University Lumière Lyon 2, France by Erasmus-Mundus ECW eLink Ph.D. Exchange Program. This&nbsp;PhD was fully funded by Ministry of Science &amp; Information and Communication Technology, Government of the People’s Republic of Bangladesh and European Union (EU) eLink project.</p>
+</div>
+                            </div>
+                                                    <div class="details-block">
+                                <h3 class="details-block-title">Activities</h3>
+                                <div class="details"><p><u>Professional Activities</u></p>
+<ul>
+<li>Advisory Committee: CSITSS 2017, CSITSS 2018, CSITSS 2019, ICAICT2020.</li>
+<li>Publication Chair: SKIMA 2014, SKIMA 2015, ICCIT 2018.</li>
+<li>Session Chair: ICCIT 2014, IEEE TENSYMP 2017, CSITSS 2017, SKIMA 2018, IJCCI 2018, CSITSS 2018, JuliaCon 2019, MiET 2022, SKIMA 2022, ECCE 2023, ICEEICT 2024, ICCA 2024, ISDS 2024.</li>
+<li>Technical Programme Committee: SKIMA 2014, SKIMA 2017, ICBDM 2018, SKIMA 2018, IJCCI 2019, MLSM2020, SKIMA 2022, ISDS 2023, ICCIT 2023, ICCA 2024, ISDS 2024.</li>
+<li>Reviewer: ICCIT 2013, SKIMA 2013, IFOST 2014, SKIMA 2015, IEEE WIECON-ECE 2016, and ITSC 2017, SKIMA 2018, SKIMA 2019, ICSCT 2021, ICCIT 2023, ICEEICT 2024, ICPR 2024, ICCA 2024, ISDS 2024, ICCIT 2024.</li>
+</ul>
+<p><u>Talk/ Seminar/ Workshop</u></p>
+<div class="page" title="Page 9">
+<div class="layoutArea">
+<div class="column">
+<div class="page" title="Page 9">
+<div class="layoutArea">
+<div class="column">
+<ol>
+<li>
+<div class="page" title="Page 12">
+<div class="layoutArea">
+<div class="column">
+<p>Keynote Talk – “Modelling Deep Transfer Learning with Federated Learning in Data Science,” The First International Conference on Intelligent Systems and Data Science (ISDS 2023), November 11-12, 2023, The College of Information and Communication Technology (CICT) of Can Tho University (CTU), Vietnam.</p>
+</div>
+</div>
+</div>
+</li>
+<li>Invited Talk – “Special Lecture on Machine Learning” The Department of Industrial Engineering, Faculty of Engineering, Chiang Mai University, Chiang Mai, Thailand, December, 06, 2022.</li>
+<li>Keynote Talk – “Big Data Analytics Employing Machine Learning: Challenges and Issues,” 14th International IEEE (Tech Co-sponsor) Conference on Software, Knowledge, Information Management and Applications (SKIMA 2022), 02-04 December 2022, CamTech University, Phnom Penh, Cambodia.</li>
+<li>Research Talk – “Machine Learning Algorithms for Data Mining Applications,” United International University, Bangladesh, Nov. 9, 2022.</li>
+<li>Tutorial Talk – “Deep Learning in Data Science and Image Classification,” International Conference on Machine Intelligence and Emerging Technologies 2022 (MIET 2022), Noakhali, Bangladesh, September 23-25, 2022.</li>
+<li>Keynote Speech – “Big Data Analytics in Industry 4.0,” 4th International Joint Conference on Advances in Computational Intelligence (IJCACI 2020), Dhaka, Bangladesh, November 20-21, 2020.</li>
+<li><span lang="EN-US">Research Talk: “Machine Learning for Data Mining Applications in Big Data,” Data to AI Group (DAI),&nbsp;</span>Laboratory for Information and Decision Systems (LIDS), Massachusetts Institute of Technology (MIT), Cambridge, Massachusetts, USA, August 07, 2019.</li>
+<li>Workshop on: “Challenges and Opportunities for Mining Big Data with Data Mining,” Department of Computer Science and Telecommunication Engineering, Noakhali Science and Technology University, Bangladesh, March 21, 2019.</li>
+<li>Seminar on: “Big Data with Data Mining,” Department of Computer Science and Engineering, Asian University of Bangladesh, March 07, 2019.</li>
+<li><span lang="EN-US">Plenary Talk: “Machine Learning with Big Data,”&nbsp;</span>3<sup>rd</sup>&nbsp;International Conference on&nbsp;Computational Systems and Information Technology for Sustainable Solutions (CSITSS 2018),&nbsp;<span lang="EN-US">December 20 – 22, 2018, R V College of Engineering, Bengaluru – 560 059, India.</span></li>
+<li><span lang="EN-US">Invited Talk: “Data Mining with Big Data: Challenges and Opportunities,”&nbsp;</span>2018 International Joint Conference on Computational Intelligence (IJCCI 2018), December 14-15, 2018, Daffodil International University, Dhaka, Bangladesh.</li>
+<li>Invited Talk: “Machine Learning for Mining Big Data,” 12<sup>th&nbsp;</sup>International Conference on Software, Knowledge, Information Management &amp; Applications (SKIMA 2018), December 3-5, 2018, Phnom Penh, Cambodia.</li>
+<li>Workshop on: “Future of Computer Science: Challenges &amp; Prospects,” Department of Computer Science and Engineering, Asian University of Bangladesh, July 04, 2018.</li>
+<li>Plenary Talk: “Machine Learning for Mining Big Data,” International Conference on Emerging Technologies in Data Mining and Information Security, February 23-25, 2018, Kolkata, India.</li>
+<li>Seminar on: “Research and Academic Development,” Department of Computer Science and Engineering, Daffodil International University, Bangladesh, January 31, 2018.</li>
+<li>Seminar on: “An Adaptive Rule-based Classifier for Mining Big Biological Data,” Laboratory of Artificial Intelligence and Decision Support (LIAAD), INESC TEC, Portugal, June 22, 2016.</li>
+<li>Seminar on: “Machine Learning for Data Mining Applications in Big Data,” Department of Informatics Engineering, Faculty of Engineering, University of Porto, Portugal, June 14, 2016.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><u>Training/ Workshop Attended</u></p>
+<ol>
+<li>Training on Outcome-based Curriculum, Organised by Bangladesh Accreditation Council, February 8-9, 2023.</li>
+<li>Training on Effective Teaching Learning and Assessment, Organised by Bangladesh Accreditation Council, February 7, 2023.</li>
+<li>Training on Compliance of Bangladesh National Qualifications Framework (BNQF), Organised by Bangladesh Accreditation Council, February 6, 2023.</li>
+<li><span lang="EN-US">International Symposium on Quality Assurance in Engineering Education Through Accreditation, Organized by: Board of Accreditation for Engineering and Technical Education, Institution of Engineers, Bangladesh (IEB), 13-14 March 2019, Dhaka, Bangladesh.</span></li>
+<li>Research Publication Workshop, Accounting Research Institute (ARI) – Universiti Teknologi Mara (UiTM), Malaysia, 18-20 September 2018.</li>
+<li>Julia TOT Workshop on AI/ ML, University of Liberal Arts Bangladesh, September 6 – 8, 2018.</li>
+<li>Certificate Course on Teaching for Active Learning, Foundation for Learning, Teaching and Research (fLTR), Green University Center of Excellence for Teaching and Learning, May 18 – 20, 2017.</li>
+<li>Certificate in Web Component Development Using Java Technologies, Joint certification by SUN Microsystems, USA and NIIT Ltd, India in 2007.</li>
+<li>Oracle 9i Database Administration at BASE Limited under Oracle Workforce Development Program in 2006.</li>
+<li>Redhat Certified Engineer at BASE Limited under redhat Global Learning Services Training &amp; Certification Programs in 2006.</li>
+</ol>
+<p><u>Country Visited</u>&nbsp;<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+<p><span lang="EN-US">Vietnam, Maldives, Thailand, Cambodia,&nbsp;</span>Sri Lanka, Kingdom of Saudi Arabia, United States of America, Netherlands, Spain, Belgium, United Arab Emirates, United Kingdom, Italy, Portugal, Switzerland, France, Germany, Malaysia, and India (Total 19 Countries).</p>
+</div>
+                            </div>
+                                                    <div class="details-block">
+                                <h3 class="details-block-title">Teaching Interests</h3>
+                                <div class="details"><ul>
+<li>Machine Learning</li>
+<li>Deep Learning</li>
+<li>Big Data</li>
+<li>Data Mining</li>
+<li>Object Oriented Programming (Java)</li>
+</ul>
+</div>
+                            </div>
+                                                    <div class="details-block">
+                                <h3 class="details-block-title">Research Projects</h3>
+                                <div class="details"><div class="page" title="Page 2">
+<div class="layoutArea">
+<div class="column">
+<ul>
+<li>Building Skills 4.0 through University and Enterprise Collaboration (Erasmus+ Shyfte 4.0) project, Decision and Information Systems for Production systems (DISP) Lab- oratory, IUT Lumi`ere – Universit ́e Lyon 2, France, 2020.</li>
+<li>SUstainable developmeNt Smart Agriculture Capacity (SUNSpACe), Decision and Information Systems for Production systems (DISP) Laboratory, IUT Lumi`ere – Universit ́e Lyon 2, France, 2020.</li>
+<li>FWO research project G004414N “Machine Learning for Data Mining Applications in Cancer Genomics,” Computational Modeling Lab, Department of Computer Science, Vrije Universiteit Brussel, Belgium, 2016.</li>
+<li>BRiDGEIris (Brussels big data platform for sharing and discovery in clinical Genomics) project funded by INNOVIRIS, Computational Modeling Lab, Department of Computer Science, Vrije Universiteit Brussel, Belgium, 2015.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+                            </div>
+                                                    <div class="details-block">
+                                <h3 class="details-block-title">Publications</h3>
+                                <div class="details"><p style="font-weight: 400"><strong><u>Journal Articles </u></strong></p>
+<ol>
+<li>Md. Ashif Mahmud Joy, Shamima Nasrin, Ayesha Siddiqua, and Dewan Md. Farid. Vitad: Leveraging modified vision transformer for alzheimer’s disease multi-stage classification from brain mri scans. Brain Research, 1847(149302):1–12, January 2025</li>
+<li>Md. Saiful Niaz, Tasmia Hassan Shabonty, Md. Ashfaqur Rahman Saad, Lucky Talukder Tarin, Huu-Hoa Nguyen, and Dewan Md. Farid. Rice leaf disease classification using knowledge distillation. Journal of Research, Development and Application on Information and Communication Technology, pages 1–10, November 2024</li>
+<li>Abtahi Ahmed, Farzana Akter Nipa, Wasi Uddin Bhuyian, Khaled Md Mushfique, Kamrul Islam Shahin, Nguyen Huu-Hoa, and Dewan Md. Farid. Students’ performance prediction employing decision tree. CTU Journal of Innovation and Sustainable Development, 16, Special issue on ISDS (2024):42–51, October 2024</li>
+<li>Koushik Roy and Dewan Md Farid. An adaptive feature selection algorithm for student performance prediction. IEEE Access, 12:75577 – 75598, May 2024</li>
+<li>Sourav Saha, Md. Easin Arafat, Md Aminul Haque Palash, Dewan Md Farid, and M. Shamim Kaiser. Generation of simulated data for bengali text localization in natural images. Data in Brief, 51:109568, December 2023</li>
+<li>Koushik Roy, Huu-Hoa Nguyen, and Dewan Md Farid. Impact of dimensionality reduction techniques on student performance prediction using machine learning. CTU Journal of Innovation and Sustainable Development, 15:93–101, October 2023</li>
+<li>Ochiuddin Miah, Rafsanjani Muhammod, Khondaker Abdullah Al Mamun, Dewan Md Farid, Shiu Kumar, Alok Sharma, and Abdollah Dehzangi. CluSem: Accurate clustering- based ensemble method to predict motor imagery tasks from multi-channel eeg data. Journal of Neuroscience Methods, 364:109373, December 2021</li>
+<li>Farshid Rayhan, Sajid Ahmed, Zaynab Mousavian, Dewan Md Farid, and Swakkhar Shatabda. FRnet-DTI: Deep convolutional neural network for drug-target interaction prediction. Heliyon, 6(3):e03444, 2020</li>
+<li>Alif Choyon, Ashiqur Rahman, Md. Hasanuzzaman, Dewan Md Farid, and Swakkhar Shatabda. PRESa2i: incremental decision trees for prediction of Adenosine to Inosine RNA editing sites [version 1; peer review: awaiting peer review]. F1000Research, 9(262):1–9, 2020</li>
+<li>Rafsanjani Muhammod, Sajid Ahmed, Dewan Md Farid, Swakkhar Shatabda, Alok Sharma, and Abdollah Dehzangi. PyFeat: a python-based effective feature generation tool for DNA, RNA and protein sequences. Bioinformatics, 35(19):3831–3833, 2019</li>
+<li>Farshid Rayhan, Sajid Ahmed, Dewan Md Farid, Abdollah Dehzangi, and Swakkhar Shatabda. CFSBoost: Cumulative feature subspace boosting for drug-target interaction prediction. Journal of Theoretical Biology, 464:1–8, March 2019</li>
+<li>Sheikh Adilina, Dewan Md Farid, and Swakkhar Shatabda. Effective DNA binding protein prediction by using key features via Chou’s general PseAAC. Journal of Theoretical Biology, 460:64–78, January 2019</li>
+<li>Md Rafsan Jani, Md Toha Khan Mozlish, Sajid Ahmed, Niger Sultana Tahniat, Dewan Md Farid, and Swakkhar Shatabda. iRecSpot-EF: Effective sequence based features for recombi- nation hotspot prediction. Computers in Biology and Medicine, 103:17–23, December 2018</li>
+<li>Md Mofijul Islam, Sanjay Saha, Md Mahmudur Rahman, Swakkhar Shatabda, Dewan Md Farid, and Abdollah Dehzangi. iProtGly-SS: Identifying protein glycation sites using sequence and structure based features. Proteins: Structure, Function, and Bioinformatics, 86(7):777–789, April 2018</li>
+<li>Md Raihan Uddin, Alok Sharma, Dewan Md Farid, Md Mahmudur Rahman, Abdollah De- hzangi, and Swakkhar Shatabda. EvoStruct-Sub: An accurate gram-positive protein subcel- lular localization predictor using evolutionary and structural features. Journal of Theoretical Biology, 443:138–146, April 2018</li>
+<li>Mohammad A Al-Mamun, Worawut Srisukkham, Dewan Md Farid, Lorna Ravenhill, Li Zhang, Alamgir Hossain, and Rosemary Bass. A quantitative image analysis for the cellular cytoskeleton during in vitro tumor growth. Expert Systems with Applications, 92:39–51, February 2018</li>
+<li>Farshid Rayhan, Sajid Ahmed, Swakkhar Shatabda, Dewan Md Farid, Zayneb Mousavian, Abdollah Dehzangi, and M Sohel Rhaman. iDTI-ESBoost: Identification of drug target interaction using evolutionary and structural features with boosting. Scientific Reports, 7(1):1–18, December 2017</li>
+<li>Dewan Md Farid, Mohammad Abdullah Al-Mamun, Bernard Manderick, and Ann Now ́e. An adaptive rule-based classifier for mining big biological data. Expert Systems with Applications, 64:305–316, December 2016</li>
+<li>Mohammad Abdullah Al-Mamun, Dewan Md Farid, Lorna Ravenhill, M Alamgir Hossain, Charles Fall, and Rosemary Bass. An in silico model to demonstrate the effects of Maspin on cancer cell dynamics. Journal of Theoretical Biology, 388:37–49, January 2016</li>
+<li>Dewan Md Farid, Li Zhang, Chowdhury Mofizur Rahman, M A Hossain, and Rebecca Stra- chan. Hybrid decision tree and na ̈ıve bayes classifiers for multi-class classification tasks. Expert Systems with Applications, 41(4):1937–1946, March 2014</li>
+<li>Dewan Md Farid, Li Zhang, Alamgir Hossain, Chowdhury Mofizur Rahman, Rebecca Strachan, Graham Sexton, and Keshav Dahal. An adaptive ensemble classifier for mining concept drifting data streams. Expert Systems with Applications, 40(15):5895–5906, November 2013</li>
+<li>Li Zhang, Ming Jiang, Dewan Md Farid, and M A Hossain. Intelligent facial emotion recognition and semantic-based topic detection for a humanoid robot. Expert Systems with Applications, 40(13):5160–5168, October 2013</li>
+<li>Md Yasir Arafat, Sabera Hoque, Shuxiang Xu, and Dewan Md Farid. Machine learning for mining imbalanced data. IAENG International Journal of Computer Science, 46(2):332–348, May 2019</li>
+<li>Dewan Md Farid, Ann Now ́e, and Bernard Manderick. An ensemble clustering for mining high-dimensional biological big data. International Journal of Design &amp; Nature and Ecody- namics, 11(3):328–337, July 2016</li>
+<li>Muhammad Shakil Pervez and Dewan Md Farid. Literature review of feature selection for mining tasks. International Journal of Computer Applications, 116(21):30–33, April 2015</li>
+<li>Nutan Farah Haq, Abdur Rahman Onik, Avishek Khan Hridoy, Musharrat Rafni, Faisal Muhammad Shah, and Dewan Md Farid. Application of machine learning approaches in intrusion detection system: A survey. International Journal of Advanced Research in Artificial Intelligence, 4(3):9–18, 2015</li>
+<li>Dewan Md Farid and Chowdhury Mofizur Rahman. Mining complex data streams: discretiza- tion, attribute selection and classification. Journal of Advances in Information Technology, 4(3):129–135, August 2013</li>
+<li>Dewan Md Farid and Chowdhury Mofizur Rahman. Assigning weights to training instances increases classification accuracy. International Journal of Data Mining &amp; Knowledge Man- agement Process, 3(1):13, January 2013</li>
+<li>Amit Biswas, Dewan Md Farid, and Chowdhury Mofizur Rahman. A new decision tree learning approach for novel class detection in concept drifting data stream classification. Journal of Computer Science and Engineering, 14(1):1–8, 2012</li>
+<li>Fauzia Yasmeen Tani, Dewan Md Farid, and Mohammad Zahidur Rahman. Ensemble of decision tree classifiers for mining web data streams. International Journal of Applied Information Systems, 1(2):30–36, January 2012</li>
+<li>Dewan Md Farid, Mohammad Zahidur Rahman, and Chowdhury Mofizur Rahman. An ensemble approach to classifier construction based on bootstrap aggregation. International Journal of Computer Applications, 25(5):30–34, July 2011</li>
+<li>Dewan Md Farid, Mohammad Zahidur Rahman, and Chowdhury Mofizur Rahman. Adaptive intrusion detection based on boosting and na ̈ıve bayesian classifier. International Journal of Computer Applications, 24(3):12–19, June 2011</li>
+<li>A J M Abu Afza, Dewan Md Farid, and Chowdhury Mofizur Rahman. A hybrid classifier using boosting, clustering, and na ̈ıve bayesian classifier. World of Computer Science and Information Technology Journal, 1(3):105–109, April 2011</li>
+<li>Dewan Md Farid, Nouria Harbi, and Mohammad Zahidur Rahman. Combining na ̈ıve bayes and decision tree for adaptive intrusion detection. International Journal of Network Security &amp; Its Applications, 2(2):12–25, April 2010</li>
+<li>Dewan Md Farid, Jerome Darmont, and Mohammad Zahidur Rahman. Attribute weighting with adaptive nbtree for reducing false positives in intrusion detection. International Journal of Computer Science and Information Security, 8(1):19–26, April 2010</li>
+<li>Dewan Md Farid and Mohammad Zahidur Rahman. Anomaly network intrusion detection based on improved self adaptive bayesian algorithm. Journal of Computers, 5(1):23–31, January 2010</li>
+</ol>
+<p style="font-weight: 400"><strong><u>Peer Reviewed Conference Papers </u></strong></p>
+<ol>
+<li>Israt Khan, Md. Fahim Amin, Kamrul Islam Shahin, Huu-Hoa Nguyen, and Dewan Md. Farid. Synergetic kdrf classifier: A random forest-based hybrid approach for multi-class classification task. In 27th International Conference on Computer and Information Technology (ICCIT), pages 1–6, Cox’s Bazar, Bangladesh, December 2024</li>
+<li>Md. Jahangir Alam, Asif Al Zawad, Huu-Hoa Nguyen, and Dewan Md. Farid. ReFIN: Recurrent feature importance network for dynamic feature selection. In 27th InternationalConference on Computer and Information Technology (ICCIT), pages 1–6, Cox’s Bazar, Bangladesh, December 2024</li>
+<li>Iftekhar Mahmud, Puja Das, Nafisa Rifa, Irfan Nasif, Raiyan Rahman, and Dewan Md. Farid. Multimodal emotion recognition using visual and thermal image fusion: A deep learn￾ing approach. In 27th International Conference on Computer and Information Technology (ICCIT), pages 1–6, Cox’s Bazar, Bangladesh, December 2024</li>
+<li>Md Shadman Aadeeb and Dewan Md. Farid. Advancing generative ai for visualizing drug addiction: Comparative analysis and dataset innovation. In 27th International Conference on Computer and Information Technology (ICCIT), pages 1–6, Cox’s Bazar, Bangladesh, December 2024</li>
+<li>Pallab Kumar Sarkar, Huu-Hoa Nguyen, and Dewan Md. Farid. FLGAN-IDS: Intrusion detection using gans with federated learning. In The 2nd International Conference on Intelligent Systems and Data Science (ISDS), pages 1–15, Nha Trang University, Vietnam, November 2024</li>
+<li>Shahriar Rahman Niloy, Toushif Muktashid Hasan, Md. Saiduzzaman Apu, Rakibul Hasan, Kamrul Islam Shahin, Nguyen Huu-Hoa, and Dewan Md. Farid. Customer segmentation and classification using k-modes clustering with ensemble learning. In The 2nd International Conference on Intelligent Systems and Data Science (ISDS), pages 1–15, Nha Trang University, Vietnam, November 2024</li>
+<li>Mahbubul Haq Bhuiyan, Khorshed Alam, Kamrul Islam Shahin, and Dewan Md. Farid. A deep learning approach for network intrusion classification. In The IEEE Region 10 Sym- posium (TENSYMP), pages 1–6, Netaji Subhas University of Technology, New Delhi, India, September 2024</li>
+<li>Iftekhar Mahmud, Puja Rani Das, Md. Habibur Rahman, Ahmed Rafi Hasan, Kamrul Islam Shahin, and Dewan Md. Farid. Predicting crop prices using machine learning algorithms for sustainable agriculture. In The IEEE Region 10 Symposium (TENSYMP), pages 1–6, Netaji Subhas University of Technology, New Delhi, India, September 2024</li>
+<li>Maliha Mehjabin Mitu, Sadot Arefin, Zulkarnain Saurav, Md. Afanur Hasan, and Dewan Md. Farid. Pruning-based ensemble tree for multi-class classification. In 6th International Con- ference on Electrical Engineering and Information Communication Technology (ICEEICT), pages 1–6, Military Institute of Science and Technology (MIST), Dhaka-1216, Bangladesh, May 2024</li>
+<li>Mohammad Abdullah Sayeedi, Anas Mohammad Muktadir Osmani, and Dewan Md. Farid. BrailleSense: Deep learning for braille character classification. In 6th International Con- ference on Electrical Engineering and Information Communication Technology (ICEEICT), pages 1–6, Military Institute of Science and Technology (MIST), Dhaka-1216, Bangladesh, May 2024</li>
+<li>Sadia Ahmmed, Taimur Rahman, S M Jishanul Islam, Al-Momen Reyad, Sonjoy Dey, James Anthony Purification, and Dewan Md. Farid. E-MedViTR: Enhanced vision trans- formers with registers for biomedical image classification. In 6th International Conference on Electrical Engineering and Information Communication Technology (ICEEICT), pages 1–6, Military Institute of Science and Technology (MIST), Dhaka-1216, Bangladesh, May 2024</li>
+<li>Manjur Ahammad and Dewan Md. Farid. Electricity theft detection using binary-class imbalanced classification. In 26th International Conference on Computer and Information Technology (ICCIT), pages 1–6, Cox’s Bazar, Bangladesh, December 2023</li>
+<li>Marufatul Jannat Mim, Ripon Kumar Debnath, and Dewan Md. Farid. Black gram plant disease classification using convolutional neural networks. In 26th International Conference on Computer and Information Technology (ICCIT), pages 1–6, Cox’s Bazar, Bangladesh, December 2023</li>
+<li>Mostafa, Md Shifat Hamidi, and Dewan Md. Farid. Detecting lung cancer with feder- ated and transfer learning. In 26th International Conference on Computer and Information Technology (ICCIT), pages 1–6, Cox’s Bazar, Bangladesh, December 2023</li>
+<li>Niloy Kumar Kundu, Mainul Karim, Sarah Kobir, and Dewan Md. Farid. Attention based feature fusion network for monkeypox skin leison detection. In 26th International Conference on Computer and Information Technology (ICCIT), pages 1–6, Cox’s Bazar, Bangladesh, December 2023</li>
+<li>Emam Hasan, Md. Abdur Rahman, Md. Shojib Talukder, Md Farnas Utsho, Md. Shakhan, and Dewan Md. Farid. Data segmentation with improved k-means clustering algorithm. In 26th International Conference on Computer and Information Technology (ICCIT), pages 1–5, Cox’s Bazar, Bangladesh, December 2023</li>
+<li>Saiful Niaz, Lucky Talukder Tarin, Tasmia Hassan Shabonty, Md. Ashfaqur Rahman Saad, and Dewan Md. Farid. Paddy leaf disease detection employing transfer learning. In 26th International Conference on Computer and Information Technology (ICCIT), pages 1–6, Cox’s Bazar, Bangladesh, December 2023</li>
+<li>Abu Bakar Fahad, Syed Eftasum Alam, Mithila Farjana, Swakkhar Shatabda, and De- wan Md. Farid. Recyclable waste image classification using convolutional neural networks. In 26th International Conference on Computer and Information Technology (ICCIT), pages 1–6, Cox’s Bazar, Bangladesh, December 2023</li>
+<li>Nahian Sourov, Faiad Hossain Chowdhury, A.S.M Redowan, Md Tarifuzzaman, and De- wan Md. Farid. Ensemble machine learning for multi-class classification tasks. In 26th International Conference on Computer and Information Technology (ICCIT), pages 1–6, Cox’s Bazar, Bangladesh, December 2023</li>
+<li>Sumaiya Akter, Iram Ishika, Puja Rani Das, Md. Julker Nyne, and Dewan Md. Farid. Boosting oversampling methods for imbalanced data classification. In 26th International Conference on Computer and Information Technology (ICCIT), pages 1–6, Cox’s Bazar, Bangladesh, December 2023</li>
+<li>Mithun Halder, Shayanta Shopnil, Yeasir Arafat, Md Muzadded Chowdhury, Sayed Hossain Jobayer, and Dewan Md. Farid. Clustering as a catalyst for big data classification (cc-bc). In 26th International Conference on Computer and Information Technology (ICCIT), pages 1–6, Cox’s Bazar, Bangladesh, December 2023</li>
+<li>Babe Sultana, Zakia Afrin, Farhana Ryhan Kabir, and Dewan Md. Farid. Bilingual spam sms detection using machine learning. In 26th International Conference on Computer and Information Technology (ICCIT), pages 1–6, Cox’s Bazar, Bangladesh, December 2023</li>
+<li>Ummay Maria Muna, Shanta Biswas, Syed Abu Ammar Muhammad Zarif, and Dewan Md. Farid. Ameliorating performance of random forest using data clustering. In 26th International Conference on Computer and Information Technology (ICCIT), pages 1–6, Cox’s Bazar, Bangladesh, December 2023</li>
+<li>Neamul Islam Fahim, Md. Awinul Haque Utsha, Raj Shekhar Karmaker, Md Oli Ullah, and Dewan Md. Farid. Decision tree using feature grouping. In 26th International Conference on Computer and Information Technology (ICCIT), pages 1–6, Cox’s Bazar, Bangladesh, December 2023</li>
+<li>Abdullah Al Ahad Khan, Siraj Us Salekin, Mushfika Sharmin Rahman, and Dewan Md. Farid. Deep learning for traffic data mining. In 6th International Conference on Electri- cal Information and Communication Technology (EICT), pages 1–6, Khulna, Bangladesh, December 2023</li>
+<li>Indrani Sarker, Sadia Rahman, Nusrat Kabir Nuha, Abdullah Al Mofael, Md Shariful Is- lam, Nabila Sabrin Sworna, and Dewan Md. Farid. Bangladeshi vehicle classification using transfer learning with yolov7. In 6th International Conference on Electrical Information and Communication Technology (EICT), pages 1–6, Khulna, Bangladesh, December 2023</li>
+<li>Al Maruf Hassan, Abir Hossain Amee, Md Iftekhar Hossain, Sara Ferdous Khan, and De- wan Md. Farid. A novel pessimistic decision tree pruning approach for classification. In 6th International Conference on Electrical Information and Communication Technology (EICT), pages 1–6, Khulna, Bangladesh, December 2023</li>
+<li>Niful Islam, Jarin Tasnim Raya, Monowara Tabassum Maisha, and Dewan Md. Farid. Fea- ture fusion with attention mechanism for skin cancer classification. In 6th International Conference on Electrical Information and Communication Technology (EICT), pages 1–6, Khulna, Bangladesh, December 2023</li>
+<li>Niful Islam, Humaira Noor, and Dewan Md. Farid. A novel ensemble k-nearest neighbours classifier with attribute bagging. In International Conference on Intelligent Systems and Data Science (ISDS-2023), pages 1–15, Can Tho University (CTU), Vietnam, November 2023</li>
+<li>Koushik Roy, Huu-Hoa Nguyen, and Dewan Md. Farid. Impact of dimensionality reduc- tion techniques on student performance prediction using machine learning. In International Conference on Intelligent Systems and Data Science (ISDS-2023), pages 1–15, Can Tho University (CTU), Vietnam, November 2023</li>
+<li>Siraj Us Salekin, Md. Hasib Ullah, Abdullah Al Ahad Khan, Md. Shah Jalal, Huu-Hoa Nguyen, and Dewan Md. Farid. Bangladeshi native vehicle classification employing yolov8. In International Conference on Intelligent Systems and Data Science (ISDS-2023), pages 1–15, Can Tho University (CTU), Vietnam, November 2023</li>
+<li>Abu Sayem Md. Siam, Md Mehedi Hasan, Md Mushfikur Talukdar, Yeasir Arafat, Sayed Hos- sain Jobayer, and Dewan Md. Farid. Bangla news classification employing deep learning. In International Conference on Intelligent Systems and Data Science (ISDS-2023), pages 1–15, Can Tho University (CTU), Vietnam, November 2023</li>
+<li>Anika Tasnim Rodela, Huu-Hoa Nguyen, Dewan Md. Farid, and Mohammad Nurul Huda. Bangla social media cyberbullying detection using deep learning. In International Confer- ence on Intelligent Systems and Data Science (ISDS-2023), pages 1–14, Can Tho University (CTU), Vietnam, November 2023</li>
+<li>Zakia Afrin, Dewan Md. Farid, and Khondaker Abdullah Al Mamun. A cloud-based intel- ligent virtual assistant for adolescents. In International Conference on Intelligent Systems and Data Science (ISDS-2023), pages 1–15, Can Tho University (CTU), Vietnam, November 2023</li>
+<li>Dipu Saha, Mainul Karim, Suriya Phongmoo, and Dewan Md. Farid. A privacy-preserving approach for big data mining using rainforest with federated learning. In 2023 IEEE Region 10 Conference (TENCON), pages 1–6, Chiang Mai, Thailand, October 2023</li>
+<li>Mohammad Masudur Rahman and Dewan Md. Farid. Exploring federated learning with na ̈ıve bayes using AVC information. In 14th International Conference on Computing, Com- munication and Networking Technologies (ICCCNT 2023), pages 1–6, IIT – Delhi, India, July 2023</li>
+<li>Ashif Mahmud Joy, Md. Fuad Hasan Khan Chowdhury, Sinha Afroz, Md. Nurul Islam, Ruadia Muhsinat, Mukta Akanda Moly, and Dewan Md. Farid. Real time face recognition with mask using deep convolutional neural network. In 4th International Conference on Computing, Networks and Internet of Things (CNIOT’23), pages 457–461, Xiamen, China, May 2023</li>
+<li>Mainul Karim Sagor, Maun Ali, Md Ferdous Hasan, Most. Fatema-Tuj-Jahra, Syeda Sultana, and Dewan Md. Farid. Bangla sign language recognition using YOLOv5. In IEEE 8th Inter- national Conference for Convergence in Technology (I2CT), pages 1–6, Pune (Maharashtra), India, April 2023</li>
+<li>Puja Ghosh, Tazkia Bahar, Fardina Bhuiyan, Sharita Rahman, Shahariar Tasin Rifat, Naimul Hredoy, Tapotosh Ghosh, and Dewan Md. Farid. Electricity theft detection employing ma- chine learning algorithms. In IEEE 8th International Conference for Convergence in Tech- nology (I2CT), pages 1–6, Pune (Maharashtra), India, April 2023</li>
+<li>Proma Hossain Progga, Md. Jobayer Rahman, Swapnil Biswas, Md. Shakil Ahmed, and Dewan Md. Farid. K-nearest neighbour classifier for big data mining based on informative instances. In IEEE 8th International Conference for Convergence in Technology (I2CT), pages 1–6, Pune (Maharashtra), India, April 2023</li>
+<li>Mainul Karim, Niloy Kundu, Dipu Saha, Sarah Kabir, Sumaiya Akter Mim, and Dewan Md. Farid. Implementing federated learning based on rainforest model. In IEEE 8th International Conference for Convergence in Technology (I2CT), pages 1–6, Pune (Maharashtra), India, April 2023</li>
+<li>Syed Ishtiak Rahman, Shifa Iwase, Arefin Ittesafun Abian, Tapotosh Ghosh, and Dewan Md. Farid. A comprehensive review on precision agriculture and machine learning approach in bangladesh. In IEEE 8th International Conference for Convergence in Technology (I2CT), pages 1–6, Pune (Maharashtra), India, April 2023</li>
+<li>Niful Islam, Most. Fatema-Tuj-Jahra, Md. Tarek Hasan, and Dewan Md. Farid. KNNTree: A new method to ameliorate k-nearest neighbour classification using decision tree. In 3rd International Conference on Electrical Computer and Communication Engineering (ECCE 2023), pages 1–6, CUET, Chittagong, Bangladesh, received Dr. Fatema Rashid Best Paper Award (2nd Position), February 2023</li>
+<li>Zulkarnain Saurav, Maliha Mehjabin Mitu, Nigar Sultana Ritu, Md. Afanur Hasan, Sadot Arefin, and Dewan Md. Farid. A new method for learning decision tree classifier. In 3rd International Conference on Electrical Computer and Communication Engineering (ECCE 2023), pages 1–6, CUET, Chittagong, Bangladesh, February 2023</li>
+<li>Saleh Akram Joy, Arefin Ittesafun Abian, Shifa Chowdhury Iwase, Syed Ishtiak Rahman, Juairia, Tapotosh Ghosh, and Dewan Md. Farid. Agriculture 4.0 in Bangladesh: Issues and challenges. In 14th International Conference on Software, Knowledge, Information Man- agement and Applications (SKIMA 2022), pages 1–6, Phnom Penh, Cambodia, December 2022</li>
+<li>Abdullah Al Masud, Sabbir Hossain, Muhsina Rifa, Farhana Akter, Akib Zaman, and De- wan Md. Farid. Meta-learning in supervised machine learning. In 14th International Confer- ence on Software, Knowledge, Information Management and Applications (SKIMA 2022), pages 1–6, Phnom Penh, Cambodia, December 2022</li>
+<li>Afsana Airin, Rezab Ud Dawla, Ahmed Shabab Noor, Muhib Al Hasan, Ahmed Rafi Hasan, Akib Zaman, and Dewan Md. Farid. Attention-based scene graph generation: A review. In 14th International Conference on Software, Knowledge, Information Management and Applications (SKIMA 2022), pages 1–6, Phnom Penh, Cambodia, December 2022</li>
+<li>Dewan Md. Farid. Agriculture 4.0 in Bangladesh: Machine Learning and Big Data in Preci- sion Agriculture. In International Conference on 4IR for the Emerging Future-2022, page 1, Dhaka, Bangladesh, November 2022</li>
+<li>Akib Zaman, Anika Tahsin, Mostafizur Rahman, Rabeya Akhter, Hinoy Rahman, Shobnom Mustary, and Dewan Md. Farid. Emotion detection for children on the autism spectrum using bci and web technology. In The 21st IEEE/WIC/ACM International Conference on Web Intelligence and Intelligent Agent Technology, pages 1–8, Niagara Falls, Canada, November 2022</li>
+<li>Ahmed Shabab Noor, Afsana Airin, Rezab Ud Dawla, Ahmed Rafi Hasan, Muhib Al Hasan, Akib Zaman, and Dewan Md. Farid. A novel method for imbalanced data classification based on label reassignment. In IEEE Region 10 Conference (TENCON), pages 1–6, Hong Kong, November 2022</li>
+<li>Ahmed Shabab Noor, Muhib Al Hasan, Ahmed Rafi Hasan, Rezab Ud Dawla, Afsana Airin, Akib Zaman, and Dewan Md. Farid. The impact of data locality on the performance of cluster-based under-sampling. In International Conference on Machine Intelligence and Emerging Technologies (MIET 2022), pages 1–12, Noakhali, Bangladesh, September 2022</li>
+<li>Nabila Sabrin Sworna, Ruhul Amin, Nazifa Sadia, Moshiur Rahman, Nazmul Khan Liton, Md. Saddam Hossain Mukta, Swakkhar Shatabda, and Dewan Md. Farid. Boosting k-nearest neighbour (knn) classification using clustering and adaboost methods. In The IEEE Region 10 Symposium (TENSYMP), pages 1–6, Mumbai, India, July 2022</li>
+<li>Dewan Md. Farid, Aicha Sekhari, Yacine Ouzrout, and Swakkhar Shatabda. Julia for knowl- edge mining in industry 4.0. In JuliaCon, page 1, Everywhere on Earth, July 2020. Julia</li>
+<li>Dewan Md. Farid, Aicha Sekhari, and Yacine Ouzrout. Big data mining in skills 4.0 for ameliorating i4.0. In 12th annual International Conference on Education and New Learning Technologies (EDULEARN20), pages 7261–7270, Valencia, Spain, July 2020</li>
+<li>Dewan Md. Farid, Aicha Sekhari, and Yacine Ouzrout. Cluster-based knowledge transfer approach for smart farming. In 12th annual International Conference on Education and New Learning Technologies (EDULEARN20), pages 7279–7285, Valencia, Spain, July 2020</li>
+<li>Abulkalam Azad, Sadia Islam, Dewan Md. Farid, and Swakkhar Shatabda. Layered ensemble learning for effective binary classification. In 2nd International Conference on Emerging Technology in Data Mining and Information Security (IEMIS), pages 1–9, Kolkata, India, received Best Paper Award, July 2020</li>
+<li>Amit Ghosh, Shamsul Arefeen Al Mahmud, Thajid Ibna Rouf Uday, and Dewan Md. Farid. Assistive technology for visually impaired using tensor flow object detection in raspberry pi and coral usb accelerator. In IEEE Region 10 Symposium (TENSYMP), pages 1–4, Dhaka, Bangladesh, June 2020</li>
+<li>Yasir Arafat, Sabera Hoquef, Shuxiang Xuf, and Dewan Md. Farid. Advanced data balancing method with svm decision boundary and bagging. In IEEE Asia-Pacific Confer- ence on Computer Science and Data Engineering (CSDE), pages 1–7, Melbourne, Australia, December 2019. IEEE</li>
+<li>Shabnam Sabah, Sara Zumerrah Binte Anwar, Sadia Afroze, Md. Abulkalam Azad, Swakkhar Shatabda, and Dewan Md. Farid. Big data with decision tree induction. In 13th International Conference on Software, Knowledge, Information Management and Applications (SKIMA), pages 1–6, Island of UKULHAS, Maldives, August 2019</li>
+<li>Md Yasir Arafat, Sabera Hoque, Shuxiang Xu, and Dewan Md Farid. An under-sampling method with support vectors in multi-class imbalanced data classification. In 13th Inter- national Conference on Software, Knowledge, Information Management and Applications (SKIMA), pages 1–6, Island of UKULHAS, Maldives, August 2019</li>
+<li>Dewan Md Farid, Swakkhar Shatabda, Mohammad Zoynul Abedin, Md Tarikul Islam, and Md Ishtiak Hossain. Mining imbalanced big data with julia. In JuliaCon, University of Maryland Baltimore (UMB), Baltimore, MD, USA, July 2019</li>
+<li>Amit Ghosh, Md. Shahinuzzaman Sabuj, Hamudi Hasan Sonet, Swakkhar Shatabda, and Dewan Md. Farid. An adaptive video-based vehicle detection, classification, counting, and speed-measurement system for real-time traffic data collection. In The IEEE Region 10 Symposium (TENSYMP) Symposium Theme: Technological Innovation for Humanity, pages 1–6, Kolkata, India, June 2019</li>
+<li>Ochiuddin Miah, Sakib Shahriar Khan, Swakkhar Shatabda, Khondaker Abdullah Al Mamun, and Dewan Md. Farid. Real-time eeg classification of voluntary hand movement directions using brain machine interface. In The IEEE Region 10 Symposium (TENSYMP) Symposium Theme: Technological Innovation for Humanity, pages 1–6, Kolkata, India, June 2019</li>
+<li>Tabassum Siraj, Efrana Jannat, Warafta Rasul, Meher Afroz Chowdhury, Swakkhar Shatabda, and Dewan Md. Farid. Big data mining in the presence of concept drifting. In International Conference on Advances in Science, Engineering &amp; Robotics Technology (ICASERT), and IEEE Xplore Digital Archive, pages 1–6, Dhaka, Bangladesh, May 2019</li>
+<li>Ochiuddin Miah, Sakib Shahriar Khan, Swakkhar Shatabda, and Dewan Md. Farid. Improving detection accuracy for imbalanced network intrusion classification using cluster- based under-sampling with random forests. In International Conference on Advances in Science, Engineering &amp; Robotics Technology (ICASERT), and IEEE Xplore Digital Archive, pages 1–5, Dhaka, Bangladesh, May 2019</li>
+<li>Sadia Jahan, Swakkhar Shatabda, and Dewan Md. Farid. Active learning for mining big data. In 21st International Conference on Computer and Information Technology (ICCIT), and IEEE Xplore Digital Archive, pages 1–6, Dhaka, Bangladesh, December 2018</li>
+<li>Sadidul Islam, Mst. Farhana Sarkar, Towhid Hussain, Md. Mehedi Hasan, Dewan Md. Farid, and Swakkhar Shatabda. Bangla sentence correction using deep neural network based se- quence to sequence learning. In 21st International Conference on Computer and Information Technology (ICCIT), and IEEE Xplore Digital Archive, pages 1–6, Dhaka, Bangladesh, De- cember 2018</li>
+<li>Sristy Sangskriti, Mashiyat Alam Promi, Dewan Md. Farid, and Swakkhar Shatabda. Pre- diction of origin of replication in genome using DNA sequence based features. In 10th In- ternational Conference on Electrical and Computer Engineering (ICECE), and IEEE Xplore Digital Archive, pages 285–288, Dhaka, Bangladesh, December 2018</li>
+<li>Deepita Saha, Md. Mozzammel Haque, Akash Sarkar, Famina Alam, Dewan Md. Farid, Chowdhury Mofizur Rahman, and Swakkhar Shatabda. Novel class detection in concept drifting data streams using decision tree leaves. In 4th IEEE International Women in Engi- neering (WIE) Conference on Electrical and Computer Engineering 2018 (IEEE WIECON- ECE), pages 1–4, Pattaya, Thailand, December 2018</li>
+<li>Sakib Shahriar Khan, Shakim Ahamed, Miftahul Jannat, Swakkhar Shatabda, and De- wan Md. Farid. Classification by clustering (CbC): An approach of classifying big data based on similarities. In 2018 International Joint Conference on Computational Intelligence (IJCCI), pages 1–13, Dhaka, Bangladesh, December 2018</li>
+<li>Ochiuddin Miah, Al Maruf Hassan, Khondaker Abdullah Al Mamun, and Dewan Md. Farid. Brain machine interface for developing virtual-ball movement controlling game. In 2018 International Joint Conference on Computational Intelligence (IJCCI), pages 1–10, Dhaka, Bangladesh, December 2018</li>
+<li>Ishteaque Alam, Dewan Md. Farid, and Rosaldo J. F. Rossetti. The prediction of traffic flow with regression analysis. In International Conference on Emerging Technology in Data Mining and Information Security (IEMIS), pages 1–10, Kolkata, India, February 2018</li>
+<li>Sabera Hoque, Md. Yasir Arafat, and Dewan Md. Farid. Machine learning for mining im- balanced data. In International Conference on Emerging Technology in Data Mining and Information Security (IEMIS), pages 1–10, Kolkata, India, February 2018</li>
+<li>Sajid Ahmed, Farshid Rayhan, Asif Mahbub, Md. Rafsan Jani, Swakkhar Shatabda, and Dewan Md. Farid. LIUBoost: Locality informed under-boosting for imbalanced data classifi- cation. In International Conference on Emerging Technology in Data Mining and Information Security (IEMIS), pages 1–12, Kolkata, India, February 2018</li>
+<li>Md Yasir Arafat, Sabera Hoque, and Dewan Md. Farid. Cluster-based under-sampling with random forest for multi-class imbalanced classification. In 11th International Conference on Software, Knowledge, Information Management and Applications (SKIMA), and IEEE Xplore Digital Archive, pages 1–6, Colombo, Sri Lanka, December 2017</li>
+<li>Farshid Rayhan, Sajid Ahmed, Asif Mahbub, Md. Rafsan Jani, Swakkhar Shatabda, De- wan Md. Farid, and Chowdhury Mofizur Rahman. MEBoost: Mixing estimators with boosting for imbalanced data classification. In 11th International Conference on Software, Knowledge, Information Management and Applications (SKIMA), and IEEE Xplore Digital Archive, pages 1–6, Colombo, Sri Lanka, December 2017</li>
+<li>Farshid Rayhan, Sajid Ahmed, Asif Mahbub, Md. Rafsan Jani, Swakkhar Shatabda, and Dewan Md. Farid. CUSBoost: Cluster-based under-sampling with boosting for imbalanced classification. In 2nd International Conference on Computational Systems and Information Technology for Sustainable Solution (CSITSS), pages 70–75, Bengaluru, India, December 2017</li>
+<li>Sajid Ahmed, Asif Mahbub, Farshid Rayhan, Md. Rafsan Jani, Swakkhar Shatabda, and Dewan Md. Farid. Hybrid methods for class imbalance learning employing bagging with sampling techniques. In 2nd International Conference on Computational Systems and In- formation Technology for Sustainable Solution (CSITSS), pages 126–131, Bengaluru, India, December 2017</li>
+<li>IshteaqueAlam,MohammadFuadAhmed,MohaiminulAlam,Jo ̃aoUlisses,DewanMd. Farid, Swakkhar Shatabda, and Rosaldo J. F. Rossetti. Pattern mining from historical traffic big data. In IEEE Technologies for Smart Cities (TENSYMP), and IEEE Xplore Digital Archive, pages 1–5, Cochin, Kerala, India, July 2017</li>
+<li>Dewan Md. Farid, Ann Now ́e, and Bernard Manderick. A feature grouping method for ensemble clustering of high-dimensional genomic big data. In Future Technologies Conference (FTC), and IEEE Xplore Digital Archive, pages 260–268, San Francisco, United States, December 2016</li>
+<li>Dewan Md. Farid, Ann Now ́e, and Bernard Manderick. Ensemble of trees for classifying high- dimensional imbalanced genomic data. In SAI Intelligent Systems Conference (IntelliSys), pages 115–122, London, UK, September 2016</li>
+<li>Isel Grau, Maria M. Garcia Lorenzo, Dipankar Sengupta, Dewan Md. Farid, Bernard Mand- erick, Ann Now ́e, Dorien Daneels, Maryse Bonduelle, Didier Croes, and Sonia Van Dooren. Genomic variant classifier tool. In SAI Intelligent Systems Conference (IntelliSys), pages 270–272, London, UK, September 2016</li>
+<li>Dewan Md. Farid, Ann Now ́e, and Bernard Manderick. A new data balancing method for classifying multi-class imbalanced genomic data. In 25th Belgian-Dutch Conference on Machine Learning (Benelearn), pages 1–2, Kortrijk, Belgium, September 2016</li>
+<li>Dewan Md. Farid, Ann Now ́e, and Bernard Manderick. Combining boosting and active learning for mining multi-class genomic data. In 25th Belgian-Dutch Conference on Machine Learning (Benelearn), pages 1–2, Kortrijk, Belgium, September 2016</li>
+<li>Dewan Md. Farid, Ann Now ́e, and Bernard Manderick. An ensemble clustering for mining high-dimensional biological big data. In International Conference on Big Data, pages 131– 142, Alicante, Spain, May 2016</li>
+<li>Dorien Daneels, Isel Grau, Dipankar Sengupta, Maryse Bonduelle, Dewan Md. Farid, Didier Croes, Ann Now ́e, and Sonia Van Dooren. GEVACT: Genomic variant classifier tool. In BeSHG &amp; NVHG First Joint Meeting “Genetics &amp; Society”, pages 114–115, Leuven, Bel- gium, February 2016</li>
+<li>Isel Grau, Dorien Daneels, Sonia Van Dooren, Maryse Bonduelle, Dewan Md. Farid, Didier Croes, Ann Now ́e, and Dipankar Sengupta. GEVACT: Genomic variant classification tool. In 10th Benelux Bioinformatics Conference (bbc), page 65, Antwerp, Belgium, December 2015</li>
+<li>Muhammad Shakil Pervez and Dewan Md. Farid. Feature selection and intrusion classifica- tion in nsl kdd cup 99 dataset employing SVMs. In 8th International Conference on Software, Knowledge, Information Management and Applications (SKIMA), and IEEE Xplore Digital Archive, pages 1–6, Dhaka, Bangladesh, December 2014</li>
+<li>Asraful Alam Pathan, Mehedi Hasan, Md. Ferdous Ahmed, and Dewan Md. Farid. Edu- cational data mining: A mining model for developing students’ programming skills. In 8th International Conference on Software, Knowledge, Information Management and Applica- tions (SKIMA), and IEEE Xplore Digital Archive, pages 1–5, Dhaka, Bangladesh, December 2014</li>
+<li>Mohammad A Al-Mamun, Srisukkham Worawut, Dewan Md. Farid, Alamgir Hossain, Charles Fall, and Rosemary Bass. A cellular automaton model for hypoxia effects on tu- mour growth dynamics. In 8th International Conference on Software, Knowledge, Informa- tion Management and Applications (SKIMA), and IEEE Xplore Digital Archive, pages 1–8, Dhaka, Bangladesh, December 2014</li>
+<li>Mukadir Hossain, Tajkia Tasnim, Swakkhar Shatabda, and Dewan Md. Farid. Stochastic local search for pattern set mining. In 8th International Conference on Software, Knowledge, Information Management and Applications (SKIMA), and IEEE Xplore Digital Archive, pages 1–6, Dhaka, Bangladesh, December 2014</li>
+<li>M A Al-Mamun, Ravenhill Lorna, M Alamgir Hossain, Dewan Md Farid, and Rosemary Bass. Fractal and image analysis of cytoskeletal changes in tumour cells due to the effects of maspin. In IEEE-EMBS International Conferences on Biomedical and Health Informatics (BHI), and IEEE Xplore Digital Archive, pages 209–212, Valencia, Spain, June 2014</li>
+<li>Rejaul Karim and Dewan Md. Farid. An adaptive ensemble classifier for mining complex noisy instances in data streams. In 3rd International Conference on Informatics, Electronics &amp; Vision (ICIEV), and IEEE Xplore Digital Archive, pages 1–4, Dhaka, Bangladesh, May 2014</li>
+<li>Dewan Md. Farid, Mohammad Masudur Rahman, and M A Al-Mamun. Efficient and scal- able multi-class classification using na ̈ıvebayes tree. In 3rd International Conference on Informatics, Electronics &amp; Vision (ICIEV), and IEEE Xplore Digital Archive, pages 1–4, Dhaka, Bangladesh, May 2014</li>
+<li>Dewan Md. Farid, Sabbir Arif Siddique, Li Zhang, Alamgir Hossain, and Chowdhury Mofizur Rahman. Scaling up the classification accuracy of decision tree classifier for multi-class classification tasks. In 7th International Conference on Software, Knowledge, Information Management and Applications (SKIMA), Chiang Mai, Thailand, December 2013</li>
+<li>Dewan Md. Farid, Golam Morshed Maruf, and Chowdhury Mofizur Rahman. A new approach of boosting using decision tree classifier for classifying noisy data. In 2nd International Conference on Informatics, Electronics &amp; Vision (ICIEV), and IEEE Xplore Digital Archive, pages 1–4, Dhaka, Bangladesh, May 2013</li>
+<li>Dewan Md. Farid and Chowdhury Mofizur Rahman. Novel class detection in concept-drifting data stream mining employing decision tree. In 7th International Conference on Electri- cal and Computer Engineering (ICECE), and IEEE Xplore Digital Archive, pages 630–633, Dhaka, Bangladesh, December 2012</li>
+<li>Dewan Md. Farid and Hasan Sarwar. Knowledge mining for effective teaching and enhancing engineering education. In 7th International Conference on Electrical and Computer Engi- neering (ICECE), and IEEE Xplore Digital Archive, pages 354–357, Dhaka, Bangladesh, December 2012</li>
+<li>Dewan Md. Farid. Improve the quality of supervised discretization of continuous valued attributes in data mining. In 14th International Conference on Computer and Information Technology (ICCIT), and IEEE Xplore Digital Archive, pages 61–64, Dhaka, Bangladesh, December 2011</li>
+<li>Dewan Md. Farid, Nouria Harbi, Suman Ahmmed, Mohammad Zahidur Rahman, and Chowdhury Mofizur Rahman. Mining network data for intrusion detection through na ̈ıve bayesian with clustering. In International Conference on Computer, Electrical, System Sci- ence, and Engineering (ICCESSE), pages 836–840, Paris, France, June 2010</li>
+<li>Dewan Md. Farid, Nguyen Huu Hoa, Jerome Darmont, Nouria Harbi, and Mohammad Za- hidur Rahman. Scaling up detection rates and reducing false positives in intrusion detec- tion using nbtree. In International Conference on Data Mining and Knowledge Engineering (ICDMKE), pages 186–190, Rome, Italy, April 2010</li>
+<li>Dewan Md. Farid, Nouria Harbi, Emna Bahri, Mohammad Zahidur Rahman, and Chowd- hury Mofizur Rahman. Attacks classification in adaptive intrusion detection using decision tree. In International Conference on Computer Science (ICCS), pages 86–90, Rio De Janeiro, Brazil, March 2010</li>
+<li>Dewan Md. Farid, Jerome Darmont, Nouria Harbi, and Chowdhury Mofizur Rahman. A new supervised learning algorithm using na ̈ıve bayesian classifier. In IADIS International Conference Information Systems, pages 78–84, Porto, Portugal, March 2010</li>
+<li>Dewan Md. Farid, Jerome Darmont, Nouria Harbi, Nguyen Huu Hoa, and Mohammad Za- hidur Rahman. Adaptive network intrusion detection learning: Attribute selection and clas- sification. In International Conference on Computer Systems Engineering (ICCSE), pages 82–86, Bangkok, Thailand, December 2009</li>
+<li>Rabindra Nath Das, Dewan Md. Farid, and Chowdhury Mofizur Rahman. A new decision tree learning approach using bayesian classifier. In 3rd International Conference on Soft- ware, Knowledge, Information Management and Applications (SKIMA), pages 125–131, Fes, Morocco, October 2009</li>
+<li>Dewan Md. Farid and Mohammad Zahidur Rahman. Anomaly detection model for network intrusion detection using conditional probabilities. In 6th International Conference on Infor- mation Technology in Asia 2009 (CITA), pages 104–110, Kuching, Sarawak, Malaysia, July 2009</li>
+<li>Dewan Md. Farid and Mohammad Zahidur Rahman. Learning intrusion detection based on adaptive bayesian algorithm. In 11th International Conference on Computer and Information Technology (ICCIT), and IEEE Xplore Digital Archive, pages 652–656, Khulna, Bangladesh, December 2008</li>
+<li>Dewan Md. Farid and Chowdhury Mofizur Rahman. Self adaptive na ̈ıve bayesian classifier. In 8th International Conference on Computer and Information Technology (ICCIT), pages 1193–1197, Dhaka, Bangladesh, December 2005</li>
+</ol>
+<p style="font-weight: 400"><strong><u>Book Chapters </u></strong></p>
+<ol>
+<li>Abulkalam Azad, Sadia Islam, Dewan Md. Farid, and Swakkhar Shatabda. Layered ensemble learning for effective binary classification. In Jo ̃ao Manuel R. S. Tavares, Satyajit Chakrabarti, Abhishek Bhattacharya, and Sujata Ghatak, editors, Emerging Technologies in Data Mining and Information Security, volume 164 of Lecture Notes in Networks and Systems (LNNS), pages 1–9, Singapore, 2021. Springer Singapore</li>
+<li>Sakib Shahriar Khan, Shakim Ahamed, Miftahul Jannat, Swakkhar Shatabda, and Dewan Md Farid. Classification by clustering (CbC): An approach of classifying big data based on similarities. In Mohammad Shorif Uddin and Jagdish Chand Bansal, editors, Proceedings of International Joint Conference on Computational Intelligence, Algorithms for Intelligent Systems (AIS), pages 593–605, Singapore, 2020. Springer, Singapore</li>
+<li>Md Ochiuddin Miah, Al Maruf Hassan, Khondaker Abdullah Al Mamun, and Dewan Md Farid. Brain–machine interface for developing virtual-ball movement controlling game. In Mohammad Shorif Uddin and Jagdish Chand Bansal, editors, Proceedings of International Joint Conference on Computational Intelligence, Algorithms for Intelligent Systems (AIS), pages 607–616, Singapore, 2020. Springer, Singapore</li>
+<li>Sajid Ahmed, Farshid Rayhan, Asif Mahbub, Md. Rafsan Jani, Swakkhar Shatabda, and Dewan Md Farid. Liuboost: Locality informed under-boosting for imbalanced data classi- fication. In Ajith Abraham, Paramartha Dutta, Jyotsna Kumar Mandal, Abhishek Bhat- tacharya, and Soumi Dutta, editors, Emerging Technologies in Data Mining and Information Security, pages 133–144, Singapore, 2019. Springer, Singapore</li>
+<li>Ishteaque Alam, Dewan Md Farid, and Rosaldo J F Rossetti. The prediction of traffic flow with regression analysis. In Ajith Abraham, Paramartha Dutta, Jyotsna Kumar Mandal, Abhishek Bhattacharya, and Soumi Dutta, editors, Emerging Technologies in Data Mining and Information Security, pages 661–671, Singapore, 2019. Springer, Singapore</li>
+<li>Dewan Md Farid, Ann Now ́e, and Bernard Manderick. Ensemble of trees for classifying high-dimensional imbalanced genomic data. In Yaxin Bi, Supriya Kapoor, and Rahul Bhatia, editors, Proceedings of SAI Intelligent Systems Conference (IntelliSys) 2016, pages 172–187, Cham, 2018. Springer International Publishing</li>
+<li>Dewan Md Farid, Mohammad Zahidur Rahman, and Chowdhury Mofizur Rahman. Mining complex network data for adaptive intrusion detection. In Adem Karahoca, editor, Advances in Data Mining Knowledge Discovery and Applications, pages 327–348, Croatia, September 2012. InTech</li>
+</ol>
+</div>
+                            </div>
+                                            
+                                            <div class="details-block">
+                            <h3 class="details-block-title">Publication</h3>
+                            <div class="details">
+                                
+                                                                    <h3 class="paper-type">Conference Papers</h3>
+                                    <div class="paper-details single"><span class="paper-year">2019</span><a href="https://ieeexplore.ieee.org/abstract/document/8971196/authors#authors"><h2 class="paper-title">An Adaptive Video-based Vehicle Detection, Classification, Counting, and Speed-measurement System for Real-time Traffic Data Collection</h2></a><p class="paper-tags"></p><p class="paper-event">Conference: 2019 IEEE Region 10 Symposium (TENSYMP)</p><p class="paper-contributors">Author List: Hamudi Hasan Sonet, Dewan Md. Farid, Swakkhar Shatabda</p></div><div class="paper-details single"><span class="paper-year">2019</span><a href="https://ieeexplore.ieee.org/abstract/document/8971196/authors#authors"><h2 class="paper-title">An Adaptive Video-based Vehicle Detection, Classification, Counting, and Speed-measurement System for Real-time Traffic Data Collection</h2></a><p class="paper-tags"></p><p class="paper-event">Conference: 2019 IEEE Region 10 Symposium (TENSYMP)</p><p class="paper-contributors">Author List: Hamudi Hasan Sonet, Dewan Md. Farid, Swakkhar Shatabda</p></div>                                                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+	<!-- #main -->
+<style>
+	#main {
+		margin-top: 105px;
+		background: #fff;
+		font-family: var(--font-two);
+	}
+
+	#main #breadcrumb {
+		margin-bottom: 1.2rem;
+		width: 100%;
+	}
+
+	#main #breadcrumb ul {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	#main #breadcrumb ul li {
+		margin: unset;
+		padding: 0.25rem;
+		color: #fff;
+	}
+
+	#main #breadcrumb ul li a {
+		padding: unset;
+		margin: unset;
+		color: #13B9F0;
+		color: #faebd7;
+	}
+
+	#main #breadcrumb ul li a::after {
+		margin-left: unset;
+		margin-right: 0.25rem;
+	}
+
+	#main #breadcrumb ul li a:hover {
+		color: #1095C2;
+		color: #D6C9B8;
+	}
+
+	#profile-main-info {
+		display: block;
+		position: relative;
+		color: #000;
+		background: #f3f0ec;
+		padding: 2rem 0 2rem;
+	}
+
+	#profile-main-info .profile-image,
+	#profile-main-info .profile-main-details {
+		z-index: 2;
+	}
+
+	@media screen and (max-width: 767px) {
+		#profile-main-info .main-info {
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+		}
+	}
+
+	#profile-main-info .profile-main-details {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 0;
+	}
+
+	#profile-main-info .profile-main-details .profile-title {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: unset;
+		color: #000;
+	}
+
+	@media screen and (max-width: 767px) {
+		#profile-main-info .profile-main-details .profile-title {
+			font-size: 1.3rem;
+		}
+	}
+
+	#profile-main-info .profile-main-details .profile-desc {
+		font-weight: 500;
+		font-size: 1.25rem;
+		margin-bottom: 1rem;
+		color: #000;
+	}
+
+	@media screen and (max-width: 767px) {
+		#profile-main-info .profile-main-details .profile-desc {
+			font-size: 0.9rem;
+		}
+	}
+
+	#profile-main-info .profile-main-details .contact-desc {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		gap: 0.75rem;
+		margin-bottom: 0.1rem;
+		color: #000;
+	}
+
+	@media screen and (max-width: 767px) {
+		#profile-main-info .profile-main-details .contact-desc {
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+		}
+	}
+
+	#profile-main-info .profile-main-details .contact-desc p {
+		margin-bottom: unset;
+		font-weight: 500;
+		font-size: 0.75rem;
+		color: #000;
+	}
+
+	#profile-main-info .profile-main-details .property {
+		font-weight: 700;
+		color: #000;
+	}
+
+	#profile-main-info .profile-main-details .profile-email {
+		font-size: 0.85rem;
+		font-weight: 500;
+		color: #000;
+	}
+
+	#profile-main-info .profile-image .profile-img-holder {
+		width: 100%;
+	}
+
+	#profile-main-info .profile-image .profile-img-holder img {
+		border: 3px solid var(--uiu-color);
+		border-radius: 50%;
+		width: 250px;
+		height: 250px;
+		-o-object-fit: cover;
+		object-fit: cover;
+		-o-object-position: center;
+		object-position: center;
+	}
+
+	#profile-detail-tab {
+		padding: 1rem 0 2rem;
+		background: linear-gradient(180deg, rgb(48, 18, 7) 0%, rgb(40, 21, 13) 22%, rgb(5, 0, 6) 100%);
+		color: #fff;
+	}
+
+	#profile-detail-tab .details-tab-container .details-tab {
+		display: block;
+		color: #fff;
+		text-decoration: none;
+		list-style: none;
+	}
+
+	#profile-detail-tab .details-tab-container .details-tab ul {
+		padding-top: 0.5rem;
+		padding-left: unset !important;
+	}
+
+	#profile-detail-tab .details-tab-container .details-tab li {
+		list-style: none;
+		margin-bottom: 0.35rem;
+	}
+
+	#profile-detail-tab .details-tab-container .details-tab li a {
+		font-size: 1rem;
+		display: flex;
+		align-items: flex-start;
+		gap: 0.5rem;
+		justify-content: space-between;
+		color: #fff;
+		padding: 0.25rem 0.75rem;
+		border-radius: 5px;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	@media screen and (max-width: 991px) {
+		#profile-detail-tab .details-tab-container .details-tab li a {
+			font-size: 1.2rem;
+		}
+	}
+
+	#profile-detail-tab .details-tab-container .details-tab li a span {
+		font-size: inherit;
+	}
+
+	#profile-detail-tab .details-tab-container .details-tab li a:hover {
+		background: rgba(255, 255, 255, 0.2039215686);
+	}
+
+	#profile-detail-tab .details-tab-container .details-tab li a.active {
+		background: rgba(255, 255, 255, 0.2039215686);
+	}
+
+	#profile-detail-tab .details-tab-container .details-tab li a.active .arrow-icon {
+		transform: rotate(90deg);
+	}
+
+	#profile-detail-tab .details-tab-container .details-container {
+		font-family: var(--font-two);
+	}
+
+	#profile-detail-tab .details-tab-container .details-container h1,
+	#profile-detail-tab .details-tab-container .details-container h2,
+	#profile-detail-tab .details-tab-container .details-container h3,
+	#profile-detail-tab .details-tab-container .details-container h4,
+	#profile-detail-tab .details-tab-container .details-container h5,
+	#profile-detail-tab .details-tab-container .details-container h6 {
+		color: #ffc3c3;
+		font-weight: 600;
+	}
+
+	#profile-detail-tab .details-tab-container .details-container p,
+	#profile-detail-tab .details-tab-container .details-container td,
+	#profile-detail-tab .details-tab-container .details-container div,
+	#profile-detail-tab .details-tab-container .details-container li,
+	#profile-detail-tab .details-tab-container .details-container ol,
+	#profile-detail-tab .details-tab-container .details-container ul,
+	#profile-detail-tab .details-tab-container .details-container strong,
+	#profile-detail-tab .details-tab-container .details-container th {
+		color: antiquewhite;
+	}
+
+	#profile-detail-tab .details-tab-container .details-container h3.paper-type {
+		margin-top: 1rem;
+		color: #fff !important;
+	}
+
+	#profile-detail-tab .details-tab-container .details-container .paper-details {
+		padding: 1rem 0;
+		border-bottom: 1px solid #333;
+	}
+
+	#profile-detail-tab .details-tab-container .details-container .paper-details .paper-title {
+		margin: 0.5rem 0;
+		font-size: 0.9rem;
+	}
+
+	@media screen and (max-width: 767px) {
+		#profile-detail-tab .details-tab-container .details-container .paper-details .paper-title {
+			line-height: 1.4;
+			font-size: 0.8rem;
+		}
+	}
+
+	#profile-detail-tab .details-tab-container .details-container .paper-details p {
+		margin: 0.25rem;
+		font-size: 0.75rem;
+		line-height: 1.4 !important;
+	}
+
+	#profile-detail-tab .details-tab-container .details-container ul,
+	#profile-detail-tab .details-tab-container .details-container ol {
+		padding-left: 2rem;
+	}
+
+	#profile-detail-tab .details-tab-container .details-container .details-block {
+		margin-bottom: 2rem;
+	}
+
+	#profile-detail-tab .details-tab-container .details-container .details-block-title {
+		margin-bottom: 1rem;
+		font-size: 2rem;
+	}
+
+	@media screen and (max-width: 991px) {
+		#profile-detail-tab .details-tab-container .details-container .details-block-title {
+			font-size: 1.5rem;
+		}
+	}
+
+	#profile-detail-tab .details-tab-container .details-container .display-hidden {
+		display: none;
+	}
+
+	#follow-us {
+		display: none;
+	}
+
+	h3.paper-type {
+		margin: 40px 0 0;
+		text-decoration: underline;
+		color: antiquewhite;
+		font-family: "DM Serif Text", serif;
+		letter-spacing: 1px;
+		font-size: 1.4em;
+	}
+
+	.paper-details {
+		padding: 30px 0px;
+		border-bottom: 1px solid rgba(51, 51, 51, 0.1764705882);
+	}
+
+	.paper-details .paper-year {
+		font-size: 14px;
+		display: block;
+		color: antiquewhite;
+	}
+
+	.paper-details a {
+		text-decoration: none;
+	}
+
+	.paper-details p {
+		line-height: 1.8em !important;
+	}
+
+	.paper-details .paper-title {
+		font-size: 18px;
+		margin: 10px 0px;
+		font-family: "Open Sans", sans-serif;
+		line-height: 1.7em;
+		letter-spacing: 0.5px;
+		color: antiquewhite;
+	}
+
+	.paper-details .paper-tags .tag {
+		font-size: 14px;
+		border: 1px solid rgba(17, 124, 247, 0.431372549);
+		padding: 3px 8px;
+		border-radius: 10px;
+	}
+
+	.paper-details p {
+		margin: 5px;
+		font-size: 14px;
+	}
+
+	.paper-details.multiple .paper-contributors {
+		margin-bottom: 45px;
+	}
+
+	.edit-profile-btn {
+		margin-top: 1rem;
+		display: block;
+		width: -moz-fit-content;
+		width: fit-content;
+		padding: 0.45rem 2rem;
+		border: none;
+		border-radius: 0;
+		font-size: .80rem;
+		font-weight: 600;
+		text-transform: capitalize;
+		letter-spacing: 1px;
+		background: #F68B1F;
+		color: #fff;
+		text-decoration: none;
+	}
+
+	.edit-profile-btn:hover {
+		background: #160c0c;
+	}
+	
+	/* Common CSS for .footable table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    
+    table, 
+    table th, 
+    table td {
+      border: 1px solid #1f2d38; /* Adds border to table, headers, and cells */
+    }
+</style>
+<script type="text/rocketlazyloadscript">
+	const profileDetails = document.querySelector('#profile-detail-tab')
+
+	if (profileDetails) {
+
+		const detailsTab = profileDetails.querySelector('.details-tab ul')
+		const detailTitle = profileDetails.querySelectorAll('.details-block-title')
+		const detailsBlock = profileDetails.querySelectorAll('.details-block')
+
+
+		// adding tab link from details button main title
+		detailTitle.forEach((title) => {
+
+			const tabElement = `<li><a><span>${title.textContent}</span><span class="arrow-icon"><i class="fa-solid fa-chevron-right"></i></span></a></li>`
+
+			detailsTab.insertAdjacentHTML('beforeend', tabElement)
+
+		})
+
+		// hide all details block
+		detailsBlock.forEach(block => {
+			block.classList.add('display-hidden')
+		})
+
+		//display first deatils block on first load
+		detailsBlock[0].classList.remove('display-hidden')
+
+
+		// get all tab link refarance
+		const detailsTabButton = profileDetails.querySelectorAll('.details-tab ul a');
+
+		// make first tab link active on first load
+		detailsTabButton[0].classList.add('active')
+
+		// tab changing functions
+		detailsTabButton.forEach((button, index) => {
+
+
+			// tab changing clicke event
+			button.addEventListener('click', () => {
+
+				// remove active class from all tab link
+				detailsTabButton.forEach(button => {
+					button.classList.remove('active')
+				})
+
+				// hide all details block
+				detailsBlock.forEach(tab => {
+					tab.classList.add('display-hidden')
+				})
+
+				// make only clicked tab link active
+				detailsTabButton[index].classList.add('active')
+
+				// remove hidden class based on clicked tab link
+				detailsBlock[index].classList.remove('display-hidden')
+			})
+		})
+
+	}
+</script>
+
+<!-- follow us -->
+<section id="follow-us">
+	<div class="container-fluid">
+		<h1 class="heading">Follow Us</h1>
+		<div class="social-link-container">
+			<a href="https://www.facebook.com/uiuinfo" class="social-link" target="_blank">
+				<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/facebook-white.svg"><noscript><img src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/facebook-white.svg" alt=""></noscript>
+			</a>
+
+			<a href="https://www.youtube.com/channel/UCRt5IHIN_lhbAic3hfrS2mA" class="social-link" target="_blank">
+				<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/youtube-white.svg"><noscript><img src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/youtube-white.svg" alt=""></noscript>
+			</a>
+
+			<a href="https://twitter.com/uiuedu" class="social-link" target="_blank">
+				<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/twitter-white.svg"><noscript><img src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/twitter-white.svg" alt=""></noscript>
+			</a>
+
+			<a href="https://www.instagram.com/uiuofficial/" class="social-link" target="_blank">
+				<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/instagram-white.svg"><noscript><img src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/instagram-white.svg" alt=""></noscript>
+			</a>
+
+			<a href="https://www.linkedin.com/school/uiuinfo/" class="social-link" target="_blank">
+				<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/linkedin-white.svg"><noscript><img src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/linkedin-white.svg" alt=""></noscript>
+			</a>
+
+		</div>
+	</div>
+	<img class="bottom-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/footer2.jpg"><noscript><img class="bottom-image" src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/footer2.jpg" alt=""></noscript>
+</section>
+
+<!-- </footer> -->
+<footer id="footer">
+	<div class="container-fluid">
+		<div class="footer-links row g-3">
+			<div class="col-xl-2 col-lg-4 col-md-6 col-6">
+				<div class="brand-logo">
+					<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/header-logo.png" width="300" height="150"><noscript><img src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/header-logo.png" alt=""></noscript>
+				</div>
+				<ul class="social-media-links">
+
+					<li>
+						<a class="single-social-link" href="https://www.facebook.com/uiuinfo" target="_blank">
+							<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/facebook.png" width="300" height="150"><noscript><img src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/facebook.png" alt=""></noscript>
+						</a>
+					</li>
+
+					<li>
+						<a class="single-social-link" href="https://twitter.com/uiuedu" target="_blank">
+							<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/twitter.png" width="300" height="150"><noscript><img src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/twitter.png" alt=""></noscript>
+						</a>
+					</li>
+
+					<li>
+						<a class="single-social-link" href="https://www.youtube.com/channel/UCRt5IHIN_lhbAic3hfrS2mA" target="_blank">
+							<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/youtube.png" width="300" height="150"><noscript><img src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/youtube.png" alt=""></noscript>
+						</a>
+					</li>
+
+					<li>
+						<a class="single-social-link" href="https://www.linkedin.com/school/uiuinfo/" target="_blank">
+							<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/linkedin.png" width="300" height="150"><noscript><img src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/linkedin.png" alt=""></noscript>
+						</a>
+					</li>
+
+					<li>
+						<a class="single-social-link" href="https://www.instagram.com/uiuofficial/" target="_blank">
+							<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/instagram.png" width="300" height="150"><noscript><img src="https://cse.uiu.ac.bd/wp-content/themes/uiu-cse/img/instagram.png" alt=""></noscript>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+							<div class="footer_widgets_2 col-xl-2 col-lg-4 col-md-6 col-6">
+					<div id="nav_menu-4" class="widget widget_nav_menu"><h3 class="widget-title">About UIU</h3><div class="menu-footer-menu-1-container"><ul id="menu-footer-menu-1" class="menu"><li id="menu-item-599" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-599"><a target="_blank" href="https://uiu.ac.bd/about-uiu/why-uiu/">Why UIU</a></li>
+<li id="menu-item-600" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-600"><a target="_blank" href="https://uiu.ac.bd/about-uiu/vision-mission-goals/">Vision Mission Goals</a></li>
+<li id="menu-item-601" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-601"><a target="_blank" href="https://uiu.ac.bd/about-uiu/general-information/">General Information</a></li>
+<li id="menu-item-1578" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1578"><a target="_blank" href="https://www.uiu.ac.bd/about-uiu/uiu-campus/">UIU Campus</a></li>
+<li id="menu-item-602" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-602"><a target="_blank" href="https://uiu.ac.bd/about-uiu/guiding-principles/">Guiding Principles</a></li>
+<li id="menu-item-603" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-603"><a target="_blank" href="https://uiu.ac.bd/about-uiu/ranking/">Ranking &amp; Accreditation</a></li>
+<li id="menu-item-1579" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1579"><a target="_blank" href="https://www.uiu.ac.bd/about-uiu/convocation/">Convocation</a></li>
+<li id="menu-item-1602" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1602"><a target="_blank" href="https://www.uiu.ac.bd/gallery/">Gallery</a></li>
+<li id="menu-item-1603" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1603"><a target="_blank" href="https://www.uiu.ac.bd/uiu_in_media/">Media</a></li>
+<li id="menu-item-1580" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1580"><a target="_blank" href="https://www.uiu.ac.bd/jobs-2/">Career</a></li>
+<li id="menu-item-1954" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1954"><a href="https://cse.uiu.ac.bd/contact/">Contact</a></li>
+</ul></div></div>				</div>
+			
+							<div class="footer_widgets_3 col-xl-2 col-lg-4 col-md-6 col-6">
+					<div id="nav_menu-5" class="widget widget_nav_menu"><h3 class="widget-title">Departments</h3><div class="menu-depatment-links-container"><ul id="menu-depatment-links" class="menu"><li id="menu-item-1594" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1594"><a href="https://cse.uiu.ac.bd/">Dept. of CSE</a></li>
+<li id="menu-item-2683" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2683"><a href="https://datascience.uiu.ac.bd/">B.Sc in Data Science</a></li>
+<li id="menu-item-1595" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1595"><a target="_blank" href="https://eee.uiu.ac.bd/">Dept. of EEE</a></li>
+<li id="menu-item-1596" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1596"><a target="_blank" href="https://ce.uiu.ac.bd/">Dept. of Civil Engineering</a></li>
+<li id="menu-item-1597" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1597"><a target="_blank" href="https://pharmacy.uiu.ac.bd/">Dept. of Pharmacy</a></li>
+<li id="menu-item-1598" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1598"><a target="_blank" href="https://english.uiu.ac.bd/">Dept. of English</a></li>
+<li id="menu-item-1599" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1599"><a target="_blank" href="https://eds.uiu.ac.bd/">Dept. of EDS</a></li>
+<li id="menu-item-1600" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1600"><a target="_blank" href="https://msj.uiu.ac.bd/">Dept. of MSJ</a></li>
+<li id="menu-item-1601" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1601"><a target="_blank" href="https://sobe.uiu.ac.bd">SoBE (BBA, AIS, MBA, EMBA)</a></li>
+<li id="menu-item-2143" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2143"><a href="https://sobe.uiu.ac.bd/economics/">Dept. of Economics</a></li>
+<li id="menu-item-2359" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2359"><a target="_blank" href="https://bge.uiu.ac.bd/">Dept. of BGE</a></li>
+</ul></div></div>				</div>
+			
+							<div class="footer_widgets_4 col-xl-2 col-lg-4 col-md-6 col-6">
+					<div id="nav_menu-6" class="widget widget_nav_menu"><h3 class="widget-title">Admission</h3><div class="menu-footer-menu-3-container"><ul id="menu-footer-menu-3" class="menu"><li id="menu-item-1462" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1462"><a target="_blank" href="https://uiu.ac.bd/admission/">Admission</a></li>
+<li id="menu-item-1463" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1463"><a target="_blank" href="https://uiu.ac.bd/admission/tuition-fees-payment-policies/tuition-fees-waiver/">Tuition Fees &amp; Waiver</a></li>
+<li id="menu-item-609" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-609"><a target="_blank" href="https://uiu.ac.bd/admission/admission-requirements/">Admission Requirements</a></li>
+<li id="menu-item-610" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-610"><a target="_blank" href="https://uiu.ac.bd/admission/admission-test-result/">Admission Test Result</a></li>
+<li id="menu-item-611" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-611"><a target="_blank" href="https://uiu.ac.bd/admission/admission-procedure/">Admission Procedure</a></li>
+<li id="menu-item-612" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-612"><a target="_blank" href="https://uiu.ac.bd/admission/admission-notice/">Admission Dates</a></li>
+<li id="menu-item-1517" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1517"><a target="_blank" href="https://ciac.uiu.ac.bd/admission-procedure-for-international-students/">International Students’ Admission</a></li>
+<li id="menu-item-1518" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1518"><a target="_blank" href="https://ciac.uiu.ac.bd/double-degree-program/">Global Opportunities</a></li>
+<li id="menu-item-1519" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1519"><a target="_blank" href="https://ciac.uiu.ac.bd/foreign-partner-universities/">International Collaboration</a></li>
+<li id="menu-item-613" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-613"><a target="_blank" href="https://uiu.ac.bd/admission/faq/">FAQ</a></li>
+</ul></div></div>				</div>
+			
+							<div class="footer_widgets_5 col-xl-2 col-lg-4 col-md-6 col-6">
+					<div id="nav_menu-8" class="widget widget_nav_menu"><h3 class="widget-title">Important Links</h3><div class="menu-footer-menu-4-container"><ul id="menu-footer-menu-4" class="menu"><li id="menu-item-1507" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1507"><a target="_blank" href="https://uiu.ac.bd/time-schedule-of-shuttle-services/">Time Schedule of Shuttle Services</a></li>
+<li id="menu-item-1508" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1508"><a target="_blank" href="https://uiu.ac.bd/uiu-transportation-service/">Student Transportation Service</a></li>
+<li id="menu-item-1509" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1509"><a target="_blank" href="https://uiu.ac.bd/admission/tuition-fees-payment-policies/payment-procedure/">Payment Procedure</a></li>
+<li id="menu-item-1510" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1510"><a target="_blank" href="https://uiu.ac.bd/e-resources-2/">Student e-Resources</a></li>
+<li id="menu-item-1512" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1512"><a target="_blank" href="https://uiu.ac.bd/important-contact/">Important Contact</a></li>
+</ul></div></div>				</div>
+			
+							<div class="footer_widgets_6 col-xl-2 col-lg-4 col-md-6 col-6">
+					<div id="nav_menu-9" class="widget widget_nav_menu"><h3 class="widget-title">Quick Links</h3><div class="menu-quick-links-container"><ul id="menu-quick-links" class="menu"><li id="menu-item-1498" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1498"><a target="_blank" href="https://ucam.uiu.ac.bd/Security/LogIn.aspx">UCAM</a></li>
+<li id="menu-item-1868" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1868"><a href="https://elms.uiu.ac.bd/">eLMS</a></li>
+<li id="menu-item-1499" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1499"><a target="_blank" href="https://ucam.uiu.ac.bd/ParentalPortal/GuardianLogIn.aspx">Parent Portal</a></li>
+<li id="menu-item-1500" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1500"><a target="_blank" href="https://admin.uiu.ac.bd/">Online Classroom Booking</a></li>
+<li id="menu-item-1501" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1501"><a target="_blank" href="https://degver.uiu.ac.bd/">Degree Verification</a></li>
+<li id="menu-item-1502" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1502"><a target="_blank" href="https://uiu.ac.bd/necessary-forms/">Necessary Forms</a></li>
+<li id="menu-item-1503" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1503"><a href="https://cse.uiu.ac.bd/notice">Notice</a></li>
+<li id="menu-item-1504" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1504"><a href="https://cse.uiu.ac.bd/news/">News</a></li>
+<li id="menu-item-1505" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1505"><a href="https://cse.uiu.ac.bd/event/">Event</a></li>
+</ul></div></div>				</div>
+					</div>
+	</div>
+
+	<div class="lower-part container-fluid">
+
+		<div class="content">
+
+			<p>United City, Madani Ave, Dhaka 1212</p>
+
+			<ul class="footer-links">
+
+				<li>
+					<a href="#">Privacy Policy</a>
+				</li>
+
+				<li>
+					<a href="#">Accessibility Assistance</a>
+				</li>
+
+				<li>
+					<a href="#">Copyright</a>
+				</li>
+
+				<li>
+					<a href="#">Site Information</a>
+				</li>
+
+			</ul>
+
+		</div>
+
+	</div>
+
+
+</footer>
+
+</div><!-- #page -->
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/sites/3/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/uiu-cse/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<a href="/imunify-bot-check" rel="nofollow" aria-hidden="true" tabindex="-1" style="display:none!important;position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden">imunify-bot-check</a><script type="text/rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/faculty/abul-kashem/|/faculty/hsarwar/|/faculty/mnh/|/faculty/mamun/|/faculty/muzahid/|/faculty/motaharul/|/faculty/pathan-al-sakib-khan/|/faculty/suman/|/faculty/dr-jannatun-noor-mukta/|/faculty/azim-riasat/|/faculty/ohidujjaman/|/faculty/mmelahi/|/faculty/rubaiya/|/faculty/benzir/|/faculty/hossain-nahid/|/faculty/sadia/|/faculty/shibly/|/faculty/khushnur/|/faculty/minhajul/|/faculty/shoib/|/faculty/nabila/|/faculty/farhan-anan-himu/|/faculty/anika/|/faculty/islam-md-mohaiminul/|/faculty/hafiz-fahim/|/faculty/islam-md-romizul/|/faculty/tarek/|/faculty/somik-samin-sharaf/|/faculty/khan-rahad/|/faculty/abedeen-iftekharul/|/faculty/noor-kazi-abdun/|/faculty/aadeeb/|/faculty/md-salman-shamil/|/faculty/tithi/|/faculty/rahman-umama/|/faculty/jobair-abdullah-al/|/faculty/rifat-fahmid-al/|/faculty/tajwar-sk-md-tauseef/|/faculty/gomes-charles-aunkan/|/faculty/talukder-md-shafqat/|/faculty/hossain-md-tamzid/|/faculty/utsa-asif-ahmed/|/faculty/raihan-md-tanvir/|/faculty/muntaha-sidratul/|/faculty/yashir-taki/|/faculty/akhand-md-nafis-tahmid/|/faculty/hossain-md-abid/|/faculty/tanvin-asnuva/|/faculty/tahmid-mosaddeque/|/faculty/tasmin-sanjida/|/faculty/azizur-rahman-anik/|/faculty/a-h-m-osama-haque/|/faculty/abu-humayed-azim-fahmid/|/faculty/khandokar-md-rahat-hossain/|/faculty/noman-asif-aditya/|/faculty/nabila-tasfiha-rahman/|/faculty/md-mushfiqul-haque-omi/|/faculty/tanmoy-bipro-das/|/faculty/humaira-anzum-neha/|/faculty/m-fahmin-rahman/|/faculty/redwanul-mahbub-talukder/|/faculty/md-irfanur-rahman-rafio/|/faculty/shekh-md-saifur-rahman/|/faculty/shihab-ahmed/|/faculty/sidratul-tanzila-tasmi/|/faculty/sherajul-arifin/|/faculty/mobaswirul-islam/|/faculty/abdullah-ibne-masud-mahi/|/faculty/mahmudul-hasan/|/faculty/muhammad-anwarul-azim/|/faculty/sajid-ahmed-chowdhury/|/faculty/sabah-ahmed/|/faculty/rakib-ahsan/|/faculty/rakibul-hasan-rafi/|/faculty/md-muhaiminul-islam-nafi/|/faculty/imran-hossain/|/faculty/fairoz-anika/|/faculty/didarul-islam-didar/|/faculty/farhan-tanvir-khan/|/faculty/tasmia-binte-sogir/|/faculty/tahsin-wahid/|/faculty/pranta-biswas/|/faculty/rizvan-jawad-ruhan/|/faculty/anudwaipaon-antu/|/faculty/md-salman-shamil-2/|/faculty/arnab-bhattacharjee/|/faculty/rafid-nahiyan-farabi/|/faculty/shahriar-mahmud/|/faculty/nusaiba-zaman-manifa/|/faculty/sayem-shahad/|/faculty/hafijul-hoque-chowdhury/|/faculty/abrar-mahmud/|/ug-program/curriculum/|/faculty/nahid-ferdous-aurna/|/faculty/himu/|/faculty/rakib-kibria/|/faculty/md-sajjad-hossain/|/faculty/md-zunaid-ul-alam/|/faculty/siana-rizwan/|/faculty/asif-abrar/|/faculty/md-siam/|/faculty/rahman-mohammad-shahriar/|/faculty/ashraful-islam-paran/|/faculty/nahin-f-siddiqui/|/faculty/anindya-hoque/|/faculty/syed-abu-ammar-muhammad-zarif/|/faculty/saqif-kaisar/|/faculty/syed-samin-sadaf/|/faculty/kabir-muhammad-nomani/|/faculty/dr-md-suzauddola/|/faculty/ahmed-nesar-tahsin-choudhury/|/faculty/zia-ul-hassan-abdullah/|/faculty/tasinul-islam-ahon/|/faculty/sadatul-lslam-sadi/|/faculty/jarin-tasneem/|/faculty/sheikh-mohammed-al-hadi-elaf/|/faculty/kazi-fahim-tahmid/|/faculty/zaara-zabeen-arpa/|/faculty/md-taky-shaharair/|/faculty/md-mehedi-hasan/|/faculty/s-m-kausar-parvej/|/faculty/tasriad-ahmed-tias/|/faculty/sudipto-mondal/|/faculty/amit-bin-tariqul/|/faculty/dr-sarwat-amin/|/faculty/abu-shafin-mohammad-mahdee-jameel/|/faculty/md-anowarul-abedin/|/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://cse.uiu.ac.bd","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script type="text/rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script id="rocket_lazyload_css-js-extra">
+var rocket_lazyload_css_data = {"threshold":"300"};
+//# sourceURL=rocket_lazyload_css-js-extra
+</script>
+<script id="rocket_lazyload_css-js-after">
+!function o(n,a,c){function l(t,e){if(!a[t]){if(!n[t]){var r="function"==typeof require&&require;if(!e&&r)return r(t,!0);if(u)return u(t,!0);throw(e=new Error("Cannot find module '"+t+"'")).code="MODULE_NOT_FOUND",e}r=a[t]={exports:{}},n[t][0].call(r.exports,function(e){return l(n[t][1][e]||e)},r,r.exports,o,n,a,c)}return a[t].exports}for(var u="function"==typeof require&&require,e=0;e<c.length;e++)l(c[e]);return l}({1:[function(e,t,r){{let r="undefined"==typeof rocket_pairs?[]:rocket_pairs,o=(("undefined"==typeof rocket_excluded_pairs?[]:rocket_excluded_pairs).map(t=>{var e=t.selector;document.querySelectorAll(e).forEach(e=>{e.setAttribute("data-rocket-lazy-bg-"+t.hash,"excluded")})}),document.querySelector("#wpr-lazyload-bg-container"));var a=rocket_lazyload_css_data.threshold||300;let n=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&r.filter(e=>t.target.matches(e.selector)).map(t=>{var e;t&&((e=document.createElement("style")).textContent=t.style,o.insertAdjacentElement("afterend",e),t.elements.forEach(e=>{n.unobserve(e),e.setAttribute("data-rocket-lazy-bg-"+t.hash,"loaded")}))})})},{rootMargin:a+"px"});function c(){0<(0<arguments.length&&void 0!==arguments[0]?arguments[0]:[]).length&&r.forEach(t=>{try{document.querySelectorAll(t.selector).forEach(e=>{"loaded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&"excluded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&(n.observe(e),(t.elements||=[]).push(e))})}catch(e){console.error(e)}})}c(),(()=>{let r=window.MutationObserver;return function(e,t){if(e&&1===e.nodeType)return(t=new r(t)).observe(e,{attributes:!0,childList:!0,subtree:!0}),t}})()(document.querySelector("body"),c)}},{}]},{},[1]);
+//# sourceURL=rocket_lazyload_css-js-after
+</script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="uiu-departmental-pickr-script-js" data-rocket-src="https://cse.uiu.ac.bd/wp-content/cache/min/3/npm/@simonwep/pickr/dist/pickr.min.js?ver=1788769043" data-rocket-defer="" defer=""></script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="uiu-departmental-navigation-script-js" data-rocket-src="https://cse.uiu.ac.bd/wp-content/cache/min/3/wp-content/themes/uiu-cse/js/navigation.js?ver=1788769043" data-rocket-defer="" defer=""></script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="uiu-departmental-theme-script-js" data-rocket-src="https://cse.uiu.ac.bd/wp-content/cache/min/3/wp-content/themes/uiu-cse/js/theme-script.js?ver=1788769043" data-rocket-defer="" defer=""></script>
+<script type="text/rocketlazyloadscript" id="google-recaptcha-js" data-rocket-src="https://www.google.com/recaptcha/api.js?render=6LdoeuwpAAAAACI3I0Yo8Rb30RBQdPMT41P-E5XT&amp;ver=3.0"></script>
+<script type="text/rocketlazyloadscript" id="wp-polyfill-js" data-rocket-src="https://cse.uiu.ac.bd/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0"></script>
+<script type="text/rocketlazyloadscript" id="wpcf7-recaptcha-js-before">
+var wpcf7_recaptcha = {
+    "sitekey": "6LdoeuwpAAAAACI3I0Yo8Rb30RBQdPMT41P-E5XT",
+    "actions": {
+        "homepage": "homepage",
+        "contactform": "contactform"
+    }
+};
+//# sourceURL=wpcf7-recaptcha-js-before
+</script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="wpcf7-recaptcha-js" data-rocket-src="https://cse.uiu.ac.bd/wp-content/cache/min/3/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=1788769043" data-rocket-defer="" defer=""></script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript">window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener("load", function(event) {
+jQuery(".cfx_form_main,.wpcf7-form,.wpforms-form,.gform_wrapper form").each(function(){
+var form=jQuery(this); 
+var screen_width=""; var screen_height="";
+ if(screen_width == ""){
+ if(screen){
+   screen_width=screen.width;  
+ }else{
+     screen_width=jQuery(window).width();
+ }    }  
+  if(screen_height == ""){
+ if(screen){
+   screen_height=screen.height;  
+ }else{
+     screen_height=jQuery(window).height();
+ }    }
+form.append('<input type="hidden" name="vx_width" value="'+screen_width+'">');
+form.append('<input type="hidden" name="vx_height" value="'+screen_height+'">');
+form.append('<input type="hidden" name="vx_url" value="'+window.location.href+'">');  
+}); 
+
+});
+});</script> 
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://cse.uiu.ac.bd/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><link data-minify="1" rel="stylesheet" href="https://cse.uiu.ac.bd/wp-content/cache/min/3/wp-content/themes/uiu-cse/css/custom.css?ver=1788769043">
+
+
+
+</body></html>

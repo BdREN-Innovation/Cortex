@@ -1,0 +1,587 @@
+<!DOCTYPE html><html lang="en"><head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>
+        GUB Management Connect
+    </title>
+
+
+  <link rel="icon" type="image/x-icon" href="https://green.edu.bd/public/images/primary-logo/favicon.ico">
+    
+
+
+    <!-- Vue 3 CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.sticky{position:sticky}.left-0{left:0px}.right-0{right:0px}.top-0{top:0px}.z-30{z-index:30}.z-50{z-index:50}.z-\[60\]{z-index:60}.mx-auto{margin-left:auto;margin-right:auto}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mt-1{margin-top:0.25rem}.mt-5{margin-top:1.25rem}.mt-8{margin-top:2rem}.mt-1\.5{margin-top:0.375rem}.line-clamp-2{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}.flex{display:flex}.grid{display:grid}.h-10{height:2.5rem}.h-16{height:4rem}.h-2{height:0.5rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-\[85px\]{height:85px}.max-h-\[500px\]{max-height:500px}.min-h-20{min-height:5rem}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-2{width:0.5rem}.w-32{width:8rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-\[150px\]{width:150px}.w-\[70px\]{width:70px}.w-full{width:100%}.min-w-0{min-width:0px}.min-w-\[640px\]{min-width:640px}.max-w-7xl{max-width:80rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.table-fixed{table-layout:fixed}.border-separate{border-collapse:separate}.border-spacing-0{--tw-border-spacing-x:0px;--tw-border-spacing-y:0px;border-spacing:var(--tw-border-spacing-x) var(--tw-border-spacing-y)}.rotate-180{--tw-rotate:180deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.overflow-auto{overflow:auto}.overflow-hidden{overflow:hidden}.break-words{overflow-wrap:break-word}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity, 1))}.border-green-600{--tw-border-opacity:1;border-color:rgb(22 163 74 / var(--tw-border-opacity, 1))}.border-green-200{--tw-border-opacity:1;border-color:rgb(187 247 208 / var(--tw-border-opacity, 1))}.border-red-200{--tw-border-opacity:1;border-color:rgb(254 202 202 / var(--tw-border-opacity, 1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-green-100{--tw-bg-opacity:1;background-color:rgb(220 252 231 / var(--tw-bg-opacity, 1))}.bg-green-50{--tw-bg-opacity:1;background-color:rgb(240 253 244 / var(--tw-bg-opacity, 1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94 / var(--tw-bg-opacity, 1))}.bg-green-700{--tw-bg-opacity:1;background-color:rgb(21 128 61 / var(--tw-bg-opacity, 1))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity, 1))}.bg-red-500{--tw-bg-opacity:1;background-color:rgb(239 68 68 / var(--tw-bg-opacity, 1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/95{background-color:rgb(255 255 255 / 0.95)}.object-contain{object-fit:contain}.p-1\.5{padding:0.375rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.pb-3{padding-bottom:0.75rem}.pl-1{padding-left:0.25rem}.pr-1{padding-right:0.25rem}.pt-24{padding-top:6rem}.text-center{text-align:center}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[15px\]{font-size:15px}.text-\[9px\]{font-size:9px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-0.025em}.tracking-wide{letter-spacing:0.025em}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}.text-green-100{--tw-text-opacity:1;color:rgb(220 252 231 / var(--tw-text-opacity, 1))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.text-green-700{--tw-text-opacity:1;color:rgb(21 128 61 / var(--tw-text-opacity, 1))}.text-red-700{--tw-text-opacity:1;color:rgb(185 28 28 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-200{transition-duration:200ms}.duration-300{transition-duration:300ms}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width: 640px){.sm\:mt-2{margin-top:0.5rem}.sm\:hidden{display:none}.sm\:h-24{height:6rem}.sm\:h-5{height:1.25rem}.sm\:h-\[110px\]{height:110px}.sm\:max-h-\[700px\]{max-height:700px}.sm\:min-h-24{min-height:6rem}.sm\:w-40{width:10rem}.sm\:w-5{width:1.25rem}.sm\:w-\[180px\]{width:180px}.sm\:w-\[90px\]{width:90px}.sm\:min-w-\[850px\]{min-width:850px}.sm\:flex-none{flex:none}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:justify-between{justify-content:space-between}.sm\:gap-2{gap:0.5rem}.sm\:gap-3{gap:0.75rem}.sm\:gap-4{gap:1rem}.sm\:rounded-2xl{border-radius:1rem}.sm\:p-2{padding:0.5rem}.sm\:p-4{padding:1rem}.sm\:p-3{padding:0.75rem}.sm\:px-2{padding-left:0.5rem;padding-right:0.5rem}.sm\:px-3{padding-left:0.75rem;padding-right:0.75rem}.sm\:px-5{padding-left:1.25rem;padding-right:1.25rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:py-4{padding-top:1rem;padding-bottom:1rem}.sm\:pt-28{padding-top:7rem}.sm\:text-left{text-align:left}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-\[10px\]{font-size:10px}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}.sm\:text-xs{font-size:0.75rem;line-height:1rem}.sm\:text-\[11px\]{font-size:11px}}@media (min-width: 768px){.md\:flex-row{flex-direction:row}.md\:text-left{text-align:left}}@media (min-width: 1024px){.lg\:hidden{display:none}.lg\:w-64{width:16rem}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:flex-row{flex-direction:row}.lg\:px-8{padding-left:2rem;padding-right:2rem}.lg\:text-3xl{font-size:1.875rem;line-height:2.25rem}}@media (min-width: 1280px){.xl\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}</style></head>
+
+
+<body class="bg-gray-100">
+
+
+<div id="app" class="min-h-screen bg-gray-100" data-v-app=""><header class="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur-md shadow-sm"><div class="mx-auto max-w-7xl px-3 sm:px-5 lg:px-8"><div class="flex min-h-20 sm:min-h-24 items-center gap-4"><!-- Logo --><a href="https://green.edu.bd" class="shrink-0 group" title="Green University of Bangladesh"><img src="https://green.edu.bd/public/images/primary-logo/GUB-Updated-Logo.svg" alt="GUB Logo" class="h-16 w-32 sm:h-24 sm:w-40 object-contain transition duration-200 group-hover:scale-105" width="300" height="133"></a><!-- Title --><div class="min-w-0 flex-1"><h1 class="text-lg sm:text-2xl lg:text-3xl font-bold tracking-tight text-gray-900 leading-tight"><span class="font-extrabold text-green-700"> GUB </span><span class="text-gray-800"> Management Connect </span></h1><p class="mt-1 text-[10px] sm:text-xs tracking-wide uppercase font-medium text-gray-500"> Executive Availability Portal </p></div></div></div></header><main class="mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-3"><!-- Filter --><div><div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-3 sm:p-4"><!-- Mobile Filter Header --><div class="lg:hidden flex items-center justify-between mb-3 rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 cursor-pointer"><div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h18M6 12h12M10 20h4"></path></svg><span class="text-sm font-semibold text-gray-700"> Filters </span></div><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 transition-transform duration-300 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div><div class="overflow-hidden"><div class="flex flex-col lg:flex-row gap-3 sm:gap-4"><!-- Executive --><div class="flex-1"><div class="flex justify-between mb-2"><div class="flex items-center gap-2"><span class="text-[15px] font-semibold text-gray-800 pl-1"> Executives </span><span class="text-sm font-semibold text-green-700">8/8</span></div><label class="flex items-center gap-2 cursor-pointer pr-1"><input type="checkbox" class="w-4 h-4 rounded text-green-600" checked=""> All </label></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 border border-gray-200 rounded-xl p-2"><label class="flex items-center gap-2 rounded-lg border px-3 py-2 cursor-pointer bg-gray-50"><input type="checkbox" class="w-4 h-4 rounded text-green-600" checked=""><span class="text-sm font-medium text-green-700">Prof. Dr. Mohammad Shorif Uddin</span></label><label class="flex items-center gap-2 rounded-lg border px-3 py-2 cursor-pointer bg-gray-50"><input type="checkbox" class="w-4 h-4 rounded text-green-600" checked=""><span class="text-sm font-medium text-green-700">Prof. Dr. Khawza Iftekhar Uddin Ahmed</span></label><label class="flex items-center gap-2 rounded-lg border px-3 py-2 cursor-pointer bg-gray-50"><input type="checkbox" class="w-4 h-4 rounded text-green-600" checked=""><span class="text-sm font-medium text-green-700">Prof. Dr. Md. Fayzur Rahman</span></label><label class="flex items-center gap-2 rounded-lg border px-3 py-2 cursor-pointer bg-gray-50"><input type="checkbox" class="w-4 h-4 rounded text-green-600" checked=""><span class="text-sm font-medium text-green-700">Prof. Dr. Md. Saiful Azad</span></label><label class="flex items-center gap-2 rounded-lg border px-3 py-2 cursor-pointer bg-gray-50"><input type="checkbox" class="w-4 h-4 rounded text-green-600" checked=""><span class="text-sm font-medium text-green-700">Prof. Dr. Mohammed Tareque Aziz</span></label><label class="flex items-center gap-2 rounded-lg border px-3 py-2 cursor-pointer bg-gray-50"><input type="checkbox" class="w-4 h-4 rounded text-green-600" checked=""><span class="text-sm font-medium text-green-700">Prof. Dr. Md. Shahidullah</span></label><label class="flex items-center gap-2 rounded-lg border px-3 py-2 cursor-pointer bg-gray-50"><input type="checkbox" class="w-4 h-4 rounded text-green-600" checked=""><span class="text-sm font-medium text-green-700">Prof. Dr. S.M. Hassan Talukder</span></label><label class="flex items-center gap-2 rounded-lg border px-3 py-2 cursor-pointer bg-gray-50"><input type="checkbox" class="w-4 h-4 rounded text-green-600" checked=""><span class="text-sm font-medium text-green-700">Captain (Navy) S M Salahuddin</span></label></div></div><!-- Date --><div class="w-full lg:w-64"><div class="rounded-2xl border border-gray-200 bg-gray-50 p-4"><div class="flex items-center gap-3 mb-3"><div class="h-10 w-10 flex items-center justify-center rounded-xl bg-green-100 text-green-700"> 📅 </div><div><p class="text-xs text-gray-500 uppercase"> Schedule </p><h3 class="font-semibold text-gray-800"> Select Date </h3></div></div><input type="date" class="w-full rounded-xl border border-gray-300 px-4 py-3" value="2026-09-13"></div></div></div></div></div></div><!-- Stats --><div class="mt-5"><div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-4"><div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"><!-- Title --><div class="min-w-0 text-center sm:text-left"><h2 class="text-base sm:text-lg font-bold text-gray-800"> Executive Availability </h2><p class="text-xs sm:text-sm text-gray-500 mt-1"> View availability and meeting schedule </p></div><!-- Status --><div class="flex items-center gap-2 sm:gap-3 flex-wrap"><!-- Free --><div class="flex flex-1 sm:flex-none items-center justify-center gap-2 rounded-xl bg-green-50 px-3 py-2"><span class="h-2 w-2 rounded-full bg-green-500 shrink-0"></span><span class="text-xs text-gray-600"> Free </span><span class="text-sm font-bold text-green-700">114</span></div><!-- Busy --><div class="flex flex-1 sm:flex-none items-center justify-center gap-2 rounded-xl bg-red-50 px-3 py-2"><span class="h-2 w-2 rounded-full bg-red-500 shrink-0"></span><span class="text-xs text-gray-600"> Busy </span><span class="text-sm font-bold text-red-700">14</span></div></div></div></div></div><!-- Schedule --><div id="schedule-table" class="mt-5"><div class="w-full max-h-[500px] sm:max-h-[700px] overflow-auto rounded-2xl border border-gray-200 bg-white shadow-sm"><div class="min-w-[640px] sm:min-w-[850px]"><table class="w-full border-separate border-spacing-0 table-fixed"><colgroup><col class="w-[70px] sm:w-[90px]"><col class="w-[150px] sm:w-[180px]"><col class="w-[150px] sm:w-[180px]"><col class="w-[150px] sm:w-[180px]"><col class="w-[150px] sm:w-[180px]"><col class="w-[150px] sm:w-[180px]"><col class="w-[150px] sm:w-[180px]"><col class="w-[150px] sm:w-[180px]"><col class="w-[150px] sm:w-[180px]"></colgroup><thead class="sticky top-0 z-50"><tr><!-- Time Header --><th class="sticky top-0 left-0 z-[60] bg-green-700 text-white border border-green-600 px-2 sm:px-3 py-3 sm:py-4"><div class="flex flex-col items-center justify-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-[11px] sm:text-sm"> Time </span></div></th><!-- Executive Header --><th class="sticky top-0 z-50 bg-green-700 text-white border border-green-600 px-2 sm:px-3 py-3"><div class="text-center"><p class="text-xs sm:text-sm font-bold leading-tight break-words">Prof. Dr. Mohammad Shorif Uddin</p><p class="mt-1 text-[9px] sm:text-[10px] text-green-100 leading-tight break-words">VC</p></div></th><th class="sticky top-0 z-50 bg-green-700 text-white border border-green-600 px-2 sm:px-3 py-3"><div class="text-center"><p class="text-xs sm:text-sm font-bold leading-tight break-words">Prof. Dr. Khawza Iftekhar Uddin Ahmed</p><p class="mt-1 text-[9px] sm:text-[10px] text-green-100 leading-tight break-words">Pro-VC</p></div></th><th class="sticky top-0 z-50 bg-green-700 text-white border border-green-600 px-2 sm:px-3 py-3"><div class="text-center"><p class="text-xs sm:text-sm font-bold leading-tight break-words">Prof. Dr. Md. Fayzur Rahman</p><p class="mt-1 text-[9px] sm:text-[10px] text-green-100 leading-tight break-words">Treasurer</p></div></th><th class="sticky top-0 z-50 bg-green-700 text-white border border-green-600 px-2 sm:px-3 py-3"><div class="text-center"><p class="text-xs sm:text-sm font-bold leading-tight break-words">Prof. Dr. Md. Saiful Azad</p><p class="mt-1 text-[9px] sm:text-[10px] text-green-100 leading-tight break-words">Dean FSC</p></div></th><th class="sticky top-0 z-50 bg-green-700 text-white border border-green-600 px-2 sm:px-3 py-3"><div class="text-center"><p class="text-xs sm:text-sm font-bold leading-tight break-words">Prof. Dr. Mohammed Tareque Aziz</p><p class="mt-1 text-[9px] sm:text-[10px] text-green-100 leading-tight break-words">Dean GBS</p></div></th><th class="sticky top-0 z-50 bg-green-700 text-white border border-green-600 px-2 sm:px-3 py-3"><div class="text-center"><p class="text-xs sm:text-sm font-bold leading-tight break-words">Prof. Dr. Md. Shahidullah</p><p class="mt-1 text-[9px] sm:text-[10px] text-green-100 leading-tight break-words">Dean FSS</p></div></th><th class="sticky top-0 z-50 bg-green-700 text-white border border-green-600 px-2 sm:px-3 py-3"><div class="text-center"><p class="text-xs sm:text-sm font-bold leading-tight break-words">Prof. Dr. S.M. Hassan Talukder</p><p class="mt-1 text-[9px] sm:text-[10px] text-green-100 leading-tight break-words">Dean LAW</p></div></th><th class="sticky top-0 z-50 bg-green-700 text-white border border-green-600 px-2 sm:px-3 py-3"><div class="text-center"><p class="text-xs sm:text-sm font-bold leading-tight break-words">Captain (Navy) S M Salahuddin</p><p class="mt-1 text-[9px] sm:text-[10px] text-green-100 leading-tight break-words">Registrar</p></div></th></tr></thead><tbody><tr><!-- Time Column --><td class="sticky left-0 z-30 bg-slate-50 border border-gray-200 px-1 sm:px-2 py-3 sm:py-4 text-center"><div class="flex flex-col items-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-[10px] sm:text-xs font-bold text-gray-700">09:00 AM</span></div></td><!-- Schedule Cell --><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td></tr><tr><!-- Time Column --><td class="sticky left-0 z-30 bg-slate-50 border border-gray-200 px-1 sm:px-2 py-3 sm:py-4 text-center"><div class="flex flex-col items-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-[10px] sm:text-xs font-bold text-gray-700">09:30 AM</span></div></td><!-- Schedule Cell --><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td></tr><tr><!-- Time Column --><td class="sticky left-0 z-30 bg-slate-50 border border-gray-200 px-1 sm:px-2 py-3 sm:py-4 text-center"><div class="flex flex-col items-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-[10px] sm:text-xs font-bold text-gray-700">10:00 AM</span></div></td><!-- Schedule Cell --><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td></tr><tr><!-- Time Column --><td class="sticky left-0 z-30 bg-slate-50 border border-gray-200 px-1 sm:px-2 py-3 sm:py-4 text-center"><div class="flex flex-col items-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-[10px] sm:text-xs font-bold text-gray-700">10:30 AM</span></div></td><!-- Schedule Cell --><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-red-200 bg-red-50 p-2 sm:p-3 flex flex-col justify-center text-center overflow-hidden"><div class="flex items-center justify-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-red-500 shrink-0"></span><span class="text-[10px] sm:text-xs font-bold text-red-700"> Busy </span></div><p class="mt-1.5 sm:mt-2 text-[10px] sm:text-xs font-semibold text-gray-800 leading-tight line-clamp-2 break-words" title="Recruitment Interview GBS">Recruitment Interview GBS</p><p class="mt-1 text-[9px] sm:text-[11px] text-gray-500">10:30 AM - 04:30 PM</p></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td></tr><tr><!-- Time Column --><td class="sticky left-0 z-30 bg-slate-50 border border-gray-200 px-1 sm:px-2 py-3 sm:py-4 text-center"><div class="flex flex-col items-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-[10px] sm:text-xs font-bold text-gray-700">11:00 AM</span></div></td><!-- Schedule Cell --><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-red-200 bg-red-50 p-2 sm:p-3 flex flex-col justify-center text-center overflow-hidden"><div class="flex items-center justify-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-red-500 shrink-0"></span><span class="text-[10px] sm:text-xs font-bold text-red-700"> Busy </span></div><p class="mt-1.5 sm:mt-2 text-[10px] sm:text-xs font-semibold text-gray-800 leading-tight line-clamp-2 break-words" title="Recruitment Interview GBS">Recruitment Interview GBS</p><p class="mt-1 text-[9px] sm:text-[11px] text-gray-500">10:30 AM - 04:30 PM</p></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-red-200 bg-red-50 p-2 sm:p-3 flex flex-col justify-center text-center overflow-hidden"><div class="flex items-center justify-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-red-500 shrink-0"></span><span class="text-[10px] sm:text-xs font-bold text-red-700"> Busy </span></div><p class="mt-1.5 sm:mt-2 text-[10px] sm:text-xs font-semibold text-gray-800 leading-tight line-clamp-2 break-words" title="Inter viva">Inter viva</p><p class="mt-1 text-[9px] sm:text-[11px] text-gray-500">11:00 AM - 12:00 PM</p></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td></tr><tr><!-- Time Column --><td class="sticky left-0 z-30 bg-slate-50 border border-gray-200 px-1 sm:px-2 py-3 sm:py-4 text-center"><div class="flex flex-col items-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-[10px] sm:text-xs font-bold text-gray-700">11:30 AM</span></div></td><!-- Schedule Cell --><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-red-200 bg-red-50 p-2 sm:p-3 flex flex-col justify-center text-center overflow-hidden"><div class="flex items-center justify-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-red-500 shrink-0"></span><span class="text-[10px] sm:text-xs font-bold text-red-700"> Busy </span></div><p class="mt-1.5 sm:mt-2 text-[10px] sm:text-xs font-semibold text-gray-800 leading-tight line-clamp-2 break-words" title="Recruitment Interview GBS">Recruitment Interview GBS</p><p class="mt-1 text-[9px] sm:text-[11px] text-gray-500">10:30 AM - 04:30 PM</p></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-red-200 bg-red-50 p-2 sm:p-3 flex flex-col justify-center text-center overflow-hidden"><div class="flex items-center justify-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-red-500 shrink-0"></span><span class="text-[10px] sm:text-xs font-bold text-red-700"> Busy </span></div><p class="mt-1.5 sm:mt-2 text-[10px] sm:text-xs font-semibold text-gray-800 leading-tight line-clamp-2 break-words" title="Inter viva">Inter viva</p><p class="mt-1 text-[9px] sm:text-[11px] text-gray-500">11:00 AM - 12:00 PM</p></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td></tr><tr><!-- Time Column --><td class="sticky left-0 z-30 bg-slate-50 border border-gray-200 px-1 sm:px-2 py-3 sm:py-4 text-center"><div class="flex flex-col items-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-[10px] sm:text-xs font-bold text-gray-700">12:00 PM</span></div></td><!-- Schedule Cell --><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-red-200 bg-red-50 p-2 sm:p-3 flex flex-col justify-center text-center overflow-hidden"><div class="flex items-center justify-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-red-500 shrink-0"></span><span class="text-[10px] sm:text-xs font-bold text-red-700"> Busy </span></div><p class="mt-1.5 sm:mt-2 text-[10px] sm:text-xs font-semibold text-gray-800 leading-tight line-clamp-2 break-words" title="Recruitment Interview GBS">Recruitment Interview GBS</p><p class="mt-1 text-[9px] sm:text-[11px] text-gray-500">10:30 AM - 04:30 PM</p></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td></tr><tr><!-- Time Column --><td class="sticky left-0 z-30 bg-slate-50 border border-gray-200 px-1 sm:px-2 py-3 sm:py-4 text-center"><div class="flex flex-col items-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-[10px] sm:text-xs font-bold text-gray-700">12:30 PM</span></div></td><!-- Schedule Cell --><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-red-200 bg-red-50 p-2 sm:p-3 flex flex-col justify-center text-center overflow-hidden"><div class="flex items-center justify-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-red-500 shrink-0"></span><span class="text-[10px] sm:text-xs font-bold text-red-700"> Busy </span></div><p class="mt-1.5 sm:mt-2 text-[10px] sm:text-xs font-semibold text-gray-800 leading-tight line-clamp-2 break-words" title="Recruitment Interview GBS">Recruitment Interview GBS</p><p class="mt-1 text-[9px] sm:text-[11px] text-gray-500">10:30 AM - 04:30 PM</p></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td></tr><tr><!-- Time Column --><td class="sticky left-0 z-30 bg-slate-50 border border-gray-200 px-1 sm:px-2 py-3 sm:py-4 text-center"><div class="flex flex-col items-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-[10px] sm:text-xs font-bold text-gray-700">01:00 PM</span></div></td><!-- Schedule Cell --><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-red-200 bg-red-50 p-2 sm:p-3 flex flex-col justify-center text-center overflow-hidden"><div class="flex items-center justify-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-red-500 shrink-0"></span><span class="text-[10px] sm:text-xs font-bold text-red-700"> Busy </span></div><p class="mt-1.5 sm:mt-2 text-[10px] sm:text-xs font-semibold text-gray-800 leading-tight line-clamp-2 break-words" title="Recruitment Interview GBS">Recruitment Interview GBS</p><p class="mt-1 text-[9px] sm:text-[11px] text-gray-500">10:30 AM - 04:30 PM</p></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td></tr><tr><!-- Time Column --><td class="sticky left-0 z-30 bg-slate-50 border border-gray-200 px-1 sm:px-2 py-3 sm:py-4 text-center"><div class="flex flex-col items-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-[10px] sm:text-xs font-bold text-gray-700">01:30 PM</span></div></td><!-- Schedule Cell --><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-red-200 bg-red-50 p-2 sm:p-3 flex flex-col justify-center text-center overflow-hidden"><div class="flex items-center justify-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-red-500 shrink-0"></span><span class="text-[10px] sm:text-xs font-bold text-red-700"> Busy </span></div><p class="mt-1.5 sm:mt-2 text-[10px] sm:text-xs font-semibold text-gray-800 leading-tight line-clamp-2 break-words" title="Recruitment Interview GBS">Recruitment Interview GBS</p><p class="mt-1 text-[9px] sm:text-[11px] text-gray-500">10:30 AM - 04:30 PM</p></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td></tr><tr><!-- Time Column --><td class="sticky left-0 z-30 bg-slate-50 border border-gray-200 px-1 sm:px-2 py-3 sm:py-4 text-center"><div class="flex flex-col items-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-[10px] sm:text-xs font-bold text-gray-700">02:00 PM</span></div></td><!-- Schedule Cell --><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-red-200 bg-red-50 p-2 sm:p-3 flex flex-col justify-center text-center overflow-hidden"><div class="flex items-center justify-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-red-500 shrink-0"></span><span class="text-[10px] sm:text-xs font-bold text-red-700"> Busy </span></div><p class="mt-1.5 sm:mt-2 text-[10px] sm:text-xs font-semibold text-gray-800 leading-tight line-clamp-2 break-words" title="Recruitment Interview GBS">Recruitment Interview GBS</p><p class="mt-1 text-[9px] sm:text-[11px] text-gray-500">10:30 AM - 04:30 PM</p></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td></tr><tr><!-- Time Column --><td class="sticky left-0 z-30 bg-slate-50 border border-gray-200 px-1 sm:px-2 py-3 sm:py-4 text-center"><div class="flex flex-col items-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-[10px] sm:text-xs font-bold text-gray-700">02:30 PM</span></div></td><!-- Schedule Cell --><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-red-200 bg-red-50 p-2 sm:p-3 flex flex-col justify-center text-center overflow-hidden"><div class="flex items-center justify-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-red-500 shrink-0"></span><span class="text-[10px] sm:text-xs font-bold text-red-700"> Busy </span></div><p class="mt-1.5 sm:mt-2 text-[10px] sm:text-xs font-semibold text-gray-800 leading-tight line-clamp-2 break-words" title="Recruitment Interview GBS">Recruitment Interview GBS</p><p class="mt-1 text-[9px] sm:text-[11px] text-gray-500">10:30 AM - 04:30 PM</p></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td></tr><tr><!-- Time Column --><td class="sticky left-0 z-30 bg-slate-50 border border-gray-200 px-1 sm:px-2 py-3 sm:py-4 text-center"><div class="flex flex-col items-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-[10px] sm:text-xs font-bold text-gray-700">03:00 PM</span></div></td><!-- Schedule Cell --><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-red-200 bg-red-50 p-2 sm:p-3 flex flex-col justify-center text-center overflow-hidden"><div class="flex items-center justify-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-red-500 shrink-0"></span><span class="text-[10px] sm:text-xs font-bold text-red-700"> Busy </span></div><p class="mt-1.5 sm:mt-2 text-[10px] sm:text-xs font-semibold text-gray-800 leading-tight line-clamp-2 break-words" title="Recruitment Interview GBS">Recruitment Interview GBS</p><p class="mt-1 text-[9px] sm:text-[11px] text-gray-500">10:30 AM - 04:30 PM</p></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td></tr><tr><!-- Time Column --><td class="sticky left-0 z-30 bg-slate-50 border border-gray-200 px-1 sm:px-2 py-3 sm:py-4 text-center"><div class="flex flex-col items-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-[10px] sm:text-xs font-bold text-gray-700">03:30 PM</span></div></td><!-- Schedule Cell --><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-red-200 bg-red-50 p-2 sm:p-3 flex flex-col justify-center text-center overflow-hidden"><div class="flex items-center justify-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-red-500 shrink-0"></span><span class="text-[10px] sm:text-xs font-bold text-red-700"> Busy </span></div><p class="mt-1.5 sm:mt-2 text-[10px] sm:text-xs font-semibold text-gray-800 leading-tight line-clamp-2 break-words" title="Recruitment Interview GBS">Recruitment Interview GBS</p><p class="mt-1 text-[9px] sm:text-[11px] text-gray-500">10:30 AM - 04:30 PM</p></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td></tr><tr><!-- Time Column --><td class="sticky left-0 z-30 bg-slate-50 border border-gray-200 px-1 sm:px-2 py-3 sm:py-4 text-center"><div class="flex flex-col items-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-[10px] sm:text-xs font-bold text-gray-700">04:00 PM</span></div></td><!-- Schedule Cell --><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-red-200 bg-red-50 p-2 sm:p-3 flex flex-col justify-center text-center overflow-hidden"><div class="flex items-center justify-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-red-500 shrink-0"></span><span class="text-[10px] sm:text-xs font-bold text-red-700"> Busy </span></div><p class="mt-1.5 sm:mt-2 text-[10px] sm:text-xs font-semibold text-gray-800 leading-tight line-clamp-2 break-words" title="Recruitment Interview GBS">Recruitment Interview GBS</p><p class="mt-1 text-[9px] sm:text-[11px] text-gray-500">10:30 AM - 04:30 PM</p></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td></tr><tr><!-- Time Column --><td class="sticky left-0 z-30 bg-slate-50 border border-gray-200 px-1 sm:px-2 py-3 sm:py-4 text-center"><div class="flex flex-col items-center gap-1 sm:gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span class="text-[10px] sm:text-xs font-bold text-gray-700">04:30 PM</span></div></td><!-- Schedule Cell --><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td><td class="border border-gray-200 p-1.5 sm:p-2"><!-- Busy --><!-- Free --><div class="h-[85px] sm:h-[110px] w-full rounded-xl sm:rounded-2xl border border-green-200 bg-green-50 flex items-center justify-center"><div class="flex items-center gap-1 sm:gap-2"><span class="h-2 w-2 rounded-full bg-green-500"></span><span class="text-[10px] sm:text-xs font-bold text-green-700"> Free </span></div></div></td></tr></tbody></table></div><!-- Mobile Hint --><div class="sm:hidden flex items-center justify-center gap-2 border-t py-2 text-xs text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path></svg> Swipe left / right </div></div></div></main><!-- Footer --><div><footer class="mt-8 border-t border-gray-200 bg-white"><div class="mx-auto max-w-7xl px-4 py-5"><div class="flex flex-col items-center justify-between gap-3 text-center md:flex-row md:text-left"><div><h3 class="text-sm font-semibold text-gray-800">GUB Management Connect</h3><p class="text-xs text-gray-500">Green University of Bangladesh</p></div><div class="text-xs text-gray-500"> Green University of Bangladesh. All Rights Reserved. </div><div class="text-xs text-gray-500"> Developed by <span class="rounded-full bg-green-100 px-3 py-1 font-semibold text-green-700"> GCITS </span></div></div></div></footer></div></div>
+
+
+
+
+
+<script>
+
+const { createApp } = Vue;
+
+
+createApp({
+
+    data(){
+
+        return {
+
+            loading:false,
+
+
+            schedule:{"success":true,"message":"Success","data":{"date":"2026-09-13","executive":"All Executives","schedules":[{"id":"vc","name":"Prof. Dr. Mohammad Shorif Uddin","role":"VC","events":[]},{"id":"pro-vc","name":"Prof. Dr. Khawza Iftekhar Uddin Ahmed","role":"Pro-VC","events":[{"title":"Recruitment Interview GBS","start":"10:30 AM","end":"04:30 PM","startTimestamp":1789273800000,"endTimestamp":1789295400000,"status":"BUSY"},{"title":"Meeting with CCE","start":"10:30 AM","end":"11:30 AM","startTimestamp":1789273800000,"endTimestamp":1789277400000,"status":"BUSY"}]},{"id":"treasurer","name":"Prof. Dr. Md. Fayzur Rahman","role":"Treasurer","events":[{"title":"Inter viva","start":"11:00 AM","end":"12:00 PM","startTimestamp":1789275600000,"endTimestamp":1789279200000,"status":"BUSY"}]},{"id":"deanfsc","name":"Prof. Dr. Md. Saiful Azad","role":"Dean FSC","events":[]},{"id":"deangbs","name":"Prof. Dr. Mohammed Tareque Aziz","role":"Dean GBS","events":[]},{"id":"deanfss","name":"Prof. Dr. Md. Shahidullah","role":"Dean FSS","events":[]},{"id":"deanlaw","name":"Prof. Dr. S.M. Hassan Talukder","role":"Dean LAW","events":[]},{"id":"registrar","name":"Captain (Navy) S M Salahuddin","role":"Registrar","events":[]}]}},
+
+
+
+            selectedDate:
+
+                new URLSearchParams(window.location.search).get("date")
+
+                ||
+
+                "2026-09-13",
+
+
+
+            selectedExecutives:[],
+
+
+            showFilters:true,
+
+
+
+            eventMap:{},
+
+
+
+            times:[
+
+                "09:00 AM",
+                "09:30 AM",
+                "10:00 AM",
+                "10:30 AM",
+                "11:00 AM",
+                "11:30 AM",
+                "12:00 PM",
+                "12:30 PM",
+                "01:00 PM",
+                "01:30 PM",
+                "02:00 PM",
+                "02:30 PM",
+                "03:00 PM",
+                "03:30 PM",
+                "04:00 PM",
+                "04:30 PM",
+
+            ],
+
+
+        }
+
+    },
+
+
+
+
+
+    computed:{
+
+
+        executives(){
+
+
+            return this.schedule?.data?.schedules?.map(item=>({
+
+
+                id:item.id,
+
+                name:item.name,
+
+                role:item.role
+
+
+            })) ?? [];
+
+
+        },
+
+
+
+
+
+        filteredSchedules(){
+
+
+            if(!this.selectedExecutives.length){
+
+                return [];
+
+            }
+
+
+            return this.schedule?.data?.schedules?.filter(item=>
+
+
+                this.selectedExecutives.includes(item.id)
+
+
+            ) ?? [];
+
+
+        },
+
+
+
+
+
+
+        busyCount(){
+
+
+            let count = 0;
+
+
+
+            this.filteredSchedules.forEach(person=>{
+
+
+                this.times.forEach(time=>{
+
+
+                    if(this.findEvent(person,time)){
+
+
+                        count++;
+
+
+                    }
+
+
+                });
+
+
+            });
+
+
+
+            return count;
+
+
+        },
+
+
+
+
+
+
+
+        freeCount(){
+
+
+            let total =
+
+            this.filteredSchedules.length *
+
+            this.times.length;
+
+
+
+            return total - this.busyCount;
+
+
+        }
+
+
+    },
+
+
+
+
+
+
+
+    mounted(){
+
+
+        this.selectedExecutives =
+
+        this.executives.map(item=>item.id);
+
+
+
+        this.buildEventMap();
+
+
+    },
+
+
+
+
+
+
+
+    methods:{
+
+
+
+
+
+        toggleExecutive(id){
+
+
+            let selected = [
+
+                ...this.selectedExecutives
+
+            ];
+
+
+
+            if(selected.includes(id)){
+
+
+                selected = selected.filter(
+
+                    item=>item !== id
+
+                );
+
+
+            }
+
+            else{
+
+
+                selected.push(id);
+
+
+            }
+
+
+
+            this.selectedExecutives = selected;
+
+
+        },
+
+
+
+
+
+
+
+        isChecked(id){
+
+
+            return this.selectedExecutives.includes(id);
+
+
+        },
+
+
+
+
+
+
+
+        selectAllToggle(event){
+
+
+            if(event.target.checked){
+
+
+                this.selectedExecutives =
+
+                this.executives.map(item=>item.id);
+
+
+            }
+
+            else{
+
+
+                this.selectedExecutives=[];
+
+
+            }
+
+
+        },
+
+
+
+
+
+
+            changeDate(event){
+            
+                let date = event.target.value;
+            
+            
+                this.selectedDate = date;
+            
+            
+            
+                let url = new URL(window.location.href);
+            
+            
+            
+                url.searchParams.set(
+                    "date",
+                    date
+                );
+            
+            
+            
+                url.hash = "schedule-table";
+            
+            
+            
+                window.location.href = url.toString();
+            
+            
+            },
+
+
+
+
+
+
+
+
+        buildEventMap(){
+
+
+            this.eventMap = {};
+
+
+
+            this.schedule?.data?.schedules?.forEach(person=>{
+
+
+
+                this.eventMap[person.id] = {};
+
+
+
+                this.times.forEach(time=>{
+
+
+
+                    const slotStart =
+
+                    this.timeToMinutes(time);
+
+
+
+                    const slotEnd =
+
+                    slotStart + 30;
+
+
+
+                    const event =
+
+                    person.events?.find(item=>{
+
+
+
+                        if(item.status !== "BUSY"){
+
+
+                            return false;
+
+
+                        }
+
+
+
+                        const eventStart =
+
+                        this.timestampToMinutes(
+
+                            item.startTimestamp
+
+                        );
+
+
+
+                        const eventEnd =
+
+                        this.timestampToMinutes(
+
+                            item.endTimestamp
+
+                        );
+
+
+
+
+                        return (
+
+                            slotStart < eventEnd
+
+                            &&
+
+                            slotEnd > eventStart
+
+                        );
+
+
+
+                    });
+
+
+
+                    this.eventMap[person.id][time] =
+
+                    event ?? null;
+
+
+
+                });
+
+
+            });
+
+
+
+        },
+
+
+
+
+
+
+
+
+        timeToMinutes(time){
+
+
+            const match =
+
+            time.match(
+
+                /(\d+):(\d+)\s(AM|PM)/
+
+            );
+
+
+
+            let hour = Number(match[1]);
+
+            let minute = Number(match[2]);
+
+            let period = match[3];
+
+
+
+            if(period === "PM" && hour !== 12){
+
+
+                hour += 12;
+
+
+            }
+
+
+
+            if(period === "AM" && hour === 12){
+
+
+                hour = 0;
+
+
+            }
+
+
+
+            return hour * 60 + minute;
+
+
+        },
+
+
+
+
+
+
+
+
+        timestampToMinutes(timestamp){
+
+
+            const date = new Date(timestamp);
+
+
+
+            return (
+
+                date.getHours() * 60
+
+                +
+
+                date.getMinutes()
+
+            );
+
+
+        },
+
+
+
+
+
+
+
+
+        findEvent(person,time){
+
+
+            return (
+
+                this.eventMap?.[person.id]?.[time]
+
+                ??
+
+                null
+
+            );
+
+
+        }
+
+
+
+    }
+
+
+
+}).mount("#app");
+
+
+</script>
+
+
+
+
+</body></html>

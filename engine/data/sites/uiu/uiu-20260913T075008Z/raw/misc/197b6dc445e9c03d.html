@@ -1,0 +1,1517 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.5",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseout","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),await this.T(),await this.F(),await this.j(),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise(t=>setTimeout(t,500-Date.now()+this.lastTouchEnd)),this.I(),this.H(),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))},{isRocket:!0})}o(){window.addEventListener("pageshow",t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0},{isRocket:!0}),window.addEventListener("pagehide",()=>{this.onFirstUserAction=null},{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",function i(o){o.changedTouches[0]&&t.changedTouches[0]&&Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}),"INPUT"===o.target.tagName&&"text"===o.target.type||(o.target.dispatchEvent(new TouchEvent("touchend",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new MouseEvent("mouseover",{target:o.target,bubbles:!0})),o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1,clientX:o.changedTouches[0].clientX,clientY:o.changedTouches[0].clientY})),event.preventDefault()))},{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,t.composedPath&&t.composedPath()[0].getRootNode()instanceof ShadowRoot&&(t.rocketTarget=t.composedPath()[0]),this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach(t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.addEventListener("visibilitychange",this.userEventHandler,{isRocket:!0})}U(){this.userEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})),document.removeEventListener("visibilitychange",this.userEventHandler,{isRocket:!0}),this.savedUserEvents.forEach(t=>{(t.rocketTarget||t.target).dispatchEvent(new window[t.constructor.name](t.type,t))})}m(){const t="return false",e=Array.from(this.attributeEvents,t=>"data-rocket-"+t),i="["+this.attributeEvents.join("],[")+"]",o="[data-rocket-"+this.attributeEvents.join("],[data-rocket-")+"]",s=(e,i,o)=>{o&&o!==t&&(e.setAttribute("data-rocket-"+i,o),e["rocket"+i]=new Function("event",o),e.setAttribute(i,t))};new MutationObserver(t=>{for(const n of t)"attributes"===n.type&&(n.attributeName.startsWith("data-rocket-")||this.everythingLoaded?n.attributeName.startsWith("data-rocket-")&&this.everythingLoaded&&this.N(n.target,n.attributeName.substring(12)):s(n.target,n.attributeName,n.target.getAttribute(n.attributeName))),"childList"===n.type&&n.addedNodes.forEach(t=>{if(t.nodeType===Node.ELEMENT_NODE)if(this.everythingLoaded)for(const i of[t,...t.querySelectorAll(o)])for(const t of i.getAttributeNames())e.includes(t)&&this.N(i,t.substring(12));else for(const e of[t,...t.querySelectorAll(i)])for(const t of e.getAttributeNames())this.attributeEvents.includes(t)&&s(e,t,e.getAttribute(t))})}).observe(document,{subtree:!0,childList:!0,attributeFilter:[...this.attributeEvents,...e]})}I(){this.attributeEvents.forEach(t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach(e=>{this.N(e,t)})})}N(t,e){const i=t.getAttribute("data-rocket-"+e);i&&(t.setAttribute(e,i),t.removeAttribute("data-rocket-"+e))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):(t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o}),"mouseenter"!==e&&"mouseleave"!==e||t.originalAddEventListener.call(this,e,t.savedUserEvents.push,o))},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}J(t,e){this.savedEventListeners=this.savedEventListeners.filter(i=>{let o=i.type,s=i.target||window;return e!==o||t!==s||(this.B(o,s)&&(i.type="rocket-"+o),this.$(i),!1)})}H(){EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener,this.savedEventListeners.forEach(t=>this.$(t))}$(t){t.remove?this.originalRemoveEventListener.call(t.target,t.type,t.func,t.options):this.originalAddEventListener.call(t.target,t.type,t.func,t.options)}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map(t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e})),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,()=>{e[t].forEach(t=>t())},{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout(()=>i.bind(document)(o)):i.bind(document)(o)}return"function"==typeof i&&(t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s)),this},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise(t=>{this.userActionTriggered?t():this.onFirstUserAction=t})}async L(){return new Promise(t=>{document.addEventListener("DOMContentLoaded",()=>{this.realDomReadyFired=!0,t()},{isRocket:!0})})}async j(){return this.realWindowLoadedFired?Promise.resolve():new Promise(t=>{window.addEventListener("load",t,{isRocket:!0})})}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver(t=>{for(const e of t)e.addedNodes.forEach(t=>{"SCRIPT"!==t.tagName||!t.src||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise(e=>{const i=()=>{const i=this.pendingScripts.findIndex(e=>e.script===t);i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)})})})}),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async F(){await this.X(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.F()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this.Y(t,"preconnect")}async G(t){if(await this.K(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise(e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))}),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",()=>{i.setAttribute("data-rocket-status","failed-network"),e()},{isRocket:!0}),setTimeout(()=>{i.isConnected||e()},1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.G(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())},{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}});t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.G(e),this.C(t)):Promise.resolve()}O(){this.Y([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}Y(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach(t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}}),document.head.appendChild(o)}W(){this.trash.forEach(t=>t.remove())}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(document,"DOMContentLoaded"),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.K(),this.J(window,"DOMContentLoaded"),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.K(),this.J(document,"readystatechange"),document.dispatchEvent(new Event("rocket-readystatechange")),await this.K(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.K(),this.J(window,"load"),window.dispatchEvent(new Event("rocket-load")),await this.K(),window.rocketonload&&window.rocketonload(),await this.K(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this.K(),this.J(window,"pageshow");const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.K(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async K(){Date.now()-this.lastBreath>45&&(await this.X(),this.lastBreath=Date.now())}async X(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}B(t,e=window){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();
+</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href=" https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/fav.png">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	
+	<!-- Preload the critical image to optimize Largest Contentful Paint -->
+	<link rel="preload" as="image" href="https://bge.uiu.ac.bd/wp-content/uploads/sites/17/2024/10/2.Microscope.jpg" type="image/jpeg">
+
+	
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO Premium plugin v28.4 (Yoast SEO v28.4) - https://yoast.com/product/yoast-seo-premium-wordpress/ -->
+	<title>Home Page - UIU - Department of Biotechnology and Genetic Engineering</title>
+<link data-rocket-prefetch="" href="https://www.gstatic.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://fonts.googleapis.com" rel="dns-prefetch">
+<link data-rocket-prefetch="" href="https://www.google.com" rel="dns-prefetch">
+<link data-rocket-preload="" as="style" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&amp;ver=7.1&amp;display=swap" rel="preload">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&amp;ver=7.1&amp;display=swap" media="all" onload="this.media='all'" rel="stylesheet">
+<noscript data-wpr-hosted-gf-parameters=""><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&#038;ver=7.1&#038;display=swap"></noscript>
+	<link rel="canonical" href="https://bge.uiu.ac.bd/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Home Page">
+	<meta property="og:url" content="https://bge.uiu.ac.bd/">
+	<meta property="og:site_name" content="UIU - Department of Biotechnology and Genetic Engineering">
+	<meta property="article:modified_time" content="2024-10-09T13:45:26+00:00">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/bge.uiu.ac.bd\/","url":"https:\/\/bge.uiu.ac.bd\/","name":"Home Page - UIU - Department of Biotechnology and Genetic Engineering","isPartOf":{"@id":"https:\/\/bge.uiu.ac.bd\/#website"},"about":{"@id":"https:\/\/bge.uiu.ac.bd\/#organization"},"datePublished":"2024-10-09T13:45:25+00:00","dateModified":"2024-10-09T13:45:26+00:00","breadcrumb":{"@id":"https:\/\/bge.uiu.ac.bd\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/bge.uiu.ac.bd\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/bge.uiu.ac.bd\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https:\/\/bge.uiu.ac.bd\/#website","url":"https:\/\/bge.uiu.ac.bd\/","name":"UIU - Department of Biotechnology and Genetic Engineering","description":"","publisher":{"@id":"https:\/\/bge.uiu.ac.bd\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/bge.uiu.ac.bd\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https:\/\/bge.uiu.ac.bd\/#organization","name":"UIU - Department of Biotechnology and Genetic Engineering","url":"https:\/\/bge.uiu.ac.bd\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/bge.uiu.ac.bd\/#\/schema\/logo\/image\/","url":"https:\/\/bge.uiu.ac.bd\/wp-content\/uploads\/sites\/17\/2024\/10\/312308865_507861781367882_3667233183680698455_n-removebg-preview.png","contentUrl":"https:\/\/bge.uiu.ac.bd\/wp-content\/uploads\/sites\/17\/2024\/10\/312308865_507861781367882_3667233183680698455_n-removebg-preview.png","width":500,"height":500,"caption":"UIU - Department of Biotechnology and Genetic Engineering"},"image":{"@id":"https:\/\/bge.uiu.ac.bd\/#\/schema\/logo\/image\/"}}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link href="https://fonts.gstatic.com" crossorigin="" rel="preconnect">
+<link rel="alternate" type="application/rss+xml" title="UIU - Department of Biotechnology and Genetic Engineering » Feed" href="https://bge.uiu.ac.bd/feed/">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://bge.uiu.ac.bd/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbge.uiu.ac.bd%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://bge.uiu.ac.bd/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fbge.uiu.ac.bd%2F&amp;format=xml">
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link data-minify="1" rel="stylesheet" id="uiu-departmental-style-css" href="https://bge.uiu.ac.bd/wp-content/cache/min/17/wp-content/themes/uiu-bge/style.css?ver=1788150537" media="all">
+
+<link data-minify="1" rel="stylesheet" id="uiu-departmental-font-awesome-icon-style-css" href="https://bge.uiu.ac.bd/wp-content/cache/min/17/ajax/libs/font-awesome/6.4.2/css/all.min.css?ver=1788150538" media="all">
+<link data-minify="1" rel="stylesheet" id="uiu-departmental-pickr-style-css" href="https://bge.uiu.ac.bd/wp-content/cache/min/17/npm/@simonwep/pickr/dist/themes/nano.min.css?ver=1788150538" media="all">
+<link rel="stylesheet" id="uiu-departmental-pico-bootstrap-grid-min-style-css" href="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/css/pico-bootstrap-grid.min.css?ver=1.0.0" media="all">
+<link rel="stylesheet" id="uiu-departmental-pico-min-style-css" href="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/css/pico.min.css?ver=1.0.0" media="all">
+<link data-minify="1" rel="stylesheet" id="uiu-departmental-variable-style-css" href="https://bge.uiu.ac.bd/wp-content/cache/min/17/wp-content/themes/uiu-bge/css/variables.css?ver=1788150538" media="all">
+<link data-minify="1" rel="stylesheet" id="uiu-departmental-theme-style-css" href="https://bge.uiu.ac.bd/wp-content/cache/min/17/wp-content/themes/uiu-bge/css/theme-styles.css?ver=1788150538" media="all">
+<link data-minify="1" rel="stylesheet" id="scss-css" href="https://bge.uiu.ac.bd/wp-content/cache/min/17/wp-content/cache/busting/17/sccss.css?ver=1788150538" media="all">
+<link rel="stylesheet" type="text/css" href="https://bge.uiu.ac.bd/wp-content/plugins/smart-slider-3/Public/SmartSlider3/Application/Frontend/Assets/dist/smartslider.min.css?ver=1c12b24c" media="all">
+<link data-minify="1" rel="stylesheet" type="text/css" href="https://bge.uiu.ac.bd/wp-content/cache/min/17/wp-content/cache/nextend/web17/googlefonts/09fa94668651d051660ff4a74c06cb4b.css?ver=1788150538" media="all" onload="this.media='all'">
+<style data-related="n2-ss-2">div#n2-ss-2 .n2-ss-slider-1{display:grid;position:relative;}div#n2-ss-2 .n2-ss-slider-2{display:grid;position:relative;overflow:hidden;padding:0px 0px 0px 0px;border:0px solid RGBA(62,62,62,1);border-radius:0px;background-clip:padding-box;background-repeat:repeat;background-position:50% 50%;background-size:cover;background-attachment:scroll;z-index:1;}div#n2-ss-2:not(.n2-ss-loaded) .n2-ss-slider-2{background-image:none !important;}div#n2-ss-2 .n2-ss-slider-3{display:grid;grid-template-areas:'cover';position:relative;overflow:hidden;z-index:10;}div#n2-ss-2 .n2-ss-slider-3 > *{grid-area:cover;}div#n2-ss-2 .n2-ss-slide-backgrounds,div#n2-ss-2 .n2-ss-slider-3 > .n2-ss-divider{position:relative;}div#n2-ss-2 .n2-ss-slide-backgrounds{z-index:10;}div#n2-ss-2 .n2-ss-slide-backgrounds > *{overflow:hidden;}div#n2-ss-2 .n2-ss-slide-background{transform:translateX(-100000px);}div#n2-ss-2 .n2-ss-slider-4{place-self:center;position:relative;width:100%;height:100%;z-index:20;display:grid;grid-template-areas:'slide';}div#n2-ss-2 .n2-ss-slider-4 > *{grid-area:slide;}div#n2-ss-2.n2-ss-full-page--constrain-ratio .n2-ss-slider-4{height:auto;}div#n2-ss-2 .n2-ss-slide{display:grid;place-items:center;grid-auto-columns:100%;position:relative;z-index:20;-webkit-backface-visibility:hidden;transform:translateX(-100000px);}div#n2-ss-2 .n2-ss-slide{perspective:1500px;}div#n2-ss-2 .n2-ss-slide-active{z-index:21;}.n2-ss-background-animation{position:absolute;top:0;left:0;width:100%;height:100%;z-index:3;}div#n2-ss-2 .n2-ss-button-container,div#n2-ss-2 .n2-ss-button-container a{display:block;}div#n2-ss-2 .n2-ss-button-container--non-full-width,div#n2-ss-2 .n2-ss-button-container--non-full-width a{display:inline-block;}div#n2-ss-2 .n2-ss-button-container.n2-ss-nowrap{white-space:nowrap;}div#n2-ss-2 .n2-ss-button-container a div{display:inline;font-size:inherit;text-decoration:inherit;color:inherit;line-height:inherit;font-family:inherit;font-weight:inherit;}div#n2-ss-2 .n2-ss-button-container a > div{display:inline-flex;align-items:center;vertical-align:top;}div#n2-ss-2 .n2-ss-button-container span{font-size:100%;vertical-align:baseline;}div#n2-ss-2 .n2-ss-button-container a[data-iconplacement="left"] span{margin-right:0.3em;}div#n2-ss-2 .n2-ss-button-container a[data-iconplacement="right"] span{margin-left:0.3em;}div#n2-ss-2 .nextend-arrow{cursor:pointer;overflow:hidden;line-height:0 !important;z-index:18;-webkit-user-select:none;}div#n2-ss-2 .nextend-arrow img{position:relative;display:block;}div#n2-ss-2 .nextend-arrow img.n2-arrow-hover-img{display:none;}div#n2-ss-2 .nextend-arrow:FOCUS img.n2-arrow-hover-img,div#n2-ss-2 .nextend-arrow:HOVER img.n2-arrow-hover-img{display:inline;}div#n2-ss-2 .nextend-arrow:FOCUS img.n2-arrow-normal-img,div#n2-ss-2 .nextend-arrow:HOVER img.n2-arrow-normal-img{display:none;}div#n2-ss-2 .nextend-arrow-animated{overflow:hidden;}div#n2-ss-2 .nextend-arrow-animated > div{position:relative;}div#n2-ss-2 .nextend-arrow-animated .n2-active{position:absolute;}div#n2-ss-2 .nextend-arrow-animated-fade{transition:background 0.3s, opacity 0.4s;}div#n2-ss-2 .nextend-arrow-animated-horizontal > div{transition:all 0.4s;transform:none;}div#n2-ss-2 .nextend-arrow-animated-horizontal .n2-active{top:0;}div#n2-ss-2 .nextend-arrow-previous.nextend-arrow-animated-horizontal .n2-active{left:100%;}div#n2-ss-2 .nextend-arrow-next.nextend-arrow-animated-horizontal .n2-active{right:100%;}div#n2-ss-2 .nextend-arrow-previous.nextend-arrow-animated-horizontal:HOVER > div,div#n2-ss-2 .nextend-arrow-previous.nextend-arrow-animated-horizontal:FOCUS > div{transform:translateX(-100%);}div#n2-ss-2 .nextend-arrow-next.nextend-arrow-animated-horizontal:HOVER > div,div#n2-ss-2 .nextend-arrow-next.nextend-arrow-animated-horizontal:FOCUS > div{transform:translateX(100%);}div#n2-ss-2 .nextend-arrow-animated-vertical > div{transition:all 0.4s;transform:none;}div#n2-ss-2 .nextend-arrow-animated-vertical .n2-active{left:0;}div#n2-ss-2 .nextend-arrow-previous.nextend-arrow-animated-vertical .n2-active{top:100%;}div#n2-ss-2 .nextend-arrow-next.nextend-arrow-animated-vertical .n2-active{bottom:100%;}div#n2-ss-2 .nextend-arrow-previous.nextend-arrow-animated-vertical:HOVER > div,div#n2-ss-2 .nextend-arrow-previous.nextend-arrow-animated-vertical:FOCUS > div{transform:translateY(-100%);}div#n2-ss-2 .nextend-arrow-next.nextend-arrow-animated-vertical:HOVER > div,div#n2-ss-2 .nextend-arrow-next.nextend-arrow-animated-vertical:FOCUS > div{transform:translateY(100%);}div#n2-ss-2 .n-uc-174d7aa5ed925-inner{border-width:0px 0px 0px 0px ;border-style:solid;border-color:RGBA(255,255,255,1);}div#n2-ss-2 .n-uc-174d7aa5ed925-inner:HOVER{border-width:0px 0px 0px 0px ;border-style:solid;border-color:RGBA(255,255,255,1);}div#n2-ss-2 .n-uc-168681ce2253b-inner{--n2bgimage:URL("//bge.uiu.ac.bd/wp-content/uploads/sites/17/2024/10/2.Microscope.jpg");background-position:50% 50%,62% 62%;border-width:0px 0px 0px 0px ;border-style:solid;border-color:RGBA(255,255,255,1);}div#n2-ss-2 .n-uc-168681ce2253b-inner:HOVER{border-width:0px 0px 0px 0px ;border-style:solid;border-color:RGBA(255,255,255,1);}div#n2-ss-2 .n-uc-133d309c04b25-inner{background-color:RGBA(72,86,128,1);border-width:0px 0px 0px 0px ;border-style:solid;border-color:RGBA(255,255,255,1);}div#n2-ss-2 .n-uc-133d309c04b25-inner:HOVER{border-width:0px 0px 0px 0px ;border-style:solid;border-color:RGBA(255,255,255,1);}div#n2-ss-2 .n2-font-313efff7c539e8d86943c5c8cb9f4108-hover{font-family: 'Open Sans';color: #ffffff;font-size:225%;text-shadow: none;line-height: 1.2;font-weight: normal;font-style: normal;text-decoration: none;text-align: left;letter-spacing: normal;word-spacing: normal;text-transform: none;font-weight: 700;}div#n2-ss-2 .n2-font-c6d8f5ce450d0014063b61a5f4fe7eeb-paragraph{font-family: 'Open Sans';color: #ffffff;font-size:112.5%;text-shadow: none;line-height: 1.4;font-weight: normal;font-style: normal;text-decoration: none;text-align: left;letter-spacing: normal;word-spacing: normal;text-transform: none;font-weight: 400;}div#n2-ss-2 .n2-font-c6d8f5ce450d0014063b61a5f4fe7eeb-paragraph a, div#n2-ss-2 .n2-font-c6d8f5ce450d0014063b61a5f4fe7eeb-paragraph a:FOCUS{font-family: 'Open Sans';color: #1890d7;font-size:100%;text-shadow: none;line-height: 1.4;font-weight: normal;font-style: normal;text-decoration: none;text-align: left;letter-spacing: normal;word-spacing: normal;text-transform: none;font-weight: 400;}div#n2-ss-2 .n2-font-c6d8f5ce450d0014063b61a5f4fe7eeb-paragraph a:HOVER, div#n2-ss-2 .n2-font-c6d8f5ce450d0014063b61a5f4fe7eeb-paragraph a:ACTIVE{font-family: 'Open Sans';color: #1890d7;font-size:100%;text-shadow: none;line-height: 1.4;font-weight: normal;font-style: normal;text-decoration: none;text-align: left;letter-spacing: normal;word-spacing: normal;text-transform: none;font-weight: 400;}div#n2-ss-2 .n2-font-11783bbb4692bd43e3d7e00fd82b09ed-link a{font-family: 'Open Sans';color: #ffffff;font-size:112.5%;text-shadow: none;line-height: 1.5;font-weight: normal;font-style: normal;text-decoration: none;text-align: center;letter-spacing: normal;word-spacing: normal;text-transform: none;font-weight: 600;}div#n2-ss-2 .n2-style-9302a842d5586d12d6604b19bc4f40d4-heading{background: #F68B1F;opacity:1;padding:8px 20px 8px 20px ;box-shadow: none;border: 0px solid RGBA(0,0,0,1);border-radius:0px;}div#n2-ss-2 .n-uc-MIfecNCHzDun-inner{border-width:0px 0px 0px 0px ;border-style:solid;border-color:RGBA(255,255,255,1);}div#n2-ss-2 .n-uc-MIfecNCHzDun-inner:HOVER{border-width:0px 0px 0px 0px ;border-style:solid;border-color:RGBA(255,255,255,1);}div#n2-ss-2 .n-uc-3on5Kfhyfc56-inner{--n2bgimage:URL("//bge.uiu.ac.bd/wp-content/uploads/sites/17/2024/10/1.Inorganic-lab-pic.jpg");background-position:50% 50%,97% 44%;border-width:0px 0px 0px 0px ;border-style:solid;border-color:RGBA(255,255,255,1);}div#n2-ss-2 .n-uc-3on5Kfhyfc56-inner:HOVER{border-width:0px 0px 0px 0px ;border-style:solid;border-color:RGBA(255,255,255,1);}div#n2-ss-2 .n-uc-Umg5acYBQTJr-inner{background-color:RGBA(72,86,128,1);border-width:0px 0px 0px 0px ;border-style:solid;border-color:RGBA(255,255,255,1);}div#n2-ss-2 .n-uc-Umg5acYBQTJr-inner:HOVER{border-width:0px 0px 0px 0px ;border-style:solid;border-color:RGBA(255,255,255,1);}div#n2-ss-2 .n2-font-2ed35949c8e5be85ee201d6f9e5b9a8e-hover{font-family: 'Open Sans';color: #ffffff;font-size:212.5%;text-shadow: none;line-height: 1.4;font-weight: normal;font-style: normal;text-decoration: none;text-align: left;letter-spacing: normal;word-spacing: normal;text-transform: none;font-weight: 700;}div#n2-ss-2 .n-uc-SUuljftH1o1G-inner{border-width:0px 0px 0px 0px ;border-style:solid;border-color:RGBA(255,255,255,1);}div#n2-ss-2 .n-uc-SUuljftH1o1G-inner:HOVER{border-width:0px 0px 0px 0px ;border-style:solid;border-color:RGBA(255,255,255,1);}div#n2-ss-2 .n-uc-wHjdAZpR4ECS-inner{--n2bgimage:URL("//bge.uiu.ac.bd/wp-content/uploads/sites/17/2024/10/campus_07-1.jpg");background-position:50% 50%,7% 63%;border-width:0px 0px 0px 0px ;border-style:solid;border-color:RGBA(255,255,255,1);}div#n2-ss-2 .n-uc-wHjdAZpR4ECS-inner:HOVER{border-width:0px 0px 0px 0px ;border-style:solid;border-color:RGBA(255,255,255,1);}div#n2-ss-2 .n-uc-zIRA2rszxkzG-inner{background-color:RGBA(72,86,128,1);border-width:0px 0px 0px 0px ;border-style:solid;border-color:RGBA(255,255,255,1);}div#n2-ss-2 .n-uc-zIRA2rszxkzG-inner:HOVER{border-width:0px 0px 0px 0px ;border-style:solid;border-color:RGBA(255,255,255,1);}div#n2-ss-2 .n2-ss-slide-limiter{max-width:3000px;}div#n2-ss-2 .n-uc-XBh6sRwfrBsK{padding:0px 0px 0px 0px}div#n2-ss-2 .n-uc-KYDCRGdKygMr-inner{padding:0px 0px 0px 0px;justify-content:center}div#n2-ss-2 .n-uc-KYDCRGdKygMr{align-self:center;}div#n2-ss-2 .n-uc-174d7aa5ed925-inner{padding:0px 0px 0px 0px}div#n2-ss-2 .n-uc-174d7aa5ed925-inner > .n2-ss-layer-row-inner{width:calc(100% + 1px);margin:-0px;flex-wrap:nowrap;}div#n2-ss-2 .n-uc-174d7aa5ed925-inner > .n2-ss-layer-row-inner > .n2-ss-layer[data-sstype="col"]{margin:0px}div#n2-ss-2 .n-uc-168681ce2253b-inner{padding:10px 10px 10px 10px;justify-content:center}div#n2-ss-2 .n-uc-168681ce2253b{width:50%}div#n2-ss-2 .n-uc-133d309c04b25-inner{padding:22px 35px 22px 22px;justify-content:center}div#n2-ss-2 .n-uc-133d309c04b25{width:50%}div#n2-ss-2 .n-uc-H83UvvTVT6Ir{--margin-top:15px}div#n2-ss-2 .n-uc-fVlguNcpjvxd{--margin-top:20px;align-self:var(--ss-fs);}div#n2-ss-2 .n-uc-IXQCoOS5VBwz{padding:0px 0px 0px 0px}div#n2-ss-2 .n-uc-rHDwH3yAyBZs-inner{padding:0px 0px 0px 0px;justify-content:center}div#n2-ss-2 .n-uc-rHDwH3yAyBZs{align-self:center;}div#n2-ss-2 .n-uc-MIfecNCHzDun-inner{padding:0px 0px 0px 0px}div#n2-ss-2 .n-uc-MIfecNCHzDun-inner > .n2-ss-layer-row-inner{width:calc(100% + 1px);margin:-0px;flex-wrap:nowrap;}div#n2-ss-2 .n-uc-MIfecNCHzDun-inner > .n2-ss-layer-row-inner > .n2-ss-layer[data-sstype="col"]{margin:0px}div#n2-ss-2 .n-uc-3on5Kfhyfc56-inner{padding:10px 10px 10px 10px;justify-content:center}div#n2-ss-2 .n-uc-3on5Kfhyfc56{width:50%}div#n2-ss-2 .n-uc-Umg5acYBQTJr-inner{padding:22px 35px 22px 22px;justify-content:center}div#n2-ss-2 .n-uc-Umg5acYBQTJr{width:50%}div#n2-ss-2 .n-uc-px89Y41c7Aeg{--margin-top:20px;align-self:var(--ss-fs);}div#n2-ss-2 .n-uc-L6O0m5swevfb{padding:0px 0px 0px 0px}div#n2-ss-2 .n-uc-0TeJycoxLb8W-inner{padding:0px 0px 0px 0px;justify-content:center}div#n2-ss-2 .n-uc-0TeJycoxLb8W{align-self:center;}div#n2-ss-2 .n-uc-SUuljftH1o1G-inner{padding:0px 0px 0px 0px}div#n2-ss-2 .n-uc-SUuljftH1o1G-inner > .n2-ss-layer-row-inner{width:calc(100% + 1px);margin:-0px;flex-wrap:nowrap;}div#n2-ss-2 .n-uc-SUuljftH1o1G-inner > .n2-ss-layer-row-inner > .n2-ss-layer[data-sstype="col"]{margin:0px}div#n2-ss-2 .n-uc-wHjdAZpR4ECS-inner{padding:10px 10px 10px 10px;justify-content:center}div#n2-ss-2 .n-uc-wHjdAZpR4ECS{width:50%}div#n2-ss-2 .n-uc-zIRA2rszxkzG-inner{padding:22px 35px 22px 22px;justify-content:center}div#n2-ss-2 .n-uc-zIRA2rszxkzG{width:50%}div#n2-ss-2 .n-uc-MYSYfAz2SLje{--margin-top:15px}div#n2-ss-2 .n-uc-1qai2PBrlzMB{--margin-top:20px;align-self:var(--ss-fs);}div#n2-ss-2 .nextend-arrow img{width: 32px}@media (min-width: 1200px){div#n2-ss-2 [data-hide-desktopportrait="1"]{display: none !important;}}@media (orientation: landscape) and (max-width: 1199px) and (min-width: 901px),(orientation: portrait) and (max-width: 1199px) and (min-width: 701px){div#n2-ss-2 .n2-ss-slide-limiter{max-width:3000px;}div#n2-ss-2 .n-uc-174d7aa5ed925-inner > .n2-ss-layer-row-inner{flex-wrap:nowrap;}div#n2-ss-2 .n-uc-168681ce2253b{width:50%}div#n2-ss-2 .n-uc-133d309c04b25{width:50%}div#n2-ss-2 .n-uc-7X7mrU65yEhh{--ssfont-scale:0.6}div#n2-ss-2 .n-uc-H83UvvTVT6Ir{--ssfont-scale:0.73}div#n2-ss-2 .n-uc-fVlguNcpjvxd{--ssfont-scale:0.7}div#n2-ss-2 .n-uc-MIfecNCHzDun-inner > .n2-ss-layer-row-inner{flex-wrap:nowrap;}div#n2-ss-2 .n-uc-3on5Kfhyfc56{width:50%}div#n2-ss-2 .n-uc-Umg5acYBQTJr{width:50%}div#n2-ss-2 .n-uc-vyzxBx4lH3xu{--ssfont-scale:0.6}div#n2-ss-2 .n-uc-px89Y41c7Aeg{--ssfont-scale:0.7}div#n2-ss-2 .n-uc-SUuljftH1o1G-inner > .n2-ss-layer-row-inner{flex-wrap:nowrap;}div#n2-ss-2 .n-uc-wHjdAZpR4ECS{width:50%}div#n2-ss-2 .n-uc-zIRA2rszxkzG{width:50%}div#n2-ss-2 .n-uc-AapciG4vrolJ{--ssfont-scale:0.6}div#n2-ss-2 .n-uc-MYSYfAz2SLje{--ssfont-scale:0.73}div#n2-ss-2 .n-uc-1qai2PBrlzMB{--ssfont-scale:0.7}div#n2-ss-2 [data-hide-tabletportrait="1"]{display: none !important;}}@media (orientation: landscape) and (max-width: 900px),(orientation: portrait) and (max-width: 700px){div#n2-ss-2 .n2-ss-slide-limiter{max-width:480px;}div#n2-ss-2 .n-uc-174d7aa5ed925-inner{padding:0px 0px 0px 0px}div#n2-ss-2 .n-uc-174d7aa5ed925-inner > .n2-ss-layer-row-inner{flex-wrap:wrap;}div#n2-ss-2 .n-uc-168681ce2253b-inner{padding:10px 10px 0px 10px}div#n2-ss-2 .n-uc-168681ce2253b{width:calc(100% - 0px)}div#n2-ss-2 .n-uc-kB0nN7DO9Vgq{height:200px}div#n2-ss-2 .n-uc-133d309c04b25{width:calc(100% - 0px)}div#n2-ss-2 .n-uc-7X7mrU65yEhh{--ssfont-scale:0.5}div#n2-ss-2 .n-uc-H83UvvTVT6Ir{--ssfont-scale:0.65}div#n2-ss-2 .n-uc-fVlguNcpjvxd{--ssfont-scale:0.6}div#n2-ss-2 .n-uc-MIfecNCHzDun-inner{padding:0px 0px 0px 0px}div#n2-ss-2 .n-uc-MIfecNCHzDun-inner > .n2-ss-layer-row-inner{flex-wrap:wrap;}div#n2-ss-2 .n-uc-3on5Kfhyfc56-inner{padding:10px 10px 0px 10px}div#n2-ss-2 .n-uc-3on5Kfhyfc56{width:calc(100% - 0px)}div#n2-ss-2 .n-uc-xtqJFxQZBpbt{height:200px}div#n2-ss-2 .n-uc-Umg5acYBQTJr{width:calc(100% - 0px)}div#n2-ss-2 .n-uc-vyzxBx4lH3xu{--ssfont-scale:0.5}div#n2-ss-2 .n-uc-px89Y41c7Aeg{--ssfont-scale:0.6}div#n2-ss-2 .n-uc-SUuljftH1o1G-inner{padding:0px 0px 0px 0px}div#n2-ss-2 .n-uc-SUuljftH1o1G-inner > .n2-ss-layer-row-inner{flex-wrap:wrap;}div#n2-ss-2 .n-uc-wHjdAZpR4ECS-inner{padding:10px 10px 0px 10px}div#n2-ss-2 .n-uc-wHjdAZpR4ECS{width:calc(100% - 0px)}div#n2-ss-2 .n-uc-VWAei9yKFn8b{height:200px}div#n2-ss-2 .n-uc-zIRA2rszxkzG{width:calc(100% - 0px)}div#n2-ss-2 .n-uc-AapciG4vrolJ{--ssfont-scale:0.5}div#n2-ss-2 .n-uc-MYSYfAz2SLje{--ssfont-scale:0.65}div#n2-ss-2 .n-uc-1qai2PBrlzMB{--ssfont-scale:0.6}div#n2-ss-2 [data-hide-mobileportrait="1"]{display: none !important;}div#n2-ss-2 .nextend-arrow img{width: 16px}}</style>
+<script>(function(){this._N2=this._N2||{_r:[],_d:[],r:function(){this._r.push(arguments)},d:function(){this._d.push(arguments)}}}).call(window);</script><script src="https://bge.uiu.ac.bd/wp-content/plugins/smart-slider-3/Public/SmartSlider3/Application/Frontend/Assets/dist/n2.min.js?ver=1c12b24c" defer="" async=""></script>
+<script src="https://bge.uiu.ac.bd/wp-content/plugins/smart-slider-3/Public/SmartSlider3/Application/Frontend/Assets/dist/smartslider-frontend.min.js?ver=1c12b24c" defer="" async=""></script>
+<script src="https://bge.uiu.ac.bd/wp-content/plugins/smart-slider-3/Public/SmartSlider3/Slider/SliderType/Simple/Assets/dist/ss-simple.min.js?ver=1c12b24c" defer="" async=""></script>
+<script src="https://bge.uiu.ac.bd/wp-content/plugins/smart-slider-3/Public/SmartSlider3/Widget/Arrow/ArrowImage/Assets/dist/w-arrow-image.min.js?ver=1c12b24c" defer="" async=""></script>
+<script>_N2.r('documentReady',function(){n2const.prefersReducedMotion=false;_N2.r(["documentReady","smartslider-frontend","SmartSliderWidgetArrowImage","ss-simple"],function(){new _N2.SmartSliderSimple('n2-ss-2',{"admin":false,"background.video.mobile":1,"loadingTime":2000,"alias":{"id":0,"smoothScroll":0,"slideSwitch":0,"scroll":1},"align":"normal","isDelayed":0,"responsive":{"mediaQueries":{"all":false,"desktopportrait":["(min-width: 1200px)"],"tabletportrait":["(orientation: landscape) and (max-width: 1199px) and (min-width: 901px)","(orientation: portrait) and (max-width: 1199px) and (min-width: 701px)"],"mobileportrait":["(orientation: landscape) and (max-width: 900px)","(orientation: portrait) and (max-width: 700px)"]},"base":{"slideOuterWidth":1200,"slideOuterHeight":500,"sliderWidth":1200,"sliderHeight":500,"slideWidth":1200,"slideHeight":500},"hideOn":{"desktopLandscape":false,"desktopPortrait":false,"tabletLandscape":false,"tabletPortrait":false,"mobileLandscape":false,"mobilePortrait":false},"onResizeEnabled":true,"type":"auto","sliderHeightBasedOn":"real","focusUser":1,"focusEdge":"auto","breakpoints":[{"device":"tabletPortrait","type":"max-screen-width","portraitWidth":1199,"landscapeWidth":1199},{"device":"mobilePortrait","type":"max-screen-width","portraitWidth":700,"landscapeWidth":900}],"enabledDevices":{"desktopLandscape":0,"desktopPortrait":1,"tabletLandscape":0,"tabletPortrait":1,"mobileLandscape":0,"mobilePortrait":1},"sizes":{"desktopPortrait":{"width":1200,"height":500,"max":3000,"min":1200},"tabletPortrait":{"width":701,"height":292,"customHeight":false,"max":1199,"min":701},"mobilePortrait":{"width":320,"height":133,"customHeight":false,"max":900,"min":320}},"overflowHiddenPage":0,"focus":{"offsetTop":"#wpadminbar","offsetBottom":""}},"controls":{"mousewheel":2,"touch":"horizontal","keyboard":1,"blockCarouselInteraction":1},"playWhenVisible":1,"playWhenVisibleAt":0.5,"lazyLoad":0,"lazyLoadNeighbor":0,"blockrightclick":0,"maintainSession":0,"autoplay":{"enabled":1,"start":1,"duration":5000,"autoplayLoop":1,"allowReStart":0,"reverse":0,"pause":{"click":1,"mouse":"enter","mediaStarted":1},"resume":{"click":0,"mouse":"leave","mediaEnded":1,"slidechanged":0},"interval":1,"intervalModifier":"loop","intervalSlide":"current"},"perspective":1500,"layerMode":{"playOnce":0,"playFirstLayer":1,"mode":"skippable","inAnimation":"mainInEnd"},"bgAnimations":0,"mainanimation":{"type":"horizontal","duration":400,"delay":0,"ease":"easeOutQuad","shiftedBackgroundAnimation":0},"carousel":1,"initCallbacks":function(){new _N2.SmartSliderWidgetArrowImage(this)}})})});</script><link rel="https://api.w.org/" href="https://bge.uiu.ac.bd/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://bge.uiu.ac.bd/wp-json/wp/v2/pages/4"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://bge.uiu.ac.bd/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 7.1">
+<link rel="shortlink" href="https://bge.uiu.ac.bd/">
+<meta name="generator" content="Site Kit by Google 1.186.0"><link rel="icon" href="https://bge.uiu.ac.bd/wp-content/uploads/sites/17/2024/10/312308865_507861781367882_3667233183680698455_n-removebg-preview.png" sizes="32x32">
+<link rel="icon" href="https://bge.uiu.ac.bd/wp-content/uploads/sites/17/2024/10/312308865_507861781367882_3667233183680698455_n-removebg-preview.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://bge.uiu.ac.bd/wp-content/uploads/sites/17/2024/10/312308865_507861781367882_3667233183680698455_n-removebg-preview.png">
+<meta name="msapplication-TileImage" content="https://bge.uiu.ac.bd/wp-content/uploads/sites/17/2024/10/312308865_507861781367882_3667233183680698455_n-removebg-preview.png">
+<style id="sccss">.profile-btn-links {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+/* uii block tab */
+.block-uiu-tab .tab-content  {
+	overflow-x: auto;
+}
+
+/* notice, event, news single */
+.notice-template-default #hero-single  .content .main-title, .single-event #hero-single  .content .main-title{
+	text-transform: unset;
+	letter-spacing: unset;
+}
+
+/* no data found message */
+.not-found-error {
+	width: 100%;
+	text-align: center;
+	margin: 4rem 0 3rem;
+}
+
+.not-found-error .error-message {
+	color: #000 !important;
+	font-size: 2rem !important;
+	font-weight: 500 !important;
+	margin-bottom: 2rem !important;
+}
+
+.not-found-error .back-to-link {
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    background: var(--uiu-color);
+    color: #fff;
+    font-size: .9rem;
+    font-weight: 500;
+    margin: auto 1rem;
+}
+
+.not-found-error .back-to-link:hover {
+    background: #282828;
+}
+
+
+#follow-us h1 {
+	color: #000 !important;
+}
+
+/* faculty single menu icon  */
+@media screen and (max-width: 1100px) {
+.faculty-template-default.single-faculty .fa, .fa-brands, .fa-classic, .fa-regular, .fa-sharp, .fa-solid, .fab, .far, .fas {
+    display: contents !important;
+}
+}
+
+
+/* color isssue */
+.single-news main, .single-notice main, .single-event main {
+	color: #000
+}
+
+.single-news main a, .single-notice main a, .single-event main a {
+	color: hsl(195deg, 85%, 41%) !important;
+}
+
+/* Enter Your Custom CSS Here */
+section#archive-hero {
+    padding: 1rem 0 !important;
+}
+#archive-hero .content .left-content .short-details {
+    margin-top: 0.5rem;
+}
+#archive-hero .content .right-content {
+    text-align: right;
+}
+#archive-hero .content .right-content img {
+    max-height: 250px;
+    width: unset!important;
+}
+nav.uiu-custom-breadcrumbs a {
+    color: var(--primary)!important;
+}
+
+
+
+article {
+	background: #fff !important;
+}
+
+/* text justify */
+.text-justify {
+	text-align: justify !important;
+}
+
+.post-type-archive #main, main {
+    padding-top: 0 !important;
+}
+
+
+/* reset some css */
+@media screen and (max-width: 1400px) {
+	#main-container .main-content p, #main-container .main-content ul, #main-container .main-content ol, #main-container .main-content li {
+    font-size: .8rem !important;
+    margin-bottom: .5rem !important;
+}
+	
+	#uiu-media .gallery-details .news-title {
+    font-size: .85rem !important
+}
+	
+	#archive-hero {
+    margin-bottom: unset !important;
+		padding: 2rem 0 0 !important;
+}
+	
+	.uiu-custom-breadcrumbs li {
+		padding: .5rem .25rem
+	}
+	
+}
+
+
+/* navbar */
+
+@media screen and (max-width: 1400px) {
+	#navbar .menu_feature_image {
+     width: unset !important; 
+    max-width: 350px !important;
+    max-height: 190px !important;
+}
+	
+	#navbar  .menu_description, #navbar   .menu_title {
+		display: none !important;
+	}
+	
+	#navbar #uiu-departmental-nav .sub-menu .sub-menu-link-container .menu-item {
+		margin-bottom: 0 !important;
+	}
+	
+	#navbar #uiu-departmental-nav .sub-menu .sub-menu-link-container .menu-item a {
+		height: unset !important;
+	}
+}
+
+
+@media screen and (max-width: 1100px) {
+	
+	#navbar #uiu-departmental-nav .menu-item  {
+		margin-bottom: 0 !important
+	}
+	
+	#navbar #uiu-departmental-nav .menu-item a {
+		height: unset !important;
+	}
+}
+
+
+
+
+
+/* archive hero */
+#archive-hero * {
+	color: #000;
+}
+
+
+#archive-hero li a {
+	color: hsl(195deg, 85%, 41%);
+}
+
+#archive-hero li:last-child {
+	margin-left: .75rem;
+}
+
+@media screen and (max-width: 992px) {
+	#archive-hero .content .right-content {
+    display: none !important;
+}
+}
+
+
+
+/* shadow and button add on lab archive page */
+
+#all-labs .single-content {
+	box-shadow: 2px 2px 10px 6px rgba(0, 0, 0, 0.137254902);
+}
+
+#all-labs .card-details {
+	display: flex !important;
+	flex-direction: column;
+	
+}
+
+#all-labs .single-content .single-link {
+	margin-top: auto;
+	background: var(--uiu-color);
+	padding: .5rem 1.25rem;
+	color: #fff;
+	border-radius: 3px;
+	font-size: .9rem;
+	font-weight: 600;
+	width: fit-content
+}
+
+#all-labs .single-content .single-link i {
+	display: none
+}
+
+#main-banner  {
+text-align: center
+}
+
+
+/* single event */
+#event-info-container #event-info {
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+		margin-bottom: 0 !important;
+
+}
+
+
+#event-info-container {
+	height: 200px
+}
+
+
+
+@media screen and (max-width: 768px) {
+	#event-info-container {
+		flex-direction: column;
+	}
+	
+	
+#event-info-container {
+	height: unset
+}
+
+	
+	#event-info-container .event-date {
+		padding-top: 0 !important;
+		width: 100px !important
+		
+	}
+	
+	#event-info-container .event-date::before  {
+		display: block !important;
+		    height: 0;
+	    width: 0;
+	    top: 0 !important;
+	    bottom: 0 !important;
+	    left: 100px !important;
+	    border: none !important;
+	    border-top: 100px solid #f68b1f !important;
+	    border-right: 100px solid transparent !important;
+	}
+	
+	#event-info-container .event-date::after {
+		display: block !important;
+		height: 0;
+	    width: 0 !important;
+	    top: unset !important;
+	    bottom: 0 !important;
+	    left: 100px !important;
+	    border: none !important;
+	    border-bottom: 100px solid #f68b1f !important;
+	    border-right: 100px solid transparent !important;
+	}
+	
+}
+.post-type-archive-lab-facilities #primary #all-labs {
+	padding-bottom: 2rem
+}
+
+
+
+
+/* reset css for  list item */
+#main-container .main-content ol , #main-container .main-content ul {
+	padding-left: 1rem
+}
+
+#main-container .main-content ol ol, #main-container .main-content ul ol, #main-container .main-content ol ul, #main-container .main-content ul ol, #main-container ul ul {
+	padding-left: 1.5rem;
+	font-size: .9em;
+}
+
+/* campus life statistics */
+#campus-life .state .analytics {
+    gap: .25rem;
+    flex-wrap: wrap;
+}
+
+
+
+/* contact form css fixing */
+.custom-accordion-group .custom-accordion .custom-accordion-btn {
+    max-width: unset;
+}
+
+
+
+
+/* footer */
+#footer .lower-part p {
+    color: #fff !important;
+}
+
+
+/* Enter Your Custom CSS Here */
+
+
+
+
+/* text justify */
+.text-justify {
+	text-align: justify !important;
+}
+
+
+/* reset some css */
+@media screen and (max-width: 1400px) {
+	#main-container .main-content p, #main-container .main-content ul, #main-container .main-content ol, #main-container .main-content li {
+    font-size: .8rem !important;
+    margin-bottom: .5rem !important;
+}
+	
+	#uiu-media .gallery-details .news-title {
+    font-size: .85rem !important
+}
+	
+	#archive-hero {
+    margin-bottom: unset !important;
+		padding: 2rem 0 0 !important;
+}
+	
+	.uiu-custom-breadcrumbs li {
+		padding: .5rem .25rem
+	}
+	
+}
+
+/* navbar */
+
+@media screen and (max-width: 1400px) {
+	#navbar .menu_feature_image {
+     width: unset !important; 
+    max-width: 350px !important;
+    max-height: 190px !important;
+}
+	
+	#navbar  .menu_description, #navbar   .menu_title {
+		display: none !important;
+	}
+	
+	#navbar #uiu-departmental-nav .sub-menu .sub-menu-link-container .menu-item {
+		margin-bottom: 0 !important;
+	}
+	
+	#navbar #uiu-departmental-nav .sub-menu .sub-menu-link-container .menu-item a {
+		height: unset !important;
+	}
+}
+
+
+@media screen and (max-width: 1100px) {
+	
+	#navbar #uiu-departmental-nav .menu-item  {
+		margin-bottom: 0 !important
+	}
+	
+	#navbar #uiu-departmental-nav .menu-item a {
+		height: unset !important;
+	}
+}
+
+
+
+
+
+/* archive hero */
+@media screen and (max-width: 1100px) {
+	#archive-hero {
+		padding-top: 2rem !important;
+		padding-bottom: 2rem !important
+	}
+}
+
+@media screen and (max-width: 992px) {
+	#archive-hero .content .right-content {
+    display: none !important;
+}
+}
+
+
+
+/* shadow and button add on lab archive page */
+
+#all-labs .single-content {
+	box-shadow: 2px 2px 10px 6px rgba(0, 0, 0, 0.137254902);
+}
+
+#all-labs .card-details {
+	display: flex !important;
+	flex-direction: column;
+	
+}
+
+#all-labs .single-content .single-link {
+	margin-top: auto;
+	background: var(--uiu-color);
+	padding: .5rem 1.25rem;
+	color: #fff;
+	border-radius: 3px;
+	font-size: .9rem;
+	font-weight: 600;
+	width: fit-content
+}
+
+#all-labs .single-content .single-link i {
+	display: none
+}
+
+#main-banner  {
+text-align: center
+}
+
+
+/* single event */
+#event-info-container #event-info {
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+		margin-bottom: 0 !important;
+
+}
+
+
+#event-info-container {
+	height: 200px
+}
+
+
+
+@media screen and (max-width: 768px) {
+	#event-info-container {
+		flex-direction: column;
+	}
+	
+	
+#event-info-container {
+	height: unset
+}
+
+	
+	#event-info-container .event-date {
+		padding-top: 0 !important;
+		width: 100px !important
+		
+	}
+	
+	#event-info-container .event-date::before  {
+		display: block !important;
+		    height: 0;
+	    width: 0;
+	    top: 0 !important;
+	    bottom: 0 !important;
+	    left: 100px !important;
+	    border: none !important;
+	    border-top: 100px solid #f68b1f !important;
+	    border-right: 100px solid transparent !important;
+	}
+	
+	#event-info-container .event-date::after {
+		display: block !important;
+		height: 0;
+	    width: 0 !important;
+	    top: unset !important;
+	    bottom: 0 !important;
+	    left: 100px !important;
+	    border: none !important;
+	    border-bottom: 100px solid #f68b1f !important;
+	    border-right: 100px solid transparent !important;
+	}
+	
+}
+
+
+
+
+
+/* reset css for  list item */
+#main-container .main-content ol , #main-container .main-content ul {
+	padding-left: 1rem
+}
+
+#main-container .main-content ol ol, #main-container .main-content ul ol, #main-container .main-content ol ul, #main-container .main-content ul ol, #main-container ul ul {
+	padding-left: 1.5rem;
+	font-size: .9em;
+}
+
+/* campus life statistics */
+#campus-life .state .analytics {
+    gap: .25rem;
+    flex-wrap: wrap;
+}
+
+
+
+/* contact form css fixing */
+.custom-accordion-group .custom-accordion .custom-accordion-btn {
+    max-width: unset;
+}
+
+
+
+/* footer */
+#footer .lower-part p {
+    color: #fff !important;
+}
+
+
+
+/* course description page */
+.page-template-page-course-description .accordion-body p {
+	color: #000;
+	font-size: .85rem;
+}
+
+#follow-us .heading {
+	color: #000
+}
+
+main {
+	padding-top: 0 !important;
+}
+
+
+
+#main-banner {
+	padding-top: 10px !important;
+	margin-top: 105px !important;
+}
+
+@media screen and (max-width: 1100px){
+	.admin-bar #main-banner {
+		margin-top: 80px !important;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.admin-bar #main-banner {
+    margin-top: 65px !important;
+	}
+
+}
+
+
+body:not(.home):not(.faculty-template-default)  main {
+			margin-top: 65px !important;
+	}
+
+@media screen and (max-width: 1100px) {
+	
+	#navbar #responsive-btn {
+		padding-left: 1rem !important;
+		padding-right: 1rem !important;
+	}
+	
+	body.admin-bar:not(.home) #page {
+		margin-top: 65px !important;
+	}
+	
+	body.admin-bar:not(.home) main {
+		margin-top: unset !important;
+	}
+}
+
+
+.block-uiu-tab .tabs button {
+    white-space: nowrap;
+}
+
+/* search bar design */
+
+#navbar #uiu-global-nav #header-search-bar {
+    border-radius: unset;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 35px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    width: 15rem;
+    gap: 0;
+}
+
+@media screen and (max-width: 1100px) {
+	#navbar #uiu-global-nav #header-search-bar {
+		margin-top: -10px !important;
+	}
+	
+	#navbar #uiu-global-nav #header-search-bar .search-field, #navbar #uiu-global-nav #header-search-bar label  {
+		width: 100%;
+	}
+	
+	#navbar #uiu-global-nav #header-search-bar.mobile-search {
+		margin-top: 1px !important;
+	}
+}
+
+input.search-field {
+    font-weight: normal;
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    line-height: 1.2;
+    text-shadow: none;
+    border: unset !important;
+    box-shadow: none;
+    height: 35px;
+	overflow: hidden;
+    position: relative;
+    z-index: 2;
+    padding: .2rem .5rem !important;
+    margin: 0 !important;
+    width: calc(15rem - 100px);
+    background: #fff !important;
+    border-radius: unset !important;
+		margin-top: 5px !important;
+}
+
+
+input.search-submit {
+    width: 100px;
+    height: 35px;
+    background-image: -webkit-linear-gradient(180deg, rgb(246, 139, 31), rgb(246, 139, 31));
+    float: unset;
+    border: unset;
+    border-radius: unset;
+    cursor: pointer;
+    margin: unset;
+    font-size: .75rem;
+    padding: .25rem .5rem;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+
+@media screen and (max-width: 1100px) {
+    #navbar #uiu-global-nav .search-form.mobile-search {
+        padding: 0 !important;
+        justify-content: flex-start !important;
+        padding-top: 114px !important;
+        max-width: 100% !important;
+        margin: unset;
+			margin-top: unset !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh !important;
+        width: 100vw !important;
+        flex-direction: column;
+        background: var(--dark-color);
+        border: none;
+    }
+	
+	#navbar #uiu-global-nav .search-form {
+		margin-top: -20px !important;
+		width: 100% !important;
+	}
+	
+}
+
+
+nav.uiu-custom-breadcrumbs ul li:not(:first-of-type) a {
+    margin-left: 0.35rem !important;
+}
+
+
+
+
+	/* fixed wp default gallery */
+	figure.wp-block-gallery.has-nested-images {
+			margin-top: 1.5rem;
+			display: flex;
+			align-items: normal;
+			flex-wrap: wrap;
+			gap: .5rem;
+	}
+
+	.wp-block-gallery.has-nested-images figure.wp-block-image {
+		border-radius: 3px;
+		overflow: hidden;
+	}
+
+	/* fixed wp default gallery end */</style><noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><style id="wpr-lazyload-bg-container"></style><style id="wpr-lazyload-bg-exclusion"></style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle"></style>
+</noscript>
+<script type="application/javascript">const rocket_pairs = []; const rocket_excluded_pairs = [];</script><meta name="generator" content="WP Rocket 3.23.3.3" data-wpr-features="wpr_lazyload_css_bg_img wpr_delay_js wpr_defer_js wpr_minify_js wpr_lazyload_images wpr_preconnect_external_domains wpr_oci wpr_minify_css wpr_cdn wpr_preload_links wpr_desktop"><link href="https://www.google.com" rel="preconnect"></head>
+
+<body class="home wp-singular page-template page-template-page-template page-template-page-home page-template-page-templatepage-home-php page page-id-4 wp-custom-logo wp-theme-uiu-bge no-sidebar">
+		<div id="page" class="site">
+		<a class="skip-link screen-reader-text" href="#primary">Skip to content</a>
+		<header id="navbar">
+
+			<div id="uiu-global-nav">
+
+				<nav class="container-fluid">
+
+					<div class="logo-close-menu">
+
+						<span id="menu-bars">
+							<i class="fa-solid fa-bars"></i>
+						</span>
+
+						<a class="logo" href="https://uiu.ac.bd/">
+							<i class="fa-solid fa-house"></i>
+						</a>
+
+
+						<span id="seacrh" class="seacrh ">
+							<i class="fa-solid fa-magnifying-glass"></i>
+						</span>
+
+					</div>
+
+					<div class="uiu-global-header-menu"><ul id="menu-uiu-global-header" class="menu"><li id="menu-item-8" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8"><a target="_blank" href="http://103.109.52.4">DSpace</a></li>
+<li id="menu-item-9" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9"><a href="https://library.uiu.ac.bd/">Library</a></li>
+<li id="menu-item-10" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10"><a href="https://www.uiu.ac.bd/academics/faculty-members/">Faculty Members</a></li>
+<li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11"><a href="https://degver.uiu.ac.bd/">Degree Verification</a></li>
+<li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12"><a href="https://uiu.ac.bd/important-contact/">Important Contact</a></li>
+<li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13"><a href="https://admission.uiu.ac.bd/Admission/Home.aspx">Apply Online</a></li>
+</ul></div>						    <ul class="profile-login">
+				            <li id="menu-item-1615" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1615"><a href="https://bge.uiu.ac.bd/profile-login/">Profile Login</a></li>
+                        </ul>
+				    <div id="header-search-bar" class="search-form">
+						<form role="search" method="get" class="search-form" action="https://bge.uiu.ac.bd/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search …" value="" name="s">
+				</label>
+				<input type="submit" class="search-submit" value="Search">
+			</form>					</div>
+
+				</nav>
+
+			</div>
+
+			<div id="uiu-departmental-nav">
+
+				<nav class="container-fluid">
+
+					<div id="responsive-btn" class="dep-name-res-icon">
+
+						<a class="department-logo" href="https://bge.uiu.ac.bd/"> <img src="https://bge.uiu.ac.bd/wp-content/uploads/sites/17/2024/10/header-logo.png" alt="UIU - Department of Biotechnology and Genetic Engineering" width="288" height="87"></a>
+
+						<span class="responsive-btn">
+							<i class="fa-solid fa-bars-staggered"></i>
+						</span>
+
+					</div>
+
+					<div class="uiu-departmental-header-menu"><ul id="menu-main-menu" class="menu"><li id="menu-item-128" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-4 current_page_item menu-item-128"><a href="https://bge.uiu.ac.bd/" aria-current="page">Home</a></li>
+<li id="menu-item-129" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-129"><a href="https://bge.uiu.ac.bd/about-biotechnology-genetic-engineering/">About</a>
+<ul class="sub-menu">
+<div class="container"><div class="sub-menu-feature">
+		<img class="menu_feature_image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/menu-background.jpg"><noscript><img class="menu_feature_image" src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/menu-background.jpg" alt=""></noscript>
+		<div class="heading-text menu_title">
+		Research
+		</div>
+		<div class="text menu_description">
+		
+		</div>
+		</div><div class="sub-menu-link-container">	<li id="menu-item-130" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-130"><a href="https://bge.uiu.ac.bd/about-biotechnology-genetic-engineering/mission-vision/">Mission &amp; Vision</a></li>
+	<li id="menu-item-131" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-131"><a href="https://bge.uiu.ac.bd/about-biotechnology-genetic-engineering/strengths/">Strengths</a></li>
+	<li id="menu-item-132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132"><a href="https://bge.uiu.ac.bd/about-biotechnology-genetic-engineering/welcome-message/">Welcome Message</a></li>
+	<li id="menu-item-134" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-134"><a href="https://bge.uiu.ac.bd/contact/">Contact</a></li>
+	<li id="menu-item-133" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-133"><a href="https://bge.uiu.ac.bd/about-biotechnology-genetic-engineering/why-uiu-biotechnology/">Why UIU Biotechnology?</a></li>
+</div></div></ul>
+</li>
+<li id="menu-item-135" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-135"><a href="https://bge.uiu.ac.bd/ug-program/">UG Program</a>
+<ul class="sub-menu">
+<div class="container"><div class="sub-menu-feature">
+		<img class="menu_feature_image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/menu-background.jpg"><noscript><img class="menu_feature_image" src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/menu-background.jpg" alt=""></noscript>
+		<div class="heading-text menu_title">
+		Research
+		</div>
+		<div class="text menu_description">
+		
+		</div>
+		</div><div class="sub-menu-link-container">	<li id="menu-item-136" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-136"><a href="https://bge.uiu.ac.bd/ug-program/course-plan/">Course Plan</a></li>
+	<li id="menu-item-137" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137"><a href="https://bge.uiu.ac.bd/ug-program/curriculum-structure/">Curriculum Structure</a></li>
+	<li id="menu-item-176" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-176"><a href="https://bge.uiu.ac.bd/ug-program/admission-requirements/">Admission Requirements</a></li>
+	<li id="menu-item-138" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-138"><a href="https://bge.uiu.ac.bd/ug-program/program-requirement/">Program Requirement</a></li>
+	<li id="menu-item-140" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-140"><a href="https://bge.uiu.ac.bd/ug-program/program-requirement/degree-requirements/">Degree Requirements</a></li>
+</div></div></ul>
+</li>
+<li id="menu-item-207" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-207"><a href="https://bge.uiu.ac.bd/faculty/">Faculty Member</a></li>
+<li id="menu-item-143" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-143"><a href="https://bge.uiu.ac.bd/news-and-events/">News and Events</a>
+<ul class="sub-menu">
+<div class="container"><div class="sub-menu-feature">
+		<img class="menu_feature_image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/menu-background.jpg"><noscript><img class="menu_feature_image" src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/menu-background.jpg" alt=""></noscript>
+		<div class="heading-text menu_title">
+		Research
+		</div>
+		<div class="text menu_description">
+		
+		</div>
+		</div><div class="sub-menu-link-container">	<li id="menu-item-144" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-144"><a href="https://bge.uiu.ac.bd/news/">News</a></li>
+	<li id="menu-item-145" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-145"><a href="https://bge.uiu.ac.bd/notice/">Notices</a></li>
+</div></div></ul>
+</li>
+<li id="menu-item-146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-146"><a href="https://bge.uiu.ac.bd/facilities/">Facilities</a>
+<ul class="sub-menu">
+<div class="container"><div class="sub-menu-feature">
+		<img class="menu_feature_image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/menu-background.jpg"><noscript><img class="menu_feature_image" src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/menu-background.jpg" alt=""></noscript>
+		<div class="heading-text menu_title">
+		Research
+		</div>
+		<div class="text menu_description">
+		
+		</div>
+		</div><div class="sub-menu-link-container">	<li id="menu-item-438" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-438"><a href="https://bge.uiu.ac.bd/facilities/class-rooms/">Class Rooms</a></li>
+	<li id="menu-item-437" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-437"><a href="https://bge.uiu.ac.bd/facilities/it-facilities/">IT Facilities</a></li>
+	<li id="menu-item-436" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-436"><a href="https://bge.uiu.ac.bd/facilities/library/">Library</a></li>
+	<li id="menu-item-439" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-439"><a href="https://bge.uiu.ac.bd/lab-facilities/">Lab Facilities</a></li>
+</div></div></ul>
+</li>
+<li id="menu-item-149" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-149"><a href="https://bge.uiu.ac.bd/notice/">Notices</a></li>
+<li id="menu-item-148" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-148"><a href="https://bge.uiu.ac.bd/contact/">Contact</a></li>
+</ul></div>				</nav>
+			</div>
+		</header>
+
+		<!-- #masthead -->
+
+
+<link data-minify="1" rel="stylesheet" href="https://bge.uiu.ac.bd/wp-content/cache/min/17/wp-content/themes/uiu-bge/css/page-home.css?ver=1788150538">
+
+<link data-minify="1" rel="stylesheet" href="https://bge.uiu.ac.bd/wp-content/cache/min/17/npm/swiper@11/swiper-bundle.min.css?ver=1788150538">
+
+
+<main>
+
+    <!-- main banner -->
+    <section id="main-banner">
+        <div class="container-fluid">
+
+            <h3>
+                Admission Open For Fall 2026
+            </h3>
+
+            
+
+        </div>
+    </section>
+
+    <!-- hero slider -->
+    <section id="hero" style="padding: 0!important">
+
+        <div class="container" style="padding: 0!important">
+            
+            <style>
+        	    #main-layer-slider{
+        	        background: #333;
+        	    }
+        	</style>
+        	
+            <div id="main-layer-slider" style="width: 100% !important;">
+                <div class="n2-section-smartslider fitvidsignore  n2_clear" data-ssid="2" style="height:500px;"><div id="n2-ss-2-align" class="n2-ss-align"><div class="n2-padding"><ss3-loader></ss3-loader></div></div><div class="n2_clear"></div></div>            </div>
+            
+
+        </div>
+
+
+
+    </section>
+
+<!-- KNOW eee section -->
+<section id="know-eee">
+    <div class="container">
+        <div class="row g-4">
+
+            <!-- single content -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="single-content">
+                    <div class="media">
+                        <div class="img-container">
+                            <!-- Image representing the Undergraduate Admission Requirements -->
+                            <img src="/wp-content/uploads/sites/17/2024/12/IMG_1659.png" alt="Admission Requirements" width="600" height="400">
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <h6 class="heading">Admission Requirements</h6>
+                        <p>
+                            Applicants will be required to sit for an Admission Test designed to judge their abilities and aptitude for the program. The Test will be held as arranged by the University. The Admission Test will be held on the following three areas:
+                        </p>
+                        <ul>
+                            <li>
+                                <p>1. Language and Communication</p>
+                            </li>
+                            <li>
+                                <p>2. Biology</p>
+                            </li>
+                            <li>
+                                <p>3. Chemistry</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Link to read more about admission requirements -->
+                    <a href="/ug-program/admission-requirements/" class="link-btn" role="button">Read More</a>
+                </div>
+            </div>
+
+            <!-- single content -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="single-content">
+                    <div class="media">
+                        <div class="img-container">
+                            <!-- Image  -->
+                            <img src="/wp-content/uploads/sites/17/2024/12/cl-1536x961-1.png" alt="Degree Requirements" width="600" height="375">
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <h6 class="heading">Degree Requirements</h6>
+                        <p>
+                            The degree requirements of B.Sc. in Biotechnology and Genetic Engineering will be as follows:
+                        </p>
+                        <ul>
+                            <li>
+                                <p>1. Completion of 140.0 credit hours.</p>
+                            </li>
+                            <li>
+                                <p>2. Passing of all courses individually and maintaining a minimum CGPA of 2.00.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Link to read more about ug-program/program-requirement/degree-requirements/ -->
+                    <a href="/ug-program/program-requirement/degree-requirements/" class="link-btn" role="button">Read More</a>
+                </div>
+            </div>
+
+            <!-- single content -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="single-content">
+                    <div class="media">
+                        <!-- Image representing the benefits of studying Data Science -->
+                        <div class="img-container">
+                            <img src="https://bge.uiu.ac.bd/wp-content/uploads/sites/17/2024/12/462009909_122113713464518869_1042411373882493819_n.png" alt="Overview of The Department" width="600" height="337">
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <h6 class="heading">Overview of The Department of Biotechnology and Genetic Engineering.</h6>
+                        <p>
+                            UIU is going to expand its academic arena in the field of biomedical research and healthcare industries. The establishment of “The Department of Biotechnology and Genetic Engineering” as a new department under the School of Life Sciences will be an excellent addition to contribute in biomedical research and education.
+                        </p>
+                    </div>
+                    <!-- Link to read more about the Data Science program -->
+                    <a href="/about-biotechnology-genetic-engineering/why-biotechnology-genetic-engineering-at-uiu/" class="link-btn" role="button">Read More</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+        
+          <!-- recognition -->
+           <section id="recognition">
+            <div class="container">
+              <h1 class="heading">Recognition</h1>
+              <p class="sub-heading">
+                United International University (UIU) is acclaimed for its educational quality, boasting notable rankings and recognitions in higher education, reflecting its commitment to academic and research excellence on both a national and global scale.
+              </p>
+        
+        
+              <div class="slider-component">
+                <div class="swiper recognitionSlider">
+                  <div class="swiper-wrapper">
+                                                                  <div class="swiper-slide">
+                          <div class="slide-item">
+                            <div class="ranking-container">
+                              <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/uploads/sites/17/2025/01/qsworld-uiu-ranking.jpg" width="300" height="150"><noscript><img src="https://bge.uiu.ac.bd/wp-content/uploads/sites/17/2025/01/qsworld-uiu-ranking.jpg" alt=""></noscript>
+                            </div>
+                            <div class="ranking-provider">
+        
+                              <a class="title" href="https://www.topuniversities.com/university-rankings/world-university-rankings/2024">QS World</a>
+                            </div>
+                          </div>
+                        </div>
+                                            <div class="swiper-slide">
+                          <div class="slide-item">
+                            <div class="ranking-container">
+                              <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/uploads/sites/17/2025/01/qsasia-uiu-ranking.jpg" width="300" height="150"><noscript><img src="https://bge.uiu.ac.bd/wp-content/uploads/sites/17/2025/01/qsasia-uiu-ranking.jpg" alt=""></noscript>
+                            </div>
+                            <div class="ranking-provider">
+        
+                              <a class="title" href="https://www.topuniversities.com/asia-university-rankings?countries=bd">QS ASIA</a>
+                            </div>
+                          </div>
+                        </div>
+                                            <div class="swiper-slide">
+                          <div class="slide-item">
+                            <div class="ranking-container">
+                              <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/uploads/sites/17/2025/01/timehigereducation-uiu-ranking.jpg" width="300" height="150"><noscript><img src="https://bge.uiu.ac.bd/wp-content/uploads/sites/17/2025/01/timehigereducation-uiu-ranking.jpg" alt=""></noscript>
+                            </div>
+                            <div class="ranking-provider">
+        
+                              <a class="title" href="https://www.timeshighereducation.com/impactrankings#!/length/25/locations/BGD/sort_by/rank/sort_order/asc">THE IMPACT</a>
+                            </div>
+                          </div>
+                        </div>
+                                            <div class="swiper-slide">
+                          <div class="slide-item">
+                            <div class="ranking-container">
+                              <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/uploads/sites/17/2025/01/qsworld-uiu-ranking.jpg" width="300" height="150"><noscript><img src="https://bge.uiu.ac.bd/wp-content/uploads/sites/17/2025/01/qsworld-uiu-ranking.jpg" alt=""></noscript>
+                            </div>
+                            <div class="ranking-provider">
+        
+                              <a class="title" href="https://www.topuniversities.com/university-rankings/world-university-rankings/2024">QS World</a>
+                            </div>
+                          </div>
+                        </div>
+                                            <div class="swiper-slide">
+                          <div class="slide-item">
+                            <div class="ranking-container">
+                              <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/uploads/sites/17/2025/01/qsasia-uiu-ranking.jpg" width="300" height="150"><noscript><img src="https://bge.uiu.ac.bd/wp-content/uploads/sites/17/2025/01/qsasia-uiu-ranking.jpg" alt=""></noscript>
+                            </div>
+                            <div class="ranking-provider">
+        
+                              <a class="title" href="https://www.topuniversities.com/asia-university-rankings?countries=bd">QS ASIA</a>
+                            </div>
+                          </div>
+                        </div>
+                                            <div class="swiper-slide">
+                          <div class="slide-item">
+                            <div class="ranking-container">
+                              <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/uploads/sites/17/2025/01/timehigereducation-uiu-ranking.jpg" width="300" height="150"><noscript><img src="https://bge.uiu.ac.bd/wp-content/uploads/sites/17/2025/01/timehigereducation-uiu-ranking.jpg" alt=""></noscript>
+                            </div>
+                            <div class="ranking-provider">
+        
+                              <a class="title" href="https://www.timeshighereducation.com/impactrankings#!/length/25/locations/BGD/sort_by/rank/sort_order/asc">THE IMPACT</a>
+                            </div>
+                          </div>
+                        </div>
+                                      </div>
+                  <button class="swiper-button-next recognitionSlider-button-next ">
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </button>
+        
+                  <button class="swiper-button-prev recognitionSlider-button-prev">
+                    <i class="fa-solid fa-chevron-left"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section> --&gt;
+
+        <!-- News and Events Section -->
+        <section id="news-event">
+            <div class="container">
+                <div class="row g-5">
+        
+                    <!-- Recent Notices Section -->
+                    <div class="col-12 col-md-6">
+                        <div id="notice-container">
+                            <h3 class="comp-title">Recent Notices</h3>
+                            <ul class="comp-details">
+        
+                                                                            <li>
+                                                <div class="single-item">
+                                                    <p class="item-date">July 26, 2026</p>
+                                                    <a class="item-link" href="https://bge.uiu.ac.bd/notice/mentors-list-summer-262-batch/">
+                                                        Mentor’s List, Summer 262 Batch                                                    </a>
+                                                </div>
+                                            </li>
+                                                                            <li>
+                                                <div class="single-item">
+                                                    <p class="item-date">May 24, 2026</p>
+                                                    <a class="item-link" href="https://bge.uiu.ac.bd/notice/revised-class-routine-for-summer-2026-trimester-bge/">
+                                                        Revised Class Routine for Summer 2026 Trimester, BGE                                                    </a>
+                                                </div>
+                                            </li>
+                                                                            <li>
+                                                <div class="single-item">
+                                                    <p class="item-date">May 20, 2026</p>
+                                                    <a class="item-link" href="https://bge.uiu.ac.bd/notice/revised-mid-final-exam-template-for-summer-2026-trimester-bge/">
+                                                        Revised Mid/Final Exam Template for Summer 2026 Trimester, BGE                                                    </a>
+                                                </div>
+                                            </li>
+                                                                            <li>
+                                                <div class="single-item">
+                                                    <p class="item-date">May 17, 2026</p>
+                                                    <a class="item-link" href="https://bge.uiu.ac.bd/notice/bge-mid-final-exam-template-for-summer-2026-trimester/">
+                                                        BGE Mid/Final Exam Template for Summer 2026 Trimester                                                    </a>
+                                                </div>
+                                            </li>
+                                                                            <li>
+                                                <div class="single-item">
+                                                    <p class="item-date">May 17, 2026</p>
+                                                    <a class="item-link" href="https://bge.uiu.ac.bd/notice/bge-pre-advising-rules-and-guidelines-for-summer-2026/">
+                                                        BGE Pre-Advising Rules and Guidelines for Summer 2026                                                    </a>
+                                                </div>
+                                            </li>
+                                                                            <li>
+                                                <div class="single-item">
+                                                    <p class="item-date">April 11, 2026</p>
+                                                    <a class="item-link" href="https://bge.uiu.ac.bd/notice/bge-mentors-list-spring-261-batch/">
+                                                        BGE Mentor’s List, Spring 261 Batch                                                    </a>
+                                                </div>
+                                            </li>
+                                                                            <li>
+                                                <div class="single-item">
+                                                    <p class="item-date">November 17, 2024</p>
+                                                    <a class="item-link" href="https://www.uiu.ac.bd/notice/bachelor-of-science-in-biotechnology-and-genetic-engineering-bsbge-mid-term-exam-schedule-fall-2024-semester/">
+                                                        Bachelor of Science in Biotechnology and Genetic Engineering (BSBGE) Mid-Term Exam Schedule – Fall 2024 Semester                                                    </a>
+                                                </div>
+                                            </li>
+                                                            </ul>
+                            <a href="https://bge.uiu.ac.bd/notice/" class="link-btn" role="button">View All Notices</a>
+                        </div>
+                    </div>
+        
+                    <!-- News and Events Section -->
+                    <div class="col-12 col-md-6">
+                        <div id="news-event-container">
+                            <h3 class="comp-title">News And Events</h3>
+                            <ul class="comp-details">
+                                                                            <li>
+                                                <div class="single-item">
+                                                    <p class="item-date">
+                                                        December 13, 2025                                                    </p>
+                                                    <div class="item-details">
+                                                        <a class="item-link" href="https://bge.uiu.ac.bd/news/biotech-seminar-was-decoding-brain-function-in-health-and-disease-using-single-cell-multiomics/">
+                                                            Biotech Seminar on “Decoding Brain Function in Health and Disease Using Single-Cell Multiomics.”                                                        </a>
+                                                                                                            </div>
+                                                </div>
+                                            </li>
+                                                                            <li>
+                                                <div class="single-item">
+                                                    <p class="item-date">
+                                                        October 8, 2025 4:00 pm                                                    </p>
+                                                    <div class="item-details">
+                                                        <a class="item-link" href="https://www.uiu.ac.bd/event/open-trial-for-vice-chancellor-cup-football-tournament-2025-season-3/">
+                                                            Open Trial for “Vice Chancellor Cup Football Tournament 2025 – Season 3″                                                        </a>
+                                                                                                                    <p><strong>Venue:</strong> UIU Football Ground</p>
+                                                                                                            </div>
+                                                </div>
+                                            </li>
+                                                                            <li>
+                                                <div class="single-item">
+                                                    <p class="item-date">
+                                                        April 21, 2024                                                    </p>
+                                                    <div class="item-details">
+                                                        <a class="item-link" href="https://www.uiu.ac.bd/news/uiu-hosts-iftar-and-doa-mahfil-to-mark-ramadan-sanguinity-2/">
+                                                            UIU Hosts Iftar and Doa Mahfil to Mark Ramadan Sanguinity                                                        </a>
+                                                                                                            </div>
+                                                </div>
+                                            </li>
+                                                            </ul>
+                            <div class="btn-group">
+                                <a href="https://bge.uiu.ac.bd/news/" class="link-btn" role="button">More News</a>
+                                <a href="https://bge.uiu.ac.bd/event/" class="link-btn" role="button">More Events</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Feature Section -->
+        <section id="feature">
+            <div class="container">
+                <div class="no-post-found">No colloquium has found!</div>            </div>
+        </section>
+
+
+
+        </main>
+        
+        
+<script type="text/rocketlazyloadscript" data-minify="1" data-rocket-src="https://bge.uiu.ac.bd/wp-content/cache/min/17/npm/swiper@11/swiper-bundle.min.js?ver=1788150538" data-rocket-defer="" defer=""></script>
+
+        
+<!-- follow us -->
+<section id="follow-us">
+	<div class="container-fluid">
+		<h1 class="heading">Follow Us</h1>
+		<div class="social-link-container">
+			<a href="https://www.facebook.com/uiuinfo" class="social-link" target="_blank">
+				<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/facebook-white.svg"><noscript><img src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/facebook-white.svg" alt=""></noscript>
+			</a>
+
+			<a href="https://www.youtube.com/channel/UCRt5IHIN_lhbAic3hfrS2mA" class="social-link" target="_blank">
+				<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/youtube-white.svg"><noscript><img src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/youtube-white.svg" alt=""></noscript>
+			</a>
+
+			<a href="https://twitter.com/uiuedu" class="social-link" target="_blank">
+				<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/twitter-white.svg"><noscript><img src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/twitter-white.svg" alt=""></noscript>
+			</a>
+
+			<a href="https://www.instagram.com/uiuofficial/" class="social-link" target="_blank">
+				<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/instagram-white.svg"><noscript><img src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/instagram-white.svg" alt=""></noscript>
+			</a>
+
+			<a href="https://www.linkedin.com/school/uiuinfo/" class="social-link" target="_blank">
+				<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/linkedin-white.svg"><noscript><img src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/linkedin-white.svg" alt=""></noscript>
+			</a>
+
+		</div>
+	</div>
+	<img class="bottom-image" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/footer2.jpg" width="300" height="150"><noscript><img class="bottom-image" src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/footer2.jpg" alt=""></noscript>
+</section>
+
+<!-- </footer> -->
+<footer id="footer">
+	<div class="container-fluid">
+		<div class="footer-links row g-3">
+			<div class="col-xl-2 col-lg-4 col-md-6 col-6">
+				<div class="brand-logo">
+					<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/header-logo.png" width="300" height="150"><noscript><img src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/header-logo.png" alt=""></noscript>
+				</div>
+				<ul class="social-media-links">
+
+					<li>
+						<a class="single-social-link" href="https://www.facebook.com/uiuinfo" target="_blank">
+							<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/facebook.png" width="300" height="150"><noscript><img src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/facebook.png" alt=""></noscript>
+						</a>
+					</li>
+
+					<li>
+						<a class="single-social-link" href="https://twitter.com/uiuedu" target="_blank">
+							<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/twitter.png" width="300" height="150"><noscript><img src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/twitter.png" alt=""></noscript>
+						</a>
+					</li>
+
+					<li>
+						<a class="single-social-link" href="https://www.youtube.com/channel/UCRt5IHIN_lhbAic3hfrS2mA" target="_blank">
+							<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/youtube.png" width="300" height="150"><noscript><img src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/youtube.png" alt=""></noscript>
+						</a>
+					</li>
+
+					<li>
+						<a class="single-social-link" href="https://www.linkedin.com/school/uiuinfo/" target="_blank">
+							<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/linkedin.png" width="300" height="150"><noscript><img src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/linkedin.png" alt=""></noscript>
+						</a>
+					</li>
+
+					<li>
+						<a class="single-social-link" href="https://www.instagram.com/uiuofficial/" target="_blank">
+							<img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/instagram.png" width="300" height="150"><noscript><img src="https://bge.uiu.ac.bd/wp-content/themes/uiu-bge/img/instagram.png" alt=""></noscript>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+							<div class="footer_widgets_2 col-xl-2 col-lg-4 col-md-6 col-6">
+					<div id="nav_menu-3" class="widget widget_nav_menu"><h3 class="widget-title">About UIU</h3><div class="menu-footer-menu-1-container"><ul id="menu-footer-menu-1" class="menu"><li id="menu-item-23" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-23"><a href="https://uiu.ac.bd/about-uiu/why-uiu/">Why UIU</a></li>
+<li id="menu-item-24" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-24"><a href="https://uiu.ac.bd/about-uiu/vision-mission-goals/">Vision Mission Goals</a></li>
+<li id="menu-item-25" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-25"><a href="https://uiu.ac.bd/about-uiu/general-information/">General Information</a></li>
+<li id="menu-item-26" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-26"><a href="https://www.uiu.ac.bd/about-uiu/uiu-campus/">UIU Campus</a></li>
+<li id="menu-item-27" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-27"><a href="https://uiu.ac.bd/about-uiu/guiding-principles/">Guiding Principles</a></li>
+</ul></div></div>				</div>
+			
+							<div class="footer_widgets_3 col-xl-2 col-lg-4 col-md-6 col-6">
+					<div id="nav_menu-4" class="widget widget_nav_menu"><h3 class="widget-title">Departments</h3><div class="menu-depatment-links-container"><ul id="menu-depatment-links" class="menu"><li id="menu-item-63" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-63"><a href="https://cse.uiu.ac.bd/">Dept. of CSE</a></li>
+<li id="menu-item-628" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-628"><a href="https://datascience.uiu.ac.bd/">B.Sc in Data Science</a></li>
+<li id="menu-item-64" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-64"><a href="https://eee.uiu.ac.bd/">Dept. of EEE</a></li>
+<li id="menu-item-65" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-65"><a href="https://ce.uiu.ac.bd/">Dept. of Civil Engineering</a></li>
+<li id="menu-item-66" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-66"><a href="https://pharmacy.uiu.ac.bd/">Dept. of Pharmacy</a></li>
+<li id="menu-item-67" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-67"><a href="https://english.uiu.ac.bd/">Dept. of English</a></li>
+<li id="menu-item-68" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-68"><a href="https://eds.uiu.ac.bd/">Dept. of EDS</a></li>
+<li id="menu-item-69" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-69"><a href="https://msj.uiu.ac.bd/">Dept. of MSJ</a></li>
+<li id="menu-item-70" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-70"><a href="https://sobe.uiu.ac.bd">SoBE (BBA, AIS, MBA, EMBA)</a></li>
+<li id="menu-item-71" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-71"><a href="https://sobe.uiu.ac.bd/economics/">Dept. of Economics</a></li>
+</ul></div></div>				</div>
+			
+							<div class="footer_widgets_4 col-xl-2 col-lg-4 col-md-6 col-6">
+					<div id="nav_menu-5" class="widget widget_nav_menu"><h3 class="widget-title">Admission</h3><div class="menu-footer-menu-3-container"><ul id="menu-footer-menu-3" class="menu"><li id="menu-item-34" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-34"><a href="https://uiu.ac.bd/admission/">Admission</a></li>
+<li id="menu-item-35" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-35"><a href="https://uiu.ac.bd/admission/tuition-fees-payment-policies/tuition-fees-waiver/">Tuition Fees &amp; Waiver</a></li>
+<li id="menu-item-36" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-36"><a href="https://uiu.ac.bd/admission/admission-requirements/">Admission Requirements</a></li>
+<li id="menu-item-37" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-37"><a href="https://uiu.ac.bd/admission/admission-test-result/">Admission Test Result</a></li>
+<li id="menu-item-38" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-38"><a href="https://uiu.ac.bd/admission/admission-procedure/">Admission Procedure</a></li>
+</ul></div></div>				</div>
+			
+							<div class="footer_widgets_5 col-xl-2 col-lg-4 col-md-6 col-6">
+					<div id="nav_menu-6" class="widget widget_nav_menu"><h3 class="widget-title">Important Links</h3><div class="menu-footer-menu-4-container"><ul id="menu-footer-menu-4" class="menu"><li id="menu-item-40" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-40"><a href="https://uiu.ac.bd/time-schedule-of-shuttle-services/">Time Schedule of Shuttle Services</a></li>
+<li id="menu-item-41" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-41"><a href="https://uiu.ac.bd/uiu-transportation-service/">Student Transportation Service</a></li>
+<li id="menu-item-42" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-42"><a href="https://uiu.ac.bd/admission/tuition-fees-payment-policies/payment-procedure/">Payment Procedure</a></li>
+<li id="menu-item-43" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-43"><a href="https://uiu.ac.bd/e-resources-2/">Student e-Resources</a></li>
+<li id="menu-item-44" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44"><a href="https://uiu.ac.bd/important-contact/">Important Contact</a></li>
+</ul></div></div>				</div>
+			
+							<div class="footer_widgets_6 col-xl-2 col-lg-4 col-md-6 col-6">
+					<div id="nav_menu-7" class="widget widget_nav_menu"><h3 class="widget-title">Quick Links</h3><div class="menu-quick-links-container"><ul id="menu-quick-links" class="menu"><li id="menu-item-50" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-50"><a href="https://ucam.uiu.ac.bd/Security/LogIn.aspx">UCAM</a></li>
+<li id="menu-item-51" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-51"><a href="https://elms.uiu.ac.bd/">eLMS</a></li>
+<li id="menu-item-52" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-52"><a href="https://ucam.uiu.ac.bd/ParentalPortal/GuardianLogIn.aspx">Parent Portal</a></li>
+<li id="menu-item-53" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-53"><a href="https://admin.uiu.ac.bd/">Online Classroom Booking</a></li>
+<li id="menu-item-54" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-54"><a href="https://degver.uiu.ac.bd/">Degree Verification</a></li>
+<li id="menu-item-55" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-55"><a href="https://uiu.ac.bd/necessary-forms/">Necessary Forms</a></li>
+</ul></div></div>				</div>
+					</div>
+	</div>
+
+	<div class="lower-part container-fluid">
+
+		<div class="content">
+
+			<p>United City, Madani Ave, Dhaka 1212</p>
+
+			<ul class="footer-links">
+
+				<li>
+					<a href="#">Privacy Policy</a>
+				</li>
+
+				<li>
+					<a href="#">Accessibility Assistance</a>
+				</li>
+
+				<li>
+					<a href="#">Copyright</a>
+				</li>
+
+				<li>
+					<a href="#">Site Information</a>
+				</li>
+
+			</ul>
+
+		</div>
+
+	</div>
+
+
+</footer>
+
+</div><!-- #page -->
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/sites/17/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/uiu-bge/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<a href="/imunify-bot-check" rel="nofollow" aria-hidden="true" tabindex="-1" style="display:none!important;position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden">imunify-bot-check</a><script type="text/rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+//# sourceURL=rocket-browser-checker-js-after
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"/faculty/s-m-rafiqul-islam/|/faculty/nahid-tamanna/|/faculty/ms-reefa-nawar/|/faculty/md-belal-hussain-ripon/|/faculty/khalid-shahriar/|/faculty/md-zahin-alam/|/faculty/muhammad-sibgatullah-zunnun/|/(?:.+/)?feed(?:/(?:.+/?)?)?$|/(?:.+/)?embed/|/(index.php/)?(.*)wp-json(/.*|$)|/refer/|/go/|/recommend/|/recommends/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https://bge.uiu.ac.bd","onHoverDelay":"100","rateThrottle":"3"};
+//# sourceURL=rocket-preload-links-js-extra
+</script>
+<script type="text/rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+
+//# sourceURL=rocket-preload-links-js-after
+</script>
+<script id="rocket_lazyload_css-js-extra">
+var rocket_lazyload_css_data = {"threshold":"300"};
+//# sourceURL=rocket_lazyload_css-js-extra
+</script>
+<script id="rocket_lazyload_css-js-after">
+!function o(n,a,c){function l(t,e){if(!a[t]){if(!n[t]){var r="function"==typeof require&&require;if(!e&&r)return r(t,!0);if(u)return u(t,!0);throw(e=new Error("Cannot find module '"+t+"'")).code="MODULE_NOT_FOUND",e}r=a[t]={exports:{}},n[t][0].call(r.exports,function(e){return l(n[t][1][e]||e)},r,r.exports,o,n,a,c)}return a[t].exports}for(var u="function"==typeof require&&require,e=0;e<c.length;e++)l(c[e]);return l}({1:[function(e,t,r){{let r="undefined"==typeof rocket_pairs?[]:rocket_pairs,o=(("undefined"==typeof rocket_excluded_pairs?[]:rocket_excluded_pairs).map(t=>{var e=t.selector;document.querySelectorAll(e).forEach(e=>{e.setAttribute("data-rocket-lazy-bg-"+t.hash,"excluded")})}),document.querySelector("#wpr-lazyload-bg-container"));var a=rocket_lazyload_css_data.threshold||300;let n=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&r.filter(e=>t.target.matches(e.selector)).map(t=>{var e;t&&((e=document.createElement("style")).textContent=t.style,o.insertAdjacentElement("afterend",e),t.elements.forEach(e=>{n.unobserve(e),e.setAttribute("data-rocket-lazy-bg-"+t.hash,"loaded")}))})})},{rootMargin:a+"px"});function c(){0<(0<arguments.length&&void 0!==arguments[0]?arguments[0]:[]).length&&r.forEach(t=>{try{document.querySelectorAll(t.selector).forEach(e=>{"loaded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&"excluded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&(n.observe(e),(t.elements||=[]).push(e))})}catch(e){console.error(e)}})}c(),(()=>{let r=window.MutationObserver;return function(e,t){if(e&&1===e.nodeType)return(t=new r(t)).observe(e,{attributes:!0,childList:!0,subtree:!0}),t}})()(document.querySelector("body"),c)}},{}]},{},[1]);
+//# sourceURL=rocket_lazyload_css-js-after
+</script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="uiu-departmental-pickr-script-js" data-rocket-src="https://bge.uiu.ac.bd/wp-content/cache/min/17/npm/@simonwep/pickr/dist/pickr.min.js?ver=1788150538" data-rocket-defer="" defer=""></script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="uiu-departmental-navigation-script-js" data-rocket-src="https://bge.uiu.ac.bd/wp-content/cache/min/17/wp-content/themes/uiu-bge/js/navigation.js?ver=1788150538" data-rocket-defer="" defer=""></script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="uiu-departmental-theme-script-js" data-rocket-src="https://bge.uiu.ac.bd/wp-content/cache/min/17/wp-content/themes/uiu-bge/js/theme-script.js?ver=1788150538" data-rocket-defer="" defer=""></script>
+<script type="text/rocketlazyloadscript" id="google-recaptcha-js" data-rocket-src="https://www.google.com/recaptcha/api.js?render=6Lcw-HMqAAAAAIPXeSHo7HG_mTeuhhXgP9k9QEdn&amp;ver=3.0"></script>
+<script type="text/rocketlazyloadscript" id="wp-polyfill-js" data-rocket-src="https://bge.uiu.ac.bd/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0"></script>
+<script type="text/rocketlazyloadscript" id="wpcf7-recaptcha-js-before">
+var wpcf7_recaptcha = {
+    "sitekey": "6Lcw-HMqAAAAAIPXeSHo7HG_mTeuhhXgP9k9QEdn",
+    "actions": {
+        "homepage": "homepage",
+        "contactform": "contactform"
+    }
+};
+//# sourceURL=wpcf7-recaptcha-js-before
+</script>
+<script type="text/rocketlazyloadscript" data-minify="1" id="wpcf7-recaptcha-js" data-rocket-src="https://bge.uiu.ac.bd/wp-content/cache/min/17/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=1788150538" data-rocket-defer="" defer=""></script>
+<script type="text/rocketlazyloadscript" data-rocket-type="text/javascript">window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener("load", function(event) {
+jQuery(".cfx_form_main,.wpcf7-form,.wpforms-form,.gform_wrapper form").each(function(){
+var form=jQuery(this); 
+var screen_width=""; var screen_height="";
+ if(screen_width == ""){
+ if(screen){
+   screen_width=screen.width;  
+ }else{
+     screen_width=jQuery(window).width();
+ }    }  
+  if(screen_height == ""){
+ if(screen){
+   screen_height=screen.height;  
+ }else{
+     screen_height=jQuery(window).height();
+ }    }
+form.append('<input type="hidden" name="vx_width" value="'+screen_width+'">');
+form.append('<input type="hidden" name="vx_height" value="'+screen_height+'">');
+form.append('<input type="hidden" name="vx_url" value="'+window.location.href+'">');  
+}); 
+
+});
+});</script> 
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async="" src="https://bge.uiu.ac.bd/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><link data-minify="1" rel="stylesheet" href="https://bge.uiu.ac.bd/wp-content/cache/min/17/wp-content/themes/uiu-bge/css/custom.css?ver=1788150538">
+
+
+
+</body></html>
