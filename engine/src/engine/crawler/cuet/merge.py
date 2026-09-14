@@ -26,13 +26,16 @@ from __future__ import annotations
 
 import json
 import logging
+import mimetypes
 from datetime import datetime, timezone
 from pathlib import Path
 
 from urllib.parse import urlsplit
 
+from engine.contracts.documents import CrawledPage
+
 from . import config, handover
-from .paths import canonical
+from .paths import canonical, page_id
 from .content import SHARDS
 
 log = logging.getLogger(__name__)
@@ -244,6 +247,72 @@ def write_file_index(out: Path, documents: list[dict], found_files: dict) -> Pat
     return index_path
 
 
+def write_file_pages(out: Path, taken: set[str]) -> int:
+    """Append one CrawledPage per downloaded file to `pages.jsonl`.
+
+    The page rows come from the shards and are all HTML. A downloaded PDF is a
+    capture in its own right, so it gets its own row: `content_path` points at
+    the file in `_files/`, and `parent_url` at the page that linked to it.
+
+    Built from `_files/index.json` rather than the shards, because `local`,
+    `bytes` and `content_type` are recorded there and nowhere else. Must run
+    after `write_file_index`, and after `write_pages_jsonl`, which it appends to.
+
+    The file bytes are on Drive, not in git, so a row can point at a file that
+    is not on this machine. The row is still right; restore `_files/` from Drive.
+    """
+    index_path = out / "_files" / "index.json"
+    if not index_path.exists():
+        return 0
+    rows = json.loads(index_path.read_text(encoding="utf-8"))
+
+    written = 0
+    with (out / "pages.jsonl").open("a", encoding="utf-8") as handle:
+        for row in rows:
+            local = row.get("local")
+            if not local:
+                continue
+            # Stage 5 has recorded the bare filename on a resumed download.
+            if not local.startswith("_files/"):
+                local = f"_files/{local}"
+            url = row["url"]
+            pid = page_id(url)
+            if pid in taken:
+                log.warning("file %s shares page_id %s with a page; not written", url, pid)
+                continue
+            linked = row.get("linked_from") or []
+            sources = row.get("sources") or []
+            page = CrawledPage(
+                page_id=pid,
+                url=url,
+                canonical_url=canonical(url),
+                status=200,
+                content_type=(row.get("content_type")
+                              or mimetypes.guess_type(local)[0]
+                              or "application/octet-stream"),
+                content_path=local,
+                fetched_at="",
+                depth=1,
+                links=[],
+                document_links=[],
+                parent_url=linked[0] if linked else "",
+                meta={"source": "file",
+                      "section": (sources[0].get("section") or "") if sources else "",
+                      "document_type": row.get("document_type"),
+                      "linked_from": linked,
+                      "bytes": row.get("bytes")},
+            )
+            problems = page.validate()
+            if problems:
+                log.warning("CrawledPage %s invalid: %s", pid, problems)
+                continue
+            taken.add(pid)
+            handle.write(json.dumps(page.__dict__, ensure_ascii=False, default=str) + "\n")
+            written += 1
+    log.info("file pages: %d downloaded files written to pages.jsonl", written)
+    return written
+
+
 def _write_files_readme(files_dir: Path, rows: list[dict], resolved: int) -> None:
     """A note beside index.json saying which copy of it is authoritative.
 
@@ -370,6 +439,7 @@ def run(out: Path | None = None) -> dict:
             planned[canonical(url.strip())] = why.lstrip("# ").strip()
     write_provenance(out, ordered_docs, found_files)
     write_file_index(out, ordered_docs, found_files)
+    file_pages = write_file_pages(out, {p["page_id"] for p in ordered_pages})
     write_known_gaps(out, planned,
                      {canonical(d["canonical_url"]) for d in ordered_docs})
 
@@ -379,7 +449,7 @@ def run(out: Path | None = None) -> dict:
         run_id=datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"),
         started=datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         finished=datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
-        documents=len(ordered_docs), pages=written,
+        documents=len(ordered_docs), pages=written + file_pages,
         files={"downloaded": sum(1 for f in found_files.values()
                                  if f.get("download"))},
         errors=warnings,
@@ -389,7 +459,7 @@ def run(out: Path | None = None) -> dict:
     log.info("merge: %d documents, %d pages, %d files, %d warnings from %d shard(s)",
              len(ordered_docs), written, len(found_files), len(warnings), len(shards))
     return {"documents": len(ordered_docs), "pages": written,
-            "files": len(found_files), "warnings": len(warnings),
+            "file_pages": file_pages, "files": len(found_files), "warnings": len(warnings),
             "shards": len(shards), "portions": sorted(set(portions))}
 
 
