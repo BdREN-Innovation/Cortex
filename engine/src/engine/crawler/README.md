@@ -1,15 +1,14 @@
 # Team A — Crawler
 
-**You build this.** Every file in this folder is a stub that raises
-`NotImplementedError`. The signature and docstring of each function are
-the specification; the code is yours to write.
+The shared crawler: everything from a URL to bytes on disk, for every site
+except CUET, which has its own API-first scraper in [`cuet/`](cuet/). All four
+modules below are implemented. Their tests are in `engine/tests/crawler/`:
 
 ```bash
-uv run python scripts/progress.py --detail   # what is left in your files
+cd engine
+uv run engine crawl --config configs/crawl.<site>.yaml   # capture one site
+uv run pytest tests/crawler -q                            # run the tests
 ```
-
-You are done when all 13 of your tests are green **and** you have captured 2–4
-real sites.
 
 ---
 
@@ -46,12 +45,15 @@ repo root.
 Each file only depends on the ones above it, so you are never blocked on your
 own unfinished work.
 
-| # | File | What it does | Tests |
+| # | File | What it does | Tested in |
 |---|---|---|---|
-| 1 | `fetcher.py` | HTTP with manners: robots, rate limit, retries | 1 |
-| 2 | `frontier.py` | URL canonicalisation, scope rules, the queue | 2 |
-| 3 | `discover.py` | Find links and linked files in HTML | 1 |
-| 4 | `pipeline.py` | Chain them together, write the artifacts | 4 |
+| 1 | `fetcher.py` | HTTP with manners: robots, one rate limiter per host, retries | `test_fetcher.py` |
+| 2 | `frontier.py` | URL canonicalisation, scope rules, the queue, skip reasons | `test_frontier_skips.py` |
+| 3 | `discover.py` | Find links and linked files in HTML | through `test_pipeline_documents.py` |
+| 4 | `pipeline.py` | Chain them together, write the artifacts | `test_pipeline_documents.py` |
+
+`skips.py` holds the reasons a URL can be left out; both `fetcher.py` and
+`frontier.py` use it.
 
 ```
 seeds ─▶ frontier ─▶ fetcher ─▶ discover ─▶ pipeline ─▶ pages.jsonl
