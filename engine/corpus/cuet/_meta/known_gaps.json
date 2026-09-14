@@ -1,0 +1,21 @@
+{
+  "note": "Planned URLs that are not in the corpus, with the reason for each. An entry with actionable=false cannot be fixed by re-running: the host does not resolve.",
+  "generated_by": "--stage merge",
+  "count": 2,
+  "gaps": [
+    {
+      "url": "https://admissioncuet.ac.bd",
+      "planned_because": "separate host; not scanned for an API of its own (spec §13 Q9)",
+      "state": "unreachable",
+      "reason": "no DNS record (checked 2026-09-09). Linked from the Admission menu and planned as an external entry point; both /  and /about-us fail to resolve. cuet.ac.bd resolves from the same query, so this is the host, not the network.",
+      "actionable": false
+    },
+    {
+      "url": "https://admissioncuet.ac.bd/about-us",
+      "planned_because": "separate host; not scanned for an API of its own (spec §13 Q9)",
+      "state": "unreachable",
+      "reason": "no DNS record (checked 2026-09-09). Linked from the Admission menu and planned as an external entry point; both /  and /about-us fail to resolve. cuet.ac.bd resolves from the same query, so this is the host, not the network.",
+      "actionable": false
+    }
+  ]
+}
