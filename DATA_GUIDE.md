@@ -3,6 +3,21 @@
 Where the scraped data lives, how it is structured, and how Team B (Knowledge,
 Extraction, Embeddings) and Team C (Evaluation) should consume it.
 
+> [!IMPORTANT]
+> **Install Git LFS before you clone or pull.** All scraped data (CUET's PDFs,
+> the API dump, every crawl run) is in `engine/crawl-archives/`, one zip per
+> website, stored with [Git LFS](https://git-lfs.com). Without Git LFS, those
+> zips arrive as tiny text files, about 130 bytes each, that will not open.
+>
+> ```bash
+> git lfs install   # once per computer, before cloning or pulling
+> git lfs pull      # if you already cloned or pulled without it
+> ```
+>
+> To check it worked: `engine/crawl-archives/cuet.zip` should be about 1.3 GB,
+> not 1 KB. Git for Windows includes Git LFS; on macOS, `brew install git-lfs`.
+> What each zip holds and where to unzip it is in Section 8.
+
 This is the single reference for the CUET capture. Two earlier documents
 (`CUET_SCRAPER_README_MERGED.md`, `SCRAPE_INVENTORY.md`) said the same things
 with older numbers and have been removed rather than left to contradict this one.
