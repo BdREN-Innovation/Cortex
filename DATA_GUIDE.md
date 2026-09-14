@@ -68,11 +68,9 @@ Section 7; anything not covered there is worth asking Mifta or Tasmia directly.
 | Site | Location | Type | Format |
 |---|---|---|---|
 | **CUET** | `engine/corpus/cuet/` | Curated reference corpus | `.md`, `.json`, `.html` triples, `documents.jsonl`, `pages.jsonl` |
-| **BDREN** | engine/data/sites/bdren/bdren-20260911T042956Z/ | Crawler runtime run | 250 pages, 200 documents (PDF + XLSX), organized into per-section subfolders under docs/ and raw/ |
-| **BUBT** | `engine/data/sites/bubt/bubt-20260908T220949Z/` | Crawler runtime run | `raw/*.html`, `docs/*.pdf`, `pages.jsonl` |
-| **Green University** | `engine/data/sites/green/green-20260908T220124Z/` | Crawler runtime run | `raw/*.html`, `pages.jsonl` |
+| **Crawled sites** (BDREN, BUBT, Daffodil, Green, Star Tech, The Daily Star, UIU) | Google Drive `<site>/<run>/`, restored to `engine/data/sites/<site>/<run>/` | Crawler runs, **not in git** | `pages.jsonl`, `skipped_pages.jsonl`, `failed_documents.jsonl`, `manifest.json`, `raw/`, `docs/`. See Section 7 |
 
-The CUET corpus is different in kind from the other three. It was built
+The CUET corpus is different in kind from the crawled sites. It was built
 API-first: **682 of its 735 documents came from CUET's public JSON API**, and
 only 53 from a headless browser. API documents arrive as clean prose with no
 navigation, banner or footer, so there is nothing for a boilerplate stripper to
@@ -419,17 +417,97 @@ Admission menu really does link to a host that no longer exists.
 
 ## 7. Multi-site crawl runs (`engine/data/sites/`)
 
-The standard runtime artifact format produced by the Cortex CLI.
+Produced by `engine crawl`. **Runs are not in git.** `engine/data/` is kept in
+the repository by one placeholder, `engine/data/.gitkeep`, and every run folder
+is shared on Google Drive (Section 8) and restored locally before use. The
+reason is the one that keeps CUET's PDFs out of git: a run is hundreds of HTML
+files and binaries, every crawl writes a new one, and none of it is source.
 
 ```
 engine/data/sites/<site>/<site>-<timestamp>/
-├── manifest.json    run summary: duration, status, URLs crawled, file counts
-├── pages.jsonl      Team A deliverable: URLs, hashes, content types, status
-├── raw/             raw HTML snapshots named by xxhash
-└── docs/            downloaded non-HTML assets
+├── manifest.json           run summary: counts, errors, skips and failures by reason
+├── pages.jsonl             Team A deliverable: one CrawledPage per page AND per downloaded file
+├── skipped_pages.jsonl     every page URL that was not captured, and why
+├── failed_documents.jsonl  every linked file that was not downloaded, and why
+├── raw/<section>/          raw HTML exactly as fetched, named <page_id>.html
+└── docs/<section>/         downloaded files (PDF, XLSX, ...), named <ordinal>-<filename>
 ```
 
-### Sites Captured
+### Downloaded files have their own `pages.jsonl` rows
+
+A file has no page of its own, so its row records where it came from. It is the
+same shape `--stage merge` writes for CUET's files, with `content_path` pointing
+into `docs/` instead of `_files/`.
+
+| Field | On a file row |
+|---|---|
+| `content_path` | The file in `docs/`, relative to the run folder |
+| `parent_url` | `canonical_url` of the page that linked it. Join on it to inherit that page's breadcrumb and citation |
+| `content_type` | From the server, or from the extension when the server only says `application/octet-stream` |
+| `depth` | One more than the page that linked it |
+| `meta` | `source: "document"`, `bytes`, `content_sha256`, and `final_url` after redirects |
+
+A file linked from several pages is downloaded once, and its row names the
+first page it was found on.
+
+### Why a page or file is missing
+
+`skipped_pages.jsonl` and `failed_documents.jsonl` share one record shape
+(illustrative values):
+
+```json
+{"url": "https://site.example/files/notice.pdf", "reason": "http_4xx", "status": 404,
+ "detail": "", "parent_url": "https://site.example/notices", "depth": 1}
+```
+
+| `reason` | Meaning |
+|---|---|
+| `robots` | robots.txt disallows it for our User-Agent. Never requested |
+| `http_4xx` / `http_5xx` | The server refused; the code is in `status`. 429 and 502–504 only after the retries ran out |
+| `too_large` | Over `fetch.max_bytes` (pages) or `fetch.max_asset_bytes` (files) |
+| `off_scope` | Outside `allowed_domains`, or ruled out by `include_patterns` / `exclude_patterns`. Never requested |
+| `max_depth` | Only ever found deeper than `max_depth` |
+| `max_pages` | Still queued when the page budget ran out |
+| `max_documents` | Linked after the file budget ran out. Never requested |
+| `duplicate` | Its canonical URL was already captured from another address |
+| `fetch_failed` | No usable response: network error, timeout, or a failed browser render. `detail` says which |
+| `invalid_url`, `discover_failed`, `write_failed`, `crawl_stopped` | Rare. `detail` carries the error |
+
+`manifest.json` carries the counts as `pages_skipped_by_reason` and
+`documents_failed_by_reason`. Hundreds of `off_scope` and `max_pages` rows are
+normal on a big site. A `robots`, `http_5xx` or `fetch_failed` count that grows
+from one run to the next is the one worth looking at.
+
+Every run listed below predates these two files, so none of them has either
+file or any file rows in `pages.jsonl`. Their downloads are listed only under
+`assets_saved` in `manifest.json`.
+
+### Runs captured
+
+| Site | Run | Pages | Files | On Drive |
+|---|---|---|---|---|
+| BDREN | `bdren-20260911T042956Z` | 250 | 200 | yes, `BDRen/bdren-20260911T042956Z/` |
+| BDREN | `bdren-20260913T073128Z` | 200 | 200 | yes, `BDRen/bdren-20260913T073128Z/` |
+| BUBT | `bubt-20260908T220949Z` | 100 | 39 | yes, `bubt/bubt-20260908T220949Z/` |
+| BUBT | `bubt-20260913T073849Z` | 200 | 58 | yes, `bubt/bubt-20260913T073849Z/` |
+| Daffodil | `daffodil-20260913T071704Z` | 194 | 19 | yes, `daffodil/daffodil-20260913T071704Z/` |
+| Green University | `green-20260908T220124Z` | 5 | 0 | yes, `green/green-20260908T220124Z/` |
+| Green University | `green-20260913T074606Z` | 200 | 5 | yes, `green/green-20260913T074606Z/` |
+| Star Tech | `startech-20260913T070817Z` | 200 | 0 | yes, `startech/startech-20260913T070817Z/` |
+| The Daily Star | `thedailystar-20260913T062819Z` | 200 | 0 | yes, `thedailystar/thedailystar-20260913T062819Z/` |
+| UIU | `uiu-20260913T075008Z` | 181 | 59 | yes, `uiu/uiu-20260913T075008Z/` |
+
+All ten manifests report `errors: []`. The two BDREN runs hold the same 200
+files, byte for byte; they differ only in the pages captured. Git history also
+still holds every run above, as a fallback to Drive (commit `1fa4f21` is the
+last to have them):
+
+```bash
+git checkout 1fa4f21 -- engine/data/sites/bubt/bubt-20260913T073849Z
+git restore --staged engine/data/sites/bubt/bubt-20260913T073849Z   # keep it out of the next commit
+```
+
+### BDREN run notes
 1. **BDREN (`engine/data/sites/bdren/bdren-20260911T042956Z/`)**:
    - `pages.jsonl`: 250 captured pages (up from 40 — the previous run's page
      budget was consumed entirely by repeated nav-menu links, so no /news or
@@ -447,13 +525,6 @@ engine/data/sites/<site>/<site>-<timestamp>/
    - Both `docs/` and `raw/` are now organized into per-section subfolders
      (e.g. `docs/notice/`, `docs/resourceshub/`, `raw/news/`, `raw/events/`)
      derived from each URL's path, instead of one flat directory.
-2. **BUBT (`engine/data/sites/bubt/bubt-20260908T220949Z/`)**:
-   - `pages.jsonl`: 100 captured pages.
-   - `docs/`: Academic routines and program syllabus PDFs (`BBA-routine.pdf`, `msc-in-cse.pdf`, etc.).
-   - `raw/`: 100 raw HTML files.
-3. **Green University (`engine/data/sites/green/green-20260908T220124Z/`)**:
-   - `pages.jsonl`: 5 captured pages.
-   - `raw/`: 5 raw HTML files.
 
 ### Known gaps in the BDREN extraction
 
@@ -471,6 +542,7 @@ engine/data/sites/<site>/<site>-<timestamp>/
 
 ```bash
 cd engine
+# Restore each run folder from Drive into data/sites/<site>/ first (Section 8).
 uv run python -m engine.knowledge.bdren.bdren_extraction data/sites/bdren/bdren-20260911T042956Z
 uv run engine extract --run data/sites/bubt/bubt-20260908T220949Z
 uv run engine extract --run data/sites/green/green-20260908T220124Z
@@ -518,13 +590,45 @@ date and file counts. It goes to Drive with the index, so somebody standing in
 the Drive folder can see how old that copy is before restoring anything. When
 the index changes, re-upload both together.
 
+### Crawl runs on Drive
+
+Every run folder under `engine/data/sites/` is kept on Drive: one folder per
+site, holding one folder per run, named exactly as on disk.
+
+| Drive folder | Local destination | Contents |
+|---|---|---|
+| `BDRen/<run>/` | `engine/data/sites/bdren/<run>/` | The whole run folder, plus the `documents.jsonl` and `tables/` the BDREN extractor wrote into it |
+| `<site>/<run>/` | `engine/data/sites/<site>/<run>/` | The whole run folder, as `engine crawl` wrote it |
+
+`<site>` is the `site:` value in `configs/crawl.<site>.yaml`, which is the
+folder `engine crawl` writes to, and the Drive folder uses the same lowercase
+name (`bubt`, `daffodil`, `green`, `startech`, `thedailystar`, `uiu`). BDREN's
+folder, `BDRen`, predates that convention and keeps its name.
+
+The rules differ from CUET's, because git holds no copy of a run:
+
+- **Drive is the only copy.** There is no index in git to rebuild from.
+  Deleting a run on Drive deletes the run.
+- **Restore a run folder whole, and never mix two runs.** Every `content_path`
+  is relative to its own run folder, so a `pages.jsonl` next to another run's
+  `raw/` and `docs/` points at files that are not there, and nothing fails to
+  tell you.
+- **Upload every run you keep, straight after the crawl.** Upload the whole
+  `<site>-<timestamp>/` folder into `<site>/`, then add its row to the table in
+  Section 7. If an extractor later writes `documents.jsonl` or `tables/` into
+  the run, upload those into the same Drive folder.
+
+Nothing under `engine/data/` except `.gitkeep` is committed, and `.gitignore`
+enforces that. Only a `git add -f` can put a run back into git.
+
 ## 9. Summary for developers
 
 | Need | Go to | Command |
 |---|---|---|
 | Embed clean CUET pages and notices | `engine/corpus/cuet/` | `python -m engine.crawler.cuet --stage merge` |
 | Rebuild after pulling | `engine/corpus/cuet/` | same as above, no network |
-| Extract raw crawled pages | `engine/data/sites/<site>/<run>` | `uv run engine extract --run data/sites/...` |
+| Extract raw crawled pages | `engine/data/sites/<site>/<run>`, restored from Drive | `uv run engine extract --run data/sites/...` |
+| See why a page or file is missing from a run | `skipped_pages.jsonl`, `failed_documents.jsonl` in the run folder | read them; reasons are in Section 7 |
 | Check the corpus is sound | `engine/corpus/cuet/` | `python -m engine.crawler.cuet --stage verify` |
 | See who owns which slice | — | `python -m engine.crawler.cuet --list-portions` |
 | Inspect downloaded PDFs | `engine/corpus/cuet/_files/` | download from Drive if missing |

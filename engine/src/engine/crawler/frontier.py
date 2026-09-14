@@ -10,6 +10,9 @@ from collections import deque
 from dataclasses import dataclass, field
 from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
 
+from engine.crawler import skips
+from engine.crawler.skips import Skip
+
 
 # Query parameters that normally do not change page content.
 #
@@ -138,14 +141,18 @@ class ScopeRules:
 
     def in_scope(self, url: str, depth: int) -> bool:
         """Return True if a URL should be crawled."""
+        return self.out_of_scope_reason(url, depth) is None
+
+    def out_of_scope_reason(self, url: str, depth: int) -> str | None:
+        """Return why a URL should not be crawled, or None if it should."""
         if depth > self.max_depth:
-            return False
+            return skips.MAX_DEPTH
 
         try:
             canonical_url = canonicalize(url)
             hostname = (urlsplit(canonical_url).hostname or "").lower()
         except ValueError:
-            return False
+            return skips.INVALID_URL
 
         if self.allowed_domains:
             domain_allowed = any(
@@ -155,14 +162,14 @@ class ScopeRules:
             )
 
             if not domain_allowed:
-                return False
+                return skips.OFF_SCOPE
 
         # Exclusions always win.
         if any(
             pattern.search(canonical_url)
             for pattern in self._exclude_patterns
         ):
-            return False
+            return skips.OFF_SCOPE
 
         # If include patterns exist, at least one must match.
         if self._include_patterns:
@@ -170,9 +177,9 @@ class ScopeRules:
                 pattern.search(canonical_url)
                 for pattern in self._include_patterns
             ):
-                return False
+                return skips.OFF_SCOPE
 
-        return True
+        return None
 
 
 class Frontier:
@@ -182,24 +189,44 @@ class Frontier:
         self.rules = rules
         self._queue: deque[tuple[str, int]] = deque()
         self._seen: set[str] = set()
+        # The page each queued URL was first found on. Seeds have none.
+        self._parents: dict[str, str] = {}
+        # URLs turned away, one record per URL, keyed by canonical form.
+        self._skipped: dict[str, Skip] = {}
 
         for seed in seeds:
             self.add(seed, 0)
 
-    def add(self, url: str, depth: int) -> bool:
-        """Queue one URL if it is valid, in scope, and unseen."""
+    def add(self, url: str, depth: int, parent_url: str = "") -> bool:
+        """Queue one URL if it is valid, in scope, and unseen.
+
+        A URL turned away is remembered with the reason, unless it is queued
+        later: a link too deep on one page may be shallow on another.
+        """
         try:
             canonical_url = canonicalize(url)
         except ValueError:
+            self._skipped.setdefault(
+                url,
+                Skip(url=url, reason=skips.INVALID_URL, parent_url=parent_url, depth=depth),
+            )
             return False
 
         if canonical_url in self._seen:
             return False
 
-        if not self.rules.in_scope(canonical_url, depth):
+        reason = self.rules.out_of_scope_reason(canonical_url, depth)
+
+        if reason is not None:
+            self._skipped.setdefault(
+                canonical_url,
+                Skip(url=canonical_url, reason=reason, parent_url=parent_url, depth=depth),
+            )
             return False
 
+        self._skipped.pop(canonical_url, None)
         self._seen.add(canonical_url)
+        self._parents[canonical_url] = parent_url
         self._queue.append((canonical_url, depth))
         return True
 
@@ -224,10 +251,30 @@ class Frontier:
 
             absolute_url = urljoin(base_url, link)
 
-            if self.add(absolute_url, next_depth):
+            if self.add(absolute_url, next_depth, parent_url=base_url):
                 added += 1
 
         return added
+
+    def parent_of(self, url: str) -> str:
+        """The page a queued URL was first found on, or "" for a seed."""
+        return self._parents.get(url, "")
+
+    def skipped(self) -> list[Skip]:
+        """Every URL turned away so far, with the reason."""
+        return list(self._skipped.values())
+
+    def drain(self, reason: str) -> list[Skip]:
+        """Empty the queue, recording each URL left in it as skipped for `reason`."""
+        left: list[Skip] = []
+
+        while self._queue:
+            url, depth = self._queue.popleft()
+            left.append(
+                Skip(url=url, reason=reason, parent_url=self.parent_of(url), depth=depth)
+            )
+
+        return left
 
     def __bool__(self) -> bool:
         """True while URLs remain in the queue."""

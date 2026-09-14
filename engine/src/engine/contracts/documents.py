@@ -220,3 +220,7 @@ class CrawlManifest:
     assets_saved: dict = field(default_factory=dict)
     # PDFs promoted to their own CleanDocument rows.
     documents_parsed: int = 0
+    # {"robots": 2, "off_scope": 40} — counts by reason; one row per URL is in
+    # skipped_pages.jsonl and failed_documents.jsonl beside this manifest.
+    pages_skipped_by_reason: dict = field(default_factory=dict)
+    documents_failed_by_reason: dict = field(default_factory=dict)

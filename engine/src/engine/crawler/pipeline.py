@@ -1,7 +1,9 @@
 """Capture a site: fetch pages and linked files, save the bytes, record what was found.
 
 This stage deliberately produces no extracted text. It writes pages.jsonl —
-one CrawledPage per URL — beside the bytes those records point at.
+one CrawledPage per captured page and per downloaded file — beside the bytes
+those records point at, plus skipped_pages.jsonl and failed_documents.jsonl
+saying why everything else was left out.
 
 Raw HTML is preserved exactly as fetched. A normalized representation is used
 only for page-change detection so volatile HTML such as scripts, comments,
@@ -18,7 +20,9 @@ import asyncio
 import hashlib
 import json
 import logging
+import mimetypes
 import re
+from collections import Counter
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -28,9 +32,11 @@ import yaml
 from bs4 import BeautifulSoup, Comment
 
 from engine.contracts.documents import CrawlManifest, CrawledPage, make_doc_id
+from engine.crawler import skips
 from engine.crawler.discover import discover
 from engine.crawler.fetcher import FetchPolicy, Fetcher
 from engine.crawler.frontier import Frontier, ScopeRules, canonicalize
+from engine.crawler.skips import Skip
 
 log = logging.getLogger(__name__)
 
@@ -240,6 +246,85 @@ def _document_filename(url: str, ordinal: int) -> str:
     )
 
     return f"{ordinal:04d}-{name}"
+
+
+# Content types too vague for Team B to route on; the extension says more.
+_GENERIC_CONTENT_TYPES = {"", "application/octet-stream", "binary/octet-stream"}
+
+
+def _document_content_type(header: str, url: str) -> str:
+    """The media type of a downloaded file, such as application/pdf."""
+
+    media_type = header.split(";")[0].strip().lower()
+
+    if media_type in _GENERIC_CONTENT_TYPES:
+        media_type = (
+            mimetypes.guess_type(urlsplit(url).path)[0]
+            or media_type
+            or "application/octet-stream"
+        )
+
+    return media_type
+
+
+async def _download_document(
+    fetcher: Fetcher,
+    document_url: str,
+    canonical_url: str,
+    parent: CrawledPage,
+    ordinal: int,
+    docs_dir: Path,
+) -> CrawledPage | Skip:
+    """Download one linked file into docs/ and describe it as a CrawledPage.
+
+    `content_path` is the file in docs/, and `parent_url` is the page that
+    linked it: a file has no page of its own, so that is how a reader holding
+    it finds their way back. Returns a Skip when the file was not saved.
+    """
+
+    asset = await fetcher.fetch_asset(document_url)
+
+    if isinstance(asset, Skip):
+        return asset
+
+    subfolder = _document_subfolder(document_url)
+    filename = _document_filename(document_url, ordinal)
+    document_path = docs_dir / subfolder / filename
+
+    try:
+        document_path.parent.mkdir(parents=True, exist_ok=True)
+        document_path.write_bytes(asset.content)
+
+    except OSError as exc:
+        log.exception("Failed to save document %s", document_url)
+
+        return Skip(
+            url=document_url,
+            reason=skips.WRITE_FAILED,
+            status=asset.status,
+            detail=repr(exc),
+        )
+
+    return CrawledPage(
+        page_id=make_doc_id(canonical_url),
+        url=document_url,
+        canonical_url=canonical_url,
+        status=asset.status,
+        content_type=_document_content_type(asset.content_type, document_url),
+        content_path=f"docs/{subfolder}/{filename}",
+        fetched_at=asset.fetched_at.isoformat(),
+        # A file is a leaf, one hop below the page that linked it.
+        depth=parent.depth + 1,
+        parent_url=parent.canonical_url,
+        meta={
+            "source": "document",
+            "bytes": len(asset.content),
+            "content_sha256": hashlib.sha256(asset.content).hexdigest(),
+            "elapsed_ms": asset.elapsed_ms,
+            "fetcher": "httpx",
+            "final_url": asset.url,
+        },
+    )
 
 
 def _sha256(value: str) -> str:
@@ -455,6 +540,12 @@ def _load_previous_page_hashes(
                     if not canonical_url:
                         continue
 
+                    # Downloaded files have rows too, but no HTML to compare.
+                    if "html" not in str(
+                        record.get("content_type") or "text/html"
+                    ):
+                        continue
+
                     try:
                         canonical_key = (
                             canonicalize(
@@ -626,6 +717,24 @@ async def crawl_async(
         rules,
     )
 
+    def skip_page(
+        url: str,
+        depth: int,
+        reason: str,
+        detail: str = "",
+    ) -> None:
+        """Record why a URL taken off the frontier is not in pages.jsonl."""
+
+        skipped_pages.append(
+            Skip(
+                url=url,
+                reason=reason,
+                detail=detail,
+                parent_url=frontier.parent_of(url),
+                depth=depth,
+            )
+        )
+
     pages: list[CrawledPage] = []
     errors: list[dict] = []
 
@@ -641,6 +750,13 @@ async def crawl_async(
     pages_unchanged = 0
 
     assets_saved: dict[str, str] = {}
+
+    skipped_pages: list[Skip] = []
+    failed_documents: list[Skip] = []
+
+    # Every linked file already downloaded or given up on, by canonical URL,
+    # so a file linked from many pages is only tried once.
+    documents_seen: set[str] = set()
 
     try:
         async with Fetcher(
@@ -683,11 +799,6 @@ async def crawl_async(
                     for url, _depth in batch
                 ]
 
-                depth_by_url = {
-                    url: depth
-                    for url, depth in batch
-                }
-
                 log.info(
                     "Crawling HTML batch: "
                     "size=%d remaining=%d",
@@ -696,10 +807,8 @@ async def crawl_async(
                 )
 
                 try:
-                    raw_pages = (
-                        await fetcher.fetch_many(
-                            batch_urls
-                        )
+                    results = await fetcher.fetch_many(
+                        batch_urls
                     )
 
                 except Exception as exc:
@@ -715,42 +824,39 @@ async def crawl_async(
                         }
                     )
 
+                    for batch_url, depth in batch:
+                        skip_page(
+                            batch_url,
+                            depth,
+                            skips.FETCH_FAILED,
+                            repr(exc),
+                        )
+
                     log.exception(
                         "Failed to fetch HTML batch"
                     )
 
                     continue
 
-                pages_skipped += max(
-                    0,
-                    len(batch_urls)
-                    - len(raw_pages),
-                )
+                for (batch_url, depth), result in zip(
+                    batch,
+                    results,
+                ):
+                    if isinstance(result, Skip):
+                        pages_skipped += 1
 
-                for raw_page in raw_pages:
-                    if (
-                        pages_fetched
-                        >= config.max_pages
-                    ):
-                        break
+                        result.parent_url = frontier.parent_of(
+                            batch_url
+                        )
+                        result.depth = depth
+
+                        skipped_pages.append(result)
+
+                        continue
+
+                    raw_page = result
 
                     pages_fetched += 1
-
-                    depth = depth_by_url.get(
-                        raw_page.url
-                    )
-
-                    if depth is None:
-                        depth = min(
-                            (
-                                item_depth
-                                for (
-                                    _url,
-                                    item_depth,
-                                ) in batch
-                            ),
-                            default=0,
-                        )
 
                     try:
                         discovered = discover(
@@ -760,6 +866,13 @@ async def crawl_async(
 
                     except Exception as exc:
                         pages_skipped += 1
+
+                        skip_page(
+                            batch_url,
+                            depth,
+                            skips.DISCOVER_FAILED,
+                            repr(exc),
+                        )
 
                         errors.append(
                             {
@@ -802,6 +915,13 @@ async def crawl_async(
                         except ValueError:
                             pages_skipped += 1
 
+                            skip_page(
+                                batch_url,
+                                depth,
+                                skips.INVALID_URL,
+                                f"Invalid canonical URL: {canonical_source}",
+                            )
+
                             errors.append(
                                 {
                                     "url": raw_page.url,
@@ -817,6 +937,13 @@ async def crawl_async(
 
                     if canonical_url in written_canonical_urls:
                         pages_skipped += 1
+
+                        skip_page(
+                            batch_url,
+                            depth,
+                            skips.DUPLICATE,
+                            f"{canonical_url} was already captured",
+                        )
 
                         log.info(
                             "Skipping duplicate "
@@ -910,6 +1037,13 @@ async def crawl_async(
 
                     except OSError as exc:
                         pages_skipped += 1
+
+                        skip_page(
+                            batch_url,
+                            depth,
+                            skips.WRITE_FAILED,
+                            repr(exc),
+                        )
 
                         errors.append(
                             {
@@ -1047,138 +1181,112 @@ async def crawl_async(
                             raw_page.url,
                         )
 
-                    if (
-                        config.assets.download_documents
-                        and documents_saved
-                        < config.assets.max_documents
-                    ):
+                    if config.assets.download_documents:
                         for document_url in (
                             discovered.document_links
                         ):
-                            if (
+                            try:
+                                document_key = canonicalize(
+                                    document_url
+                                )
+
+                            except ValueError:
+                                document_key = document_url
+
+                            if document_key in documents_seen:
+                                continue
+
+                            documents_seen.add(document_key)
+
+                            outcome: CrawledPage | Skip
+
+                            scope_reason = rules.out_of_scope_reason(
+                                document_url,
+                                0,
+                            )
+
+                            if scope_reason is not None:
+                                outcome = Skip(
+                                    url=document_url,
+                                    reason=scope_reason,
+                                )
+
+                            elif (
                                 documents_saved
                                 >= config.assets.max_documents
                             ):
-                                break
+                                outcome = Skip(
+                                    url=document_url,
+                                    reason=skips.MAX_DOCUMENTS,
+                                    detail=(
+                                        "assets.max_documents is "
+                                        f"{config.assets.max_documents}"
+                                    ),
+                                )
 
-                            if (
-                                document_url
-                                in assets_saved
-                            ):
-                                continue
+                            else:
+                                try:
+                                    outcome = await _download_document(
+                                        fetcher,
+                                        document_url,
+                                        document_key,
+                                        page_record,
+                                        documents_saved + 1,
+                                        docs_dir,
+                                    )
 
-                            if not rules.in_scope(
-                                document_url,
-                                0,
-                            ):
-                                continue
-
-                            document_ordinal = (
-                                documents_saved + 1
-                            )
-
-                            try:
-                                asset = (
-                                    await asyncio.to_thread(
-                                        fetcher.fetch_asset,
+                                except Exception as exc:
+                                    log.exception(
+                                        "Failed to fetch "
+                                        "document %s",
                                         document_url,
                                     )
-                                )
 
-                            except Exception as exc:
-                                errors.append(
-                                    {
-                                        "url": (
-                                            document_url
-                                        ),
-                                        "stage": (
-                                            "fetch_document"
-                                        ),
-                                        "error": repr(exc),
-                                    }
-                                )
+                                    outcome = Skip(
+                                        url=document_url,
+                                        reason=skips.FETCH_FAILED,
+                                        detail=repr(exc),
+                                    )
 
-                                log.exception(
-                                    "Failed to fetch "
-                                    "document %s",
-                                    document_url,
-                                )
+                            if isinstance(outcome, Skip):
+                                outcome.parent_url = canonical_url
+                                outcome.depth = depth + 1
 
-                                continue
+                                failed_documents.append(outcome)
 
-                            if asset is None:
-                                continue
-
-                            subfolder = _document_subfolder(
-                                document_url
-                            )
-
-                            filename = _document_filename(
-                                document_url,
-                                document_ordinal,
-                            )
-
-                            subfolder_dir = (
-                                docs_dir / subfolder
-                            )
-
-                            subfolder_dir.mkdir(
-                                parents=True,
-                                exist_ok=True,
-                            )
-
-                            document_path = (
-                                subfolder_dir
-                                / filename
-                            )
-
-                            try:
-                                document_path.write_bytes(
-                                    asset.content
-                                )
-
-                            except OSError as exc:
-                                errors.append(
-                                    {
-                                        "url": (
-                                            document_url
-                                        ),
-                                        "stage": (
-                                            "write_document"
-                                        ),
-                                        "error": repr(exc),
-                                    }
-                                )
-
-                                log.exception(
-                                    "Failed to save "
-                                    "document %s",
-                                    document_url,
-                                )
+                                if outcome.reason in (
+                                    skips.FETCH_FAILED,
+                                    skips.WRITE_FAILED,
+                                ):
+                                    errors.append(
+                                        {
+                                            "url": document_url,
+                                            "stage": (
+                                                "fetch_document"
+                                                if outcome.reason
+                                                == skips.FETCH_FAILED
+                                                else "write_document"
+                                            ),
+                                            "error": outcome.detail,
+                                        }
+                                    )
 
                                 continue
 
                             documents_saved += 1
 
-                            relative_document_path = str(
-                                Path("docs")
-                                / subfolder
-                                / filename
-                            ).replace(
-                                "\\",
-                                "/",
-                            )
-
                             assets_saved[
                                 document_url
-                            ] = (
-                                relative_document_path
-                            )
+                            ] = outcome.content_path
+
+                            # The row goes in straight after the download,
+                            # next to the page that linked the file.
+                            pages.append(outcome)
 
                             log.info(
                                 "Saved document %s -> %s",
                                 document_url,
-                                relative_document_path,
+                                outcome.content_path,
                             )
 
     except Exception as exc:
@@ -1192,6 +1300,26 @@ async def crawl_async(
         log.exception(
             "Unexpected crawler error"
         )
+
+    # What the frontier turned away, then whatever was still queued at the end.
+    skipped_pages.extend(frontier.skipped())
+    skipped_pages.extend(
+        frontier.drain(
+            skips.MAX_PAGES
+            if pages_fetched >= config.max_pages
+            else skips.CRAWL_STOPPED
+        )
+    )
+
+    _write_jsonl(
+        run_dir / "skipped_pages.jsonl",
+        [skip.to_dict() for skip in skipped_pages],
+    )
+
+    _write_jsonl(
+        run_dir / "failed_documents.jsonl",
+        [skip.to_dict() for skip in failed_documents],
+    )
 
     pages_jsonl = (
         run_dir
@@ -1252,6 +1380,12 @@ async def crawl_async(
         ),
         assets_saved=assets_saved,
         documents_parsed=0,
+        pages_skipped_by_reason=dict(
+            Counter(skip.reason for skip in skipped_pages)
+        ),
+        documents_failed_by_reason=dict(
+            Counter(skip.reason for skip in failed_documents)
+        ),
     )
 
     manifest_path = (
@@ -1288,6 +1422,12 @@ async def crawl_async(
                 "documents_parsed": (
                     manifest.documents_parsed
                 ),
+                "pages_skipped_by_reason": (
+                    manifest.pages_skipped_by_reason
+                ),
+                "documents_failed_by_reason": (
+                    manifest.documents_failed_by_reason
+                ),
             },
             ensure_ascii=False,
             indent=2,
@@ -1298,13 +1438,16 @@ async def crawl_async(
     log.info(
         "Crawl complete: site=%s "
         "pages=%d new=%d changed=%d unchanged=%d "
-        "documents=%d errors=%d run=%s",
+        "documents=%d documents_failed=%d skipped_pages=%d "
+        "errors=%d run=%s",
         config.site,
         pages_written,
         pages_new,
         pages_changed,
         pages_unchanged,
         documents_saved,
+        len(failed_documents),
+        len(skipped_pages),
         len(errors),
         run_dir,
     )

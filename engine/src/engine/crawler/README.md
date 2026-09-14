@@ -26,11 +26,16 @@ Your deliverable, one folder per site per run:
 
 ```
 data/sites/<site>/<run>/
-├── pages.jsonl     ← one CrawledPage per URL. NO TEXT.
-├── manifest.json   ← counts, errors, what was captured
-├── raw/            ← html exactly as fetched
-└── docs/           ← PDFs and other linked files, as fetched
+├── pages.jsonl             ← one CrawledPage per page AND per downloaded file. NO TEXT.
+├── skipped_pages.jsonl     ← every page not captured, with the reason
+├── failed_documents.jsonl  ← every linked file not downloaded, with the reason
+├── manifest.json           ← counts, errors, skips by reason
+├── raw/                    ← html exactly as fetched
+└── docs/                   ← PDFs and other linked files, as fetched
 ```
+
+Runs are not committed: `data/` holds only a `.gitkeep`, and run folders are
+shared on Google Drive. See `DATA_GUIDE.md` §7–8 at the repo root.
 
 ---
 
