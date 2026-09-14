@@ -258,8 +258,9 @@ def write_file_pages(out: Path, taken: set[str]) -> int:
     `bytes` and `content_type` are recorded there and nowhere else. Must run
     after `write_file_index`, and after `write_pages_jsonl`, which it appends to.
 
-    The file bytes are on Drive, not in git, so a row can point at a file that
-    is not on this machine. The row is still right; restore `_files/` from Drive.
+    The file bytes are zipped in `engine/crawl-archives/cuet.zip`, so a row can
+    point at a file that is not unzipped on this machine. The row is still
+    right; unzip the archive.
     """
     index_path = out / "_files" / "index.json"
     if not index_path.exists():
@@ -316,14 +317,13 @@ def write_file_pages(out: Path, taken: set[str]) -> int:
 def _write_files_readme(files_dir: Path, rows: list[dict], resolved: int) -> None:
     """A note beside index.json saying which copy of it is authoritative.
 
-    The PDFs are also kept on Google Drive, and a copy of the index goes with
-    them. Two copies of a file that `--stage merge` rewrites every run will
-    drift, and the failure is silent: restoring the older one strips `sources`
-    from every entry and nothing errors.
+    The downloaded files are committed zipped, in `engine/crawl-archives/cuet.zip`,
+    and the index is deliberately left out of that zip. Two copies of a file that
+    `--stage merge` rewrites every run would drift, and the failure is silent:
+    restoring the older one strips `sources` from every entry and nothing errors.
 
-    So the file states, next to itself, that the repository copy wins and when
-    this one was generated. It travels to Drive with the PDFs, which is where
-    somebody about to restore the wrong thing will be looking.
+    So the file states, next to itself, that the repository copy is the only
+    one and when it was generated.
     """
     nl = chr(10)
     downloaded = sum(1 for r in rows if r["downloaded"])
@@ -341,19 +341,16 @@ def _write_files_readme(files_dir: Path, rows: list[dict], resolved: int) -> Non
         "",
         "## Which copy of `index.json` is authoritative",
         "",
-        "**The one in the git repository, at `engine/corpus/cuet/_files/`.**",
+        "**The one in the git repository, at `engine/corpus/cuet/_files/`.** It is",
+        "the only copy.",
         "",
-        "A copy is kept on Google Drive beside the PDFs. That copy is a mirror",
-        "and goes stale the moment anybody runs `--stage merge`, because merge",
-        "rewrites the index in full.",
+        "The files it lists are committed zipped, in `engine/crawl-archives/cuet.zip`.",
+        "That zip deliberately leaves out `index.json` and this note, so unzipping it",
+        "can never put an older index on top of this one: an older `index.json`",
+        "removes the `sources` mapping from every entry, and nothing fails to tell you.",
         "",
-        "Restoring from Drive means copying `*.pdf` only. Do not sync the folder",
-        "wholesale: an older `index.json` landing on top of the repo copy removes",
-        "the `sources` mapping from every entry, and nothing fails to tell you.",
-        "Check the date above against the repo copy before restoring anything.",
-        "",
-        "Whoever changes the index should re-upload it and this note together, so",
-        "the date on Drive always describes the file sitting beside it.",
+        "Do not restore `_files/` from Google Drive. The Drive copy of this folder",
+        "carries older copies of the index.",
     ]
     (files_dir / "README.md").write_text(nl.join(lines) + nl, encoding="utf-8")
 

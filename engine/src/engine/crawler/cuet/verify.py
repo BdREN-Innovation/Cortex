@@ -303,7 +303,7 @@ def _images(data: dict, report: Report) -> None:
                    not images, "; ".join(images[:3]))
     else:
         report.add("Images", "_files/ contains zero image files", True,
-                   "_files/ not present locally; it is on Google Drive")
+                   "_files/ not present locally; unzip crawl-archives/cuet.zip")
 
     if docs is not None:
         # §4.6: alt text IS prose and must survive. Losing it silently is the

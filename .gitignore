@@ -225,11 +225,13 @@ outputs/
 # Claude
 .claude/
 
-# Scraper specs and inventory (local only - backed up on Google Drive)
+# Scraper specs and inventory (kept locally only, never committed)
 CUET_SCRAPER_SPEC.md
 CUET_SCRAPER_SPEC_PART2.md
 SCRAPE_INVENTORY.md
 *.zip
+# ...except the crawl run archives, which are stored with Git LFS.
+!engine/crawl-archives/*.zip
 
 # Google Drive upload staging (local only)
 gdrive_upload/
@@ -239,7 +241,7 @@ cuet_scraper/
 
 # Crawl/pipeline output (generated, not source) — Team A/B/C runtime data
 # Contents only, not the folders: engine/data/.gitkeep keeps the folder in git.
-# Crawl runs are shared on Google Drive; see DATA_GUIDE.md section 8.
+# Crawl runs are committed zipped in engine/crawl-archives/ (Git LFS); see DATA_GUIDE.md section 8.
 **/data/*
 !engine/data/.gitkeep
 

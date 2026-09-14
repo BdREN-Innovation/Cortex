@@ -7,11 +7,9 @@ browser is used only for the handful of pages the API cannot reach.
 Specification: `CUET_SCRAPER_SPEC.md` (Part 1) and `CUET_SCRAPER_SPEC_PART2.md`.
 Every `Spec §6.3` in the code points into those.
 
-**They are not in the repo.** Both are gitignored and kept on Google Drive, with
-`SCRAPE_INVENTORY.md` beside them; the link is in the
-[root README](../../../../../README.md). Download them to the repo root before
-you change a constant in `config.py`, because the reasoning behind each measured
-value is in the section the comment cites.
+**They are not in the repo.** Both are gitignored and kept locally by the
+scraper's owner. Read the section a comment cites before you change a constant
+in `config.py`, because the reasoning behind each measured value is there.
 
 Output: [`engine/corpus/cuet/`](../../../../corpus/cuet/), which has its own
 README describing the corpus for whoever embeds it.

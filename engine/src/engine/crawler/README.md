@@ -34,8 +34,10 @@ data/sites/<site>/<run>/
 └── docs/                   ← PDFs and other linked files, as fetched
 ```
 
-Runs are not committed: `data/` holds only a `.gitkeep`, and run folders are
-shared on Google Drive. See `DATA_GUIDE.md` §7–8 at the repo root.
+Unzipped runs are not committed: `data/` holds only a `.gitkeep`. Every run of a
+site is committed inside one zip, `engine/crawl-archives/<site>.zip`, stored with
+Git LFS. See `engine/crawl-archives/README.md`, and `DATA_GUIDE.md` §7–8 at the
+repo root.
 
 ---
 
