@@ -30,9 +30,10 @@ Decisions you own
 from __future__ import annotations
 
 import logging
+import time
 from dataclasses import dataclass
 
-from engine.contracts.answers import Answer, Citation  # noqa: F401 - Citation is yours to build
+from engine.contracts.answers import Answer, Citation
 from engine.contracts.retrieval import RetrievedChunk, Retriever
 
 log = logging.getLogger(__name__)
@@ -41,7 +42,16 @@ log = logging.getLogger(__name__)
 # decisions before they are code decisions, so this is some of the
 # highest-leverage text in the project. Write it, then change it only with
 # Team C's scorecard in front of you.
-SYSTEM_PROMPT = ""
+SYSTEM_PROMPT = (
+    "You answer questions about a university or research-network website using "
+    "ONLY the numbered context passages provided below. Every factual claim you "
+    "make must be supported by at least one passage — cite it inline as [1], [2] "
+    "etc., matching the passage numbers you were given. Do not use outside "
+    "knowledge, and do not guess. If the passages do not contain enough "
+    "information to answer the question, say plainly that you don't have enough "
+    "information, rather than producing a plausible-sounding guess. Keep answers "
+    "short and factual."
+)
 
 # The exact text returned when the system declines to answer. A constant, not a
 # literal scattered through the code, because Team C's harness matches on it —
@@ -64,7 +74,14 @@ class RagConfig:
 
     @classmethod
     def from_dict(cls, payload: dict) -> "RagConfig":
-        raise NotImplementedError
+        return cls(
+            provider=payload.get("provider", ""),
+            model=payload.get("model", ""),
+            top_k=payload.get("top_k", 5),
+            min_score=payload.get("min_score", 0.0),
+            max_context_chars=payload.get("max_context_chars", 8000),
+            temperature=payload.get("temperature", 0.0),
+        )
 
 
 def build_context(chunks: list[RetrievedChunk], max_chars: int) -> tuple[str, list[RetrievedChunk]]:
@@ -74,8 +91,68 @@ def build_context(chunks: list[RetrievedChunk], max_chars: int) -> tuple[str, li
     fitted. Citations must reflect what the model could see, not what you
     retrieved and then truncated away — citing a document the model never read
     is the subtlest bug in this pipeline.
+
+    A chunk that alone is bigger than the whole budget is truncated rather
+    than dropped outright, but only for the *first* chunk — an empty context
+    would force a refusal even though something relevant was actually found.
     """
-    raise NotImplementedError
+    parts: list[str] = []
+    used: list[RetrievedChunk] = []
+    total = 0
+
+    for position, chunk in enumerate(chunks, start=1):
+        header = f"[{position}] {chunk.title or chunk.canonical_url}\n"
+        remaining = max_chars - total - len(header)
+        if remaining <= 0:
+            break
+
+        text = chunk.text
+        if len(text) > remaining:
+            if used:
+                # Later chunks just get dropped rather than sliced thin —
+                # a half-sentence of context is worse than no context.
+                break
+            text = text[:remaining]
+
+        block = f"{header}{text}\n"
+        parts.append(block)
+        used.append(chunk)
+        total += len(block)
+
+    return "\n".join(parts), used
+
+
+def _generate_extractive(context_chunks: list[RetrievedChunk]) -> str:
+    """No API key, no generation — just the best-matching passage, verbatim.
+    A legitimate baseline: it answers "did retrieval find the right thing"
+    before a single token is spent on generation."""
+    top = context_chunks[0]
+    text = top.text.strip()
+    return text[:1000]
+
+
+def _generate_openai(
+    question: str, context: str, model: str, temperature: float
+) -> tuple[str, dict]:
+    try:
+        from openai import OpenAI
+    except ImportError as e:
+        raise ImportError(
+            "the 'openai' rag provider needs the openai package: run `uv add openai`"
+        ) from e
+
+    client = OpenAI()  # reads OPENAI_API_KEY from the environment
+    resp = client.chat.completions.create(
+        model=model or "gpt-4o-mini",
+        temperature=temperature,
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": f"Context:\n{context}\nQuestion: {question}"},
+        ],
+    )
+    text = (resp.choices[0].message.content or "").strip()
+    usage = dict(resp.usage) if resp.usage else {}
+    return text, usage
 
 
 def answer(question: str, retriever: Retriever, config: RagConfig | None = None) -> Answer:
@@ -97,4 +174,56 @@ def answer(question: str, retriever: Retriever, config: RagConfig | None = None)
     the only way to answer "why is this slow" and "why did this cost that much"
     when somebody asks on day twelve.
     """
-    raise NotImplementedError
+    config = config or RagConfig()
+    provider = config.provider or "extractive"
+    started = time.monotonic()
+
+    retrieved = retriever.retrieve(question, top_k=config.top_k)
+    relevant = [chunk for chunk in retrieved if chunk.score >= config.min_score]
+
+    if not relevant:
+        return Answer(
+            question=question,
+            text=REFUSAL,
+            citations=[],
+            refused=True,
+            retrieved_chunk_ids=[chunk.chunk_id for chunk in retrieved],
+            model=config.model,
+            provider=provider,
+            latency_ms=int((time.monotonic() - started) * 1000),
+            usage={},
+        )
+
+    context, used = build_context(relevant, config.max_context_chars)
+
+    usage: dict = {}
+    if provider == "extractive":
+        text = _generate_extractive(used)
+    elif provider == "openai":
+        text, usage = _generate_openai(question, context, config.model, config.temperature)
+    else:
+        raise ValueError(f"Unknown rag provider: {provider!r}. Supported: 'extractive', 'openai'.")
+
+    citations = [
+        Citation(
+            doc_id=chunk.doc_id,
+            chunk_id=chunk.chunk_id,
+            canonical_url=chunk.canonical_url,
+            title=chunk.title,
+            section_path=list(chunk.section_path),
+            quote=chunk.text[:280],
+        )
+        for chunk in used
+    ]
+
+    return Answer(
+        question=question,
+        text=text,
+        citations=citations,
+        refused=False,
+        retrieved_chunk_ids=[chunk.chunk_id for chunk in retrieved],
+        model=config.model,
+        provider=provider,
+        latency_ms=int((time.monotonic() - started) * 1000),
+        usage=usage,
+    )
