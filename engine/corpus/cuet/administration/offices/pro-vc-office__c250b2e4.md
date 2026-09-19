@@ -1,0 +1,19 @@
+# Pro Vice Chancellor
+
+প্রোভাইস-চ্যান্সেলর এর দপ্তর
+
+## Message from the Head
+
+First of all, I am gratefully remembering the greatness Rabbul Alamin. It feels me prodigious pleasure to write a few words about my best-loved Chittagong University of Engineering & Technology (CUET), one of the few leading and promising Engineering Universities of Bangladesh, established in 1968 as Chittagong Engineering College in a greenery landscape located about 25 km South- East away from the Chottograrm City centre. Only three initial Departments through which Degrees were offered like B.Sc. in Civil Engineering, B.Sc. in Electrical and Electronic Engineering and B.Sc. in Mechanical Engineering with a total of only 120 students as yearly intake. Later Chittagong Engineering College was converted to Bangladesh Institute of Technology, Chittagong an autonomous institute in 1986 and finally the institute was upgraded and renamed as Chittagong University of Engineering & Technology (CUET) on 1st September 2003.
+
+Greetings from Chittagong University of Engineering & Technology. I am honored and humble to you for the visit in Chittagong University of Engineering & Technology University website. It is my great opportunity to have the 2nd Pro-Vice Chancellor to serve this University. I want to express my feelings and convey my gratitude to the Chancellor of this University, The Honorable President of the Peoples' Republic of Bangladesh, and the Honorable Prime-Minister for giving me the opportunity to serve the university. I want to give cordial thanks to my colleagues, students and employees for their all-out support. I hope this support will be continued.
+
+The Chittagong University of Engineering & Technology (CUET) started its journey with the core mission of developing quality human resources in the field of engineering and technology to serve the nation and the world. It has been accumulating this kudos over the period of 56 years since its inception as engineering college in 1968. At present, the university has 05 faculties, 18 departments and 4 institutes. About 931 undergraduate students get admission into 12 degree awarding departments every year and the graduate programs (MSc, MEng, MPhill, PhD) are running under 13 departments. [At present in Q.S ranking CUET is positioned 2nd amongst the engineering universities (Govt.) and 3rd amongst the public universities in Bangladesh.] CUET is a highly ranked public University in Bangladesh in research.
+
+The University is now steered to play the leading role in the field of Engineering Sciences and Technology, targeting to face the Fourth Industrial Revolution with quality education and its perpetual research. For decades, CUET has been at the forefront of Engineering Sciences education and research producing quality graduates in the country. Almost all faculty members are highly qualified with dignified foreign degrees from the renowned universities of the USA, UK, Canada, Germany, Japan, Australia and other countries. The officials and employees are also qualified, skilled and communicative as well. Its research and academic activities have also been extended for fruitful collaboration with many Higher Education and Research Institutes from American, European, Australian and Asian countries
+
+CUET is a family, and we belong to that family to enrich it. I hope CUET will be the beacon of engineering education within the country and will be an icon for the international level. I am delighted to extend a warm welcome to you on behalf of the naturally pristine CUET campus where educational excellence ensures higher quality, meets innovation, and opportunities for a bright future at home and abound.
+
+## Contact
+
+Address: Pahartoli, Raozan, Chittagong - 4359

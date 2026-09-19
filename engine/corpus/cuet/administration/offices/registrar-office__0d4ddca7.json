@@ -1,0 +1,33 @@
+{
+  "url": "https://cuet.ac.bd/office/registrar-office",
+  "canonical_url": "https://cuet.ac.bd/office/registrar-office",
+  "page_id": "0d4ddca7a4eaf72c",
+  "doc_key": "https://cuet.ac.bd/office/registrar-office",
+  "section": "administration",
+  "group": "offices",
+  "section_path": [
+    "Administration",
+    "Registrar"
+  ],
+  "title": "Registrar",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T23:04:29Z",
+  "html_path": "administration/offices/registrar-office__0d4ddca7.html",
+  "markdown_path": "administration/offices/registrar-office__0d4ddca7.md",
+  "text_chars": 194,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "origin": "API /administrative-departments + /footer-data",
+  "slug": "registrar-office",
+  "entity_id": 40,
+  "entity_type": "administrative_office",
+  "short_name": "registrar-office",
+  "has_prose": true,
+  "footer_group": "administrative_offices",
+  "portion": "general",
+  "owner": "Dipika Nath"
+}

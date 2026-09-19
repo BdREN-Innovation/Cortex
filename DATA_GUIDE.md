@@ -1,0 +1,633 @@
+# Cortex Data Inventory & Guide
+
+Where the scraped data lives, how it is structured, and how Team B (Knowledge,
+Extraction, Embeddings) and Team C (Evaluation) should consume it.
+
+> [!IMPORTANT]
+> **Install Git LFS before you clone or pull.** All scraped data (CUET's PDFs,
+> the API dump, every crawl run) is in `engine/crawl-archives/`, one zip per
+> website, stored with [Git LFS](https://git-lfs.com). Without Git LFS, those
+> zips arrive as tiny text files, about 130 bytes each, that will not open.
+>
+> ```bash
+> git lfs install   # once per computer, before cloning or pulling
+> git lfs pull      # if you already cloned or pulled without it
+> ```
+>
+> To check it worked: `engine/crawl-archives/cuet.zip` should be about 1.3 GB,
+> not 1 KB. Git for Windows includes Git LFS; on macOS, `brew install git-lfs`.
+> What each zip holds and where to unzip it is in Section 8.
+
+This is the single reference for the CUET capture. Two earlier documents
+(`CUET_SCRAPER_README_MERGED.md`, `SCRAPE_INVENTORY.md`) said the same things
+with older numbers and have been removed rather than left to contradict this one.
+The specifications `CUET_SCRAPER_SPEC.md` and `CUET_SCRAPER_SPEC_PART2.md` are
+not in the repository; they are kept locally and gitignored.
+
+---
+
+## 1. Who built what
+
+The CUET crawler is split into **portions**, one slice of the website each, so
+that several people can work in parallel without editing the same files. Each
+portion owns its own builder module and writes its own shard.
+
+| Portion | Owner | Part of the site |
+|---|---|---|
+| `academic` | **Samonwita Sarker** | Departments, faculties, institutes, centres, academic information, all faculty profiles |
+| `news-events` | **Samonwita Sarker** | News items, events, and the listing pages |
+| `alumni` | **Samonwita Sarker** | The whole of `alumni.cuet.ac.bd` |
+| `notices` | **Dipika Nath** | All notice types. The NOC notices in it are Samonwita's; the other types are Dipika's |
+| `general` | **Dipika Nath** | About menu, Administration, Research, Facilities, student organisations |
+
+Every portion now has an owner. `notices` is the one that still does not map
+cleanly to one person: the six NOC documents in it are Samonwita's and the other
+notice types are Dipika's. Worth splitting when the team next agrees a boundary.
+
+### Samonwita Sarker's part
+
+Six areas of the website, **634 of the 735 documents** in the corpus.
+
+| Area | Documents | Where it is on the site |
+|---|---|---|
+| Homepage | 1 | `/` |
+| Academic | 458 | `/departments`, `/department/<slug>`, `/faculty`, `/institutes`, `/centers`, `/academic-information`, `/profile/faculty-member/<slug>` |
+| News & Events | 163 | `/news/<id>`, `/event-details/<id>`, `/news-events`, `/events`, `/student/events` |
+| Alumni | 15 | the whole `alumni.cuet.ac.bd` host |
+| Admission | 6 | `/admission`, `/admission/msc`, `/fsc`, `/student/undergraduate-student`, `/student/postgraduate-student`, `/notices/scholarship-financial-aids` |
+| NOC notices | 6 | `/notices/noc`, the top-bar NOC link |
+
+The remaining 38 documents are the About pages, the research pages, the student
+organisations and the combined notice listing, which belong to other portions.
+
+---
+## 1b. Who built BDREN
+
+BDREN was crawled and extracted by two people: Mifta (Rishta) set up the
+crawler and the extraction pipeline; Tasmia (Team C) later fixed a pagination
+gap, raised the document/timeout budget, verified coverage, and reorganized
+the crawler's output layout.
+
+| Area | Owner | What they own |
+|---|---|---|
+| Crawl config & pagination fix (initial) | **Mifta (Rishta)** | `configs/crawl.bdren.yaml` — seed list, pagination seeding for /news and /notices, initial page/document budget tuning |
+| HTML → documents.jsonl extraction | **Mifta (Rishta)** | `engine/src/engine/knowledge/bdren/bdren_extraction.py` — self-contained, not the shared `engine extract` pipeline |
+| Config re-tuning & coverage verification | **Tasmia (Team C)** | `configs/crawl.bdren.yaml` — raised `max_documents` (90→200) and `timeout_seconds` (20s→30s) after confirming ~180 unique notice PDFs existed on-site; verified pagination coverage (notices page 1–13, news page 1–16) and nav-menu section coverage against the live site; removed superseded run folders |
+| Per-section subfolder organization | **Tasmia (Team C)** | `engine/src/engine/crawler/pipeline.py` — added `_document_subfolder()`, splitting `docs/` and `raw/` into per-section subfolders (e.g. `docs/notice/`, `raw/news/`) derived from each URL's path; applies to all Team A sites crawled going forward, not just BDREN |
+
+If something in the bdren dataset looks wrong, the known gaps are listed under
+Section 7; anything not covered there is worth asking Mifta or Tasmia directly.
+
+## 2. High-level data map
+
+| Site | Location | Type | Format |
+|---|---|---|---|
+| **CUET** | `engine/corpus/cuet/`; its downloaded files and API dump in `engine/crawl-archives/cuet.zip` | Curated reference corpus | `.md`, `.json`, `.html` triples, `documents.jsonl`, `pages.jsonl` |
+| **Crawled sites** (BDREN, BUBT, Daffodil, Green, Star Tech, The Daily Star, UIU) | `engine/crawl-archives/<site>.zip` (Git LFS), unzipped into `engine/data/sites/` | Crawler runs, one zip per site | `pages.jsonl`, `skipped_pages.jsonl`, `failed_documents.jsonl`, `manifest.json`, `raw/`, `docs/`. See Section 7 |
+
+The CUET corpus is different in kind from the crawled sites. It was built
+API-first: **682 of its 735 documents came from CUET's public JSON API**, and
+only 53 from a headless browser. API documents arrive as clean prose with no
+navigation, banner or footer, so there is nothing for a boilerplate stripper to
+remove.
+
+---
+
+## 3. The CUET corpus
+
+### 3.1 Folder map, with the website location of each
+
+Every content folder corresponds to somewhere a visitor can go. To check whether
+a document is right, open the URL.
+
+**The full table lives in `engine/corpus/cuet/README.md`**, regenerated from
+disk by `--stage merge`. It is not repeated here: it was, and the copy went
+stale twice in one day, once claiming 2 documents in a folder holding 5 and once
+missing 374 faculty profiles entirely. One table that cannot lie beats two that
+can disagree.
+
+The shape of it, for orientation:
+
+| Folder | Docs | Where it is on the live site | Portion |
+|---|---|---|---|
+| `academic/profiles/` | 382 | Every faculty member, `/profile/faculty-member/<slug>` | academic |
+| `news-events/news/` | 157 | News & Events -> News, `/news/<id>` | news-events |
+| `academic/departments/` | 55 | `/department/<slug>`, plus each one's `/academic/undergraduate` and `/academic/postgraduate` | academic |
+| `research/publications/` | 29 | Research menu, `/research/<type>` | general |
+| `academic/` (rest) | 21 | Faculties, institutes, centres, academic information | academic |
+| `alumni/` | 15 | The whole `alumni.cuet.ac.bd` host | alumni |
+| `administration/` | 15 | Directorates, offices, sections | general |
+| `home/organizations/` | 15 | Student Organizations | general |
+| `_unsorted/notices/` | 15 | Notice types out of scope for Part 1 | notices |
+| everything else | 31 | CMS pages, admission, NOC, listings, downloads, homepage | mixed |
+| **Total** | **735** | | |
+
+This table is regenerated from disk by `--stage merge` into
+`engine/corpus/cuet/README.md`. It is reproduced here for convenience; that file
+is the one that cannot go stale.
+
+`_unsorted/` is not a mistake. Those 15 documents are notice types Part 1 leaves
+out of scope, and they cite `/notices/all-notice`, the page the site really lists
+them on. A document arriving in `_unsorted/` from anywhere else **is** a mistake
+and means `config.SECTIONS` has a gap.
+
+### 3.2 Three folders that hold no page content
+
+| Folder | What it is |
+|---|---|
+| `_shards/` | One JSON file per portion. **The committed source of truth.** |
+| `_meta/` | Provenance: the raw API dump, the URL plan, errors, known gaps |
+| `_files/` | Every downloaded PDF, flat, plus `index.json` and a note |
+
+Files are flat in `_files/` because the same PDF is linked from many pages, so a
+per-section copy would leave no canonical one.
+
+What is committed from `_files/` is only `index.json` and `README.md`; the PDFs
+themselves are in `engine/crawl-archives/cuet.zip` (Section 8). The index is
+committed even though merge regenerates it, because `local`, `bytes` and
+`content_type` are facts only the downloader knows: rebuilding it offline
+recovers the mapping but loses where all 1,106 downloaded files are, and the
+only way back would be re-downloading them.
+
+### 3.3 Every document is three files
+
+```
+<slug>__<first 8 of doc_id>.html   the bytes as captured
+<slug>__<first 8 of doc_id>.md     converted to markdown
+<slug>__<first 8 of doc_id>.json   metadata sidecar
+```
+
+The `.json` is written **last**, so it doubles as the completion marker: HTML
+present with no JSON means the write was interrupted and the document is retried.
+
+Useful sidecar fields:
+
+| Field | Meaning |
+|---|---|
+| `url` / `canonical_url` | The page a citation should show a reader. Always resolves. |
+| `doc_key` | What `doc_id` is derived from. Differs from `url` where one page yields several documents. |
+| `page_id` | Stable id. Join on this. |
+| `source` | `"api"` or `"browser"` |
+| `fetched_at` | When the bytes came off CUET's servers, not when the file was rebuilt |
+| `content_state` | `"published"`, or `"placeholder"` where the page exists but CUET has not published its content |
+| `private_fields_dropped` | Present on people records. Names the fields deliberately not stored. |
+
+### 3.4 Provenance: where each document and each PDF came from
+
+Two generated files answer "where is this from?" without reading the crawler.
+
+**`_meta/provenance.jsonl`** has one row per document and one per file. A
+document row names the endpoint that produced it, not just whether it was API or
+browser, plus the portion, its owner, the live URL, and where the raw bytes are:
+
+```json
+{"kind": "document", "doc_id": "...", "title": "Civil Engineering",
+ "live_url": "https://cuet.ac.bd/department/CE",
+ "origin": "API /administrative-departments/{slug}", "source": "api",
+ "section": "academic", "portion": "academic", "owner": "Samonwita Sarker",
+ "fetched_at": "...", "content_path": "academic/departments/CE__....html",
+ "raw_payload": "_meta/api_dump.json"}
+```
+
+`raw_payload` points at `_meta/api_dump.json` for API documents and at the saved
+render for browser ones, so any disagreement is settled against bytes rather than
+by re-crawling.
+
+The 735 documents come from 17 distinct origins:
+
+| Documents | Origin |
+|---|---|
+| 382 | API `/app-admins/{slug}` |
+| 157 | API `/news` |
+| 53 | browser render (crawl4ai + Chromium) |
+| 30 | API `/administrative-departments/{slug}` |
+| 29 | API `/app-admin-research-types` |
+| 22 | API `/notices` + `/notice-types` |
+| 15 | API `/administrative-departments` + `/footer-data` |
+| 15 | API `/student-organizations` |
+| 8 | API `/general-settings` |
+| 4 | API `/downloads` + `/download-types` |
+| 4 each | alumni `/alumni-settings`, `/alumni-home-data` (news), `/alumni-responsibilities` |
+| 3 | API `/events` |
+| 2 each | alumni `/alumnis`, API `/academic-curriculums` |
+| 1 | alumni `/alumni-home-data` (notices) |
+
+**`_files/index.json`** is the same mapping from the PDF side, and it is where to
+look while holding a file. Each of the 1,138 entries carries the download fields
+plus a resolved `sources` list:
+
+```json
+{"url": "https://app.cuet.ac.bd/storage/Downloads/....pdf",
+ "local": "_files/de1bedf5__....pdf", "bytes": 2912170,
+ "title": "Term-wise Course Distribution and Related Information",
+ "document_type": "page", "downloaded": true,
+ "linked_from": ["https://cuet.ac.bd/academic-information", "..."],
+ "sources": [{"doc_id": "...", "title": "Postgraduate curricula",
+              "live_url": "https://cuet.ac.bd/academic-information",
+              "section": "academic", "portion": "academic",
+              "owner": "Samonwita Sarker",
+              "origin": "API /academic-curriculums"}],
+ "unresolved_links": []}
+```
+
+Three things about it are deliberate.
+
+- **A PDF may have several sources, and all are kept.** 40 files are linked from
+  more than one document. Keeping one would invent a relationship the site does
+  not have.
+- **`linked_from` is untouched and `sources` is additive**, so anything already
+  reading the URL list keeps working.
+- **A link that resolves to no document is named in `unresolved_links`** rather
+  than silently producing an empty `sources`, which would read as a bug. All
+  1,138 currently resolve.
+
+Both files are regenerated by `--stage merge`, offline. The index preserves
+`local`, `bytes` and `content_type` across rebuilds, so a metadata change never
+means re-downloading the PDFs.
+
+### 3.5 Files generated by merge, not committed
+
+```
+documents.jsonl          CleanDocument rows
+pages.jsonl              the engine extract --run interface
+manifest.json            counts, errors, which portions are present
+README.md                the folder table above, regenerated
+_meta/provenance.jsonl   the document and file mapping
+_meta/found_files.*      every file URL discovered
+```
+
+Two files under `_files/` are regenerated by merge as well and ARE committed,
+which is the one deliberate exception: `index.json`, for the reason in 3.2, and
+`README.md` beside it, which records when the index was generated.
+
+If these are missing, nothing is wrong:
+
+```bash
+cd engine
+uv run python -m engine.crawler.cuet --stage merge
+```
+
+It reads `_shards/`, needs no network, and takes about a second. They are
+generated rather than committed because several people each rebuild them in
+full, and a committed file that everyone rewrites conflicts on every pull
+request. The merge is deterministic, so two people merging the same shards get
+byte-identical output.
+
+---
+
+## 4. The crawler code
+
+`engine/src/engine/crawler/cuet/`
+
+### 4.1 Pipeline stages
+
+Run with `python -m engine.crawler.cuet --stage <name>`.
+
+| Stage | File | What it does |
+|---|---|---|
+| `discover` | `discover.py` | Fetches all 17 API endpoints plus 30 entity details, 382 faculty profiles and 7 alumni endpoints. Saves every response verbatim to `_meta/api_dump.json` before parsing. Builds the residual URL plan. |
+| `content` | `content.py` | Turns the saved payloads into documents. Runs one or more portions; each writes its own shard. |
+| `merge` | `merge.py` | Assembles the shards into the corpus files. No network. |
+| `plan` | `discover.py` | Prints the residual URL plan. |
+| `capture` | `capture.py` | Renders the pages the API cannot produce, in headless Chromium. Resumable. |
+| `reharvest` | `capture.py` | Re-extracts links from saved HTML. **No network.** Changing what counts as a link costs a second, not a re-crawl. |
+| `files` | `files.py` | Downloads the in-scope PDFs. |
+| `audit` | `audit.py` | Re-derives the API endpoint list from the site's live JavaScript bundles and reports anything undocumented. |
+| `verify` | `verify.py` | Runs the specification's definition of done, 26 checks. Exits non-zero on failure. |
+
+`--portion <name>` restricts a content run to one slice. `--list-portions` shows
+them.
+
+### 4.2 What each module is for
+
+| File | Lines | Purpose |
+|---|---|---|
+| `config.py` | 753 | Every tunable value, and the evidence for the non-obvious ones. Read this first. |
+| `verify.py` | 462 | The definition of done, as executable checks. |
+| `capture.py` | 401 | Browser rendering, failed-render and 404 detection, offline re-harvest. |
+| `content.py` | 359 | Writes the document triple and the per-portion shard. |
+| `handover.py` | 326 | Writes `pages.jsonl`, `manifest.json` and the corpus README. |
+| `paths.py` | 275 | Canonicalisation, stable ids, section and group routing. |
+| `api.py` | 276 | One polite HTTP client: per-host delay, robots, retries. |
+| `discover.py` | 259 | Stage 1 and the URL plan. |
+| `merge.py` | 220 | Deterministic shard assembly, plus `known_gaps.json`. |
+| `markdown.py` | 202 | HTML to markdown on the standard library's parser. |
+| `audit.py` | 112 | Endpoint inventory from live bundles. |
+| `files.py` | 114 | PDF downloads. |
+| `__main__.py` | 228 | CLI and run bookkeeping. |
+
+### 4.3 The builders
+
+`builders/` holds at least one module per portion, so owners never edit the same
+file. A portion may own several: `general` is split across four, one per menu of
+the site, because one module covering About, Administration, Research and
+Facilities would be the thing two people edit at once.
+
+| File | Lines | Portion | Produces |
+|---|---|---|---|
+| `academic.py` | 309 | academic | Departments, faculties, institutes, centres, curricula, and all 382 faculty profiles. |
+| `alumni.py` | 272 | alumni | The alumni site's CMS pages, news, notices, responsibilities and directory. |
+| `base.py` | 222 | — | The `Document` model, link harvesting, shared helpers. Nothing portion-specific. |
+| `about.py` | 198 | general | The Administration menu: 6 directorates, 3 offices, 6 sections. Joins `/footer-data` for the routes to `/administrative-departments` for the bodies. |
+| `research.py` | 193 | general | The Research menu: 1,560 publications across 4 types, from one `/app-admin-research-types` call. |
+| `facilities.py` | 181 | general | The Facilities menu: the Downloads library, 133 files from `/downloads`. That endpoint is not in the original seventeen — it was found in the Network tab, not by grep. |
+| `__init__.py` | 169 | — | The portion registry. The one shared file, deliberately tiny. |
+| `notices.py` | 134 | notices | Every notice type, as index documents. |
+| `news.py` | 88 | news-events | News items and events. |
+| `general.py` | 68 | general | CMS page bodies and student organisations. |
+
+### 4.4 Tests
+
+`engine/tests/crawler/cuet/`, **225 tests**, no network required.
+
+| File | Tests | Covers |
+|---|---|---|
+| `test_paths.py` | 59 | Canonicalisation, ids, host and section rules |
+| `test_content.py` | 29 | Document building over synthetic payloads |
+| `test_coverage.py` | 24 | Placeholder pages, dismissals, gap attribution |
+| `test_faculty.py` | 17 | Faculty profiles, their privacy rule, and every employee status |
+| `test_alumni.py` | 15 | The alumni portion and its privacy rule |
+| `test_portions.py` | 15 | The multi-person split |
+| `test_capture.py` | 12 | Failed-render and 404 detection |
+| `test_shards.py` | 12 | Shard building and the resume case |
+| `test_provenance.py` | 11 | The document and PDF mapping |
+| `test_harvest.py` | 10 | Link harvesting and HTML entity decoding |
+| `test_file_pages.py` | 9 | A `pages.jsonl` row for every downloaded file |
+| `test_handover_map.py` | 6 | The folder map cannot fall behind the corpus |
+| `test_known_gaps.py` | 6 | Unreachable hosts recorded rather than hidden |
+
+The shared crawler's own tests are one folder up, in `engine/tests/crawler/`:
+13 more, covering the per-host rate limit, the skip and failure records, and
+the rows written for downloaded files. 238 tests in all.
+
+```bash
+cd engine && uv run pytest tests -q
+```
+
+---
+
+## 5. What Team B needs to know
+
+**1. Pass `--min-text-chars 50`.** `engine extract` drops documents under 200
+characters as navigation. Some documents here are legitimately shorter, and at
+the default they vanish with no error and no count.
+
+**2. Do not strip boilerplate from `source == "api"` documents.** They have no
+navigation, cookie banner or footer to remove. Writing selectors for chrome that
+is not there will cut real content. The 53 `browser` documents are ordinary
+captured HTML and behave as expected.
+
+**3. `url` and `doc_key` are not always the same.** Cite `url`; join on
+`page_id`. They differ where one real page yields several documents, which is how
+notices and curricula work.
+
+**4. Notices and curricula are index documents, not one document per item.** A
+notice record is a title, a date, a type and a PDF link, with no prose. One
+document per notice would produce hundreds of near-identical texts that crowd out
+real content in every retrieval, and most would fall under the length threshold
+anyway. Each notice type becomes a few index documents holding a table, split at
+60 rows. The PDFs are downloaded and their metadata is in `_files/index.json`. If
+you want one document per notice, everything needed is in `_meta/api_dump.json`
+under `/notices`, with no re-crawl.
+
+**5. Check `content_state`.** 20 of the per-department academic pages carry
+`"placeholder"`: the page and route are real, but CUET has not published the
+curriculum. They are kept rather than dropped, because thin-page filtering
+belongs downstream where it can be reconsidered. Filter them if you want.
+
+**6. 122 documents contain Bangla.** Verified as correctly decoded, no mojibake.
+**7. Faculty documents cover three employee statuses.** 374 current staff, 2 on
+leave and 6 retired, 382 in all. The endpoint defaults to current staff without
+saying so, which is how the other 8 were missed on the first pass. Each document
+records `employee_status`, so filtering to current staff is your choice to make.
+
+
+---
+
+## 6. Decisions worth knowing before you trust the data
+
+**People records omit fields the website does not display.** The faculty endpoint
+returns national ID, date of birth, blood group, parents' names, permanent
+address, religion and personal email. The public profile page shows none of them.
+Every one is dropped before a document is written, and the identity fields are
+dropped even though the API currently returns them as null, so that a backend
+change cannot quietly push them into the corpus. Work email, office phone and
+room number are kept, because those are on the page. The same rule applies to
+the alumni directory. Each affected document lists what was removed in
+`private_fields_dropped`.
+
+**Nothing behind a login was fetched.** No authenticated request was made.
+
+**No images anywhere.** Not an oversight: nothing downstream can embed a PNG. Alt
+text and captions are kept, since they are prose. `_files/` should contain zero
+image files.
+
+**Politeness.** 1.5 seconds per host, a real contact address in the User-Agent,
+and 404 and 403 are never retried. Neither `cuet.ac.bd` nor `alumni.cuet.ac.bd`
+serves a robots.txt; both return 404, and the alumni pages carry no robots meta
+tag either.
+
+**Known gaps are written down, not hidden.** `_meta/known_gaps.json` lists every
+planned URL that is not in the corpus, with the reason and whether re-running
+could fix it. Today it holds two: `admissioncuet.ac.bd` and its about page, which
+have no DNS record at all. They are left in the plan on purpose, because the
+Admission menu really does link to a host that no longer exists.
+
+---
+
+## 7. Multi-site crawl runs (`engine/data/sites/`)
+
+Produced by `engine crawl`. **Unzipped runs are not in git.** `engine/data/` is
+kept in the repository by one placeholder, `engine/data/.gitkeep`. Every run of
+a site is committed inside one zip, `engine/crawl-archives/<site>.zip`, stored
+with Git LFS (Section 8), and unzipped locally before use.
+
+```
+engine/data/sites/<site>/<site>-<timestamp>/
+├── manifest.json           run summary: counts, errors, skips and failures by reason
+├── pages.jsonl             Team A deliverable: one CrawledPage per page AND per downloaded file
+├── skipped_pages.jsonl     every page URL that was not captured, and why
+├── failed_documents.jsonl  every linked file that was not downloaded, and why
+├── raw/<section>/          raw HTML exactly as fetched, named <page_id>.html
+└── docs/<section>/         downloaded files (PDF, XLSX, ...), named <ordinal>-<filename>
+```
+
+### Downloaded files have their own `pages.jsonl` rows
+
+A file has no page of its own, so its row records where it came from. It is the
+same shape `--stage merge` writes for CUET's files, with `content_path` pointing
+into `docs/` instead of `_files/`.
+
+| Field | On a file row |
+|---|---|
+| `content_path` | The file in `docs/`, relative to the run folder |
+| `parent_url` | `canonical_url` of the page that linked it. Join on it to inherit that page's breadcrumb and citation |
+| `content_type` | From the server, or from the extension when the server only says `application/octet-stream` |
+| `depth` | One more than the page that linked it |
+| `meta` | `source: "document"`, `bytes`, `content_sha256`, and `final_url` after redirects |
+
+A file linked from several pages is downloaded once, and its row names the
+first page it was found on.
+
+### Why a page or file is missing
+
+`skipped_pages.jsonl` and `failed_documents.jsonl` share one record shape
+(illustrative values):
+
+```json
+{"url": "https://site.example/files/notice.pdf", "reason": "http_4xx", "status": 404,
+ "detail": "", "parent_url": "https://site.example/notices", "depth": 1}
+```
+
+| `reason` | Meaning |
+|---|---|
+| `robots` | robots.txt disallows it for our User-Agent. Never requested |
+| `http_4xx` / `http_5xx` | The server refused; the code is in `status`. 429 and 502–504 only after the retries ran out |
+| `too_large` | Over `fetch.max_bytes` (pages) or `fetch.max_asset_bytes` (files) |
+| `off_scope` | Outside `allowed_domains`, or ruled out by `include_patterns` / `exclude_patterns`. Never requested |
+| `max_depth` | Only ever found deeper than `max_depth` |
+| `max_pages` | Still queued when the page budget ran out |
+| `max_documents` | Linked after the file budget ran out. Never requested |
+| `duplicate` | Its canonical URL was already captured from another address |
+| `fetch_failed` | No usable response: network error, timeout, or a failed browser render. `detail` says which |
+| `invalid_url`, `discover_failed`, `write_failed`, `crawl_stopped` | Rare. `detail` carries the error |
+
+`manifest.json` carries the counts as `pages_skipped_by_reason` and
+`documents_failed_by_reason`. Hundreds of `off_scope` and `max_pages` rows are
+normal on a big site. A `robots`, `http_5xx` or `fetch_failed` count that grows
+from one run to the next is the one worth looking at.
+
+Every run listed below predates these two files, so none of them has either
+file or any file rows in `pages.jsonl`. Their downloads are listed only under
+`assets_saved` in `manifest.json`.
+
+### Runs captured
+
+| Site | Run | Pages | Files | In |
+|---|---|---|---|---|
+| BDREN | `bdren-20260911T042956Z` | 250 | 200 | `bdren.zip` |
+| BDREN | `bdren-20260913T073128Z` | 200 | 200 | `bdren.zip` |
+| BUBT | `bubt-20260908T220949Z` | 100 | 39 | `bubt.zip` |
+| BUBT | `bubt-20260913T073849Z` | 200 | 58 | `bubt.zip` |
+| Daffodil | `daffodil-20260913T071704Z` | 194 | 19 | `daffodil.zip` |
+| Green University | `green-20260908T220124Z` | 5 | 0 | `green.zip` |
+| Green University | `green-20260913T074606Z` | 200 | 5 | `green.zip` |
+| Star Tech | `startech-20260913T070817Z` | 200 | 0 | `startech.zip` |
+| The Daily Star | `thedailystar-20260913T062819Z` | 200 | 0 | `thedailystar.zip` |
+| UIU | `uiu-20260913T075008Z` | 181 | 59 | `uiu.zip` |
+
+All ten manifests report `errors: []`. The two BDREN runs hold the same 200
+files, byte for byte; they differ only in the pages captured. The zips were
+built from commit `1fa4f21`, the last commit holding the runs unzipped, and
+checked file-for-file against it.
+
+### BDREN run notes
+1. **BDREN (`engine/data/sites/bdren/bdren-20260911T042956Z/`)**:
+   - `pages.jsonl`: 250 captured pages (up from 40 — the previous run's page
+     budget was consumed entirely by repeated nav-menu links, so no /news or
+     /events detail pages were ever reached; pagination seeds fixed this).
+   - `docs/`: 200 downloaded documents (PDF + XLSX) — raised from an earlier
+     90-document cap after confirming ~180 unique notice PDFs existed on
+     the site; timeout also raised from 20s to 30s to avoid transient
+     fetch failures on larger files.
+   - `raw/`: 250 raw HTML files.
+   - `documents.jsonl`: 224 clean documents already extracted (HTML → title/text/
+     tables/breadcrumb), via a self-contained extractor at
+     engine/src/engine/knowledge/bdren/bdren_extraction.py — NOT the shared
+     engine extract pipeline, since that's still unbuilt. Re-run the command
+     below if the crawl run changes.
+   - Both `docs/` and `raw/` are now organized into per-section subfolders
+     (e.g. `docs/notice/`, `docs/resourceshub/`, `raw/news/`, `raw/events/`)
+     derived from each URL's path, instead of one flat directory.
+
+### Known gaps in the BDREN extraction
+
+- **Bangla content exists and is untested for correct decoding.** At least one
+  news article (`/news?page=13`) is fully in Bangla. Unlike CUET's 122 verified
+  Bangla documents, this has not been checked for mojibake — worth confirming
+  before Team B picks an embedding model.
+- **7 `service-catalog`/`service` pages captured only boilerplate** (office
+  address/phone, no real service description) — likely JS content that didn't
+  finish rendering before capture. These pages passed the min-length filter
+  but carry no real content. Listed here rather than silently included:
+  gpu-service, data-center-colocation-service, training-and-workshop-service,
+  grants-and-financial-assistance-service, smart-classroom-service,
+  software-services, erp-module-service.
+
+```bash
+cd engine
+# Unzip the site's zip from crawl-archives/ into data/sites/ first (Section 8).
+uv run python -m engine.knowledge.bdren.bdren_extraction data/sites/bdren/bdren-20260911T042956Z
+uv run engine extract --run data/sites/bubt/bubt-20260908T220949Z
+uv run engine extract --run data/sites/green/green-20260908T220124Z
+```
+
+---
+
+## 8. Heavy assets: `engine/crawl-archives/`
+
+Large binaries are not committed as loose files. Each website's are committed
+as **one zip**, in `engine/crawl-archives/`, stored with **Git LFS**: git holds
+a small pointer per zip and GitHub's LFS storage holds the bytes, which is what
+lets a 565 MB zip past GitHub's 100 MB limit on a single file. Google Drive is
+no longer where this data lives; restore from the zips, not from Drive.
+
+| Zip | Unzip into | Contents |
+|---|---|---|
+| `cuet.zip` | `engine/corpus/` | `cuet/_files/`: the 1,106 downloaded PDFs and Word files in `_files/index.json`. `cuet/_meta/api_dump.json`: every API response verbatim. `cuet/_meta/chunk_cache/`: 47 JavaScript bundles saved from the site |
+| `<site>.zip` | `engine/data/sites/` | Every crawl run of that site, listed in Section 7 |
+
+**Install Git LFS before cloning or pulling**, or every `.zip` arrives as a
+tiny text pointer that will not open:
+
+```powershell
+git lfs install
+git lfs pull
+Expand-Archive engine/crawl-archives/cuet.zip -DestinationPath engine/corpus
+Expand-Archive engine/crawl-archives/bubt.zip -DestinationPath engine/data/sites
+```
+
+`api_dump.json` holds every API response exactly as returned, saved before any
+parsing. If an extraction decision turns out to be wrong it can be redone offline
+against those bytes instead of by re-crawling a university's server. That is what
+made fixing an HTML-entity bug across 1,127 URLs cost one second rather than 61
+requests.
+
+### `_files/index.json` is in git, never in `cuet.zip`
+
+`engine/corpus/cuet/_files/index.json` is committed and `--stage merge`
+rewrites it on every run. `cuet.zip` deliberately leaves it out, and
+`_files/README.md` with it, so that unzipping can never put an older copy on top
+of the committed one. An older `index.json` removes the `sources` mapping from
+every entry, and nothing fails to tell you: the corpus still loads, the PDFs
+still open, and every file quietly loses its link back to the documents that
+reference it. The CUET folder downloaded from Drive carries two such older
+copies, which is one more reason not to restore from it.
+
+### Rules for the zips
+
+- **Unzip into the folder in the table above, and never mix two runs.** Every
+  `content_path` is relative to its own run folder, so files from two runs
+  mixed together point at each other's missing files, and nothing warns you.
+- **A zip is rebuilt whole, from a complete folder.** Unzip the current zip
+  first, add the new crawl run or the new CUET downloads, then zip again.
+  Zipping a folder that is missing something removes it from the zip. The
+  commands are in `engine/crawl-archives/README.md`.
+- **Record every new run** in the table in Section 7.
+- **Unzipped data stays out of git.** `engine/data/` holds only `.gitkeep`, and
+  `.gitignore` keeps CUET's downloaded files out too.
+- **Every rebuild stores a full new copy** in the organisation's LFS storage, so
+  rebuild when there is new data, not on every commit.
+
+## 9. Summary for developers
+
+| Need | Go to | Command |
+|---|---|---|
+| Embed clean CUET pages and notices | `engine/corpus/cuet/` | `python -m engine.crawler.cuet --stage merge` |
+| Rebuild after pulling | `engine/corpus/cuet/` | same as above, no network |
+| Extract raw crawled pages | `engine/data/sites/<site>/<run>`, unzipped from `engine/crawl-archives/<site>.zip` | `uv run engine extract --run data/sites/...` |
+| See why a page or file is missing from a run | `skipped_pages.jsonl`, `failed_documents.jsonl` in the run folder | read them; reasons are in Section 7 |
+| Check the corpus is sound | `engine/corpus/cuet/` | `python -m engine.crawler.cuet --stage verify` |
+| See who owns which slice | — | `python -m engine.crawler.cuet --list-portions` |
+| Inspect downloaded PDFs | `engine/corpus/cuet/_files/` | unzip `engine/crawl-archives/cuet.zip` into `engine/corpus/` if missing |
+| Understand a scraping rule | `engine/src/engine/crawler/cuet/config.py` | read it; the reasons are next to the values |
