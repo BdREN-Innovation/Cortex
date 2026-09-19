@@ -33,7 +33,12 @@ def contains_expected(answer_text: str, expected: list[str]) -> float:
     not whole sentences. If you later want semantic scoring, an LLM judge is
     the usual next step — but get this working and calibrated first.
     """
-    raise NotImplementedError
+    if not expected:
+        return 1.0
+
+    answer_lower = answer_text.lower()
+    found = sum(1 for e in expected if e.lower() in answer_lower)
+    return found / len(expected)
 
 
 def citation_precision(cited_doc_ids: list[str], relevant_doc_ids: list[str]) -> float:
@@ -46,7 +51,17 @@ def citation_precision(cited_doc_ids: list[str], relevant_doc_ids: list[str]) ->
     Decide and document what "no citations" means: for an answerable case it is
     a failure, for an unanswerable one it is correct.
     """
-    raise NotImplementedError
+    if not cited_doc_ids:
+        # No citations at all. Correct for an unanswerable question (nothing
+        # to cite), a failure for an answerable one. This function only sees
+        # the citation lists, not case type, so the caller (runner.py) is
+        # responsible for interpreting a 0.0 here correctly depending on
+        # whether the case was answerable.
+        return 0.0
+
+    relevant_set = set(relevant_doc_ids)
+    correct = sum(1 for doc_id in cited_doc_ids if doc_id in relevant_set)
+    return correct / len(cited_doc_ids)
 
 
 def refusal_correct(refused: bool, answerable: bool) -> bool:
@@ -58,4 +73,6 @@ def refusal_correct(refused: bool, answerable: bool) -> bool:
     answering an unanswerable one is the failure that loses trust in the whole
     system.
     """
-    raise NotImplementedError
+    if answerable:
+        return not refused
+    return refused

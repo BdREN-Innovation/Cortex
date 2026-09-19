@@ -24,6 +24,8 @@ Decisions you own
 
 from __future__ import annotations
 
+import math
+
 
 def recall_at_k(retrieved_doc_ids: list[str], relevant_doc_ids: list[str], k: int) -> float:
     """What fraction of the relevant documents appear in the top k?
@@ -33,7 +35,13 @@ def recall_at_k(retrieved_doc_ids: list[str], relevant_doc_ids: list[str], k: in
     alternative (0.0) drags the average down for cases that were never
     supposed to retrieve anything.
     """
-    raise NotImplementedError
+    if not relevant_doc_ids:
+        return 1.0
+
+    top_k = retrieved_doc_ids[:k]
+    relevant_set = set(relevant_doc_ids)
+    found = sum(1 for doc_id in top_k if doc_id in relevant_set)
+    return found / len(relevant_set)
 
 
 def mrr(retrieved_doc_ids: list[str], relevant_doc_ids: list[str]) -> float:
@@ -43,7 +51,14 @@ def mrr(retrieved_doc_ids: list[str], relevant_doc_ids: list[str]) -> float:
     Ranks are 1-based. This is the metric that notices "the right answer was
     there, but at position 9" — which recall@5 reports as a flat failure.
     """
-    raise NotImplementedError
+    if not relevant_doc_ids:
+        return 0.0
+
+    relevant_set = set(relevant_doc_ids)
+    for rank, doc_id in enumerate(retrieved_doc_ids, start=1):
+        if doc_id in relevant_set:
+            return 1.0 / rank
+    return 0.0
 
 
 def ndcg_at_k(retrieved_doc_ids: list[str], relevant_doc_ids: list[str], k: int) -> float:
@@ -53,4 +68,21 @@ def ndcg_at_k(retrieved_doc_ids: list[str], relevant_doc_ids: list[str], k: int)
     hits; divide by the ideal DCG (the same sum if every relevant document sat
     at the top). Return 0.0, not NaN, when the ideal is zero.
     """
-    raise NotImplementedError
+    if not relevant_doc_ids:
+        return 0.0
+
+    relevant_set = set(relevant_doc_ids)
+    top_k = retrieved_doc_ids[:k]
+
+    dcg = sum(
+        1.0 / math.log2(rank + 1)
+        for rank, doc_id in enumerate(top_k, start=1)
+        if doc_id in relevant_set
+    )
+
+    ideal_hits = min(len(relevant_set), k)
+    ideal_dcg = sum(1.0 / math.log2(rank + 1) for rank in range(1, ideal_hits + 1))
+
+    if ideal_dcg == 0.0:
+        return 0.0
+    return dcg / ideal_dcg
