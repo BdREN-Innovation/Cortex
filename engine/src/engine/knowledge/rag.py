@@ -221,15 +221,24 @@ def _gemini_generate(
         f"Answer:"
     )
 
-    response = client.models.generate_content(
-        model=model,
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            temperature=float(
-                temperature
+    response = None
+    for attempt in range(6):
+        try:
+            response = client.models.generate_content(
+                model=model,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    temperature=float(temperature)
+                ),
             )
-        ),
-    )
+            break
+        except Exception as exc:
+            transient = any(code in str(exc) for code in ("429", "503", "500"))
+            if not transient or attempt == 5:
+                raise
+            wait = 15 * (attempt + 1)
+            log.warning("gemini busy (%s); retrying in %ss", str(exc)[:60], wait)
+            time.sleep(wait)
 
     text = (
         getattr(

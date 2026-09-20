@@ -1,0 +1,19 @@
+# uv run engine index --documents data/sites/bdren/<run>/documents.jsonl \
+#   --config configs/index.bdren.yaml
+#
+# OWNED BY: Mifta / Team C (dataset work for bdren)
+
+site: bdren
+
+backend: "qdrant"
+collection: "bdren-v1"              # own collection — do not reuse cuet-v1
+recreate_collection: false          # first build for this collection; safe to leave true once, switch to false after
+
+embedding_provider: "cohere"
+embedding_model: "embed-multilingual-v3.0"   # handles the Bangla news page correctly
+dimensions: 0
+
+chunk:
+  target_tokens: 350
+  overlap_tokens: 60
+  min_tokens: 40

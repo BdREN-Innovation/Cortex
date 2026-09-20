@@ -245,7 +245,7 @@ class QdrantStore:
         dimensions: int,
         recreate: bool = False,
         ensure: bool = True,
-        batch_size: int = 128,
+        batch_size: int = 32,
         url: str | None = None,
         api_key: str | None = None,
     ) -> None:
@@ -271,7 +271,7 @@ class QdrantStore:
         self.collection = collection
         self.dimensions = dimensions
         self.batch_size = batch_size
-        self._client = QdrantClient(url=url, api_key=api_key)
+        self._client = QdrantClient(url=url, api_key=api_key, timeout=120.0)
 
         exists = self._client.collection_exists(collection)
         if ensure:

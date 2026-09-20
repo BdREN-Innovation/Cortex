@@ -28,7 +28,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from engine.contracts.documents import CleanDocument
-from engine.contracts.jsonio import read_jsonl
+from engine.contracts.jsonio import read_jsonl, write_jsonl
 from engine.knowledge.chunking import ChunkConfig, chunk_documents
 from engine.knowledge.embedding import build_embedder
 from engine.knowledge.store import IndexMeta, build_store, save_index_meta
@@ -153,6 +153,8 @@ def build_index(
     )
     store.add(chunks, vectors)
     store.save(index_dir)
+    # Keep the chunk text beside the index so sparse/hybrid retrieval can use it.
+    write_jsonl(index_dir / "chunks.jsonl", chunks)
 
     meta = IndexMeta(
         index_id=resolved_id,
