@@ -1,0 +1,14 @@
+cases:
+  - case_id: "smoke_001"
+    question: "What is the overall network availability for BdREN in August 2026?"
+    answerable: true
+    relevant_doc_ids: ["b2b6bf24c8657c18"]
+    expected_answer_contains: ["99.91"]
+  - case_id: "smoke_021"
+    question: "How many public universities are connected to BdREN?"
+    answerable: true
+    relevant_doc_ids: ["ab28e050ae4d11b7"]
+    expected_answer_contains: ["45"]
+  - case_id: "smoke_006"
+    question: "What is BdREN's guaranteed uptime SLA percentage for premium members?"
+    answerable: false
