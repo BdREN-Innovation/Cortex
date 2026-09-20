@@ -1,0 +1,16 @@
+# uv run engine eval --dataset datasets/bdren/golden.v1.yaml \
+#   --index data/index/bdren/<index_id> --config configs/eval.bdren.yaml
+#
+# OWNED BY: Mifta / Team C
+
+top_k: 5
+min_answer_score: 0.5
+require_citation: true
+
+rag:
+  provider: "gemini"
+  model: "gemini-3.5-flash-lite"
+  top_k: 5
+  min_score: 0.0
+  max_context_chars: 8000
+  temperature: 0.0

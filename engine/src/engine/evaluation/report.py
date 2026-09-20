@@ -19,6 +19,10 @@ Decisions you own
 
 from __future__ import annotations
 
+import json
+from dataclasses import asdict
+from pathlib import Path
+
 from engine.contracts.evaluation import EvalResult, RunReport
 
 _MAX_FAILURES_SHOWN = 20
@@ -118,7 +122,25 @@ def render_report(report: RunReport) -> str:
     lines.append("")
 
     return "\n".join(lines)
+def write_report(report: RunReport, out_dir: str | Path) -> Path:
+    """Write both the human-readable scorecard and the raw data behind it.
 
+    report.md  -- rendered Markdown, for people (via render_report above)
+    report.json -- the full RunReport as JSON, for anything that wants to
+                    compare two runs' numbers programmatically later.
+    """
+    out_dir = Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    (out_dir / "report.json").write_text(
+        json.dumps(asdict(report), indent=2, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    (out_dir / "report.md").write_text(
+        render_report(report),
+        encoding="utf-8",
+    )
+    return out_dir
 
 def _failure_row(r: EvalResult) -> str:
     question = _cell(r.question)

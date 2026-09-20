@@ -20,6 +20,7 @@ Decisions you own
 
 from __future__ import annotations
 
+import re
 import time
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
@@ -61,6 +62,58 @@ class EvalConfig:
     dataset_name: str = ""
     index_id: str = ""
 
+    @classmethod
+    def from_dict(cls, payload: dict | None) -> "EvalConfig":
+        payload = payload or {}
+        rag_payload = payload.get("rag")
+        rag_config = RagConfig.from_dict(rag_payload) if rag_payload is not None else None
+        return cls(
+            top_k=int(payload.get("top_k", 5)),
+            rag=rag_config,
+            recall_pass_threshold=float(
+                payload.get("recall_pass_threshold", _RECALL_PASS_THRESHOLD)
+            ),
+            answer_pass_threshold=float(
+                payload.get(
+                    "answer_pass_threshold",
+                    payload.get("min_answer_score", _ANSWER_PASS_THRESHOLD),
+                )
+            ),
+            run_id=str(payload.get("run_id", "")),
+            dataset_name=str(payload.get("dataset_name", "")),
+            index_id=str(payload.get("index_id", "")),
+        )
+
+
+
+def _cited_doc_ids(answer) -> list[str]:
+    """Doc ids of the passages the answer text actually cites via [n] markers."""
+    ids: list[str] = []
+    for m in re.finditer(r"\[(\d+)\]", answer.text or ""):
+        n = int(m.group(1))
+        if 1 <= n <= len(answer.citations):
+            doc = answer.citations[n - 1].doc_id
+            if doc not in ids:
+                ids.append(doc)
+    if not ids and answer.provider == "extractive":
+        ids = list(dict.fromkeys(c.doc_id for c in answer.citations))
+    return ids
+
+
+class _RecordingRetriever:
+    """Wraps a retriever and remembers what it returned for the last query."""
+
+    def __init__(self, inner):
+        self._inner = inner
+        self.last = []
+
+    def retrieve(self, query, top_k=5):
+        self.last = list(self._inner.retrieve(query, top_k=top_k))
+        return self.last
+
+    def __getattr__(self, name):
+        return getattr(self._inner, name)
+
 
 def score_case(case: EvalCase, retriever: Retriever, config: EvalConfig | None = None) -> EvalResult:
     """Retrieve, answer, and score ONE case. Never raises for a scoring
@@ -70,13 +123,14 @@ def score_case(case: EvalCase, retriever: Retriever, config: EvalConfig | None =
     config = config or EvalConfig()
     start = time.monotonic()
     try:
-        result_answer = generate_answer(case.question, retriever, config.rag)
+        recorder = _RecordingRetriever(retriever)
+        result_answer = generate_answer(case.question, recorder, config.rag)
         latency_ms = int((time.monotonic() - start) * 1000)
 
-        retrieved_doc_ids = list(
-            dict.fromkeys(c.doc_id for c in result_answer.citations)
-        ) or result_answer.retrieved_chunk_ids
-        cited_doc_ids = list(dict.fromkeys(c.doc_id for c in result_answer.citations))
+        # What the retriever actually returned, not what the answer cited.
+        retrieved_chunks = recorder.last[: config.top_k]
+        retrieved_doc_ids = list(dict.fromkeys(c.doc_id for c in retrieved_chunks))
+        cited_doc_ids = _cited_doc_ids(result_answer)
 
         recall = recall_at_k(retrieved_doc_ids, case.relevant_doc_ids, k=config.top_k)
         rank_score = mrr(retrieved_doc_ids, case.relevant_doc_ids)
@@ -161,6 +215,9 @@ def run_evaluation(
     cases: list[EvalCase],
     retriever: Retriever,
     config: EvalConfig | None = None,
+    *,
+    dataset_name: str = "",
+    index_id: str = "",
 ) -> RunReport:
     """Score every case and aggregate. This is the entry point `engine eval` calls."""
     config = config or EvalConfig()
@@ -174,8 +231,8 @@ def run_evaluation(
 
     return RunReport(
         run_id=config.run_id or datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"),
-        dataset=config.dataset_name,
-        index_id=config.index_id,
+        dataset=dataset_name or config.dataset_name,
+        index_id=index_id or config.index_id,
         started_at=started_at,
         finished_at=finished_at,
         case_count=len(cases),

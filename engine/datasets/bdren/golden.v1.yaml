@@ -493,3 +493,27 @@ cases:
     question: "Does BdREN carry cyber insurance coverage for its network infrastructure?"
     answerable: false
     tags: ["shape8", "unanswerable"]
+
+
+
+
+    
+  - case_id: "bdren_069"
+    question: "What is BdREN's average network latency (RTT) between member campus routers?"
+    answerable: false
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "bdren_070"
+    question: "Does BdREN charge a late-payment penalty on overdue membership fees?"
+    answerable: false
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "bdren_071"
+    question: "What is BdREN's guaranteed recovery time if its main data center goes offline?"
+    answerable: false
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "bdren_072"
+    question: "Does BdREN offer a free trial period for prospective member institutions before formal approval?"
+    answerable: false
+    tags: ["shape8", "unanswerable"]
