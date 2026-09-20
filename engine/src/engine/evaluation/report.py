@@ -72,7 +72,7 @@ def render_report(report: RunReport) -> str:
     lines.append("| Metric | Value | Answers this |")
     lines.append("|---|---|---|")
     lines.append(
-        f"| Mean recall@5 | {_num(agg.get('mean_recall_at_5', 0.0))} | "
+        f"| Mean recall@5 | {_num(agg.get('mean_recall_at_k', 0.0))} | "
         f"Were the right documents even retrieved? |"
     )
     lines.append(
@@ -80,7 +80,7 @@ def render_report(report: RunReport) -> str:
         f"How far down the ranking was the first right document? |"
     )
     lines.append(
-        f"| Mean nDCG@5 | {_num(agg.get('mean_ndcg_at_5', 0.0))} | "
+        f"| Mean nDCG@5 | {_num(agg.get('mean_ndcg_at_k', 0.0))} | "
         f"How good was the whole ranking, not just the first hit? |"
     )
     lines.append(

@@ -21,6 +21,7 @@ Decisions you own
 from __future__ import annotations
 
 import time
+from dataclasses import dataclass, field
 from datetime import datetime, timezone
 
 from engine.contracts.evaluation import EvalCase, EvalResult, RunReport
@@ -42,29 +43,44 @@ _RECALL_PASS_THRESHOLD = 0.5
 _ANSWER_PASS_THRESHOLD = 0.5
 
 
-def score_case(case: EvalCase, retriever: Retriever, config: RagConfig | None = None) -> EvalResult:
+@dataclass
+class EvalConfig:
+    """Settings for one evaluation run.
+
+    `top_k` and `rag` are passed straight through to the retriever/answerer;
+    the thresholds decide what "passed" means for score_case, kept here
+    (rather than hardcoded) so a run can be repeated with different criteria
+    without editing this file.
+    """
+
+    top_k: int = 5
+    rag: RagConfig | None = None
+    recall_pass_threshold: float = _RECALL_PASS_THRESHOLD
+    answer_pass_threshold: float = _ANSWER_PASS_THRESHOLD
+    run_id: str = ""
+    dataset_name: str = ""
+    index_id: str = ""
+
+
+def score_case(case: EvalCase, retriever: Retriever, config: EvalConfig | None = None) -> EvalResult:
     """Retrieve, answer, and score ONE case. Never raises for a scoring
     failure — an exception here is caught and turned into a failed result so
     that one bad case does not lose the other fifty-nine.
     """
+    config = config or EvalConfig()
     start = time.monotonic()
     try:
-        result_answer = generate_answer(case.question, retriever, config)
+        result_answer = generate_answer(case.question, retriever, config.rag)
         latency_ms = int((time.monotonic() - start) * 1000)
 
         retrieved_doc_ids = list(
-            dict.fromkeys(
-                # retrieved_chunk_ids on Answer are chunk ids; for doc-level
-                # retrieval metrics we need doc ids, which live on the
-                # citations when present, else fall back to chunk ids.
-                c.doc_id for c in result_answer.citations
-            )
+            dict.fromkeys(c.doc_id for c in result_answer.citations)
         ) or result_answer.retrieved_chunk_ids
         cited_doc_ids = list(dict.fromkeys(c.doc_id for c in result_answer.citations))
 
-        recall = recall_at_k(retrieved_doc_ids, case.relevant_doc_ids, k=5)
+        recall = recall_at_k(retrieved_doc_ids, case.relevant_doc_ids, k=config.top_k)
         rank_score = mrr(retrieved_doc_ids, case.relevant_doc_ids)
-        ndcg = ndcg_at_k(retrieved_doc_ids, case.relevant_doc_ids, k=5)
+        ndcg = ndcg_at_k(retrieved_doc_ids, case.relevant_doc_ids, k=config.top_k)
 
         answer_score = contains_expected(result_answer.text, case.expected_answer_contains)
 
@@ -77,9 +93,9 @@ def score_case(case: EvalCase, retriever: Retriever, config: RagConfig | None = 
         refusal_ok = refusal_correct(result_answer.refused, case.answerable)
 
         metrics = {
-            "recall_at_5": recall,
+            "recall_at_k": recall,
             "mrr": rank_score,
-            "ndcg_at_5": ndcg,
+            "ndcg_at_k": ndcg,
             "answer_score": answer_score,
             "citation_precision": cite_score,
             "refusal_correct": refusal_ok,
@@ -88,8 +104,8 @@ def score_case(case: EvalCase, retriever: Retriever, config: RagConfig | None = 
         if case.answerable:
             passed = (
                 refusal_ok
-                and recall >= _RECALL_PASS_THRESHOLD
-                and answer_score >= _ANSWER_PASS_THRESHOLD
+                and recall >= config.recall_pass_threshold
+                and answer_score >= config.answer_pass_threshold
             )
         else:
             # For an unanswerable case, the only thing that matters is that
@@ -97,7 +113,7 @@ def score_case(case: EvalCase, retriever: Retriever, config: RagConfig | None = 
             # this whole harness exists to catch.
             passed = refusal_ok
 
-        failure_reason = "" if passed else _explain_failure(case, refusal_ok, recall, answer_score)
+        failure_reason = "" if passed else _explain_failure(case, refusal_ok, recall, answer_score, config)
 
         return EvalResult(
             case_id=case.case_id,
@@ -127,28 +143,27 @@ def score_case(case: EvalCase, retriever: Retriever, config: RagConfig | None = 
         )
 
 
-def _explain_failure(case: EvalCase, refusal_ok: bool, recall: float, answer_score: float) -> str:
+def _explain_failure(
+    case: EvalCase, refusal_ok: bool, recall: float, answer_score: float, config: EvalConfig
+) -> str:
     if not refusal_ok:
         if case.answerable:
             return "system refused a question it should have answered"
         return "system answered a question it should have refused (hallucination)"
-    if recall < _RECALL_PASS_THRESHOLD:
+    if recall < config.recall_pass_threshold:
         return f"retrieval missed relevant documents (recall={recall:.2f})"
-    if answer_score < _ANSWER_PASS_THRESHOLD:
+    if answer_score < config.answer_pass_threshold:
         return f"answer text did not contain expected facts (score={answer_score:.2f})"
     return "failed"
 
 
-def run_eval(
+def run_evaluation(
     cases: list[EvalCase],
     retriever: Retriever,
-    config: RagConfig | None = None,
-    *,
-    run_id: str = "",
-    dataset_name: str = "",
-    index_id: str = "",
+    config: EvalConfig | None = None,
 ) -> RunReport:
     """Score every case and aggregate. This is the entry point `engine eval` calls."""
+    config = config or EvalConfig()
     started_at = datetime.now(timezone.utc).isoformat()
 
     results = [score_case(case, retriever, config) for case in cases]
@@ -158,15 +173,19 @@ def run_eval(
     finished_at = datetime.now(timezone.utc).isoformat()
 
     return RunReport(
-        run_id=run_id or datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"),
-        dataset=dataset_name,
-        index_id=index_id,
+        run_id=config.run_id or datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"),
+        dataset=config.dataset_name,
+        index_id=config.index_id,
         started_at=started_at,
         finished_at=finished_at,
         case_count=len(cases),
         aggregate=aggregate,
         results=results,
-        config=dict(vars(config)) if config is not None else {},
+        config={
+            "top_k": config.top_k,
+            "recall_pass_threshold": config.recall_pass_threshold,
+            "answer_pass_threshold": config.answer_pass_threshold,
+        },
     )
 
 
@@ -182,9 +201,9 @@ def aggregate_results(results: list[EvalResult]) -> dict:
             "pass_rate": 0.0,
             "pass_rate_answerable": 0.0,
             "pass_rate_unanswerable": 0.0,
-            "mean_recall_at_5": 0.0,
+            "mean_recall_at_k": 0.0,
             "mean_mrr": 0.0,
-            "mean_ndcg_at_5": 0.0,
+            "mean_ndcg_at_k": 0.0,
             "mean_answer_score": 0.0,
             "mean_citation_precision": 0.0,
             "hallucination_rate": 0.0,
@@ -213,9 +232,9 @@ def aggregate_results(results: list[EvalResult]) -> dict:
         "pass_rate": _pass_rate(results),
         "pass_rate_answerable": _pass_rate(answerable),
         "pass_rate_unanswerable": _pass_rate(unanswerable),
-        "mean_recall_at_5": _mean([r.metrics.get("recall_at_5", 0.0) for r in answerable]),
+        "mean_recall_at_k": _mean([r.metrics.get("recall_at_k", 0.0) for r in answerable]),
         "mean_mrr": _mean([r.metrics.get("mrr", 0.0) for r in answerable]),
-        "mean_ndcg_at_5": _mean([r.metrics.get("ndcg_at_5", 0.0) for r in answerable]),
+        "mean_ndcg_at_k": _mean([r.metrics.get("ndcg_at_k", 0.0) for r in answerable]),
         "mean_answer_score": _mean([r.metrics.get("answer_score", 0.0) for r in answerable]),
         "mean_citation_precision": _mean(
             [r.metrics.get("citation_precision", 0.0) for r in results]

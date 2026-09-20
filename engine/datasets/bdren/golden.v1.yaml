@@ -1,0 +1,495 @@
+# Golden dataset for bdren.net.bd
+# Version 1 — do not edit history; create golden.v2.yaml for future changes
+#No PDF text extraction exists yet for BDREN (bdren_extraction.py explicitly
+ # skips PDFs — no parser implemented). All ~180 notice PDFs crawled are
+  #unavailable to the RAG system. Shape 4 (PDF-based questions) cannot be
+  #written until this is built.
+
+
+
+
+
+cases:
+  - case_id: "bdren_001"
+    question: "What is the overall network availability for BdREN in August 2026?"
+    answerable: true
+    relevant_doc_ids: ["b2b6bf24c8657c18"]
+    expected_answer_contains: ["99.91"]
+    tags: ["shape1", "fact"]
+
+  - case_id: "bdren_002"
+    question: "How much total data was downloaded through BdREN's network in August 2026?"
+    answerable: true
+    relevant_doc_ids: ["b2b6bf24c8657c18"]
+    expected_answer_contains: ["4081.26"]
+    tags: ["shape1", "fact"]
+
+  - case_id: "bdren_003"
+    question: "Is Chittagong University of Engineering & Technology (CUET) listed as a public university member of BdREN?"
+    answerable: true
+    relevant_doc_ids: ["b2b6bf24c8657c18"]
+    expected_answer_contains: ["Chittagong University of Engineering"]
+    tags: ["shape3", "table"]
+
+  - case_id: "bdren_004"
+    question: "Which serial number is Bangladesh University of Engineering and Technology (BUET) listed at in the public universities table?"
+    answerable: true
+    relevant_doc_ids: ["b2b6bf24c8657c18"]
+    expected_answer_contains: ["Bangladesh University of Engineering and Technology,BUET"]
+    tags: ["shape3", "table"]
+
+  - case_id: "bdren_005"
+    question: "When did BdREN hold its 43rd Board of Trustees meeting?"
+    answerable: true
+    relevant_doc_ids: ["b2b6bf24c8657c18"]
+    expected_answer_contains: ["28 February 2023"]
+    tags: ["shape1", "fact"]
+
+  
+  - case_id: "bdren_006"
+    question: "What is BdREN's guaranteed uptime SLA percentage for premium members?"
+    answerable: false
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "bdren_007"
+    question: "Is it possible for a member institution to access BdREN services without applying through the membership application process?"
+    answerable: false
+    tags: ["shape9", "near-miss"]
+
+  - case_id: "bdren_008"
+    question: "Did BdREN's overall network availability drop below 90% in August 2026?"
+    answerable: true
+    relevant_doc_ids: ["b2b6bf24c8657c18"]
+    expected_answer_contains: ["99.91"]
+    tags: ["shape2", "negative"]
+
+  - case_id: "bdren_009"
+    question: "How many students or attendees participated in BdREN's online education programs in August 2026, and how many total class hours were delivered in the same period?"
+    answerable: true
+    relevant_doc_ids: ["b2b6bf24c8657c18"]
+    expected_answer_contains: ["708906"]
+    tags: ["shape5", "multi-hop"]
+
+  - case_id: "bdren_010"
+    question: "How much compute power did BdREN's HPC service use at maximum in August 2026?"
+    answerable: true
+    relevant_doc_ids: ["b2b6bf24c8657c18"]
+    expected_answer_contains: ["2559.67"]
+    tags: ["shape1", "fact"]
+
+  - case_id: "bdren_011"
+    question: "what's the max ram thing for HPC around that time"
+    answerable: true
+    relevant_doc_ids: ["b2b6bf24c8657c18"]
+    expected_answer_contains: ["5671.36"]
+    tags: ["shape7", "vague"]
+  
+  - case_id: "bdren_012"
+    question: "What warranty does BdREN offer on its network equipment installations at member institutions?"
+    answerable: false
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "bdren_013"
+    question: "Total upload traffic in August 2026 was less than total download traffic — true or false?"
+    answerable: true
+    relevant_doc_ids: ["b2b6bf24c8657c18"]
+    expected_answer_contains: ["668.32"]
+    tags: ["shape2", "negative"]
+
+
+
+
+
+  - case_id: "bdren_014"
+    question: "What is the total number of member institutions listed on BdREN's partners page across all membership categories?"
+    answerable: true
+    relevant_doc_ids: ["de71e13b9659d02b"]
+    expected_answer_contains: ["121"]
+    tags: ["shape1", "fact"]
+
+  - case_id: "bdren_015"
+    question: "What type of institute is University of Rajshahi (RU) classified as in BdREN's member list?"
+    answerable: true
+    relevant_doc_ids: ["de71e13b9659d02b"]
+    expected_answer_contains: ["Public"]
+    tags: ["shape3", "table"]
+
+  - case_id: "bdren_016"
+    question: "Is International Centre for Diarrhoeal Disease Research, Bangladesh (ICDDR,B) classified as a Research Institute or a College in BdREN's member list?"
+    answerable: true
+    relevant_doc_ids: ["de71e13b9659d02b"]
+    expected_answer_contains: ["Research Institute"]
+    tags: ["shape3", "table"]
+
+  - case_id: "bdren_017"
+    question: "What is BdREN's own website address, as listed in the global list of research and education networks?"
+    answerable: true
+    relevant_doc_ids: ["a5da2048c06d9870"]
+    expected_answer_contains: ["www.bdren.net.bd"]
+    tags: ["shape1", "fact"]
+
+  - case_id: "bdren_018"
+    question: "Which research and education network represents India according to the global R&E network list?"
+    answerable: true
+    relevant_doc_ids: ["a5da2048c06d9870"]
+    expected_answer_contains: ["India"]
+    tags: ["shape6", "conflicting"]
+
+
+  - case_id: "bdren_019"
+    question: "Does BdREN's global R&E network list include a research and education network for Antarctica?"
+    answerable: false
+    tags: ["shape9", "near-miss"]
+
+  - case_id: "bdren_020"
+    question: "how many countries in that big list of research networks worldwide"
+    answerable: true
+    relevant_doc_ids: ["a5da2048c06d9870"]
+    expected_answer_contains: ["140"]
+    tags: ["shape7", "vague"]
+
+
+
+
+
+  
+
+
+  - case_id: "bdren_021"
+    question: "How many public universities are connected to BdREN?"
+    answerable: true
+    relevant_doc_ids: ["ab28e050ae4d11b7"]
+    expected_answer_contains: ["45"]
+    tags: ["shape1", "fact"]
+
+  - case_id: "bdren_022"
+    question: "What bandwidth package does Bangladesh University of Engineering and Technology (BUET) have with BdREN?"
+    answerable: true
+    relevant_doc_ids: ["ab28e050ae4d11b7"]
+    expected_answer_contains: ["3,000"]
+    tags: ["shape3", "table"]
+
+  - case_id: "bdren_023"
+    question: "Are more than 100 public universities connected to BdREN?"
+    answerable: true
+    relevant_doc_ids: ["ab28e050ae4d11b7"]
+    expected_answer_contains: ["45"]
+    tags: ["shape2", "negative"]
+
+  - case_id: "bdren_024"
+    question: "How many international universities are connected to BdREN?"
+    answerable: true
+    relevant_doc_ids: ["c95aae00338457d0"]
+    expected_answer_contains: ["2"]
+    tags: ["shape1", "fact"]
+
+  - case_id: "bdren_025"
+    question: "What bandwidth is allocated to Asian University for Women (AUW) under BdREN?"
+    answerable: true
+    relevant_doc_ids: ["c95aae00338457d0"]
+    expected_answer_contains: ["1,000"]
+    tags: ["shape3", "table"]
+
+  - case_id: "bdren_026"
+    question: "how much bandwidth does that women's university connected to bdren get"
+    answerable: true
+    relevant_doc_ids: ["c95aae00338457d0"]
+    expected_answer_contains: ["1,000"]
+    tags: ["shape7", "vague"]
+
+  - case_id: "bdren_027"
+    question: "What is the bandwidth for the second Bangladesh Rice Research Institute (BRRI) line connected to BdREN?"
+    answerable: true
+    relevant_doc_ids: ["6862f90b00acf41d"]
+    expected_answer_contains: ["50"]
+    tags: ["shape3", "table"]
+
+  - case_id: "bdren_028"
+    question: "How many connected institutions are shown in the Research Institutes bandwidth summary?"
+    answerable: true
+    relevant_doc_ids: ["6862f90b00acf41d"]
+    expected_answer_contains: ["4"]
+    tags: ["shape1", "fact"]
+
+  - case_id: "bdren_029"
+    question: "How many medical colleges are connected to BdREN?"
+    answerable: true
+    relevant_doc_ids: ["29d174f6fef2af73"]
+    expected_answer_contains: ["2"]
+    tags: ["shape1", "fact"]
+
+  - case_id: "bdren_030"
+    question: "What bandwidth does Jamalpur Medical College (JMC) have with BdREN?"
+    answerable: true
+    relevant_doc_ids: ["29d174f6fef2af73"]
+    expected_answer_contains: ["100"]
+    tags: ["shape3", "table"]
+
+  - case_id: "bdren_031"
+    question: "What bandwidth is allocated to Bangladesh Technical Education Board (BTEB) under BdREN?"
+    answerable: true
+    relevant_doc_ids: ["8ae0b74645438950"]
+    expected_answer_contains: ["200"]
+    tags: ["shape3", "table"]
+
+  - case_id: "bdren_032"
+    question: "How many colleges are connected to BdREN?"
+    answerable: true
+    relevant_doc_ids: ["b8178123ea5f7dc3"]
+    expected_answer_contains: ["61"]
+    tags: ["shape1", "fact"]
+
+  - case_id: "bdren_033"
+    question: "What bandwidth does Chittagong College, Chattogram have with BdREN?"
+    answerable: true
+    relevant_doc_ids: ["b8178123ea5f7dc3"]
+    expected_answer_contains: ["200"]
+    tags: ["shape3", "table"]
+
+  - case_id: "bdren_034"
+    question: "Is the total provisioned bandwidth for colleges connected to BdREN over 5,000 Mbps?"
+    answerable: true
+    relevant_doc_ids: ["b8178123ea5f7dc3"]
+    expected_answer_contains: ["4,100"]
+    tags: ["shape2", "negative"]
+
+
+
+
+
+  
+
+  - case_id: "bdren_035"
+    question: "How many private universities are connected to BdREN?"
+    answerable: true
+    relevant_doc_ids: ["e9ac3756197448df"]
+    expected_answer_contains: ["22"]
+    tags: ["shape1", "fact"]
+
+  - case_id: "bdren_036"
+    question: "What is the total provisioned bandwidth for private universities connected to BdREN?"
+    answerable: true
+    relevant_doc_ids: ["e9ac3756197448df"]
+    expected_answer_contains: ["10,381"]
+    tags: ["shape1", "fact"]
+
+  - case_id: "bdren_037"
+    question: "What is the average bandwidth per private university on BdREN?"
+    answerable: true
+    relevant_doc_ids: ["e9ac3756197448df"]
+    expected_answer_contains: ["472"]
+    tags: ["shape1", "fact"]
+
+  - case_id: "bdren_038"
+    question: "What bandwidth does Green University of Bangladesh (GUB) have with BdREN?"
+    answerable: true
+    relevant_doc_ids: ["e9ac3756197448df"]
+    expected_answer_contains: ["700"]
+    tags: ["shape3", "table"]
+
+  - case_id: "bdren_039"
+    question: "What bandwidth is allocated to North Bengal International University (NBIU)?"
+    answerable: true
+    relevant_doc_ids: ["e9ac3756197448df"]
+    expected_answer_contains: ["30 Mbps"]   # bare "30" would match 300 / 3,000
+    tags: ["shape3", "table"]
+
+  - case_id: "bdren_040"
+    question: "What bandwidth does the University of Asia Pacific (UAP) have with BdREN?"
+    answerable: true
+    relevant_doc_ids: ["e9ac3756197448df"]
+    expected_answer_contains: ["400"]
+    tags: ["shape3", "table"]
+
+  - case_id: "bdren_041"
+    question: "how much bandwidth does uiu get from bdren"
+    answerable: true
+    relevant_doc_ids: ["e9ac3756197448df"]
+    expected_answer_contains: ["1,000"]
+    tags: ["shape7", "vague"]
+
+  - case_id: "bdren_042"
+    question: "Which private universities have a 1,000 Mbps connection to BdREN?"
+    answerable: true
+    relevant_doc_ids: ["e9ac3756197448df"]
+    expected_answer_contains: ["BRAC", "United International", "Islamic University Chittagong", "Khwaja Yunus Ali"]
+    tags: ["list", "table"]
+
+  - case_id: "bdren_043"
+    question: "Does Independent University, Bangladesh (IUB) have more bandwidth than BRAC University?"
+    answerable: true
+    relevant_doc_ids: ["e9ac3756197448df"]
+    expected_answer_contains: ["No", "500", "1,000"]
+    tags: ["shape2", "negative"]
+
+  - case_id: "bdren_044"
+    question: "Is the total provisioned bandwidth for private universities over 12,000 Mbps?"
+    answerable: true
+    relevant_doc_ids: ["e9ac3756197448df"]
+    expected_answer_contains: ["No", "10,381"]
+    tags: ["shape2", "negative"]
+
+  - case_id: "bdren_045"
+    question: "How much bandwidth do the private university connections outside the top listed ones have in total?"
+    answerable: true
+    relevant_doc_ids: ["e9ac3756197448df"]
+    expected_answer_contains: ["3,681"]
+    tags: ["shape1", "fact"]
+
+  - case_id: "bdren_046"
+    question: "What bandwidth does Bangladesh Army University of Science and Technology, Khulna (BAUST Khulna) have?"
+    answerable: true
+    relevant_doc_ids: ["e9ac3756197448df"]
+    expected_answer_contains: ["50 Mbps"]
+    tags: ["shape3", "table"]
+
+
+
+  - case_id: "bdren_047"
+    question: "Which has more connected institutions on BdREN: public universities or private universities?"
+    answerable: true
+    relevant_doc_ids: ["ab28e050ae4d11b7", "e9ac3756197448df"]
+    expected_answer_contains: ["public", "45", "22"]
+    tags: ["shape5", "multihop"]
+
+  - case_id: "bdren_048"
+    question: "Who has more bandwidth with BdREN, BUET or BRAC University?"
+    answerable: true
+    relevant_doc_ids: ["ab28e050ae4d11b7", "e9ac3756197448df"]
+    expected_answer_contains: ["BUET", "3,000", "1,000"]
+    tags: ["shape5", "multihop"]
+
+  - case_id: "bdren_049"
+    question: "What is the combined bandwidth of Asian University for Women and Jamalpur Medical College on BdREN?"
+    answerable: true
+    relevant_doc_ids: ["c95aae00338457d0", "29d174f6fef2af73"]
+    expected_answer_contains: ["1,100"]
+    tags: ["shape5", "multihop", "arithmetic"]
+
+  - case_id: "bdren_050"
+    question: "What is the combined bandwidth of BUET and Chittagong College on BdREN?"
+    answerable: true
+    relevant_doc_ids: ["ab28e050ae4d11b7", "b8178123ea5f7dc3"]
+    expected_answer_contains: ["3,200"]
+    tags: ["shape5", "multihop", "arithmetic"]
+
+
+
+
+
+
+   #shape 6
+  - case_id: "bdren_051"
+    question: "How many research organisations are connected to BdREN?"
+    answerable: true
+    relevant_doc_ids: ["6862f90b00acf41d"]
+    expected_answer_contains: ["7", "4"]      # ভালো উত্তরে দুটো সংখ্যাই আসা উচিত
+    tags: ["shape6", "conflict"]
+
+  - case_id: "bdren_052"
+    question: "How many other organisations are connected to BdREN under the Others category?"
+    answerable: true
+    relevant_doc_ids: ["8ae0b74645438950"]     # Others doc কিনা যাচাই করো
+    expected_answer_contains: ["2", "5"]
+    tags: ["shape6", "conflict"]
+
+  - case_id: "bdren_053"
+    question: "How many private universities are connected to BdREN?"
+    answerable: true
+    relevant_doc_ids: ["e9ac3756197448df", "49a731fa52659be1"]
+    expected_answer_contains: ["22"]           # 49a731-এর তারিখ দেখার আগে final না
+    tags: ["shape6", "conflict", "conditional"]
+
+
+
+  
+  
+  - case_id: "bdren_054"
+    question: "buet bdren bandwidth koto"
+    answerable: true
+    relevant_doc_ids: ["ab28e050ae4d11b7"]
+    expected_answer_contains: ["3,000"]
+    tags: ["shape7", "vague", "typo"]
+
+  - case_id: "bdren_055"
+    question: "how many colleges r connected to bdren"
+    answerable: true
+    relevant_doc_ids: ["b8178123ea5f7dc3"]
+    expected_answer_contains: ["61"]
+    tags: ["shape7", "vague", "typo"]
+
+  - case_id: "bdren_056"
+    question: "brac uni speed from bdren"
+    answerable: true
+    relevant_doc_ids: ["e9ac3756197448df"]
+    expected_answer_contains: ["1,000"]
+    tags: ["shape7", "vague", "ambiguous"]
+
+  - case_id: "bdren_057"
+    question: "the medical college in jamalpur, what mbps do they get?"
+    answerable: true
+    relevant_doc_ids: ["29d174f6fef2af73"]
+    expected_answer_contains: ["100"]
+    tags: ["shape7", "vague"]
+
+  - case_id: "bdren_058"
+    question: "total bandwidth private unis together"
+    answerable: true
+    relevant_doc_ids: ["e9ac3756197448df"]
+    expected_answer_contains: ["10,381"]
+    tags: ["shape7", "vague"]
+
+
+
+    
+
+
+  - case_id: "bdren_059"
+    question: "What is BdREN's downtime penalty policy if network availability falls below the committed SLA?"
+    answerable: false
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "bdren_060"
+    question: "Is there a monthly data cap on BdREN's internet connectivity service for member institutions?"
+    answerable: false
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "bdren_061"
+    question: "What is BdREN's per-Mbps pricing for additional bandwidth beyond a member institution's allocated quota?"
+    answerable: false
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "bdren_062"
+    question: "Does BdREN offer service level credits to member institutions when network performance falls short of agreed targets?"
+    answerable: false
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "bdren_063"
+    question: "Does BdREN provide a money-back guarantee for unused bandwidth allocations?"
+    answerable: false
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "bdren_064"
+    question: "What date did BdREN report IPv4 address exhaustion on its network?"
+    answerable: false
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "bdren_065"
+    question: "What is the annual membership fee for a private university to join BdREN?"
+    answerable: false
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "bdren_066"
+    question: "How many staff does BdREN currently employ across its offices?"
+    answerable: false
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "bdren_067"
+    question: "What is BdREN's reported carbon footprint from its data center operations?"
+    answerable: false
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "bdren_068"
+    question: "Does BdREN carry cyber insurance coverage for its network infrastructure?"
+    answerable: false
+    tags: ["shape8", "unanswerable"]
