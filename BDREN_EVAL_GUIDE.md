@@ -5,6 +5,10 @@
 
 | Area | Owner | What | Verified this session? |
 |---|---|---|---|
+| Evaluation package implementation | **Tasmia** | `metrics/retrieval.py`, `metrics/answer.py`, `dataset.py`, `runner.py`, `report.py` — all 5 were empty stubs, built from scratch | Yes — `scripts/progress.py` confirmed 19/19 (100%) after implementation, and each metric function unit-tested against hand-built cases before committing |
+| Golden dataset v1 — initial 68 cases | **Tasmia** | `datasets/bdren/golden.v1.yaml` — authored from `documents.jsonl`, 8 of 9 shapes covered, 20.6% unanswerable | Yes — `load_dataset()` confirmed 68 cases with 0 validation errors; every unanswerable case confirmed via 2-3 `--grep` passes with increasingly specific phrasing before labeling |
+| PDF extraction gap — root cause found | **Tasmia** | Confirmed 0 of 228 documents in the team's own indexed BdREN corpus (`scratch/corpus/bdren/`) are `doc_type=pdf`, despite `pdf.py` being fully implemented (pymupdf/pdfplumber/OCR) | Yes — traced to `pages.jsonl` never receiving a PDF entry from the crawler, so `extract_documents()` never calls the PDF parser at all; flagged to the team before this session's fixes began |
+| Cross-team Git coordination | **Tasmia** | Merged `team-a/scrapers` and `team-b` into local `team-c/evaluation` branch without touching `main`; resolved `pyproject.toml`/`uv.lock` merge conflicts; set up Git LFS to pull large crawl archives (bdren.zip, ~592 MB) | Yes — `uv run python scripts/progress.py` confirmed 297/311 (95%) immediately after merge, before any Team C code was written |
 | Eval pipeline crash fixes | **Mifta** | `write_report`, `EvalConfig.from_dict` — both missing entirely, both blocked `engine eval` from running at all | Yes — traced the crashes, wrote the fixes, re-ran successfully |
 | Qdrant indexing fix | **Mifta** | `QdrantStore` had no client timeout, failed on any upsert batch over ~50 chunks — Team B's file, fixed to unblock eval, flagged for their review | Yes — reproduced the timeout, applied the fix, confirmed batches succeed |
 | BdREN eval configs | **Mifta** | `configs/index.bdren.yaml`, `configs/eval.bdren.yaml`, `configs/eval.bdren.k10.yaml` | Yes |
@@ -16,10 +20,7 @@
 | Full BdREN index build | **Mifta** | 174-document corpus → 453 chunks, Qdrant collection `bdren-v1`, index id `1c1e0d7984fd` | Yes |
 | Two real eval runs | **Mifta** | Dense (Gemini) and hybrid, both against the full index — first time this pipeline was run end-to-end for BdREN | Yes — full terminal transcripts for both, including the hybrid run's per-request logs |
 | Committed and pushed to `team-c/evaluation` | **Mifta** | 3 commits: Team C's own files; the cross-team fix to Team B's files (flagged "please review" in the message); `golden.v2.yaml` + `smoke.yaml` | Yes — full `git status`/`git push` sequence confirmed clean at each step, `.env` confirmed never staged |
-| Evaluation package implementation | **Tasmia** | `metrics/retrieval.py`, `metrics/answer.py`, `dataset.py`, `runner.py`, `report.py` — all 5 were empty stubs, built from scratch | Yes — `scripts/progress.py` confirmed 19/19 (100%) after implementation, and each metric function unit-tested against hand-built cases before committing |
-| Golden dataset v1 — initial 68 cases | **Tasmia** | `datasets/bdren/golden.v1.yaml` — authored from `documents.jsonl`, 8 of 9 shapes covered, 20.6% unanswerable | Yes — `load_dataset()` confirmed 68 cases with 0 validation errors; every unanswerable case confirmed via 2-3 `--grep` passes with increasingly specific phrasing before labeling |
-| PDF extraction gap — root cause found | **Tasmia** | Confirmed 0 of 228 documents in the team's own indexed BdREN corpus (`scratch/corpus/bdren/`) are `doc_type=pdf`, despite `pdf.py` being fully implemented (pymupdf/pdfplumber/OCR) | Yes — traced to `pages.jsonl` never receiving a PDF entry from the crawler, so `extract_documents()` never calls the PDF parser at all; flagged to the team before this session's fixes began |
-| Cross-team Git coordination | **Tasmia** | Merged `team-a/scrapers` and `team-b` into local `team-c/evaluation` branch without touching `main`; resolved `pyproject.toml`/`uv.lock` merge conflicts; set up Git LFS to pull large crawl archives (bdren.zip, ~592 MB) | Yes — `uv run python scripts/progress.py` confirmed 297/311 (95%) immediately after merge, before any Team C code was written |
+
 
 ---
 
