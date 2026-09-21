@@ -16,6 +16,10 @@
 | Full BdREN index build | **Mifta** | 174-document corpus → 453 chunks, Qdrant collection `bdren-v1`, index id `1c1e0d7984fd` | Yes |
 | Two real eval runs | **Mifta** | Dense (Gemini) and hybrid, both against the full index — first time this pipeline was run end-to-end for BdREN | Yes — full terminal transcripts for both, including the hybrid run's per-request logs |
 | Committed and pushed to `team-c/evaluation` | **Mifta** | 3 commits: Team C's own files; the cross-team fix to Team B's files (flagged "please review" in the message); `golden.v2.yaml` + `smoke.yaml` | Yes — full `git status`/`git push` sequence confirmed clean at each step, `.env` confirmed never staged |
+| Evaluation package implementation | **Tasmia** | `metrics/retrieval.py`, `metrics/answer.py`, `dataset.py`, `runner.py`, `report.py` — all 5 were empty stubs, built from scratch | Yes — `scripts/progress.py` confirmed 19/19 (100%) after implementation, and each metric function unit-tested against hand-built cases before committing |
+| Golden dataset v1 — initial 68 cases | **Tasmia** | `datasets/bdren/golden.v1.yaml` — authored from `documents.jsonl`, 8 of 9 shapes covered, 20.6% unanswerable | Yes — `load_dataset()` confirmed 68 cases with 0 validation errors; every unanswerable case confirmed via 2-3 `--grep` passes with increasingly specific phrasing before labeling |
+| PDF extraction gap — root cause found | **Tasmia** | Confirmed 0 of 228 documents in the team's own indexed BdREN corpus (`scratch/corpus/bdren/`) are `doc_type=pdf`, despite `pdf.py` being fully implemented (pymupdf/pdfplumber/OCR) | Yes — traced to `pages.jsonl` never receiving a PDF entry from the crawler, so `extract_documents()` never calls the PDF parser at all; flagged to the team before this session's fixes began |
+| Cross-team Git coordination | **Tasmia** | Merged `team-a/scrapers` and `team-b` into local `team-c/evaluation` branch without touching `main`; resolved `pyproject.toml`/`uv.lock` merge conflicts; set up Git LFS to pull large crawl archives (bdren.zip, ~592 MB) | Yes — `uv run python scripts/progress.py` confirmed 297/311 (95%) immediately after merge, before any Team C code was written |
 
 ---
 
@@ -24,6 +28,7 @@
 | Thing | Location | Notes |
 |---|---|---|
 | BdREN documents (source for eval questions) | `data/sites/bdren/bdren-20260913T073128Z/documents.jsonl` | 174 documents. Extracted via `engine.knowledge.bdren.bdren_extraction`, not the shared `engine extract` pipeline (per `DATA_GUIDE.md` §7 — BdREN has its own extractor) |
+| Golden dataset v1 — original 68 cases | `datasets/bdren/golden.v1.yaml` (before Mifta's 4-case addition) | Authored by Tasmia against `documents.jsonl` (180-doc extraction via the shared `engine extract` pipeline, before the switch to `bdren_extraction.py`'s 174-doc count) |
 | Golden dataset v1 | `datasets/bdren/golden.v1.yaml` | 72 cases, 25.0% unanswerable. The version actually used for both eval runs in §4 |
 | Golden dataset v2 | `datasets/bdren/golden.v2.yaml` | 72 cases (confirmed), cases 009/013 corrected. **Not yet run through `engine eval`** — v1 is still the one with real scorecards behind it |
 | Smoke test set | `datasets/bdren/smoke.yaml` | Contents not reviewed in this session — check before relying on it |
@@ -220,6 +225,9 @@ please review)"*.
 8. Pick several of the 174 zero-question documents — favoring ones with tables
    or PDFs, since those question shapes are currently unconfirmed in the
    dataset — and write real questions against them.
+9. (Tasmia) Split remaining CUET dataset work across the other two Team C
+   members using the same authoring workflow (browse → grep-confirm →
+   write case → validate).
 
 Full checklist against Team C's definition of done:
 [`engine/src/engine/evaluation/README.md`](engine/src/engine/evaluation/README.md) §8.
