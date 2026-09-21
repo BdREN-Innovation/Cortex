@@ -14,11 +14,16 @@ Decisions you own
 * Do you report the first problem or all of them? Someone fixing a 60-case
   dataset should get one report, not sixty round trips.
 
+Format decision: YAML. It is comfortable to hand-write, diffs cleanly in a
+pull request, and supports comments — which matters when a case needs a note
+explaining why it is a good "answerable: false" trap.
 """
 
 from __future__ import annotations
 
 from pathlib import Path
+
+import yaml
 
 from engine.contracts.evaluation import EvalCase
 
@@ -30,7 +35,21 @@ def load_dataset(path: str | Path) -> list[EvalCase]:
     first. Someone fixing a 60-case dataset should get one report, not sixty
     round trips.
     """
-    raise NotImplementedError
+    path = Path(path)
+    with path.open("r", encoding="utf-8") as f:
+        payload = yaml.safe_load(f) or {}
+
+    raw_cases = payload.get("cases", payload if isinstance(payload, list) else [])
+    cases = [EvalCase.from_dict(raw) for raw in raw_cases]
+
+    problems = validate_dataset(cases)
+    if problems:
+        joined = "\n".join(f"  - {p}" for p in problems)
+        raise ValueError(
+            f"{path} failed validation ({len(problems)} problem(s)):\n{joined}"
+        )
+
+    return cases
 
 
 def validate_dataset(cases: list[EvalCase]) -> list[str]:
@@ -48,4 +67,43 @@ def validate_dataset(cases: list[EvalCase]) -> list[str]:
         corpus genuinely cannot answer, you are only measuring recall and you
         will never detect hallucination. Aim for roughly a quarter.
     """
-    raise NotImplementedError
+    problems: list[str] = []
+
+    seen_ids: dict[str, int] = {}
+    for i, case in enumerate(cases):
+        if not case.case_id:
+            problems.append(f"case at index {i}: missing case_id")
+        else:
+            if case.case_id in seen_ids:
+                problems.append(
+                    f"case_id '{case.case_id}' is duplicated "
+                    f"(indices {seen_ids[case.case_id]} and {i})"
+                )
+            else:
+                seen_ids[case.case_id] = i
+
+        if not case.question.strip():
+            problems.append(f"case '{case.case_id or i}': empty question")
+
+        if case.answerable:
+            if not case.relevant_doc_ids:
+                problems.append(
+                    f"case '{case.case_id or i}': answerable but has no "
+                    f"relevant_doc_ids — cannot be scored for retrieval"
+                )
+            if not case.expected_answer_contains:
+                problems.append(
+                    f"case '{case.case_id or i}': answerable but has no "
+                    f"expected_answer_contains — cannot be scored for the answer"
+                )
+
+    if cases:
+        unanswerable_count = sum(1 for c in cases if not c.answerable)
+        if unanswerable_count == 0:
+            problems.append(
+                "dataset has zero answerable=false cases — you cannot detect "
+                "hallucination without some. Aim for roughly a quarter of the "
+                "dataset."
+            )
+
+    return problems

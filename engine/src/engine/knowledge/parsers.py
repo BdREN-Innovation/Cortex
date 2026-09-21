@@ -1,78 +1,182 @@
-"""One interface, however many parsers you end up wanting.
+"""
+Format-agnostic document parsing.
 
-HTML and PDF need different machinery, and you will probably want to try more
-than one PDF library before you settle. This module exists so that swapping one
-out is a config change rather than an edit to `documents.py`.
+pdf.py holds the PDF engines (pymupdf / pdfplumber) since there's real
+fallback logic between two libraries there. docx has one library, one
+function, no engine choice — so it lives directly in this file instead
+of a separate docx.py.
 
-The Protocol is the structure. What sits behind it is yours.
-
-TEAM B OWNS THIS FILE.
-
-Decisions you own
------------------
-* What parses HTML? What parses PDFs? Are they the same class or two?
-* PDFs vary enormously — a clean single-column policy document, a multi-column
-  report, a dense financial table, a scanned page that is really just an image.
-  Look at the PDFs your sites actually serve before choosing. The answer for a
-  government PDF library is not the answer for a SaaS pricing sheet.
-* How much do you care about tables inside PDFs? A parser that recovers a ruled
-  table as a grid, versus one that flattens it into loose numbers, changes what
-  a chunk means. Some libraries do this; some do not.
-* What happens to a scanned PDF with no text layer? Every text-only parser
-  returns nothing. Is that acceptable, or does it need solving?
-* What does a parser cost — install size, memory, seconds per page? You are on
-  8 GB laptops with no GPU. Check before you commit to something.
-
-How to decide
--------------
-Not by reading opinions — including this file's. Extraction is a separate
-stage precisely so running two parsers over the same crawl is free:
-
-    engine extract --run <run> --config configs/extract.a.yaml --out a.jsonl
-    engine extract --run <run> --config configs/extract.b.yaml --out b.jsonl
-
-Diff the `text` fields, then let Team C's eval scores settle it. Whatever wins
-is a fact about your corpus, not a preference. Write down what you compared and
-why you chose what you chose — that argument is part of the deliverable.
+parse_document() is the single entry point documents.py should call.
+It never needs to know file extensions or handle per-format errors —
+that's all resolved here.
 """
 
-from __future__ import annotations
+import zipfile
+import subprocess
+import tempfile
+from pathlib import Path
 
-import logging
-from typing import Protocol
+from .pdf import (
+    extract_pymupdf,
+    extract_pdfplumber,
+    extract_pdfplumber_positioned,
+    has_real_tables,
+    is_garbled,
+    extract_ocr,
+    lacks_common_words,
+    has_garbled_paragraph,  # added
+)
 
-from engine.knowledge.extraction import Extracted, SiteSelectors
-
-log = logging.getLogger(__name__)
-
-
-class Parser(Protocol):
-    """What `documents.py` depends on. Nothing above this line knows or cares
-    which library produced the text."""
-
-    name: str
-
-    def parse_html(self, html: str, url: str, selectors: SiteSelectors) -> Extracted: ...
-    def parse_pdf(self, content: bytes) -> str: ...
-
-
-# ── Your parsers go here ──────────────────────────────────────────────────
-#
-# Write a class per approach you want to be able to switch between. Each needs
-# a `name`, `parse_html` and `parse_pdf`. Import third-party libraries lazily
-# inside __init__ so that a parser nobody is using does not have to be
-# installed — and raise a clear message when it is missing, naming the
-# `uv add` that fixes it.
-#
-# Whatever you write, one rule holds: a single unreadable file must not fail an
-# extract run over a whole site. Log it, return "", move on.
+PDF_ENGINES = {
+    "pymupdf": extract_pymupdf,
+    "pdfplumber": extract_pdfplumber,
+    "pdfplumber_positioned": extract_pdfplumber_positioned,
+}
 
 
-def build_parser(name: str = "") -> Parser:
-    """Map the `parser:` string in an extract config to one of your parsers.
+# is_garbled() and lacks_common_words() both deliberately punt (return
+# False) on text shorter than their own thresholds — reasonable so they
+# don't false-flag short legitimate documents, but it means anything
+# under both thresholds slips past unchecked. That's exactly the gap a
+# watermark-only text layer falls into (e.g. "CamScanner", 10 chars) —
+# real text, non-garbled, but not real content. This floor catches it.
+MIN_TRUSTED_CHARS = 30  # comfortably below the shortest real doc in the CUET corpus (334 chars)
 
-    Raise ValueError for an unknown name, and say what IS supported — a typo in
-    a config should tell you the options, not fail with a KeyError three frames
-    down.
-    """
-    raise NotImplementedError
+def parse_doc(path: str) -> dict:
+    with tempfile.TemporaryDirectory() as tmp:
+
+        subprocess.run(
+            [
+                r"C:\Program Files\LibreOffice\program\soffice.exe",
+                "--headless",
+                "--convert-to",
+                "docx",
+                "--outdir",
+                tmp,
+                path,
+            ],
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+
+        docx_path = Path(tmp) / (Path(path).stem + ".docx")
+
+        return parse_docx(str(docx_path))
+
+def parse_pdf(path: str, engine: str = "auto") -> dict:
+    if engine == "auto":
+        engine = "pdfplumber_positioned" if has_real_tables(path) else "pymupdf"
+    text, tables = PDF_ENGINES[engine](path)
+    ocr_used = False
+    # ...rest of the function is unchanged from here
+
+    bad_empty = not text.strip()
+    bad_short = len(text.strip()) < MIN_TRUSTED_CHARS
+    bad_garbled = is_garbled(text)
+    bad_common = lacks_common_words(text)
+
+    if (
+        bad_empty
+        or bad_short
+        or bad_garbled
+        or bad_common
+    ):
+        print(
+            "OCR TRIGGER:",
+            path,
+            {
+                "empty": bad_empty,
+                "short": bad_short,
+                "garbled": bad_garbled,
+                "common_words": bad_common,
+                "chars": len(text.strip()),
+            },
+        )
+        text, tables = extract_ocr(path)
+        ocr_used = True
+
+    return {
+        "text": text.strip(),
+        "tables": tables,
+        "empty": len(text.strip()) == 0,
+        "ocr_used": ocr_used,
+    }
+
+
+def extract_docx(path: str) -> tuple[str, list]:
+    # Imported here, not at module level, so importing parsers.py doesn't
+    # hard-fail for anyone without python-docx installed — same convention
+    # as fitz/pdfplumber inside the PDF engine functions.
+    from docx import Document
+
+    doc = Document(path)
+    text_parts, tables = [], []
+
+    # doc.paragraphs and doc.tables lose interleaving order on their own
+    # (all paragraphs, then all tables) — walking the XML body directly
+    # preserves document order.
+    for element in doc.element.body:
+        if element.tag.endswith('}p'):
+            para = next(p for p in doc.paragraphs if p._p == element)
+            if para.text.strip():
+                text_parts.append(para.text)
+        elif element.tag.endswith('}tbl'):
+            table = next(t for t in doc.tables if t._tbl == element)
+            tables.append([[cell.text.strip() for cell in row.cells] for row in table.rows])
+
+    return "\n".join(text_parts), tables
+
+
+def parse_docx(path: str) -> dict:
+    text, tables = extract_docx(path)
+    return {"text": text.strip(), "tables": tables, "empty": len(text.strip()) == 0}
+
+
+def sniff_type(path: str) -> str | None:
+    """Identify file type from content, for files with missing/untrustworthy
+    extensions (common when crawling — e.g. download.php?id=123)."""
+    with open(path, "rb") as f:
+        header = f.read(4)
+
+    if header == b"%PDF":
+        return "pdf"
+
+    if header == b"PK\x03\x04":
+        try:
+            with zipfile.ZipFile(path) as z:
+                if "word/document.xml" in z.namelist():
+                    return "docx"
+        except zipfile.BadZipFile:
+            pass
+
+    return None
+
+
+def parse_document(path: str) -> dict:
+    """Single entry point — dispatches by extension, falling back to
+    content-sniffing when the extension is missing or untrustworthy."""
+    ext = path.rsplit(".", 1)[-1].lower() if "." in path else None
+    file_type = ext if ext in ("pdf", "docx", "doc") else sniff_type(path)
+
+    if file_type == "pdf":
+        return parse_pdf(path)
+    if file_type == "docx":
+        return parse_docx(path)
+    if file_type == "doc":
+        return parse_doc(path)
+    raise ValueError(f"Unsupported or unrecognized file type: {path}")
+
+
+def ingest_batch(paths: list[str]) -> tuple[list[dict], list[dict]]:
+    """Batch entry point for crawled files. A single malformed/unexpected
+    file (dead-link HTML page, broken PDF, stray image with no extension)
+    is expected at crawl scale — it's logged and skipped, not a hard
+    failure that kills the rest of the batch."""
+    results, skipped = [], []
+    for path in paths:
+        try:
+            results.append(parse_document(path))
+        except ValueError as e:
+            skipped.append({"path": path, "reason": str(e)})
+    return results, skipped

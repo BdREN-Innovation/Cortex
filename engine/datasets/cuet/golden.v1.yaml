@@ -1,0 +1,351 @@
+# Golden dataset for cuet.ac.bd
+# Version 1 — do not edit history; create golden.v2.yaml for future changes
+
+cases:
+  - case_id: "cuet_001"
+    question: "What is the bank routing number listed on CUET's home construction loan application form?"
+    answerable: true
+    relevant_doc_ids: ["e49d9f2944a9a8d4"]
+    expected_answer_contains: ["200151609"]
+    tags: ["shape1", "fact"]
+
+  - case_id: "cuet_002"
+    question: "What is the minimum CGPA required for a Lecturer (Engineering) position at CUET?"
+    answerable: true
+    relevant_doc_ids: ["008906e35f84e325"]
+    expected_answer_contains: ["CGPA 3.50"]
+    tags: ["shape1", "fact"]
+
+  - case_id: "cuet_003"
+    question: "How many publications must a candidate have to be appointed Professor (Engineering) at CUET?"
+    answerable: true
+    relevant_doc_ids: ["008906e35f84e325"]
+    expected_answer_contains: ["seven publications"]
+    tags: ["shape1", "fact", "pdf"]
+
+  - case_id: "cuet_004"
+    question: "How many publications are required for appointment as Associate Professor (Engineering) at CUET?"
+    answerable: true
+    relevant_doc_ids: ["008906e35f84e325"]
+    expected_answer_contains: ["five publications"]
+    tags: ["shape1", "fact", "pdf"]
+
+  - case_id: "cuet_005"
+    question: "What is the total credit hours for the B.Sc. in Materials and Metallurgical Engineering program at CUET?"
+    answerable: true
+    relevant_doc_ids: ["de1bedf54e5542dd"]
+    expected_answer_contains: ["160. 25"]
+    tags: ["shape3", "table", "pdf"]
+
+  - case_id: "cuet_006"
+    question: "What is the office phone number for the Dean of the Faculty of Architecture and Planning at CUET?"
+    answerable: true
+    relevant_doc_ids: ["9cb455d8c8c15672"]
+    expected_answer_contains: ["034-714948"]
+    tags: ["shape1", "fact"]
+
+  - case_id: "cuet_007"
+    question: "How much CGPA do I need to become a professor at CUET?"
+    answerable: true
+    relevant_doc_ids: ["008906e35f84e325"]
+    expected_answer_contains: ["CGPA 3.50"]
+    tags: ["shape7", "vague"]
+
+  - case_id: "cuet_008"
+    question: "What is the tuition fee per semester for undergraduate programs at CUET?"
+    answerable: false
+    relevant_doc_ids: []
+    expected_answer_contains: []
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "cuet_009"
+    question: "What minimum IELTS score does CUET require for scholarship applicants?"
+    answerable: false
+    relevant_doc_ids: []
+    expected_answer_contains: []
+    tags: ["shape9", "near-miss", "unanswerable"]
+  - case_id: "cuet_010"
+    question: "Dr. Kaushik Deb was granted duty leave to travel to which country?"
+    answerable: true
+    relevant_doc_ids: ["8626f40f6c79be0d"]
+    expected_answer_contains: ["Singapore"]
+    tags: ["shape1", "fact", "pdf"]
+
+  - case_id: "cuet_011"
+    question: "Which country did Md. Abdur Rahman travel to under his CUET office order?"
+    answerable: true
+    relevant_doc_ids: ["654e5d7d6b68b6f7"]
+    expected_answer_contains: ["Japan"]
+    tags: ["shape1", "fact", "pdf"]
+
+  - case_id: "cuet_012"
+    question: "Md. Ibrahim Khalil's leave order permitted travel to which country?"
+    answerable: true
+    relevant_doc_ids: ["041e80339b948e5c"]
+    expected_answer_contains: ["USA"]
+    tags: ["shape1", "fact", "pdf"]
+
+  - case_id: "cuet_013"
+    question: "Dr. Joyprokash Chakrabartty was granted leave to visit which country?"
+    answerable: true
+    relevant_doc_ids: ["4516c862d11b4ac7"]
+    expected_answer_contains: ["Canada"]
+    tags: ["shape1", "fact", "pdf"]
+
+  - case_id: "cuet_014"
+    question: "Asst. Prof. Khadija Akter's leave order names which destination country?"
+    answerable: true
+    relevant_doc_ids: ["31160feb44307de6"]
+    expected_answer_contains: ["Australia"]
+    tags: ["shape1", "fact", "pdf"]
+
+  - case_id: "cuet_015"
+    question: "Which country is named in Dr. Md. Aftabur Rahman's CUET leave order?"
+    answerable: true
+    relevant_doc_ids: ["f20d26d1284ae874"]
+    expected_answer_contains: ["Japan"]
+    tags: ["shape1", "fact", "pdf"]
+
+  - case_id: "cuet_016"
+    question: "Assistant Professor Nazmul Islam was granted leave to which country?"
+    answerable: true
+    relevant_doc_ids: ["23cf55309a3806ad"]
+    expected_answer_contains: ["Australia"]
+    tags: ["shape1", "fact", "pdf"]
+
+  - case_id: "cuet_017"
+    question: "Sabikun Nahar Nilu's leave order names which country?"
+    answerable: true
+    relevant_doc_ids: ["4b7be042935ac32a"]
+    expected_answer_contains: ["Japan"]
+    tags: ["shape1", "fact", "pdf"]
+
+  - case_id: "cuet_018"
+    question: "S. M. Fahim Faisal was granted study/duty leave to which country?"
+    answerable: true
+    relevant_doc_ids: ["da54910c42a75ea4"]
+    expected_answer_contains: ["USA"]
+    tags: ["shape1", "fact", "pdf"]
+
+  - case_id: "cuet_019"
+    question: "Anisul Islam Suva's CUET leave order names which country?"
+    answerable: true
+    relevant_doc_ids: ["51ab90e8ed120231"]
+    expected_answer_contains: ["USA"]
+    tags: ["shape1", "fact", "pdf"]
+
+  - case_id: "cuet_020"
+    question: "Mohammad Mahmudul Hasan Tareq's leave order names which country?"
+    answerable: true
+    relevant_doc_ids: ["9b8ee7de0bde477f"]
+    expected_answer_contains: ["USA"]
+    tags: ["shape1", "fact", "pdf"]
+
+  - case_id: "cuet_021"
+    question: "Reana Raen was granted leave from CUET to travel to which country?"
+    answerable: true
+    relevant_doc_ids: ["a5bdf8619618c1d0"]
+    expected_answer_contains: ["USA"]
+    tags: ["shape1", "fact", "pdf"]
+
+  - case_id: "cuet_022"
+    question: "Sanjeeb Roy's office order from CUET names which destination country?"
+    answerable: true
+    relevant_doc_ids: ["daeb0611733ccd11"]
+    expected_answer_contains: ["USA"]
+    tags: ["shape1", "fact", "pdf"]
+
+  - case_id: "cuet_023"
+    question: "Priya Chowdhury was granted leave from CUET to travel to which country?"
+    answerable: true
+    relevant_doc_ids: ["fa336e081cc9beb9"]
+    expected_answer_contains: ["USA"]
+    tags: ["shape1", "fact", "pdf"]
+
+  - case_id: "cuet_024"
+    question: "Kakon sultana's CUET leave order names which country?"
+    answerable: true
+    relevant_doc_ids: ["342822d8af847c34"]
+    expected_answer_contains: ["USA"]
+    tags: ["shape1", "fact", "pdf"]
+
+  - case_id: "cuet_025"
+    question: "Which Professor in CUET's CSE department was granted duty leave to Nepal, and how many total publications does that rank require under CUET's MPQ policy?"
+    answerable: true
+    relevant_doc_ids: ["ab3fcd259e433807", "008906e35f84e325"]
+    expected_answer_contains: ["seven publications"]
+    tags: ["shape5", "multi-hop"]
+
+  - case_id: "cuet_026"
+    question: "How many credit hours per week are scheduled for Level 1, Term I of the B.Sc. in Materials and Metallurgical Engineering program?"
+    answerable: true
+    relevant_doc_ids: ["de1bedf54e5542dd"]
+    expected_answer_contains: ["19.75"]
+    tags: ["shape3", "table", "pdf"]
+
+  - case_id: "cuet_027"
+    question: "What position does Amit Imtiaz hold in CUET's Department of Architecture according to the 2026 undergraduate bulletin?"
+    answerable: true
+    relevant_doc_ids: ["9cb455d8c8c15672"]
+    expected_answer_contains: ["Assistant Professor"]
+    tags: ["shape1", "fact", "pdf"]
+
+  - case_id: "cuet_028"
+    question: "What TOEFL score does CUET require for outbound faculty exchange programs?"
+    answerable: false
+    relevant_doc_ids: []
+    expected_answer_contains: []
+    tags: ["shape9", "near-miss", "unanswerable"]
+
+  - case_id: "cuet_029"
+    question: "What monthly stipend does CUET provide to PhD research assistants?"
+    answerable: false
+    relevant_doc_ids: []
+    expected_answer_contains: []
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "cuet_030"
+    question: "What is the hostel fee per semester at CUET?"
+    answerable: false
+    relevant_doc_ids: []
+    expected_answer_contains: []
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "cuet_031"
+    question: "What is the library fine per day for overdue books at CUET?"
+    answerable: false
+    relevant_doc_ids: []
+    expected_answer_contains: []
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "cuet_032"
+    question: "What is CUET's official grading scale cutoff for a B+ grade?"
+    answerable: false
+    relevant_doc_ids: []
+    expected_answer_contains: []
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "cuet_033"
+    question: "What is the minimum attendance percentage required to sit for final exams at CUET?"
+    answerable: false
+    relevant_doc_ids: []
+    expected_answer_contains: []
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "cuet_034"
+    question: "Does CUET's Department of Materials and Metallurgical Engineering offer distance learning courses?"
+    answerable: false
+    relevant_doc_ids: []
+    expected_answer_contains: []
+    tags: ["shape2", "negative", "unanswerable"]
+
+  - case_id: "cuet_035"
+    question: "What is CUET's policy for transferring credits earned at another university?"
+    answerable: false
+    relevant_doc_ids: []
+    expected_answer_contains: []
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "cuet_036"
+    question: "What is the transportation fee CUET charges students who use the university bus service?"
+    answerable: false
+    relevant_doc_ids: []
+    expected_answer_contains: []
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "cuet_037"
+    question: "Does CUET's medical center offer 24-hour emergency service?"
+    answerable: false
+    relevant_doc_ids: []
+    expected_answer_contains: []
+    tags: ["shape2", "negative", "near-miss", "unanswerable"]
+
+  - case_id: "cuet_038"
+    question: "What is the exam fee for a supplementary/improvement exam at CUET?"
+    answerable: false
+    relevant_doc_ids: []
+    expected_answer_contains: []
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "cuet_039"
+    question: "What is CUET's registration fee amount for new undergraduate students?"
+    answerable: false
+    relevant_doc_ids: []
+    expected_answer_contains: []
+    tags: ["shape9", "near-miss", "unanswerable"]
+
+  - case_id: "cuet_040"
+    question: "How much is the transcript fee for CUET alumni requesting an academic transcript?"
+    answerable: false
+    relevant_doc_ids: []
+    expected_answer_contains: []
+    tags: ["shape8", "unanswerable"]
+  - case_id: "cuet_041"
+    question: "Two separate CUET records describe Md. Arif Hossen's trip for his PhD convocation. Which country do both records name as the destination?"
+    answerable: true
+    relevant_doc_ids: ["1a11e1e244c093d5", "9a46815b8f66849c"]
+    expected_answer_contains: ["Malaysia"]
+    tags: ["shape6", "conflicting-sources", "duplicate-record"]
+
+  - case_id: "cuet_042"
+    question: "What is the total scholarship amount awarded to a student under CUET's 'Swapna Yatra' scholarship for Level-1, Term-1 (2025-26)?"
+    answerable: true
+    relevant_doc_ids: ["c810d7cd43b06a55"]
+    expected_answer_contains: ["৩৮,০০০"]
+    tags: ["shape1", "fact", "scholarship"]
+
+  - case_id: "cuet_043"
+    question: "How much does a recipient of CUET's Dr. Shyamal Kanti Biswas Memorial Scholarship receive every 3 months?"
+    answerable: true
+    relevant_doc_ids: ["d55ba6a47510591f"]
+    expected_answer_contains: ["৯০০০"]
+    tags: ["shape1", "fact", "scholarship"]
+
+  - case_id: "cuet_044"
+    question: "Which local government official can issue the certificate required for CUET's Dr. Shyamal Kanti Biswas Memorial Scholarship application?"
+    answerable: true
+    relevant_doc_ids: ["c34700c701615b96"]
+    expected_answer_contains: ["Ward Councillor"]
+    tags: ["shape1", "fact", "scholarship"]
+
+  - case_id: "cuet_045"
+    question: "Does the applicant fill in the CUET Admission Test Weighted Score field on the Dr. Shyamal Kanti Biswas Memorial Scholarship form themselves?"
+    answerable: true
+    relevant_doc_ids: ["c34700c701615b96"]
+    expected_answer_contains: ["To Be Filled by The Office"]
+    tags: ["shape2", "negative", "scholarship"]
+
+  - case_id: "cuet_046"
+    question: "What email address should applicants use to contact the HEAT Sub-Project (PIN-13258) office for the Master's scholarship at CUET?"
+    answerable: true
+    relevant_doc_ids: ["1e400ca76562dae6"]
+    expected_answer_contains: ["spm.pin13258@cuet.ac.bd"]
+    tags: ["shape1", "fact", "scholarship"]
+
+  - case_id: "cuet_047"
+    question: "How much is the Vice-Chancellor's personal discretionary scholarship fund at CUET?"
+    answerable: false
+    relevant_doc_ids: []
+    expected_answer_contains: []
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "cuet_048"
+    question: "Does CUET's 'Swapna Yatra' scholarship require recipients to maintain a minimum CGPA to keep receiving payments?"
+    answerable: false
+    relevant_doc_ids: []
+    expected_answer_contains: []
+    tags: ["shape9", "near-miss", "unanswerable"]
+
+  - case_id: "cuet_049"
+    question: "What is the walk-in interview date for CUET's Research Assistant appointment (Memo CUET/Reg./General-69)?"
+    answerable: false
+    relevant_doc_ids: []
+    expected_answer_contains: []
+    tags: ["shape8", "unanswerable"]
+
+  - case_id: "cuet_050"
+    question: "How many total scholarships (across all programs combined) does CUET award per academic year?"
+    answerable: false
+    relevant_doc_ids: []
+    expected_answer_contains: []
+    tags: ["shape9", "near-miss", "unanswerable"]
