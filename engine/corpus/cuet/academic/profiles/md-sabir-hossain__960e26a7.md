@@ -1,0 +1,42 @@
+# Md. Sabir Hossain
+
+Designation: Assistant Professor
+
+Department: Computer Science & Engineering
+
+Email: sabir.cse@cuet.ac.bd
+
+Phone: Please contact through email
+
+Status: running
+
+I am an Assistant Professor in the Department of Computer Science and Engineering at Chittagong University of Engineering and Technology (CUET), Bangladesh, currently pursuing my Ph.D. in Computer Science at King Fahd University of Petroleum and Minerals (KFUPM), Saudi Arabia—ranked #67 globally in the QS World University Rankings 2025. I graduated as 1st class 1st in my B.Sc. and earned distinction in my M.Sc. from CUET.
+
+As a passionate researcher, I’ve authored 40 peer-reviewed articles across topics such as machine learning, AI in healthcare, algorithmic complexity, cybersecurity, augmented reality, and computer vision. I serve on the editorial boards of multiple international journals, act as an Editor for the Sigma Journal of Engineering and Natural Sciences, and regularly review for high-impact publications.
+
+Beyond academia, I founded the Be Researcher World Forum (BRWF) to cultivate a global research culture. My free course, 'How to Become a Researcher?', has surpassed 1,30,000 views, supporting learners worldwide (Bengali version: https://tinyurl.com/htbr-bengali; English version: https://tinyurl.com/htbr-english). I’ve been featured in national media and honored in the motivational book হার না মানা ১০০ তরুণের গল্প (Stories of 100 Young People Who Never Give Up).
+
+🌐 More at https://sites.google.com/view/msabirh
+
+## Education (listed)
+
+- King Fahd University of Petroleum and Minerals (KFUPM) - 13 Aug 2023, 1, PhD, Computer Science
+- Chittagong University of Engineering and Technology (CUET) - 01 Mar 2016, 27 Jun 2019, 0, M.Sc. Engineering, Computer Science and Engineering (CSE)
+- Chittagong University of Engineering and Technology (CUET) - 13 Mar 2010, 31 Aug 2015, 0, B.Sc(Engineering), Computer Science and Engineering (CSE)
+- Notre Dame College (NDC) - 01 Jan 2008, 31 Dec 2010, 0, HSC, Science
+
+## Experience
+
+- Mr. - hittagong University of Engineering and Technology (CUET), Assistant Professor, 23 Jun 2021, Computer Science and Engineering (CSE)
+- Mr. - hittagong University of Engineering and Technology (CUET), Lecturer, 15 Feb 2016, 22 Jun 2021, Computer Science and Engineering (CSE)
+
+## Research
+
+- Journal Paper - journal-paper,
+
+The faculty members of the CSE Dept. publish a handsome amount of research work every year. More than 558 research papers by the faculty of this dept. have been published in several renowned international journals and conference proceedings including IEEE, ICCIT, ICECE, AJIT, TJER, ICCPB, IFOST, BIBM etc. Five papers have received “Best Paper Award” in the year of 2010, 2011, 2013, 2014, 2016, 2017 and 2018. The faculty members of CSE dept. published 08 book Chapter, 1 book and 1 patent. The research works are motivated by the academic interests as well as the socio-economic problems at national level.
+
+- Conference Paper - conference-paper
+- Partnership - partnership
+- Mou - mou
+- Articles

@@ -1,0 +1,1 @@
+The computer Club, CUET started functioning from September 2000. The founder president of the computer club is Dr Md. Raisuddin Khan who is a faculty member of the Department of Mechanical Engineering. The main function of this club is to promote the consciousness of information technology. It also ensures programming contest inside and outside the country.

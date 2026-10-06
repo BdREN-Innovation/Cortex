@@ -1,0 +1,27 @@
+{
+  "pages_scanned": 14,
+  "chunks_scanned": 47,
+  "endpoints_found": [
+    "/academic-curriculums",
+    "/administrative-academic-faculties",
+    "/administrative-departments",
+    "/apa-sections",
+    "/app-admin-research-types",
+    "/counters",
+    "/download-types",
+    "/events",
+    "/footer-data",
+    "/general-settings",
+    "/home-counters",
+    "/home-parameters",
+    "/news",
+    "/notice-types",
+    "/notices",
+    "/sliders",
+    "/student-organizations"
+  ],
+  "undocumented": [
+    "/counters"
+  ],
+  "unreferenced_by_any_scanned_page": []
+}

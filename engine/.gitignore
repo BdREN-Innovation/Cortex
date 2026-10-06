@@ -1,5 +1,6 @@
 # Runtime artifacts — the handoff surface between teams. Never committed.
-data/
+/data/*
+!/data/.gitkeep
 
 # Python
 venv/

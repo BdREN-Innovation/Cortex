@@ -1,0 +1,40 @@
+{
+  "url": "https://cuet.ac.bd/research/journal-paper",
+  "canonical_url": "https://cuet.ac.bd/research/journal-paper",
+  "page_id": "ee78b7966baa556a",
+  "doc_key": "https://cuet.ac.bd/research/journal-paper?_part=21",
+  "section": "research",
+  "group": "publications",
+  "section_path": [
+    "Research",
+    "Journal Paper"
+  ],
+  "title": "Journal Paper (21 of 23)",
+  "source": "api",
+  "status": 200,
+  "fetched_at": "2026-09-09T23:04:29Z",
+  "html_path": "research/publications/journal-paper__ee78b796.html",
+  "markdown_path": "research/publications/journal-paper__ee78b796.md",
+  "text_chars": 17897,
+  "render_ok": true,
+  "attempts": 1,
+  "links_found": 0,
+  "double_escaped": false,
+  "files": [],
+  "origin": "API /app-admin-research-types",
+  "research_type": "Journal Paper",
+  "research_slug": "journal-paper",
+  "publication_count": 60,
+  "publication_total": 1358,
+  "authors": [
+    "Mohammad Shafiqul Alam",
+    "Monowar Wadud Hridoy",
+    "Moshammed Nishat Tasnim",
+    "Mostafa Rasel",
+    "Muhammad Kamal Hossen",
+    "Muhammad Shahnewaz Bhuyan",
+    "Nazmul Islam"
+  ],
+  "portion": "general",
+  "owner": "Dipika Nath"
+}

@@ -1,38 +1,94 @@
-# Crawl config for bdren.net.bd.
+﻿# Crawl config for bdren.net.bd.
 #
 #   uv run engine crawl --config configs/crawl.bdren.yaml
 #
-# OWNER: <put your name here on day one — one owner per file>
-#
-# Permission: Our own network. You still crawl it politely, but you have standing to ask
-# internally if something blocks you.
-#
-# This is a starting point. Every knob is documented in crawl.example.yaml;
-# copy across whatever you need and delete this comment when you have.
+# OWNER: Mehenaz (Team A)
 
 site: bdren
 
-# Where to start. A sitemap URL is often a better seed than a homepage.
-seeds: []
+seeds:
+  - https://www.bdren.net.bd/
+  - https://www.bdren.net.bd/about/history
+  - https://www.bdren.net.bd/about/company
+  - https://www.bdren.net.bd/about/bdren-governance
+  - https://www.bdren.net.bd/about/team-bdren
+  - https://www.bdren.net.bd/contact
+  - https://www.bdren.net.bd/network/network-maps
+  - https://www.bdren.net.bd/member/apply
+  - https://www.bdren.net.bd/member/category
+  - https://www.bdren.net.bd/member/connected-members
+  - https://www.bdren.net.bd/member/partners
+  - https://www.bdren.net.bd/events
+  - https://www.bdren.net.bd/news
+  - https://www.bdren.net.bd/notices
+  # Pagination seeds: the nav menu on every page floods the frontier with the
+  # same ~18 service-catalog links before these listing pages' *own* older
+  # pages get queued, so at max_pages=40 they never got reached (2026-09-09
+  # run: 0 news/event detail pages captured). Seeding pages directly avoids
+  # that race.
+  - https://www.bdren.net.bd/notices?page=2
+  - https://www.bdren.net.bd/notices?page=3
+  - https://www.bdren.net.bd/notices?page=4
+  - https://www.bdren.net.bd/notices?page=5
+  - https://www.bdren.net.bd/notices?page=6
+  - https://www.bdren.net.bd/notices?page=7
+  - https://www.bdren.net.bd/notices?page=8
+  - https://www.bdren.net.bd/notices?page=9
+  - https://www.bdren.net.bd/notices?page=10
+  - https://www.bdren.net.bd/notices?page=11
+  - https://www.bdren.net.bd/notices?page=12
+  - https://www.bdren.net.bd/notices?page=13
+  - https://www.bdren.net.bd/news?page=2
+  - https://www.bdren.net.bd/news?page=3
+  - https://www.bdren.net.bd/news?page=4
+  - https://www.bdren.net.bd/news?page=5
+  - https://www.bdren.net.bd/news?page=6
+  - https://www.bdren.net.bd/news?page=7
+  - https://www.bdren.net.bd/news?page=8
+  - https://www.bdren.net.bd/news?page=9
+  - https://www.bdren.net.bd/news?page=10
+  - https://www.bdren.net.bd/news?page=11
+  - https://www.bdren.net.bd/news?page=12
+  - https://www.bdren.net.bd/news?page=13
+  - https://www.bdren.net.bd/news?page=14
+  - https://www.bdren.net.bd/news?page=15
+  - https://www.bdren.net.bd/news?page=16
+  - https://www.bdren.net.bd/projects
+  - https://www.bdren.net.bd/career
+  - https://www.bdren.net.bd/resourceshub
+  - https://www.bdren.net.bd/resourceshub/annual-report
+  - https://www.bdren.net.bd/nocreport
+  - https://www.bdren.net.bd/list-of-r-and-e-networks
+  - https://www.bdren.net.bd/faqs
+  - https://www.bdren.net.bd/service/tariff-of-bdren-services
 
-# Empty derives it from the seeds. Set it explicitly if the site spans
-# subdomains you do or do not want.
-allowed_domains: []
+allowed_domains:
+  - www.bdren.net.bd
 
 include_patterns: []
-exclude_patterns: []
-  # Institutional sites paginate notices and news endlessly, and have search,
-  # login and calendar pages that are not content. Add those here as you find
-  # them. Do NOT exclude linked files — that switches off the PDF pipeline.
+exclude_patterns:
+  - "\\?s="
+  - "/login"
+  - "/logout"
+  - "\\.(png|jpe?g|gif|webp|svg|bmp|ico)$"
 
 max_depth: 3
-max_pages: 20                       # raise this once the capture looks clean
+# Was 40 — that was exactly consumed by the 22 seeds + the 18 service-catalog
+# nav links repeated on every page, so no news/event/notice detail page ever
+# got crawled. Raised well above seed count + nav-link count so real content
+# survives the budget.
+max_pages: 200
 
 assets:
-  download_documents: true          # much of the real content on these sites
-  max_documents: 25                 # is in PDFs; give them their own budget
+  download_documents: true
+  max_documents: 200
 
 fetch:
   user_agent: "CortexEngine/0.1 (+https://github.com/BdREN-Innovation/Cortex)"
-  delay_seconds: 1.0
+  delay_seconds: 1.5
+  timeout_seconds: 30
+  max_retries: 2
+  max_bytes: 5000000
+  max_asset_bytes: 20000000
   obey_robots: true
+  concurrency: 1
