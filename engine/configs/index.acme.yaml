@@ -1,0 +1,45 @@
+# uv run engine index --documents data/sites/<site>/<run>/documents.jsonl \
+#   --config configs/index.<site>.yaml
+#
+# OWNED BY: Team B.
+# READS:    documents.jsonl (Team B's own extract output)
+# WRITES:   data/index/<site>/<index_id>/, and wherever the vectors actually live
+#
+# The keys below are a starting shape, not a fixed schema. Add, rename or drop
+# them as your design needs — just keep this file and IndexConfig in step.
+
+site: example
+
+# ── Where the vectors live ───────────────────────────────────────────────
+# Names one of the stores you register in knowledge/store.py. The project
+# target is Qdrant Cloud; whether you build something simpler to develop
+# against first is your call.
+#
+# Credentials come from engine/.env, never from this file — configs are
+# committed.
+backend: "qdrant"                        # one of the stores you register in knowledge/store.py
+collection: "cuet-v1"
+recreate_collection: false          # true WIPES the collection before indexing
+
+# ── Embeddings ───────────────────────────────────────────────────────────
+# Names one of the embedders you register in knowledge/embedding.py.
+# Embeddings come from a hosted API; which provider and model is your choice,
+# and worth comparing before you commit.
+#
+# Whatever you pick here must match what the index was built with — an index
+# embedded with one model and queried with another fails silently.
+embedding_provider: "cohere"                     # one of the embedders you register in knowledge/embedding.py
+embedding_model: "embed-multilingual-v3.0"
+dimensions: 0
+
+# ── Chunking ─────────────────────────────────────────────────────────────
+# The knobs here should match whatever ChunkConfig ends up looking like; these
+# are one plausible set, not the answer. Chunking decides more about answer
+# quality than almost anything else, so sweep these against Team C's dataset
+# rather than guessing.
+#
+# Re-indexing costs an API call per chunk, so change these deliberately.
+chunk:
+  target_tokens: 350
+  overlap_tokens: 60
+  min_tokens: 40
